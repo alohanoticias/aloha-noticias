@@ -93,7 +93,7 @@ def video(m):
         return ""
     return (f'<div class="wrap video-materia"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{esc(v["youtube"])}" '
             f'title="{esc(v.get("titulo", "Vídeo"))}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" '
-            f'allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>')
+            f'allowfullscreen sandbox="allow-scripts allow-same-origin allow-presentation allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>')
 
 
 def capa(m, cls="capa"):
@@ -209,7 +209,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head=""):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 <link rel="stylesheet" href="assets/css/aloha.css">
-<script>try{{var t=localStorage.getItem("aloha-tema");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}}catch(e){{}}</script>
+<script src="assets/js/tema.js"></script>
 {extra_head}</head>
 <body>
 {cabecalho(ativo)}
@@ -420,6 +420,9 @@ def gerar_materia(m):
 
 
 # ---------------------------------------------------------------- busca e páginas simples
+INDICE_JS = ""
+
+
 def gerar_busca():
     indice = [{
         "titulo": m["titulo"], "linha_fina": m["linha_fina"], "editoria": ED[m["editoria"]]["nome"],
@@ -435,7 +438,9 @@ def gerar_busca():
   <p class="busca-resultado" id="info-busca" role="status"></p>
   <ul class="lista-simples" id="resultados" style="max-width:820px"></ul>
 </div>
-<script>window.ALOHA_INDICE = {json.dumps(indice, ensure_ascii=False)};</script>"""
+<script src="assets/js/indice.js"></script>"""
+    global INDICE_JS
+    INDICE_JS = "window.ALOHA_INDICE = " + json.dumps(indice, ensure_ascii=False) + ";\n"
     return pagina("Buscar", "Busque matérias da ALOHA NOTÍCIAS.", "", corpo, com_news=False)
 
 
@@ -451,6 +456,20 @@ def gerar_404():
 
 
 # ---------------------------------------------------------------- saída
+HEADERS = """/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://images.unsplash.com; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+/assets/*
+  Cache-Control: public, max-age=3600, must-revalidate
+"""
+
+
 def main():
     if SAIDA.exists():
         # Limpa o conteúdo; em alguns discos não é possível apagar a própria pasta.
@@ -482,6 +501,11 @@ def main():
         c = "" if nome == "index.html" else nome
         conteudo = conteudo.replace("{CANON}", c)
         (SAIDA / nome).write_text(conteudo, encoding="utf-8")
+    (SAIDA / "assets/js/indice.js").write_text(INDICE_JS, encoding="utf-8")
+    (SAIDA / "_headers").write_text(HEADERS, encoding="utf-8")
+    (SAIDA / ".well-known").mkdir(exist_ok=True)
+    (SAIDA / ".well-known/security.txt").write_text(
+        "Contact: mailto:alohanoticias@gmail.com\nExpires: 2027-11-01T00:00:00.000Z\nPreferred-Languages: pt, en\nCanonical: https://alohanoticias.com/.well-known/security.txt\n", encoding="utf-8")
     urls = [n for n in arquivos if n not in ("404.html", "busca.html")]
     sm = "".join(f"<url><loc>https://alohanoticias.com/{'' if n=='index.html' else n}</loc></url>" for n in urls)
     (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
