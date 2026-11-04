@@ -1,7 +1,7 @@
 """Monta capas em colagem a partir de fotos livres (Unsplash, Pexels, Wikimedia).
 Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1200x675).
 Formato do .json:
-  {"layout": "tres" | "dois" | "um",
+  {"layout": "tres" | "dois" | "um" | "grade" | "grade_b" | "colunas" | "faixas" | "moldura" | "circulo" | "destaque",
    "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional",
    "editoria": "cinema|games|tecnologia|noticias|curiosidades" (opcional: aplica o tom e a etiqueta da editoria)}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
@@ -12,13 +12,48 @@ from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFo
 RAIZ = Path(__file__).resolve().parent.parent
 L, A = 1200, 675
 UA = {"User-Agent": "Mozilla/5.0 (compatible; AlohaCapas/1.0; +https://alohanoticias.com)"}
+def R(x0, y0, x1, y1, r=0, borda=0):
+    """Retângulo (com cantos arredondados e borda branca opcionais)."""
+    return {"rr": (x0, y0, x1, y1), "r": r, "borda": borda}
+
+
+def O(cx, cy, raio, borda=0):
+    """Círculo com borda branca opcional."""
+    return {"elipse": (cx - raio, cy - raio, cx + raio, cy + raio), "borda": borda}
+
+
+# Cada layout é uma lista de formas, uma por foto (a primeira é a principal). Forma = lista de pontos (polígono), R(...) ou O(...).
+# Use um layout diferente do dos últimos artigos: a home fica variada.
 LAYOUTS = {
+    # painéis inclinados com divisórias brancas (padrão original)
     "tres": [[(0, 0), (660, 0), (525, 675), (0, 675)],
              [(678, 0), (1200, 0), (1200, 322), (618, 322)],
              [(600, 340), (1200, 340), (1200, 675), (543, 675)]],
     "dois": [[(0, 0), (700, 0), (560, 675), (0, 675)],
              [(718, 0), (1200, 0), (1200, 675), (578, 675)]],
     "um": [[(0, 0), (1200, 0), (1200, 675), (0, 675)]],
+    # mosaico reto: uma foto grande e duas empilhadas
+    "grade": [[(0, 0), (760, 0), (760, 675), (0, 675)],
+              [(778, 0), (1200, 0), (1200, 328), (778, 328)],
+              [(778, 346), (1200, 346), (1200, 675), (778, 675)]],
+    # o mesmo mosaico espelhado: duas empilhadas à esquerda, a grande à direita
+    "grade_b": [[(440, 0), (1200, 0), (1200, 675), (440, 675)],
+                [(0, 0), (422, 0), (422, 328), (0, 328)],
+                [(0, 346), (422, 346), (422, 675), (0, 675)]],
+    # três colunas verticais
+    "colunas": [[(0, 0), (392, 0), (392, 675), (0, 675)],
+                [(404, 0), (796, 0), (796, 675), (404, 675)],
+                [(808, 0), (1200, 0), (1200, 675), (808, 675)]],
+    # três faixas horizontais (ótimo para paisagens)
+    "faixas": [[(0, 0), (1200, 0), (1200, 217), (0, 217)],
+               [(0, 229), (1200, 229), (1200, 446), (0, 446)],
+               [(0, 458), (1200, 458), (1200, 675), (0, 675)]],
+    # foto em tela cheia com uma moldura menor sobreposta no canto
+    "moldura": [R(0, 0, 1200, 675), R(690, 340, 1140, 630, r=18, borda=12)],
+    # foto em tela cheia com um círculo sobreposto
+    "circulo": [R(0, 0, 1200, 675), O(920, 400, 190, borda=12)],
+    # foto em tela cheia com duas molduras pequenas lado a lado
+    "destaque": [R(0, 0, 1200, 675), R(560, 380, 850, 625, r=16, borda=10), R(880, 380, 1170, 625, r=16, borda=10)],
 }
 
 
@@ -123,15 +158,33 @@ def montar(spec):
     if len(fotos) != len(poligonos):
         raise SystemExit(f"layout {spec['layout']} pede {len(poligonos)} fotos")
     tela = Image.new("RGB", (L, A), "white")
-    for pol, f in zip(poligonos, fotos):
-        xs, ys = [p[0] for p in pol], [p[1] for p in pol]
-        x0, y0, x1, y1 = min(xs), min(ys), max(xs), max(ys)
+
+    def mascara(forma, grow=0):
+        """Máscara suavizada (3x) da forma, opcionalmente alargada em 'grow' pixels."""
+        m = Image.new("L", (L * 3, A * 3), 0)
+        d = ImageDraw.Draw(m)
+        if isinstance(forma, dict):
+            x0, y0, x1, y1 = [v * 3 for v in (forma.get("rr") or forma["elipse"])]
+            g = grow * 3
+            if "elipse" in forma:
+                d.ellipse((x0 - g, y0 - g, x1 + g, y1 + g), fill=255)
+            else:
+                d.rounded_rectangle((x0 - g, y0 - g, x1 + g, y1 + g), radius=forma["r"] * 3 + g, fill=255)
+        else:
+            d.polygon([(x * 3, y * 3) for x, y in forma], fill=255)
+        return m.resize((L, A), Image.LANCZOS)
+
+    for forma, f in zip(poligonos, fotos):
+        if isinstance(forma, dict):
+            x0, y0, x1, y1 = forma.get("rr") or forma["elipse"]
+            if forma.get("borda"):  # moldura branca ao redor da foto
+                tela.paste(Image.new("RGB", (L, A), "white"), (0, 0), mascara(forma, forma["borda"]))
+        else:
+            xs, ys = [p[0] for p in forma], [p[1] for p in forma]
+            x0, y0, x1, y1 = min(xs), min(ys), max(xs), max(ys)
         img = recorte(baixar(f["url"]), x1 - x0, y1 - y0, f.get("foco", [.5, .5]), f.get("zoom", 1.0))
         img = ImageEnhance.Contrast(ImageEnhance.Color(img).enhance(1.08)).enhance(1.04)
-        m = Image.new("L", (L * 3, A * 3), 0)
-        ImageDraw.Draw(m).polygon([(x * 3, y * 3) for x, y in pol], fill=255)
-        m = m.resize((L, A), Image.LANCZOS).crop((x0, y0, x1, y1))
-        tela.paste(img, (x0, y0), m)
+        tela.paste(img, (x0, y0), mascara(forma).crop((x0, y0, x1, y1)))
     ed = spec.get("editoria")
     if ed in TONS:
         tela = tom(tela, TONS[ed][1])

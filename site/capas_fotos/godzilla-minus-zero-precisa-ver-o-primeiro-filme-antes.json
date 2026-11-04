@@ -1,4 +1,4 @@
-{"layout":"tres","editoria":"cinema","fotos":[
+{"layout":"colunas","editoria":"cinema","fotos":[
 {"url":"https://images.unsplash.com/photo-1771250850104-c5fc0a79d8bb?fm=jpg&q=80&w=1800&auto=format&fit=crop","foco":[0.5,0.5],"zoom":1.0},
 {"url":"https://images.unsplash.com/photo-1777503637421-cdd4fc6ae123?fm=jpg&q=80&w=1800&auto=format&fit=crop","foco":[0.5,0.5],"zoom":1.0},
 {"url":"https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?fm=jpg&q=80&w=1800&auto=format&fit=crop","foco":[0.5,0.5],"zoom":1.0}]}
