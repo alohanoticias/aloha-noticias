@@ -5,7 +5,13 @@
  "linha_fina": "Trailer, elenco gigante, Robert Downey Jr. como vilão e os Irmãos Russo de volta. Separamos a informação confirmada do que é só palpite de internet.",
  "autor": "Equipe Aloha",
  "data": "2026-11-04T19:00",
- "tags": ["Vingadores", "Doutor Destino", "Marvel", "Irmãos Russo", "cinema"],
+ "tags": [
+  "Vingadores",
+  "Doutor Destino",
+  "Marvel",
+  "Irmãos Russo",
+  "cinema"
+ ],
  "imagem": {
   "url": "assets/img/capas/vingadores-doutor-destino-estreia-17-de-dezembro-o-que-ja-e-oficial.jpg",
   "alt": "Colagem com um raio em céu de tempestade, uma metrópole sob nuvens escuras e um balde de pipoca",
@@ -35,5 +41,77 @@
  "video": {
   "youtube": "TcBtFtkQFiU",
   "titulo": "Vingadores: Doutor Destino, trailer oficial dublado (canal Marvel Brasil)"
+ },
+ "traducoes": {
+  "en": {
+   "titulo": "Avengers: Doomsday arrives in December: what is official and what is still rumor",
+   "linha_fina": "A trailer, a huge cast, Robert Downey Jr. as the villain and the Russo brothers back. We separate what is confirmed from internet guesswork.",
+   "tags": [
+    "Avengers",
+    "Doomsday",
+    "Marvel",
+    "Russo brothers",
+    "movies"
+   ],
+   "alt": "Collage with lightning in a stormy sky, a metropolis under dark clouds and a bucket of popcorn",
+   "credito": "Photos: Tasos Mansour, Rui Yao and Pylz Works / Unsplash",
+   "video_titulo": "Avengers: Doomsday, official trailer (Marvel Brasil channel, Portuguese dub)",
+   "corpo": [
+    "A little over a month away from **Avengers: Doomsday** (released in Brazil as *Vingadores: Doutor Destino*), set to open in Brazilian theaters on **December 17, 2026**. With this much news going around, it is easy to lose track of what is an announcement and what is rumor. Let's take it in parts.",
+    "## What is official",
+    "The film is directed by Anthony and Joe Russo, the same duo behind *Infinity War* and *Endgame*. The script is by Michael Waldron and Stephen McFeely, according to Omelete. And the villain of the title is played by Robert Downey Jr., who returns to the Marvel universe as Doctor Doom.",
+    "The first full trailer came out on July 20, along with a poster featuring the villain, according to Ingresso.com. After that, Marvel released more material in August, around the time ticket sales opened abroad.",
+    "!img https://images.unsplash.com/photo-1762541693135-fb989de961e1?fm=jpg&q=70&w=1600&auto=format&fit=crop|Projector light beams over an empty movie theater|December is coming: the Brazilian release is on December 17. Photo: Rafi Mohammed / Unsplash",
+    "## A cast that mixes generations",
+    "The list released by Marvel brings together three groups. The usual Avengers, such as Chris Evans, Chris Hemsworth, Anthony Mackie, Sebastian Stan and Paul Rudd. Names from the more recent MCU, among them Simu Liu, Florence Pugh, Pedro Pascal, Vanessa Kirby and Letitia Wright. And the Fox-era X-Men, with Patrick Stewart, Ian McKellen, Kelsey Grammer, Rebecca Romijn and others.",
+    "It is rare to see this many people from different phases in the same film, and that is exactly what explains the hype.",
+    "## What is still rumor",
+    "Before each trailer, insider rumors about dates and content appear. In August, for instance, Omelete reported that an insider (Daniel Richtman) pointed to a new trailer alongside the start of ticket sales, but made it clear that Marvel had not confirmed anything. That is the pattern: treat it as a guess until the official announcement.",
+    "There are also supposed leaks and AI-recreated trailers going around. If it did not come from Marvel's official channel, be skeptical.",
+    "!img https://images.unsplash.com/photo-1578849278619-e73505e9610f?fm=jpg&q=70&w=1600&auto=format&fit=crop|Close-up of popcorn, movie night mood|Photo: Pylz Works / Unsplash",
+    "## Quick questions",
+    "**When does it open?** December 17, 2026 in Brazil, in theaters only. Dates in other countries may differ, so check your local listings.",
+    "**Can I watch a trailer already?** Yes, and Marvel Brasil's official channel has the Portuguese-dubbed version (below).",
+    "**Do I need to rewatch the earlier films?** No official source lists that as required. Do not let anyone sell you a rule that does not exist.",
+    "**Is there a date for a new trailer?** So far, none confirmed by Marvel.",
+    "One note: the December 17 date appears on Ingresso.com and Omelete; an older Omelete piece mentioned the 18th, so check with the theater you plan to attend.",
+    "Sources (in Portuguese): [Ingresso.com](https://www.ingresso.com/noticias/filme-vingadores-doutor-destino-doomsday-novo-trailer-completo-poster), [Omelete (cast and SDCC)](https://www.omelete.com.br/filmes/vingadores-doutor-destino-confirmado-sdcc) and [Omelete (trailer rumor)](https://www.omelete.com.br/filmes/vingadores-doutor-destino-deve-ganhar-novo-trailer-data)."
+   ]
+  },
+  "es": {
+   "titulo": "Avengers: Doomsday llega en diciembre: lo que ya es oficial y lo que todavía es rumor",
+   "linha_fina": "Tráiler, un elenco enorme, Robert Downey Jr. como villano y los hermanos Russo de vuelta. Separamos lo confirmado de las conjeturas de internet.",
+   "tags": [
+    "Avengers",
+    "Doomsday",
+    "Marvel",
+    "hermanos Russo",
+    "cine"
+   ],
+   "alt": "Collage con un rayo en un cielo de tormenta, una metrópolis bajo nubes oscuras y un balde de palomitas",
+   "credito": "Fotos: Tasos Mansour, Rui Yao y Pylz Works / Unsplash",
+   "video_titulo": "Avengers: Doomsday, tráiler oficial (canal Marvel Brasil, doblado al portugués)",
+   "corpo": [
+    "Falta poco más de un mes para **Avengers: Doomsday** (en Brasil, *Vingadores: Doutor Destino*), que se estrena en los cines brasileños el **17 de diciembre de 2026**. Con tanta noticia circulando, es fácil perderse entre lo que es un anuncio y lo que es rumor. Vamos por partes.",
+    "## Lo que es oficial",
+    "La dirección es de los hermanos Anthony y Joe Russo, los mismos de *Infinity War* y *Endgame*. El guion es de Michael Waldron y Stephen McFeely, según Omelete. Y el villano del título lo interpreta Robert Downey Jr., que vuelve al universo Marvel como Doctor Doom.",
+    "El primer tráiler completo salió el 20 de julio, acompañado de un póster con el villano, según Ingresso.com. Después, Marvel soltó más material en agosto, cuando se abrió la venta de entradas en el exterior.",
+    "!img https://images.unsplash.com/photo-1762541693135-fb989de961e1?fm=jpg&q=70&w=1600&auto=format&fit=crop|Haces de luz de un proyector sobre una sala de cine vacía|Diciembre se acerca: el estreno en Brasil es el 17 de diciembre. Foto: Rafi Mohammed / Unsplash",
+    "## Un elenco que mezcla generaciones",
+    "La lista divulgada por Marvel junta tres grupos. Los Vengadores de siempre, como Chris Evans, Chris Hemsworth, Anthony Mackie, Sebastian Stan y Paul Rudd. Nombres del MCU más reciente, entre ellos Simu Liu, Florence Pugh, Pedro Pascal, Vanessa Kirby y Letitia Wright. Y el equipo de los X-Men de la era Fox, con Patrick Stewart, Ian McKellen, Kelsey Grammer, Rebecca Romijn y otros.",
+    "Es raro ver a tanta gente de fases distintas en la misma película, y eso explica justamente la expectativa.",
+    "## Lo que todavía es rumor",
+    "Antes de cada tráiler aparecen rumores de insiders sobre fechas y contenido. En agosto, por ejemplo, Omelete informó que un insider (Daniel Richtman) apuntaba a un nuevo tráiler junto con la venta de entradas, pero dejó claro que Marvel no había confirmado nada. Ese es el patrón: tómalo como una conjetura hasta que haya un aviso oficial.",
+    "También circulan supuestas filtraciones y tráilers recreados con inteligencia artificial. Si no viene del canal oficial de Marvel, desconfía.",
+    "!img https://images.unsplash.com/photo-1578849278619-e73505e9610f?fm=jpg&q=70&w=1600&auto=format&fit=crop|Palomitas en primer plano, ambiente de función de cine|Foto: Pylz Works / Unsplash",
+    "## Preguntas rápidas",
+    "**¿Cuándo se estrena?** El 17 de diciembre de 2026 en Brasil, solo en cines. En otros países la fecha puede ser distinta, así que revisa la cartelera local.",
+    "**¿Ya puedo ver un tráiler?** Sí, y el canal oficial de Marvel Brasil tiene la versión doblada al portugués (abajo).",
+    "**¿Tengo que volver a ver las películas anteriores?** Ninguna fuente oficial lo señala como obligatorio. No dejes que nadie te venda una regla que no existe.",
+    "**¿Hay fecha para un nuevo tráiler?** Hasta ahora, ninguna confirmada por Marvel.",
+    "Una observación: la fecha del 17 de diciembre aparece en Ingresso.com y Omelete; una nota antigua de Omelete hablaba del 18, así que confírmalo en el cine al que pienses ir.",
+    "Fuentes (en portugués): [Ingresso.com](https://www.ingresso.com/noticias/filme-vingadores-doutor-destino-doomsday-novo-trailer-completo-poster), [Omelete (elenco y SDCC)](https://www.omelete.com.br/filmes/vingadores-doutor-destino-confirmado-sdcc) y [Omelete (rumor del tráiler)](https://www.omelete.com.br/filmes/vingadores-doutor-destino-deve-ganhar-novo-trailer-data)."
+   ]
+  }
  }
 }

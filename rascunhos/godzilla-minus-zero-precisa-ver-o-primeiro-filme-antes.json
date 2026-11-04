@@ -5,7 +5,13 @@
  "linha_fina": "A sequência estreia em 5 de novembro e continua direto a história de Minus One. Respondemos o que dá para saber antes de comprar o ingresso.",
  "autor": "Equipe Aloha",
  "data": "2026-11-05T13:00",
- "tags": ["Godzilla", "Godzilla Minus Zero", "Godzilla Minus One", "IMAX", "cinema"],
+ "tags": [
+  "Godzilla",
+  "Godzilla Minus Zero",
+  "Godzilla Minus One",
+  "IMAX",
+  "cinema"
+ ],
  "imagem": {
   "url": "assets/img/capas/godzilla-minus-zero-precisa-ver-o-primeiro-filme-antes.jpg",
   "alt": "Colagem com mar escuro sob nuvens de tempestade, uma cidade à noite e um relâmpago",
@@ -29,5 +35,74 @@
   "Ainda é cedo para dizer, porque não há crítica final publicada nas fontes que li. Se você gostou do primeiro, o trailer dá bons motivos para ir. Para quem não viu, é uma boa chance de rever o anterior antes da sessão.",
   "Fontes: [Omelete](https://www.omelete.com.br/filmes/godzilla-minus-zero-data-brasil-poster), [Einerd](https://www.einerd.com/godzilla-minus-one-volta-cinemas-outubro-2026/), [Ingresso.com](https://www.ingresso.com/noticias/filme-godzilla-minus-zero-trailer-oficial-1) e [Critical Hits](https://criticalhits.com.br/cinema-e-tv/trailer-de-godzilla-minus-zero-confirma-ghidorah-como-vilao-da-sequencia/)."
  ],
- "video": {"youtube": "o5IFv2wpTQU", "titulo": "Godzilla Minus Zero, teaser trailer oficial (canal Ingresso.com)"}
+ "video": {
+  "youtube": "o5IFv2wpTQU",
+  "titulo": "Godzilla Minus Zero, teaser trailer oficial (canal Ingresso.com)"
+ },
+ "traducoes": {
+  "en": {
+   "titulo": "Godzilla Minus Zero: do you need to see the first film? Questions and answers before you buy a ticket",
+   "linha_fina": "The sequel opens November 5 in Brazil and continues straight from Minus One. We answer what you can know before heading to the theater.",
+   "tags": [
+    "Godzilla",
+    "Godzilla Minus Zero",
+    "Godzilla Minus One",
+    "IMAX",
+    "movies"
+   ],
+   "alt": "Collage with a dark sea under storm clouds, a city at night and a bolt of lightning",
+   "credito": "Photos: engin akyurt, Rui Yao and Tasos Mansour / Unsplash",
+   "video_titulo": "Godzilla Minus Zero, official teaser trailer (Ingresso.com channel)",
+   "corpo": [
+    "**Godzilla Minus Zero** opens in Brazilian theaters on November 5. Since it is the continuation of an Oscar-winning film, many people are asking whether they can go in without preparation. Straight to the questions.",
+    "## Do I need to see the first film?",
+    "No source I consulted says it is mandatory. But the sequel is direct: according to Omelete, the story is set in 1949, two years after the events of *Godzilla Minus One*, and follows the Shikishima family again. Our recommendation, then, is to watch the first one beforehand if you have time. You get more out of the characters and understand better what changed.",
+    "## Where can I watch the first one?",
+    "The 2023 film won the Oscar for Best Visual Effects. It had a theatrical re-release in October in Brazil, according to Einerd, and streaming availability changes over time, so there is no point naming a platform here. Look the title up on a streaming search tool such as JustWatch before you watch.",
+    "!img https://images.unsplash.com/photo-1578849278619-e73505e9610f?fm=jpg&q=70&w=1600&auto=format&fit=crop|Close-up of popcorn|Photo: Pylz Works / Unsplash",
+    "## What is known about the plot?",
+    "The official synopsis says Godzilla is more powerful and has New York as a target, according to Omelete. Critical Hits says the trailer confirms Ghidorah as the sequel's villain. Beyond that, the sources I read do not detail the story, and that is for the best.",
+    "## Is IMAX worth the extra cost?",
+    "This is a case where the question makes sense. According to Omelete, it will be the first Japanese production shot for the IMAX format, and Einerd notes special IMAX screenings on November 3, before the general release. It is a large-scale film, so the bigger screen counts. But check your theater's page to see which rooms have IMAX, because not every city does.",
+    "## When does it open, and what about showtimes?",
+    "The general release is November 5 in Brazil, according to Ingresso.com. Showtimes and whether the film is dubbed or subtitled depend on each chain, and the sources themselves warn that the schedule may vary by city. Release dates in other countries may differ.",
+    "!img https://images.unsplash.com/photo-1643553517154-24eb7fd86437?fm=jpg&q=70&w=1600&auto=format&fit=crop|Movie theater with red seats facing the screen|Photo: wong zihoo / Unsplash",
+    "## Is it worth it?",
+    "It is too early to say, since the sources I read have no final reviews. If you liked the first one, the trailer gives good reasons to go. For people who have not seen it, it is a good chance to rewatch the previous film before the screening.",
+    "Sources (in Portuguese): [Omelete](https://www.omelete.com.br/filmes/godzilla-minus-zero-data-brasil-poster), [Einerd](https://www.einerd.com/godzilla-minus-one-volta-cinemas-outubro-2026/), [Ingresso.com](https://www.ingresso.com/noticias/filme-godzilla-minus-zero-trailer-oficial-1) and [Critical Hits](https://criticalhits.com.br/cinema-e-tv/trailer-de-godzilla-minus-zero-confirma-ghidorah-como-vilao-da-sequencia/)."
+   ]
+  },
+  "es": {
+   "titulo": "Godzilla Minus Zero: ¿hay que ver la primera película antes? Preguntas y respuestas antes de comprar la entrada",
+   "linha_fina": "La secuela se estrena el 5 de noviembre en Brasil y continúa directamente la historia de Minus One. Respondemos lo que se puede saber antes de ir al cine.",
+   "tags": [
+    "Godzilla",
+    "Godzilla Minus Zero",
+    "Godzilla Minus One",
+    "IMAX",
+    "cine"
+   ],
+   "alt": "Collage con un mar oscuro bajo nubes de tormenta, una ciudad de noche y un relámpago",
+   "credito": "Fotos: engin akyurt, Rui Yao y Tasos Mansour / Unsplash",
+   "video_titulo": "Godzilla Minus Zero, teaser tráiler oficial (canal Ingresso.com)",
+   "corpo": [
+    "**Godzilla Minus Zero** se estrena en los cines brasileños el 5 de noviembre. Como es la continuación de una película ganadora del Óscar, mucha gente se pregunta si se puede ir sin preparación. Vamos directo a las dudas.",
+    "## ¿Tengo que ver la primera película?",
+    "Ninguna fuente que consulté dice que sea obligatorio. Pero la secuela es directa: según Omelete, la historia ocurre en 1949, dos años después de los hechos de *Godzilla Minus One*, y vuelve a seguir a la familia Shikishima. Nuestra recomendación, entonces, es ver la primera antes si te da el tiempo. Aprovechas más a los personajes y entiendes mejor qué cambió.",
+    "## ¿Dónde veo la primera?",
+    "La película de 2023 ganó el Óscar a los mejores efectos visuales. Tuvo una reexhibición en cines en octubre en Brasil, según Einerd, y la disponibilidad en streaming cambia con el tiempo, así que no conviene señalar una plataforma aquí. Busca el título en un buscador de streaming, como JustWatch, antes de verla.",
+    "!img https://images.unsplash.com/photo-1578849278619-e73505e9610f?fm=jpg&q=70&w=1600&auto=format&fit=crop|Palomitas en primer plano|Foto: Pylz Works / Unsplash",
+    "## ¿Qué se sabe de la trama?",
+    "La sinopsis oficial dice que Godzilla está más poderoso y que tiene a Nueva York como objetivo, según Omelete. Critical Hits afirma que el tráiler confirma a Ghidorah como villano de la secuela. Fuera de eso, las fuentes que leí no detallan la historia, y es mejor así.",
+    "## ¿Vale la pena pagar más por IMAX?",
+    "Este es un caso en que la pregunta tiene sentido. Según Omelete, será la primera producción japonesa filmada para el formato IMAX, y Einerd registra funciones especiales en IMAX el 3 de noviembre, antes del estreno general. Es una película de gran escala, así que la pantalla más grande cuenta. Pero revisa en la página de tu cine qué salas tienen IMAX, porque no todas las ciudades las tienen.",
+    "## ¿Cuándo se estrena y a qué hora son las funciones?",
+    "El estreno general es el 5 de noviembre en Brasil, según Ingresso.com. Los horarios y si la película es doblada o subtitulada dependen de cada cadena, y las propias fuentes advierten que la programación puede variar según la ciudad. Las fechas en otros países pueden ser distintas.",
+    "!img https://images.unsplash.com/photo-1643553517154-24eb7fd86437?fm=jpg&q=70&w=1600&auto=format&fit=crop|Sala de cine con butacas rojas frente a la pantalla|Foto: wong zihoo / Unsplash",
+    "## ¿Vale la pena?",
+    "Todavía es pronto para decirlo, porque las fuentes que leí no tienen críticas finales. Si te gustó la primera, el tráiler da buenos motivos para ir. Para quien no la vio, es una buena oportunidad de revisar la anterior antes de la función.",
+    "Fuentes (en portugués): [Omelete](https://www.omelete.com.br/filmes/godzilla-minus-zero-data-brasil-poster), [Einerd](https://www.einerd.com/godzilla-minus-one-volta-cinemas-outubro-2026/), [Ingresso.com](https://www.ingresso.com/noticias/filme-godzilla-minus-zero-trailer-oficial-1) y [Critical Hits](https://criticalhits.com.br/cinema-e-tv/trailer-de-godzilla-minus-zero-confirma-ghidorah-como-vilao-da-sequencia/)."
+   ]
+  }
+ }
 }

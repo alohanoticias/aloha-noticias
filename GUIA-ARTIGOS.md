@@ -104,3 +104,15 @@ Quando uma matéria publicada tiver data, fato ou número que mudou, não basta 
 
 ## Banco de pautas
 Antes de escolher os assuntos do dia, leia `PAUTAS.md` (pautas por janela de publicação, com o que confirmar). Pode usar as de lá ou outras do momento; ao usar uma, marque com ★ e acrescente novas pautas no fim da tabela quando surgirem.
+
+## Traduções (inglês e espanhol): obrigatório em todo rascunho
+O site tem versões reais em /en/ e /es/. Cada rascunho novo sai com o campo `"traducoes"` no mesmo JSON, com as chaves `"en"` e `"es"`. Cada uma leva:
+`titulo`, `linha_fina`, `corpo` (mesma estrutura do original: parágrafos, `## subtítulos`, `!img URL|alt|crédito`, links), `tags`, `alt` (descrição da capa), `credito` (crédito da capa), `video_titulo`. Opcional: `correcao`.
+Regras:
+- **Adaptar, não traduzir palavra por palavra.** Escreva como um redator nativo escreveria. Para leitor de fora do Brasil, deixe claro quando algo é do Brasil (data de estreia, preço em R$, plataforma), e diga que datas em outros países podem ser diferentes.
+- Mantenha os mesmos fatos, números, datas e fontes. Não acrescente informação nova nem gêneros ou títulos que a fonte não traz. Títulos de filmes e jogos: use o título internacional só quando ele é conhecido com certeza; do contrário, mantenha o título brasileiro.
+- As fontes no fim vão com "(in Portuguese)" / "(en portugués)" quando o link é em português.
+- Mantenha as URLs das imagens iguais; traduza apenas o texto alternativo e o crédito.
+- Para ver como ficou, abra a prévia em /admin (link "Prévia das traduções" no rascunho). Aprovar o rascunho publica as três versões juntas.
+- Se um artigo for atualizado depois (campo `atualizado`/`correcao`), atualize também as traduções.
+- Português continua sendo o idioma principal e o texto de referência; as outras páginas dizem isso ao leitor.

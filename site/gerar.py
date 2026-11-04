@@ -531,6 +531,15 @@ def link_acao(acao, slug):
             f"&body={quote('Clique em Submit new issue para confirmar. O site é atualizado em cerca de 1 minuto.')}")
 
 
+def prev_trad(m):
+    """Links para a prévia das versões em outros idiomas (só no admin)."""
+    trs = m.get("traducoes") or {}
+    if not trs:
+        return '<span>Sem tradução (EN/ES) neste rascunho.</span> '
+    nomes = {"en": "English", "es": "Español"}
+    return "<span>Prévia das traduções:</span> " + " ".join(f'<a href="admin/{l}/{esc(m["slug"])}.html">{nomes.get(l, l)}</a>' for l in trs if l in nomes) + " "
+
+
 def faixa_rascunho(m, agendado=False):
     slug = m["slug"]
     acao = "Reagendar" if agendado else "Aprovar"
@@ -551,7 +560,7 @@ def faixa_rascunho(m, agendado=False):
             f'<span class="atalhos">Atalhos: {atalhos}</span> '
             f'<a class="botao-sec" id="agendar" href="{link_acao(acao, slug)}" target="_blank" rel="noopener noreferrer">{rot_agendar}</a> '
             f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">{rej}</a> '
-            f'<a href="admin/">Voltar à lista</a></div></div>\n<script src="assets/js/admin.js"></script>')
+            f'{prev_trad(m)}<a href="admin/">Voltar à lista</a></div></div>\n<script src="assets/js/admin.js"></script>')
 
 
 def gerar_admin(rascunhos, agendados=()):
@@ -897,6 +906,7 @@ def resolver(html_, lang, nome, existe):
 
 
 def main():
+    global LANG, editorias, ED, materias
     if SAIDA.exists():
         # Limpa o conteúdo; em alguns discos não é possível apagar a própria pasta.
         for item in SAIDA.iterdir():
@@ -965,6 +975,22 @@ def main():
     (SAIDA / "admin/index.html").write_text(resolver(gerar_admin(rascunhos, agendados), "pt", "admin/index.html", existe), encoding="utf-8")
     for d in rascunhos:
         (SAIDA / f"admin/{d['slug']}.html").write_text(resolver(gerar_materia(d, preview=True), "pt", f"admin/{d['slug']}.html", existe), encoding="utf-8")
+    # prévias das traduções de rascunhos e agendados (admin/en/<slug>.html, admin/es/<slug>.html)
+    for lang in ("en", "es"):
+        (SAIDA / "admin" / lang).mkdir(exist_ok=True)
+        for d in list(rascunhos) + list(agendados):
+            tr = (d.get("traducoes") or {}).get(lang)
+            if not tr:
+                continue
+            LANG = lang
+            editorias = [{"slug": sl, "nome": n, "descricao": ds} for sl, (n, ds) in i18n.EDITORIAS[lang].items()]
+            ED = {e["slug"]: e for e in editorias}
+            materias = [traduzir(m, m["traducoes"][lang], lang) for m in MATERIAS_PT if (m.get("traducoes") or {}).get(lang)]
+            pg = gerar_materia(traduzir(d, tr, lang), preview=True, agendado=d in agendados)
+            pg = pg.replace("{CANON}", f"admin/{lang}/{d['slug']}.html")
+            pg = re.sub(r"@@L:[\w-]+@@", "index.html", pg).replace("@@ALT@@", "")
+            (SAIDA / "admin" / lang / f"{d['slug']}.html").write_text(pg, encoding="utf-8")
+    aplicar_idioma("pt")
     for d in agendados:
         (SAIDA / f"admin/{d['slug']}.html").write_text(resolver(gerar_materia(d, preview=True, agendado=True), "pt", f"admin/{d['slug']}.html", existe), encoding="utf-8")
     # versão no endereço de CSS/JS: o navegador baixa de novo sempre que o arquivo muda
