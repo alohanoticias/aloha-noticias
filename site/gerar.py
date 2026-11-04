@@ -140,6 +140,11 @@ ICONE_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 HOJE = datetime.fromisoformat(materias[0]["data"])
 
 
+ICONE_IDIOMA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>'
+IDIOMAS = [("en", "English"), ("es", "Español"), ("fr", "Français"), ("de", "Deutsch"), ("it", "Italiano"), ("ja", "日本語"), ("zh-CN", "中文"), ("ar", "العربية")]
+IDIOMAS_LI = "".join(f'<li><a data-l="{c}" href="#" rel="noopener">{n}</a></li>' for c, n in IDIOMAS)
+
+
 def cabecalho(ativo):
     itens = [("index.html", "Início", "inicio")] + [(url_editoria(e["slug"]), e["nome"], e["slug"]) for e in editorias]
     li = "".join(
@@ -156,6 +161,8 @@ def cabecalho(ativo):
     <a class="cab-logo" href="index.html" aria-label="{SITE}, página inicial">{LOGO_LINHA}</a>
     <span class="cab-data">{data_hoje}</span>
     <div class="cab-acoes">
+      <details class="idioma-menu" id="idioma-menu"><summary class="botao-icone" aria-label="Traduzir esta página / Translate">{ICONE_IDIOMA}<span class="idioma-rotulo">PT</span></summary>
+        <ul class="idioma-lista"><li class="idioma-tit">Traduzir / Translate</li>{IDIOMAS_LI}</ul></details>
       <a class="botao-icone" href="busca.html" aria-label="Buscar">{ICONE_BUSCA}</a>
       <button class="botao-icone" id="botao-tema" type="button" aria-label="Alternar tema">{ICONE_TEMA}</button>
       <button class="botao-icone menu-botao" id="botao-menu" type="button" aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu">{ICONE_MENU}</button>

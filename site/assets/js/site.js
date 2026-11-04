@@ -128,7 +128,7 @@
 (function () {
   var u = location.href, idioma = (navigator.language || "pt").toLowerCase();
   function url(l) { return "https://translate.google.com/translate?sl=pt&tl=" + l + "&u=" + encodeURIComponent(u); }
-  var links = document.querySelectorAll(".idiomas a[data-l]");
+  var links = document.querySelectorAll("[data-l]");
   for (var i = 0; i < links.length; i++) { links[i].href = url(links[i].getAttribute("data-l")); links[i].rel = "noopener"; }
   if (idioma.indexOf("pt") === 0 || location.pathname.indexOf("/admin") === 0) return;
   try { if (sessionStorage.getItem("aloha-trad") === "1") return; } catch (e) {}
@@ -141,3 +141,6 @@
   b.querySelector("button").onclick = function () { try { sessionStorage.setItem("aloha-trad", "1"); } catch (e) {} b.remove(); };
   document.body.insertBefore(b, document.body.firstChild);
 })();
+
+/* Fecha o seletor de idioma ao clicar fora */
+document.addEventListener("click", function (e) { var m = document.getElementById("idioma-menu"); if (m && m.open && !m.contains(e.target)) m.open = false; });
