@@ -238,17 +238,8 @@ def cabecalho(ativo):
     li = "".join(
         f'<li><a href="{u}"{" aria-current=\"page\"" if s == ativo else ""}>{esc(n)}</a></li>' for u, n, s in itens
     )
-    data_hoje = data_extenso(HOJE)
     return f"""<a class="pular" href="#conteudo">{t('Pular para o conteúdo')}</a>
 <header class="cabecalho">
-  <div class="topbar"><div class="wrap">
-    <span class="cab-data">{data_hoje}</span>
-    <div class="cab-acoes">
-      {seletor_idioma()}
-      <a class="botao-icone" href="busca.html" aria-label="{t('Buscar')}">{ICONE_BUSCA}</a>
-      <button class="botao-icone" id="botao-tema" type="button" aria-label="{t('Alternar tema')}">{ICONE_TEMA}</button>
-    </div>
-  </div></div>
   <div class="barra-m"><div class="wrap">
     <button class="menu-m" id="botao-menu" type="button" aria-expanded="false" aria-controls="gaveta">{ICONE_MENU}<span>{t('Menu')}</span></button>
     <a class="logo-m" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
@@ -257,7 +248,7 @@ def cabecalho(ativo):
   <div class="logo-area"><div class="wrap">
     <a class="cab-logo" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
   </div></div>
-  <nav class="nav" aria-label="{t('Editorias')}"><div class="wrap"><ul>{li}</ul><a class="nav-busca" href="busca.html" aria-label="{t('Buscar')}">{ICONE_BUSCA}</a></div></nav>
+  <nav class="nav" aria-label="{t('Editorias')}"><div class="wrap"><ul>{li}</ul><div class="nav-ferr">{seletor_idioma()}<button class="botao-icone" id="botao-tema" type="button" aria-label="{t('Alternar tema')}">{ICONE_TEMA}</button><a class="nav-busca" href="busca.html" aria-label="{t('Buscar')}">{ICONE_BUSCA}</a></div></div></nav>
   <nav class="gaveta" id="gaveta" aria-label="{t('Editorias')}" hidden><div class="wrap">
     <form class="gaveta-busca" action="busca.html" role="search"><label class="sr-only" for="q-gaveta">{t('Pesquisar')}</label><input id="q-gaveta" name="q" type="search" placeholder="{t('Pesquisar')} ..."><button type="submit" aria-label="{t('Buscar')}">{ICONE_BUSCA}</button></form>
     <ul>{li}</ul>

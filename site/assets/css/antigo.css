@@ -218,3 +218,21 @@
 
 /* fotos do texto: sempre em 16:9 (1920x1080), nunca em pé */
 .foto-corpo img, .materia-capa img { aspect-ratio: 16 / 9 !important; width: 100% !important; height: auto !important; max-height: none !important; object-fit: cover !important; }
+
+/* cabeçalho: barra preta de cima vazia; idioma, tema e lupa ficam na barra do menu */
+.topbar .wrap { min-height: 40px; }
+.nav-ferr { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.nav-ferr .botao-icone, .nav-ferr .idioma-menu summary { color: #fff; width: auto; min-width: 32px; height: 36px; }
+.nav-ferr .botao-icone:hover { background: #222; }
+.nav-ferr .botao-icone svg { width: 18px; height: 18px; }
+.nav-ferr .idioma-rotulo { font-size: 11px; }
+.nav-busca { padding: 0 6px; }
+[dir="rtl"] .nav-ferr { margin-left: 0; margin-right: auto; }
+.nav .idioma-lista { display: block; flex: none; overflow: visible; right: 0; left: auto; top: calc(100% + 10px); min-width: 190px; }
+[dir="rtl"] .nav .idioma-lista { right: auto; left: 0; }
+.nav .idioma-lista li { border: 0; }
+.nav .idioma-lista a { display: flex; align-items: center; gap: 10px; line-height: 1.3; padding: 8px 10px; color: var(--tinta); font-size: 14px; font-weight: 500; text-transform: none; background: none; white-space: nowrap; }
+.nav .idioma-lista a:hover { background: var(--superficie); }
+.nav .idioma-lista a[aria-current] { font-weight: 700; }
+.nav .idioma-lista a::after { content: none; }
+.nav .idioma-tit { color: var(--tinta); }
