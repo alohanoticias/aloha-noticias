@@ -633,3 +633,6 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .materia .texto > p:first-of-type::first-letter { all: unset; }
 .mais-lidas.home li::before { font-family: var(--f-marca); font-weight: 700; }
 @media (max-width: 760px) { .texto { font-size: 1.02rem; line-height: 1.75; } }
+
+/* alvos de toque maiores nos links pequenos (migalhas) */
+.migalhas a { display: inline-flex; align-items: center; min-height: 32px; padding-inline: 2px; }

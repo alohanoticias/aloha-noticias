@@ -359,7 +359,8 @@ def gerar_home():
   </div>
 </section>""")
 
-    corpo = f"""<section class="principal" aria-label="Destaques">
+    corpo = f"""<h1 class="sr-only">{SITE}: notícias, cinema, games, tecnologia e finanças</h1>
+<section class="principal" aria-label="Destaques">
   <div class="wrap destaques">
     <div class="dest-grade">{cards_dest}</div>
   </div>
