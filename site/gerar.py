@@ -741,7 +741,7 @@ HEADERS = """/*
 
 
 def montar_arquivos():
-    for _m in list(materias):
+    for _m in (list(materias) if LANG == "pt" else []):
         _p = sum(len(b.split()) for b in _m["corpo"] if not b.startswith("!img"))
         if not 520 <= _p <= 880:
             print(f"AVISO tamanho: {_m['slug']} tem {_p} palavras (meta: 600 a 850, 3 a 4 min de leitura)")
