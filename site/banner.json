@@ -1,64 +1,76 @@
 {
  "fotos": [
   {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Leonida_Keys_Postcard_landscape.05oezf2h--~ed.jpg?akim=1&imdensity=1&imwidth=1920",
-   "foco": [
-    0.5,
-    0.72
-   ],
-   "zoom": 2.2
-  },
-  {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-kokori-forest.jpg",
+   "url": "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg?akim=1&imdensity=1&imwidth=1920",
    "foco": [
     0.5,
     0.5
-   ]
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
+   "foco": [
+    0.12,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/section_key-upgrades/Ocarina-Adult_FB.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_02_landscape.0cosv-uzbpt91.jpg?akim=1&imdensity=1&imwidth=1920",
+   "foco": [
+    0.5,
+    0.4
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://media.press.amazonmgmstudios.com/userfiles/images/LOTR_S3/Key_Art/SDCC_Teaser/LOTR_S3_Static16x9_3840x2160_PRE_PV_FINAL_en-US_KAPS.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
+   "foco": [
+    0.88,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_Motel_landscape.08edvuwtm-20v.jpg?akim=1&imdensity=1&imwidth=1920",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/section_overview/game-keyart-small.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
   },
   {
    "url": "https://godzilla.com/cdn/shop/files/mobile-block2.jpg?v=1760483861&width=1600",
    "foco": [
     0.5,
     0.4
-   ]
-  },
-  {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Port_Gellhorn_Postcard_landscape.176c2o75nmcr8.jpg?akim=1&imdensity=1&imwidth=1920",
-   "foco": [
-    0.5,
-    0.72
    ],
-   "zoom": 2.2
-  },
-  {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-zora-domain.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ]
-  },
-  {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Mount_Kalaga_National_Park_Postcard_landscape.0c1cb4ocq16n3.jpg?akim=1&imdensity=1&imwidth=1920",
-   "foco": [
-    0.5,
-    0.72
-   ],
-   "zoom": 2.2
-  },
-  {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-hyrule-castle.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ]
-  },
-  {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Ambrosia_Postcard_landscape.0gd~9a41ia-rt.jpg?akim=1&imdensity=1&imwidth=1920",
-   "foco": [
-    0.5,
-    0.72
-   ],
-   "zoom": 2.2
+   "zoom": 1.0
   }
  ]
 }
