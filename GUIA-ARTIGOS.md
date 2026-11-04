@@ -38,3 +38,14 @@ Crie **3 rascunhos por dia**, de editorias e assuntos diferentes, cada um em seu
 - Se as fontes divergem, diga no texto que divergem (e quais). Se não dá para confirmar, deixe de fora ou não faça o artigo.
 - Cálculos próprios devem ser conferidos e descritos como "conta simples" ou "estimativa".
 - Se o assunto depende de um evento que acontece nas próximas horas (decisão, resultado, estreia), escreva de modo que o texto continue correto depois, ou avise no PR/mensagem que precisa de atualização.
+
+## Liberação automática após revisão final
+Rascunho que ninguém aprovou nem rejeitou em /admin até a manhã seguinte à criação (a data do rascunho é anterior a hoje) é liberado automaticamente pela tarefa diária, **mas só depois desta revisão completa**. Rascunhos já agendados pela pessoa (pasta agendados/) não entram: seguem o horário escolhido.
+
+Para cada rascunho elegível, nesta ordem:
+1. **Fatos de novo**: reabra as fontes, confira cada data, número, nome e citação, e veja se algo mudou desde a escrita (decisões, estreias, resultados). Se o assunto ficou desatualizado ou não dá para confirmar, atualize o texto; se não der para corrigir, mova o arquivo para fora (apague o rascunho) e avise na mensagem final.
+2. **Humanização**: leia como um leitor. Corte frases de efeito vazias, abertura genérica ("No mundo dos games..."), fecho moralista, listas de três adjetivos, "vale ressaltar", "é importante destacar", "em um cenário", travessões em excesso, repetição de estrutura entre parágrafos e títulos em fórmula. Varie o ritmo, use voz direta e concreta, dados específicos, e uma observação própria do tema que não seja só repetição das fontes.
+3. **Originalidade**: o texto precisa ser reescrito com palavras próprias, sem copiar trechos das fontes, e trazer algo a mais (contexto, comparação, explicação do que muda para o leitor).
+4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico/financeiro como recomendação, sem imagem de terceiros com direito autoral (use ilustração própria, foto com licença livre e crédito), links só para fontes confiáveis, aviso informativo em Finanças.
+5. **Forma**: assinatura "Equipe Aloha", linha fina clara, tags coerentes, ortografia e pontuação revisadas, texto com pelo menos ~600 palavras quando o assunto permitir.
+6. **Liberação**: com tudo certo, salve o texto revisado, mova para site/conteudo/materias.json com data = agora (BRT), apague o arquivo de rascunhos/, rode python3 site/gerar.py, commit e push. Anote na mensagem final o que foi alterado na revisão.
