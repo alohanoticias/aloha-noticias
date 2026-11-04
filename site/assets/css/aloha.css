@@ -599,6 +599,9 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .faixa-rascunho .botao { background: #E76F51; color: #1E2A2D; }
 .faixa-rascunho .botao-sec { background: #FFFFFF; color: #1E2A2D; border: 1.5px solid #4A3B00; }
 .faixa-rascunho .botao-sec:hover { background: #4A3B00; color: #FFFFFF; }
+.faixa-rascunho .atalhos { display: inline-flex; align-items: center; gap: 6px; }
+.faixa-rascunho .chip { background: #FFFFFF; color: #1E2A2D; border: 1.5px solid #4A3B00; border-radius: 999px; padding: 6px 12px; min-height: 36px; font: inherit; font-weight: 600; cursor: pointer; }
+.faixa-rascunho .chip:hover { background: #FFE9A8; }
 .faixa-rascunho .agendar { display: inline-flex; align-items: center; gap: 8px; }
 .faixa-rascunho input[type="datetime-local"] { font: inherit; padding: 6px 8px; border: 1.5px solid #4A3B00; border-radius: 6px; background: #fff; color: #1E2A2D; color-scheme: light; }
 

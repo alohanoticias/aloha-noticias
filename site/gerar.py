@@ -426,6 +426,7 @@ def corpo_texto(paragrafos):
 
 
 REPO = "alohanoticias/aloha-noticias"
+HORARIOS_PADRAO = ["09:00", "13:00", "19:00"]  # atalhos de horário no admin (Brasília)
 
 
 def link_acao(acao, slug):
@@ -446,10 +447,12 @@ def faixa_rascunho(m, agendado=False):
         rotulo, atual = "Rascunho, ainda não publicado.", ""
         texto_ag, rot_agendar = "ou agendar para", "Agendar"
         rej = "Rejeitar"
+    atalhos = " ".join(f'<button type="button" class="chip" data-hora="{h}">{h[:2]}h</button>' for h in HORARIOS_PADRAO)
     return (f'<div class="faixa-rascunho" data-slug="{esc(slug)}" data-repo="{REPO}" data-acao="{acao}"><div class="wrap">'
             f'<strong>{rotulo}</strong> '
             f'<a class="botao" href="{link_acao("Aprovar", slug)}" target="_blank" rel="noopener noreferrer">Publicar agora</a> '
             f'<label class="agendar">{texto_ag} <input type="datetime-local" id="quando"{atual} aria-label="Data e hora de publicação"></label> '
+            f'<span class="atalhos">Atalhos: {atalhos}</span> '
             f'<a class="botao-sec" id="agendar" href="{link_acao(acao, slug)}" target="_blank" rel="noopener noreferrer">{rot_agendar}</a> '
             f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">{rej}</a> '
             f'<a href="admin/">Voltar à lista</a></div></div>\n<script src="assets/js/admin.js"></script>')

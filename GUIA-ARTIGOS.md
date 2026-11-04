@@ -5,16 +5,16 @@ Responda sempre em português do Brasil.
 ## Passo a passo
 1. Pesquise na web (busca atual) um assunto em alta e **confirme fatos em pelo menos duas fontes**. Datas, preços e números só entram se aparecerem nas fontes.
 2. Escolha a editoria (noticias, cinema, games, tecnologia, curiosidades, financas), alternando em relação aos últimos artigos de `site/conteudo/materias.json`.
-3. Adicione um objeto ao `materias.json` com: `slug`, `editoria`, `titulo`, `linha_fina`, `autor` (use "Equipe Aloha"), `data` (formato `2026-11-04T08:00`, horário de Brasília), `tags`, `corpo` (lista de parágrafos).
+3. Monte o objeto do artigo (ele será salvo como **rascunho**, veja o passo 6) com: `slug`, `editoria`, `titulo`, `linha_fina`, `autor` (use "Equipe Aloha"), `data` (formato `2026-11-04T08:00`, horário de Brasília), `tags`, `corpo` (lista de parágrafos).
    - Subtítulo: parágrafo começando com `## `.
    - Foto no meio do texto: `!img URL|texto alternativo|crédito`.
    - Link: `[texto](https://...)` dentro do parágrafo. Negrito: `**texto**` (use com moderação, só em termos-chave).
-   - Capa: campo `imagem` `{url, alt, credito}`. Prefira foto gratuita do Unsplash (https://images.unsplash.com/..., licença gratuita, nunca Unsplash+) ou uma ilustração original em `site/assets/img/capas/<slug>.svg` (nunca desenhar personagens, logos ou marcas existentes). Vídeo: campo `video` `{youtube, titulo}` só com vídeo oficial confirmado.
+   - Capa: campo `imagem` `{url, alt, credito}`, feita como descrito em "Capas e imagens". Vídeo: campo `video` `{youtube, titulo}`, só com vídeo oficial confirmado (veja "Todo artigo leva capa, fotos e vídeo").
 4. Termine o artigo com uma linha "Fontes:" com links clicáveis.
 5. Rode `python3 site/gerar.py` (gera a pasta `publico/`) e confira que não há erro.
 6. **Não** coloque o artigo em `materias.json`. Salve o objeto do artigo como `rascunhos/<slug>.json` (o nome do arquivo é o slug, e o JSON é um único objeto com os mesmos campos). Rode `python3 site/gerar.py`, faça commit e envie direto para `main`. O rascunho aparece só na página protegida `alohanoticias.com/admin`, e não vai ao ar como matéria.
-Crie **3 rascunhos por dia**, de editorias e assuntos diferentes, cada um em seu arquivo `rascunhos/<slug>.json`.
-7. A pessoa abre o admin, lê a prévia e escolhe **Publicar agora**, **Agendar** (data e hora de saída) ou **Rejeitar**. Os agendados ficam em `agendados/` e uma automação publica na hora marcada. A pessoa abre o admin, lê a prévia e clica em Aprovar (ou Rejeitar). Isso abre um pedido (issue) no GitHub, e uma automação move o rascunho para `materias.json` e publica. Você nunca publica sozinho.
+Crie até **3 rascunhos por dia** (veja "Meta diária"), de editorias e assuntos diferentes, cada um em seu arquivo `rascunhos/<slug>.json`.
+7. A pessoa abre o admin, lê a prévia e escolhe **Publicar agora**, **Agendar** (data e hora) ou **Rejeitar**. Os agendados ficam em `agendados/` e uma automação publica na hora marcada. **Você nunca publica sozinho.**
 
 ## Tom de escrita (não pode parecer feito por IA)
 - Frases de tamanhos variados, voz direta, sem clichês ("em um mundo cada vez mais", "vale destacar", "no cenário atual").
@@ -39,27 +39,39 @@ Crie **3 rascunhos por dia**, de editorias e assuntos diferentes, cada um em seu
 - Cálculos próprios devem ser conferidos e descritos como "conta simples" ou "estimativa".
 - Se o assunto depende de um evento que acontece nas próximas horas (decisão, resultado, estreia), escreva de modo que o texto continue correto depois, ou avise no PR/mensagem que precisa de atualização.
 
-## Liberação automática após revisão final
-Rascunho que ninguém aprovou nem rejeitou em /admin até a manhã seguinte à criação (a data do rascunho é anterior a hoje) é liberado automaticamente pela tarefa diária, **mas só depois desta revisão completa**. Rascunhos já agendados pela pessoa (pasta agendados/) não entram: seguem o horário escolhido.
+## Nada é publicado sem aprovação
+**Nenhum artigo vai para o ar sem a aprovação da pessoa no /admin.** Rascunho não aprovado fica esperando, por mais tempo que leve. Não existe liberação automática, nem para cumprir meta diária. Só a automação do GitHub publica, e apenas o que a pessoa aprovou ou agendou. Nunca grave em `site/conteudo/materias.json` nem mova arquivo de `rascunhos/` para fora dela.
 
-Para cada rascunho elegível, nesta ordem:
-1. **Fatos de novo**: reabra as fontes, confira cada data, número, nome e citação, e veja se algo mudou desde a escrita (decisões, estreias, resultados). Se o assunto ficou desatualizado ou não dá para confirmar, atualize o texto; se não der para corrigir, mova o arquivo para fora (apague o rascunho) e avise na mensagem final.
-2. **Humanização**: leia como um leitor. Corte frases de efeito vazias, abertura genérica ("No mundo dos games..."), fecho moralista, listas de três adjetivos, "vale ressaltar", "é importante destacar", "em um cenário", travessões em excesso, repetição de estrutura entre parágrafos e títulos em fórmula. Varie o ritmo, use voz direta e concreta, dados específicos, e uma observação própria do tema que não seja só repetição das fontes.
-3. **Originalidade**: o texto precisa ser reescrito com palavras próprias, sem copiar trechos das fontes, e trazer algo a mais (contexto, comparação, explicação do que muda para o leitor).
-4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico/financeiro como recomendação, sem imagem de terceiros com direito autoral (use ilustração própria, foto com licença livre e crédito), links só para fontes confiáveis, aviso informativo em Finanças.
-5. **Forma**: assinatura "Equipe Aloha", linha fina clara, tags coerentes, ortografia e pontuação revisadas, texto com pelo menos ~600 palavras quando o assunto permitir.
-6. **Liberação**: com tudo certo, salve o texto revisado, mova para site/conteudo/materias.json com data = agora (BRT), apague o arquivo de rascunhos/, rode python3 site/gerar.py, commit e push. Anote na mensagem final o que foi alterado na revisão.
+## Revisão final antes de entregar (vale para todo rascunho novo)
+Antes de salvar um rascunho, passe por estes pontos, para a pessoa receber algo que já está pronto para aprovar:
+1. **Fatos de novo**: reabra as fontes, confira cada data, número, nome e citação. Se não der para confirmar, tire a informação ou não faça o rascunho.
+2. **Humanização**: leia como um leitor. Corte frases de efeito vazias, abertura genérica, fecho moralista, listas de três adjetivos, "vale ressaltar", "é importante destacar", "em um cenário", travessões em excesso. Varie o ritmo, use voz direta, dados específicos e uma observação própria do tema.
+3. **Originalidade**: texto reescrito com palavras próprias, sem copiar trechos das fontes, trazendo algo a mais (contexto, comparação, o que muda para o leitor).
+4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico ou financeiro como recomendação, sem imagem de terceiros com direito autoral, links só para fontes confiáveis, aviso informativo em Finanças.
+5. **Forma**: assinatura "Equipe Aloha", linha fina clara, tags coerentes, ortografia revisada, capa, fotos e vídeo conforme as regras abaixo.
+
+## Manutenção dos rascunhos que estão esperando
+Em cada execução, olhe os rascunhos pendentes em `rascunhos/`:
+- Se algum fato mudou (decisão, estreia, preço, resultado, "nesta quinta" que já passou), atualize o texto e a data do rascunho, e conte isso na mensagem final.
+- Se o assunto perdeu a relevância, **não apague**: diga na mensagem final qual é e por quê, para a pessoa decidir.
+- Se já há 6 ou mais rascunhos pendentes, não escreva rascunhos novos nesse dia: avise que há fila e peça para a pessoa aprovar ou rejeitar alguns.
 
 ## Escolha dos assuntos
 - Sempre assuntos do momento: o que está sendo comentado hoje, lançamentos e estreias da semana, anúncios oficiais, polêmicas já confirmadas. Confira nas buscas e nas páginas oficiais o que realmente está em alta antes de decidir.
 - Pense no leitor: escolha o que é interessante e útil para o público brasileiro (o que muda para ele, o que vale assistir ou jogar, o que ele precisa saber), não o que só enche espaço.
 - Escreva como uma pessoa escreveria para um amigo: voz natural, sem fórmula.
 
-## Mínimo de um artigo publicado por dia
-O site precisa ter pelo menos um artigo novo no ar todos os dias.
-- Depois da liberação dos rascunhos antigos, confira se já existe artigo com a data de hoje em materias.json ou algum agendado para hoje em agendados/.
-- Se não houver nenhum, escolha o melhor dos rascunhos novos, faça nele a revisão final completa (a mesma da seção acima) e publique-o hoje mesmo, com data de agora. Os outros ficam em rascunhos/ para a pessoa aprovar ou para saírem na manhã seguinte.
-- Se nenhum dos rascunhos passar na checagem de fatos, não publique algo duvidoso só para cumprir a meta: avise claramente na mensagem final que o dia ficou sem artigo e por quê.
+## Meta diária e horários
+- Meta: 3 rascunhos por dia, quando a fila permitir (veja "Manutenção"). A publicação, no ritmo que a pessoa escolher: o recomendado é 2 a 3 artigos por dia, espaçados.
+- **Horários padrão de saída** (horário de Brasília): **09:00, 13:00 e 19:00**. O admin tem atalhos para esses horários. Ao entregar os rascunhos, sugira na mensagem final qual rascunho ficaria bem em cada horário (ex.: o mais leve ao meio-dia, o mais denso à noite), sem agendar nada.
+
+## Variação entre os posts (para não parecer produção em série)
+Posts todos no mesmo molde denunciam automação. Em cada lote de rascunhos e entre dias, varie de propósito:
+- **Tamanho**: curto (400 a 550 palavras), médio (650 a 850) e longo (950 a 1300). No mesmo lote, nunca dois na mesma faixa. Antes de escrever, conte as palavras dos últimos 6 artigos (publicados e pendentes) e fuja do padrão deles. Nenhum texto abaixo de 400 palavras, e o curto também precisa ser completo.
+- **Formato**: alterne notícia direta (abertura com o fato, 0 a 2 subtítulos), explicativo com subtítulos em forma de pergunta, lista ou ranking com cada item desenvolvido, perguntas e respostas, linha do tempo, análise com contexto. Não repita o mesmo formato em dois artigos seguidos.
+- **Estrutura**: varie o número de subtítulos (de 0 a 5), a posição das fotos (início, meio ou fim) e se há ou não lista. Alguns textos terminam em informação prática, outros em uma dúvida que ficou em aberto. Fecho resumindo "em resumo" é proibido.
+- **Título e linha fina**: alterne estilos (pergunta, afirmação direta, número, contraste). Evite a fórmula "X: o que se sabe" mais de uma vez por semana. Confira os títulos dos últimos 10 artigos antes de escolher o seu. Linha fina com tamanhos diferentes.
+- **Abertura**: alterne cena, dado, pergunta e fato direto. Nunca as mesmas primeiras palavras de outro artigo recente.
 
 ## Capas e imagens (direitos autorais)
 As capas devem parecer reais e chamativas, mas **nunca** podem usar material de terceiros com direito autoral: nada de quadros de trailer, capas de jogo, pôsteres, prints, logotipos, personagens ou marcas, nem editados ou recortados. Editar não torna a obra nossa e é risco de direitos autorais e de reprovação no AdSense.
@@ -77,7 +89,7 @@ As capas devem parecer reais e chamativas, mas **nunca** podem usar material de 
 **Fotos dentro do texto**: só de bancos com licença livre, com crédito. **Vídeos**: apenas incorporação oficial do YouTube, nunca baixados.
 
 ## Todo artigo leva capa, fotos e vídeo (regra fixa)
-Nenhum artigo vai para rascunhos/ ou materias.json sem:
+Nenhum rascunho é entregue sem:
 - **Capa** em colagem de fotos livres, montada como descrito em "Capas e imagens".
 - **Pelo menos 2 fotos dentro do texto** (linha `!img URL|descrição|crédito`), de bancos livres, relacionadas ao assunto, espalhadas entre os blocos (uma perto do começo, outra no meio ou no fim). Descrição fiel ao que a foto mostra; crédito com nome do fotógrafo e "/ Unsplash".
 - **1 vídeo** no campo `"video": {"youtube": "ID", "titulo": "..."}`: trailer ou conteúdo oficial do assunto (canal da empresa, distribuidora, órgão público ou veículo reconhecido). Para Finanças, uma explicação de veículo de jornalismo ou órgão oficial, sem recomendação de investimento.
