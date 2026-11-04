@@ -3,17 +3,17 @@
  "fotos": [
   {
    "url": "https://images.unsplash.com/photo-1764111812995-b73ff58fc7d7?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "zoom": 1.15,
+   "zoom": 1.4,
    "foco": [
     0.5,
-    0.3
+    0.7
    ]
   },
   {
    "url": "https://images.unsplash.com/photo-1510925768022-7e72e7cbdef8?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "zoom": 2.0,
+   "zoom": 1.6,
    "foco": [
-    0.7,
+    0.75,
     1.0
    ]
   },

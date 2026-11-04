@@ -13,9 +13,9 @@
   "renda fixa"
  ],
  "imagem": {
-  "url": "assets/img/capas/selic-13-75-e-inflacao-de-4-58-o-que-muda-no-seu-dinheiro.svg",
-  "alt": "Ilustração com a taxa Selic de 13,75% sobre ondas",
-  "credito": "Ilustração: ALOHA NOTÍCIAS"
+  "url": "assets/img/capas/selic-13-75-e-inflacao-de-4-58-o-que-muda-no-seu-dinheiro.jpg",
+  "alt": "Celular com calculadora sobre papéis com gráficos e, ao fundo, telas com gráficos do mercado financeiro",
+  "credito": "Foto: Jakub Żerdzicki / Unsplash"
  },
  "corpo": [
   "Dois números saíram com poucas semanas de diferença e dizem coisas que parecem opostas. Em 16 de setembro, o Banco Central baixou a taxa básica de juros para **13,75% ao ano**. Em 9 de outubro, o IBGE mostrou que a inflação de 12 meses chegou a **4,58%**, acima do teto da meta. Juros caindo e preços subindo ao mesmo tempo. Vale entender o que está por trás de cada um.",
@@ -29,10 +29,15 @@
   "## E o seu dinheiro com isso?",
   "A Selic é a taxa de referência para boa parte da renda fixa, e a inflação é o que corrói o poder de compra. Uma conta simples ajuda a enxergar a distância entre as duas: com Selic a 13,75% e inflação de 12 meses de 4,58%, a taxa fica cerca de 8,8% acima da inflação ao ano, em termos brutos. Essa é uma estimativa, sem descontar imposto, taxas ou diferenças entre cada aplicação.",
   "Na prática, a taxa alta faz com que muitos produtos de renda fixa, como o Tesouro Selic, rendam acima da inflação. E ela também encarece o crédito: financiamentos, cartão e cheque especial seguem caros, porque seguem a mesma lógica.",
+  "!img https://images.unsplash.com/photo-1777805866020-e56953302a08?fm=jpg&q=70&w=1600&auto=format&fit=crop|Mãos colocando moedas em um cofrinho amarelo|Juros altos favorecem quem guarda dinheiro, mas a inflação corrói o ganho. Foto: Sasun Bughdaryan / Unsplash",
   "Quem guarda na poupança tem uma regra própria. Segundo o Banco Central, ela rende a TR mais um adicional de 0,5% ao mês, e esse adicional só vale enquanto a meta da Selic estiver acima de 8,5% ao ano, o que é o caso agora.",
   "## O que observar daqui para a frente",
   "Três coisas dizem muito sobre o rumo dos juros: a decisão do Copom desta semana, o IPCA de outubro, que o IBGE divulga em novembro, e a evolução das expectativas de inflação para os próximos anos. O próprio Copom disse que está atento à \"desancoragem das expectativas de inflação para prazos mais longos\".",
   "Esta matéria é informativa e não é recomendação de investimento. Antes de decidir onde colocar o seu dinheiro, compare as taxas, os prazos e os custos de cada opção, ou converse com um profissional habilitado.",
   "Fontes: [Agência Brasil sobre a decisão do Copom](https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/bc-reduz-juros-basicos-para-1375-ao-ano), [Metrópoles](https://www.metropoles.com/brasil/copom-reduz-taxa-selic-e-juros-caem-para-1375-ao-ano), [XP Investimentos](https://conteudos.xpi.com.br/economia/copom-reduz-a-taxa-de-juros-para-1375/), [Agência Brasil sobre o IPCA](https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/inflacao-oficial-de-setembro-fica-em-082-mostra-ibge), [CNN Brasil sobre o IPCA](https://www.cnnbrasil.com.br/economia/money/macroeconomia/inflacao-ipca-9-outubro-2026/), [O Tempo](https://www.otempo.com.br/economia/2026/11/3/mercado-financeiro-preve-corte-na-taxa-selic-na-reuniao-do-copom) e [Banco Central, regra da poupança](https://www.bcb.gov.br/pec/poupanca/poupanca.asp?frame=1)."
- ]
+ ],
+ "video": {
+  "youtube": "iIF1LvDztMs",
+  "titulo": "O que é a taxa Selic e por que ela importa? (Poder Explica, canal Poder360)"
+ }
 }
