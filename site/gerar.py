@@ -458,7 +458,7 @@ def gerar_materia(m, preview=False, agendado=False):
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": m["titulo"],
         "description": m["linha_fina"], "datePublished": m["data"], "articleSection": e["nome"],
-        "author": {"@type": "Person" if m["autor"] != "Redação ALOHA" else "Organization", "name": m["autor"]},
+        "author": {"@type": "Person" if m["autor"] != "Equipe Aloha" else "Organization", "name": m["autor"]},
         "publisher": {"@type": "Organization", "name": SITE},
     }, ensure_ascii=False)
     corpo = f"""<article class="wrap materia">
