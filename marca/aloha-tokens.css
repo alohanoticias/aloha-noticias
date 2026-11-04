@@ -1,0 +1,33 @@
+/* ALOHA NOTÍCIAS — tokens da marca */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap");
+
+:root {
+  /* Cores principais */
+  --aloha-oceano: #0F4C5C;   /* marca, títulos, cabeçalho */
+  --aloha-areia: #F4EDE4;    /* superfícies, blocos, logo em negativo */
+  --aloha-fundo: #FBF7F1;    /* fundo da página */
+  --aloha-coral: #E76F51;    /* destaque opcional: selos, marcadores. Não usar em texto pequeno */
+
+  /* Apoio (derivados) */
+  --aloha-tinta: #1E2A2D;        /* texto corrido, contraste 13.8:1 sobre o fundo */
+  --aloha-mare: #5B6B6E;         /* texto secundário, datas, legendas (5.2:1) */
+  --aloha-coral-texto: #B4492F;  /* coral para texto, quando precisar (5.0:1) */
+  --aloha-linha: #E6DDD0;        /* divisórias e bordas */
+
+  /* Tipografia */
+  --aloha-fonte-marca: "Outfit", system-ui, sans-serif;            /* títulos, navegação, UI */
+  --aloha-fonte-texto: "Newsreader", Georgia, "Times New Roman", serif; /* corpo das matérias */
+
+  /* Escala tipográfica (razão 1.25) */
+  --aloha-t-xs: 0.8rem;
+  --aloha-t-sm: 0.9rem;
+  --aloha-t-base: 1.0625rem;
+  --aloha-t-lg: 1.33rem;
+  --aloha-t-xl: 1.66rem;
+  --aloha-t-2xl: 2.07rem;
+  --aloha-t-3xl: 2.6rem;
+
+  /* Forma */
+  --aloha-raio: 6px;
+  --aloha-raio-icone: 22%;
+}

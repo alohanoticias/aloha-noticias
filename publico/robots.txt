@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alohanoticias.com/sitemap.xml

@@ -1,0 +1,475 @@
+<title>Marca ALOHA NOTÍCIAS</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Layout: folha de marca em faixas; cada seção é uma prancha larga com rótulo à esquerda. Tema único (cores reais da marca). */
+:root {
+  --oceano: #0F4C5C; --areia: #F4EDE4; --fundo: #FBF7F1; --coral: #E76F51;
+  --tinta: #1E2A2D; --mare: #5B6B6E; --coral-texto: #B4492F; --linha: #E6DDD0;
+  --f-marca: "Outfit", system-ui, sans-serif;
+  --f-texto: "Newsreader", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--fundo); color: var(--tinta); font-family: var(--f-marca); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+svg { display: block; max-width: 100%; height: auto; }
+
+.topo { border-bottom: 1px solid var(--linha); }
+.topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.topo .logo svg { height: 30px; width: auto; }
+.topo span { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mare); font-weight: 500; }
+
+.secao { padding-block: 56px; border-bottom: 1px solid var(--linha); }
+.secao-grid { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
+.rotulo h2 { margin: 0 0 8px; font-size: 1.33rem; font-weight: 600; color: var(--oceano); text-wrap: balance; }
+.rotulo p { margin: 0; color: var(--mare); font-size: 0.93rem; }
+.conteudo { min-width: 0; display: grid; gap: 16px; }
+
+.pranchas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.prancha { border-radius: 6px; display: grid; place-items: center; padding: 56px 32px; min-height: 260px; }
+.prancha.areia { background: var(--areia); }
+.prancha.oceano { background: var(--oceano); }
+.prancha.fundo { background: var(--fundo); border: 1px solid var(--linha); }
+.prancha .emp { width: min(340px, 100%); }
+.legenda { font-size: 0.8rem; color: var(--mare); letter-spacing: 0.02em; }
+
+.anatomia { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; background: var(--areia); border-radius: 6px; padding: 32px; }
+.anatomia ol { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; }
+.anatomia li::marker { color: var(--oceano); font-weight: 700; }
+.anatomia b { color: var(--oceano); font-weight: 600; }
+
+.icones { display: flex; flex-wrap: wrap; align-items: end; gap: 28px; background: var(--areia); border-radius: 6px; padding: 32px; }
+.icones figure { margin: 0; display: grid; gap: 8px; justify-items: center; }
+.icones figcaption { font-size: 0.78rem; color: var(--mare); font-variant-numeric: tabular-nums; }
+
+.cores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cor { border-radius: 6px; overflow: hidden; border: 1px solid var(--linha); background: var(--fundo); }
+.cor .amostra { height: 112px; }
+.cor .info { padding: 12px 14px; display: grid; gap: 2px; }
+.cor .info strong { font-weight: 600; }
+.cor code { font-family: var(--f-marca); font-size: 0.85rem; color: var(--mare); font-variant-numeric: tabular-nums; }
+.cor .uso { font-size: 0.82rem; color: var(--tinta); margin-top: 6px; }
+.apoio { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.85rem; color: var(--mare); }
+.apoio i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -1px; margin-right: 6px; border: 1px solid var(--linha); }
+
+.tipos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.tipo { background: var(--areia); border-radius: 6px; padding: 28px; display: grid; gap: 10px; align-content: start; }
+.tipo .nome { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mare); font-weight: 500; }
+.tipo .gigante { font-size: 3.2rem; line-height: 1; color: var(--oceano); }
+.escala { display: grid; gap: 6px; }
+.escala div { display: flex; gap: 14px; align-items: baseline; border-top: 1px solid var(--linha); padding-top: 6px; }
+.escala small { width: 92px; flex: none; color: var(--mare); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+
+.regras { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.regras ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.regras h3 { margin: 0 0 10px; font-size: 1rem; font-weight: 600; color: var(--oceano); }
+.regras .nao h3 { color: var(--coral-texto); }
+.regras > div { background: var(--areia); border-radius: 6px; padding: 24px; }
+
+/* Aplicação: home */
+.site { border: 1px solid var(--linha); border-radius: 8px; overflow: hidden; background: var(--fundo); }
+.site-top { background: var(--fundo); border-bottom: 1px solid var(--linha); }
+.site-top .linha1 { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 24px; }
+.site-top .linha1 svg { height: 28px; width: auto; }
+.site-top .data { font-size: 0.8rem; color: var(--mare); }
+.site-nav { display: flex; gap: 22px; padding: 10px 24px; overflow-x: auto; font-size: 0.9rem; font-weight: 500; color: var(--oceano); border-top: 1px solid var(--linha); white-space: nowrap; }
+.site-nav span:first-child { box-shadow: inset 0 -2px 0 var(--oceano); }
+.site-corpo { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; padding: 28px 24px; }
+.manchete .foto { aspect-ratio: 16/9; border-radius: 4px; background: linear-gradient(180deg, #A9C7C9 0%, #5F98A0 55%, var(--oceano) 100%); max-width: 100%; }
+.selo { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral-texto); margin: 16px 0 6px; }
+.selo.vivo::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--coral); margin-right: 6px; vertical-align: 1px; }
+.manchete h3 { margin: 0 0 8px; font-size: 2rem; line-height: 1.15; font-weight: 700; color: var(--oceano); text-wrap: balance; }
+.manchete p { margin: 0; font-family: var(--f-texto); font-size: 1.12rem; line-height: 1.55; max-width: 60ch; }
+.lista { display: grid; gap: 0; align-content: start; }
+.lista article { padding: 14px 0; border-top: 1px solid var(--linha); }
+.lista article:first-child { border-top: 0; padding-top: 0; }
+.lista .cat { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mare); font-weight: 500; }
+.lista h4 { margin: 4px 0 0; font-size: 1.08rem; line-height: 1.3; font-weight: 600; color: var(--tinta); }
+.site-rodape { background: var(--oceano); color: var(--areia); display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 24px; flex-wrap: wrap; }
+.site-rodape svg { height: 56px; width: auto; }
+.site-rodape small { color: #B9CDD0; }
+
+.arquivos { background: var(--areia); border-radius: 6px; padding: 24px; display: grid; gap: 10px; font-size: 0.93rem; }
+.arquivos code { font-family: ui-monospace, Menlo, monospace; font-size: 0.82rem; color: var(--oceano); word-break: break-all; }
+
+@media (max-width: 780px) {
+  .secao-grid, .pranchas, .tipos, .regras, .site-corpo, .anatomia { grid-template-columns: 1fr; }
+  .cores { grid-template-columns: 1fr 1fr; }
+  .manchete h3 { font-size: 1.6rem; }
+  .secao { padding-block: 40px; }
+}
+</style>
+
+<header class="topo"><div class="wrap"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538.86 83.7" role="img" aria-label="ALOHA NOTÍCIAS">
+  <path d="M12.9 71 29.7 28.6H38.2L54.8 71H44.9L32.2 35.8H35.6L22.7 71ZM22.4 63.3V55.6H45.5V63.3Z" fill="#0F4C5C"/>
+  <path d="M60.4 71V28.6H69.8V71ZM67.7 71V62.7H88.6V71Z" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="o25-ceu_1"><path d="M90.69,51.99 C99.45,49.14 106.68,49.14 114.78,51.99 S130.11,54.84 138.87,51.99 L138.87,23.52 L90.69,23.52 Z"/></clipPath>
+    <mask id="o25-m_1" maskUnits="userSpaceOnUse" x="90.88" y="25.9" width="47.8" height="47.8">
+      <circle cx="114.78" cy="49.8" r="21.9" fill="#fff"/>
+      <circle cx="114.78" cy="49.8" r="14.89" fill="#000" clip-path="url(#o25-ceu_1)"/>
+      <path d="M90.69,59.44 C99.45,56.59 106.68,56.59 114.78,59.44 S130.11,62.28 138.87,59.44" fill="none" stroke="#000" stroke-width="2.85"/>
+    </mask>
+  </defs>
+  <circle cx="114.78" cy="49.8" r="21.9" fill="#0F4C5C" mask="url(#o25-m_1)"/>
+  <path d="M143.6 71V28.6H153.1V71ZM169.9 71V28.6H179.3V71ZM149.3 53.3V45.1H173V53.3Z" fill="#0F4C5C"/>
+  <path d="M184.9 71 201.7 28.6H210.2L226.8 71H216.8L204.1 35.8H207.5L194.6 71ZM194.4 63.3V55.6H217.5V63.3Z" fill="#0F4C5C"/>
+  <path d="M245.8 71V28.8H251.5L254 37V71ZM275 71 250 38.6 251.5 28.8 276.5 61.2ZM275 71 272.6 63.1V28.8H280.9V71Z" fill="#0F4C5C"/>
+  <path d="M309.8 71.6Q305.2 71.6 301.2 70Q297.2 68.3 294.2 65.3Q291.2 62.3 289.6 58.3Q287.9 54.4 287.9 49.8Q287.9 45.2 289.5 41.3Q291.2 37.4 294.1 34.4Q297.1 31.4 301.1 29.8Q305 28.1 309.7 28.1Q314.3 28.1 318.3 29.8Q322.3 31.4 325.2 34.4Q328.2 37.4 329.9 41.3Q331.6 45.3 331.6 49.9Q331.6 54.4 329.9 58.4Q328.2 62.3 325.2 65.3Q322.3 68.3 318.3 70Q314.4 71.6 309.8 71.6ZM309.7 64Q313.7 64 316.7 62.2Q319.7 60.4 321.5 57.2Q323.2 54.1 323.2 49.8Q323.2 46.7 322.2 44.1Q321.2 41.5 319.4 39.6Q317.6 37.7 315.2 36.7Q312.7 35.7 309.7 35.7Q305.7 35.7 302.7 37.5Q299.6 39.2 297.9 42.4Q296.2 45.6 296.2 49.8Q296.2 53 297.2 55.6Q298.2 58.3 300 60.1Q301.7 62 304.2 63Q306.7 64 309.7 64Z" fill="#0F4C5C"/>
+  <path d="M349.1 71V29.7H357.3V71ZM335.6 36.1V28.8H370.7V36.1Z" fill="#0F4C5C"/>
+  <path d="M377 71V28.8H385.1V71ZM377.2 25.1 374.2 21.4 382.9 12 387.9 18.1Z" fill="#0F4C5C"/>
+  <path d="M413.9 71.6Q409.3 71.6 405.4 69.9Q401.4 68.3 398.4 65.3Q395.5 62.3 393.9 58.4Q392.3 54.4 392.3 49.9Q392.3 45.3 393.9 41.3Q395.5 37.4 398.4 34.4Q401.4 31.5 405.3 29.8Q409.3 28.1 413.9 28.1Q419 28.1 422.8 29.8Q426.7 31.4 429.6 34.3L424.1 39.8Q422.3 37.9 419.8 36.8Q417.3 35.8 413.9 35.8Q411 35.8 408.6 36.7Q406.1 37.7 404.3 39.6Q402.5 41.5 401.6 44.1Q400.6 46.7 400.6 49.9Q400.6 53 401.6 55.6Q402.5 58.2 404.3 60.1Q406.1 62 408.6 63Q411 64 413.9 64Q417.5 64 420 62.9Q422.6 61.9 424.3 59.9L429.8 65.4Q426.9 68.3 423 70Q419.1 71.6 413.9 71.6Z" fill="#0F4C5C"/>
+  <path d="M436.1 71V28.8H444.3V71Z" fill="#0F4C5C"/>
+  <path d="M450.4 71 467.4 28.8H474.1L491 71H482.3L469.2 36.4H472.2L458.9 71ZM459.4 63.1V56.3H482.1V63.1Z" fill="#0F4C5C"/>
+  <path d="M509.3 71.6Q504.2 71.6 500.6 69.8Q496.9 68.1 494 64.6L499.4 59.2Q501.2 61.7 503.7 63Q506.2 64.4 509.7 64.4Q512.9 64.4 514.8 63.1Q516.7 61.9 516.7 59.6Q516.7 57.7 515.6 56.5Q514.5 55.3 512.7 54.5Q511 53.6 508.8 52.9Q506.7 52.3 504.6 51.4Q502.4 50.5 500.7 49.1Q498.9 47.8 497.8 45.6Q496.7 43.5 496.7 40.3Q496.7 36.4 498.6 33.7Q500.5 31 503.7 29.6Q506.9 28.1 511 28.1Q515.3 28.1 518.8 29.8Q522.3 31.4 524.5 34L519.1 39.4Q517.3 37.3 515.3 36.4Q513.4 35.4 510.9 35.4Q508.1 35.4 506.5 36.5Q504.8 37.6 504.8 39.6Q504.8 41.3 505.9 42.4Q507 43.5 508.8 44.3Q510.5 45.1 512.7 45.8Q514.8 46.5 516.9 47.4Q519.1 48.3 520.8 49.7Q522.6 51.2 523.7 53.4Q524.8 55.7 524.8 59Q524.8 64.9 520.6 68.2Q516.5 71.6 509.3 71.6Z" fill="#0F4C5C"/>
+</svg>
+</div><span>Folha de marca · v1</span></div></header>
+
+<main>
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Logo principal</h2><p>Versão empilhada. ALOHA em Outfit Bold, NOTÍCIAS em Outfit SemiBold com espaçamento largo.</p></div>
+  <div class="conteudo">
+    <div class="pranchas">
+      <div class="prancha areia"><div class="emp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 799 337.79" role="img" aria-label="ALOHA NOTÍCIAS">
+  <path d="M43 183.6 99 42.4H127.4L182.8 183.6H149.6L107.2 66.4H118.6L75.6 183.6ZM74.8 158V132.4H151.8V158Z" fill="#0F4C5C"/>
+  <path d="M201.4 183.6V42.4H232.8V183.6ZM225.6 183.6V156H295.4V183.6Z" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="o29-ceu_2"><path d="M302.3,120.3 C331.5,110.81 355.59,110.81 382.6,120.3 S433.7,129.79 462.9,120.3 L462.9,25.4 L302.3,25.4 Z"/></clipPath>
+    <mask id="o29-m_2" maskUnits="userSpaceOnUse" x="307.6" y="38" width="150" height="150">
+      <circle cx="382.6" cy="113" r="73" fill="#fff"/>
+      <circle cx="382.6" cy="113" r="49.64" fill="#000" clip-path="url(#o29-ceu_2)"/>
+      <path d="M302.3,145.12 C331.5,135.63 355.59,135.63 382.6,145.12 S433.7,154.61 462.9,145.12" fill="none" stroke="#000" stroke-width="9.49"/>
+    </mask>
+  </defs>
+  <circle cx="382.6" cy="113" r="73" fill="#0F4C5C" mask="url(#o29-m_2)"/>
+  <path d="M478.8 183.6V42.4H510.2V183.6ZM566.2 183.6V42.4H597.8V183.6ZM497.6 124.6V97.4H576.6V124.6Z" fill="#0F4C5C"/>
+  <path d="M616.2 183.6 672.2 42.4H700.6L756 183.6H722.8L680.4 66.4H691.8L648.8 183.6ZM648 158V132.4H725V158Z" fill="#0F4C5C"/>
+  <path d="M133.9 297.8V254.2H139.8L142.4 262.6V297.8ZM164.1 297.8 138.2 264.3 139.8 254.2 165.7 287.7ZM164.1 297.8 161.6 289.6V254.2H170.1V297.8Z" fill="#0F4C5C"/>
+  <path d="M235 298.5Q230.3 298.5 226.1 296.7Q222 295 219 291.9Q215.9 288.9 214.2 284.7Q212.4 280.6 212.4 275.9Q212.4 271.2 214.1 267.1Q215.8 263.1 218.9 260Q222 256.9 226.1 255.2Q230.1 253.5 234.9 253.5Q239.8 253.5 243.8 255.2Q247.9 256.9 251 260Q254.1 263.1 255.8 267.2Q257.6 271.2 257.6 276Q257.6 280.7 255.8 284.8Q254.1 288.9 251 291.9Q247.9 295 243.9 296.7Q239.8 298.5 235 298.5ZM234.9 290.6Q239.1 290.6 242.2 288.7Q245.3 286.9 247.1 283.6Q248.9 280.3 248.9 275.9Q248.9 272.7 247.9 270Q246.9 267.3 245 265.4Q243.2 263.4 240.6 262.4Q238.1 261.3 234.9 261.3Q230.8 261.3 227.7 263.2Q224.6 265 222.8 268.3Q221 271.6 221 275.9Q221 279.2 222.1 281.9Q223.1 284.6 224.9 286.6Q226.7 288.5 229.3 289.5Q231.9 290.6 234.9 290.6Z" fill="#0F4C5C"/>
+  <path d="M310.7 297.8V255.1H319.2V297.8ZM296.8 261.7V254.2H333.1V261.7Z" fill="#0F4C5C"/>
+  <path d="M374.5 297.8V254.2H383V297.8ZM374.8 250.4 371.7 246.5 380.6 236.8 385.8 243.2Z" fill="#0F4C5C"/>
+  <path d="M447.8 298.4Q443 298.4 438.9 296.7Q434.8 295 431.7 291.9Q428.7 288.9 427 284.8Q425.4 280.7 425.4 276Q425.4 271.2 427 267.2Q428.7 263.1 431.7 260Q434.8 257 438.9 255.3Q442.9 253.5 447.8 253.5Q453 253.5 456.9 255.2Q460.9 256.9 463.9 259.9L458.2 265.6Q456.4 263.6 453.8 262.5Q451.2 261.4 447.8 261.4Q444.7 261.4 442.2 262.4Q439.7 263.4 437.8 265.4Q436 267.3 435 270Q434 272.7 434 276Q434 279.2 435 281.9Q436 284.6 437.8 286.5Q439.7 288.5 442.2 289.5Q444.7 290.6 447.8 290.6Q451.4 290.6 454.1 289.5Q456.7 288.4 458.5 286.3L464.2 292Q461.2 295.1 457.1 296.7Q453.1 298.4 447.8 298.4Z" fill="#0F4C5C"/>
+  <path d="M505.7 297.8V254.2H514.2V297.8Z" fill="#0F4C5C"/>
+  <path d="M555.5 297.8 573.1 254.2H580L597.4 297.8H588.4L574.9 262H578L564.3 297.8ZM564.8 289.7V282.6H588.3V289.7Z" fill="#0F4C5C"/>
+  <path d="M651.4 298.4Q646.1 298.4 642.4 296.6Q638.6 294.8 635.6 291.2L641.1 285.6Q643.1 288.2 645.6 289.6Q648.2 291 651.8 291Q655.1 291 657 289.7Q659 288.4 659 286.1Q659 284.1 657.9 282.8Q656.8 281.6 654.9 280.7Q653.1 279.9 650.9 279.2Q648.7 278.4 646.5 277.5Q644.3 276.6 642.5 275.2Q640.6 273.8 639.5 271.6Q638.4 269.4 638.4 266Q638.4 262.1 640.3 259.3Q642.3 256.5 645.6 255Q649 253.5 653.2 253.5Q657.6 253.5 661.2 255.2Q664.8 256.9 667.1 259.5L661.5 265.1Q659.6 263 657.6 262Q655.6 261 653 261Q650.1 261 648.5 262.1Q646.8 263.3 646.8 265.4Q646.8 267.2 647.9 268.3Q649 269.4 650.8 270.2Q652.7 271 654.9 271.7Q657.1 272.5 659.3 273.4Q661.5 274.4 663.3 275.8Q665.1 277.3 666.3 279.7Q667.4 282 667.4 285.4Q667.4 291.5 663.1 294.9Q658.8 298.4 651.4 298.4Z" fill="#0F4C5C"/>
+</svg>
+</div></div>
+      <div class="prancha oceano"><div class="emp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 799 337.79" role="img" aria-label="ALOHA NOTÍCIAS">
+  <path d="M43 183.6 99 42.4H127.4L182.8 183.6H149.6L107.2 66.4H118.6L75.6 183.6ZM74.8 158V132.4H151.8V158Z" fill="#F4EDE4"/>
+  <path d="M201.4 183.6V42.4H232.8V183.6ZM225.6 183.6V156H295.4V183.6Z" fill="#F4EDE4"/>
+  <defs>
+    <clipPath id="o38-ceu_3"><path d="M302.3,120.3 C331.5,110.81 355.59,110.81 382.6,120.3 S433.7,129.79 462.9,120.3 L462.9,25.4 L302.3,25.4 Z"/></clipPath>
+    <mask id="o38-m_3" maskUnits="userSpaceOnUse" x="307.6" y="38" width="150" height="150">
+      <circle cx="382.6" cy="113" r="73" fill="#fff"/>
+      <circle cx="382.6" cy="113" r="49.64" fill="#000" clip-path="url(#o38-ceu_3)"/>
+      <path d="M302.3,145.12 C331.5,135.63 355.59,135.63 382.6,145.12 S433.7,154.61 462.9,145.12" fill="none" stroke="#000" stroke-width="9.49"/>
+    </mask>
+  </defs>
+  <circle cx="382.6" cy="113" r="73" fill="#F4EDE4" mask="url(#o38-m_3)"/>
+  <path d="M478.8 183.6V42.4H510.2V183.6ZM566.2 183.6V42.4H597.8V183.6ZM497.6 124.6V97.4H576.6V124.6Z" fill="#F4EDE4"/>
+  <path d="M616.2 183.6 672.2 42.4H700.6L756 183.6H722.8L680.4 66.4H691.8L648.8 183.6ZM648 158V132.4H725V158Z" fill="#F4EDE4"/>
+  <path d="M133.9 297.8V254.2H139.8L142.4 262.6V297.8ZM164.1 297.8 138.2 264.3 139.8 254.2 165.7 287.7ZM164.1 297.8 161.6 289.6V254.2H170.1V297.8Z" fill="#F4EDE4"/>
+  <path d="M235 298.5Q230.3 298.5 226.1 296.7Q222 295 219 291.9Q215.9 288.9 214.2 284.7Q212.4 280.6 212.4 275.9Q212.4 271.2 214.1 267.1Q215.8 263.1 218.9 260Q222 256.9 226.1 255.2Q230.1 253.5 234.9 253.5Q239.8 253.5 243.8 255.2Q247.9 256.9 251 260Q254.1 263.1 255.8 267.2Q257.6 271.2 257.6 276Q257.6 280.7 255.8 284.8Q254.1 288.9 251 291.9Q247.9 295 243.9 296.7Q239.8 298.5 235 298.5ZM234.9 290.6Q239.1 290.6 242.2 288.7Q245.3 286.9 247.1 283.6Q248.9 280.3 248.9 275.9Q248.9 272.7 247.9 270Q246.9 267.3 245 265.4Q243.2 263.4 240.6 262.4Q238.1 261.3 234.9 261.3Q230.8 261.3 227.7 263.2Q224.6 265 222.8 268.3Q221 271.6 221 275.9Q221 279.2 222.1 281.9Q223.1 284.6 224.9 286.6Q226.7 288.5 229.3 289.5Q231.9 290.6 234.9 290.6Z" fill="#F4EDE4"/>
+  <path d="M310.7 297.8V255.1H319.2V297.8ZM296.8 261.7V254.2H333.1V261.7Z" fill="#F4EDE4"/>
+  <path d="M374.5 297.8V254.2H383V297.8ZM374.8 250.4 371.7 246.5 380.6 236.8 385.8 243.2Z" fill="#F4EDE4"/>
+  <path d="M447.8 298.4Q443 298.4 438.9 296.7Q434.8 295 431.7 291.9Q428.7 288.9 427 284.8Q425.4 280.7 425.4 276Q425.4 271.2 427 267.2Q428.7 263.1 431.7 260Q434.8 257 438.9 255.3Q442.9 253.5 447.8 253.5Q453 253.5 456.9 255.2Q460.9 256.9 463.9 259.9L458.2 265.6Q456.4 263.6 453.8 262.5Q451.2 261.4 447.8 261.4Q444.7 261.4 442.2 262.4Q439.7 263.4 437.8 265.4Q436 267.3 435 270Q434 272.7 434 276Q434 279.2 435 281.9Q436 284.6 437.8 286.5Q439.7 288.5 442.2 289.5Q444.7 290.6 447.8 290.6Q451.4 290.6 454.1 289.5Q456.7 288.4 458.5 286.3L464.2 292Q461.2 295.1 457.1 296.7Q453.1 298.4 447.8 298.4Z" fill="#F4EDE4"/>
+  <path d="M505.7 297.8V254.2H514.2V297.8Z" fill="#F4EDE4"/>
+  <path d="M555.5 297.8 573.1 254.2H580L597.4 297.8H588.4L574.9 262H578L564.3 297.8ZM564.8 289.7V282.6H588.3V289.7Z" fill="#F4EDE4"/>
+  <path d="M651.4 298.4Q646.1 298.4 642.4 296.6Q638.6 294.8 635.6 291.2L641.1 285.6Q643.1 288.2 645.6 289.6Q648.2 291 651.8 291Q655.1 291 657 289.7Q659 288.4 659 286.1Q659 284.1 657.9 282.8Q656.8 281.6 654.9 280.7Q653.1 279.9 650.9 279.2Q648.7 278.4 646.5 277.5Q644.3 276.6 642.5 275.2Q640.6 273.8 639.5 271.6Q638.4 269.4 638.4 266Q638.4 262.1 640.3 259.3Q642.3 256.5 645.6 255Q649 253.5 653.2 253.5Q657.6 253.5 661.2 255.2Q664.8 256.9 667.1 259.5L661.5 265.1Q659.6 263 657.6 262Q655.6 261 653 261Q650.1 261 648.5 262.1Q646.8 263.3 646.8 265.4Q646.8 267.2 647.9 268.3Q649 269.4 650.8 270.2Q652.7 271 654.9 271.7Q657.1 272.5 659.3 273.4Q661.5 274.4 663.3 275.8Q665.1 277.3 666.3 279.7Q667.4 282 667.4 285.4Q667.4 291.5 663.1 294.9Q658.8 298.4 651.4 298.4Z" fill="#F4EDE4"/>
+</svg>
+</div></div>
+    </div>
+    <div class="legenda">Positivo em azul-oceano sobre areia ou fundo claro. Negativo em areia sobre azul-oceano.</div>
+  </div>
+</div></section>
+
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>O símbolo</h2><p>O "O" é o único elemento gráfico da marca. Nenhum ícone extra acompanha o nome.</p></div>
+  <div class="conteudo">
+    <div class="anatomia">
+      <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="ALOHA">
+  <defs>
+    <clipPath id="os-ceu_4"><path d="M-5.6,109.6 C32.8,97.12 64.48,97.12 100,109.6 S167.2,122.08 205.6,109.6 L205.6,-15.2 L-5.6,-15.2 Z"/></clipPath>
+    <mask id="os-m_4" maskUnits="userSpaceOnUse" x="2" y="2" width="196" height="196">
+      <circle cx="100" cy="100" r="96" fill="#fff"/>
+      <circle cx="100" cy="100" r="65.28" fill="#000" clip-path="url(#os-ceu_4)"/>
+      <path d="M-5.6,142.24 C32.8,129.76 64.48,129.76 100,142.24 S167.2,154.72 205.6,142.24" fill="none" stroke="#000" stroke-width="12.48"/>
+    </mask>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="#0F4C5C" mask="url(#os-m_4)"/>
+</svg>
+</div>
+      <ol>
+        <li><b>Anel grosso.</b> Mesma presença dos traços do Outfit Bold, para o O não destoar das outras letras.</li>
+        <li><b>Mar preenchido.</b> Ocupa a metade de baixo do anel, com a superfície levemente ondulada.</li>
+        <li><b>Onda clara.</b> Um traço vazado que corta o anel de lado a lado. Ele é transparente, então mostra a cor do fundo em qualquer aplicação.</li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Ícone e favicon</h2><p>O "O" sozinho sobre azul-oceano. Abaixo de 32 px o favicon usa onda e anel um pouco mais grossos.</p></div>
+  <div class="conteudo">
+    <div class="icones">
+      <figure><div style="width:160px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ALOHA NOTÍCIAS">
+  <rect width="512" height="512" rx="112" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="ic-ceu_5"><path d="M71.2,272.8 C138.4,250.96 193.84,250.96 256,272.8 S373.6,294.64 440.8,272.8 L440.8,54.4 L71.2,54.4 Z"/></clipPath>
+    <mask id="ic-m_5" maskUnits="userSpaceOnUse" x="86" y="86" width="340" height="340">
+      <circle cx="256" cy="256" r="168" fill="#fff"/>
+      <circle cx="256" cy="256" r="114.24" fill="#000" clip-path="url(#ic-ceu_5)"/>
+      <path d="M71.2,329.92 C138.4,308.08 193.84,308.08 256,329.92 S373.6,351.76 440.8,329.92" fill="none" stroke="#000" stroke-width="21.84"/>
+    </mask>
+  </defs>
+  <circle cx="256" cy="256" r="168" fill="#F4EDE4" mask="url(#ic-m_5)"/>
+</svg>
+</div><figcaption>App · 512 px</figcaption></figure>
+      <figure><div style="width:64px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ALOHA NOTÍCIAS">
+  <rect width="64" height="64" rx="14" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="fv-ceu_6"><path d="M5.6,34.4 C15.2,31.28 23.12,31.28 32,34.4 S48.8,37.52 58.4,34.4 L58.4,3.2 L5.6,3.2 Z"/></clipPath>
+    <mask id="fv-m_6" maskUnits="userSpaceOnUse" x="6" y="6" width="52" height="52">
+      <circle cx="32" cy="32" r="24" fill="#fff"/>
+      <circle cx="32" cy="32" r="15.6" fill="#000" clip-path="url(#fv-ceu_6)"/>
+      <path d="M5.6,43.04 C15.2,39.92 23.12,39.92 32,43.04 S48.8,46.16 58.4,43.04" fill="none" stroke="#000" stroke-width="4.08"/>
+    </mask>
+  </defs>
+  <circle cx="32" cy="32" r="24" fill="#F4EDE4" mask="url(#fv-m_6)"/>
+</svg>
+</div><figcaption>64 px</figcaption></figure>
+      <figure><div style="width:32px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ALOHA NOTÍCIAS">
+  <rect width="64" height="64" rx="14" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="fv-ceu_7"><path d="M5.6,34.4 C15.2,31.28 23.12,31.28 32,34.4 S48.8,37.52 58.4,34.4 L58.4,3.2 L5.6,3.2 Z"/></clipPath>
+    <mask id="fv-m_7" maskUnits="userSpaceOnUse" x="6" y="6" width="52" height="52">
+      <circle cx="32" cy="32" r="24" fill="#fff"/>
+      <circle cx="32" cy="32" r="15.6" fill="#000" clip-path="url(#fv-ceu_7)"/>
+      <path d="M5.6,43.04 C15.2,39.92 23.12,39.92 32,43.04 S48.8,46.16 58.4,43.04" fill="none" stroke="#000" stroke-width="4.08"/>
+    </mask>
+  </defs>
+  <circle cx="32" cy="32" r="24" fill="#F4EDE4" mask="url(#fv-m_7)"/>
+</svg>
+</div><figcaption>32 px</figcaption></figure>
+      <figure><div style="width:16px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ALOHA NOTÍCIAS">
+  <rect width="64" height="64" rx="14" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="fv-ceu_8"><path d="M5.6,34.4 C15.2,31.28 23.12,31.28 32,34.4 S48.8,37.52 58.4,34.4 L58.4,3.2 L5.6,3.2 Z"/></clipPath>
+    <mask id="fv-m_8" maskUnits="userSpaceOnUse" x="6" y="6" width="52" height="52">
+      <circle cx="32" cy="32" r="24" fill="#fff"/>
+      <circle cx="32" cy="32" r="15.6" fill="#000" clip-path="url(#fv-ceu_8)"/>
+      <path d="M5.6,43.04 C15.2,39.92 23.12,39.92 32,43.04 S48.8,46.16 58.4,43.04" fill="none" stroke="#000" stroke-width="4.08"/>
+    </mask>
+  </defs>
+  <circle cx="32" cy="32" r="24" fill="#F4EDE4" mask="url(#fv-m_8)"/>
+</svg>
+</div><figcaption>16 px</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Versão em linha</h2><p>Para o cabeçalho do site e espaços baixos e largos. Altura mínima de 20 px na tela.</p></div>
+  <div class="conteudo">
+    <div class="pranchas">
+      <div class="prancha fundo" style="min-height:140px;padding:40px 24px"><div style="width:min(300px,100%)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538.86 83.7" role="img" aria-label="ALOHA NOTÍCIAS">
+  <path d="M12.9 71 29.7 28.6H38.2L54.8 71H44.9L32.2 35.8H35.6L22.7 71ZM22.4 63.3V55.6H45.5V63.3Z" fill="#0F4C5C"/>
+  <path d="M60.4 71V28.6H69.8V71ZM67.7 71V62.7H88.6V71Z" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="o25-ceu_9"><path d="M90.69,51.99 C99.45,49.14 106.68,49.14 114.78,51.99 S130.11,54.84 138.87,51.99 L138.87,23.52 L90.69,23.52 Z"/></clipPath>
+    <mask id="o25-m_9" maskUnits="userSpaceOnUse" x="90.88" y="25.9" width="47.8" height="47.8">
+      <circle cx="114.78" cy="49.8" r="21.9" fill="#fff"/>
+      <circle cx="114.78" cy="49.8" r="14.89" fill="#000" clip-path="url(#o25-ceu_9)"/>
+      <path d="M90.69,59.44 C99.45,56.59 106.68,56.59 114.78,59.44 S130.11,62.28 138.87,59.44" fill="none" stroke="#000" stroke-width="2.85"/>
+    </mask>
+  </defs>
+  <circle cx="114.78" cy="49.8" r="21.9" fill="#0F4C5C" mask="url(#o25-m_9)"/>
+  <path d="M143.6 71V28.6H153.1V71ZM169.9 71V28.6H179.3V71ZM149.3 53.3V45.1H173V53.3Z" fill="#0F4C5C"/>
+  <path d="M184.9 71 201.7 28.6H210.2L226.8 71H216.8L204.1 35.8H207.5L194.6 71ZM194.4 63.3V55.6H217.5V63.3Z" fill="#0F4C5C"/>
+  <path d="M245.8 71V28.8H251.5L254 37V71ZM275 71 250 38.6 251.5 28.8 276.5 61.2ZM275 71 272.6 63.1V28.8H280.9V71Z" fill="#0F4C5C"/>
+  <path d="M309.8 71.6Q305.2 71.6 301.2 70Q297.2 68.3 294.2 65.3Q291.2 62.3 289.6 58.3Q287.9 54.4 287.9 49.8Q287.9 45.2 289.5 41.3Q291.2 37.4 294.1 34.4Q297.1 31.4 301.1 29.8Q305 28.1 309.7 28.1Q314.3 28.1 318.3 29.8Q322.3 31.4 325.2 34.4Q328.2 37.4 329.9 41.3Q331.6 45.3 331.6 49.9Q331.6 54.4 329.9 58.4Q328.2 62.3 325.2 65.3Q322.3 68.3 318.3 70Q314.4 71.6 309.8 71.6ZM309.7 64Q313.7 64 316.7 62.2Q319.7 60.4 321.5 57.2Q323.2 54.1 323.2 49.8Q323.2 46.7 322.2 44.1Q321.2 41.5 319.4 39.6Q317.6 37.7 315.2 36.7Q312.7 35.7 309.7 35.7Q305.7 35.7 302.7 37.5Q299.6 39.2 297.9 42.4Q296.2 45.6 296.2 49.8Q296.2 53 297.2 55.6Q298.2 58.3 300 60.1Q301.7 62 304.2 63Q306.7 64 309.7 64Z" fill="#0F4C5C"/>
+  <path d="M349.1 71V29.7H357.3V71ZM335.6 36.1V28.8H370.7V36.1Z" fill="#0F4C5C"/>
+  <path d="M377 71V28.8H385.1V71ZM377.2 25.1 374.2 21.4 382.9 12 387.9 18.1Z" fill="#0F4C5C"/>
+  <path d="M413.9 71.6Q409.3 71.6 405.4 69.9Q401.4 68.3 398.4 65.3Q395.5 62.3 393.9 58.4Q392.3 54.4 392.3 49.9Q392.3 45.3 393.9 41.3Q395.5 37.4 398.4 34.4Q401.4 31.5 405.3 29.8Q409.3 28.1 413.9 28.1Q419 28.1 422.8 29.8Q426.7 31.4 429.6 34.3L424.1 39.8Q422.3 37.9 419.8 36.8Q417.3 35.8 413.9 35.8Q411 35.8 408.6 36.7Q406.1 37.7 404.3 39.6Q402.5 41.5 401.6 44.1Q400.6 46.7 400.6 49.9Q400.6 53 401.6 55.6Q402.5 58.2 404.3 60.1Q406.1 62 408.6 63Q411 64 413.9 64Q417.5 64 420 62.9Q422.6 61.9 424.3 59.9L429.8 65.4Q426.9 68.3 423 70Q419.1 71.6 413.9 71.6Z" fill="#0F4C5C"/>
+  <path d="M436.1 71V28.8H444.3V71Z" fill="#0F4C5C"/>
+  <path d="M450.4 71 467.4 28.8H474.1L491 71H482.3L469.2 36.4H472.2L458.9 71ZM459.4 63.1V56.3H482.1V63.1Z" fill="#0F4C5C"/>
+  <path d="M509.3 71.6Q504.2 71.6 500.6 69.8Q496.9 68.1 494 64.6L499.4 59.2Q501.2 61.7 503.7 63Q506.2 64.4 509.7 64.4Q512.9 64.4 514.8 63.1Q516.7 61.9 516.7 59.6Q516.7 57.7 515.6 56.5Q514.5 55.3 512.7 54.5Q511 53.6 508.8 52.9Q506.7 52.3 504.6 51.4Q502.4 50.5 500.7 49.1Q498.9 47.8 497.8 45.6Q496.7 43.5 496.7 40.3Q496.7 36.4 498.6 33.7Q500.5 31 503.7 29.6Q506.9 28.1 511 28.1Q515.3 28.1 518.8 29.8Q522.3 31.4 524.5 34L519.1 39.4Q517.3 37.3 515.3 36.4Q513.4 35.4 510.9 35.4Q508.1 35.4 506.5 36.5Q504.8 37.6 504.8 39.6Q504.8 41.3 505.9 42.4Q507 43.5 508.8 44.3Q510.5 45.1 512.7 45.8Q514.8 46.5 516.9 47.4Q519.1 48.3 520.8 49.7Q522.6 51.2 523.7 53.4Q524.8 55.7 524.8 59Q524.8 64.9 520.6 68.2Q516.5 71.6 509.3 71.6Z" fill="#0F4C5C"/>
+</svg>
+</div></div>
+      <div class="prancha oceano" style="min-height:140px;padding:40px 24px"><div style="width:min(300px,100%)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538.86 83.7" role="img" aria-label="ALOHA NOTÍCIAS">
+  <path d="M12.9 71 29.7 28.6H38.2L54.8 71H44.9L32.2 35.8H35.6L22.7 71ZM22.4 63.3V55.6H45.5V63.3Z" fill="#F4EDE4"/>
+  <path d="M60.4 71V28.6H69.8V71ZM67.7 71V62.7H88.6V71Z" fill="#F4EDE4"/>
+  <defs>
+    <clipPath id="o34-ceu_10"><path d="M90.69,51.99 C99.45,49.14 106.68,49.14 114.78,51.99 S130.11,54.84 138.87,51.99 L138.87,23.52 L90.69,23.52 Z"/></clipPath>
+    <mask id="o34-m_10" maskUnits="userSpaceOnUse" x="90.88" y="25.9" width="47.8" height="47.8">
+      <circle cx="114.78" cy="49.8" r="21.9" fill="#fff"/>
+      <circle cx="114.78" cy="49.8" r="14.89" fill="#000" clip-path="url(#o34-ceu_10)"/>
+      <path d="M90.69,59.44 C99.45,56.59 106.68,56.59 114.78,59.44 S130.11,62.28 138.87,59.44" fill="none" stroke="#000" stroke-width="2.85"/>
+    </mask>
+  </defs>
+  <circle cx="114.78" cy="49.8" r="21.9" fill="#F4EDE4" mask="url(#o34-m_10)"/>
+  <path d="M143.6 71V28.6H153.1V71ZM169.9 71V28.6H179.3V71ZM149.3 53.3V45.1H173V53.3Z" fill="#F4EDE4"/>
+  <path d="M184.9 71 201.7 28.6H210.2L226.8 71H216.8L204.1 35.8H207.5L194.6 71ZM194.4 63.3V55.6H217.5V63.3Z" fill="#F4EDE4"/>
+  <path d="M245.8 71V28.8H251.5L254 37V71ZM275 71 250 38.6 251.5 28.8 276.5 61.2ZM275 71 272.6 63.1V28.8H280.9V71Z" fill="#F4EDE4"/>
+  <path d="M309.8 71.6Q305.2 71.6 301.2 70Q297.2 68.3 294.2 65.3Q291.2 62.3 289.6 58.3Q287.9 54.4 287.9 49.8Q287.9 45.2 289.5 41.3Q291.2 37.4 294.1 34.4Q297.1 31.4 301.1 29.8Q305 28.1 309.7 28.1Q314.3 28.1 318.3 29.8Q322.3 31.4 325.2 34.4Q328.2 37.4 329.9 41.3Q331.6 45.3 331.6 49.9Q331.6 54.4 329.9 58.4Q328.2 62.3 325.2 65.3Q322.3 68.3 318.3 70Q314.4 71.6 309.8 71.6ZM309.7 64Q313.7 64 316.7 62.2Q319.7 60.4 321.5 57.2Q323.2 54.1 323.2 49.8Q323.2 46.7 322.2 44.1Q321.2 41.5 319.4 39.6Q317.6 37.7 315.2 36.7Q312.7 35.7 309.7 35.7Q305.7 35.7 302.7 37.5Q299.6 39.2 297.9 42.4Q296.2 45.6 296.2 49.8Q296.2 53 297.2 55.6Q298.2 58.3 300 60.1Q301.7 62 304.2 63Q306.7 64 309.7 64Z" fill="#F4EDE4"/>
+  <path d="M349.1 71V29.7H357.3V71ZM335.6 36.1V28.8H370.7V36.1Z" fill="#F4EDE4"/>
+  <path d="M377 71V28.8H385.1V71ZM377.2 25.1 374.2 21.4 382.9 12 387.9 18.1Z" fill="#F4EDE4"/>
+  <path d="M413.9 71.6Q409.3 71.6 405.4 69.9Q401.4 68.3 398.4 65.3Q395.5 62.3 393.9 58.4Q392.3 54.4 392.3 49.9Q392.3 45.3 393.9 41.3Q395.5 37.4 398.4 34.4Q401.4 31.5 405.3 29.8Q409.3 28.1 413.9 28.1Q419 28.1 422.8 29.8Q426.7 31.4 429.6 34.3L424.1 39.8Q422.3 37.9 419.8 36.8Q417.3 35.8 413.9 35.8Q411 35.8 408.6 36.7Q406.1 37.7 404.3 39.6Q402.5 41.5 401.6 44.1Q400.6 46.7 400.6 49.9Q400.6 53 401.6 55.6Q402.5 58.2 404.3 60.1Q406.1 62 408.6 63Q411 64 413.9 64Q417.5 64 420 62.9Q422.6 61.9 424.3 59.9L429.8 65.4Q426.9 68.3 423 70Q419.1 71.6 413.9 71.6Z" fill="#F4EDE4"/>
+  <path d="M436.1 71V28.8H444.3V71Z" fill="#F4EDE4"/>
+  <path d="M450.4 71 467.4 28.8H474.1L491 71H482.3L469.2 36.4H472.2L458.9 71ZM459.4 63.1V56.3H482.1V63.1Z" fill="#F4EDE4"/>
+  <path d="M509.3 71.6Q504.2 71.6 500.6 69.8Q496.9 68.1 494 64.6L499.4 59.2Q501.2 61.7 503.7 63Q506.2 64.4 509.7 64.4Q512.9 64.4 514.8 63.1Q516.7 61.9 516.7 59.6Q516.7 57.7 515.6 56.5Q514.5 55.3 512.7 54.5Q511 53.6 508.8 52.9Q506.7 52.3 504.6 51.4Q502.4 50.5 500.7 49.1Q498.9 47.8 497.8 45.6Q496.7 43.5 496.7 40.3Q496.7 36.4 498.6 33.7Q500.5 31 503.7 29.6Q506.9 28.1 511 28.1Q515.3 28.1 518.8 29.8Q522.3 31.4 524.5 34L519.1 39.4Q517.3 37.3 515.3 36.4Q513.4 35.4 510.9 35.4Q508.1 35.4 506.5 36.5Q504.8 37.6 504.8 39.6Q504.8 41.3 505.9 42.4Q507 43.5 508.8 44.3Q510.5 45.1 512.7 45.8Q514.8 46.5 516.9 47.4Q519.1 48.3 520.8 49.7Q522.6 51.2 523.7 53.4Q524.8 55.7 524.8 59Q524.8 64.9 520.6 68.2Q516.5 71.6 509.3 71.6Z" fill="#F4EDE4"/>
+</svg>
+</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Cores</h2><p>Azul-oceano e areia carregam a marca. Coral entra só como destaque pontual.</p></div>
+  <div class="conteudo">
+    <div class="cores">
+      <div class="cor"><div class="amostra" style="background:var(--oceano)"></div><div class="info"><strong>Azul-oceano</strong><code>#0F4C5C · RGB 15 76 92</code><div class="uso">Logo, títulos, cabeçalho, rodapé. Contraste 8,9:1 sobre o fundo.</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--areia)"></div><div class="info"><strong>Areia</strong><code>#F4EDE4 · RGB 244 237 228</code><div class="uso">Blocos, cartões e logo em negativo.</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--fundo)"></div><div class="info"><strong>Fundo claro</strong><code>#FBF7F1 · RGB 251 247 241</code><div class="uso">Fundo das páginas e da leitura.</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--coral)"></div><div class="info"><strong>Coral</strong><code>#E76F51 · RGB 231 111 81</code><div class="uso">Opcional. Selos como "Ao vivo" e marcadores. Não usar em texto pequeno (2,9:1).</div></div></div>
+    </div>
+    <div class="apoio">
+      <span><i style="background:var(--tinta)"></i>Tinta #1E2A2D, texto corrido</span>
+      <span><i style="background:var(--mare)"></i>Maré #5B6B6E, datas e legendas</span>
+      <span><i style="background:var(--coral-texto)"></i>Coral-texto #B4492F, quando o coral precisar virar texto</span>
+      <span><i style="background:var(--linha)"></i>Linha #E6DDD0, divisórias</span>
+    </div>
+    <div class="legenda">As cores de apoio são sugestões minhas, derivadas da paleta para garantir leitura confortável.</div>
+  </div>
+</div></section>
+
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Tipografia</h2><p>Outfit para a marca e a interface. Para o texto das matérias, sugiro uma serifada de leitura.</p></div>
+  <div class="conteudo">
+    <div class="tipos">
+      <div class="tipo">
+        <div class="nome">Outfit · títulos e interface</div>
+        <div class="gigante" style="font-weight:700">Aa</div>
+        <div class="escala">
+          <div><small>Bold 700</small><span style="font-weight:700;font-size:1.4rem;color:var(--oceano)">Maré alta em Waikiki</span></div>
+          <div><small>SemiBold 600</small><span style="font-weight:600;font-size:1.15rem">Ilhas, cultura e oceano</span></div>
+          <div><small>Medium 500</small><span style="font-weight:500">Política · Esporte · Clima</span></div>
+          <div><small>Regular 400</small><span>Atualizado há 12 minutos</span></div>
+        </div>
+      </div>
+      <div class="tipo">
+        <div class="nome">Newsreader · corpo das matérias (sugestão)</div>
+        <div class="gigante" style="font-family:var(--f-texto)">Aa</div>
+        <p style="margin:0;font-family:var(--f-texto);font-size:1.12rem;line-height:1.6">A temporada de swell no North Shore começou mais cedo este ano. Pescadores e surfistas relatam ondulações de até seis metros em Pipeline, e a guarda costeira reforçou o aviso para banhistas.</p>
+      </div>
+    </div>
+    <div class="legenda">Escala sugerida (razão 1,25): 13 · 14 · 17 · 21 · 27 · 33 · 42 px.</div>
+  </div>
+</div></section>
+
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Uso do logo</h2><p>Regras curtas para manter a marca limpa.</p></div>
+  <div class="conteudo">
+    <div class="regras">
+      <div><h3>Fazer</h3><ul>
+        <li>Deixar em volta do logo uma margem livre igual à metade da altura do "O".</li>
+        <li>Usar o empilhado a partir de 120 px de largura. Abaixo disso, usar a versão em linha.</li>
+        <li>Aplicar só em azul-oceano ou areia, sobre fundos lisos.</li>
+      </ul></div>
+      <div class="nao"><h3>Evitar</h3><ul>
+        <li>Coral no logo ou no "O".</li>
+        <li>Adicionar flores, palmeiras ou outros ícones ao lado do nome.</li>
+        <li>Esticar, girar, contornar ou colocar sombra.</li>
+        <li>Aplicar sobre fotos movimentadas.</li>
+      </ul></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="secao"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Aplicação: página inicial</h2><p>Proposta de base para o site de notícias. Conteúdo de exemplo.</p></div>
+  <div class="conteudo">
+    <div class="site">
+      <div class="site-top">
+        <div class="linha1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 538.86 83.7" role="img" aria-label="ALOHA NOTÍCIAS">
+  <path d="M12.9 71 29.7 28.6H38.2L54.8 71H44.9L32.2 35.8H35.6L22.7 71ZM22.4 63.3V55.6H45.5V63.3Z" fill="#0F4C5C"/>
+  <path d="M60.4 71V28.6H69.8V71ZM67.7 71V62.7H88.6V71Z" fill="#0F4C5C"/>
+  <defs>
+    <clipPath id="o25-ceu_11"><path d="M90.69,51.99 C99.45,49.14 106.68,49.14 114.78,51.99 S130.11,54.84 138.87,51.99 L138.87,23.52 L90.69,23.52 Z"/></clipPath>
+    <mask id="o25-m_11" maskUnits="userSpaceOnUse" x="90.88" y="25.9" width="47.8" height="47.8">
+      <circle cx="114.78" cy="49.8" r="21.9" fill="#fff"/>
+      <circle cx="114.78" cy="49.8" r="14.89" fill="#000" clip-path="url(#o25-ceu_11)"/>
+      <path d="M90.69,59.44 C99.45,56.59 106.68,56.59 114.78,59.44 S130.11,62.28 138.87,59.44" fill="none" stroke="#000" stroke-width="2.85"/>
+    </mask>
+  </defs>
+  <circle cx="114.78" cy="49.8" r="21.9" fill="#0F4C5C" mask="url(#o25-m_11)"/>
+  <path d="M143.6 71V28.6H153.1V71ZM169.9 71V28.6H179.3V71ZM149.3 53.3V45.1H173V53.3Z" fill="#0F4C5C"/>
+  <path d="M184.9 71 201.7 28.6H210.2L226.8 71H216.8L204.1 35.8H207.5L194.6 71ZM194.4 63.3V55.6H217.5V63.3Z" fill="#0F4C5C"/>
+  <path d="M245.8 71V28.8H251.5L254 37V71ZM275 71 250 38.6 251.5 28.8 276.5 61.2ZM275 71 272.6 63.1V28.8H280.9V71Z" fill="#0F4C5C"/>
+  <path d="M309.8 71.6Q305.2 71.6 301.2 70Q297.2 68.3 294.2 65.3Q291.2 62.3 289.6 58.3Q287.9 54.4 287.9 49.8Q287.9 45.2 289.5 41.3Q291.2 37.4 294.1 34.4Q297.1 31.4 301.1 29.8Q305 28.1 309.7 28.1Q314.3 28.1 318.3 29.8Q322.3 31.4 325.2 34.4Q328.2 37.4 329.9 41.3Q331.6 45.3 331.6 49.9Q331.6 54.4 329.9 58.4Q328.2 62.3 325.2 65.3Q322.3 68.3 318.3 70Q314.4 71.6 309.8 71.6ZM309.7 64Q313.7 64 316.7 62.2Q319.7 60.4 321.5 57.2Q323.2 54.1 323.2 49.8Q323.2 46.7 322.2 44.1Q321.2 41.5 319.4 39.6Q317.6 37.7 315.2 36.7Q312.7 35.7 309.7 35.7Q305.7 35.7 302.7 37.5Q299.6 39.2 297.9 42.4Q296.2 45.6 296.2 49.8Q296.2 53 297.2 55.6Q298.2 58.3 300 60.1Q301.7 62 304.2 63Q306.7 64 309.7 64Z" fill="#0F4C5C"/>
+  <path d="M349.1 71V29.7H357.3V71ZM335.6 36.1V28.8H370.7V36.1Z" fill="#0F4C5C"/>
+  <path d="M377 71V28.8H385.1V71ZM377.2 25.1 374.2 21.4 382.9 12 387.9 18.1Z" fill="#0F4C5C"/>
+  <path d="M413.9 71.6Q409.3 71.6 405.4 69.9Q401.4 68.3 398.4 65.3Q395.5 62.3 393.9 58.4Q392.3 54.4 392.3 49.9Q392.3 45.3 393.9 41.3Q395.5 37.4 398.4 34.4Q401.4 31.5 405.3 29.8Q409.3 28.1 413.9 28.1Q419 28.1 422.8 29.8Q426.7 31.4 429.6 34.3L424.1 39.8Q422.3 37.9 419.8 36.8Q417.3 35.8 413.9 35.8Q411 35.8 408.6 36.7Q406.1 37.7 404.3 39.6Q402.5 41.5 401.6 44.1Q400.6 46.7 400.6 49.9Q400.6 53 401.6 55.6Q402.5 58.2 404.3 60.1Q406.1 62 408.6 63Q411 64 413.9 64Q417.5 64 420 62.9Q422.6 61.9 424.3 59.9L429.8 65.4Q426.9 68.3 423 70Q419.1 71.6 413.9 71.6Z" fill="#0F4C5C"/>
+  <path d="M436.1 71V28.8H444.3V71Z" fill="#0F4C5C"/>
+  <path d="M450.4 71 467.4 28.8H474.1L491 71H482.3L469.2 36.4H472.2L458.9 71ZM459.4 63.1V56.3H482.1V63.1Z" fill="#0F4C5C"/>
+  <path d="M509.3 71.6Q504.2 71.6 500.6 69.8Q496.9 68.1 494 64.6L499.4 59.2Q501.2 61.7 503.7 63Q506.2 64.4 509.7 64.4Q512.9 64.4 514.8 63.1Q516.7 61.9 516.7 59.6Q516.7 57.7 515.6 56.5Q514.5 55.3 512.7 54.5Q511 53.6 508.8 52.9Q506.7 52.3 504.6 51.4Q502.4 50.5 500.7 49.1Q498.9 47.8 497.8 45.6Q496.7 43.5 496.7 40.3Q496.7 36.4 498.6 33.7Q500.5 31 503.7 29.6Q506.9 28.1 511 28.1Q515.3 28.1 518.8 29.8Q522.3 31.4 524.5 34L519.1 39.4Q517.3 37.3 515.3 36.4Q513.4 35.4 510.9 35.4Q508.1 35.4 506.5 36.5Q504.8 37.6 504.8 39.6Q504.8 41.3 505.9 42.4Q507 43.5 508.8 44.3Q510.5 45.1 512.7 45.8Q514.8 46.5 516.9 47.4Q519.1 48.3 520.8 49.7Q522.6 51.2 523.7 53.4Q524.8 55.7 524.8 59Q524.8 64.9 520.6 68.2Q516.5 71.6 509.3 71.6Z" fill="#0F4C5C"/>
+</svg>
+<span class="data">Sexta, 30 de outubro</span></div>
+        <nav class="site-nav"><span>Destaques</span><span>Ilhas</span><span>Política</span><span>Clima e Mar</span><span>Cultura</span><span>Esporte</span><span>Opinião</span></nav>
+      </div>
+      <div class="site-corpo">
+        <article class="manchete">
+          <div class="foto"></div>
+          <span class="selo vivo">Ao vivo</span>
+          <h3>Swell histórico fecha praias do North Shore pelo segundo dia</h3>
+          <p>Ondas de até seis metros atingem Pipeline e Sunset. Autoridades pedem que moradores evitem a orla até domingo.</p>
+        </article>
+        <div class="lista">
+          <article><div class="cat">Cultura</div><h4>Festival de hula reúne 40 hālau em Hilo</h4></article>
+          <article><div class="cat">Clima e Mar</div><h4>Temperatura do mar sobe 1,2 °C em relação à média de outubro</h4></article>
+          <article><div class="cat">Política</div><h4>Câmara de Honolulu aprova plano de transporte para 2027</h4></article>
+          <article><div class="cat">Esporte</div><h4>Surfista de Maui avança às quartas no circuito mundial</h4></article>
+        </div>
+      </div>
+      <footer class="site-rodape"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 799 337.79" role="img" aria-label="ALOHA NOTÍCIAS">
+  <path d="M43 183.6 99 42.4H127.4L182.8 183.6H149.6L107.2 66.4H118.6L75.6 183.6ZM74.8 158V132.4H151.8V158Z" fill="#F4EDE4"/>
+  <path d="M201.4 183.6V42.4H232.8V183.6ZM225.6 183.6V156H295.4V183.6Z" fill="#F4EDE4"/>
+  <defs>
+    <clipPath id="o38-ceu_12"><path d="M302.3,120.3 C331.5,110.81 355.59,110.81 382.6,120.3 S433.7,129.79 462.9,120.3 L462.9,25.4 L302.3,25.4 Z"/></clipPath>
+    <mask id="o38-m_12" maskUnits="userSpaceOnUse" x="307.6" y="38" width="150" height="150">
+      <circle cx="382.6" cy="113" r="73" fill="#fff"/>
+      <circle cx="382.6" cy="113" r="49.64" fill="#000" clip-path="url(#o38-ceu_12)"/>
+      <path d="M302.3,145.12 C331.5,135.63 355.59,135.63 382.6,145.12 S433.7,154.61 462.9,145.12" fill="none" stroke="#000" stroke-width="9.49"/>
+    </mask>
+  </defs>
+  <circle cx="382.6" cy="113" r="73" fill="#F4EDE4" mask="url(#o38-m_12)"/>
+  <path d="M478.8 183.6V42.4H510.2V183.6ZM566.2 183.6V42.4H597.8V183.6ZM497.6 124.6V97.4H576.6V124.6Z" fill="#F4EDE4"/>
+  <path d="M616.2 183.6 672.2 42.4H700.6L756 183.6H722.8L680.4 66.4H691.8L648.8 183.6ZM648 158V132.4H725V158Z" fill="#F4EDE4"/>
+  <path d="M133.9 297.8V254.2H139.8L142.4 262.6V297.8ZM164.1 297.8 138.2 264.3 139.8 254.2 165.7 287.7ZM164.1 297.8 161.6 289.6V254.2H170.1V297.8Z" fill="#F4EDE4"/>
+  <path d="M235 298.5Q230.3 298.5 226.1 296.7Q222 295 219 291.9Q215.9 288.9 214.2 284.7Q212.4 280.6 212.4 275.9Q212.4 271.2 214.1 267.1Q215.8 263.1 218.9 260Q222 256.9 226.1 255.2Q230.1 253.5 234.9 253.5Q239.8 253.5 243.8 255.2Q247.9 256.9 251 260Q254.1 263.1 255.8 267.2Q257.6 271.2 257.6 276Q257.6 280.7 255.8 284.8Q254.1 288.9 251 291.9Q247.9 295 243.9 296.7Q239.8 298.5 235 298.5ZM234.9 290.6Q239.1 290.6 242.2 288.7Q245.3 286.9 247.1 283.6Q248.9 280.3 248.9 275.9Q248.9 272.7 247.9 270Q246.9 267.3 245 265.4Q243.2 263.4 240.6 262.4Q238.1 261.3 234.9 261.3Q230.8 261.3 227.7 263.2Q224.6 265 222.8 268.3Q221 271.6 221 275.9Q221 279.2 222.1 281.9Q223.1 284.6 224.9 286.6Q226.7 288.5 229.3 289.5Q231.9 290.6 234.9 290.6Z" fill="#F4EDE4"/>
+  <path d="M310.7 297.8V255.1H319.2V297.8ZM296.8 261.7V254.2H333.1V261.7Z" fill="#F4EDE4"/>
+  <path d="M374.5 297.8V254.2H383V297.8ZM374.8 250.4 371.7 246.5 380.6 236.8 385.8 243.2Z" fill="#F4EDE4"/>
+  <path d="M447.8 298.4Q443 298.4 438.9 296.7Q434.8 295 431.7 291.9Q428.7 288.9 427 284.8Q425.4 280.7 425.4 276Q425.4 271.2 427 267.2Q428.7 263.1 431.7 260Q434.8 257 438.9 255.3Q442.9 253.5 447.8 253.5Q453 253.5 456.9 255.2Q460.9 256.9 463.9 259.9L458.2 265.6Q456.4 263.6 453.8 262.5Q451.2 261.4 447.8 261.4Q444.7 261.4 442.2 262.4Q439.7 263.4 437.8 265.4Q436 267.3 435 270Q434 272.7 434 276Q434 279.2 435 281.9Q436 284.6 437.8 286.5Q439.7 288.5 442.2 289.5Q444.7 290.6 447.8 290.6Q451.4 290.6 454.1 289.5Q456.7 288.4 458.5 286.3L464.2 292Q461.2 295.1 457.1 296.7Q453.1 298.4 447.8 298.4Z" fill="#F4EDE4"/>
+  <path d="M505.7 297.8V254.2H514.2V297.8Z" fill="#F4EDE4"/>
+  <path d="M555.5 297.8 573.1 254.2H580L597.4 297.8H588.4L574.9 262H578L564.3 297.8ZM564.8 289.7V282.6H588.3V289.7Z" fill="#F4EDE4"/>
+  <path d="M651.4 298.4Q646.1 298.4 642.4 296.6Q638.6 294.8 635.6 291.2L641.1 285.6Q643.1 288.2 645.6 289.6Q648.2 291 651.8 291Q655.1 291 657 289.7Q659 288.4 659 286.1Q659 284.1 657.9 282.8Q656.8 281.6 654.9 280.7Q653.1 279.9 650.9 279.2Q648.7 278.4 646.5 277.5Q644.3 276.6 642.5 275.2Q640.6 273.8 639.5 271.6Q638.4 269.4 638.4 266Q638.4 262.1 640.3 259.3Q642.3 256.5 645.6 255Q649 253.5 653.2 253.5Q657.6 253.5 661.2 255.2Q664.8 256.9 667.1 259.5L661.5 265.1Q659.6 263 657.6 262Q655.6 261 653 261Q650.1 261 648.5 262.1Q646.8 263.3 646.8 265.4Q646.8 267.2 647.9 268.3Q649 269.4 650.8 270.2Q652.7 271 654.9 271.7Q657.1 272.5 659.3 273.4Q661.5 274.4 663.3 275.8Q665.1 277.3 666.3 279.7Q667.4 282 667.4 285.4Q667.4 291.5 663.1 294.9Q658.8 298.4 651.4 298.4Z" fill="#F4EDE4"/>
+</svg>
+<small>© 2026 ALOHA NOTÍCIAS</small></footer>
+    </div>
+  </div>
+</div></section>
+
+<section class="secao" style="border-bottom:0"><div class="wrap secao-grid">
+  <div class="rotulo"><h2>Arquivos</h2><p>Estão na pasta do projeto.</p></div>
+  <div class="conteudo">
+    <div class="arquivos">
+      <div><strong>SVG</strong> · <code>aloha-noticias/marca/svg/</code> logo empilhado e em linha (positivo e negativo), símbolo O, ícone de app (arredondado e quadrado) e favicon.</div>
+      <div><strong>PNG</strong> · <code>aloha-noticias/marca/png/</code> favicon 16 e 32, apple-touch-icon 180, ícone 192 e 512, logos em 1600 px.</div>
+      <div><strong>CSS</strong> · <code>aloha-noticias/marca/aloha-tokens.css</code> cores, fontes e escala como variáveis.</div>
+    </div>
+  </div>
+</div></section>
+</main>
