@@ -15,7 +15,15 @@ def abrir(u, ref):
     if ref: h["Referer"] = "https://alohanoticias.com/"
     try:
         with urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=40) as r:
-            return f"{r.status} {r.headers.get('Content-Type')} {len(r.read(3_000_000))}b"
+            b = r.read(8_000_000)
+            dim = ""
+            try:
+                import io
+                from PIL import Image
+                dim = " %dx%d" % Image.open(io.BytesIO(b)).size
+            except Exception:
+                pass
+            return f"{r.status} {r.headers.get('Content-Type')} {len(b)}b{dim}"
     except Exception as e:
         return f"ERRO {e}"
 for u, onde in urls.items():
