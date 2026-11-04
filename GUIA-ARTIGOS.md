@@ -62,6 +62,16 @@ O site precisa ter pelo menos um artigo novo no ar todos os dias.
 - Se nenhum dos rascunhos passar na checagem de fatos, não publique algo duvidoso só para cumprir a meta: avise claramente na mensagem final que o dia ficou sem artigo e por quê.
 
 ## Capas e imagens (direitos autorais)
-- A capa de cada artigo deve ser **nossa**: ilustração original criada para o assunto, em SVG, no estilo limpo do site (fundo claro, poucas formas, paleta Maré), sempre ligada ao tema do artigo. Salve em site/assets/img/capas/<slug>.svg e gere também um PNG de mesmo nome, 1200x675 (usado no compartilhamento nas redes, que não leem SVG).
-- Pode usar recortes, formas, colagem e elementos personalizados que evoquem o assunto (cenário, objetos genéricos, cores, paisagem, silhuetas). **Não** use quadros de trailers, capas, pôsteres, prints de jogo, logotipos, personagens, marcas nem artes de terceiros, nem editados ou recortados: edição não torna a obra nossa e é risco de direitos autorais e de reprovação no AdSense.
-- Fotos dentro do texto só de bancos com licença livre (Unsplash, Pexels, Wikimedia Commons), com crédito. Vídeos entram por incorporação oficial do YouTube, nunca baixados.
+As capas devem parecer reais e chamativas, mas **nunca** podem usar material de terceiros com direito autoral: nada de quadros de trailer, capas de jogo, pôsteres, prints, logotipos, personagens ou marcas, nem editados ou recortados. Editar não torna a obra nossa e é risco de direitos autorais e de reprovação no AdSense.
+
+**Capa em colagem de fotos livres (padrão).** Monte a capa com 2 ou 3 fotos reais de bancos com licença livre (Unsplash, Pexels, Wikimedia Commons), todas relacionadas ao tema do artigo (o lugar, o clima, o objeto, a situação), no formato de painéis inclinados com divisórias brancas, como a do GTA 6.
+1. Ache as fotos. No Unsplash, abra a página da foto com WebFetch e peça o valor completo do og:image: o trecho `images.unsplash.com/photo-XXXX` é o endereço direto. Use sempre `https://images.unsplash.com/photo-XXXX?fm=jpg&q=80&w=1800&auto=format&fit=crop`. Anote o nome do fotógrafo. Não use a página unsplash.com/photos/... nem o endereço /download: exigem login.
+2. Crie site/capas_fotos/<slug>.json, por exemplo: `{"layout": "tres", "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, {...}, {...}]}`. Layouts: `tres` (3 fotos), `dois` (2 fotos), `um` (1 foto). `foco` escolhe a parte da foto que fica visível e `zoom` (1 ou mais) aproxima.
+3. No JSON do artigo, use `"imagem": {"url": "assets/img/capas/<slug>.jpg", "alt": "descrição fiel do que as fotos mostram", "credito": "Fotos: Nome1, Nome2 e Nome3 / Unsplash"}`.
+4. Faça commit e push. Uma automação do GitHub (capas.yml) baixa as fotos, monta site/assets/img/capas/<slug>.jpg (1200x675), regenera o site e faz commit em cerca de 2 minutos. Esta sessão não consegue baixar fotos; não tente montar a capa localmente. Se a capa ainda não existir, a prévia no admin mostra a imagem quebrada por alguns minutos, e isso é normal.
+5. Confira depois (git pull) abrindo o .jpg gerado. Se o resultado estiver ruim (corte estranho, foto fora do tema), ajuste foco/zoom, apague o .jpg e envie de novo.
+6. Escolha fotos bonitas, nítidas e coerentes entre si (cores que combinem). Nunca fotos com marcas visíveis em destaque, logotipos ou rostos reconhecíveis de pessoas famosas.
+
+**Fallback.** Se não houver fotos livres boas para o tema, use uma ilustração original em SVG (e um PNG de mesmo nome, 1200x675, para o compartilhamento nas redes) no estilo limpo do site.
+
+**Fotos dentro do texto**: só de bancos com licença livre, com crédito. **Vídeos**: apenas incorporação oficial do YouTube, nunca baixados.
