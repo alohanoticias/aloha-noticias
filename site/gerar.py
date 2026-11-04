@@ -156,6 +156,9 @@ def cabecalho(ativo):
 """
 
 
+NEWSLETTER_ATIVA = False  # ligue quando houver um serviço de e-mail conectado
+
+
 def newsletter():
     return """<section class="newsletter" aria-labelledby="titulo-news">
   <div class="wrap">
@@ -181,6 +184,7 @@ def rodape():
       <li><a href="sobre.html">Sobre nós</a></li>
       <li><a href="contato.html">Contato e anúncios</a></li>
       <li><a href="busca.html">Buscar</a></li>
+      <li><a href="politica-editorial.html">Política editorial</a></li>
       <li><a href="privacidade.html">Privacidade</a></li>
       <li><a href="feed.xml">RSS</a></li>
     </ul></div>
@@ -231,7 +235,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <main id="conteudo">
 {corpo}
 </main>
-{newsletter() if com_news else ""}
+{newsletter() if (com_news and NEWSLETTER_ATIVA) else ""}
 {rodape()}
 <script src="assets/js/site.js"></script>
 </body>
@@ -560,15 +564,41 @@ def main():
     arquivos["sobre.html"] = gerar_simples("Sobre nós", "Quem faz a ALOHA NOTÍCIAS.", """
 <p>A ALOHA NOTÍCIAS é um site de notícias para quem quer entender o que está acontecendo sem pressa e sem barulho. Cobrimos notícias em geral, cinema, games, tecnologia, curiosidades e finanças.</p>
 <h2>Como trabalhamos</h2>
-<p>Cada matéria cita suas fontes, separa fato de opinião e é corrigida de forma transparente quando erramos.</p>
+<p>Cada matéria cita suas fontes, separa fato de opinião e é corrigida de forma transparente quando erramos. Os detalhes estão na nossa <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>O nome</h2>
-<p><em>Aloha</em> é a saudação havaiana que também significa afeto e respeito. É assim que queremos tratar quem nos lê.</p>""")
+<p><em>Aloha</em> é a saudação havaiana que também significa afeto e respeito. É assim que queremos tratar quem nos lê.</p>
+<h2>Fale com a gente</h2>
+<p>Sugestões, correções e parcerias na página de <a href="contato.html">contato</a>.</p>""")
+    arquivos["politica-editorial.html"] = gerar_simples("Política editorial e de correções", "Como a ALOHA NOTÍCIAS apura, escreve, ilustra e corrige suas matérias.", """
+<p>Esta página explica, em linguagem simples, como o conteúdo da ALOHA NOTÍCIAS é feito. Se algo aqui não for cumprido, queremos saber.</p>
+<h2>Como apuramos</h2>
+<p>Procuramos confirmar cada informação importante em mais de uma fonte antes de publicar. Datas, preços e números só entram no texto quando aparecem nas fontes consultadas, que listamos no fim de cada matéria. Quando uma informação vem de uma fonte só, ou ainda não foi confirmada, dizemos isso no texto.</p>
+<h2>Uso de inteligência artificial</h2>
+<p>Usamos ferramentas de inteligência artificial como apoio à pesquisa e à redação. Nenhuma matéria é publicada sem a revisão e a aprovação de uma pessoa da equipe.</p>
+<h2>Fato e opinião</h2>
+<p>Separamos o que foi apurado do que é análise. Textos de opinião ou recomendação são identificados como tal.</p>
+<h2>Imagens e vídeos</h2>
+<p>Usamos fotos de bancos gratuitos, com o crédito do autor na legenda, ilustrações feitas para o site e, quando necessário, imagens de divulgação oficial ligadas ao assunto da matéria, também com crédito. O vídeo que aparece em uma matéria é incorporado do canal onde foi publicado. Se você é o autor ou o dono de uma imagem e quer que ela seja creditada de outra forma ou removida, escreva para a gente.</p>
+<h2>Correções</h2>
+<p>Quando encontramos um erro, corrigimos a matéria e indicamos a correção no texto. Se você encontrou um erro, envie a matéria e o que está incorreto pela página de <a href="contato.html">contato</a>. Respondemos o quanto antes.</p>
+<h2>Independência</h2>
+<p>Se uma matéria tiver publicidade, patrocínio ou parceria envolvida, isso será informado claramente ao leitor.</p>""")
     arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a redação da ALOHA NOTÍCIAS.", """
 <p>Sugestões de pauta, correções e parcerias são bem-vindas.</p>
 <h2>E-mail</h2><p><a href="mailto:alohanoticias@gmail.com">alohanoticias@gmail.com</a></p>""")
     arquivos["privacidade.html"] = gerar_simples("Privacidade", "Política de privacidade da ALOHA NOTÍCIAS.", """
-<p>Este site guarda no seu navegador apenas a sua preferência de tema claro ou escuro.</p>
-<p>Se você assinar a newsletter, o seu e-mail será usado só para o envio dela, e você poderá cancelar a qualquer momento.</p>""")
+<p>Última atualização: novembro de 2026. Respeitamos a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018). Aqui está, de forma direta, o que acontece com os seus dados quando você visita este site.</p>
+<h2>O que coletamos</h2>
+<p>Não pedimos cadastro e não usamos cookies de publicidade ou de rastreamento. Guardamos no seu próprio navegador apenas a sua preferência de tema claro ou escuro.</p>
+<p>Medimos o número de acessos com um serviço de estatísticas que não usa cookies e não identifica você pessoalmente (Cloudflare Web Analytics). Os dados vistos por nós são agregados, como páginas mais lidas, país e tipo de aparelho.</p>
+<h2>Serviços de terceiros</h2>
+<p>As fontes de letra vêm do Google Fonts. Fotos podem vir do Unsplash e vídeos são incorporados do YouTube, em modo de privacidade aprimorada (youtube-nocookie.com). Ao carregar esses conteúdos, esses serviços recebem o seu endereço de IP e podem ter regras próprias de privacidade. O site é hospedado pela Cloudflare.</p>
+<h2>E-mail de contato</h2>
+<p>Se você nos escrever, usaremos o seu e-mail apenas para responder. Não vendemos nem repassamos os seus dados.</p>
+<h2>Seus direitos</h2>
+<p>Você pode pedir informações sobre os dados que temos sobre você, a correção ou a exclusão deles, escrevendo pela página de <a href="contato.html">contato</a>.</p>
+<h2>Mudanças</h2>
+<p>Se esta política mudar, a data acima será atualizada. Se passarmos a usar cookies, anúncios ou newsletter, vamos avisar aqui antes.</p>""")
 
     for nome, conteudo in arquivos.items():
         c = "" if nome == "index.html" else nome
