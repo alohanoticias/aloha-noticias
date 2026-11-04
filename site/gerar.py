@@ -658,8 +658,8 @@ def main():
 <p>Esta página explica, em linguagem simples, como o conteúdo da ALOHA NOTÍCIAS é feito. Se algo aqui não for cumprido, queremos saber.</p>
 <h2>Como apuramos</h2>
 <p>Procuramos confirmar cada informação importante em mais de uma fonte antes de publicar. Datas, preços e números só entram no texto quando aparecem nas fontes consultadas, que listamos no fim de cada matéria. Quando uma informação vem de uma fonte só, ou ainda não foi confirmada, dizemos isso no texto.</p>
-<h2>Uso de inteligência artificial</h2>
-<p>Usamos ferramentas de inteligência artificial como apoio à pesquisa e à redação. Nenhuma matéria é publicada sem a revisão e a aprovação de uma pessoa da equipe.</p>
+<h2>Revisão antes de publicar</h2>
+<p>Nenhuma matéria vai ao ar sem a revisão e a aprovação de uma pessoa da equipe.</p>
 <h2>Fato e opinião</h2>
 <p>Separamos o que foi apurado do que é análise. Textos de opinião ou recomendação são identificados como tal.</p>
 <h2>Como escolhemos os assuntos</h2>
@@ -675,7 +675,7 @@ def main():
     arquivos["equipe.html"] = gerar_simples("Equipe Aloha", "Quem assina as matérias da ALOHA NOTÍCIAS e o que cobrimos.", f"""
 <p>Equipe Aloha é a assinatura da redação do ALOHA NOTÍCIAS, um site independente em português sobre cinema, games e tecnologia. Reúne quem pesquisa, escreve, monta as capas e revisa as matérias publicadas aqui.</p>
 <h2>Quem está por trás</h2>
-<p>O ALOHA NOTÍCIAS é um projeto editorial independente, mantido por uma equipe pequena, sem vínculo com estúdios, produtoras ou fabricantes. Usamos ferramentas de inteligência artificial como apoio à pesquisa e à redação, e toda matéria passa por revisão e aprovação de uma pessoa antes de ir ao ar.</p>
+<p>O ALOHA NOTÍCIAS é um projeto editorial independente, sem vínculo com estúdios, produtoras ou fabricantes. Toda matéria passa por revisão e aprovação de uma pessoa antes de ir ao ar.</p>
 <h2>O que você pode esperar</h2>
 <p>Informação conferida em mais de uma fonte, fontes citadas no fim de cada texto, rumores identificados como tal e correções feitas às claras. Se algo estiver errado, a gente quer saber.</p>
 <h2>O que cobrimos</h2>
