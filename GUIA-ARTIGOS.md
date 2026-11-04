@@ -108,6 +108,7 @@ Antes de escolher os assuntos do dia, leia `PAUTAS.md` (pautas por janela de pub
 ## Traduções (inglês e espanhol): obrigatório em todo rascunho
 O site tem versões reais em /en/ e /es/. Cada rascunho novo sai com o campo `"traducoes"` no mesmo JSON, com as chaves `"en"` e `"es"`. Cada uma leva:
 `titulo`, `linha_fina`, `corpo` (mesma estrutura do original: parágrafos, `## subtítulos`, `!img URL|alt|crédito`, links), `tags`, `alt` (descrição da capa), `credito` (crédito da capa), `video_titulo`. Opcional: `correcao`.
+**Também obrigatório: `slug`** em cada idioma. É o endereço da matéria no idioma (minúsculas, sem acento, hífens, até ~9 palavras, com as palavras-chave do título traduzido). Fica `/en/article-<slug>.html` e `/es/articulo-<slug>.html`. Se faltar, o site usa o slug em português.
 Regras:
 - **Adaptar, não traduzir palavra por palavra.** Escreva como um redator nativo escreveria. Para leitor de fora do Brasil, deixe claro quando algo é do Brasil (data de estreia, preço em R$, plataforma), e diga que datas em outros países podem ser diferentes.
 - Mantenha os mesmos fatos, números, datas e fontes. Não acrescente informação nova nem gêneros ou títulos que a fonte não traz. Títulos de filmes e jogos: use o título internacional só quando ele é conhecido com certeza; do contrário, mantenha o título brasileiro.

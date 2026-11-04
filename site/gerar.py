@@ -875,12 +875,68 @@ def prefixo(lang):
     return "" if lang == "pt" else lang + "/"
 
 
+# Endereços traduzidos. Internamente cada página tem um nome em português (a "chave");
+# o nome final de cada idioma sai de nome_idioma(). Os links são reescritos em localizar().
+PREF_MAT = {"en": "article", "es": "articulo"}
+PREF_TAG = {"en": "topic", "es": "tema"}
+FIXOS = {
+    "sobre": {"en": "about", "es": "quienes-somos"},
+    "contato": {"en": "contact", "es": "contacto"},
+    "busca": {"en": "search", "es": "buscar"},
+    "equipe": {"en": "team", "es": "equipo"},
+    "politica-editorial": {"en": "editorial-policy", "es": "politica-editorial"},
+    "termos": {"en": "terms", "es": "terminos"},
+    "privacidade": {"en": "privacy", "es": "privacidad"},
+    "games": {"en": "games", "es": "juegos"},
+    "cinema": {"en": "movies", "es": "cine"},
+    "tecnologia": {"en": "technology", "es": "tecnologia"},
+    "noticias": {"en": "news", "es": "noticias"},
+    "curiosidades": {"en": "curiosities", "es": "curiosidades"},
+}
+SLUGS_IDIOMA = {}  # {lang: {slug_pt: slug_no_idioma}}
+
+
+def _slug_ok(x):
+    return bool(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", x or ""))
+
+
+def preparar_slugs():
+    for lang in ("en", "es"):
+        SLUGS_IDIOMA[lang] = {}
+        for m in MATERIAS_PT:
+            sl = ((m.get("traducoes") or {}).get(lang) or {}).get("slug")
+            SLUGS_IDIOMA[lang][m["slug"]] = sl if _slug_ok(sl) else m["slug"]
+
+
+def nome_idioma(lang, nome):
+    """Nome do arquivo no idioma, a partir do nome em português."""
+    if lang == "pt" or not nome.endswith(".html"):
+        return nome
+    base = nome[:-5]
+    if base in FIXOS:
+        return FIXOS[base][lang] + ".html"
+    if base.startswith("materia-"):
+        return f"{PREF_MAT[lang]}-{SLUGS_IDIOMA[lang].get(base[8:], base[8:])}.html"
+    if base.startswith("assunto-"):
+        return f"{PREF_TAG[lang]}-{base[8:]}.html"
+    return nome
+
+
+def localizar(html_, lang):
+    """Troca, no HTML do idioma, os nomes de página em português pelos nomes do idioma."""
+    if lang == "pt":
+        return html_
+    return re.sub(r'(?:(?<=["\'/])|(?<=%2F))([A-Za-z0-9_-]+\.html)(?=["\'#?%&])',
+                  lambda mo: nome_idioma(lang, mo.group(1)), html_)
+
+
 def url_abs(lang, nome):
+    nome = nome_idioma(lang, nome)
     return "https://alohanoticias.com/" + prefixo(lang) + ("" if nome == "index.html" else nome)
 
 
 def rel_url(src, dst, nome, existe):
-    destino = nome if nome in existe.get(dst, ()) else "index.html"
+    destino = nome_idioma(dst, nome) if nome in existe.get(dst, ()) else "index.html"
     if src == dst:
         return destino
     if src == "pt":
@@ -890,6 +946,7 @@ def rel_url(src, dst, nome, existe):
 
 def resolver(html_, lang, nome, existe):
     """Troca os marcadores de idioma, canonical e hreflang e ajusta os caminhos dos arquivos compartilhados."""
+    html_ = localizar(html_, lang)
     html_ = re.sub(r"@@L:([\w-]+)@@", lambda mo: rel_url(lang, mo.group(1), nome, existe), html_)
     langs = [l for l in i18n.IDIOMAS_REAIS if nome in existe.get(l, ())]
     alt = ""
@@ -898,7 +955,7 @@ def resolver(html_, lang, nome, existe):
         if "pt" in langs:
             alt += f'<link rel="alternate" hreflang="x-default" href="{url_abs("pt", nome)}">\n'
     html_ = html_.replace("@@ALT@@\n", alt).replace("@@ALT@@", alt)
-    canon = prefixo(lang) + ("" if nome == "index.html" else nome)
+    canon = prefixo(lang) + ("" if nome == "index.html" else nome_idioma(lang, nome))
     html_ = html_.replace("{CANON}", canon)
     if lang != "pt":
         html_ = re.sub(r'(href|src)="(assets/|feed\.xml|manifest\.webmanifest)', r'\1="../\2', html_)
@@ -914,6 +971,7 @@ def main():
     (SAIDA / "assets").mkdir(parents=True, exist_ok=True)
     shutil.copytree(RAIZ / "assets", SAIDA / "assets", dirs_exist_ok=True)
 
+    preparar_slugs()
     por_idioma = {}
     for lang in i18n.IDIOMAS_REAIS:
         if aplicar_idioma(lang):
@@ -924,10 +982,10 @@ def main():
     for lang, arqs in por_idioma.items():
         (SAIDA / prefixo(lang)).mkdir(exist_ok=True)
         for nome, conteudo in arqs.items():
-            (SAIDA / prefixo(lang) / nome).write_text(resolver(conteudo, lang, nome, existe), encoding="utf-8")
+            (SAIDA / prefixo(lang) / nome_idioma(lang, nome)).write_text(resolver(conteudo, lang, nome, existe), encoding="utf-8")
         ind = INDICES[lang]
         if lang != "pt":
-            ind = ind.replace('src=\\"assets/', 'src=\\"../assets/')
+            ind = localizar(ind, lang).replace('src=\\"assets/', 'src=\\"../assets/')
         (SAIDA / "assets/js" / ("indice.js" if lang == "pt" else f"indice-{lang}.js")).write_text(ind, encoding="utf-8")
     arquivos = por_idioma["pt"]
     (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", CSP_ADS if ANUNCIOS_ATIVOS else CSP_BASE), encoding="utf-8")
@@ -987,6 +1045,8 @@ def main():
             ED = {e["slug"]: e for e in editorias}
             materias = [traduzir(m, m["traducoes"][lang], lang) for m in MATERIAS_PT if (m.get("traducoes") or {}).get(lang)]
             pg = gerar_materia(traduzir(d, tr, lang), preview=True, agendado=d in agendados)
+            pg = localizar(pg, lang)
+            pg = re.sub(r'href="([A-Za-z0-9_-]+\.html)"', lambda mo: f'href="{lang}/{mo.group(1)}"' if mo.group(1) != "index.html" else mo.group(0), pg)
             pg = pg.replace("{CANON}", f"admin/{lang}/{d['slug']}.html")
             pg = re.sub(r"@@L:[\w-]+@@", "index.html", pg).replace("@@ALT@@", "")
             (SAIDA / "admin" / lang / f"{d['slug']}.html").write_text(pg, encoding="utf-8")
