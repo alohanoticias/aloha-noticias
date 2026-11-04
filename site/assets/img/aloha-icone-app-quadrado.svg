@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ALOHA NOTÍCIAS"><title>ALOHA NOTÍCIAS</title>
-  <rect width="512" height="512" rx="0" fill="#0F4C5C"/>
+  <rect width="512" height="512" rx="0" fill="#bc3131"/>
   <defs>
     <clipPath id="iq-ceu"><path d="M71.2,272.8 C138.4,250.96 193.84,250.96 256,272.8 S373.6,294.64 440.8,272.8 L440.8,54.4 L71.2,54.4 Z"/></clipPath>
     <mask id="iq-m" maskUnits="userSpaceOnUse" x="86" y="86" width="340" height="340">
@@ -8,5 +8,5 @@
       <path d="M71.2,329.92 C138.4,308.08 193.84,308.08 256,329.92 S373.6,351.76 440.8,329.92" fill="none" stroke="#000" stroke-width="21.84"/>
     </mask>
   </defs>
-  <circle cx="256" cy="256" r="168" fill="#F4EDE4" mask="url(#iq-m)"/>
+  <circle cx="256" cy="256" r="168" fill="#FFFFFF" mask="url(#iq-m)"/>
 </svg>

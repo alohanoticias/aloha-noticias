@@ -1,5 +1,5 @@
 {
- "layout": "grade_b",
+ "layout": "moldura",
  "fotos": [
   {
    "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
@@ -11,14 +11,6 @@
   },
   {
    "url": "https://cdn.marvel.com/content/1x/avengersdoomsday_lob_log_def_02.webp",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://cdn.marvel.com/content/1x/avengersdoomsday_lob_log_div_02.webp",
    "foco": [
     0.5,
     0.5
