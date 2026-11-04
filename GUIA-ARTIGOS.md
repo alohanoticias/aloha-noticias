@@ -13,7 +13,8 @@ Responda sempre em português do Brasil.
 4. Termine o artigo com uma linha "Fontes:" com links clicáveis.
 5. Rode `python3 site/gerar.py` (gera a pasta `publico/`) e confira que não há erro.
 6. **Não** coloque o artigo em `materias.json`. Salve o objeto do artigo como `rascunhos/<slug>.json` (o nome do arquivo é o slug, e o JSON é um único objeto com os mesmos campos). Rode `python3 site/gerar.py`, faça commit e envie direto para `main`. O rascunho aparece só na página protegida `alohanoticias.com/admin`, e não vai ao ar como matéria.
-7. A pessoa abre o admin, lê a prévia e clica em Aprovar (ou Rejeitar). Isso abre um pedido (issue) no GitHub, e uma automação move o rascunho para `materias.json` e publica. Você nunca publica sozinho.
+Crie **3 rascunhos por dia**, de editorias e assuntos diferentes, cada um em seu arquivo `rascunhos/<slug>.json`.
+7. A pessoa abre o admin, lê a prévia e escolhe **Publicar agora**, **Agendar** (data e hora de saída) ou **Rejeitar**. Os agendados ficam em `agendados/` e uma automação publica na hora marcada. A pessoa abre o admin, lê a prévia e clica em Aprovar (ou Rejeitar). Isso abre um pedido (issue) no GitHub, e uma automação move o rascunho para `materias.json` e publica. Você nunca publica sozinho.
 
 ## Tom de escrita (não pode parecer feito por IA)
 - Frases de tamanhos variados, voz direta, sem clichês ("em um mundo cada vez mais", "vale destacar", "no cenário atual").

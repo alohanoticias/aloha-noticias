@@ -403,14 +403,23 @@ def link_acao(acao, slug):
             f"&body={quote('Clique em Submit new issue para confirmar. O site é atualizado em cerca de 1 minuto.')}")
 
 
-def faixa_rascunho(m):
-    return (f'<div class="faixa-rascunho"><div class="wrap"><strong>Rascunho, ainda não publicado.</strong> '
-            f'<a class="botao" href="{link_acao("Aprovar", m["slug"])}" target="_blank" rel="noopener noreferrer">Aprovar e publicar</a> '
-            f'<a class="botao-sec" href="{link_acao("Rejeitar", m["slug"])}" target="_blank" rel="noopener noreferrer">Rejeitar</a> '
-            f'<a href="admin/">Voltar à lista</a></div></div>')
+def faixa_rascunho(m, agendado=False):
+    slug = m["slug"]
+    if agendado:
+        quando = datetime.fromisoformat(m["data"]).strftime("%d/%m/%Y às %H:%M")
+        return (f'<div class="faixa-rascunho"><div class="wrap"><strong>Agendado para {quando}.</strong> '
+                f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">Cancelar agendamento</a> '
+                f'<a href="admin/">Voltar à lista</a></div></div>')
+    return (f'<div class="faixa-rascunho" data-slug="{esc(slug)}" data-repo="{REPO}"><div class="wrap">'
+            f'<strong>Rascunho, ainda não publicado.</strong> '
+            f'<a class="botao" href="{link_acao("Aprovar", slug)}" target="_blank" rel="noopener noreferrer">Publicar agora</a> '
+            f'<label class="agendar">ou agendar para <input type="datetime-local" id="quando" aria-label="Data e hora de publicação"></label> '
+            f'<a class="botao-sec" id="agendar" href="{link_acao("Aprovar", slug)}" target="_blank" rel="noopener noreferrer">Agendar</a> '
+            f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">Rejeitar</a> '
+            f'<a href="admin/">Voltar à lista</a></div></div>\n<script src="assets/js/admin.js"></script>')
 
 
-def gerar_admin(rascunhos):
+def gerar_admin(rascunhos, agendados=()):
     if rascunhos:
         itens = "".join(
             f'<li><a href="admin/{esc(d["slug"])}.html"><div class="dupla" style="gap:6px"><span class="chapeu">{esc(ED[d["editoria"]]["nome"])}</span>'
@@ -420,12 +429,18 @@ def gerar_admin(rascunhos):
         lista = f'<ul class="lista-simples" style="max-width:820px">{itens}</ul>'
     else:
         lista = '<p class="linha-fina">Nenhum rascunho esperando aprovação no momento.</p>'
+    if agendados:
+        itens2 = "".join(
+            f'<li><a href="admin/{esc(d["slug"])}.html"><div class="dupla" style="gap:6px"><span class="chapeu">Agendado: {datetime.fromisoformat(d["data"]).strftime("%d/%m %H:%M")}</span>'
+            f'<h3>{esc(d["titulo"])}</h3><p class="meta"><span>{esc(ED[d["editoria"]]["nome"])}</span></p></div></a></li>'
+            for d in agendados)
+        lista += f'<h2 style="margin-top:40px">Agendados</h2><ul class="lista-simples" style="max-width:820px">{itens2}</ul>'
     corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p></div></div>
 <div class="wrap editoria-corpo">{lista}</div>"""
     return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
 
-def gerar_materia(m, preview=False):
+def gerar_materia(m, preview=False, agendado=False):
     e = ED[m["editoria"]]
     relacionadas = [x for x in materias if x["editoria"] == m["editoria"] and x is not m][:3]
     if len(relacionadas) < 3:
@@ -463,7 +478,7 @@ def gerar_materia(m, preview=False):
 </section>'''}"""
     head = f'<script type="application/ld+json">{ld}</script>\n'
     if preview:
-        corpo = faixa_rascunho(m) + corpo
+        corpo = faixa_rascunho(m, agendado) + corpo
         head = '<base href="/">\n<meta name="robots" content="noindex,nofollow">\n' + head
     return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head, og_img=(m.get("imagem") or {}).get("url", "assets/img/og-padrao.png"), og_tipo="article")
 
@@ -580,10 +595,18 @@ def main():
         if d.get("slug") == f.stem and d.get("editoria") in ED:
             rascunhos.append(d)
     rascunhos.sort(key=lambda d: d["data"], reverse=True)
+    agendados = []
+    for f in sorted((RAIZ.parent / "agendados").glob("*.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        if d.get("slug") == f.stem and d.get("editoria") in ED:
+            agendados.append(d)
+    agendados.sort(key=lambda d: d["data"])
     (SAIDA / "admin").mkdir(exist_ok=True)
-    (SAIDA / "admin/index.html").write_text(gerar_admin(rascunhos).replace("{CANON}", "admin/"), encoding="utf-8")
+    (SAIDA / "admin/index.html").write_text(gerar_admin(rascunhos, agendados).replace("{CANON}", "admin/"), encoding="utf-8")
     for d in rascunhos:
         (SAIDA / f"admin/{d['slug']}.html").write_text(gerar_materia(d, preview=True).replace("{CANON}", f"admin/{d['slug']}.html"), encoding="utf-8")
+    for d in agendados:
+        (SAIDA / f"admin/{d['slug']}.html").write_text(gerar_materia(d, preview=True, agendado=True).replace("{CANON}", f"admin/{d['slug']}.html"), encoding="utf-8")
     urls = [n for n in arquivos if n not in ("404.html", "busca.html")]
     sm = "".join(f"<url><loc>https://alohanoticias.com/{'' if n=='index.html' else n}</loc></url>" for n in urls)
     (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
