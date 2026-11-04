@@ -230,7 +230,7 @@ def idiomas_rodape():
 
 ED_VISIVEIS = [e for e in editorias if e["slug"] != "financas"]  # Finanças fica fora do menu por enquanto
 ICONE_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
-LOGO_IMG = '<img src="assets/img/aloha-logo-prancha.svg" alt="ALOHA NOTÍCIAS" width="290" height="92">'
+LOGO_IMG = '<img src="assets/img/aloha-logo-v2.svg" alt="ALOHA NOTÍCIAS" width="290" height="92">'
 
 
 def cabecalho(ativo):
