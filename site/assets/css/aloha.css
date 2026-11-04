@@ -596,3 +596,6 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .faixa-rascunho { background: #FFF3CD; color: #4A3B00; border-block: 1px solid #E8D48A; padding: 12px 0; font-size: 0.95rem; }
 .faixa-rascunho .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .faixa-rascunho a:not(.botao):not(.botao-sec) { color: inherit; text-decoration: underline; }
+.faixa-rascunho .botao { background: #E76F51; color: #1E2A2D; }
+.faixa-rascunho .botao-sec { background: #FFFFFF; color: #1E2A2D; border: 1.5px solid #4A3B00; }
+.faixa-rascunho .botao-sec:hover { background: #4A3B00; color: #FFFFFF; }
