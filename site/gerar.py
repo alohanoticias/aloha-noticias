@@ -383,7 +383,7 @@ def card(m, pequeno=False, mostrar_capa=True, chapeu=True):
   {capa(m) if mostrar_capa else ""}
   {f'<span class="chapeu">{esc(ED[m["editoria"]]["nome"])}</span>' if chapeu else ""}
   <h3>{esc(m["titulo"])}</h3>
-  <p class="meta"><time datetime="{m["data"]}">{data_curta(m["data"])}</time><span>{leitura(m)} {t("min de leitura")}</span></p>
+  <p class="meta"><time datetime="{m["data"]}">{data_curta(m["data"])}</time></p>
 </a>"""
 
 
@@ -486,7 +486,7 @@ def gerar_home():
 def card_cat(m):
     return f"""<article class="card-cat">
   <h2><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h2>
-  <p class="meta-l"><time datetime="{m['data']}">{data_longa(m['data'])}</time><span>{leitura(m)} {t("min")}</span></p>
+  <p class="meta-l"><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
   <a class="cc-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m)}</a>
   <p class="resumo">{esc(m['linha_fina'])}</p>
   <a class="leia-mais" href="{url_materia(m)}">{t("Leia mais")} »</a>
@@ -571,7 +571,7 @@ def gerar_admin(rascunhos, agendados=()):
         itens = "".join(
             f'<li><a href="admin/{esc(d["slug"])}.html"><div class="dupla" style="gap:6px"><span class="chapeu">{esc(ED[d["editoria"]]["nome"])}</span>'
             f'<h3>{esc(d["titulo"])}</h3><p class="linha-fina" style="font-size:1rem">{esc(d["linha_fina"])}</p>'
-            f'<p class="meta"><span>{esc(d["autor"])}</span><time datetime="{d["data"]}">{data_curta(d["data"])}</time><span>{leitura(d)} min de leitura</span></p></div></a></li>'
+            f'<p class="meta"><span>{esc(d["autor"])}</span><time datetime="{d["data"]}">{data_curta(d["data"])}</time></p></div></a></li>'
             for d in rascunhos)
         lista = f'<ul class="lista-simples" style="max-width:820px">{itens}</ul>'
     else:
@@ -633,7 +633,7 @@ def gerar_materia(m, preview=False, agendado=False):
     <span class="chapeu">{esc(e['nome'])}</span>
     <h1>{esc(m['titulo'])}</h1>
     <p class="linha-fina">{esc(m['linha_fina'])}</p>
-    <p class="meta"><span>{t("Por")} {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time>{atualizado_html(m)}<span>{leitura(m)} {t("min de leitura")}</span></p>
+    <p class="meta"><span>{t("Por")} {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
   </header>
   <figure class="materia-capa" style="margin-inline:0">{capa(m)}{legenda(m)}</figure>{video(m)}
   <div class="materia-grade">
@@ -787,7 +787,7 @@ def montar_arquivos():
         itens = "".join(
             f'<li><a href="{url_materia(x)}"><div class="dupla" style="gap:6px"><span class="chapeu">{esc(ED[x["editoria"]]["nome"])}</span><h3>{esc(x["titulo"])}</h3>'
             f'<p class="linha-fina" style="font-size:1rem">{esc(x["linha_fina"])}</p>'
-            f'<p class="meta"><time datetime="{x["data"]}">{data_curta(x["data"])}</time><span>{leitura(x)} {t("min")}</span></p></div>{capa(x)}</a></li>' for x in lista)
+            f'<p class="meta"><time datetime="{x["data"]}">{data_curta(x["data"])}</time></p></div>{capa(x)}</a></li>' for x in lista)
         corpo = (f'<div class="topo-editoria"><div class="wrap"><h1>{esc(tg)}</h1><p>{len(lista)} {t("matéria") if len(lista) == 1 else t("matérias")} {t("sobre este assunto.")}</p></div></div>'
                  f'<div class="wrap editoria-corpo"><ul class="lista-simples" style="max-width:820px">{itens}</ul></div>')
         arquivos[url_tag(tg)] = pagina(tg, f"{t('Matérias da ALOHA NOTÍCIAS sobre')} {tg}.", "", corpo)
