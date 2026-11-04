@@ -105,15 +105,15 @@ Quando uma matéria publicada tiver data, fato ou número que mudou, não basta 
 ## Banco de pautas
 Antes de escolher os assuntos do dia, leia `PAUTAS.md` (pautas por janela de publicação, com o que confirmar). Pode usar as de lá ou outras do momento; ao usar uma, marque com ★ e acrescente novas pautas no fim da tabela quando surgirem.
 
-## Traduções (inglês e espanhol): obrigatório em todo rascunho
-O site tem versões reais em /en/ e /es/. Cada rascunho novo sai com o campo `"traducoes"` no mesmo JSON, com as chaves `"en"` e `"es"`. Cada uma leva:
-`titulo`, `linha_fina`, `corpo` (mesma estrutura do original: parágrafos, `## subtítulos`, `!img URL|alt|crédito`, links), `tags`, `alt` (descrição da capa), `credito` (crédito da capa), `video_titulo`. Opcional: `correcao`.
-**Também obrigatório: `slug`** em cada idioma. É o endereço da matéria no idioma (minúsculas, sem acento, hífens, até ~9 palavras, com as palavras-chave do título traduzido). Fica `/en/article-<slug>.html` e `/es/articulo-<slug>.html`. Se faltar, o site usa o slug em português.
+## Traduções: obrigatórias em todo rascunho (8 idiomas)
+O site tem versões reais em /en/, /es/, /fr/, /de/, /it/, /ja/, /zh/ e /ar/. Cada rascunho novo sai com o campo `"traducoes"` no mesmo JSON, com as chaves `"en"`, `"es"`, `"fr"`, `"de"`, `"it"`, `"ja"`, `"zh"` e `"ar"`. Cada uma leva:
+`titulo`, `linha_fina`, `corpo` (mesma estrutura do original, mesma quantidade e ordem de parágrafos: `## subtítulos`, `!img URL|alt|crédito`, links), `tags`, `alt` (descrição da capa), `credito` (crédito da capa), `video_titulo`, `slug`. Opcional: `correcao`.
+`slug` é o endereço da matéria no idioma: minúsculas, só letras ASCII e hífens, até ~9 palavras. Em en/es/fr/de/it use as palavras do título traduzido; em ja/zh/ar use romanização (romaji, pinyin, transliteração) ou o título em inglês. Fica `/<idioma>/<prefixo>-<slug>.html`. Se faltar, o site usa o slug em português.
 Regras:
-- **Adaptar, não traduzir palavra por palavra.** Escreva como um redator nativo escreveria. Para leitor de fora do Brasil, deixe claro quando algo é do Brasil (data de estreia, preço em R$, plataforma), e diga que datas em outros países podem ser diferentes.
-- Mantenha os mesmos fatos, números, datas e fontes. Não acrescente informação nova nem gêneros ou títulos que a fonte não traz. Títulos de filmes e jogos: use o título internacional só quando ele é conhecido com certeza; do contrário, mantenha o título brasileiro.
-- As fontes no fim vão com "(in Portuguese)" / "(en portugués)" quando o link é em português.
+- **Adaptar, não traduzir palavra por palavra.** Escreva como um redator nativo daquele idioma escreveria: expressões, ordem das ideias, formato de data, tom de notícia local. Para leitor de fora do Brasil, deixe claro quando algo é do Brasil (data de estreia, preço em R$, plataforma), e diga que datas em outros países podem ser diferentes.
+- Mantenha os mesmos fatos, números, datas e fontes. Não acrescente informação nova (nem conversão de câmbio, nem gêneros, nem títulos oficiais locais) que a fonte não traz. Títulos de filmes e jogos: use o título internacional só quando ele é conhecido com certeza; do contrário, mantenha o título original/brasileiro (em ja/zh/ar, o nome em letras latinas). Nomes de personagens e atores que não tenham grafia local certa ficam em letras latinas.
+- As fontes no fim vão com "(in Portuguese)" no idioma ("(en portugais)", "(auf Portugiesisch)", "(in portoghese)", "（ポルトガル語）", "（葡萄牙语）", "(بالبرتغالية)", "(en portugués)") quando o link é em português.
 - Mantenha as URLs das imagens iguais; traduza apenas o texto alternativo e o crédito.
-- Para ver como ficou, abra a prévia em /admin (link "Prévia das traduções" no rascunho). Aprovar o rascunho publica as três versões juntas.
+- Para ver como ficou, abra a prévia em /admin (link "Prévia das traduções" no rascunho). Aprovar o rascunho publica todas as versões juntas.
 - Se um artigo for atualizado depois (campo `atualizado`/`correcao`), atualize também as traduções.
 - Português continua sendo o idioma principal e o texto de referência; as outras páginas dizem isso ao leitor.

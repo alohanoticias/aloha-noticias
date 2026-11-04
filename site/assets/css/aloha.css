@@ -674,3 +674,27 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { --rodape-fundo: #071C23; --rodape-tinta: #F4EDE4; --rodape-mare: #8FA9AD; }
 }
+
+/* ---------- Idiomas com escrita não latina e árabe (direita para a esquerda) ---------- */
+:root:lang(ja) { --f-marca: "Inter", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, system-ui, sans-serif; --f-texto: var(--f-marca); --f-titulo: var(--f-marca); }
+:root:lang(zh-CN) { --f-marca: "Inter", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, sans-serif; --f-texto: var(--f-marca); --f-titulo: var(--f-marca); }
+:root:lang(ar) { --f-marca: "Inter", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif; --f-texto: var(--f-marca); --f-titulo: var(--f-marca); }
+:root:lang(ja) body, :root:lang(zh-CN) body { line-height: 1.75; }
+:root:lang(ja) h1, :root:lang(ja) h2, :root:lang(ja) h3, :root:lang(zh-CN) h1, :root:lang(zh-CN) h2, :root:lang(zh-CN) h3, :root:lang(ar) h1, :root:lang(ar) h2, :root:lang(ar) h3 { letter-spacing: 0; line-height: 1.35; }
+:root:lang(ja) .materia .texto > p:first-of-type::first-letter, :root:lang(zh-CN) .materia .texto > p:first-of-type::first-letter, :root:lang(ar) .materia .texto > p:first-of-type::first-letter { float: none; font-size: inherit; padding: 0; line-height: inherit; }
+:root:lang(ja) .chapeu, :root:lang(zh-CN) .chapeu, :root:lang(ar) .chapeu, :root:lang(ja) .nav a, :root:lang(zh-CN) .nav a, :root:lang(ar) .nav a { letter-spacing: 0; text-transform: none; }
+
+[dir="rtl"] .pular { left: auto; right: -999px; }
+[dir="rtl"] .pular:focus { right: 8px; left: auto; }
+[dir="rtl"] .cab-data { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .nav li:first-child a { padding-left: 14px; padding-right: 0; }
+[dir="rtl"] .agora-lista time { margin-right: 0; margin-left: 6px; }
+[dir="rtl"] .mais-lidas { border-left: 0; border-right: 1px solid var(--linha); padding-left: 0; padding-right: 24px; }
+[dir="rtl"] .lateral .mais-lidas { border-right: 0; padding-right: 0; }
+[dir="rtl"] .meta > * + *::before { margin-right: 0; margin-left: 12px; }
+[dir="rtl"] .pager-prox { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .pagina-texto ul { padding-left: 0; padding-right: 1.2em; }
+[dir="rtl"] .foto-corpo .credito { text-align: right; }
+[dir="rtl"] .nota-correcao { border-left: 0; border-right: 4px solid #E76F51; border-radius: 8px 0 0 8px; }
+[dir="rtl"] .idioma-lista { right: auto; left: 0; }
+@media (max-width: 760px) { [dir="rtl"] .cab-acoes { margin-left: 0; margin-right: auto; } }
