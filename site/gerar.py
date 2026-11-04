@@ -197,6 +197,7 @@ def rodape():
       <li><a href="busca.html">Buscar</a></li>
       <li><a href="equipe.html">Equipe Aloha</a></li>
       <li><a href="politica-editorial.html">Política editorial</a></li>
+      <li><a href="termos.html">Termos de uso</a></li>
       <li><a href="privacidade.html">Privacidade</a></li>
       <li><a href="feed.xml">RSS</a></li>
     </ul></div>
@@ -636,6 +637,29 @@ def main():
     arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a redação da ALOHA NOTÍCIAS.", """
 <p>Sugestões de pauta, correções e parcerias são bem-vindas.</p>
 <h2>E-mail</h2><p><a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a></p>""")
+    arquivos["termos.html"] = gerar_simples("Termos de uso", "Termos de uso do site ALOHA NOTÍCIAS.", """
+<p>Última atualização: novembro de 2026. Ao acessar o ALOHA NOTÍCIAS (alohanoticias.com), você concorda com estes termos. Se não concordar, pedimos que não use o site.</p>
+<h2>O que é o site</h2>
+<p>O ALOHA NOTÍCIAS publica matérias sobre notícias, cinema, games, tecnologia, curiosidades e finanças. O conteúdo é oferecido para informação e entretenimento.</p>
+<h2>Conteúdo informativo, sem aconselhamento</h2>
+<p>As matérias não substituem a orientação de um profissional. Em especial, o conteúdo de finanças tem caráter informativo e <strong>não é recomendação de investimento, compra ou venda de qualquer produto financeiro</strong>. Antes de decidir sobre o seu dinheiro, consulte um profissional habilitado. Fazemos o possível para publicar informações corretas e atuais, mas dados, preços e datas podem mudar depois da publicação.</p>
+<h2>Propriedade intelectual</h2>
+<p>Os textos e as ilustrações originais do site pertencem ao ALOHA NOTÍCIAS. Você pode compartilhar links e citar trechos curtos, com o crédito e o link para a matéria original. Não é permitido copiar matérias inteiras, republicá-las ou usá-las para treinar sistemas automáticos sem autorização por escrito.</p>
+<p>Marcas, nomes, imagens e vídeos de terceiros citados nas matérias pertencem aos seus donos e aparecem com finalidade informativa e crédito. Se você é dono de um conteúdo e quer corrigir o crédito ou pedir a retirada, fale conosco pela página de <a href="contato.html">contato</a>.</p>
+<h2>Links e serviços de terceiros</h2>
+<p>O site pode ter links para outros sites e conteúdos incorporados de serviços como o YouTube. Não controlamos esses endereços e não nos responsabilizamos pelo que publicam ou pelas regras deles.</p>
+<h2>Publicidade</h2>
+<p>O site poderá exibir anúncios. Quando houver, eles serão identificados como publicidade e separados do conteúdo editorial. A existência de um anúncio não significa que apoiamos o produto ou o serviço anunciado.</p>
+<h2>Uso adequado</h2>
+<p>Você concorda em não tentar prejudicar o funcionamento do site, acessar áreas restritas, enviar códigos maliciosos ou usar o site para fins ilegais.</p>
+<h2>Limitação de responsabilidade</h2>
+<p>O site é oferecido como está. Não garantimos que ele esteja sempre disponível ou livre de erros e não nos responsabilizamos por perdas decorrentes do uso das informações publicadas, dentro do que a lei permitir.</p>
+<h2>Privacidade</h2>
+<p>O tratamento de dados está descrito na <a href="privacidade.html">política de privacidade</a>.</p>
+<h2>Mudanças e lei aplicável</h2>
+<p>Podemos alterar estes termos, e a versão em vigor é a publicada nesta página, com a data de atualização. Estes termos seguem as leis do Brasil.</p>
+<h2>Contato</h2>
+<p>Dúvidas sobre estes termos: <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>""")
     arquivos["privacidade.html"] = gerar_simples("Privacidade", "Política de privacidade da ALOHA NOTÍCIAS.", """
 <p>Última atualização: novembro de 2026. Respeitamos a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018). Aqui está, de forma direta, o que acontece com os seus dados quando você visita este site.</p>
 <h2>O que coletamos</h2>
