@@ -24,7 +24,7 @@ Crie até **3 rascunhos por dia** (veja "Meta diária"), de editorias e assuntos
 - Não copie trechos das fontes; reescreva com suas palavras.
 
 ## Imagens e direitos
-- Sem marca d'água. Sem fotos de pessoas públicas baixadas da web.
+- Sem marca d'água de terceiros. Sem fotos de pessoas públicas (rostos reconhecíveis) baixadas da web.
 - Sempre crédito na legenda.
 
 ## Foco editorial (prioridade atual)
@@ -49,7 +49,7 @@ Antes de salvar um rascunho, passe por estes pontos, para a pessoa receber algo 
 1. **Fatos de novo**: reabra as fontes, confira cada data, número, nome e citação. Se não der para confirmar, tire a informação ou não faça o rascunho.
 2. **Humanização**: leia como um leitor. Corte frases de efeito vazias, abertura genérica, fecho moralista, listas de três adjetivos, "vale ressaltar", "é importante destacar", "em um cenário", travessões em excesso. Varie o ritmo, use voz direta, dados específicos e uma observação própria do tema.
 3. **Originalidade**: texto reescrito com palavras próprias, sem copiar trechos das fontes, trazendo algo a mais (contexto, comparação, o que muda para o leitor).
-4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico ou financeiro como recomendação, sem imagem de terceiros com direito autoral, links só para fontes confiáveis, aviso informativo em Finanças.
+4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico ou financeiro como recomendação, imagens de terceiros só com crédito e fonte na legenda (decisão da diretoria), links só para fontes confiáveis, aviso informativo em Finanças.
 5. **Forma**: assinatura "Equipe Aloha", linha fina clara, tags coerentes, ortografia revisada, capa, fotos e vídeo conforme as regras abaixo.
 
 ## Manutenção dos rascunhos que estão esperando
@@ -76,7 +76,7 @@ Posts todos no mesmo molde denunciam automação. Em cada lote de rascunhos e en
 - **Abertura**: alterne cena, dado, pergunta e fato direto. Nunca as mesmas primeiras palavras de outro artigo recente.
 
 ## Capas e imagens (direitos autorais)
-As capas devem parecer reais e chamativas, mas **nunca** podem usar material de terceiros com direito autoral: nada de quadros de trailer, capas de jogo, pôsteres, prints, logotipos, personagens ou marcas, nem editados ou recortados. Editar não torna a obra nossa e é risco de direitos autorais e de reprovação no AdSense.
+**Decisão da diretoria (04/11/2026): podem ser usadas imagens e vídeos reais de qualquer fonte** (imagens oficiais de divulgação, quadros de trailer, pôsteres, capas de jogo, prints, fotos de sites e agências), em capas e dentro do texto, sempre com crédito e a fonte na legenda (ex.: "Imagem: Rockstar Games / divulgação"). Prefira, quando existir, material oficial de divulgação da própria empresa e o que está livre (Unsplash, Pexels, Wikimedia Commons). Os limites que continuam: sem marca d'água de terceiros, sem imagem de pessoas públicas (rostos reconhecíveis) baixada da web, e nada que a fonte proíba expressamente. Esta sessão do Claude não baixa imagens da web; quem baixa é a automação do GitHub (capas.yml) ou o endereço da imagem é usado direto no texto.
 
 **Capa em colagem de fotos livres (padrão).** Monte a capa com 2 ou 3 fotos reais de bancos com licença livre (Unsplash, Pexels, Wikimedia Commons), todas relacionadas ao tema do artigo (o lugar, o clima, o objeto, a situação), em um formato de colagem **diferente do usado nos artigos anteriores** (veja os layouts abaixo): a home não pode ficar com todas as capas iguais.
 1. Ache as fotos. No Unsplash, abra a página da foto com WebFetch e peça o valor completo do og:image: o trecho `images.unsplash.com/photo-XXXX` é o endereço direto. Use sempre `https://images.unsplash.com/photo-XXXX?fm=jpg&q=80&w=1800&auto=format&fit=crop`. Anote o nome do fotógrafo. Não use a página unsplash.com/photos/... nem o endereço /download: exigem login.
@@ -88,13 +88,13 @@ As capas devem parecer reais e chamativas, mas **nunca** podem usar material de 
 
 **Fallback.** Se não houver fotos livres boas para o tema, use uma ilustração original em SVG (e um PNG de mesmo nome, 1200x675, para o compartilhamento nas redes) no estilo limpo do site.
 
-**Fotos dentro do texto**: só de bancos com licença livre, com crédito. **Vídeos**: apenas incorporação oficial do YouTube, nunca baixados.
+**Fotos dentro do texto**: de qualquer fonte, com crédito e fonte na legenda; o endereço da imagem pode ser o do próprio site de origem (https). **Vídeos**: incorporação do YouTube (trailer, canal oficial ou veículo), nunca baixados.
 
 ## Todo artigo leva capa, fotos e vídeo (regra fixa)
 Nenhum rascunho é entregue sem:
 - **Capa** em colagem de fotos livres, montada como descrito em "Capas e imagens".
 - **Endereço da foto completo**: use sempre o código inteiro, com o sufixo, como `photo-1751823886813-0cfc86cb9478` (copie do og:image). Sem o sufixo a foto não carrega e o artigo fica com imagem quebrada. O `gerar.py` recusa endereço incompleto e o workflow "Checar fotos" abre cada foto no GitHub depois do push: se ele falhar, corrija na hora.
-- **Pelo menos 2 fotos dentro do texto** (linha `!img URL|descrição|crédito`), de bancos livres, relacionadas ao assunto, espalhadas entre os blocos (uma perto do começo, outra no meio ou no fim). Descrição fiel ao que a foto mostra; crédito com nome do fotógrafo e "/ Unsplash".
+- **Pelo menos 2 fotos dentro do texto** (linha `!img URL|descrição|crédito`), de qualquer fonte (preferindo material oficial de divulgação), relacionadas ao assunto, espalhadas entre os blocos (uma perto do começo, outra no meio ou no fim). Descrição fiel ao que a foto mostra; crédito com nome do fotógrafo e "/ Unsplash".
 - **1 vídeo** no campo `"video": {"youtube": "ID", "titulo": "..."}`: trailer ou conteúdo oficial do assunto (canal da empresa, distribuidora, órgão público ou veículo reconhecido). Para Finanças, uma explicação de veículo de jornalismo ou órgão oficial, sem recomendação de investimento.
 - **Como achar o ID do vídeo**: abra com WebFetch páginas de notícias confiáveis sobre o assunto e procure o iframe `youtube.com/embed/ID`; ou use WebSearch com allowed_domains youtube.com. Nunca invente um ID.
 - **Conferir o vídeo**: rode o workflow "Checar vídeos do YouTube" (`gh api -X POST repos/alohanoticias/aloha-noticias/actions/workflows/videos.yml/dispatches -f ref=main -f 'inputs[ids]=ID1 ID2'`, espere ~40 s e leia o log do job com `gh api repos/alohanoticias/aloha-noticias/actions/jobs/<id>/logs`). Ele mostra canal e título de cada ID. Só use o vídeo se o canal e o título baterem com o assunto e a data. Sem vídeo confirmado, o rascunho não está pronto.
