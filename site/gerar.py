@@ -194,12 +194,16 @@ def og_url(u):
 
 
 def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img="assets/img/og-padrao.png", og_tipo="website"):
+    BASE = ""
+    if '<base href="/">' in extra_head:
+        BASE = '<base href="/">\n'
+        extra_head = extra_head.replace('<base href="/">\n', "")
     t = f"{titulo} · {SITE}" if titulo != SITE else f"{SITE}: notícias, cinema, games, tecnologia e finanças"
     return f"""<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{BASE}<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(t)}</title>
 <meta name="description" content="{esc(descricao)}">
 <meta property="og:site_name" content="{SITE}">
