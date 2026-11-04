@@ -153,3 +153,10 @@
 
 /* Fecha o seletor de idioma ao clicar fora */
 document.addEventListener("click", function (e) { var m = document.getElementById("idioma-menu"); if (m && m.open && !m.contains(e.target)) m.open = false; });
+
+// Fotos de outras fontes: se uma imagem do texto não carregar, a foto e a legenda somem (sem ícone quebrado)
+document.addEventListener("error", function (e) {
+  var el = e.target;
+  if (el && el.tagName === "IMG" && el.closest && el.closest(".foto-corpo")) { el.closest(".foto-corpo").hidden = true; }
+}, true);
+document.querySelectorAll(".foto-corpo img").forEach(function (im) { if (im.complete && im.naturalWidth === 0 && im.currentSrc) { im.closest(".foto-corpo").hidden = true; } });
