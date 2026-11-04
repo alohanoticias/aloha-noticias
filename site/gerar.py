@@ -140,29 +140,28 @@ ICONE_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 HOJE = datetime.fromisoformat(materias[0]["data"])
 
 
+LOGO_IMG = '<img src="assets/img/aloha-logo-prancha.svg" alt="ALOHA NOTÍCIAS" width="246" height="78">'
+
+
 def cabecalho(ativo):
     itens = [("index.html", "Início", "inicio")] + [(url_editoria(e["slug"]), e["nome"], e["slug"]) for e in editorias]
     li = "".join(
         f'<li><a href="{u}"{" aria-current=\"page\"" if s == ativo else ""}>{esc(n)}</a></li>' for u, n, s in itens
     )
-    agora = "".join(
-        f'<li><a href="{url_materia(m)}"><time datetime="{m["data"]}">{hora(m["data"])}</time>{esc(m["titulo"])}</a></li>'
-        for m in materias[:6]
-    )
-    data_hoje = f"{DIAS[HOJE.weekday()]}, {HOJE.day} de {MESES[HOJE.month - 1]} de {HOJE.year}"
+    data_hoje = f"{DIAS[HOJE.weekday()].lower()}-feira, {MESES[HOJE.month - 1]} {HOJE.day} {HOJE.year}" if HOJE.weekday() < 5 else f"{DIAS[HOJE.weekday()].lower()}, {MESES[HOJE.month - 1]} {HOJE.day} {HOJE.year}"
     return f"""<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="cabecalho">
-  <div class="wrap cab-linha">
-    <a class="cab-logo" href="index.html" aria-label="{SITE}, página inicial">{LOGO_LINHA}</a>
+  <div class="topbar"><div class="wrap">
     <span class="cab-data">{data_hoje}</span>
     <div class="cab-acoes">
       <a class="botao-icone" href="busca.html" aria-label="Buscar">{ICONE_BUSCA}</a>
       <button class="botao-icone" id="botao-tema" type="button" aria-label="Alternar tema">{ICONE_TEMA}</button>
-      <button class="botao-icone menu-botao" id="botao-menu" type="button" aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu">{ICONE_MENU}</button>
     </div>
-  </div>
-  <nav class="nav" aria-label="Editorias"><div class="wrap"><ul>{li}</ul></div></nav>
-  <nav class="gaveta" id="gaveta" aria-label="Editorias" hidden><div class="wrap"><ul>{li}</ul></div></nav>
+  </div></div>
+  <div class="logo-area"><div class="wrap">
+    <a class="cab-logo" href="index.html" aria-label="{SITE}, página inicial">{LOGO_IMG}</a>
+  </div></div>
+  <nav class="nav" aria-label="Editorias"><div class="wrap"><ul>{li}</ul><a class="nav-busca" href="busca.html" aria-label="Buscar">{ICONE_BUSCA}</a></div></nav>
 </header>
 """
 
@@ -188,7 +187,7 @@ def rodape():
     eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in editorias)
     return f"""<footer class="rodape">
   <div class="wrap">
-    <div><a class="rodape-logo" href="index.html" aria-label="{SITE}, página inicial">{LOGO_EMP}</a>
+    <div><a class="rodape-logo" href="index.html" aria-label="{SITE}, página inicial">{LOGO_IMG}</a>
       <p>Notícias, cultura e ciência explicadas com calma, de olho no mundo inteiro.</p></div>
     <div><h2>Editorias</h2><ul>{eds}</ul></div>
     <div><h2>Institucional</h2><ul>
@@ -243,7 +242,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <meta property="og:title" content="{esc(titulo)}">
 <meta property="og:description" content="{esc(descricao)}">
 <link rel="canonical" href="https://alohanoticias.com/{{CANON}}">
-<meta name="theme-color" content="#0F4C5C">
+<meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="manifest" href="manifest.webmanifest">
@@ -253,6 +252,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/css/aloha.css">
+<link rel="stylesheet" href="assets/css/antigo.css">
 <script src="assets/js/tema.js"></script>
 {extra_head}</head>
 <body>
@@ -335,76 +335,100 @@ def carrossel(lista, nome):
     return f'<div class="carrossel" data-carrossel>{html_pag}{pager}</div>'
 
 
+def tag_v(m):
+    return f'<span class="tag-v">{esc(ED[m["editoria"]]["nome"])}</span>'
+
+
+def hero_card(m, grande):
+    fina = f'<p class="hero-fina">{esc(m["linha_fina"])}</p>' if grande else ""
+    return f"""<a class="hero-card{' grande' if grande else ''}" href="{url_materia(m)}">
+  {capa(m, "hero-img")}
+  {tag_v(m)}
+  <div class="hero-texto">
+    <time datetime="{m['data']}">{data_longa(m['data'])}</time>
+    <h2>{esc(m['titulo'])}</h2>
+    {fina}
+  </div>
+</a>"""
+
+
+def item_lista(m):
+    return f"""<article class="item-lista">
+  <a class="il-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m)}{tag_v(m)}</a>
+  <div class="il-texto">
+    <p class="meta-l"><span class="autor">{esc(m['autor'])}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
+    <h3><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h3>
+    <p class="resumo">{esc(m['linha_fina'])}</p>
+    <a class="leia-mais" href="{url_materia(m)}">Leia mais »</a>
+  </div>
+</article>"""
+
+
+def titulo_secao(texto, h="h2"):
+    return f'<div class="tit-secao"><{h}>{esc(texto)}</{h}></div>'
+
+
+def lateral():
+    recentes = "".join(f'<li><a href="{url_materia(m)}">{esc(m["titulo"])}</a></li>' for m in materias[:6])
+    cats = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in editorias)
+    mais = "".join(
+        f'<li><a class="mini" href="{url_materia(m)}">{capa(m)}{tag_v(m)}<strong>{esc(m["titulo"])}</strong>'
+        f'<time datetime="{m["data"]}">{data_longa(m["data"])}</time></a></li>' for m in materias[:4])
+    return f"""<aside class="lateral-site" aria-label="Barra lateral">
+  <section>{titulo_secao("Mais recentes")}<ul class="mini-lista">{mais}</ul></section>
+  <section>{titulo_secao("Pesquisar")}<form class="pesquisar" action="busca.html" role="search">
+    <label class="sr-only" for="q-lateral">Pesquisar</label><input id="q-lateral" name="q" type="search"><button type="submit">Pesquisar</button></form></section>
+  <section>{titulo_secao("Matérias recentes")}<ul class="lista-links">{recentes}</ul></section>
+  <section>{titulo_secao("Categorias")}<ul class="lista-links">{cats}</ul></section>
+</aside>"""
+
+
 def gerar_home():
     manchete = next((m for m in materias if m.get("manchete")), materias[0])
-    # 5 destaques: a manchete + 4 matérias de editorias diferentes (as mais recentes de cada uma).
-    destaques = [manchete]
-    vistas = {manchete["editoria"]}
-    for m in materias:
-        if len(destaques) == 5:
-            break
-        if m is not manchete and m["editoria"] not in vistas:
-            destaques.append(m)
-            vistas.add(m["editoria"])
-    for m in materias:
-        if len(destaques) == 5:
-            break
-        if m not in destaques:
-            destaques.append(m)
+    destaques = [manchete] + [m for m in materias if m is not manchete][:2]
     usados = {m["slug"] for m in destaques}
-    niveis = ["largo"] if len(destaques) == 1 else ["grande", "grande", "medio", "medio", "largo"]
-    cards_dest = "".join(card_dest(m, n) for m, n in zip(destaques, niveis))
-
-    blocos = []
+    hero = "".join(hero_card(m, i == 0) for i, m in enumerate(destaques))
+    secoes = []
     for e in editorias:
-        todas = [m for m in materias if m["editoria"] == e["slug"]]
-        # Não repete o que já aparece nos destaques do topo; o resto entra em páginas de 4.
-        da_ed = [m for m in todas if m["slug"] not in usados]
+        da_ed = [m for m in materias if m["editoria"] == e["slug"]][:5]
         if not da_ed:
             continue
-        blocos.append(f"""<section class="secao-home" aria-labelledby="sec-{e['slug']}">
-  <div class="wrap">
-    <div class="secao-topo"><h2 id="sec-{e['slug']}">{esc(e['nome'])}</h2><a class="ver-tudo" href="{url_editoria(e['slug'])}">Ver tudo em {esc(e['nome'])} →</a></div>
-    {carrossel(da_ed, e['nome'])}
-  </div>
+        secoes.append(f"""<section class="secao-lista" aria-labelledby="sec-{e['slug']}">
+  <div class="tit-secao"><h2 id="sec-{e['slug']}">{esc(e['nome'])}</h2></div>
+  {"".join(item_lista(m) for m in da_ed)}
+  <a class="ver-tudo" href="{url_editoria(e['slug'])}">Ver tudo em {esc(e['nome'])} »</a>
 </section>""")
-
     corpo = f"""<h1 class="sr-only">{SITE}: notícias, cinema, games, tecnologia e finanças</h1>
-<section class="principal" aria-label="Destaques">
-  <div class="wrap destaques">
-    <div class="dest-grade">{cards_dest}</div>
-  </div>
-</section>
-{"".join(blocos)}
-{('<section class="secao-home secao-mais-lidas"><div class="wrap">' + mais_lidas(MAIS_LIDAS, "home") + '</div></section>') if len(MAIS_LIDAS) >= 3 else ""}"""
+<section class="hero hero-{len(destaques)}" aria-label="Destaques"><div class="wrap hero-grade">{hero}</div></section>
+<div class="wrap duas-colunas">
+  <div class="coluna-principal">{"".join(secoes)}</div>
+  {lateral()}
+</div>"""
     return pagina(SITE, "Notícias em geral, cinema, games, tecnologia, curiosidades e finanças, explicados com calma.", "inicio", corpo)
 
 
 # ---------------------------------------------------------------- editoria
+def card_cat(m):
+    return f"""<article class="card-cat">
+  <h2><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h2>
+  <p class="meta-l"><time datetime="{m['data']}">{data_longa(m['data'])}</time><span>{leitura(m)} min</span></p>
+  <a class="cc-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m)}</a>
+  <p class="resumo">{esc(m['linha_fina'])}</p>
+  <a class="leia-mais" href="{url_materia(m)}">Leia mais »</a>
+</article>"""
+
+
 def gerar_editoria(e):
     da_ed = [m for m in materias if m["editoria"] == e["slug"]]
-    if not da_ed:
-        corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>{esc(e['nome'])}</h1><p>{esc(e['descricao'])}</p></div></div>
-<div class="wrap editoria-corpo"><p class="linha-fina">Ainda não publicamos matérias nesta editoria. Volte em breve.</p></div>"""
-        return pagina(e["nome"], e["descricao"], e["slug"], corpo)
-    lead, resto = da_ed[0], da_ed[1:]
-    itens = "".join(
-        f'<li><a href="{url_materia(m)}"><div class="dupla" style="gap:6px"><h3>{esc(m["titulo"])}</h3>'
-        f'<p class="linha-fina" style="font-size:1rem">{esc(m["linha_fina"])}</p>'
-        f'<p class="meta"><time datetime="{m["data"]}">{data_curta(m["data"])}</time><span>{leitura(m)} min</span></p></div>{capa(m)}</a></li>'
-        for m in resto
-    )
-    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>{esc(e['nome'])}</h1><p>{esc(e['descricao'])}</p></div></div>
-<div class="wrap editoria-corpo">
-  <a class="editoria-lead" href="{url_materia(lead)}">
-    {capa(lead)}
-    <div class="card"><h2>{esc(lead['titulo'])}</h2><p class="linha-fina">{esc(lead['linha_fina'])}</p>
-      <p class="meta"><span>{esc(lead['autor'])}</span><time datetime="{lead['data']}">{data_longa(lead['data'])}</time></p></div>
-  </a>
-  <div class="grade-2">
-    <ul class="lista-simples" aria-label="Mais em {esc(e['nome'])}">{itens}</ul>
-    {mais_lidas(MAIS_LIDAS, "ed")}
+    lista = "".join(card_cat(m) for m in da_ed) if da_ed else '<p class="resumo">Ainda não publicamos matérias nesta editoria. Volte em breve.</p>'
+    corpo = f"""<div class="wrap duas-colunas">
+  <div class="coluna-principal">
+    <nav class="migalhas-v" aria-label="Você está em"><a href="index.html">Início</a> &gt; <span>{esc(e['nome'])}</span></nav>
+    <h1 class="titulo-cat">{esc(e['nome'])}</h1>
+    <p class="desc-cat">{esc(e['descricao'])}</p>
+    <div class="grade-cat">{lista}</div>
   </div>
+  {lateral()}
 </div>"""
     return pagina(e["nome"], e["descricao"], e["slug"], corpo)
 
@@ -697,7 +721,7 @@ def main():
     (SAIDA / "manifest.webmanifest").write_text(json.dumps({
         "name": "ALOHA NOTÍCIAS", "short_name": "ALOHA", "description": "Notícias, cinema, games, tecnologia, curiosidades e finanças.",
         "start_url": "/", "scope": "/", "display": "standalone", "lang": "pt-BR",
-        "background_color": "#FFFFFF", "theme_color": "#0F4C5C",
+        "background_color": "#FFFFFF", "theme_color": "#0a0a0a",
         "icons": [{"src": "assets/img/icone-app-192.png", "sizes": "192x192", "type": "image/png"},
                   {"src": "assets/img/icone-app-512.png", "sizes": "512x512", "type": "image/png"},
                   {"src": "assets/img/icone-app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]},

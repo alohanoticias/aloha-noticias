@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 280" width="880" height="280" role="img" aria-label="ALOHA NOTÍCIAS"><title>ALOHA NOTÍCIAS</title>
+<defs>
+<radialGradient id="pr-g" cx="50%" cy="45%" r="65%"><stop offset="0" stop-color="#c93a3a"/><stop offset="1" stop-color="#8e1f28"/></radialGradient>
+<clipPath id="pr-c"><path id="pr-p" d="M4 140C170 28 340 6 440 6S710 28 876 140C710 252 540 274 440 274S170 252 4 140Z"/></clipPath>
+<filter id="pr-f" x="-5%" y="-20%" width="110%" height="150%">
+<feMorphology in="SourceAlpha" operator="dilate" radius="5" result="d"/>
+<feFlood flood-color="#1b0a0c"/><feComposite in2="d" operator="in" result="borda"/>
+<feOffset in="borda" dx="5" dy="6" result="sombra"/>
+<feMerge><feMergeNode in="sombra"/><feMergeNode in="borda"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<use href="#pr-p" fill="url(#pr-g)"/>
+<g clip-path="url(#pr-c)"><g fill="#e8553f" fill-opacity="0.55"><circle cx="168.4" cy="218.2" r="17.0"/><circle cx="152.6" cy="233.5" r="17.0"/><circle cx="133.2" cy="223.2" r="17.0"/><circle cx="137.0" cy="201.5" r="17.0"/><circle cx="158.8" cy="198.5" r="17.0"/><circle cx="150" cy="215" r="6.1" fill="#f3b23a" fill-opacity="0.9"/></g><g fill="#f07a45" fill-opacity="0.5"><circle cx="261.0" cy="79.2" r="13.0"/><circle cx="244.6" cy="83.3" r="13.0"/><circle cx="235.7" cy="69.0" r="13.0"/><circle cx="246.5" cy="56.1" r="13.0"/><circle cx="262.1" cy="62.4" r="13.0"/><circle cx="250" cy="70" r="4.7" fill="#f3b23a" fill-opacity="0.9"/></g><g fill="#e8553f" fill-opacity="0.5"><circle cx="709.6" cy="237.1" r="19.0"/><circle cx="689.3" cy="250.9" r="19.0"/><circle cx="669.9" cy="235.8" r="19.0"/><circle cx="678.3" cy="212.7" r="19.0"/><circle cx="702.9" cy="213.5" r="19.0"/><circle cx="690" cy="230" r="6.8" fill="#f3b23a" fill-opacity="0.9"/></g><g fill="#f07a45" fill-opacity="0.5"><circle cx="792.1" cy="95.0" r="11.0"/><circle cx="783.7" cy="106.5" r="11.0"/><circle cx="770.2" cy="102.1" r="11.0"/><circle cx="770.2" cy="87.9" r="11.0"/><circle cx="783.7" cy="83.5" r="11.0"/><circle cx="780" cy="95" r="4.0" fill="#f3b23a" fill-opacity="0.9"/></g><g fill="#a31f2b" fill-opacity="0.55"><circle cx="441.4" cy="261.6" r="12.0"/><circle cx="427.3" cy="267.9" r="12.0"/><circle cx="416.9" cy="256.4" r="12.0"/><circle cx="424.6" cy="242.9" r="12.0"/><circle cx="439.8" cy="246.2" r="12.0"/><circle cx="430" cy="255" r="4.3" fill="#f3b23a" fill-opacity="0.9"/></g><g fill="#a31f2b" fill-opacity="0.5"><circle cx="570.6" cy="50.8" r="10.0"/><circle cx="560.6" cy="59.0" r="10.0"/><circle cx="549.7" cy="51.9" r="10.0"/><circle cx="553.1" cy="39.5" r="10.0"/><circle cx="566.0" cy="38.8" r="10.0"/><circle cx="560" cy="48" r="3.6" fill="#f3b23a" fill-opacity="0.9"/></g><g fill="#f07a45" fill-opacity="0.45"><circle cx="101.4" cy="127.6" r="9.0"/><circle cx="89.8" cy="128.4" r="9.0"/><circle cx="85.4" cy="117.6" r="9.0"/><circle cx="94.3" cy="110.1" r="9.0"/><circle cx="104.2" cy="116.3" r="9.0"/><circle cx="95" cy="120" r="3.2" fill="#f3b23a" fill-opacity="0.9"/></g></g>
+<use href="#pr-p" fill="none" stroke="#fff" stroke-width="5" stroke-opacity=".9"/>
+<g transform="translate(440 140) scale(.78) translate(-399.5 -113)" filter="url(#pr-f)"><path d="M43 183.6 99 42.4H127.4L182.8 183.6H149.6L107.2 66.4H118.6L75.6 183.6ZM74.8 158V132.4H151.8V158Z" fill="#fff"/>
+  <path d="M201.4 183.6V42.4H232.8V183.6ZM225.6 183.6V156H295.4V183.6Z" fill="#fff"/>
+  <defs>
+    <clipPath id="o29-ceu"><path d="M302.3,120.3 C331.5,110.81 355.59,110.81 382.6,120.3 S433.7,129.79 462.9,120.3 L462.9,25.4 L302.3,25.4 Z"/></clipPath>
+    <mask id="o29-m" maskUnits="userSpaceOnUse" x="307.6" y="38" width="150" height="150">
+      <circle cx="382.6" cy="113" r="73" fill="#fff"/>
+      <circle cx="382.6" cy="113" r="49.64" fill="#000" clip-path="url(#o29-ceu)"/>
+      <path d="M302.3,145.12 C331.5,135.63 355.59,135.63 382.6,145.12 S433.7,154.61 462.9,145.12" fill="none" stroke="#000" stroke-width="9.49"/>
+    </mask>
+  </defs>
+  <circle cx="382.6" cy="113" r="73" fill="#fff" mask="url(#o29-m)"/>
+  <path d="M478.8 183.6V42.4H510.2V183.6ZM566.2 183.6V42.4H597.8V183.6ZM497.6 124.6V97.4H576.6V124.6Z" fill="#fff"/>
+  <path d="M616.2 183.6 672.2 42.4H700.6L756 183.6H722.8L680.4 66.4H691.8L648.8 183.6ZM648 158V132.4H725V158Z" fill="#fff"/>
+  </g>
+</svg>
