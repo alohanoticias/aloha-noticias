@@ -130,7 +130,7 @@
   function url(l) { return "https://translate.google.com/translate?sl=pt&tl=" + l + "&u=" + encodeURIComponent(u); }
   var links = document.querySelectorAll("[data-l]");
   for (var i = 0; i < links.length; i++) { links[i].href = url(links[i].getAttribute("data-l")); links[i].rel = "noopener"; }
-  if (idioma.indexOf("pt") === 0 || location.pathname.indexOf("/admin") === 0) return;
+  if (idioma.indexOf("pt") === 0 || location.pathname.indexOf("/admin") === 0 || /bot|crawl|spider|lighthouse/i.test(navigator.userAgent)) return;  // robôs sempre veem a página só em português
   try { if (sessionStorage.getItem("aloha-trad") === "1") return; } catch (e) {}
   var l = idioma.split("-")[0], nomes = { en: "Read this page in English", es: "Leer esta página en español", fr: "Lire cette page en français", de: "Diese Seite auf Deutsch lesen", it: "Leggi questa pagina in italiano", ja: "このページを日本語で読む", zh: "用中文阅读此页", ar: "اقرأ هذه الصفحة بالعربية" };
   var alvo = l === "zh" ? "zh-CN" : l;
