@@ -1,0 +1,9 @@
+name: Checar imagens externas
+on:
+  workflow_dispatch:
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 site/checar_imagens_externas.py
