@@ -137,7 +137,7 @@ def montar(spec):
         tela = tom(tela, TONS[ed][1])
     if spec.get("titulo"):
         tela = titulo(tela, spec["titulo"])
-    if ed in TONS:
+    if spec.get("etiqueta") and ed in TONS:  # opcional; por padrão a capa não leva o nome da editoria
         tela = etiqueta(tela, {"games": "Games", "noticias": "Notícias"}.get(ed, ed.capitalize()), TONS[ed][0])
     return tela
 
