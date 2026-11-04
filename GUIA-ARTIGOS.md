@@ -101,3 +101,6 @@ Nenhum rascunho é entregue sem:
 
 ## Atualizações e correções em matérias publicadas
 Quando uma matéria publicada tiver data, fato ou número que mudou, não basta trocar o texto: preencha em `site/conteudo/materias.json` os campos opcionais `"atualizado": "YYYY-MM-DDTHH:MM"` (aparece como "Atualizado em ..." ao lado da data e vai para o dateModified do Google) e, se foi correção ou novidade relevante, `"correcao": "texto curto"` (vira uma nota "Atualização:" no fim do artigo). Isso cumpre o que a política editorial promete. Essa edição em matéria já publicada só deve ser feita a pedido do usuário ou, na revisão de manutenção, apenas proposta a ele.
+
+## Banco de pautas
+Antes de escolher os assuntos do dia, leia `PAUTAS.md` (pautas por janela de publicação, com o que confirmar). Pode usar as de lá ou outras do momento; ao usar uma, marque com ★ e acrescente novas pautas no fim da tabela quando surgirem.
