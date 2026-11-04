@@ -2,15 +2,7 @@
  "layout": "grade_b",
  "fotos": [
   {
-   "url": "https://images.unsplash.com/photo-1642947746939-f49ca9096628?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1610307766999-01f45d259959?fm=jpg&q=80&w=1800&auto=format&fit=crop",
+   "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
    "foco": [
     0.5,
     0.5
@@ -19,6 +11,14 @@
   },
   {
    "url": "https://cdn.marvel.com/content/1x/avengersdoomsday_lob_log_def_02.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://cdn.marvel.com/content/1x/avengersdoomsday_lob_log_div_02.webp",
    "foco": [
     0.5,
     0.5
