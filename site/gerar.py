@@ -141,8 +141,31 @@ HOJE = datetime.fromisoformat(materias[0]["data"])
 
 
 ICONE_IDIOMA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg>'
+def _bandeira(corpo):
+    return f'<svg class="bandeira" viewBox="0 0 30 20" width="22" height="15" aria-hidden="true" focusable="false">{corpo}</svg>'
+
+
+def _faixas_v(*cores):
+    return "".join(f'<rect x="{i * 30 / len(cores)}" width="{30 / len(cores) + .1}" height="20" fill="{c}"/>' for i, c in enumerate(cores))
+
+
+def _faixas_h(*cores):
+    return "".join(f'<rect y="{i * 20 / len(cores)}" width="30" height="{20 / len(cores) + .1}" fill="{c}"/>' for i, c in enumerate(cores))
+
+
+BANDEIRAS = {
+    "pt": _bandeira('<rect width="30" height="20" fill="#009C3B"/><polygon points="15,2 27.5,10 15,18 2.5,10" fill="#FFDF00"/><circle cx="15" cy="10" r="4.4" fill="#002776"/>'),
+    "en": _bandeira('<rect width="30" height="20" fill="#fff"/>' + "".join(f'<rect y="{i * 20 / 7 * 2}" width="30" height="{20 / 13 * 1.0 + 1.1}" fill="#B22234"/>' for i in range(4)) + '<rect width="13" height="10.8" fill="#3C3B6E"/>'),
+    "es": _bandeira('<rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/>'),
+    "fr": _bandeira(_faixas_v("#0055A4", "#fff", "#EF4135")),
+    "de": _bandeira(_faixas_h("#000", "#DD0000", "#FFCE00")),
+    "it": _bandeira(_faixas_v("#009246", "#fff", "#CE2B37")),
+    "ja": _bandeira('<rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="6" fill="#BC002D"/>'),
+    "zh-CN": _bandeira('<rect width="30" height="20" fill="#DE2910"/><polygon points="6,2.5 7.3,6.4 11.4,6.4 8.1,8.8 9.3,12.7 6,10.3 2.7,12.7 3.9,8.8 0.6,6.4 4.7,6.4" fill="#FFDE00"/>'),
+    "ar": _bandeira('<rect width="30" height="20" fill="#fff"/><rect y="0" width="30" height="6.7" fill="#00732F"/><rect y="13.3" width="30" height="6.7" fill="#000"/><rect width="8" height="20" fill="#FF0000"/>'),
+}
 IDIOMAS = [("en", "English"), ("es", "Español"), ("fr", "Français"), ("de", "Deutsch"), ("it", "Italiano"), ("ja", "日本語"), ("zh-CN", "中文"), ("ar", "العربية")]
-IDIOMAS_LI = "".join(f'<li><a data-l="{c}" href="#" rel="noopener">{n}</a></li>' for c, n in IDIOMAS)
+IDIOMAS_LI = "".join(f'<li><a data-l="{c}" href="#" rel="noopener">{BANDEIRAS[c]}<span>{n}</span></a></li>' for c, n in IDIOMAS)
 
 
 def cabecalho(ativo):
@@ -161,7 +184,7 @@ def cabecalho(ativo):
     <a class="cab-logo" href="index.html" aria-label="{SITE}, página inicial">{LOGO_LINHA}</a>
     <span class="cab-data">{data_hoje}</span>
     <div class="cab-acoes">
-      <details class="idioma-menu" id="idioma-menu"><summary class="botao-icone" aria-label="Traduzir esta página / Translate">{ICONE_IDIOMA}<span class="idioma-rotulo">PT</span></summary>
+      <details class="idioma-menu" id="idioma-menu"><summary class="botao-icone" aria-label="Traduzir esta página / Translate">{BANDEIRAS["pt"]}<span class="idioma-rotulo">PT</span></summary>
         <ul class="idioma-lista"><li class="idioma-tit">Traduzir / Translate</li>{IDIOMAS_LI}</ul></details>
       <a class="botao-icone" href="busca.html" aria-label="Buscar">{ICONE_BUSCA}</a>
       <button class="botao-icone" id="botao-tema" type="button" aria-label="Alternar tema">{ICONE_TEMA}</button>

@@ -663,3 +663,6 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .idioma-lista a{display:block;padding:8px 10px;border-radius:6px;color:inherit;text-decoration:none}
 .idioma-lista a:hover,.idioma-lista a:focus-visible{background:rgba(15,76,92,.1)}
 .idioma-tit{padding:6px 10px;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;opacity:.65}
+
+.bandeira{flex:none;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+.idioma-lista a{display:flex;align-items:center;gap:10px}
