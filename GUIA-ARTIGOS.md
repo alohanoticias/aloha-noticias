@@ -137,3 +137,9 @@ Regras:
 - A imagem vai logo depois do parágrafo que cita o assunto dela, nunca antes nem em outra seção.
 - Não repetir a mesma imagem no mesmo artigo.
 - Sem imagem oficial adequada (sem rostos de pessoas reais), é melhor não colocar nada do que colocar uma imagem que não tem a ver.
+
+## Imagens de vários filmes na mesma seção: lado a lado (regra fixa, vale para todos os artigos)
+
+- Quando uma seção tiver imagem de mais de um filme, jogo ou série, junte-as numa única imagem 1920x1080 com as imagens lado a lado (2 ou 3 painéis com divisória branca), em vez de empilhá-las.
+- Use `site/montar_grupos.py` com `site/grupos.json` (roda no GitHub pelo workflow "Coletar imagens de filmes"). Pôster vertical aparece inteiro sobre fundo desfocado; imagem horizontal é recortada para preencher o painel.
+- Coloque a imagem do grupo logo depois do parágrafo que cita os títulos dela. Legenda com os títulos mostrados.
