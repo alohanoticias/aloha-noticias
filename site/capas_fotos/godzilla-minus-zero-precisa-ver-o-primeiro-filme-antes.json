@@ -1,5 +1,5 @@
 {
- "layout": "colunas",
+ "layout": "dois",
  "editoria": "cinema",
  "fotos": [
   {
@@ -15,14 +15,6 @@
    "foco": [
     0.5,
     0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://godzilla.com/cdn/shop/files/GMZ_KV2_Web_2025x3000_GKIDS-wIMAX_1.jpg?v=1788560923&width=900",
-   "foco": [
-    0.5,
-    0.3
    ],
    "zoom": 1.0
   }

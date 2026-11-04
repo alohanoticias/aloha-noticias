@@ -90,6 +90,9 @@ Posts todos no mesmo molde denunciam automação. Em cada lote de rascunhos e en
 
 **Fotos dentro do texto**: de qualquer fonte, com crédito e fonte na legenda; o endereço da imagem pode ser o do próprio site de origem (https). **Vídeos**: incorporação do YouTube (trailer, canal oficial ou veículo), nunca baixados.
 
+## Formato das imagens (regra fixa)
+**Toda imagem do site é horizontal, 16:9, em 1920x1080.** Nada de foto ou pôster em pé. Capas: o montar_capa.py já sai em 1920x1080. Fotos do Unsplash: use `https://images.unsplash.com/photo-XXXX?fm=jpg&q=80&w=1920&h=1080&auto=format&fit=crop`. Imagens de outras fontes: escolha versões horizontais (banners, quadros de trailer, arte de divulgação em paisagem); pôsteres verticais não entram, nem na capa nem no texto. O CSS recorta qualquer foto do texto em 16:9, mas a escolha já deve ser horizontal. **Capas só com imagens do próprio assunto** (arte oficial, prints, quadros de trailer, logotipos), nunca fotos genéricas de banco de imagens.
+
 ## Todo artigo leva capa, fotos e vídeo (regra fixa)
 Nenhum rascunho é entregue sem:
 - **Capa** em colagem de fotos livres, montada como descrito em "Capas e imagens".

@@ -215,3 +215,6 @@
   .rodape p { margin-inline: auto; }
   .rodape ul { justify-items: center; }
 }
+
+/* fotos do texto: sempre em 16:9 (1920x1080), nunca em pé */
+.foto-corpo img, .materia-capa img { aspect-ratio: 16 / 9 !important; width: 100% !important; height: auto !important; max-height: none !important; object-fit: cover !important; }

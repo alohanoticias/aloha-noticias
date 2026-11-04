@@ -1,5 +1,5 @@
 """Monta capas em colagem a partir de fotos livres (Unsplash, Pexels, Wikimedia).
-Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1200x675).
+Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1920x1080).
 Formato do .json:
   {"layout": "tres" | "dois" | "um" | "grade" | "grade_b" | "colunas" | "faixas" | "moldura" | "circulo" | "destaque",
    "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional",
@@ -10,7 +10,8 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 RAIZ = Path(__file__).resolve().parent.parent
-L, A = 1200, 675
+S = 1.6  # os layouts abaixo foram desenhados em 1200x675; tudo é multiplicado por S para sair em 1920x1080
+L, A = 1920, 1080
 UA = {"User-Agent": "Mozilla/5.0 (compatible; AlohaCapas/1.0; +https://alohanoticias.com)"}
 def R(x0, y0, x1, y1, r=0, borda=0):
     """Retângulo (com cantos arredondados e borda branca opcionais)."""
@@ -55,6 +56,20 @@ LAYOUTS = {
     # foto em tela cheia com duas molduras pequenas lado a lado
     "destaque": [R(0, 0, 1200, 675), R(560, 380, 850, 625, r=16, borda=10), R(880, 380, 1170, 625, r=16, borda=10)],
 }
+
+
+def _esc(forma):
+    if isinstance(forma, dict):
+        d = dict(forma)
+        k = "rr" if "rr" in d else "elipse"
+        d[k] = tuple(round(v * S) for v in d[k])
+        d["r"] = round(d.get("r", 0) * S) if "r" in d else 0
+        d["borda"] = round(d.get("borda", 0) * S)
+        return d
+    return [(round(x * S), round(y * S)) for x, y in forma]
+
+
+LAYOUTS = {k: [_esc(f) for f in v] for k, v in LAYOUTS.items()}
 
 
 def resolver(url):
@@ -105,16 +120,16 @@ def fonte(tam):
 def titulo(tela, texto):
     """Escreve o nome do assunto (texto simples, nunca logotipo) no canto inferior esquerdo."""
     base = tela.convert("RGBA")
-    f = fonte(150 if len(texto) <= 8 else 110)
+    f = fonte(round((150 if len(texto) <= 8 else 110) * S))
     d = ImageDraw.Draw(base)
-    x, y = 52, A - 52
+    x, y = round(52 * S), A - round(52 * S)
     caixa = d.textbbox((x, y), texto, font=f, anchor="ls")
     sombra = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    ImageDraw.Draw(sombra).text((x + 3, y + 6), texto, font=f, fill=(0, 0, 0, 210), anchor="ls")
-    base = Image.alpha_composite(base, sombra.filter(ImageFilter.GaussianBlur(10)))
+    ImageDraw.Draw(sombra).text((x + 5, y + 10), texto, font=f, fill=(0, 0, 0, 210), anchor="ls")
+    base = Image.alpha_composite(base, sombra.filter(ImageFilter.GaussianBlur(16)))
     d = ImageDraw.Draw(base)
     d.text((x, y), texto, font=f, fill=(255, 255, 255, 255), anchor="ls")
-    barra = d.rectangle((x, caixa[1] - 22, x + 96, caixa[1] - 14), fill=(255, 196, 61, 255))
+    barra = d.rectangle((x, caixa[1] - 35, x + 154, caixa[1] - 22), fill=(255, 196, 61, 255))
     return base.convert("RGB")
 
 
@@ -132,9 +147,9 @@ def tom(tela, cor, forca=0.16):
     base = Image.blend(tela, Image.new("RGB", tela.size, cor), forca)
     vig = Image.new("L", tela.size, 0)
     d = ImageDraw.Draw(vig)
-    for i in range(0, 140):
-        d.rectangle((i, i, tela.width - i, tela.height - i), outline=int(70 * (1 - i / 140) ** 2))
-    base = Image.composite(Image.new("RGB", tela.size, (8, 20, 24)), base, vig.filter(ImageFilter.GaussianBlur(30)))
+    for i in range(0, 224):
+        d.rectangle((i, i, tela.width - i, tela.height - i), outline=int(70 * (1 - i / 224) ** 2))
+    base = Image.composite(Image.new("RGB", tela.size, (8, 20, 24)), base, vig.filter(ImageFilter.GaussianBlur(48)))
     import random
     r = random.Random(7)
     g = Image.effect_noise(tela.size, 14).convert("RGB")
@@ -143,9 +158,9 @@ def tom(tela, cor, forca=0.16):
 
 def etiqueta(tela, texto, cor):
     base = tela.convert("RGBA")
-    f = fonte(26)
+    f = fonte(42)
     d = ImageDraw.Draw(base)
-    x, y = 40, 36
+    x, y = 64, 58
     c = d.textbbox((x, y), texto.upper(), font=f, anchor="la")
     d.rounded_rectangle((c[0] - 18, c[1] - 12, c[2] + 18, c[3] + 14), radius=8, fill=cor + (255,))
     d.text((x, y), texto.upper(), font=f, fill=(255, 255, 255, 255), anchor="la")
