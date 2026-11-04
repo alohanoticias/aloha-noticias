@@ -9,7 +9,7 @@
    {"src": "assets/img/estreias/super-charlie.jpg"},
    {"src": "https://cinepop.com.br/wp-content/uploads/2025/10/lago-dos-ossos.jpg", "foco": [0.5, 0.5]}]},
  {"saida": "assets/img/estreias/grupo-jogos-detetives.jpg", "itens": [
-   {"src": "https://res.cloudinary.com/ybmedia/image/upload/c_crop,h_719,w_1280,x_0,y_2/c_fill,f_auto,h_900,q_auto,w_1600/v1/m/0/5/054db4e12a91560c187a4d556c3ea02f0dc72c9e/new-logo-unveiled-hunger-games-sunrise-on-reaping.png", "foco": [0.5, 0.5]},
+   {"src": "https://res.cloudinary.com/ybmedia/image/upload/c_crop,h_719,w_1280,x_0,y_2/c_fill,f_auto,h_900,q_auto,w_1600/v1/m/0/5/054db4e12a91560c187a4d556c3ea02f0dc72c9e/new-logo-unveiled-hunger-games-sunrise-on-reaping.png", "modo": "conter"},
    {"src": "assets/img/estreias/detetives-de-4-patas.jpg"}]},
  {"saida": "assets/img/estreias/grupo-shows.jpg", "itens": [
    {"src": "assets/img/estreias/rammstein-live-in-mexico-city.jpg"},
