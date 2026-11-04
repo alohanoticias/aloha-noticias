@@ -1,0 +1,15 @@
+name: Checar vídeos do YouTube
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "IDs de vídeo separados por espaço"
+        required: true
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          IDS: ${{ inputs.ids }}
+        run: python3 site/checar_videos.py $IDS
