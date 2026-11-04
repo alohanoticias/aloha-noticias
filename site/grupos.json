@@ -1,17 +1,85 @@
 [
- {"saida": "assets/img/estreias/grupo-godzilla-gatola.jpg", "itens": [
-   {"src": "https://cdn.ome.lt/KVeDbWbfTyvDDytmT2SgSOCl5ro=/1200x630/smart/filters:format(webp)/extras/conteudos/MCDGOMI_HT017-H-2023.webp", "foco": [0.5, 0.5]},
-   {"src": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/3705/d07545839b51f80761d749c6fc0fd835.jpg", "foco": [0.45, 0.5]}]},
- {"saida": "assets/img/estreias/grupo-pinoquio-moxy.jpg", "itens": [
-   {"src": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/6024/ec86aa35b5b75d4ddd38d1c838f94166.jpg", "foco": [0.35, 0.5]},
-   {"src": "assets/img/estreias/miss-moxy.jpg", "foco": [0.5, 0.5]}]},
- {"saida": "assets/img/estreias/grupo-charlie-ossos.jpg", "itens": [
-   {"src": "assets/img/estreias/super-charlie.jpg"},
-   {"src": "https://cinepop.com.br/wp-content/uploads/2025/10/lago-dos-ossos.jpg", "foco": [0.5, 0.5]}]},
- {"saida": "assets/img/estreias/grupo-jogos-detetives.jpg", "itens": [
-   {"src": "https://res.cloudinary.com/ybmedia/image/upload/c_crop,h_719,w_1280,x_0,y_2/c_fill,f_auto,h_900,q_auto,w_1600/v1/m/0/5/054db4e12a91560c187a4d556c3ea02f0dc72c9e/new-logo-unveiled-hunger-games-sunrise-on-reaping.png", "modo": "conter"},
-   {"src": "assets/img/estreias/detetives-de-4-patas.jpg"}]},
- {"saida": "assets/img/estreias/grupo-shows.jpg", "itens": [
-   {"src": "assets/img/estreias/rammstein-live-in-mexico-city.jpg"},
-   {"src": "assets/img/estreias/starlight-express.jpg"}]}
+ {
+  "saida": "assets/img/estreias/grupo-semana-5.jpg",
+  "itens": [
+   {
+    "src": "https://cdn.ome.lt/KVeDbWbfTyvDDytmT2SgSOCl5ro=/1200x630/smart/filters:format(webp)/extras/conteudos/MCDGOMI_HT017-H-2023.webp",
+    "foco": [
+     0.5,
+     0.5
+    ]
+   },
+   {
+    "src": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/3705/d07545839b51f80761d749c6fc0fd835.jpg",
+    "foco": [
+     0.45,
+     0.5
+    ]
+   },
+   {
+    "src": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/6353/eaf29b0fd6ad2fa2d46575c380ef05fe.jpg",
+    "foco": [
+     0.5,
+     0.5
+    ]
+   }
+  ]
+ },
+ {
+  "saida": "assets/img/estreias/grupo-pinoquio-moxy.jpg",
+  "itens": [
+   {
+    "src": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/6024/ec86aa35b5b75d4ddd38d1c838f94166.jpg",
+    "foco": [
+     0.35,
+     0.5
+    ]
+   },
+   {
+    "src": "assets/img/estreias/miss-moxy.jpg",
+    "foco": [
+     0.5,
+     0.5
+    ]
+   }
+  ]
+ },
+ {
+  "saida": "assets/img/estreias/grupo-charlie-ossos.jpg",
+  "itens": [
+   {
+    "src": "assets/img/estreias/super-charlie.jpg"
+   },
+   {
+    "src": "https://cinepop.com.br/wp-content/uploads/2025/10/lago-dos-ossos.jpg",
+    "foco": [
+     0.5,
+     0.5
+    ]
+   }
+  ]
+ },
+ {
+  "saida": "assets/img/estreias/grupo-jogos-detetives.jpg",
+  "itens": [
+   {
+    "src": "https://res.cloudinary.com/ybmedia/image/upload/c_crop,h_719,w_1280,x_0,y_2/c_fill,f_auto,h_900,q_auto,w_1600/v1/m/0/5/054db4e12a91560c187a4d556c3ea02f0dc72c9e/new-logo-unveiled-hunger-games-sunrise-on-reaping.png",
+    "modo": "conter"
+   },
+   {
+    "src": "assets/img/estreias/detetives-de-4-patas.jpg"
+   }
+  ]
+ },
+ {
+  "saida": "assets/img/estreias/grupo-shows.jpg",
+  "itens": [
+   {
+    "src": "assets/img/estreias/rammstein-live-in-mexico-city.jpg"
+   },
+   {
+    "src": "assets/img/estreias/starlight-express.jpg"
+   }
+  ]
+ }
 ]
