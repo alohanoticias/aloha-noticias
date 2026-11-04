@@ -1,10 +1,10 @@
 """Textos de interface e páginas institucionais em inglês e espanhol.
 O português é o idioma principal e fica no próprio gerar.py. As chaves de UI são o texto em português."""
 
-IDIOMAS_REAIS = ["pt", "en", "es"]
-HTML_LANG = {"pt": "pt-BR", "en": "en", "es": "es"}
-OG_LOCALE = {"pt": "pt_BR", "en": "en_US", "es": "es_ES"}
-SIGLA = {"pt": "PT", "en": "EN", "es": "ES"}
+IDIOMAS_REAIS = ["pt", "en", "es", "fr", "de", "it", "ja", "zh", "ar"]
+HTML_LANG = {"pt": "pt-BR", "en": "en", "es": "es", "fr": "fr", "de": "de", "it": "it", "ja": "ja", "zh": "zh-CN", "ar": "ar"}
+OG_LOCALE = {"pt": "pt_BR", "en": "en_US", "es": "es_ES", "fr": "fr_FR", "de": "de_DE", "it": "it_IT", "ja": "ja_JP", "zh": "zh_CN", "ar": "ar_AR"}
+SIGLA = {"pt": "PT", "en": "EN", "es": "ES", "fr": "FR", "de": "DE", "it": "IT", "ja": "JA", "zh": "ZH", "ar": "AR"}
 
 MESES = {
     "pt": ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"],
@@ -365,3 +365,21 @@ PRIV_ANUNCIOS = {
 <p>Conoce cómo Google usa los datos de sitios asociados en <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>. También puedes gestionar los anuncios personalizados en <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>.</p>
 """,
 }
+
+
+# ---------------------------------------------------------------- demais idiomas (um módulo por idioma)
+CONSENT = {
+    "en": "We use cookies to show ads and keep the site free. It is your choice: if you do not accept, we do not load ads.",
+    "es": "Usamos cookies para mostrar anuncios y mantener el sitio gratuito. Tú eliges: si no aceptas, no cargamos anuncios.",
+}
+SABER = {"en": "Learn more", "es": "Más información"}
+
+import importlib as _il
+for _l in IDIOMAS_REAIS[3:]:
+    try:
+        _m = _il.import_module(f"i18n_{_l}")
+    except ModuleNotFoundError:
+        continue
+    MESES[_l], DIAS[_l], EDITORIAS[_l], UI[_l], PAGINAS[_l] = _m.MES, _m.DIA, _m.ED, _m.UI, _m.PAG
+    PRIV_ANUNCIOS[_l], CONSENT[_l], SABER[_l], NOMES_IDIOMA[_l] = _m.PRIV, _m.CONSENT, _m.SABER, _m.NOME
+IDIOMAS_REAIS = [l for l in IDIOMAS_REAIS if l in ("pt", "en", "es") or l in UI]

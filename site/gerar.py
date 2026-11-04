@@ -27,7 +27,7 @@ DIAS = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
 
 esc = html.escape
 
-LANG = "pt"  # idioma da passada de geração em curso (pt, en, es)
+LANG = "pt"  # idioma da passada de geração em curso
 
 
 def t(s):
@@ -39,24 +39,42 @@ def autor_nome(m):
     return t(m["autor"])
 
 
-def data_extenso(d):
-    mes, dia = i18n.MESES[LANG][d.month - 1], i18n.DIAS[LANG][d.weekday()]
+def _data(d, dia_semana=False):
+    mes = i18n.MESES[LANG][d.month - 1]
+    dia = i18n.DIAS[LANG][d.weekday()] if dia_semana else ""
     if LANG == "en":
-        return f"{dia}, {mes} {d.day}, {d.year}"
-    return f"{dia}, {d.day} de {mes} de {d.year}"
+        return f"{dia}, {mes} {d.day}, {d.year}" if dia else f"{mes} {d.day}, {d.year}"
+    if LANG == "de":
+        return f"{dia}, {d.day}. {mes} {d.year}" if dia else f"{d.day}. {mes} {d.year}"
+    if LANG in ("fr", "it"):
+        return f"{dia} {d.day} {mes} {d.year}" if dia else f"{d.day} {mes} {d.year}"
+    if LANG == "ja":
+        return f"{d.year}年{d.month}月{d.day}日{dia}"
+    if LANG == "zh":
+        return f"{d.year}年{d.month}月{d.day}日 {dia}".strip()
+    if LANG == "ar":
+        return f"{dia}، {d.day} {mes} {d.year}" if dia else f"{d.day} {mes} {d.year}"
+    return f"{dia}, {d.day} de {mes} de {d.year}" if dia else f"{d.day} de {mes} de {d.year}"
+
+
+def data_extenso(d):
+    return _data(d, True)
 
 
 def data_longa(iso):
     d = datetime.fromisoformat(iso)
-    mes = i18n.MESES[LANG][d.month - 1]
-    if LANG == "en":
-        return f"{mes} {d.day}, {d.year}, {d:%H:%M}"
-    return f"{d.day} de {mes} de {d.year}, {d:%H:%M}"
+    return f"{_data(d)}, {d:%H:%M}"
 
 
 def data_curta(iso):
     d = datetime.fromisoformat(iso)
-    return f"{d.month:02d}/{d.day:02d}" if LANG == "en" else f"{d.day:02d}/{d.month:02d}"
+    if LANG == "en":
+        return f"{d.month:02d}/{d.day:02d}"
+    if LANG in ("ja", "zh"):
+        return f"{d.month}/{d.day}"
+    if LANG == "de":
+        return f"{d.day:02d}.{d.month:02d}."
+    return f"{d.day:02d}/{d.month:02d}"
 
 
 def hora(iso):
@@ -184,10 +202,10 @@ BANDEIRAS = {
     "de": _bandeira(_faixas_h("#000", "#DD0000", "#FFCE00")),
     "it": _bandeira(_faixas_v("#009246", "#fff", "#CE2B37")),
     "ja": _bandeira('<rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="6" fill="#BC002D"/>'),
-    "zh-CN": _bandeira('<rect width="30" height="20" fill="#DE2910"/><polygon points="6,2.5 7.3,6.4 11.4,6.4 8.1,8.8 9.3,12.7 6,10.3 2.7,12.7 3.9,8.8 0.6,6.4 4.7,6.4" fill="#FFDE00"/>'),
+    "zh": _bandeira('<rect width="30" height="20" fill="#DE2910"/><polygon points="6,2.5 7.3,6.4 11.4,6.4 8.1,8.8 9.3,12.7 6,10.3 2.7,12.7 3.9,8.8 0.6,6.4 4.7,6.4" fill="#FFDE00"/>'),
     "ar": _bandeira('<rect width="30" height="20" fill="#fff"/><rect y="0" width="30" height="6.7" fill="#00732F"/><rect y="13.3" width="30" height="6.7" fill="#000"/><rect width="8" height="20" fill="#FF0000"/>'),
 }
-IDIOMAS_GOOGLE = [("fr", "Français"), ("de", "Deutsch"), ("it", "Italiano"), ("ja", "日本語"), ("zh-CN", "中文"), ("ar", "العربية")]
+IDIOMAS_GOOGLE = []  # todos os idiomas agora são páginas reais
 BANDEIRAS_EXTRA = {}
 
 
@@ -195,7 +213,7 @@ def _item_idioma(code, nome, flag=True):
     bd = BANDEIRAS.get(code, "") if flag else ""
     if code in i18n.IDIOMAS_REAIS:
         atual = ' aria-current="true"' if code == LANG else ""
-        return f'<li><a href="@@L:{code}@@" hreflang="{code}" lang="{code}"{atual}>{bd}<span>{nome}</span></a></li>'
+        return f'<li><a href="@@L:{code}@@" hreflang="{i18n.HTML_LANG[code]}" lang="{i18n.HTML_LANG[code]}"{atual}>{bd}<span>{nome}</span></a></li>'
     return f'<li><a data-l="{code}" href="#" rel="noopener">{bd}<span>{nome}</span></a></li>'
 
 
@@ -208,7 +226,7 @@ def seletor_idioma():
 
 def idiomas_rodape():
     links = "".join(
-        (f'<a href="@@L:{c}@@" hreflang="{c}" lang="{c}">{i18n.NOMES_IDIOMA[c]}</a>' if c in i18n.IDIOMAS_REAIS else f'<a data-l="{c}" href="#" rel="noopener">{n}</a>')
+        (f'<a href="@@L:{c}@@" hreflang="{i18n.HTML_LANG[c]}" lang="{i18n.HTML_LANG[c]}">{i18n.NOMES_IDIOMA[c]}</a>' if c in i18n.IDIOMAS_REAIS else f'<a data-l="{c}" href="#" rel="noopener">{n}</a>')
         for c, n in [(c, i18n.NOMES_IDIOMA[c]) for c in i18n.IDIOMAS_REAIS] + IDIOMAS_GOOGLE)
     return f'<div class="idiomas" aria-label="{t("Traduzir esta página / Translate")}"><span>{t("Traduzir / Translate:")}</span> {links}</div>'
 
@@ -300,12 +318,8 @@ def og_da_capa(m):
     return u
 
 
-CONSENT_TXT = {
-    "pt": "Usamos cookies para exibir anúncios e manter o site gratuito. Você escolhe: sem aceitar, não carregamos anúncios.",
-    "en": "We use cookies to show ads and keep the site free. It is your choice: if you do not accept, we do not load ads.",
-    "es": "Usamos cookies para mostrar anuncios y mantener el sitio gratuito. Tú eliges: si no aceptas, no cargamos anuncios.",
-}
-SABER_MAIS = {"pt": "Saiba mais", "en": "Learn more", "es": "Más información"}
+CONSENT_TXT = {"pt": "Usamos cookies para exibir anúncios e manter o site gratuito. Você escolhe: sem aceitar, não carregamos anúncios.", **i18n.CONSENT}
+SABER_MAIS = {"pt": "Saiba mais", **i18n.SABER}
 
 
 def consent_html():
@@ -322,7 +336,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
         extra_head = extra_head.replace('<base href="/">\n', "")
     tt = f"{titulo} · {SITE}" if titulo != SITE else t("ALOHA NOTÍCIAS: notícias, cinema, games e tecnologia")
     return f"""<!doctype html>
-<html lang="{i18n.HTML_LANG[LANG]}">
+<html lang="{i18n.HTML_LANG[LANG]}"{' dir="rtl"' if LANG == "ar" else ''}>
 <head>
 <meta charset="utf-8">
 {BASE}<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -535,9 +549,9 @@ def prev_trad(m):
     """Links para a prévia das versões em outros idiomas (só no admin)."""
     trs = m.get("traducoes") or {}
     if not trs:
-        return '<span>Sem tradução (EN/ES) neste rascunho.</span> '
-    nomes = {"en": "English", "es": "Español"}
-    return "<span>Prévia das traduções:</span> " + " ".join(f'<a href="admin/{l}/{esc(m["slug"])}.html">{nomes.get(l, l)}</a>' for l in trs if l in nomes) + " "
+        return '<span>Sem traduções neste rascunho.</span> '
+    nomes = i18n.NOMES_IDIOMA
+    return "<span>Prévia das traduções:</span> " + " ".join(f'<a href="admin/{l}/{esc(m["slug"])}.html">{nomes.get(l, l)}</a>' for l in i18n.IDIOMAS_REAIS[1:] if l in trs) + " "
 
 
 def faixa_rascunho(m, agendado=False):
@@ -877,22 +891,24 @@ def prefixo(lang):
 
 # Endereços traduzidos. Internamente cada página tem um nome em português (a "chave");
 # o nome final de cada idioma sai de nome_idioma(). Os links são reescritos em localizar().
-PREF_MAT = {"en": "article", "es": "articulo"}
-PREF_TAG = {"en": "topic", "es": "tema"}
-FIXOS = {
-    "sobre": {"en": "about", "es": "quienes-somos"},
-    "contato": {"en": "contact", "es": "contacto"},
-    "busca": {"en": "search", "es": "buscar"},
-    "equipe": {"en": "team", "es": "equipo"},
-    "politica-editorial": {"en": "editorial-policy", "es": "politica-editorial"},
-    "termos": {"en": "terms", "es": "terminos"},
-    "privacidade": {"en": "privacy", "es": "privacidad"},
-    "games": {"en": "games", "es": "juegos"},
-    "cinema": {"en": "movies", "es": "cine"},
-    "tecnologia": {"en": "technology", "es": "tecnologia"},
-    "noticias": {"en": "news", "es": "noticias"},
-    "curiosidades": {"en": "curiosities", "es": "curiosidades"},
+_L = ["en", "es", "fr", "de", "it", "ja", "zh", "ar"]
+PREF_MAT = dict(zip(_L, ["article", "articulo", "article", "artikel", "articolo", "kiji", "wenzhang", "maqal"]))
+PREF_TAG = dict(zip(_L, ["topic", "tema", "sujet", "thema", "argomento", "tag", "huati", "mawdu"]))
+_F = {  # em ordem: en, es, fr, de, it, ja, zh, ar
+    "sobre": ["about", "quienes-somos", "a-propos", "ueber-uns", "chi-siamo", "about", "about", "about"],
+    "contato": ["contact", "contacto", "contact", "kontakt", "contatti", "contact", "contact", "contact"],
+    "busca": ["search", "buscar", "recherche", "suche", "cerca", "search", "search", "search"],
+    "equipe": ["team", "equipo", "equipe", "team", "team", "team", "team", "team"],
+    "politica-editorial": ["editorial-policy", "politica-editorial", "politique-editoriale", "redaktionelle-richtlinien", "linea-editoriale", "editorial-policy", "editorial-policy", "editorial-policy"],
+    "termos": ["terms", "terminos", "conditions", "nutzungsbedingungen", "termini", "terms", "terms", "terms"],
+    "privacidade": ["privacy", "privacidad", "confidentialite", "datenschutz", "privacy", "privacy", "privacy", "privacy"],
+    "games": ["games", "juegos", "jeux", "spiele", "giochi", "games", "games", "games"],
+    "cinema": ["movies", "cine", "cinema", "kino", "cinema", "eiga", "dianying", "cinema"],
+    "tecnologia": ["technology", "tecnologia", "technologie", "technik", "tecnologia", "tech", "keji", "tech"],
+    "noticias": ["news", "noticias", "actualites", "nachrichten", "notizie", "news", "xinwen", "news"],
+    "curiosidades": ["curiosities", "curiosidades", "curiosites", "kurioses", "curiosita", "trivia", "qushi", "curiosities"],
 }
+FIXOS = {k: dict(zip(_L, v)) for k, v in _F.items()}
 SLUGS_IDIOMA = {}  # {lang: {slug_pt: slug_no_idioma}}
 
 
@@ -901,7 +917,7 @@ def _slug_ok(x):
 
 
 def preparar_slugs():
-    for lang in ("en", "es"):
+    for lang in _L:
         SLUGS_IDIOMA[lang] = {}
         for m in MATERIAS_PT:
             sl = ((m.get("traducoes") or {}).get(lang) or {}).get("slug")
@@ -1034,7 +1050,7 @@ def main():
     for d in rascunhos:
         (SAIDA / f"admin/{d['slug']}.html").write_text(resolver(gerar_materia(d, preview=True), "pt", f"admin/{d['slug']}.html", existe), encoding="utf-8")
     # prévias das traduções de rascunhos e agendados (admin/en/<slug>.html, admin/es/<slug>.html)
-    for lang in ("en", "es"):
+    for lang in i18n.IDIOMAS_REAIS[1:]:
         (SAIDA / "admin" / lang).mkdir(exist_ok=True)
         for d in list(rascunhos) + list(agendados):
             tr = (d.get("traducoes") or {}).get(lang)
