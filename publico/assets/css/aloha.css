@@ -645,3 +645,5 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .consent[hidden]{display:none}
 .consent p{margin:0;font-size:.95rem;flex:1 1 320px}
 .consent .botao.sec{background:transparent;color:inherit;border:1px solid currentColor}
+
+.nota-correcao{margin:28px 0 0;padding:14px 18px;border-left:4px solid #E76F51;background:rgba(231,111,81,.08);border-radius:0 8px 8px 0;font-size:.95rem}

@@ -492,6 +492,18 @@ def gerar_admin(rascunhos, agendados=()):
     return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
 
+def atualizado_html(m):
+    """Campo opcional "atualizado" (YYYY-MM-DDTHH:MM) na matéria: mostra "Atualizado em ..." ao lado da data."""
+    a = m.get("atualizado")
+    return f'<time datetime="{a}">Atualizado em {data_longa(a)}</time>' if a else ""
+
+
+def correcao_html(m):
+    """Campo opcional "correcao": texto da nota de correção/atualização exibida ao fim da matéria."""
+    c = m.get("correcao")
+    return f'<aside class="nota-correcao"><strong>Atualização:</strong> {esc(c)}</aside>' if c else ""
+
+
 def autor_html(m):
     return f'<a href="equipe.html">{esc(m["autor"])}</a>' if m["autor"] == "Equipe Aloha" else esc(m["autor"])
 
@@ -514,7 +526,8 @@ def gerar_materia(m, preview=False, agendado=False):
     tags = "".join(f'<a href="{url_tag(t)}">{esc(t)}</a>' for t in m.get("tags", []) if slug_tag(t))
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": m["titulo"],
-        "description": m["linha_fina"], "datePublished": m["data"], "articleSection": e["nome"],
+        "description": m["linha_fina"], "datePublished": m["data"], "dateModified": m.get("atualizado") or m["data"], "articleSection": e["nome"],
+        "image": [og_url(og_da_capa(m))], "mainEntityOfPage": "https://alohanoticias.com/" + url_materia(m), "inLanguage": "pt-BR",
         "author": {"@type": "Person" if m["autor"] != "Equipe Aloha" else "Organization", "name": m["autor"]},
         "publisher": {"@type": "Organization", "name": SITE},
     }, ensure_ascii=False)
@@ -524,13 +537,13 @@ def gerar_materia(m, preview=False, agendado=False):
     <span class="chapeu">{esc(e['nome'])}</span>
     <h1>{esc(m['titulo'])}</h1>
     <p class="linha-fina">{esc(m['linha_fina'])}</p>
-    <p class="meta"><span>Por {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time><span>{leitura(m)} min de leitura</span></p>
+    <p class="meta"><span>Por {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time>{atualizado_html(m)}<span>{leitura(m)} min de leitura</span></p>
   </header>
   <figure class="materia-capa" style="margin-inline:0">{capa(m)}{legenda(m)}</figure>{video(m)}
   <div class="materia-grade">
     <div class="texto">
       <div class="compartilhar"><span>Compartilhe</span>{botoes_compartilhar(m)}<button class="botao-sec" id="copiar-link" type="button">Copiar link</button></div>
-      {corpo_texto(m['corpo'])}
+      {corpo_texto(m['corpo'])}{correcao_html(m)}
       <div class="tags" aria-label="Assuntos">{tags}</div>
     </div>
     <div class="lateral">{mais_lidas(MAIS_LIDAS, "mat")}</div>
@@ -660,7 +673,11 @@ def main():
 <h2>Independência</h2>
 <p>O conteúdo editorial é independente. Anúncios, quando existirem, ficam separados do texto e não influenciam o que publicamos. Se uma matéria tiver patrocínio ou parceria, isso será informado claramente ao leitor.</p>""")
     arquivos["equipe.html"] = gerar_simples("Equipe Aloha", "Quem assina as matérias da ALOHA NOTÍCIAS e o que cobrimos.", f"""
-<p>Equipe Aloha é a assinatura da redação do ALOHA NOTÍCIAS. Reúne quem pesquisa, escreve, ilustra e revisa as matérias publicadas aqui.</p>
+<p>Equipe Aloha é a assinatura da redação do ALOHA NOTÍCIAS, um site independente em português sobre cinema, games e tecnologia. Reúne quem pesquisa, escreve, monta as capas e revisa as matérias publicadas aqui.</p>
+<h2>Quem está por trás</h2>
+<p>O ALOHA NOTÍCIAS é um projeto editorial independente, mantido por uma equipe pequena, sem vínculo com estúdios, produtoras ou fabricantes. Usamos ferramentas de inteligência artificial como apoio à pesquisa e à redação, e toda matéria passa por revisão e aprovação de uma pessoa antes de ir ao ar.</p>
+<h2>O que você pode esperar</h2>
+<p>Informação conferida em mais de uma fonte, fontes citadas no fim de cada texto, rumores identificados como tal e correções feitas às claras. Se algo estiver errado, a gente quer saber.</p>
 <h2>O que cobrimos</h2>
 <ul>{"".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a>: {esc(e["descricao"])}</li>' for e in editorias)}</ul>
 <h2>Como trabalhamos</h2>
