@@ -390,7 +390,38 @@ def corpo_texto(paragrafos):
     return "\n".join(out)
 
 
-def gerar_materia(m):
+REPO = "alohanoticias/aloha-noticias"
+
+
+def link_acao(acao, slug):
+    from urllib.parse import quote
+    return (f"https://github.com/{REPO}/issues/new?title={quote(acao + ': ' + slug)}"
+            f"&body={quote('Clique em Submit new issue para confirmar. O site é atualizado em cerca de 1 minuto.')}")
+
+
+def faixa_rascunho(m):
+    return (f'<div class="faixa-rascunho"><div class="wrap"><strong>Rascunho, ainda não publicado.</strong> '
+            f'<a class="botao" href="{link_acao("Aprovar", m["slug"])}" target="_blank" rel="noopener noreferrer">Aprovar e publicar</a> '
+            f'<a class="botao-sec" href="{link_acao("Rejeitar", m["slug"])}" target="_blank" rel="noopener noreferrer">Rejeitar</a> '
+            f'<a href="admin/">Voltar à lista</a></div></div>')
+
+
+def gerar_admin(rascunhos):
+    if rascunhos:
+        itens = "".join(
+            f'<li><a href="admin/{esc(d["slug"])}.html"><div class="dupla" style="gap:6px"><span class="chapeu">{esc(ED[d["editoria"]]["nome"])}</span>'
+            f'<h3>{esc(d["titulo"])}</h3><p class="linha-fina" style="font-size:1rem">{esc(d["linha_fina"])}</p>'
+            f'<p class="meta"><span>{esc(d["autor"])}</span><time datetime="{d["data"]}">{data_curta(d["data"])}</time><span>{leitura(d)} min de leitura</span></p></div></a></li>'
+            for d in rascunhos)
+        lista = f'<ul class="lista-simples" style="max-width:820px">{itens}</ul>'
+    else:
+        lista = '<p class="linha-fina">Nenhum rascunho esperando aprovação no momento.</p>'
+    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p></div></div>
+<div class="wrap editoria-corpo">{lista}</div>"""
+    return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
+
+
+def gerar_materia(m, preview=False):
     e = ED[m["editoria"]]
     relacionadas = [x for x in materias if x["editoria"] == m["editoria"] and x is not m][:3]
     if len(relacionadas) < 3:
@@ -427,6 +458,9 @@ def gerar_materia(m):
   </div>
 </section>'''}"""
     head = f'<script type="application/ld+json">{ld}</script>\n'
+    if preview:
+        corpo = faixa_rascunho(m) + corpo
+        head = '<base href="/">\n<meta name="robots" content="noindex,nofollow">\n' + head
     return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head, og_img=(m.get("imagem") or {}).get("url", "assets/img/og-padrao.png"), og_tipo="article")
 
 
@@ -475,6 +509,10 @@ HEADERS = """/*
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://images.unsplash.com; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
 
 /assets/*
   Cache-Control: public, max-age=3600, must-revalidate
@@ -532,10 +570,20 @@ def main():
         f"<title>{SITE}</title><link>https://alohanoticias.com/</link><description>Notícias, cinema, games, tecnologia, curiosidades e finanças.</description>"
         '<language>pt-BR</language><atom:link href="https://alohanoticias.com/feed.xml" rel="self" type="application/rss+xml"/>'
         + itens + "</channel></rss>", encoding="utf-8")
+    rascunhos = []
+    for f in sorted((RAIZ.parent / "rascunhos").glob("*.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        if d.get("slug") == f.stem and d.get("editoria") in ED:
+            rascunhos.append(d)
+    rascunhos.sort(key=lambda d: d["data"], reverse=True)
+    (SAIDA / "admin").mkdir(exist_ok=True)
+    (SAIDA / "admin/index.html").write_text(gerar_admin(rascunhos).replace("{CANON}", "admin/"), encoding="utf-8")
+    for d in rascunhos:
+        (SAIDA / f"admin/{d['slug']}.html").write_text(gerar_materia(d, preview=True).replace("{CANON}", f"admin/{d['slug']}.html"), encoding="utf-8")
     urls = [n for n in arquivos if n not in ("404.html", "busca.html")]
     sm = "".join(f"<url><loc>https://alohanoticias.com/{'' if n=='index.html' else n}</loc></url>" for n in urls)
     (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
-    (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: https://alohanoticias.com/sitemap.xml\n")
+    (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
     print(f"{len(arquivos)} páginas geradas em {SAIDA}")
 
 

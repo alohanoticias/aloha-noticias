@@ -592,3 +592,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .foto-corpo { text-align: center; }
 .foto-corpo .credito { text-align: left; }
 @media (max-width: 760px) { .foto-corpo img, .materia-capa img { max-height: 70vh; } }
+
+.faixa-rascunho { background: #FFF3CD; color: #4A3B00; border-block: 1px solid #E8D48A; padding: 12px 0; font-size: 0.95rem; }
+.faixa-rascunho .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.faixa-rascunho a:not(.botao):not(.botao-sec) { color: inherit; text-decoration: underline; }

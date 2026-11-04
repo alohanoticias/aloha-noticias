@@ -1,0 +1,30 @@
+name: Aprovar ou rejeitar rascunho
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+jobs:
+  decidir:
+    if: github.event.issue.user.login == 'alohanoticias' && (startsWith(github.event.issue.title, 'Aprovar: ') || startsWith(github.event.issue.title, 'Rejeitar: '))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aplicar decisão
+        env:
+          TITULO: ${{ github.event.issue.title }}
+        run: |
+          python3 site/aprovar.py "$TITULO"
+          python3 site/gerar.py
+      - name: Enviar alteração
+        run: |
+          git config user.name "aloha-bot"
+          git config user.email "alohanoticias@gmail.com"
+          git add -A
+          git commit -m "Decisão do admin: ${{ github.event.issue.number }}" || exit 0
+          git push
+      - name: Fechar o pedido
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue close ${{ github.event.issue.number }} --comment "Feito. O site atualiza em cerca de 1 minuto." --repo ${{ github.repository }}

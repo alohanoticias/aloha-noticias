@@ -12,7 +12,8 @@ Responda sempre em português do Brasil.
    - Capa: campo `imagem` `{url, alt, credito}`. Prefira foto gratuita do Unsplash (https://images.unsplash.com/..., licença gratuita, nunca Unsplash+) ou uma ilustração original em `site/assets/img/capas/<slug>.svg` (nunca desenhar personagens, logos ou marcas existentes). Vídeo: campo `video` `{youtube, titulo}` só com vídeo oficial confirmado.
 4. Termine o artigo com uma linha "Fontes:" com links clicáveis.
 5. Rode `python3 site/gerar.py` (gera a pasta `publico/`) e confira que não há erro.
-6. Faça commit em uma **branch nova** (`artigo/<slug>`) e abra um **Pull Request** para `main`. Nunca envie direto para `main`: a pessoa aprova o PR e o Cloudflare publica sozinho.
+6. **Não** coloque o artigo em `materias.json`. Salve o objeto do artigo como `rascunhos/<slug>.json` (o nome do arquivo é o slug, e o JSON é um único objeto com os mesmos campos). Rode `python3 site/gerar.py`, faça commit e envie direto para `main`. O rascunho aparece só na página protegida `alohanoticias.com/admin`, e não vai ao ar como matéria.
+7. A pessoa abre o admin, lê a prévia e clica em Aprovar (ou Rejeitar). Isso abre um pedido (issue) no GitHub, e uma automação move o rascunho para `materias.json` e publica. Você nunca publica sozinho.
 
 ## Tom de escrita (não pode parecer feito por IA)
 - Frases de tamanhos variados, voz direta, sem clichês ("em um mundo cada vez mais", "vale destacar", "no cenário atual").
