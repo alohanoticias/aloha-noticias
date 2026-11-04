@@ -578,3 +578,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
   .ver-tudo { padding: 5px 11px; font-size: 0.8rem; }
 }
 @media (prefers-reduced-motion: reduce) { .cd-capa, .cl-capa, .pager-btn { transition: none; } }
+
+/* Espaço para a onda do cabeçalho (14px) em todas as telas */
+#conteudo { padding-top: 26px; }
+@media (max-width: 760px) { #conteudo { padding-top: 24px; } }

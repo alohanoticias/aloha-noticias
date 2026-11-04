@@ -234,14 +234,14 @@ def card(m, pequeno=False, mostrar_capa=True, chapeu=True):
 
 
 def mais_lidas(lista, cls=""):
+    if len(lista) < 3:
+        return ""
     itens = "".join(f'<li><a href="{url_materia(m)}">{esc(m["titulo"])}</a></li>' for m in lista)
     return f'<aside class="mais-lidas {cls}" aria-labelledby="ml-{cls or "x"}"><h2 id="ml-{cls or "x"}">Mais lidas</h2><ol>{itens}</ol></aside>'
 
 
 # Ordem de "mais lidas" de exemplo (troque pela sua métrica de audiência)
-MAIS_LIDAS = [m for m in materias if m["slug"] in {
-    "reserva-de-emergencia-quanto-guardar", "por-que-o-mar-e-salgado", "senhas-fortes-e-dois-fatores",
-    "console-pc-ou-nuvem", "como-checar-se-uma-noticia-e-verdadeira"}]
+MAIS_LIDAS = materias[:5]
 
 
 # ---------------------------------------------------------------- home
@@ -292,7 +292,7 @@ def carrossel(lista, nome):
 
 
 def gerar_home():
-    manchete = next(m for m in materias if m.get("manchete"))
+    manchete = next((m for m in materias if m.get("manchete")), materias[0])
     # 5 destaques: a manchete + 4 matérias de editorias diferentes (as mais recentes de cada uma).
     destaques = [manchete]
     vistas = {manchete["editoria"]}
@@ -308,7 +308,7 @@ def gerar_home():
         if m not in destaques:
             destaques.append(m)
     usados = {m["slug"] for m in destaques}
-    niveis = ["grande", "grande", "medio", "medio", "largo"]
+    niveis = ["largo"] if len(destaques) == 1 else ["grande", "grande", "medio", "medio", "largo"]
     cards_dest = "".join(card_dest(m, n) for m, n in zip(destaques, niveis))
 
     blocos = []
@@ -331,15 +331,17 @@ def gerar_home():
   </div>
 </section>
 {"".join(blocos)}
-<section class="secao-home secao-mais-lidas">
-  <div class="wrap">{mais_lidas(MAIS_LIDAS, "home")}</div>
-</section>"""
+{('<section class="secao-home secao-mais-lidas"><div class="wrap">' + mais_lidas(MAIS_LIDAS, "home") + '</div></section>') if len(MAIS_LIDAS) >= 3 else ""}"""
     return pagina(SITE, "Notícias em geral, cinema, games, tecnologia, curiosidades e finanças, explicados com calma.", "inicio", corpo)
 
 
 # ---------------------------------------------------------------- editoria
 def gerar_editoria(e):
     da_ed = [m for m in materias if m["editoria"] == e["slug"]]
+    if not da_ed:
+        corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>{esc(e['nome'])}</h1><p>{esc(e['descricao'])}</p></div></div>
+<div class="wrap editoria-corpo"><p class="linha-fina">Ainda não publicamos matérias nesta editoria. Volte em breve.</p></div>"""
+        return pagina(e["nome"], e["descricao"], e["slug"], corpo)
     lead, resto = da_ed[0], da_ed[1:]
     itens = "".join(
         f'<li><a href="{url_materia(m)}"><div class="dupla" style="gap:6px"><h3>{esc(m["titulo"])}</h3>'
@@ -403,12 +405,12 @@ def gerar_materia(m):
     <div class="lateral">{mais_lidas(MAIS_LIDAS, "mat")}</div>
   </div>
 </article>
-<section class="leia-tambem" aria-labelledby="leia">
+{"" if not relacionadas else f'''<section class="leia-tambem" aria-labelledby="leia">
   <div class="wrap">
     <div class="secao-topo"><h2 id="leia">Leia também</h2><a class="ver-tudo" href="{url_editoria(e['slug'])}">Mais em {esc(e['nome'])} →</a></div>
     <div class="grade-3">{"".join(card(x) for x in relacionadas)}</div>
   </div>
-</section>"""
+</section>'''}"""
     head = f'<meta property="og:type" content="article">\n<script type="application/ld+json">{ld}</script>\n'
     return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head)
 
