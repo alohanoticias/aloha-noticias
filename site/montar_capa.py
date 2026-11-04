@@ -2,11 +2,11 @@
 Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1200x675).
 Formato do .json:
   {"layout": "tres" | "dois" | "um",
-   "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...]}   (zoom >= 1 aproxima)
+   "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional"}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
-import io, json, re, sys, urllib.request
+import io, json, re, subprocess, sys, urllib.request
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageEnhance
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 RAIZ = Path(__file__).resolve().parent.parent
 L, A = 1200, 675
@@ -50,6 +50,38 @@ def recorte(img, w, h, foco, zoom=1.0):
     return img.crop((x, y, x + w, y + h))
 
 
+def fonte(tam):
+    """Inter Bold se existir no sistema; senão DejaVu Bold."""
+    candidatos = []
+    try:
+        candidatos.append(subprocess.check_output(["fc-match", "-f", "%{file}", "Inter:bold"], text=True, timeout=10))
+    except Exception:
+        pass
+    candidatos.append("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")
+    for c in candidatos:
+        try:
+            return ImageFont.truetype(c, tam)
+        except Exception:
+            continue
+    return ImageFont.load_default()
+
+
+def titulo(tela, texto):
+    """Escreve o nome do assunto (texto simples, nunca logotipo) no canto inferior esquerdo."""
+    base = tela.convert("RGBA")
+    f = fonte(150 if len(texto) <= 8 else 110)
+    d = ImageDraw.Draw(base)
+    x, y = 52, A - 52
+    caixa = d.textbbox((x, y), texto, font=f, anchor="ls")
+    sombra = Image.new("RGBA", base.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sombra).text((x + 3, y + 6), texto, font=f, fill=(0, 0, 0, 210), anchor="ls")
+    base = Image.alpha_composite(base, sombra.filter(ImageFilter.GaussianBlur(10)))
+    d = ImageDraw.Draw(base)
+    d.text((x, y), texto, font=f, fill=(255, 255, 255, 255), anchor="ls")
+    barra = d.rectangle((x, caixa[1] - 22, x + 96, caixa[1] - 14), fill=(255, 196, 61, 255))
+    return base.convert("RGB")
+
+
 def montar(spec):
     poligonos = LAYOUTS[spec["layout"]]
     fotos = spec["fotos"]
@@ -65,6 +97,8 @@ def montar(spec):
         ImageDraw.Draw(m).polygon([(x * 3, y * 3) for x, y in pol], fill=255)
         m = m.resize((L, A), Image.LANCZOS).crop((x0, y0, x1, y1))
         tela.paste(img, (x0, y0), m)
+    if spec.get("titulo"):
+        tela = titulo(tela, spec["titulo"])
     return tela
 
 
