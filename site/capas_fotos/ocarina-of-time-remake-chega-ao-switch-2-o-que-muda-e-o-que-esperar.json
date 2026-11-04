@@ -2,7 +2,12 @@
  "layout": "tres",
  "fotos": [
   {
-   "url": "https://images.unsplash.com/photo-1759997724812-16bfaa271b49?fm=jpg&q=80&w=1800&auto=format&fit=crop"
+   "url": "https://images.unsplash.com/photo-1759997724812-16bfaa271b49?fm=jpg&q=80&w=1800&auto=format&fit=crop",
+   "zoom": 2.3,
+   "foco": [
+    0.55,
+    0.7
+   ]
   },
   {
    "url": "https://images.unsplash.com/photo-1769006352025-1a429e69398f?fm=jpg&q=80&w=1800&auto=format&fit=crop"

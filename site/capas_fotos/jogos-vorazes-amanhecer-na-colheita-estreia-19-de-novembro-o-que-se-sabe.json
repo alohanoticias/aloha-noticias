@@ -2,10 +2,20 @@
  "layout": "tres",
  "fotos": [
   {
-   "url": "https://images.unsplash.com/photo-1764111812995-b73ff58fc7d7?fm=jpg&q=80&w=1800&auto=format&fit=crop"
+   "url": "https://images.unsplash.com/photo-1764111812995-b73ff58fc7d7?fm=jpg&q=80&w=1800&auto=format&fit=crop",
+   "zoom": 1.7,
+   "foco": [
+    0.6,
+    0.9
+   ]
   },
   {
-   "url": "https://images.unsplash.com/photo-1510925768022-7e72e7cbdef8?fm=jpg&q=80&w=1800&auto=format&fit=crop"
+   "url": "https://images.unsplash.com/photo-1510925768022-7e72e7cbdef8?fm=jpg&q=80&w=1800&auto=format&fit=crop",
+   "zoom": 2.0,
+   "foco": [
+    0.95,
+    0.95
+   ]
   },
   {
    "url": "https://images.unsplash.com/photo-1717915604557-94283edbcc1b?fm=jpg&q=80&w=1800&auto=format&fit=crop"
