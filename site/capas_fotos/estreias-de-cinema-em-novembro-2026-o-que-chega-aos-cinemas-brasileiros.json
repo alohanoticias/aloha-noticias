@@ -1,9 +1,8 @@
 {
- "layout": "moldura",
- "editoria": "cinema",
+ "layout": "tres",
  "fotos": [
   {
-   "url": "https://godzilla.com/cdn/shop/articles/GMZ_KV-2_Banner_1200x800_8765e531-d1a7-4ef8-8988-78ffd9aa7a98.png?v=1788970076",
+   "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
    "foco": [
     0.5,
     0.5
@@ -17,6 +16,15 @@
     0.5
    ],
    "zoom": 1.0
+  },
+  {
+   "url": "https://godzilla.com/cdn/shop/articles/GMZ_KV-2_Banner_1200x800_8765e531-d1a7-4ef8-8988-78ffd9aa7a98.png?v=1788970076",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
   }
- ]
+ ],
+ "editoria": "cinema"
 }
