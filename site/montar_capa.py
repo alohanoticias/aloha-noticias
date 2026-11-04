@@ -2,11 +2,12 @@
 Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1200x675).
 Formato do .json:
   {"layout": "tres" | "dois" | "um",
-   "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional"}   (zoom >= 1 aproxima)
+   "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional",
+   "editoria": "cinema|games|tecnologia|noticias|curiosidades" (opcional: aplica o tom e a etiqueta da editoria)}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
 import io, json, re, subprocess, sys, urllib.request
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 RAIZ = Path(__file__).resolve().parent.parent
 L, A = 1200, 675
@@ -82,6 +83,40 @@ def titulo(tela, texto):
     return base.convert("RGB")
 
 
+TONS = {  # cor da etiqueta, tom de cor aplicado sobre as fotos (unifica fotos de fontes diferentes)
+    "cinema": ((231, 111, 81), (22, 51, 60)),
+    "games": ((231, 111, 81), (28, 89, 102)),
+    "tecnologia": ((156, 195, 199), (10, 52, 64)),
+    "noticias": ((231, 111, 81), (15, 76, 92)),
+    "curiosidades": ((231, 111, 81), (15, 76, 92)),
+}
+
+
+def tom(tela, cor, forca=0.16):
+    """Camada de cor da marca + vinheta suave + grão fino: deixa as fotos com cara de um conjunto só."""
+    base = Image.blend(tela, Image.new("RGB", tela.size, cor), forca)
+    vig = Image.new("L", tela.size, 0)
+    d = ImageDraw.Draw(vig)
+    for i in range(0, 140):
+        d.rectangle((i, i, tela.width - i, tela.height - i), outline=int(70 * (1 - i / 140) ** 2))
+    base = Image.composite(Image.new("RGB", tela.size, (8, 20, 24)), base, vig.filter(ImageFilter.GaussianBlur(30)))
+    import random
+    r = random.Random(7)
+    g = Image.effect_noise(tela.size, 14).convert("RGB")
+    return Image.blend(base, ImageChops.overlay(base, g), 0.10)
+
+
+def etiqueta(tela, texto, cor):
+    base = tela.convert("RGBA")
+    f = fonte(26)
+    d = ImageDraw.Draw(base)
+    x, y = 40, 36
+    c = d.textbbox((x, y), texto.upper(), font=f, anchor="la")
+    d.rounded_rectangle((c[0] - 18, c[1] - 12, c[2] + 18, c[3] + 14), radius=8, fill=cor + (255,))
+    d.text((x, y), texto.upper(), font=f, fill=(255, 255, 255, 255), anchor="la")
+    return base.convert("RGB")
+
+
 def montar(spec):
     poligonos = LAYOUTS[spec["layout"]]
     fotos = spec["fotos"]
@@ -97,8 +132,13 @@ def montar(spec):
         ImageDraw.Draw(m).polygon([(x * 3, y * 3) for x, y in pol], fill=255)
         m = m.resize((L, A), Image.LANCZOS).crop((x0, y0, x1, y1))
         tela.paste(img, (x0, y0), m)
+    ed = spec.get("editoria")
+    if ed in TONS:
+        tela = tom(tela, TONS[ed][1])
     if spec.get("titulo"):
         tela = titulo(tela, spec["titulo"])
+    if ed in TONS:
+        tela = etiqueta(tela, {"games": "Games", "noticias": "Notícias"}.get(ed, ed.capitalize()), TONS[ed][0])
     return tela
 
 
