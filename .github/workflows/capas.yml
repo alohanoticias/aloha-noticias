@@ -1,0 +1,26 @@
+name: Montar capas com fotos
+on:
+  push:
+    branches: [main]
+    paths: ["site/capas_fotos/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  capas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pillow
+      - name: Montar as capas que ainda não existem
+        run: python3 site/montar_capa.py
+      - name: Regenerar o site e enviar
+        run: |
+          python3 site/gerar.py
+          git config user.name "aloha-bot"
+          git config user.email "contato@alohanoticias.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Capas montadas com fotos"
+          git pull --rebase -q
+          git push
