@@ -4,7 +4,7 @@ Formato do .json:
   {"layout": "tres" | "dois" | "um",
    "fotos": [{"url": "...", "foco": [0.5, 0.5]}, ...]}
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
-import io, json, sys, urllib.request
+import io, json, re, sys, urllib.request
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageEnhance
 
@@ -21,7 +21,21 @@ LAYOUTS = {
 }
 
 
+def resolver(url):
+    """Página de foto do Unsplash (unsplash.com/photos/<id>) -> endereço da imagem (og:image) em boa resolução."""
+    if re.match(r"https://unsplash\.com/photos/[\w-]+/?$", url):
+        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+            html = r.read().decode("utf-8", "ignore")
+        m = re.search(r'property="og:image"\s+content="([^"]+)"', html) or re.search(r'content="([^"]+)"\s+property="og:image"', html)
+        if not m:
+            raise RuntimeError("og:image não encontrada em " + url)
+        img = m.group(1).replace("&amp;", "&")
+        return re.sub(r"([?&])w=\d+", r"\g<1>w=1800", img)
+    return url
+
+
 def baixar(url):
+    url = resolver(url)
     if url.startswith("/"):
         return Image.open(url).convert("RGB")
     req = urllib.request.Request(url, headers=UA)
