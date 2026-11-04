@@ -1,30 +1,6 @@
 {
  "fotos": [
   {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg?akim=1&imdensity=1&imwidth=1920",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/The_Album_Cover_Art_landscape.000ifb9a.j-gp.jpg?akim=1&imdensity=1&imwidth=1920",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/section_key-upgrades/Ocarina-Adult_FB.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
    "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_02_landscape.0cosv-uzbpt91.jpg?akim=1&imdensity=1&imwidth=1920",
    "foco": [
     0.5,
@@ -33,7 +9,7 @@
    "zoom": 1.0
   },
   {
-   "url": "https://media.press.amazonmgmstudios.com/userfiles/images/LOTR_S3/Key_Art/SDCC_Teaser/LOTR_S3_Static16x9_3840x2160_PRE_PV_FINAL_en-US_KAPS.jpg",
+   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-kokori-forest.jpg",
    "foco": [
     0.5,
     0.5
@@ -57,7 +33,7 @@
    "zoom": 1.0
   },
   {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/section_overview/game-keyart-small.jpg",
+   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-hyrule-castle.jpg",
    "foco": [
     0.5,
     0.5
@@ -69,6 +45,30 @@
    "foco": [
     0.5,
     0.4
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_Lucia_Lock_And_Load_landscape.0l9s5w7ih9p~3.jpg?akim=1&imdensity=1&imwidth=1920",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/section_lore/lore-goron-gossip.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-zora-domain.jpg",
+   "foco": [
+    0.5,
+    0.5
    ],
    "zoom": 1.0
   }
