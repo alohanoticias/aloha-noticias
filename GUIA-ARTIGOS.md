@@ -75,3 +75,12 @@ As capas devem parecer reais e chamativas, mas **nunca** podem usar material de 
 **Fallback.** Se não houver fotos livres boas para o tema, use uma ilustração original em SVG (e um PNG de mesmo nome, 1200x675, para o compartilhamento nas redes) no estilo limpo do site.
 
 **Fotos dentro do texto**: só de bancos com licença livre, com crédito. **Vídeos**: apenas incorporação oficial do YouTube, nunca baixados.
+
+## Todo artigo leva capa, fotos e vídeo (regra fixa)
+Nenhum artigo vai para rascunhos/ ou materias.json sem:
+- **Capa** em colagem de fotos livres, montada como descrito em "Capas e imagens".
+- **Pelo menos 2 fotos dentro do texto** (linha `!img URL|descrição|crédito`), de bancos livres, relacionadas ao assunto, espalhadas entre os blocos (uma perto do começo, outra no meio ou no fim). Descrição fiel ao que a foto mostra; crédito com nome do fotógrafo e "/ Unsplash".
+- **1 vídeo** no campo `"video": {"youtube": "ID", "titulo": "..."}`: trailer ou conteúdo oficial do assunto (canal da empresa, distribuidora, órgão público ou veículo reconhecido). Para Finanças, uma explicação de veículo de jornalismo ou órgão oficial, sem recomendação de investimento.
+- **Como achar o ID do vídeo**: abra com WebFetch páginas de notícias confiáveis sobre o assunto e procure o iframe `youtube.com/embed/ID`; ou use WebSearch com allowed_domains youtube.com. Nunca invente um ID.
+- **Conferir o vídeo**: rode o workflow "Checar vídeos do YouTube" (`gh api -X POST repos/alohanoticias/aloha-noticias/actions/workflows/videos.yml/dispatches -f ref=main -f 'inputs[ids]=ID1 ID2'`, espere ~40 s e leia o log do job com `gh api repos/alohanoticias/aloha-noticias/actions/jobs/<id>/logs`). Ele mostra canal e título de cada ID. Só use o vídeo se o canal e o título baterem com o assunto e a data. Sem vídeo confirmado, o rascunho não está pronto.
+- **Fotos no texto**: o endereço direto vem do mesmo método das capas (og:image da página da foto no Unsplash). Use `https://images.unsplash.com/photo-XXXX?fm=jpg&q=70&w=1600&auto=format&fit=crop`.
