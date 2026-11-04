@@ -116,8 +116,6 @@ def svg_logo(nome, uid):
     return s
 
 
-LOGO_LINHA = svg_logo("aloha-noticias-logo-linha", "cab")
-LOGO_EMP = svg_logo("aloha-noticias-logo-empilhado-negativo", "rod")
 O_SIMBOLO = svg_logo("aloha-o-simbolo", "erro")
 
 # ---------------------------------------------------------------- capas
@@ -176,7 +174,6 @@ def capa(m, cls="capa"):
 # ---------------------------------------------------------------- partes
 ICONE_BUSCA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
 ICONE_TEMA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
-ICONE_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
 
 HOJE = datetime.fromisoformat(materias[0]["data"])
 
@@ -400,50 +397,15 @@ MAIS_LIDAS = materias[:5]
 
 
 # ---------------------------------------------------------------- home
-def card_dest(m, nivel):
-    """nivel: 'grande' (linha 1), 'medio' (linha 2) ou 'largo' (linha 3, horizontal)."""
-    fina = f'<p class="linha-fina">{esc(m["linha_fina"])}</p>' if nivel != "medio" else ""
-    return f"""<a class="card-dest {nivel}" href="{url_materia(m)}">
-  <div class="cd-capa">{capa(m)}</div>
-  <div class="cd-texto">
-    <span class="chapeu">{esc(ED[m['editoria']]['nome'])}</span>
-    <h2>{esc(m['titulo'])}</h2>
-    {fina}
-    <p class="meta"><span>{esc(autor_nome(m))}</span><time datetime="{m['data']}">{data_curta(m['data'])}</time><span>{leitura(m)} {t("min")}</span></p>
-  </div>
-</a>"""
 
 
-SETA_D = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
-SETA_E = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>'
-POR_PAGINA = 4
 
 
-def card_linha(m):
-    return f"""<a class="card-linha" href="{url_materia(m)}">
-  <div class="cl-capa">{capa(m)}</div>
-  <div class="cl-texto">
-    <h3>{esc(m['titulo'])}</h3>
-    <p class="linha-fina">{esc(m['linha_fina'])}</p>
-    <p class="meta"><span>{esc(autor_nome(m))}</span><time datetime="{m['data']}">{data_curta(m['data'])}</time><span>{leitura(m)} {t("min de leitura")}</span></p>
-  </div>
-</a>"""
 
 
-def carrossel(lista, nome):
-    paginas = [lista[i:i + POR_PAGINA] for i in range(0, len(lista), POR_PAGINA)]
-    html_pag = "".join(
-        f'<div class="pagina-lista" data-pagina="{i}">{"".join(card_linha(m) for m in p)}</div>'
-        for i, p in enumerate(paginas)
-    )
-    pager = ""
-    if len(paginas) > 1:
-        pager = f"""<div class="pager" hidden>
-    <button class="pager-btn pager-ant" type="button" aria-label="{t('Voltar às notícias anteriores de')} {esc(nome)}" hidden>{SETA_E}</button>
-    <span class="pager-info" aria-live="polite">1 / {len(paginas)}</span>
-    <button class="pager-btn pager-prox" type="button" aria-label="{t('Ver mais notícias de')} {esc(nome)}">{SETA_D}</button>
-  </div>"""
-    return f'<div class="carrossel" data-carrossel>{html_pag}{pager}</div>'
+
+
+
 
 
 def tag_v(m):
