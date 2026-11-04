@@ -12,7 +12,7 @@ fotos = json.loads((RAIZ / "banner.json").read_text(encoding="utf-8"))["fotos"]
 ok = []
 for f in fotos:
     try:
-        ok.append((baixar(f["url"]), f.get("foco", [0.5, 0.5])))
+        ok.append((baixar(f["url"]), f.get("foco", [0.5, 0.5]), f.get("zoom", 1.0)))
         print("ok", f["url"][:90])
     except Exception as e:
         print("FALHOU", f["url"][:90], e)
@@ -21,10 +21,10 @@ if len(ok) < 4:
 n = len(ok)
 lw = W / n
 tela = Image.new("RGB", (W, H), (10, 10, 10))
-for i, (img, foco) in enumerate(ok):
+for i, (img, foco, zoom) in enumerate(ok):
     x0, x1 = round(i * lw), round((i + 1) * lw)
     pw = x1 - x0 + INCL + 2 * DIV
-    painel = recorte(img, pw, H, foco)
+    painel = recorte(img, pw, H, foco, zoom)
     m = Image.new("L", (W * 2, H * 2), 0)
     d = ImageDraw.Draw(m)
     s = 2
