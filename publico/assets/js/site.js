@@ -122,3 +122,22 @@
     });
   });
 })();
+
+/* Tradução: links do rodapé e aviso para quem navega em outro idioma. Usa o tradutor do Google em outra aba/página,
+   sem carregar nada do Google aqui no site. O conteúdo original continua em português. */
+(function () {
+  var u = location.href, idioma = (navigator.language || "pt").toLowerCase();
+  function url(l) { return "https://translate.google.com/translate?sl=pt&tl=" + l + "&u=" + encodeURIComponent(u); }
+  var links = document.querySelectorAll(".idiomas a[data-l]");
+  for (var i = 0; i < links.length; i++) { links[i].href = url(links[i].getAttribute("data-l")); links[i].rel = "noopener"; }
+  if (idioma.indexOf("pt") === 0 || location.pathname.indexOf("/admin") === 0) return;
+  try { if (sessionStorage.getItem("aloha-trad") === "1") return; } catch (e) {}
+  var l = idioma.split("-")[0], nomes = { en: "Read this page in English", es: "Leer esta página en español", fr: "Lire cette page en français", de: "Diese Seite auf Deutsch lesen", it: "Leggi questa pagina in italiano", ja: "このページを日本語で読む", zh: "用中文阅读此页", ar: "اقرأ هذه الصفحة بالعربية" };
+  var alvo = l === "zh" ? "zh-CN" : l;
+  var texto = nomes[l] || nomes.en; if (!nomes[l]) alvo = "en";
+  var b = document.createElement("div"); b.className = "aviso-idioma";
+  b.innerHTML = '<a rel="noopener"></a><button type="button" aria-label="Fechar / Close">×</button>';
+  var a = b.querySelector("a"); a.href = url(alvo); a.textContent = texto;
+  b.querySelector("button").onclick = function () { try { sessionStorage.setItem("aloha-trad", "1"); } catch (e) {} b.remove(); };
+  document.body.insertBefore(b, document.body.firstChild);
+})();

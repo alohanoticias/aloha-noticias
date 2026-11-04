@@ -206,6 +206,8 @@ def rodape():
       <li><a href="privacidade.html">Privacidade</a></li>
       <li><a href="feed.xml">RSS</a></li>
     </ul></div>
+    <div class="idiomas" aria-label="Traduzir esta página"><span>Traduzir / Translate:</span>
+      <a data-l="en" href="#">English</a><a data-l="es" href="#">Español</a><a data-l="fr" href="#">Français</a><a data-l="de" href="#">Deutsch</a><a data-l="it" href="#">Italiano</a><a data-l="ja" href="#">日本語</a><a data-l="zh-CN" href="#">中文</a><a data-l="ar" href="#">العربية</a></div>
     <div class="rodape-base"><span>© {HOJE.year} {SITE}</span></div>
   </div>
 </footer>"""
@@ -675,7 +677,7 @@ def main():
     arquivos["equipe.html"] = gerar_simples("Equipe Aloha", "Quem assina as matérias da ALOHA NOTÍCIAS e o que cobrimos.", f"""
 <p>Equipe Aloha é a assinatura da redação do ALOHA NOTÍCIAS, um site independente em português sobre cinema, games e tecnologia. Reúne quem pesquisa, escreve, monta as capas e revisa as matérias publicadas aqui.</p>
 <h2>Quem está por trás</h2>
-<p>O ALOHA NOTÍCIAS é um projeto editorial independente, sem vínculo com estúdios, produtoras ou fabricantes. Toda matéria passa por revisão e aprovação de uma pessoa antes de ir ao ar.</p>
+<p>O ALOHA NOTÍCIAS é um projeto editorial independente, mantido por uma equipe e sem vínculo com estúdios, produtoras ou fabricantes. Toda matéria passa por revisão e aprovação de uma pessoa antes de ir ao ar.</p>
 <h2>O que você pode esperar</h2>
 <p>Informação conferida em mais de uma fonte, fontes citadas no fim de cada texto, rumores identificados como tal e correções feitas às claras. Se algo estiver errado, a gente quer saber.</p>
 <h2>O que cobrimos</h2>

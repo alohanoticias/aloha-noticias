@@ -647,3 +647,9 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .consent .botao.sec{background:transparent;color:inherit;border:1px solid currentColor}
 
 .nota-correcao{margin:28px 0 0;padding:14px 18px;border-left:4px solid #E76F51;background:rgba(231,111,81,.08);border-radius:0 8px 8px 0;font-size:.95rem}
+
+.idiomas{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding-top:16px;border-top:1px solid rgba(244,237,228,.14);font-size:.9rem}
+.idiomas a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.aviso-idioma{display:flex;justify-content:center;align-items:center;gap:12px;padding:8px 16px;background:#0F4C5C;color:#F4EDE4;font-size:.92rem}
+.aviso-idioma a{color:inherit;font-weight:600}
+.aviso-idioma button{background:none;border:0;color:inherit;font-size:1.2rem;cursor:pointer;line-height:1}
