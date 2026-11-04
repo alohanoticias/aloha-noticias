@@ -1,8 +1,32 @@
 [
-  {"slug": "noticias", "nome": "Notícias", "descricao": "O que está acontecendo no Brasil e no mundo, explicado com calma."},
-  {"slug": "cinema", "nome": "Cinema", "descricao": "Estreias, bastidores e tudo o que acontece antes e depois da sessão."},
-  {"slug": "games", "nome": "Games", "descricao": "Lançamentos, cultura gamer e os estúdios por trás dos jogos."},
-  {"slug": "tecnologia", "nome": "Tecnologia", "descricao": "Ferramentas, segurança digital e a tecnologia do dia a dia sem jargão."},
-  {"slug": "curiosidades", "nome": "Curiosidades", "descricao": "Perguntas que todo mundo já fez, respondidas com ciência."},
-  {"slug": "financas", "nome": "Finanças", "descricao": "Dinheiro, investimentos e orçamento para quem quer decidir melhor."}
+ {
+  "slug": "games",
+  "nome": "Games",
+  "descricao": "Lançamentos, cultura gamer e os estúdios por trás dos jogos."
+ },
+ {
+  "slug": "cinema",
+  "nome": "Cinema",
+  "descricao": "Estreias, bastidores e tudo o que acontece antes e depois da sessão."
+ },
+ {
+  "slug": "tecnologia",
+  "nome": "Tecnologia",
+  "descricao": "Ferramentas, segurança digital e a tecnologia do dia a dia sem jargão."
+ },
+ {
+  "slug": "noticias",
+  "nome": "Notícias",
+  "descricao": "O que está acontecendo no Brasil e no mundo, explicado com calma."
+ },
+ {
+  "slug": "curiosidades",
+  "nome": "Curiosidades",
+  "descricao": "Perguntas que todo mundo já fez, respondidas com ciência."
+ },
+ {
+  "slug": "financas",
+  "nome": "Finanças",
+  "descricao": "Dinheiro, investimentos e orçamento para quem quer decidir melhor."
+ }
 ]

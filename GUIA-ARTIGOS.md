@@ -26,3 +26,15 @@ Crie **3 rascunhos por dia**, de editorias e assuntos diferentes, cada um em seu
 ## Imagens e direitos
 - Sem marca d'água. Sem fotos de pessoas públicas baixadas da web.
 - Sempre crédito na legenda.
+
+## Foco editorial (prioridade atual)
+- **Games e Cinema são o foco**: dos 3 rascunhos diários, pelo menos 2 devem ser de Games ou Cinema (lançamentos, estreias, trailers, bilheteria, anúncios oficiais, premiações). O terceiro alterna entre Tecnologia, Notícias, Curiosidades e Finanças.
+- **Finanças** só com fonte oficial ou jornalismo de peso (Banco Central, IBGE, Tesouro, CVM, Agência Brasil, grandes veículos), no máximo 1 ou 2 por semana. Nunca prometer ganhos nem recomendar investimento; incluir o aviso de que é conteúdo informativo.
+
+## Regra de ouro: só informação verificada
+- Nenhuma informação duvidosa. Nada de boatos, vazamentos não confirmados, "teria", "pode ter" como fato.
+- Cada dado importante (data, preço, número, nome, citação) precisa aparecer em pelo menos duas fontes independentes, de preferência uma oficial (empresa, órgão público, comunicado). Abra e leia as páginas; não confie só no título dos resultados da busca.
+- Confira o ano e a data de publicação de cada fonte: busca costuma trazer matéria velha com título parecido.
+- Se as fontes divergem, diga no texto que divergem (e quais). Se não dá para confirmar, deixe de fora ou não faça o artigo.
+- Cálculos próprios devem ser conferidos e descritos como "conta simples" ou "estimativa".
+- Se o assunto depende de um evento que acontece nas próximas horas (decisão, resultado, estreia), escreva de modo que o texto continue correto depois, ou avise no PR/mensagem que precisa de atualização.
