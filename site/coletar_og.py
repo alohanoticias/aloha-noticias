@@ -16,11 +16,14 @@ def pegar(u):
 for it in itens:
     t, u = it["titulo"], it["url"]
     try:
-        html = pegar(u).decode("utf-8", "ignore")
-        m = (re.search(r'property=["\']og:image["\'][^>]*content=["\']([^"\']+)', html) or
-             re.search(r'content=["\']([^"\']+)["\'][^>]*property=["\']og:image["\']', html))
-        if not m: raise RuntimeError("sem og:image")
-        img_url = m.group(1).replace("&amp;", "&")
+        if it.get("img"):
+            img_url = it["img"]
+        else:
+            html = pegar(u).decode("utf-8", "ignore")
+            m = (re.search(r'property=["\']og:image["\'][^>]*content=["\']([^"\']+)', html) or
+                 re.search(r'content=["\']([^"\']+)["\'][^>]*property=["\']og:image["\']', html))
+            if not m: raise RuntimeError("sem og:image")
+            img_url = m.group(1).replace("&amp;", "&")
         im = Image.open(io.BytesIO(pegar(img_url))).convert("RGB")
         res.append({"titulo": t, "pagina": u, "imagem": img_url, "dim": im.size})
         im.thumbnail((1280, 1280)); im.save(saida / (re.sub(r"\W+", "-", t.lower()).strip("-") + ".jpg"), quality=85)
