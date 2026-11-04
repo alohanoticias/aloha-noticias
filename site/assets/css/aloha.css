@@ -585,3 +585,10 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 
 .foto-corpo { margin: 28px 0; }
 .foto-corpo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 18px 3px 18px 3px; }
+
+/* Fotos dentro do artigo: mostrar inteiras, sem cortar */
+.foto-corpo img, .materia-capa img { aspect-ratio: auto; height: auto; max-height: 560px; object-fit: contain; background: var(--superficie); }
+.foto-corpo img { width: auto; max-width: 100%; margin-inline: auto; }
+.foto-corpo { text-align: center; }
+.foto-corpo .credito { text-align: left; }
+@media (max-width: 760px) { .foto-corpo img, .materia-capa img { max-height: 70vh; } }
