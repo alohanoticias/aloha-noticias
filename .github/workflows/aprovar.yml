@@ -7,7 +7,8 @@ permissions:
   issues: write
 jobs:
   decidir:
-    if: github.event.issue.user.login == 'alohanoticias' && (startsWith(github.event.issue.title, 'Aprovar: ') || startsWith(github.event.issue.title, 'Reagendar: ') || startsWith(github.event.issue.title, 'Rejeitar: '))
+    if: >-
+      github.event.issue.user.login == 'alohanoticias' && (startsWith(github.event.issue.title, 'Aprovar: ') || startsWith(github.event.issue.title, 'Reagendar: ') || startsWith(github.event.issue.title, 'Rejeitar: '))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

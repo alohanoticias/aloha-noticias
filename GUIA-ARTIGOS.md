@@ -60,3 +60,8 @@ O site precisa ter pelo menos um artigo novo no ar todos os dias.
 - Depois da liberação dos rascunhos antigos, confira se já existe artigo com a data de hoje em materias.json ou algum agendado para hoje em agendados/.
 - Se não houver nenhum, escolha o melhor dos rascunhos novos, faça nele a revisão final completa (a mesma da seção acima) e publique-o hoje mesmo, com data de agora. Os outros ficam em rascunhos/ para a pessoa aprovar ou para saírem na manhã seguinte.
 - Se nenhum dos rascunhos passar na checagem de fatos, não publique algo duvidoso só para cumprir a meta: avise claramente na mensagem final que o dia ficou sem artigo e por quê.
+
+## Capas e imagens (direitos autorais)
+- A capa de cada artigo deve ser **nossa**: ilustração original criada para o assunto, em SVG, no estilo limpo do site (fundo claro, poucas formas, paleta Maré), sempre ligada ao tema do artigo. Salve em site/assets/img/capas/<slug>.svg e gere também um PNG de mesmo nome, 1200x675 (usado no compartilhamento nas redes, que não leem SVG).
+- Pode usar recortes, formas, colagem e elementos personalizados que evoquem o assunto (cenário, objetos genéricos, cores, paisagem, silhuetas). **Não** use quadros de trailers, capas, pôsteres, prints de jogo, logotipos, personagens, marcas nem artes de terceiros, nem editados ou recortados: edição não torna a obra nossa e é risco de direitos autorais e de reprovação no AdSense.
+- Fotos dentro do texto só de bancos com licença livre (Unsplash, Pexels, Wikimedia Commons), com crédito. Vídeos entram por incorporação oficial do YouTube, nunca baixados.

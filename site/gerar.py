@@ -210,6 +210,16 @@ def og_url(u):
     return u if u.startswith("http") else "https://alohanoticias.com/" + u.lstrip("/")
 
 
+def og_da_capa(m):
+    """Imagem de compartilhamento: redes sociais não leem SVG, então usa o PNG de mesmo nome quando existir."""
+    u = (m.get("imagem") or {}).get("url", "")
+    if not u:
+        return "assets/img/og-padrao.png"
+    if u.endswith(".svg") and (RAIZ / u.replace(".svg", ".png")).exists():
+        return u.replace(".svg", ".png")
+    return u
+
+
 def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img="assets/img/og-padrao.png", og_tipo="website"):
     BASE = ""
     if '<base href="/">' in extra_head:
@@ -520,7 +530,7 @@ def gerar_materia(m, preview=False, agendado=False):
     if preview:
         corpo = faixa_rascunho(m, agendado) + corpo
         head = '<base href="/">\n<meta name="robots" content="noindex,nofollow">\n' + head
-    return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head, og_img=(m.get("imagem") or {}).get("url", "assets/img/og-padrao.png"), og_tipo="article")
+    return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head, og_img=og_da_capa(m), og_tipo="article")
 
 
 # ---------------------------------------------------------------- busca e páginas simples
