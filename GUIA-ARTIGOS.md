@@ -49,3 +49,8 @@ Para cada rascunho elegível, nesta ordem:
 4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico/financeiro como recomendação, sem imagem de terceiros com direito autoral (use ilustração própria, foto com licença livre e crédito), links só para fontes confiáveis, aviso informativo em Finanças.
 5. **Forma**: assinatura "Equipe Aloha", linha fina clara, tags coerentes, ortografia e pontuação revisadas, texto com pelo menos ~600 palavras quando o assunto permitir.
 6. **Liberação**: com tudo certo, salve o texto revisado, mova para site/conteudo/materias.json com data = agora (BRT), apague o arquivo de rascunhos/, rode python3 site/gerar.py, commit e push. Anote na mensagem final o que foi alterado na revisão.
+
+## Escolha dos assuntos
+- Sempre assuntos do momento: o que está sendo comentado hoje, lançamentos e estreias da semana, anúncios oficiais, polêmicas já confirmadas. Confira nas buscas e nas páginas oficiais o que realmente está em alta antes de decidir.
+- Pense no leitor: escolha o que é interessante e útil para o público brasileiro (o que muda para ele, o que vale assistir ou jogar, o que ele precisa saber), não o que só enche espaço.
+- Escreva como uma pessoa escreveria para um amigo: voz natural, sem fórmula.
