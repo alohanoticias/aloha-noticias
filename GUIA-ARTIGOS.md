@@ -121,3 +121,12 @@ Regras:
 - Para ver como ficou, abra a prévia em /admin (link "Prévia das traduções" no rascunho). Aprovar o rascunho publica todas as versões juntas.
 - Se um artigo for atualizado depois (campo `atualizado`/`correcao`), atualize também as traduções.
 - Português continua sendo o idioma principal e o texto de referência; as outras páginas dizem isso ao leitor.
+
+## Matérias com lista (estreias, lançamentos, calendários): uma imagem por título (regra fixa)
+
+- Todo filme, jogo ou evento citado em destaque (em negrito) numa matéria de lista precisa de uma imagem de referência no texto, logo depois do parágrafo em que ele aparece. Títulos citados juntos no mesmo parágrafo ganham uma imagem cada, uma após a outra.
+- Fonte: imagem oficial (distribuidora, estúdio, página de trailer). Em geral dá para pegar a imagem de compartilhamento (og:image) da página do trailer. A ferramenta `site/coletar_og.py` (workflow "Coletar imagens de filmes") baixa as candidatas e monta folhas de contato para escolher; lista de páginas em `site/filmes_paginas.json`.
+- Proporção: 16:9. Pôster vertical vira um cartão 16:9 (pôster inteiro no centro, sobre o próprio pôster desfocado), nunca cortado. Exemplos em `site/assets/img/estreias/`.
+- Rostos: não usamos fotos de rostos de pessoas reais (atores, cantores) baixadas da internet. Quando a única imagem oficial de um título mostra o rosto de alguém, a imagem fica de fora e o editor é avisado na entrega da matéria, para decidir se envia uma imagem própria ou liberada. Animações, criaturas, cenários, pôsteres gráficos e logos podem ser usados.
+- Sem imagens de bancos gratuitos (Unsplash etc.) como ilustração de título: a imagem precisa ser do assunto.
+- Conferir no GitHub (workflow "Checar imagens externas") se cada endereço abre e quais são as dimensões, antes de publicar.
