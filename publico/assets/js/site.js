@@ -159,4 +159,3 @@ document.addEventListener("error", function (e) {
   var el = e.target;
   if (el && el.tagName === "IMG" && el.closest && el.closest(".foto-corpo")) { el.closest(".foto-corpo").hidden = true; }
 }, true);
-document.querySelectorAll(".foto-corpo img").forEach(function (im) { if (im.complete && im.naturalWidth === 0 && im.currentSrc) { im.closest(".foto-corpo").hidden = true; } });
