@@ -1,0 +1,21 @@
+name: Verificar links
+on:
+  schedule:
+    - cron: "0 11 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Conferir links dos artigos
+        run: python3 site/verificar_links.py > relatorio.md
+      - name: Abrir aviso se algo quebrou
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -s relatorio.md ] || exit 0
+          gh issue create --title "Links quebrados nos artigos ($(date +%d/%m/%Y))" --body-file relatorio.md

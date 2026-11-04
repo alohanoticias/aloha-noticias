@@ -1,0 +1,33 @@
+name: Avisar buscadores (IndexNow)
+on:
+  push:
+    branches: [main]
+    paths: ["publico/sitemap.xml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Descobrir páginas novas
+        run: |
+          git show HEAD~1:publico/sitemap.xml 2>/dev/null | grep -o '<loc>[^<]*' | sed 's/<loc>//' | sort > antes.txt || : > antes.txt
+          grep -o '<loc>[^<]*' publico/sitemap.xml | sed 's/<loc>//' | sort > depois.txt
+          comm -13 antes.txt depois.txt > novas.txt
+          cat novas.txt
+      - name: Avisar Bing, Yandex e parceiros
+        run: |
+          [ -s novas.txt ] || exit 0
+          sleep 150  # espera o Cloudflare terminar de publicar
+          python3 - <<'PY'
+          import json, urllib.request
+          k = "688dca8a511dd5a078482e96f25fecb8"
+          urls = [l.strip() for l in open("novas.txt") if l.strip()]
+          corpo = json.dumps({"host": "alohanoticias.com", "key": k, "keyLocation": f"https://alohanoticias.com/{k}.txt", "urlList": urls}).encode()
+          r = urllib.request.urlopen(urllib.request.Request("https://api.indexnow.org/indexnow", corpo, {"Content-Type": "application/json; charset=utf-8"}), timeout=30)
+          print("IndexNow:", r.status)
+          PY
