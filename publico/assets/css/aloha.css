@@ -601,3 +601,10 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .faixa-rascunho .botao-sec:hover { background: #4A3B00; color: #FFFFFF; }
 .faixa-rascunho .agendar { display: inline-flex; align-items: center; gap: 8px; }
 .faixa-rascunho input[type="datetime-local"] { font: inherit; padding: 6px 8px; border: 1.5px solid #4A3B00; border-radius: 6px; background: #fff; color: #1E2A2D; color-scheme: light; }
+
+/* tags como links e botões de compartilhar */
+.tags a { font-size: var(--t-sm); background: var(--superficie); color: var(--marca); padding: 4px 12px; border-radius: 999px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+.tags a:hover { background: var(--marca); color: var(--fundo); }
+.meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.compartilhar .botao-sec { text-decoration: none; }
+.pagina-texto ul { padding-left: 1.2em; display: grid; gap: 6px; }

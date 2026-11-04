@@ -20,7 +20,7 @@ jobs:
       - name: Enviar alteração
         run: |
           git config user.name "aloha-bot"
-          git config user.email "alohanoticias@gmail.com"
+          git config user.email "contato@alohanoticias.com"
           git add -A
           git commit -m "Decisão do admin: ${{ github.event.issue.number }}" || exit 0
           git push

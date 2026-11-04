@@ -45,6 +45,17 @@ def leitura(m):
     return max(1, round(palavras / 200))
 
 
+def slug_tag(t):
+    import unicodedata
+    t = unicodedata.normalize("NFD", t.lower())
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+
+
+def url_tag(t):
+    return f"assunto-{slug_tag(t)}.html"
+
+
 def url_materia(m):
     return f"materia-{m['slug']}.html"
 
@@ -184,6 +195,7 @@ def rodape():
       <li><a href="sobre.html">Sobre nós</a></li>
       <li><a href="contato.html">Contato e anúncios</a></li>
       <li><a href="busca.html">Buscar</a></li>
+      <li><a href="equipe.html">Equipe Aloha</a></li>
       <li><a href="politica-editorial.html">Política editorial</a></li>
       <li><a href="privacidade.html">Privacidade</a></li>
       <li><a href="feed.xml">RSS</a></li>
@@ -223,6 +235,8 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <meta name="theme-color" content="#0F4C5C">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="ALOHA">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -449,12 +463,26 @@ def gerar_admin(rascunhos, agendados=()):
     return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
 
+def autor_html(m):
+    return f'<a href="equipe.html">{esc(m["autor"])}</a>' if m["autor"] == "Equipe Aloha" else esc(m["autor"])
+
+
+def botoes_compartilhar(m):
+    from urllib.parse import quote
+    u = quote("https://alohanoticias.com/" + url_materia(m), safe="")
+    t = quote(m["titulo"], safe="")
+    tt = quote(m["titulo"] + " https://alohanoticias.com/" + url_materia(m), safe="")
+    redes = [("WhatsApp", f"https://wa.me/?text={tt}"), ("X", f"https://twitter.com/intent/tweet?text={t}&url={u}"),
+             ("Facebook", f"https://www.facebook.com/sharer/sharer.php?u={u}"), ("Telegram", f"https://t.me/share/url?url={u}&text={t}")]
+    return "".join(f'<a class="botao-sec" href="{h}" target="_blank" rel="noopener noreferrer" aria-label="Compartilhar no {n}">{n}</a>' for n, h in redes)
+
+
 def gerar_materia(m, preview=False, agendado=False):
     e = ED[m["editoria"]]
     relacionadas = [x for x in materias if x["editoria"] == m["editoria"] and x is not m][:3]
     if len(relacionadas) < 3:
         relacionadas += [x for x in materias if x is not m and x not in relacionadas][: 3 - len(relacionadas)]
-    tags = "".join(f"<span>{esc(t)}</span>" for t in m.get("tags", []))
+    tags = "".join(f'<a href="{url_tag(t)}">{esc(t)}</a>' for t in m.get("tags", []) if slug_tag(t))
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": m["titulo"],
         "description": m["linha_fina"], "datePublished": m["data"], "articleSection": e["nome"],
@@ -467,12 +495,12 @@ def gerar_materia(m, preview=False, agendado=False):
     <span class="chapeu">{esc(e['nome'])}</span>
     <h1>{esc(m['titulo'])}</h1>
     <p class="linha-fina">{esc(m['linha_fina'])}</p>
-    <p class="meta"><span>Por {esc(m['autor'])}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time><span>{leitura(m)} min de leitura</span></p>
+    <p class="meta"><span>Por {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time><span>{leitura(m)} min de leitura</span></p>
   </header>
   <figure class="materia-capa" style="margin-inline:0">{capa(m)}{legenda(m)}</figure>{video(m)}
   <div class="materia-grade">
     <div class="texto">
-      <div class="compartilhar"><span>Compartilhe</span><button class="botao-sec" id="copiar-link" type="button">Copiar link</button></div>
+      <div class="compartilhar"><span>Compartilhe</span>{botoes_compartilhar(m)}<button class="botao-sec" id="copiar-link" type="button">Copiar link</button></div>
       {corpo_texto(m['corpo'])}
       <div class="tags" aria-label="Assuntos">{tags}</div>
     </div>
@@ -583,9 +611,30 @@ def main():
 <p>Quando encontramos um erro, corrigimos a matéria e indicamos a correção no texto. Se você encontrou um erro, envie a matéria e o que está incorreto pela página de <a href="contato.html">contato</a>. Respondemos o quanto antes.</p>
 <h2>Independência</h2>
 <p>Se uma matéria tiver publicidade, patrocínio ou parceria envolvida, isso será informado claramente ao leitor.</p>""")
+    arquivos["equipe.html"] = gerar_simples("Equipe Aloha", "Quem assina as matérias da ALOHA NOTÍCIAS e o que cobrimos.", f"""
+<p>Equipe Aloha é a assinatura da redação do ALOHA NOTÍCIAS. Reúne quem pesquisa, escreve, ilustra e revisa as matérias publicadas aqui.</p>
+<h2>O que cobrimos</h2>
+<ul>{"".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a>: {esc(e["descricao"])}</li>' for e in editorias)}</ul>
+<h2>Como trabalhamos</h2>
+<p>Confirmamos os fatos em mais de uma fonte, citamos as fontes no fim de cada matéria e corrigimos os erros de forma aberta. Veja a <a href="politica-editorial.html">política editorial</a>.</p>
+<h2>Fale com a gente</h2>
+<p>Pautas, correções e parcerias: <a href="contato.html">página de contato</a>.</p>""")
+    por_tag = {}
+    for m in materias:
+        for t in m.get("tags", []):
+            if slug_tag(t):
+                por_tag.setdefault(t, []).append(m)
+    for t, lista in por_tag.items():
+        itens = "".join(
+            f'<li><a href="{url_materia(x)}"><div class="dupla" style="gap:6px"><span class="chapeu">{esc(ED[x["editoria"]]["nome"])}</span><h3>{esc(x["titulo"])}</h3>'
+            f'<p class="linha-fina" style="font-size:1rem">{esc(x["linha_fina"])}</p>'
+            f'<p class="meta"><time datetime="{x["data"]}">{data_curta(x["data"])}</time><span>{leitura(x)} min</span></p></div>{capa(x)}</a></li>' for x in lista)
+        corpo = (f'<div class="topo-editoria"><div class="wrap"><h1>{esc(t)}</h1><p>{len(lista)} {"matéria" if len(lista) == 1 else "matérias"} sobre este assunto.</p></div></div>'
+                 f'<div class="wrap editoria-corpo"><ul class="lista-simples" style="max-width:820px">{itens}</ul></div>')
+        arquivos[url_tag(t)] = pagina(t, f"Matérias da ALOHA NOTÍCIAS sobre {t}.", "", corpo)
     arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a redação da ALOHA NOTÍCIAS.", """
 <p>Sugestões de pauta, correções e parcerias são bem-vindas.</p>
-<h2>E-mail</h2><p><a href="mailto:alohanoticias@gmail.com">alohanoticias@gmail.com</a></p>""")
+<h2>E-mail</h2><p><a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a></p>""")
     arquivos["privacidade.html"] = gerar_simples("Privacidade", "Política de privacidade da ALOHA NOTÍCIAS.", """
 <p>Última atualização: novembro de 2026. Respeitamos a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018). Aqui está, de forma direta, o que acontece com os seus dados quando você visita este site.</p>
 <h2>O que coletamos</h2>
@@ -608,7 +657,15 @@ def main():
     (SAIDA / "_headers").write_text(HEADERS, encoding="utf-8")
     (SAIDA / ".well-known").mkdir(exist_ok=True)
     (SAIDA / ".well-known/security.txt").write_text(
-        "Contact: mailto:alohanoticias@gmail.com\nExpires: 2027-11-01T00:00:00.000Z\nPreferred-Languages: pt, en\nCanonical: https://alohanoticias.com/.well-known/security.txt\n", encoding="utf-8")
+        "Contact: mailto:contato@alohanoticias.com\nExpires: 2027-11-01T00:00:00.000Z\nPreferred-Languages: pt, en\nCanonical: https://alohanoticias.com/.well-known/security.txt\n", encoding="utf-8")
+    (SAIDA / "manifest.webmanifest").write_text(json.dumps({
+        "name": "ALOHA NOTÍCIAS", "short_name": "ALOHA", "description": "Notícias, cinema, games, tecnologia, curiosidades e finanças.",
+        "start_url": "/", "scope": "/", "display": "standalone", "lang": "pt-BR",
+        "background_color": "#FFFFFF", "theme_color": "#0F4C5C",
+        "icons": [{"src": "assets/img/icone-app-192.png", "sizes": "192x192", "type": "image/png"},
+                  {"src": "assets/img/icone-app-512.png", "sizes": "512x512", "type": "image/png"},
+                  {"src": "assets/img/icone-app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]},
+        ensure_ascii=False), encoding="utf-8")
     from email.utils import format_datetime
     from xml.sax.saxutils import escape as xe
     from datetime import timezone, timedelta
