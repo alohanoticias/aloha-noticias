@@ -28,8 +28,10 @@ Crie até **3 rascunhos por dia** (veja "Meta diária"), de editorias e assuntos
 - Sempre crédito na legenda.
 
 ## Foco editorial (prioridade atual)
-- **Games e Cinema são o foco**: dos 3 rascunhos diários, pelo menos 2 devem ser de Games ou Cinema (lançamentos, estreias, trailers, bilheteria, anúncios oficiais, premiações). O terceiro alterna entre Tecnologia, Notícias, Curiosidades e Finanças.
-- **Finanças** só com fonte oficial ou jornalismo de peso (Banco Central, IBGE, Tesouro, CVM, Agência Brasil, grandes veículos), no máximo 1 ou 2 por semana. Nunca prometer ganhos nem recomendar investimento; incluir o aviso de que é conteúdo informativo.
+O site é novo e vai pedir o AdSense, então o conteúdo precisa ter **tema claro e concentrado**, não virar um site genérico.
+- **Games e Cinema são o foco principal**: dos 3 rascunhos diários, pelo menos 2 devem ser de Games ou Cinema (lançamentos, estreias, trailers, bilheteria, anúncios oficiais, premiações).
+- O terceiro rascunho é de **Tecnologia**, de preferência ligada ao universo de games, cinema e streaming (consoles, hardware, plataformas). Notícias e Curiosidades só quando o assunto também for de entretenimento ou tecnologia.
+- **Finanças está suspensa**: não escreva rascunhos de Finanças (nem de economia, juros, investimentos) até a pessoa dizer que voltou. Motivo: conteúdo financeiro é área sensível e dilui o foco do site no pedido de monetização.
 
 ## Regra de ouro: só informação verificada
 - Nenhuma informação duvidosa. Nada de boatos, vazamentos não confirmados, "teria", "pode ter" como fato.
