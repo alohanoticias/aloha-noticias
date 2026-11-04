@@ -2,26 +2,28 @@
  "layout": "tres",
  "fotos": [
   {
-   "url": "https://images.unsplash.com/photo-1690398388394-6a57f7f4fff1?fm=jpg&q=80&w=1800&auto=format&fit=crop",
+   "url": "https://www.rockstargames.com/VI/_next/static/media/trailer-2.0l.7aqib91fz6.jpg",
    "foco": [
-    0.42,
-    0.38
+    0.5,
+    0.5
    ],
-   "zoom": 1.5
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.rockstargames.com/VI/_next/static/media/poster_full.0az_iud2g3y4j.jpg",
+   "foco": [
+    0.5,
+    0.4
+   ],
+   "zoom": 1.0
   },
   {
    "url": "https://images.unsplash.com/photo-1605723517503-3cadb5818a0c?fm=jpg&q=80&w=1800&auto=format&fit=crop",
    "foco": [
     0.5,
     0.5
-   ]
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1733811073382-95d5b79c4cf1?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "foco": [
-    0.5,
-    0.5
-   ]
+   ],
+   "zoom": 1.0
   }
  ],
  "titulo": "GTA 6",

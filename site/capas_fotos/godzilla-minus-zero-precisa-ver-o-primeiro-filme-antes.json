@@ -1,5 +1,30 @@
-{"layout":"colunas","editoria":"cinema","fotos":[
-{"url":"https://images.unsplash.com/photo-1771250850104-c5fc0a79d8bb?fm=jpg&q=80&w=1800&auto=format&fit=crop","foco":[0.5,0.5],"zoom":1.0},
-{"url":"https://images.unsplash.com/photo-1777503637421-cdd4fc6ae123?fm=jpg&q=80&w=1800&auto=format&fit=crop","foco":[0.5,0.5],"zoom":1.0},
-{"url":"https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?fm=jpg&q=80&w=1800&auto=format&fit=crop","foco":[0.5,0.5],"zoom":1.0}]}
-
+{
+ "layout": "colunas",
+ "editoria": "cinema",
+ "fotos": [
+  {
+   "url": "https://godzilla.com/cdn/shop/articles/GMZ_KV-2_Banner_1200x800_8765e531-d1a7-4ef8-8988-78ffd9aa7a98.png?v=1788970076",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://gkids.com/wp-content/uploads/2026/07/GMZ_TSR2_Thumbnail_TOHO_A01_YouTube_1280x720.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://godzilla.com/cdn/shop/files/GMZ_KV2_Web_2025x3000_GKIDS-wIMAX_1.jpg?v=1788560923&width=900",
+   "foco": [
+    0.5,
+    0.3
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

@@ -1,21 +1,21 @@
 {
- "layout":"moldura",
+ "layout": "moldura",
  "fotos": [
   {
    "url": "https://images.unsplash.com/photo-1764111812995-b73ff58fc7d7?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "zoom": 1.3,
    "foco": [
     0.5,
     0.7
-   ]
+   ],
+   "zoom": 1.3
   },
   {
-   "url": "https://images.unsplash.com/photo-1717915604557-94283edbcc1b?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "zoom": 1.0,
+   "url": "https://res.cloudinary.com/ybmedia/image/upload/c_crop,h_719,w_1280,x_0,y_2/c_fill,h_900,q_auto,w_1600/v1/m/0/5/054db4e12a91560c187a4d556c3ea02f0dc72c9e/new-logo-unveiled-hunger-games-sunrise-on-reaping.png",
    "foco": [
     0.5,
     0.5
-   ]
+   ],
+   "zoom": 1.0
   }
  ],
  "editoria": "cinema"
