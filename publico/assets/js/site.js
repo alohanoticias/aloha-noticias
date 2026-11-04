@@ -16,19 +16,19 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    var botaoTema = document.getElementById("botao-tema");
-    if (botaoTema) {
-      var rotular = function () {
-        botaoTema.setAttribute("aria-label", temaAtual() === "dark" ? "Usar tema claro" : "Usar tema escuro");
-      };
-      rotular();
-      botaoTema.addEventListener("click", function () {
+    var botoesTema = document.querySelectorAll("#botao-tema, .botao-tema-m");
+    var rotular = function () {
+      botoesTema.forEach(function (b) { b.setAttribute("aria-label", temaAtual() === "dark" ? "Usar tema claro" : "Usar tema escuro"); });
+    };
+    rotular();
+    botoesTema.forEach(function (b) {
+      b.addEventListener("click", function () {
         var novo = temaAtual() === "dark" ? "light" : "dark";
         raiz.setAttribute("data-theme", novo);
         gravar("aloha-tema", novo);
         rotular();
       });
-    }
+    });
 
     // Menu no celular
     var botaoMenu = document.getElementById("botao-menu");

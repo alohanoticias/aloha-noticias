@@ -229,6 +229,7 @@ def idiomas_rodape():
 
 
 ED_VISIVEIS = [e for e in editorias if e["slug"] != "financas"]  # Finanças fica fora do menu por enquanto
+ICONE_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
 LOGO_IMG = '<img src="assets/img/aloha-logo-prancha.svg" alt="ALOHA NOTÍCIAS" width="290" height="92">'
 
 
@@ -248,10 +249,20 @@ def cabecalho(ativo):
       <button class="botao-icone" id="botao-tema" type="button" aria-label="{t('Alternar tema')}">{ICONE_TEMA}</button>
     </div>
   </div></div>
+  <div class="barra-m"><div class="wrap">
+    <button class="menu-m" id="botao-menu" type="button" aria-expanded="false" aria-controls="gaveta">{ICONE_MENU}<span>{t('Menu')}</span></button>
+    <a class="logo-m" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
+    <a class="busca-m" href="busca.html" aria-label="{t('Buscar')}">{ICONE_BUSCA}</a>
+  </div></div>
   <div class="logo-area"><div class="wrap">
     <a class="cab-logo" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
   </div></div>
   <nav class="nav" aria-label="{t('Editorias')}"><div class="wrap"><ul>{li}</ul><a class="nav-busca" href="busca.html" aria-label="{t('Buscar')}">{ICONE_BUSCA}</a></div></nav>
+  <nav class="gaveta" id="gaveta" aria-label="{t('Editorias')}" hidden><div class="wrap">
+    <form class="gaveta-busca" action="busca.html" role="search"><label class="sr-only" for="q-gaveta">{t('Pesquisar')}</label><input id="q-gaveta" name="q" type="search" placeholder="{t('Pesquisar')} ..."><button type="submit" aria-label="{t('Buscar')}">{ICONE_BUSCA}</button></form>
+    <ul>{li}</ul>
+    <div class="gaveta-ferr">{seletor_idioma().replace(' id="idioma-menu"', '')}<button class="botao-icone botao-tema-m" type="button" aria-label="{t('Alternar tema')}">{ICONE_TEMA}</button></div>
+  </div></nav>
 </header>
 """
 

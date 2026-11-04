@@ -55,7 +55,6 @@
 .nav-busca { color: #fff; padding: 0 4px; line-height: 0 !important; }
 .nav-busca svg { width: 18px; height: 18px; }
 .nav-busca:hover { background: transparent !important; color: #ccc; }
-.menu-botao, .gaveta { display: none !important; }
 
 /* ---------- selo vermelho ---------- */
 .tag-v {
@@ -173,3 +172,46 @@
 .idioma-lista { background: var(--fundo); color: var(--tinta); border-radius: 4px; }
 .idioma-lista a:hover, .idioma-lista a:focus-visible { background: var(--superficie); }
 [dir="rtl"] .nav a, [dir="rtl"] .hero-texto { text-align: right; }
+
+/* ---------- celular: como era no site antigo (barra preta com Menu, logo e lupa; gaveta escura) ---------- */
+.barra-m, .gaveta { display: none; }
+@media (max-width: 760px) {
+  .topbar, .logo-area, .nav { display: none; }
+  .barra-m { display: block; background: var(--preto); }
+  .barra-m .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .menu-m, .busca-m { color: var(--vermelho); background: none; border: 0; padding: 6px; display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 15px; cursor: pointer; min-width: 84px; }
+  .busca-m { justify-content: flex-end; }
+  .menu-m svg, .busca-m svg { width: 26px; height: 26px; }
+  .logo-m { line-height: 0; }
+  .logo-m img { height: 54px; width: auto; }
+  .gaveta { background: #1f2024; color: #fff; padding-block: 18px 28px; }
+  .gaveta:not([hidden]) { display: block; }
+  .gaveta-busca { display: flex; border: 1px solid #44464d; border-radius: 999px; overflow: hidden; margin-bottom: 8px; }
+  .gaveta-busca input { flex: 1; min-width: 0; background: none; border: 0; color: #fff; padding: 14px 18px; font-size: 16px; }
+  .gaveta-busca button { background: none; border: 0; color: #fff; padding: 0 16px; }
+  .gaveta-busca svg { width: 20px; height: 20px; }
+  .gaveta ul { list-style: none; margin: 0; padding: 0; }
+  .gaveta li { border-bottom: 1px solid #34363c; }
+  .gaveta li a { display: block; padding: 18px 4px; font-weight: 600; font-size: 18px; color: #fff; }
+  .gaveta li a[aria-current="page"] { color: #e05a5a; }
+  .gaveta-ferr { display: flex; align-items: center; justify-content: center; gap: 16px; padding-top: 22px; }
+  .gaveta-ferr .botao-icone, .gaveta-ferr summary { color: #fff; }
+  .gaveta-ferr .idioma-lista { right: auto; left: 0; top: auto; bottom: calc(100% + 8px); }
+
+  .hero-grade { grid-template-columns: 1fr 1fr !important; gap: 4px; }
+  .hero-card.grande { grid-column: 1 / -1; min-height: 190px; }
+  .hero-card { min-height: 150px; }
+  .hero-2 .hero-card:not(.grande) { grid-column: 1 / -1; }
+  .hero-card .tag-v { top: 10px; left: 10px; font-size: 10px; padding: 4px 5px; }
+  .hero-texto { left: 12px; right: 12px; bottom: 10px; }
+  .hero-texto time, .hero-fina { display: none; }
+  .hero-texto h2, .hero-card.grande .hero-texto h2 { font-size: 16px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .il-capa { aspect-ratio: 16 / 10; }
+  .il-texto h3 { font-size: 24px; }
+  .resumo { font-size: 16px; }
+  .meta-l { font-size: 14px; }
+  .rodape .wrap { text-align: center; }
+  .rodape .rodape-logo { display: inline-block; }
+  .rodape p { margin-inline: auto; }
+  .rodape ul { justify-items: center; }
+}
