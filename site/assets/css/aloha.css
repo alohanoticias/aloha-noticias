@@ -666,3 +666,5 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 
 .bandeira{flex:none;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
 .idioma-lista a{display:flex;align-items:center;gap:10px}
+
+.nota-traducao{margin:20px 0 0;font-size:.9rem;opacity:.8}

@@ -46,8 +46,8 @@
     if (botaoCopiar) {
       botaoCopiar.addEventListener("click", function () {
         var url = location.href;
-        var falhou = function () { botaoCopiar.textContent = "Copie o endereço na barra do navegador"; };
-        var ok = function () { botaoCopiar.textContent = "Link copiado"; setTimeout(function () { botaoCopiar.textContent = "Copiar link"; }, 2000); };
+        var falhou = function () { botaoCopiar.textContent = botaoCopiar.getAttribute("data-erro") || "Copie o endereço na barra do navegador"; };
+        var ok = function () { botaoCopiar.textContent = botaoCopiar.getAttribute("data-ok") || "Link copiado"; setTimeout(function () { botaoCopiar.textContent = botaoCopiar.getAttribute("data-rotulo") || "Copiar link"; }, 2000); };
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(url).then(ok, falhou);
         } else { falhou(); }
@@ -66,6 +66,7 @@
     // Busca
     var formBusca = document.getElementById("form-busca");
     if (formBusca && window.ALOHA_INDICE) {
+      var T = window.ALOHA_T || {};
       var campo = document.getElementById("campo-busca");
       var lista = document.getElementById("resultados");
       var info = document.getElementById("info-busca");
@@ -73,14 +74,14 @@
       var buscar = function () {
         var termos = norm(campo.value.trim()).split(/\s+/).filter(Boolean);
         lista.innerHTML = "";
-        if (!termos.length) { info.textContent = "Digite um assunto, por exemplo: bateria, juros ou cinema."; return; }
+        if (!termos.length) { info.textContent = T["Digite um assunto, por exemplo: GTA 6, Marvel ou cinema."]; return; }
         var achados = window.ALOHA_INDICE.filter(function (m) {
           var alvo = norm(m.titulo + " " + m.linha_fina + " " + m.editoria + " " + m.tags.join(" "));
           return termos.every(function (t) { return alvo.indexOf(t) !== -1; });
         });
         info.textContent = achados.length === 0
-          ? "Nada encontrado para “" + campo.value.trim() + "”. Tente outra palavra."
-          : achados.length + (achados.length === 1 ? " matéria encontrada" : " matérias encontradas");
+          ? T["Nada encontrado para"] + " “" + campo.value.trim() + "”. " + T["Tente outra palavra."]
+          : achados.length + " " + (achados.length === 1 ? T["matéria encontrada"] : T["matérias encontradas"]);
         achados.forEach(function (m) {
           var li = document.createElement("li");
           li.innerHTML = '<a href="' + m.url + '"><div class="dupla" style="gap:6px"><span class="chapeu">' + m.editoria +
@@ -123,21 +124,29 @@
   });
 })();
 
-/* Tradução: links do rodapé e aviso para quem navega em outro idioma. Usa o tradutor do Google em outra aba/página,
-   sem carregar nada do Google aqui no site. O conteúdo original continua em português. */
+/* Idiomas: PT, EN e ES são páginas reais (links gerados no servidor). Os demais idiomas usam o tradutor do Google em outra página,
+   sem carregar nada do Google aqui no site. O aviso abaixo só aparece para quem navega em outro idioma e nunca para robôs. */
 (function () {
+  var base = (document.documentElement.lang || "pt").split("-")[0];
   var u = location.href, idioma = (navigator.language || "pt").toLowerCase();
-  function url(l) { return "https://translate.google.com/translate?sl=pt&tl=" + l + "&u=" + encodeURIComponent(u); }
+  function google(l) { return "https://translate.google.com/translate?sl=" + base + "&tl=" + l + "&u=" + encodeURIComponent(u); }
   var links = document.querySelectorAll("[data-l]");
-  for (var i = 0; i < links.length; i++) { links[i].href = url(links[i].getAttribute("data-l")); links[i].rel = "noopener"; }
-  if (idioma.indexOf("pt") === 0 || location.pathname.indexOf("/admin") === 0 || /bot|crawl|spider|lighthouse/i.test(navigator.userAgent)) return;  // robôs sempre veem a página só em português
+  for (var i = 0; i < links.length; i++) { links[i].href = google(links[i].getAttribute("data-l")); links[i].rel = "noopener"; }
+  if (location.pathname.indexOf("/admin") === 0 || /bot|crawl|spider|lighthouse/i.test(navigator.userAgent)) return;
+  var l = idioma.split("-")[0];
+  if (l === base) return;
   try { if (sessionStorage.getItem("aloha-trad") === "1") return; } catch (e) {}
-  var l = idioma.split("-")[0], nomes = { en: "Read this page in English", es: "Leer esta página en español", fr: "Lire cette page en français", de: "Diese Seite auf Deutsch lesen", it: "Leggi questa pagina in italiano", ja: "このページを日本語で読む", zh: "用中文阅读此页", ar: "اقرأ هذه الصفحة بالعربية" };
-  var alvo = l === "zh" ? "zh-CN" : l;
-  var texto = nomes[l] || nomes.en; if (!nomes[l]) alvo = "en";
+  var nomes = { pt: "Ler esta página em português", en: "Read this page in English", es: "Leer esta página en español", fr: "Lire cette page en français", de: "Diese Seite auf Deutsch lesen", it: "Leggi questa pagina in italiano", ja: "このページを日本語で読む", zh: "用中文阅读此页", ar: "اقرأ هذه الصفحة بالعربية" };
+  var alvo = l === "zh" ? "zh-CN" : l, texto = nomes[l] || nomes.en, destino;
+  var alt = document.querySelector('link[rel="alternate"][hreflang^="' + l + '"]');
+  if (alt) { destino = alt.href; }
+  else {
+    if (!nomes[l]) { alvo = "en"; texto = nomes.en; var altEn = document.querySelector('link[rel="alternate"][hreflang="en"]'); if (altEn && base !== "en") { destino = altEn.href; } }
+    if (!destino) destino = google(alvo);
+  }
   var b = document.createElement("div"); b.className = "aviso-idioma";
   b.innerHTML = '<a rel="noopener"></a><button type="button" aria-label="Fechar / Close">×</button>';
-  var a = b.querySelector("a"); a.href = url(alvo); a.textContent = texto;
+  var a = b.querySelector("a"); a.href = destino; a.textContent = texto;
   b.querySelector("button").onclick = function () { try { sessionStorage.setItem("aloha-trad", "1"); } catch (e) {} b.remove(); };
   document.body.insertBefore(b, document.body.firstChild);
 })();
