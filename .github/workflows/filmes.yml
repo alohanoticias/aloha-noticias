@@ -1,0 +1,21 @@
+name: Coletar imagens de filmes
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pillow
+      - run: python3 site/coletar_og.py
+      - name: Enviar folhas de contato
+        run: |
+          git config user.name "aloha-bot"
+          git config user.email "contato@alohanoticias.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Imagens candidatas de filmes"
+          git pull --rebase -q
+          git push
