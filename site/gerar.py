@@ -4,7 +4,7 @@ Uso:  python3 gerar.py            -> gera em publico/
 """
 import hashlib
 import html
-import json
+import json, re
 import re
 import shutil
 from datetime import datetime
@@ -374,7 +374,8 @@ def corpo_texto(paragrafos):
         elif p.startswith("## "):
             out.append(f"<h2>{esc(p[3:])}</h2>")
         else:
-            out.append(f"<p>{esc(p)}</p>")
+            t = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" target="_blank" rel="noopener noreferrer">\1</a>', esc(p))
+            out.append(f"<p>{t}</p>")
     return "\n".join(out)
 
 
