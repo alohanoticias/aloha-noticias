@@ -3,10 +3,10 @@
   if (!f) return;
   var campo = document.getElementById("quando"), botao = document.getElementById("agendar");
   if (!campo || !botao) return;
-  var slug = f.getAttribute("data-slug"), repo = f.getAttribute("data-repo");
+  var slug = f.getAttribute("data-slug"), repo = f.getAttribute("data-repo"), acao = f.getAttribute("data-acao") || "Aprovar";
   function atualizar() {
     var q = campo.value;
-    var titulo = "Aprovar: " + slug + (q ? " | " + q : "");
+    var titulo = acao + ": " + slug + (q ? " | " + q : "");
     botao.href = "https://github.com/" + repo + "/issues/new?title=" + encodeURIComponent(titulo) +
       "&body=" + encodeURIComponent("Clique em Submit new issue para confirmar.");
     botao.setAttribute("aria-disabled", q ? "false" : "true");

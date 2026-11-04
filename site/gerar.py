@@ -405,17 +405,22 @@ def link_acao(acao, slug):
 
 def faixa_rascunho(m, agendado=False):
     slug = m["slug"]
+    acao = "Reagendar" if agendado else "Aprovar"
     if agendado:
         quando = datetime.fromisoformat(m["data"]).strftime("%d/%m/%Y às %H:%M")
-        return (f'<div class="faixa-rascunho"><div class="wrap"><strong>Agendado para {quando}.</strong> '
-                f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">Cancelar agendamento</a> '
-                f'<a href="admin/">Voltar à lista</a></div></div>')
-    return (f'<div class="faixa-rascunho" data-slug="{esc(slug)}" data-repo="{REPO}"><div class="wrap">'
-            f'<strong>Rascunho, ainda não publicado.</strong> '
+        rotulo, atual = f"Agendado para {quando}.", f' value="{m["data"]}"'
+        texto_ag, rot_agendar = "ou mudar para", "Reagendar"
+        rej = "Cancelar agendamento"
+    else:
+        rotulo, atual = "Rascunho, ainda não publicado.", ""
+        texto_ag, rot_agendar = "ou agendar para", "Agendar"
+        rej = "Rejeitar"
+    return (f'<div class="faixa-rascunho" data-slug="{esc(slug)}" data-repo="{REPO}" data-acao="{acao}"><div class="wrap">'
+            f'<strong>{rotulo}</strong> '
             f'<a class="botao" href="{link_acao("Aprovar", slug)}" target="_blank" rel="noopener noreferrer">Publicar agora</a> '
-            f'<label class="agendar">ou agendar para <input type="datetime-local" id="quando" aria-label="Data e hora de publicação"></label> '
-            f'<a class="botao-sec" id="agendar" href="{link_acao("Aprovar", slug)}" target="_blank" rel="noopener noreferrer">Agendar</a> '
-            f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">Rejeitar</a> '
+            f'<label class="agendar">{texto_ag} <input type="datetime-local" id="quando"{atual} aria-label="Data e hora de publicação"></label> '
+            f'<a class="botao-sec" id="agendar" href="{link_acao(acao, slug)}" target="_blank" rel="noopener noreferrer">{rot_agendar}</a> '
+            f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">{rej}</a> '
             f'<a href="admin/">Voltar à lista</a></div></div>\n<script src="assets/js/admin.js"></script>')
 
 
