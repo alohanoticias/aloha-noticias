@@ -153,7 +153,6 @@ def cabecalho(ativo):
   <nav class="nav" aria-label="Editorias"><div class="wrap"><ul>{li}</ul></div></nav>
   <nav class="gaveta" id="gaveta" aria-label="Editorias" hidden><div class="wrap"><ul>{li}</ul></div></nav>
 </header>
-<div class="agora" aria-label="Últimas"><div class="wrap"><span class="agora-rotulo">Agora</span><ul class="agora-lista">{agora}</ul></div></div>
 """
 
 
