@@ -700,6 +700,16 @@ def main():
         (SAIDA / f"admin/{d['slug']}.html").write_text(gerar_materia(d, preview=True).replace("{CANON}", f"admin/{d['slug']}.html"), encoding="utf-8")
     for d in agendados:
         (SAIDA / f"admin/{d['slug']}.html").write_text(gerar_materia(d, preview=True, agendado=True).replace("{CANON}", f"admin/{d['slug']}.html"), encoding="utf-8")
+    # versão no endereço de CSS/JS: o navegador baixa de novo sempre que o arquivo muda
+    import hashlib as _h
+    def _v(m):
+        f = SAIDA / m.group(1)
+        return f'{m.group(1)}?v={_h.md5(f.read_bytes()).hexdigest()[:8]}"' if f.exists() else m.group(0)
+    for pg in SAIDA.rglob("*.html"):
+        t = pg.read_text(encoding="utf-8")
+        t2 = re.sub(r'(assets/(?:css|js)/[\w.-]+\.(?:css|js))"', _v, t)
+        if t2 != t:
+            pg.write_text(t2, encoding="utf-8")
     urls = [n for n in arquivos if n not in ("404.html", "busca.html")]
     sm = "".join(f"<url><loc>https://alohanoticias.com/{'' if n=='index.html' else n}</loc></url>" for n in urls)
     (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
