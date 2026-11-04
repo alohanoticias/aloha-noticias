@@ -639,3 +639,9 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 
 /* alvos de toque maiores nos links pequenos (migalhas) */
 .migalhas a { display: inline-flex; align-items: center; min-height: 32px; padding-inline: 2px; }
+
+/* Aviso de cookies (só aparece com anúncios ligados) */
+.consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:760px;margin:0 auto;display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between;padding:14px 18px;border-radius:12px;background:var(--cartao,#fff);color:inherit;border:1px solid rgba(15,76,92,.25);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.consent[hidden]{display:none}
+.consent p{margin:0;font-size:.95rem;flex:1 1 320px}
+.consent .botao.sec{background:transparent;color:inherit;border:1px solid currentColor}

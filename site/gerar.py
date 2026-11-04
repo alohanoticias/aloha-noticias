@@ -168,6 +168,11 @@ def cabecalho(ativo):
 
 
 NEWSLETTER_ATIVA = False  # ligue quando houver um serviço de e-mail conectado
+# Anúncios: depois da aprovação do AdSense, preencha ADSENSE_PUB (ex.: "pub-1234567890123456") e ligue ANUNCIOS_ATIVOS.
+# Ligado, o site passa a: gerar o ads.txt, liberar o Google no CSP, mostrar o aviso de cookies (os anúncios só carregam
+# depois do "Aceitar") e acrescentar a seção de anúncios à política de privacidade.
+ANUNCIOS_ATIVOS = False
+ADSENSE_PUB = ""
 
 
 def newsletter():
@@ -220,12 +225,20 @@ def og_da_capa(m):
     return u
 
 
+CONSENT_HTML = """<div class="consent" id="consent" role="dialog" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies para exibir anúncios e manter o site gratuito. Você escolhe: sem aceitar, não carregamos anúncios. <a href="privacidade.html">Saiba mais</a>.</p>
+  <div><button class="botao" id="consent-sim" type="button">Aceitar</button> <button class="botao sec" id="consent-nao" type="button">Recusar</button></div>
+</div>
+"""
+CONSENT_JS = f'<script src="assets/js/consent.js" data-client="ca-{ADSENSE_PUB}"></script>'
+
+
 def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img="assets/img/og-padrao.png", og_tipo="website"):
     BASE = ""
     if '<base href="/">' in extra_head:
         BASE = '<base href="/">\n'
         extra_head = extra_head.replace('<base href="/">\n', "")
-    t = f"{titulo} · {SITE}" if titulo != SITE else f"{SITE}: notícias, cinema, games, tecnologia e finanças"
+    t = f"{titulo} · {SITE}" if titulo != SITE else f"{SITE}: notícias, cinema, games e tecnologia"
     return f"""<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -262,7 +275,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 </main>
 {newsletter() if (com_news and NEWSLETTER_ATIVA) else ""}
 {rodape()}
-<script src="assets/js/site.js"></script>
+{CONSENT_HTML if ANUNCIOS_ATIVOS else ""}<script src="assets/js/site.js"></script>{CONSENT_JS if ANUNCIOS_ATIVOS else ""}
 </body>
 </html>
 """
@@ -573,6 +586,21 @@ def gerar_404():
 
 
 # ---------------------------------------------------------------- saída
+PRIV_ANUNCIOS = """<h2>Anúncios e cookies</h2>
+<p>Este site exibe anúncios do Google AdSense. Com a sua permissão, o Google e seus parceiros podem usar cookies e identificadores do aparelho para mostrar anúncios e medir o desempenho deles. Os anúncios só são carregados depois que você clica em &ldquo;Aceitar&rdquo; no aviso de cookies; se recusar, o site continua funcionando normalmente, sem anúncios. Você pode mudar de ideia a qualquer momento em <a href="#" id="reabrir-consent">preferências de cookies</a>.</p>
+<p>Saiba como o Google usa dados de sites parceiros em <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>. Você também pode gerenciar anúncios personalizados em <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>.</p>
+"""
+
+CSP_BASE = ("default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+            "font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://images.unsplash.com; "
+            "frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; "
+            "form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests")
+CSP_ADS = ("default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://www.googletagservices.com https://adservice.google.com https://partner.googleadservices.com; "
+           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; "
+           "frame-src https://www.youtube-nocookie.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com; "
+           "connect-src 'self' https://cloudflareinsights.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google; "
+           "object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests")
+
 HEADERS = """/*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
@@ -580,7 +608,7 @@ HEADERS = """/*
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://images.unsplash.com; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: {CSP}
 
 /admin/*
   X-Robots-Tag: noindex, nofollow
@@ -606,7 +634,7 @@ def main():
         arquivos[url_materia(m)] = gerar_materia(m)
 
     arquivos["sobre.html"] = gerar_simples("Sobre nós", "Quem faz a ALOHA NOTÍCIAS.", """
-<p>A ALOHA NOTÍCIAS é um site de notícias para quem quer entender o que está acontecendo sem pressa e sem barulho. Cobrimos notícias em geral, cinema, games, tecnologia, curiosidades e finanças.</p>
+<p>A ALOHA NOTÍCIAS é um site de notícias para quem quer entender o que está acontecendo sem pressa e sem barulho. Nosso foco é cinema, games e tecnologia: estreias, lançamentos e o que está em alta, com a informação conferida.</p>
 <h2>Como trabalhamos</h2>
 <p>Cada matéria cita suas fontes, separa fato de opinião e é corrigida de forma transparente quando erramos. Os detalhes estão na nossa <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>O nome</h2>
@@ -621,12 +649,16 @@ def main():
 <p>Usamos ferramentas de inteligência artificial como apoio à pesquisa e à redação. Nenhuma matéria é publicada sem a revisão e a aprovação de uma pessoa da equipe.</p>
 <h2>Fato e opinião</h2>
 <p>Separamos o que foi apurado do que é análise. Textos de opinião ou recomendação são identificados como tal.</p>
+<h2>Como escolhemos os assuntos</h2>
+<p>Priorizamos o que está em alta e é útil para quem lê: estreias, lançamentos, datas e novidades de cinema, games e tecnologia. Não publicamos só para repetir um comunicado. Em cada matéria buscamos reunir o que está confirmado, organizar o que ainda não se sabe e indicar de onde veio cada informação.</p>
+<h2>Boatos e rumores</h2>
+<p>Rumores, vazamentos e informações de bastidores só aparecem quando são relevantes, e sempre identificados como não confirmados, com a fonte indicada. Não tratamos boato como fato.</p>
 <h2>Imagens e vídeos</h2>
-<p>Usamos fotos de bancos gratuitos, com o crédito do autor na legenda, ilustrações feitas para o site e, quando necessário, imagens de divulgação oficial ligadas ao assunto da matéria, também com crédito. O vídeo que aparece em uma matéria é incorporado do canal onde foi publicado. Se você é o autor ou o dono de uma imagem e quer que ela seja creditada de outra forma ou removida, escreva para a gente.</p>
+<p>As capas são montadas pela nossa equipe com fotos de bancos de imagens de uso livre, como o Unsplash, com o crédito do autor na matéria, e com elementos gráficos próprios. Não usamos cartazes, capas ou imagens protegidas de filmes, jogos ou personagens. O vídeo de uma matéria, quando existe, é um conteúdo oficial incorporado do canal onde foi publicado, com o nome do canal indicado. Se você é autor ou dono de uma imagem e quer outro crédito ou a remoção, escreva para a gente.</p>
 <h2>Correções</h2>
-<p>Quando encontramos um erro, corrigimos a matéria e indicamos a correção no texto. Se você encontrou um erro, envie a matéria e o que está incorreto pela página de <a href="contato.html">contato</a>. Respondemos o quanto antes.</p>
+<p>Quando encontramos um erro, corrigimos a matéria e indicamos a correção no texto. Também atualizamos matérias quando datas ou fatos mudam, para que o conteúdo não fique desatualizado. Se você encontrou um erro, envie a matéria e o que está incorreto pela página de <a href="contato.html">contato</a>. Respondemos o quanto antes.</p>
 <h2>Independência</h2>
-<p>Se uma matéria tiver publicidade, patrocínio ou parceria envolvida, isso será informado claramente ao leitor.</p>""")
+<p>O conteúdo editorial é independente. Anúncios, quando existirem, ficam separados do texto e não influenciam o que publicamos. Se uma matéria tiver patrocínio ou parceria, isso será informado claramente ao leitor.</p>""")
     arquivos["equipe.html"] = gerar_simples("Equipe Aloha", "Quem assina as matérias da ALOHA NOTÍCIAS e o que cobrimos.", f"""
 <p>Equipe Aloha é a assinatura da redação do ALOHA NOTÍCIAS. Reúne quem pesquisa, escreve, ilustra e revisa as matérias publicadas aqui.</p>
 <h2>O que cobrimos</h2>
@@ -649,14 +681,18 @@ def main():
                  f'<div class="wrap editoria-corpo"><ul class="lista-simples" style="max-width:820px">{itens}</ul></div>')
         arquivos[url_tag(t)] = pagina(t, f"Matérias da ALOHA NOTÍCIAS sobre {t}.", "", corpo)
     arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a redação da ALOHA NOTÍCIAS.", """
-<p>Sugestões de pauta, correções e parcerias são bem-vindas.</p>
-<h2>E-mail</h2><p><a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a></p>""")
+<p>Fale com a gente pelo e-mail <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Para agilizar, coloque no assunto o motivo do contato:</p>
+<h2>Sugestão de pauta</h2><p>Viu algo que merece uma matéria? Mande o assunto e, se tiver, o link da fonte.</p>
+<h2>Correções</h2><p>Encontrou um erro? Envie o endereço da matéria e o que está incorreto, com a fonte, se possível. Veja como tratamos correções na <a href="politica-editorial.html">política editorial</a>.</p>
+<h2>Direitos autorais e imagens</h2><p>Se você é autor ou dono de uma imagem, texto ou vídeo e quer corrigir o crédito ou pedir a retirada, escreva com o endereço da página e a comprovação de autoria.</p>
+<h2>Publicidade e parcerias</h2><p>Para anunciar ou propor parcerias, escreva para o mesmo e-mail. Conteúdo patrocinado será sempre identificado como tal.</p>
+<h2>Privacidade</h2><p>Pedidos sobre dados pessoais seguem o que está na <a href="privacidade.html">política de privacidade</a>.</p>""")
     arquivos["termos.html"] = gerar_simples("Termos de uso", "Termos de uso do site ALOHA NOTÍCIAS.", """
 <p>Última atualização: novembro de 2026. Ao acessar o ALOHA NOTÍCIAS (alohanoticias.com), você concorda com estes termos. Se não concordar, pedimos que não use o site.</p>
 <h2>O que é o site</h2>
-<p>O ALOHA NOTÍCIAS publica matérias sobre notícias, cinema, games, tecnologia, curiosidades e finanças. O conteúdo é oferecido para informação e entretenimento.</p>
+<p>O ALOHA NOTÍCIAS publica matérias sobre cinema, games, tecnologia, notícias e curiosidades. O conteúdo é oferecido para informação e entretenimento.</p>
 <h2>Conteúdo informativo, sem aconselhamento</h2>
-<p>As matérias não substituem a orientação de um profissional. Em especial, o conteúdo de finanças tem caráter informativo e <strong>não é recomendação de investimento, compra ou venda de qualquer produto financeiro</strong>. Antes de decidir sobre o seu dinheiro, consulte um profissional habilitado. Fazemos o possível para publicar informações corretas e atuais, mas dados, preços e datas podem mudar depois da publicação.</p>
+<p>As matérias têm caráter informativo e de entretenimento e não substituem a orientação de um profissional. Fazemos o possível para publicar informações corretas e atuais, mas dados, preços e datas podem mudar depois da publicação.</p>
 <h2>Propriedade intelectual</h2>
 <p>Os textos e as ilustrações originais do site pertencem ao ALOHA NOTÍCIAS. Você pode compartilhar links e citar trechos curtos, com o crédito e o link para a matéria original. Não é permitido copiar matérias inteiras, republicá-las ou usá-las para treinar sistemas automáticos sem autorização por escrito.</p>
 <p>Marcas, nomes, imagens e vídeos de terceiros citados nas matérias pertencem aos seus donos e aparecem com finalidade informativa e crédito. Se você é dono de um conteúdo e quer corrigir o crédito ou pedir a retirada, fale conosco pela página de <a href="contato.html">contato</a>.</p>
@@ -681,7 +717,7 @@ def main():
 <p>Medimos o número de acessos com um serviço de estatísticas que não usa cookies e não identifica você pessoalmente (Cloudflare Web Analytics). Os dados vistos por nós são agregados, como páginas mais lidas, país e tipo de aparelho.</p>
 <h2>Serviços de terceiros</h2>
 <p>As fontes de letra vêm do Google Fonts. Fotos podem vir do Unsplash e vídeos são incorporados do YouTube, em modo de privacidade aprimorada (youtube-nocookie.com). Ao carregar esses conteúdos, esses serviços recebem o seu endereço de IP e podem ter regras próprias de privacidade. O site é hospedado pela Cloudflare.</p>
-<h2>E-mail de contato</h2>
+""" + (PRIV_ANUNCIOS if ANUNCIOS_ATIVOS else "") + """<h2>E-mail de contato</h2>
 <p>Se você nos escrever, usaremos o seu e-mail apenas para responder. Não vendemos nem repassamos os seus dados.</p>
 <h2>Seus direitos</h2>
 <p>Você pode pedir informações sobre os dados que temos sobre você, a correção ou a exclusão deles, escrevendo pela página de <a href="contato.html">contato</a>.</p>
@@ -693,7 +729,9 @@ def main():
         conteudo = conteudo.replace("{CANON}", c)
         (SAIDA / nome).write_text(conteudo, encoding="utf-8")
     (SAIDA / "assets/js/indice.js").write_text(INDICE_JS, encoding="utf-8")
-    (SAIDA / "_headers").write_text(HEADERS, encoding="utf-8")
+    (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", CSP_ADS if ANUNCIOS_ATIVOS else CSP_BASE), encoding="utf-8")
+    if ANUNCIOS_ATIVOS and ADSENSE_PUB:
+        (SAIDA / "ads.txt").write_text(f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
     (SAIDA / ".well-known").mkdir(exist_ok=True)
     (SAIDA / ".well-known/security.txt").write_text(
         "Contact: mailto:contato@alohanoticias.com\nExpires: 2027-11-01T00:00:00.000Z\nPreferred-Languages: pt, en\nCanonical: https://alohanoticias.com/.well-known/security.txt\n", encoding="utf-8")
