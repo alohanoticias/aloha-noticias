@@ -240,7 +240,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/css/aloha.css">
 <script src="assets/js/tema.js"></script>
 {extra_head}</head>
@@ -408,6 +408,7 @@ def corpo_texto(paragrafos):
             out.append(f"<h2>{esc(p[3:])}</h2>")
         else:
             t = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" target="_blank" rel="noopener noreferrer">\1</a>', esc(p))
+            t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
             out.append(f"<p>{t}</p>")
     return "\n".join(out)
 

@@ -8,7 +8,7 @@ Responda sempre em português do Brasil.
 3. Adicione um objeto ao `materias.json` com: `slug`, `editoria`, `titulo`, `linha_fina`, `autor` (use "Equipe Aloha"), `data` (formato `2026-11-04T08:00`, horário de Brasília), `tags`, `corpo` (lista de parágrafos).
    - Subtítulo: parágrafo começando com `## `.
    - Foto no meio do texto: `!img URL|texto alternativo|crédito`.
-   - Link: `[texto](https://...)` dentro do parágrafo.
+   - Link: `[texto](https://...)` dentro do parágrafo. Negrito: `**texto**` (use com moderação, só em termos-chave).
    - Capa: campo `imagem` `{url, alt, credito}`. Prefira foto gratuita do Unsplash (https://images.unsplash.com/..., licença gratuita, nunca Unsplash+) ou uma ilustração original em `site/assets/img/capas/<slug>.svg` (nunca desenhar personagens, logos ou marcas existentes). Vídeo: campo `video` `{youtube, titulo}` só com vídeo oficial confirmado.
 4. Termine o artigo com uma linha "Fontes:" com links clicáveis.
 5. Rode `python3 site/gerar.py` (gera a pasta `publico/`) e confira que não há erro.
