@@ -130,3 +130,10 @@ Regras:
 - Rostos: não usamos fotos de rostos de pessoas reais (atores, cantores) baixadas da internet. Quando a única imagem oficial de um título mostra o rosto de alguém, a imagem fica de fora e o editor é avisado na entrega da matéria, para decidir se envia uma imagem própria ou liberada. Animações, criaturas, cenários, pôsteres gráficos e logos podem ser usados.
 - Sem imagens de bancos gratuitos (Unsplash etc.) como ilustração de título: a imagem precisa ser do assunto.
 - Conferir no GitHub (workflow "Checar imagens externas") se cada endereço abre e quais são as dimensões, antes de publicar.
+
+## Imagem sempre ligada ao assunto (regra fixa, vale para todos os artigos)
+
+- Nunca usar imagem aleatória ou decorativa. Cada imagem deve mostrar exatamente o tema do parágrafo em que está.
+- A imagem vai logo depois do parágrafo que cita o assunto dela, nunca antes nem em outra seção.
+- Não repetir a mesma imagem no mesmo artigo.
+- Sem imagem oficial adequada (sem rostos de pessoas reais), é melhor não colocar nada do que colocar uma imagem que não tem a ver.
