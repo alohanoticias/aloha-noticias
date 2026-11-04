@@ -1,0 +1,12 @@
+name: Checar fotos
+on:
+  push:
+    branches: [main]
+    paths: ["rascunhos/**", "agendados/**", "site/conteudo/**", "site/capas_fotos/**"]
+  workflow_dispatch:
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 site/checar_fotos.py --rede

@@ -980,6 +980,9 @@ def resolver(html_, lang, nome, existe):
 
 def main():
     global LANG, editorias, ED, materias
+    import checar_fotos
+    if not checar_fotos.main():
+        raise SystemExit('Há foto com endereço incompleto; corrija antes de gerar o site.')
     if SAIDA.exists():
         # Limpa o conteúdo; em alguns discos não é possível apagar a própria pasta.
         for item in SAIDA.iterdir():

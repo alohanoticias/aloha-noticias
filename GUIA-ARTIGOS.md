@@ -93,6 +93,7 @@ As capas devem parecer reais e chamativas, mas **nunca** podem usar material de 
 ## Todo artigo leva capa, fotos e vídeo (regra fixa)
 Nenhum rascunho é entregue sem:
 - **Capa** em colagem de fotos livres, montada como descrito em "Capas e imagens".
+- **Endereço da foto completo**: use sempre o código inteiro, com o sufixo, como `photo-1751823886813-0cfc86cb9478` (copie do og:image). Sem o sufixo a foto não carrega e o artigo fica com imagem quebrada. O `gerar.py` recusa endereço incompleto e o workflow "Checar fotos" abre cada foto no GitHub depois do push: se ele falhar, corrija na hora.
 - **Pelo menos 2 fotos dentro do texto** (linha `!img URL|descrição|crédito`), de bancos livres, relacionadas ao assunto, espalhadas entre os blocos (uma perto do começo, outra no meio ou no fim). Descrição fiel ao que a foto mostra; crédito com nome do fotógrafo e "/ Unsplash".
 - **1 vídeo** no campo `"video": {"youtube": "ID", "titulo": "..."}`: trailer ou conteúdo oficial do assunto (canal da empresa, distribuidora, órgão público ou veículo reconhecido). Para Finanças, uma explicação de veículo de jornalismo ou órgão oficial, sem recomendação de investimento.
 - **Como achar o ID do vídeo**: abra com WebFetch páginas de notícias confiáveis sobre o assunto e procure o iframe `youtube.com/embed/ID`; ou use WebSearch com allowed_domains youtube.com. Nunca invente um ID.
