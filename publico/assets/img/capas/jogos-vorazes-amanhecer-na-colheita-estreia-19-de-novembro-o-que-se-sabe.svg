@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Nascer do sol sobre um campo de trigo com a data 19 de novembro">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B2A33"/><stop offset=".6" stop-color="#B5533C"/><stop offset="1" stop-color="#E9A23B"/></linearGradient></defs>
+<rect width="800" height="450" fill="url(#g)"/>
+<circle cx="400" cy="270" r="95" fill="#F4D58D" opacity=".9"/>
+<path d="M0 290C150 270 260 300 400 285S660 265 800 285V450H0Z" fill="#4A3B2A"/>
+<g stroke="#E9C46A" stroke-width="3" stroke-linecap="round" fill="none" opacity=".9">
+<path d="M60 450C60 380 66 340 70 300M100 450C100 390 108 350 112 320M140 450C140 370 146 330 150 295M680 450C682 380 676 340 672 305M720 450C722 390 714 350 710 318M760 450C760 380 752 335 748 300"/></g>
+<g fill="#E9C46A"><ellipse cx="70" cy="298" rx="6" ry="14"/><ellipse cx="112" cy="318" rx="6" ry="14"/><ellipse cx="150" cy="293" rx="6" ry="14"/><ellipse cx="672" cy="303" rx="6" ry="14"/><ellipse cx="710" cy="316" rx="6" ry="14"/><ellipse cx="748" cy="298" rx="6" ry="14"/></g>
+<path d="M0 380C140 350 260 400 400 372S660 345 800 372V450H0Z" fill="#2B2018"/>
+<text x="400" y="150" text-anchor="middle" font-family="Inter, Outfit, system-ui, sans-serif" font-weight="800" font-size="110" letter-spacing="-2" fill="#F4EDE4">19 NOV</text>
+<text x="400" y="200" text-anchor="middle" font-family="Inter, Outfit, system-ui, sans-serif" font-weight="600" font-size="22" letter-spacing="10" fill="#F4D58D">NOS CINEMAS</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Ocarina de cerâmica dourada com notas musicais sobre colinas e céu estrelado">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16324F"/><stop offset="1" stop-color="#2F6F6A"/></linearGradient></defs>
+<rect width="800" height="450" fill="url(#g)"/>
+<g fill="#F4EDE4" opacity=".7"><circle cx="90" cy="70" r="2"/><circle cx="200" cy="40" r="3"/><circle cx="330" cy="90" r="2"/><circle cx="560" cy="50" r="3"/><circle cx="700" cy="100" r="2"/><circle cx="640" cy="170" r="2"/></g>
+<path d="M0 360C120 320 220 380 340 345S560 290 800 340V450H0Z" fill="#0F2A3F" opacity=".7"/>
+<path d="M0 400C160 370 300 420 460 392S680 360 800 385V450H0Z" fill="#0B2233"/>
+<g transform="translate(400 235) rotate(-18)"><ellipse cx="0" cy="0" rx="150" ry="62" fill="#E9C46A"/><path d="M110 -40C170 -60 205 -50 215 -30C205 -10 170 0 125 5Z" fill="#E9C46A"/><ellipse cx="-20" cy="-12" rx="70" ry="22" fill="#F4EDE4" opacity=".25"/>
+<g fill="#16324F"><circle cx="-70" cy="8" r="12"/><circle cx="-30" cy="14" r="12"/><circle cx="10" cy="14" r="12"/><circle cx="50" cy="8" r="12"/><circle cx="-5" cy="-24" r="9"/></g></g>
+<g fill="#F4EDE4" opacity=".85" font-family="Inter, Outfit, system-ui, sans-serif"><text x="600" y="150" font-size="46">♪</text><text x="650" y="205" font-size="34">♫</text><text x="130" y="170" font-size="38">♪</text></g>
+<text x="400" y="410" text-anchor="middle" font-family="Inter, Outfit, system-ui, sans-serif" font-weight="800" font-size="30" letter-spacing="8" fill="#F4EDE4">5 DE NOVEMBRO</text>
+</svg>
