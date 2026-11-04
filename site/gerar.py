@@ -182,13 +182,18 @@ def rodape():
       <li><a href="contato.html">Contato e anúncios</a></li>
       <li><a href="busca.html">Buscar</a></li>
       <li><a href="privacidade.html">Privacidade</a></li>
+      <li><a href="feed.xml">RSS</a></li>
     </ul></div>
     <div class="rodape-base"><span>© {HOJE.year} {SITE}</span></div>
   </div>
 </footer>"""
 
 
-def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head=""):
+def og_url(u):
+    return u if u.startswith("http") else "https://alohanoticias.com/" + u.lstrip("/")
+
+
+def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img="assets/img/og-padrao.png", og_tipo="website"):
     t = f"{titulo} · {SITE}" if titulo != SITE else f"{SITE}: notícias, cinema, games, tecnologia e finanças"
     return f"""<!doctype html>
 <html lang="pt-BR">
@@ -198,6 +203,12 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head=""):
 <title>{esc(t)}</title>
 <meta name="description" content="{esc(descricao)}">
 <meta property="og:site_name" content="{SITE}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="{og_tipo}">
+<meta property="og:url" content="https://alohanoticias.com/{{CANON}}">
+<meta property="og:image" content="{og_url(og_img)}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="{SITE}" href="feed.xml">
 <meta property="og:title" content="{esc(titulo)}">
 <meta property="og:description" content="{esc(descricao)}">
 <link rel="canonical" href="https://alohanoticias.com/{{CANON}}">
@@ -415,8 +426,8 @@ def gerar_materia(m):
     <div class="grade-3">{"".join(card(x) for x in relacionadas)}</div>
   </div>
 </section>'''}"""
-    head = f'<meta property="og:type" content="article">\n<script type="application/ld+json">{ld}</script>\n'
-    return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head)
+    head = f'<script type="application/ld+json">{ld}</script>\n'
+    return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head, og_img=(m.get("imagem") or {}).get("url", "assets/img/og-padrao.png"), og_tipo="article")
 
 
 # ---------------------------------------------------------------- busca e páginas simples
@@ -463,7 +474,7 @@ HEADERS = """/*
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://images.unsplash.com; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://images.unsplash.com; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
 /assets/*
   Cache-Control: public, max-age=3600, must-revalidate
@@ -506,6 +517,21 @@ def main():
     (SAIDA / ".well-known").mkdir(exist_ok=True)
     (SAIDA / ".well-known/security.txt").write_text(
         "Contact: mailto:alohanoticias@gmail.com\nExpires: 2027-11-01T00:00:00.000Z\nPreferred-Languages: pt, en\nCanonical: https://alohanoticias.com/.well-known/security.txt\n", encoding="utf-8")
+    from email.utils import format_datetime
+    from xml.sax.saxutils import escape as xe
+    from datetime import timezone, timedelta
+    br = timezone(timedelta(hours=-3))
+    itens = "".join(
+        f"<item><title>{xe(m['titulo'])}</title><link>https://alohanoticias.com/{url_materia(m)}</link>"
+        f"<guid isPermaLink=\"true\">https://alohanoticias.com/{url_materia(m)}</guid>"
+        f"<pubDate>{format_datetime(datetime.fromisoformat(m['data']).replace(tzinfo=br))}</pubDate>"
+        f"<category>{xe(ED[m['editoria']]['nome'])}</category><description>{xe(m['linha_fina'])}</description></item>"
+        for m in materias[:30])
+    (SAIDA / "feed.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+        f"<title>{SITE}</title><link>https://alohanoticias.com/</link><description>Notícias, cinema, games, tecnologia, curiosidades e finanças.</description>"
+        '<language>pt-BR</language><atom:link href="https://alohanoticias.com/feed.xml" rel="self" type="application/rss+xml"/>'
+        + itens + "</channel></rss>", encoding="utf-8")
     urls = [n for n in arquivos if n not in ("404.html", "busca.html")]
     sm = "".join(f"<url><loc>https://alohanoticias.com/{'' if n=='index.html' else n}</loc></url>" for n in urls)
     (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
