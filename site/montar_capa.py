@@ -2,7 +2,7 @@
 Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1200x675).
 Formato do .json:
   {"layout": "tres" | "dois" | "um",
-   "fotos": [{"url": "...", "foco": [0.5, 0.5]}, ...]}
+   "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...]}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
 import io, json, re, sys, urllib.request
 from pathlib import Path
@@ -43,8 +43,8 @@ def baixar(url):
         return Image.open(io.BytesIO(r.read())).convert("RGB")
 
 
-def recorte(img, w, h, foco):
-    esc = max(w / img.width, h / img.height)
+def recorte(img, w, h, foco, zoom=1.0):
+    esc = max(w / img.width, h / img.height) * zoom
     img = img.resize((max(w, round(img.width * esc)), max(h, round(img.height * esc))), Image.LANCZOS)
     x = round((img.width - w) * foco[0]); y = round((img.height - h) * foco[1])
     return img.crop((x, y, x + w, y + h))
@@ -59,7 +59,7 @@ def montar(spec):
     for pol, f in zip(poligonos, fotos):
         xs, ys = [p[0] for p in pol], [p[1] for p in pol]
         x0, y0, x1, y1 = min(xs), min(ys), max(xs), max(ys)
-        img = recorte(baixar(f["url"]), x1 - x0, y1 - y0, f.get("foco", [.5, .5]))
+        img = recorte(baixar(f["url"]), x1 - x0, y1 - y0, f.get("foco", [.5, .5]), f.get("zoom", 1.0))
         img = ImageEnhance.Contrast(ImageEnhance.Color(img).enhance(1.08)).enhance(1.04)
         m = Image.new("L", (L * 3, A * 3), 0)
         ImageDraw.Draw(m).polygon([(x * 3, y * 3) for x, y in pol], fill=255)
