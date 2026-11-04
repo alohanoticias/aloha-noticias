@@ -2,12 +2,12 @@
    Layout: jornal limpo em colunas; azul-oceano conduz, areia separa blocos, coral só em selos. */
 
 :root {
-  --fundo: #FBF7F1;
-  --superficie: #F4EDE4;
-  --tinta: #1E2A2D;
-  --mare: #5B6B6E;
+  --fundo: #FFFFFF;
+  --superficie: #F4F4F4;
+  --tinta: #141414;
+  --mare: #5E5E5E;
   --marca: #0F4C5C;
-  --linha: #E6DDD0;
+  --linha: #E3E3E3;
   --coral: #E76F51;
   --coral-texto: #B4492F;
   --rodape-fundo: #0F4C5C;
@@ -36,16 +36,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --fundo: #0B2730; --superficie: #11343F; --tinta: #F4EDE4; --mare: #A9BDC0;
-    --marca: #F4EDE4; --linha: #1E4652; --coral-texto: #F08A6F;
-    --rodape-fundo: #071C23; --rodape-tinta: #F4EDE4; --rodape-mare: #8FA9AD;
+    --fundo: #000000; --superficie: #141414; --tinta: #F5F5F5; --mare: #A8A8A8;
+    --marca: #FFFFFF; --linha: #2B2B2B; --coral-texto: #F08A6F;
+    --rodape-fundo: #0A0A0A; --rodape-tinta: #F5F5F5; --rodape-mare: #9A9A9A;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --fundo: #0B2730; --superficie: #11343F; --tinta: #F4EDE4; --mare: #A9BDC0;
-  --marca: #F4EDE4; --linha: #1E4652; --coral-texto: #F08A6F;
-  --rodape-fundo: #071C23; --rodape-tinta: #F4EDE4; --rodape-mare: #8FA9AD;
+  --fundo: #000000; --superficie: #141414; --tinta: #F5F5F5; --mare: #A8A8A8;
+  --marca: #FFFFFF; --linha: #2B2B2B; --coral-texto: #F08A6F;
+  --rodape-fundo: #0A0A0A; --rodape-tinta: #F5F5F5; --rodape-mare: #9A9A9A;
   color-scheme: dark;
 }
 
@@ -621,8 +621,8 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
   --f-titulo: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --texto-corpo: #2F3B4A;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --texto-corpo: #D3DDDF; } }
-:root[data-theme="dark"] { --texto-corpo: #D3DDDF; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --texto-corpo: #D8D8D8; } }
+:root[data-theme="dark"] { --texto-corpo: #D8D8D8; }
 
 .card-dest h2, .card-linha h3, .card h3, .materia-topo h1, .secao-topo h2, .mais-lidas.home h2, .newsletter h2, .texto h2 {
   font-family: var(--f-titulo); font-weight: 700; letter-spacing: -0.02em;
@@ -668,3 +668,15 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .idioma-lista a{display:flex;align-items:center;gap:10px}
 
 .nota-traducao{margin:20px 0 0;font-size:.9rem;opacity:.8}
+
+/* Tema escuro em preto e branco (sem azul) */
+:root[data-theme="dark"] { --cab-fundo: #0A0A0A; --cab-tinta: #F5F5F5; --cab-suave: rgba(255, 255, 255, 0.16); }
+:root[data-theme="dark"] .cabecalho { border-bottom: 1px solid #2B2B2B; box-shadow: none; }
+:root[data-theme="dark"] .agora { background: #141414; }
+:root[data-theme="dark"] .aviso-idioma { background: #141414; color: #F5F5F5; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --cab-fundo: #0A0A0A; --cab-tinta: #F5F5F5; --cab-suave: rgba(255, 255, 255, 0.16); }
+  :root:not([data-theme="light"]) .cabecalho { border-bottom: 1px solid #2B2B2B; box-shadow: none; }
+  :root:not([data-theme="light"]) .agora { background: #141414; }
+  :root:not([data-theme="light"]) .aviso-idioma { background: #141414; color: #F5F5F5; }
+}
