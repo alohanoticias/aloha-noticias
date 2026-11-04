@@ -54,3 +54,9 @@ Para cada rascunho elegível, nesta ordem:
 - Sempre assuntos do momento: o que está sendo comentado hoje, lançamentos e estreias da semana, anúncios oficiais, polêmicas já confirmadas. Confira nas buscas e nas páginas oficiais o que realmente está em alta antes de decidir.
 - Pense no leitor: escolha o que é interessante e útil para o público brasileiro (o que muda para ele, o que vale assistir ou jogar, o que ele precisa saber), não o que só enche espaço.
 - Escreva como uma pessoa escreveria para um amigo: voz natural, sem fórmula.
+
+## Mínimo de um artigo publicado por dia
+O site precisa ter pelo menos um artigo novo no ar todos os dias.
+- Depois da liberação dos rascunhos antigos, confira se já existe artigo com a data de hoje em materias.json ou algum agendado para hoje em agendados/.
+- Se não houver nenhum, escolha o melhor dos rascunhos novos, faça nele a revisão final completa (a mesma da seção acima) e publique-o hoje mesmo, com data de agora. Os outros ficam em rascunhos/ para a pessoa aprovar ou para saírem na manhã seguinte.
+- Se nenhum dos rascunhos passar na checagem de fatos, não publique algo duvidoso só para cumprir a meta: avise claramente na mensagem final que o dia ficou sem artigo e por quê.
