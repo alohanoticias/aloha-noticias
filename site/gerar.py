@@ -80,7 +80,26 @@ TONS = {
 }
 
 
+def legenda(m):
+    im = m.get("imagem")
+    if im and im.get("credito"):
+        return f'<figcaption class="credito">{esc(im["credito"])}</figcaption>'
+    return ""
+
+
+def video(m):
+    v = m.get("video")
+    if not v:
+        return ""
+    return (f'<div class="wrap video-materia"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{esc(v["youtube"])}" '
+            f'title="{esc(v.get("titulo", "Vídeo"))}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" '
+            f'allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>')
+
+
 def capa(m, cls="capa"):
+    im = m.get("imagem")
+    if im:
+        return f'<img class="{cls}" src="{esc(im["url"])}" alt="{esc(im.get("alt", m["titulo"]))}" loading="lazy" decoding="async">'
     fundo, onda, sol = TONS[m["editoria"]]
     h = int(hashlib.md5(m["slug"].encode()).hexdigest(), 16)
     sx = 260 + (h % 360)
@@ -375,7 +394,7 @@ def gerar_materia(m):
     <p class="linha-fina">{esc(m['linha_fina'])}</p>
     <p class="meta"><span>Por {esc(m['autor'])}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time><span>{leitura(m)} min de leitura</span></p>
   </header>
-  <figure class="materia-capa" style="margin-inline:0">{capa(m)}</figure>
+  <figure class="materia-capa" style="margin-inline:0">{capa(m)}{legenda(m)}</figure>{video(m)}
   <div class="materia-grade">
     <div class="texto">
       <div class="compartilhar"><span>Compartilhe</span><button class="botao-sec" id="copiar-link" type="button">Copiar link</button></div>
