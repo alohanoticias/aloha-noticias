@@ -368,7 +368,10 @@ def gerar_editoria(e):
 def corpo_texto(paragrafos):
     out = []
     for p in paragrafos:
-        if p.startswith("## "):
+        if p.startswith("!img "):
+            url, alt, cred = (p[5:].split("|") + ["", ""])[:3]
+            out.append(f'<figure class="foto-corpo"><img src="{esc(url)}" alt="{esc(alt)}" loading="lazy" decoding="async"><figcaption class="credito">{esc(cred)}</figcaption></figure>')
+        elif p.startswith("## "):
             out.append(f"<h2>{esc(p[3:])}</h2>")
         else:
             out.append(f"<p>{esc(p)}</p>")

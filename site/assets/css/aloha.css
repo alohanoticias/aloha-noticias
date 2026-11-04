@@ -582,3 +582,6 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 /* Espaço para a onda do cabeçalho (14px) em todas as telas */
 #conteudo { padding-top: 26px; }
 @media (max-width: 760px) { #conteudo { padding-top: 24px; } }
+
+.foto-corpo { margin: 28px 0; }
+.foto-corpo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 18px 3px 18px 3px; }

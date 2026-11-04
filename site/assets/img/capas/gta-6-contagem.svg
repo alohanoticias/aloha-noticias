@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Ilustração com a data 19.11 sobre um pôr do sol neon">
+<defs>
+<linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12082E"/><stop offset=".55" stop-color="#6A1B6F"/><stop offset="1" stop-color="#FF7F6B"/></linearGradient>
+<linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF1B8"/><stop offset="1" stop-color="#FF6B8A"/></linearGradient>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FF6B8A" stop-opacity="0"/><stop offset=".5" stop-color="#FFB27A"/><stop offset="1" stop-color="#FF6B8A" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="800" height="450" fill="url(#c)"/>
+<g stroke="#FF8FB1" stroke-width="1.2" opacity=".35"><path d="M0 330h800M0 350h800M0 376h800M0 408h800"/><path d="M400 300L-200 450M400 300L0 450M400 300L200 450M400 300L400 450M400 300L600 450M400 300L800 450M400 300L1000 450"/></g>
+<rect y="296" width="800" height="3" fill="url(#g)"/>
+<text x="400" y="232" text-anchor="middle" font-family="Outfit, 'Arial Black', Impact, system-ui, sans-serif" font-weight="900" font-size="190" letter-spacing="-4" fill="#2A0F4A" transform="translate(5 6)">19.11</text>
+<text x="400" y="232" text-anchor="middle" font-family="Outfit, 'Arial Black', Impact, system-ui, sans-serif" font-weight="900" font-size="190" letter-spacing="-4" fill="url(#t)">19.11</text>
+<g fill="none" stroke="#FFE6A8" stroke-width="2.5" stroke-linecap="round"><path d="M250 268h300"/></g>
+<text x="400" y="262" text-anchor="middle" font-family="Outfit, system-ui, sans-serif" font-weight="600" font-size="20" letter-spacing="9" fill="#FFE6A8" dy="-14" opacity="0">.</text>
+<text x="400" y="292" text-anchor="middle" font-family="Outfit, system-ui, sans-serif" font-weight="600" font-size="20" letter-spacing="9" fill="#FFE6A8">PS5  ·  XBOX SERIES</text>
+<g fill="#0B0420"><path d="M0 450V420C80 404 160 412 240 424S380 414 440 420 640 404 800 418V450Z"/>
+<path d="M60 450C64 400 62 372 54 344" stroke="#0B0420" stroke-width="7" fill="none" stroke-linecap="round"/>
+<g transform="translate(54 344) scale(.7)"><path d="M0 0C-30 -34 -76 -30 -104 -4C-70 -16 -34 -12 0 0Z"/><path d="M0 0C-16 -48 -54 -70 -92 -62C-54 -52 -26 -28 0 0Z"/><path d="M0 0C14 -50 50 -74 92 -66C54 -54 26 -28 0 0Z"/><path d="M0 0C34 -32 80 -28 106 0C70 -14 34 -12 0 0Z"/></g>
+<path d="M742 450C738 396 744 364 756 336" stroke="#0B0420" stroke-width="7" fill="none" stroke-linecap="round"/>
+<g transform="translate(756 336) scale(.75)"><path d="M0 0C-30 -34 -76 -30 -104 -4C-70 -16 -34 -12 0 0Z"/><path d="M0 0C-16 -48 -54 -70 -92 -62C-54 -52 -26 -28 0 0Z"/><path d="M0 0C14 -50 50 -74 92 -66C54 -54 26 -28 0 0Z"/><path d="M0 0C34 -32 80 -28 106 0C70 -14 34 -12 0 0Z"/></g></g>
+<g fill="#fff" opacity=".7"><circle cx="90" cy="50" r="1.6"/><circle cx="240" cy="28" r="1.2"/><circle cx="560" cy="40" r="1.5"/><circle cx="700" cy="80" r="1.3"/><circle cx="150" cy="110" r="1"/></g>
+</svg>
