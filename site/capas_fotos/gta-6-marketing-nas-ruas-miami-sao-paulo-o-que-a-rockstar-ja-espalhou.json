@@ -1,0 +1,30 @@
+{
+ "layout": "faixas",
+ "fotos": [
+  {
+   "url": "https://images.unsplash.com/photo-1748380868276-6faae7e27b94?fm=jpg&q=70&w=1600&auto=format&fit=crop",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1723596807374-5cfbe183a820?fm=jpg&q=70&w=1600&auto=format&fit=crop",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1697657997273-57638a993fba?fm=jpg&q=70&w=1600&auto=format&fit=crop",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "editoria": "games"
+}
