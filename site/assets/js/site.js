@@ -96,32 +96,6 @@
       buscar();
     }
   });
-
-  // Seções da home: setas para passar e voltar entre as páginas de matérias.
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("[data-carrossel]").forEach(function (car) {
-      var paginas = car.querySelectorAll(".pagina-lista");
-      var pager = car.querySelector(".pager");
-      if (!pager || paginas.length < 2) return;
-      var ant = pager.querySelector(".pager-ant");
-      var prox = pager.querySelector(".pager-prox");
-      var info = pager.querySelector(".pager-info");
-      var atual = 0;
-      raiz.classList.add("js");
-      pager.hidden = false;
-      function mostrar(n, rolar) {
-        atual = n;
-        paginas.forEach(function (p, i) { p.hidden = i !== n; });
-        ant.hidden = n === 0;
-        prox.hidden = n === paginas.length - 1;
-        info.textContent = (n + 1) + " / " + paginas.length;
-        if (rolar) { car.parentNode.parentNode.scrollIntoView({ block: "start", behavior: "smooth" }); }
-      }
-      prox.addEventListener("click", function () { mostrar(Math.min(atual + 1, paginas.length - 1), true); });
-      ant.addEventListener("click", function () { mostrar(Math.max(atual - 1, 0), true); });
-      mostrar(0, false);
-    });
-  });
 })();
 
 /* Idiomas: PT, EN e ES são páginas reais (links gerados no servidor). Os demais idiomas usam o tradutor do Google em outra página,
