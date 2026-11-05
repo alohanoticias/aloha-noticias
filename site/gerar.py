@@ -495,7 +495,7 @@ def card_cat(m):
 
 def gerar_editoria(e):
     da_ed = [m for m in materias if m["editoria"] == e["slug"]]
-    lista = "".join(card_cat(m) for m in da_ed) if da_ed else '<p class="resumo">{t("Ainda não publicamos matérias nesta editoria. Volte em breve.")}</p>'
+    lista = "".join(card_cat(m) for m in da_ed) if da_ed else f'<p class="resumo">{t("Ainda não publicamos matérias nesta editoria. Volte em breve.")}</p>'
     corpo = f"""<div class="wrap duas-colunas">
   <div class="coluna-principal">
     <nav class="migalhas-v" aria-label="{t('Você está em')}"><a href="index.html">{t("Início")}</a> &gt; <span>{esc(e['nome'])}</span></nav>
@@ -872,7 +872,7 @@ def aplicar_idioma(lang):
         usados = {m["editoria"] for m in ms}
         materias = ms
         editorias = [{"slug": e["slug"], "nome": i18n.EDITORIAS[lang][e["slug"]][0], "descricao": i18n.EDITORIAS[lang][e["slug"]][1]}
-                     for e in EDITORIAS_PT if e["slug"] in usados]
+                     for e in EDITORIAS_PT]  # todas as seções, para o menu não apontar para páginas inexistentes
     ED = {e["slug"]: e for e in editorias}
     MAIS_LIDAS = materias[:5]
     return True
