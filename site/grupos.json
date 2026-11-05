@@ -17,5 +17,17 @@
     ]
    }
   ]
+ },
+ {
+  "saida": "assets/img/estreias/shows-rammstein.jpg",
+  "itens": [
+   {
+    "src": "pagina:https://www.rammsteinworld.com/en/news-1409-live-in-mexico-city-in-cinemas-in-late-2026",
+    "foco": [
+     0.5,
+     0.5
+    ]
+   }
+  ]
  }
 ]
