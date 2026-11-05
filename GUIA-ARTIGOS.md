@@ -138,8 +138,9 @@ Regras:
 - Não repetir a mesma imagem no mesmo artigo.
 - Sem imagem oficial adequada (sem rostos de pessoas reais), é melhor não colocar nada do que colocar uma imagem que não tem a ver.
 
-## Imagens de vários filmes na mesma seção: lado a lado (regra fixa, vale para todos os artigos)
+## Imagens de vários filmes na mesma seção: no máximo dois, lado a lado (regra fixa, vale para todos os artigos)
 
-- Quando uma seção tiver imagem de mais de um filme, jogo ou série, junte-as numa única imagem 1920x1080 com as imagens lado a lado (2 ou 3 painéis com divisória branca), em vez de empilhá-las.
-- Use `site/montar_grupos.py` com `site/grupos.json` (roda no GitHub pelo workflow "Coletar imagens de filmes"). Pôster vertical aparece inteiro sobre fundo desfocado; imagem horizontal é recortada para preencher o painel.
-- Coloque a imagem do grupo logo depois do parágrafo que cita os títulos dela. Legenda com os títulos mostrados.
+- Quando uma seção tiver imagem de mais de um filme, jogo ou série, junte os dois mais conhecidos numa única imagem 1920x1080, lado a lado, com divisória branca. Nunca mais de dois por imagem.
+- Use só imagens horizontais (cena, arte oficial). Nada de pôster vertical com fundo desfocado nem espaço sobrando. Se um título só tem pôster vertical, melhor deixá-lo sem imagem do que usar a capa.
+- Ajuste o "foco" de cada painel em `site/grupos.json` para não cortar rosto de personagem nem o elemento principal da cena, e confira o resultado antes de publicar.
+- Monte com `site/montar_grupos.py` (workflow "Coletar imagens de filmes"). Coloque a imagem logo depois do parágrafo que cita os títulos dela, com legenda dos títulos.
