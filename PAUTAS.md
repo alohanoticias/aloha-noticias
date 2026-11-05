@@ -30,3 +30,7 @@ Regra de sempre: conferir cada fato em 2 fontes na hora de escrever (datas mudam
 ## Evitar
 - Finanças, saúde, política e qualquer tema "abrangente" (decisão do usuário, por causa do AdSense).
 - Rumor tratado como fato; capas ou pôsteres protegidos; resumo de release sem ângulo próprio.
+
+## Notas de pesquisa (05/11/2026, rodada sem rascunho novo)
+- Percy Jackson T3 (pauta 4): Omelete, Overdrive e Critical Hits (11-12/10) concordam: estreia 20/11 no Disney+, 8 episódios, 2 por sexta (20/11, 27/11, 04/12, 11/12), adapta A Maldição do Titã. Divergências: títulos em português dos episódios, elenco (Dafne Keen só no Critical Hits) e quem captura Annabeth. Sem horário no Brasil. Falta: vídeo oficial com canal conferido (candidatos achados na busca, não conferidos: 8Q3ZHJINzL4 dublado, LUsPvzMdpY4) e fotos livres para a capa.
+- The Game Awards 2026 (pauta 2): só data (10/12) e local (Peacock Theater) confirmados, em fontes de fev/ago. Sem horário, plataformas oficiais ou indicados; ler thegameawards.com quando possível antes de escrever.
