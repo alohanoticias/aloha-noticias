@@ -1,1 +1,21 @@
-[]
+[
+ {
+  "saida": "assets/img/estreias/semana-12-pinoquio-moxy.jpg",
+  "itens": [
+   {
+    "src": "https://comicbookmovie.com/images/articles/banners/pinocchio-unstrung-trailer-reimagines-the-wooden-boy-and-jiminy-cricket-as-organ-hunting-killers-ab226647.jpg",
+    "foco": [
+     0.62,
+     0.5
+    ]
+   },
+   {
+    "src": "https://assets.eyefilm.nl/images/production/_1200x630_crop_center-center_none/still_Miss-Moxy-Vincent-Bal-Wip-Vernooij-NL-BE-DE-LU-2025-1.jpg",
+    "foco": [
+     0.45,
+     0.5
+    ]
+   }
+  ]
+ }
+]
