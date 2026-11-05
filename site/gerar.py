@@ -872,7 +872,7 @@ def aplicar_idioma(lang):
         usados = {m["editoria"] for m in ms}
         materias = ms
         editorias = [{"slug": e["slug"], "nome": i18n.EDITORIAS[lang][e["slug"]][0], "descricao": i18n.EDITORIAS[lang][e["slug"]][1]}
-                     for e in EDITORIAS_PT if e["slug"] in usados]
+                     for e in EDITORIAS_PT]  # todas as seções, para o menu não apontar para páginas inexistentes
     ED = {e["slug"]: e for e in editorias}
     MAIS_LIDAS = materias[:5]
     return True
