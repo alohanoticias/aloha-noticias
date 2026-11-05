@@ -11,7 +11,7 @@ for a in arqs:
             urls.setdefault(u, set()).add(a.stem[:40])
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 def abrir(u, ref):
-    h = {"User-Agent": UA, "Accept": "image/avif,image/webp,image/*,*/*;q=0.8"}
+    h = {"User-Agent": ("AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)" if "wikimedia.org" in u else UA), "Accept": "image/avif,image/webp,image/*,*/*;q=0.8"}
     if ref: h["Referer"] = "https://alohanoticias.com/"
     try:
         with urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=40) as r:
