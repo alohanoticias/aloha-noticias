@@ -147,5 +147,6 @@ Regras:
 
 ## Quantidade de imagens (regra fixa, vale para todos os artigos)
 
-- Use poucas imagens: de 3 a 5 na maioria dos artigos. Cada imagem precisa acrescentar algo ao trecho em que está; não repita a mesma imagem nem encha a página de artes parecidas.
-- Só passe disso em matérias de lista (estreias, calendários), em que cada título precisa de referência visual por causa do contexto.
+- Não use a mesma quantidade de imagens em todos os artigos. Decida pelo contexto: mais imagens onde a matéria é visual ou tem vários itens que pedem referência (listas de estreias, jogos e filmes com muita arte oficial), menos onde o texto se sustenta sozinho ou há pouca imagem boa.
+- Cada imagem precisa acrescentar algo ao trecho em que está. Sem imagem adequada, é melhor deixar sem.
+- Não repita a mesma imagem nem encha a página de artes parecidas.
