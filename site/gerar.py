@@ -495,7 +495,7 @@ def card_cat(m):
 
 def gerar_editoria(e):
     da_ed = [m for m in materias if m["editoria"] == e["slug"]]
-    lista = "".join(card_cat(m) for m in da_ed) if da_ed else '<p class="resumo">{t("Ainda não publicamos matérias nesta editoria. Volte em breve.")}</p>'
+    lista = "".join(card_cat(m) for m in da_ed) if da_ed else f'<p class="resumo">{t("Ainda não publicamos matérias nesta editoria. Volte em breve.")}</p>'
     corpo = f"""<div class="wrap duas-colunas">
   <div class="coluna-principal">
     <nav class="migalhas-v" aria-label="{t('Você está em')}"><a href="index.html">{t("Início")}</a> &gt; <span>{esc(e['nome'])}</span></nav>
