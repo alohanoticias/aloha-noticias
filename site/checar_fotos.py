@@ -22,8 +22,27 @@ def enderecos():
     return achados
 
 
-def main(rede=False):
+def poucas_fotos():
+    """Regra fixa: todo artigo tem pelo menos 2 fotos dentro do texto (linhas !img), em português e em todas as traduções."""
     ruins = []
+    for f in ["site/conteudo/materias.json"] + sorted(glob.glob(str(RAIZ / "rascunhos/*.json"))) + sorted(glob.glob(str(RAIZ / "agendados/*.json"))):
+        p = Path(f) if Path(f).is_absolute() else RAIZ / f
+        if not p.exists():
+            continue
+        dados = json.loads(p.read_text(encoding="utf-8"))
+        for m in (dados if isinstance(dados, list) else [dados]):
+            conta = lambda corpo: sum(1 for b in corpo if b.startswith("!img "))
+            n = conta(m.get("corpo", []))
+            if n < 2:
+                ruins.append(f"{m.get('slug')}: só {n} foto(s) no texto (mínimo 2)")
+            for lg, t in (m.get("traducoes") or {}).items():
+                if conta(t.get("corpo", [])) != n:
+                    ruins.append(f"{m.get('slug')}: tradução {lg} tem {conta(t.get('corpo', []))} fotos e o português tem {n}")
+    return ruins
+
+
+def main(rede=False):
+    ruins = poucas_fotos()
     ach = enderecos()
     for u, onde in ach.items():
         if not CERTO.match(u):
