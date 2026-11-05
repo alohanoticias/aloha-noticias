@@ -1,25 +1,9 @@
 {
- "layout": "grade_b",
+ "layout": "um",
  "editoria": "tecnologia",
  "fotos": [
   {
    "url": "https://gpuopen.com/images/amd_fsr_4_1_xbox_gdk_featured.CEJg0vAp.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://gpuopen.com/images/amd_fsr_4_1_xbox_gdk_blog.BhtCCxU9.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://gpuopen.com/images/amd_fsr_4_1_xbox_ally_blog.DMNv_3l9.jpg",
    "foco": [
     0.5,
     0.5
