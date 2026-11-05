@@ -10,7 +10,17 @@ RAIZ = Path(__file__).resolve().parent
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
 W, H, DIV = 1920, 1080, 10
 
+def og_da_pagina(url):
+    import re
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40) as r:
+        html = r.read().decode("utf-8", "ignore")
+    m = (re.search(r'property=["\']og:image["\'][^>]*content=["\']([^"\']+)', html) or
+         re.search(r'content=["\']([^"\']+)["\'][^>]*property=["\']og:image["\']', html))
+    return m.group(1).replace("&amp;", "&")
+
 def abrir(src):
+    if src.startswith("pagina:"):
+        src = og_da_pagina(src[7:])
     if src.startswith("http"):
         with urllib.request.urlopen(urllib.request.Request(src, headers=UA), timeout=40) as r:
             return Image.open(io.BytesIO(r.read())).convert("RGB")
