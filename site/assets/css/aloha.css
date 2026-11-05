@@ -264,7 +264,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 
 /* ---------- Seções da home: 4 matérias por vez, com setas ---------- */
-.carrossel { margin-top: 8px; }
 .cl-texto { display: grid; gap: 8px; }
 @media (max-width: 760px) {
 }

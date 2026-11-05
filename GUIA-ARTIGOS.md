@@ -144,3 +144,8 @@ Regras:
 - Use só imagens horizontais (cena, arte oficial). Nada de pôster vertical com fundo desfocado nem espaço sobrando. Se um título só tem pôster vertical, melhor deixá-lo sem imagem do que usar a capa.
 - Ajuste o "foco" de cada painel em `site/grupos.json` para não cortar rosto de personagem nem o elemento principal da cena, e confira o resultado antes de publicar.
 - Monte com `site/montar_grupos.py` (workflow "Coletar imagens de filmes"). Coloque a imagem logo depois do parágrafo que cita os títulos dela, com legenda dos títulos.
+
+## Quantidade de imagens (regra fixa, vale para todos os artigos)
+
+- Use poucas imagens: de 3 a 5 na maioria dos artigos. Cada imagem precisa acrescentar algo ao trecho em que está; não repita a mesma imagem nem encha a página de artes parecidas.
+- Só passe disso em matérias de lista (estreias, calendários), em que cada título precisa de referência visual por causa do contexto.
