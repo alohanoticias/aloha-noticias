@@ -1,0 +1,30 @@
+{
+ "layout": "grade",
+ "titulo": "Black Clover",
+ "fotos": [
+  {
+   "url": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/a6998e27a3e6069bb4a0a14c1ea5852a2415290b_6aacda0353e91.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/654bba2a59ef1550a37f183a7243e2205b553ada_6aa960765c2a4.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/1724923dc69da759ae9f84fbdd7028eb8a938e28_6aa9608bb8fea.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

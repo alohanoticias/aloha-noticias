@@ -1,0 +1,30 @@
+{
+ "layout": "grade_b",
+ "titulo": "Dragon Ball Super: Beerus",
+ "fotos": [
+  {
+   "url": "https://criticalhits.com.br/wp-content/uploads/2026/09/Dragon-Ball-Super-Beerus-Goku-Super-Saiyan-God.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://ovicio.com.br/wp-content/uploads/2026/09/20260905-dragon-ball-super-beerus-remake.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://cdn.ome.lt/JFKR_0JcIxUW-B1lCEVF-omtlJE=/1200x630/smart/filters:format(webp)/extras/conteudos/dragonballsuperbeerus.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

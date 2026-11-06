@@ -1,0 +1,22 @@
+{
+ "layout": "dois",
+ "titulo": "Witch on the Holy Night",
+ "fotos": [
+  {
+   "url": "https://static.animecorner.me/2025/07/1751748490-2c9fbaaeb7ecca6dc4a18b2baae03e27.png",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://cdn.ome.lt/oLuDTD1c5SJhIc8jUAbiuWSt6Pc=/1200x630/smart/filters:format(webp)/extras/conteudos/Witch_On_The_Holy_Night_-_O_Filme.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}
