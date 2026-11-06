@@ -466,7 +466,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .sino-n { position: absolute; top: -2px; right: -2px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--coral); color: #fff; font: 700 12px/20px var(--f-marca); text-align: center; }
 .sino-painel { position: fixed; right: 18px; bottom: 80px; z-index: 61; width: min(360px, calc(100vw - 36px)); max-height: min(70vh, 520px); display: flex; flex-direction: column; background: var(--fundo); color: var(--tinta); border: 1px solid var(--linha); border-radius: 6px; box-shadow: 0 8px 28px rgba(0,0,0,.3); overflow: hidden; }
 .sino-painel[hidden] { display: none; }
-.sino-painel header { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: #0F4C5C; color: #fff; font-weight: 600; }
+.sino-painel header { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: #fff; color: #000; border-bottom: 2px solid #000; font-weight: 600; }
 .sino-x { background: none; border: 0; color: inherit; font-size: 24px; line-height: 1; cursor: pointer; }
 .sino-lista { overflow-y: auto; flex: 1; min-height: 120px; }
 .sino-vazio { text-align: center; color: var(--mare); padding: 48px 20px; margin: 0; }
@@ -479,3 +479,5 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .sino-painel footer button { font: 12px var(--f-marca); background: none; border: 1px solid var(--tinta); color: var(--tinta); border-radius: 3px; padding: 3px 8px; cursor: pointer; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sino-btn { background: #141414; color: #fff; border-color: #fff; } }
 :root[data-theme="dark"] .sino-btn { background: #141414; color: #fff; border-color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sino-painel header { background: #141414; color: #fff; border-bottom-color: #fff; } }
+:root[data-theme="dark"] .sino-painel header { background: #141414; color: #fff; border-bottom-color: #fff; }

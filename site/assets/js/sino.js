@@ -55,5 +55,13 @@
       try { var n = new Notification(i.titulo, { body: i.editoria, icon: i.capa || undefined }); n.onclick = function () { window.open(i.url, "_self"); }; } catch (e) {}
     });
   }
-  desenhar(); avisarNovas();
+  // Sobe o sino acima da faixa de cookies enquanto ela estiver na tela.
+  function posicionar() {
+    var c = document.getElementById("consent"), h = (c && !c.hidden) ? c.offsetHeight : 0;
+    btn.style.bottom = (18 + h) + "px"; pn.style.bottom = (80 + h) + "px";
+  }
+  window.addEventListener("resize", posicionar);
+  document.addEventListener("click", function () { setTimeout(posicionar, 60); });
+  window.addEventListener("load", posicionar); setTimeout(posicionar, 300);
+  desenhar(); avisarNovas(); posicionar();
 })();
