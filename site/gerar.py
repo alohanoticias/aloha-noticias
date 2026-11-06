@@ -15,6 +15,8 @@ import i18n
 RAIZ = Path(__file__).parent
 SAIDA = RAIZ.parent / "publico"
 SITE = "ALOHA NOTÍCIAS"
+# Endereços dos perfis oficiais (Instagram, YouTube, X, TikTok, etc.). Preencha quando existirem: o Google usa para ligar os perfis à marca.
+PERFIS = []
 
 editorias = json.loads((RAIZ / "conteudo/editorias.json").read_text(encoding="utf-8"))
 materias = json.loads((RAIZ / "conteudo/materias.json").read_text(encoding="utf-8"))
@@ -479,7 +481,20 @@ def gerar_home():
   <div class="coluna-principal">{"".join(secoes)}</div>
   {lateral()}
 </div>"""
-    return pagina(SITE, t("Notícias, cinema, games e tecnologia, explicados com calma."), "inicio", corpo)
+    marca = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": "https://alohanoticias.com/#site", "url": "https://alohanoticias.com/", "name": SITE,
+         "alternateName": ["Aloha Notícias", "Aloha Noticias", "alohanoticias.com"], "inLanguage": "pt-BR",
+         "publisher": {"@id": "https://alohanoticias.com/#org"}},
+        {"@type": "NewsMediaOrganization", "@id": "https://alohanoticias.com/#org", "name": SITE,
+         "alternateName": ["Aloha Notícias", "Aloha Noticias"], "url": "https://alohanoticias.com/",
+         "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png", "width": 512, "height": 512},
+         "email": "contato@alohanoticias.com", "publishingPrinciples": "https://alohanoticias.com/politica-editorial.html",
+         "ethicsPolicy": "https://alohanoticias.com/politica-editorial.html", "correctionsPolicy": "https://alohanoticias.com/politica-editorial.html",
+         "sameAs": PERFIS}]}
+    if not PERFIS:
+        marca["@graph"][1].pop("sameAs")
+    extra = '<script type="application/ld+json">' + json.dumps(marca, ensure_ascii=False) + '</script>\n'
+    return pagina(SITE, t("Notícias, cinema, games e tecnologia, explicados com calma."), "inicio", corpo, extra_head=extra)
 
 
 # ---------------------------------------------------------------- editoria
@@ -625,7 +640,7 @@ def gerar_materia(m, preview=False, agendado=False):
         "description": m["linha_fina"], "datePublished": m["data"], "dateModified": m.get("atualizado") or m["data"], "articleSection": e["nome"],
         "image": [og_url(og_da_capa(m))], "mainEntityOfPage": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + url_materia(m), "inLanguage": i18n.HTML_LANG[LANG],
         "author": {"@type": "Person" if m["autor"] != "Equipe Aloha" else "Organization", "name": autor_nome(m)},
-        "publisher": {"@type": "Organization", "name": SITE},
+        "publisher": {"@type": "Organization", "name": SITE, "url": "https://alohanoticias.com/", "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png"}},
     }, ensure_ascii=False)
     corpo = f"""<article class="wrap materia">
   <nav class="migalhas" aria-label="{t('Você está em')}"><a href="index.html">{t('Início')}</a><span aria-hidden="true">/</span><a href="{url_editoria(e['slug'])}">{esc(e['nome'])}</a></nav>
@@ -761,7 +776,7 @@ def montar_arquivos():
 <h2>Boatos e rumores</h2>
 <p>Rumores, vazamentos e informações de bastidores só aparecem quando são relevantes, e sempre identificados como não confirmados, com a fonte indicada. Não tratamos boato como fato.</p>
 <h2>Imagens e vídeos</h2>
-<p>As capas são montadas pela nossa equipe com fotos de bancos de imagens de uso livre, como o Unsplash, com o crédito do autor na matéria, e com elementos gráficos próprios. Não usamos cartazes, capas ou imagens protegidas de filmes, jogos ou personagens. O vídeo de uma matéria, quando existe, é um conteúdo oficial incorporado do canal onde foi publicado, com o nome do canal indicado. Se você é autor ou dono de uma imagem e quer outro crédito ou a remoção, escreva para a gente.</p>
+<p>As capas são montadas pela nossa equipe como colagens de fotos reais do próprio assunto: imagens oficiais de divulgação (de estúdios, desenvolvedoras e fabricantes), fotos de acervos livres, como o Wikimedia Commons, e fotos de bancos de uso livre, como o Unsplash. Dentro dos textos usamos fotos relacionadas ao trecho em que aparecem. Toda imagem leva legenda com o crédito de quem a fez e, quando há, a licença. Não usamos imagens com marca d'água de terceiros nem fotos de pessoas copiadas da internet sem autorização. O vídeo de uma matéria, quando existe, é um conteúdo oficial incorporado do canal onde foi publicado, com o nome do canal indicado. Se você é autor ou dono de uma imagem e quer outro crédito ou a remoção, escreva para a gente pela página de <a href="contato.html">contato</a>.</p>
 <h2>Correções</h2>
 <p>Quando encontramos um erro, corrigimos a matéria e indicamos a correção no texto. Também atualizamos matérias quando datas ou fatos mudam, para que o conteúdo não fique desatualizado. Se você encontrou um erro, envie a matéria e o que está incorreto pela página de <a href="contato.html">contato</a>. Respondemos o quanto antes.</p>
 <h2>Independência</h2>
