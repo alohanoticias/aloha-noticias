@@ -6,8 +6,8 @@
   },
   {
     "slug": "cinema",
-    "nome": "Cinema",
-    "descricao": "Estreias, bastidores e tudo o que acontece antes e depois da sessão."
+    "nome": "Cinema & TV",
+    "descricao": "Estreias de filmes e séries, bastidores e tudo o que acontece antes e depois da sessão."
   },
   {
     "slug": "tecnologia",
@@ -15,9 +15,9 @@
     "descricao": "Ferramentas, segurança digital e a tecnologia do dia a dia sem jargão."
   },
   {
-    "slug": "noticias",
-    "nome": "Notícias",
-    "descricao": "O que está acontecendo no Brasil e no mundo, explicado com calma."
+    "slug": "anime",
+    "nome": "Anime",
+    "descricao": "Animes, mangás e cultura otaku: estreias da temporada, adaptações e o que está em alta."
   },
   {
     "slug": "curiosidades",

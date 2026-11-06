@@ -3,7 +3,7 @@ Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1920x
 Formato do .json:
   {"layout": "tres" | "dois" | "um" | "grade" | "grade_b" | "colunas" | "faixas" | "moldura" | "circulo" | "destaque",
    "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional",
-   "editoria": "cinema|games|tecnologia|noticias|curiosidades" (opcional: aplica o tom e a etiqueta da editoria)}   (zoom >= 1 aproxima)
+   "editoria": "cinema|games|tecnologia|anime|curiosidades" (opcional: aplica o tom e a etiqueta da editoria)}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
 import io, time, json, re, subprocess, sys, urllib.request
 from pathlib import Path
@@ -143,7 +143,7 @@ TONS = {  # cor da etiqueta, tom de cor aplicado sobre as fotos (unifica fotos d
     "cinema": ((231, 111, 81), (22, 51, 60)),
     "games": ((231, 111, 81), (28, 89, 102)),
     "tecnologia": ((156, 195, 199), (10, 52, 64)),
-    "noticias": ((231, 111, 81), (15, 76, 92)),
+    "anime": ((231, 111, 81), (15, 76, 92)),
     "curiosidades": ((231, 111, 81), (15, 76, 92)),
 }
 
@@ -212,7 +212,7 @@ def montar(spec):
     if spec.get("titulo"):
         tela = titulo(tela, spec["titulo"])
     if spec.get("etiqueta") and ed in TONS:  # opcional; por padrão a capa não leva o nome da editoria
-        tela = etiqueta(tela, {"games": "Games", "noticias": "Notícias"}.get(ed, ed.capitalize()), TONS[ed][0])
+        tela = etiqueta(tela, {"games": "Games", "anime": "Anime"}.get(ed, ed.capitalize()), TONS[ed][0])
     return tela
 
 

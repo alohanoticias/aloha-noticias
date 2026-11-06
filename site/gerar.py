@@ -123,7 +123,7 @@ O_SIMBOLO = svg_logo("aloha-o-simbolo", "erro")
 # ---------------------------------------------------------------- capas
 # Ilustrações de capa provisórias (substituir por fotos reais).
 TONS = {
-    "noticias": ("#0F4C5C", "#9CC3C7", "#F4EDE4"),
+    "anime": ("#0F4C5C", "#9CC3C7", "#F4EDE4"),
     "cinema": ("#16333C", "#E76F51", "#F4EDE4"),
     "games": ("#1C5966", "#8DB8BC", "#E76F51"),
     "tecnologia": ("#0A3440", "#9CC3C7", "#F4EDE4"),
@@ -927,7 +927,7 @@ _F = {  # em ordem: en, es, fr, de, it, ja, zh, ar
     "games": ["games", "juegos", "jeux", "spiele", "giochi", "games", "games", "games"],
     "cinema": ["movies", "cine", "cinema", "kino", "cinema", "eiga", "dianying", "cinema"],
     "tecnologia": ["technology", "tecnologia", "technologie", "technik", "tecnologia", "tech", "keji", "tech"],
-    "noticias": ["news", "noticias", "actualites", "nachrichten", "notizie", "news", "xinwen", "news"],
+    "anime": ["anime", "anime", "anime", "anime", "anime", "anime", "dongman", "anime"],
     "curiosidades": ["curiosities", "curiosidades", "curiosites", "kurioses", "curiosita", "trivia", "qushi", "curiosities"],
 }
 FIXOS = {k: dict(zip(_L, v)) for k, v in _F.items()}

@@ -6,7 +6,7 @@ ED = {
     "games": ("Games", "Neuerscheinungen, Gaming-Kultur und die Studios hinter den Spielen."),
     "cinema": ("Kino & Serien", "Premieren, Hintergründe und alles rund um den Kinobesuch."),
     "tecnologia": ("Technik", "Werkzeuge, digitale Sicherheit und Alltagstechnik ohne Fachchinesisch."),
-    "noticias": ("Nachrichten", "Was in Brasilien und in der Welt passiert, ruhig erklärt."),
+    "anime": ("Anime", "Anime, Manga und Otaku-Kultur: Neustarts der Saison, Adaptionen und was gerade angesagt ist."),
     "curiosidades": ("Kurioses", "Fragen, die sich jeder schon gestellt hat, beantwortet mit Wissenschaft."),
 }
 UI = {

@@ -22,14 +22,14 @@ EDITORIAS = {
         "games": ("Games", "Releases, gaming culture and the studios behind the games."),
         "cinema": ("Movies & TV", "Premieres, behind the scenes and everything around the screening."),
         "tecnologia": ("Technology", "Tools, digital security and everyday tech without the jargon."),
-        "noticias": ("News", "What is happening in Brazil and around the world, explained calmly."),
+        "anime": ("Anime", "Anime, manga and otaku culture: seasonal premieres, adaptations and what's trending."),
         "curiosidades": ("Curiosities", "Questions everyone has asked, answered with science."),
     },
     "es": {
         "games": ("Juegos", "Lanzamientos, cultura gamer y los estudios detrás de los juegos."),
         "cinema": ("Cine y series", "Estrenos, entre bastidores y todo lo que pasa antes y después de la función."),
         "tecnologia": ("Tecnología", "Herramientas, seguridad digital y la tecnología de todos los días, sin jerga."),
-        "noticias": ("Noticias", "Lo que pasa en Brasil y en el mundo, explicado con calma."),
+        "anime": ("Anime", "Anime, manga y cultura otaku: estrenos de la temporada, adaptaciones y lo que está en tendencia."),
         "curiosidades": ("Curiosidades", "Preguntas que todos nos hicimos, respondidas con ciencia."),
     },
 }
