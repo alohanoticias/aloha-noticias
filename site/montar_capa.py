@@ -5,7 +5,7 @@ Formato do .json:
    "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional",
    "editoria": "cinema|games|tecnologia|noticias|curiosidades" (opcional: aplica o tom e a etiqueta da editoria)}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
-import io, json, re, subprocess, sys, urllib.request
+import io, time, json, re, subprocess, sys, urllib.request
 from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
@@ -90,8 +90,14 @@ def baixar(url):
     if url.startswith("/"):
         return Image.open(url).convert("RGB")
     req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return Image.open(io.BytesIO(r.read())).convert("RGB")
+    for tentativa in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return Image.open(io.BytesIO(r.read())).convert("RGB")
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or tentativa == 4:
+                raise
+            time.sleep(10 * (tentativa + 1))  # o Wikimedia pede calma: espera e tenta de novo
 
 
 def recorte(img, w, h, foco, zoom=1.0):
