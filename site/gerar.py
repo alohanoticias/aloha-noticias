@@ -708,7 +708,10 @@ def gerar_novidades():
                       "data": data_curta(m["data"]), "url": url_materia(m), "capa": im})
     textos = {"titulo": t("Histórico de push"), "vazio": t("O histórico de notificações está vazio"),
               "ler": t("marcar tudo como lido"), "limpar": t("Limpar tudo"),
-              "ativar": t("Ativar avisos no celular"), "ativado": t("Avisos ativados"), "bloqueado": t("Avisos bloqueados no navegador")}
+              "ativar": t("Ativar avisos no celular"), "ativado": t("Avisos ativados"), "bloqueado": t("Avisos bloqueados no navegador"),
+              "ios": t("No iPhone, toque em Compartilhar e em “Adicionar à Tela de Início”; depois abra o ALOHA pelo ícone e ative os avisos."),
+              "carregando": t("Ainda carregando. Tente de novo em alguns segundos (se persistir, desative bloqueadores de anúncio para este site)."),
+              "erro": t("Não foi possível ativar os avisos neste aparelho.")}
     NOVID[LANG] = "window.ALOHA_NOVID = " + json.dumps({"t": textos, "itens": itens, "push": ONESIGNAL_APP_ID}, ensure_ascii=False) + ";\n"
 
 

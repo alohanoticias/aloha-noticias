@@ -434,3 +434,36 @@ _EX3 = {
 for _l, _v in _EX3.items():
     for _k, _t in zip(_K3, _v):
         UI[_l].setdefault(_k, _t)
+
+_K4 = ["No iPhone, toque em Compartilhar e em “Adicionar à Tela de Início”; depois abra o ALOHA pelo ícone e ative os avisos.",
+       "Ainda carregando. Tente de novo em alguns segundos (se persistir, desative bloqueadores de anúncio para este site).",
+       "Não foi possível ativar os avisos neste aparelho."]
+_EX4 = {
+    "en": ["On iPhone, tap Share and then “Add to Home Screen”; then open ALOHA from the icon and turn on notifications.",
+           "Still loading. Try again in a few seconds (if it persists, turn off ad blockers for this site).",
+           "Notifications could not be turned on for this device."],
+    "es": ["En iPhone, toca Compartir y luego “Añadir a pantalla de inicio”; después abre ALOHA desde el icono y activa los avisos.",
+           "Aún cargando. Inténtalo de nuevo en unos segundos (si persiste, desactiva los bloqueadores de anuncios para este sitio).",
+           "No se pudieron activar los avisos en este dispositivo."],
+    "fr": ["Sur iPhone, touchez Partager puis « Sur l'écran d'accueil » ; ouvrez ensuite ALOHA depuis l'icône et activez les notifications.",
+           "Chargement en cours. Réessayez dans quelques secondes (si cela persiste, désactivez les bloqueurs de publicité pour ce site).",
+           "Impossible d'activer les notifications sur cet appareil."],
+    "de": ["Tippe auf dem iPhone auf Teilen und dann auf „Zum Home-Bildschirm“; öffne ALOHA danach über das Symbol und aktiviere die Benachrichtigungen.",
+           "Lädt noch. Versuche es in ein paar Sekunden erneut (falls es bleibt, schalte Werbeblocker für diese Seite aus).",
+           "Benachrichtigungen konnten auf diesem Gerät nicht aktiviert werden."],
+    "it": ["Su iPhone, tocca Condividi e poi “Aggiungi a Home”; poi apri ALOHA dall'icona e attiva le notifiche.",
+           "Ancora in caricamento. Riprova tra qualche secondo (se persiste, disattiva i blocchi pubblicitari per questo sito).",
+           "Impossibile attivare le notifiche su questo dispositivo."],
+    "ja": ["iPhoneでは「共有」から「ホーム画面に追加」を選び、アイコンからALOHAを開いて通知をオンにしてください。",
+           "読み込み中です。数秒後にもう一度お試しください（改善しない場合は、このサイトで広告ブロックをオフにしてください）。",
+           "この端末では通知をオンにできませんでした。"],
+    "zh": ["在iPhone上，请点“分享”，再选“添加到主屏幕”；然后从图标打开ALOHA并开启通知。",
+           "仍在加载。请几秒后重试（如果仍不行，请为本站关闭广告拦截器）。",
+           "无法在此设备上开启通知。"],
+    "ar": ["على آيفون، اضغط مشاركة ثم «إضافة إلى الشاشة الرئيسية»، ثم افتح ALOHA من الأيقونة وفعّل الإشعارات.",
+           "ما زال التحميل جارياً. حاول مجدداً بعد ثوانٍ (وإن استمر ذلك فعطّل مانع الإعلانات لهذا الموقع).",
+           "تعذّر تفعيل الإشعارات على هذا الجهاز."],
+}
+for _l, _v in _EX4.items():
+    for _k, _t in zip(_K4, _v):
+        UI[_l].setdefault(_k, _t)

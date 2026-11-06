@@ -84,7 +84,18 @@
       O.Notifications.addEventListener("permissionChange", rotulo);
     });
     var sc = document.createElement("script"); sc.src = "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"; sc.defer = true; document.head.appendChild(sc);
-    bt.onclick = function () { if (OS) OS.Notifications.requestPermission().then(rotulo); };
+    var aviso = document.createElement("p"); aviso.className = "sino-vazio"; aviso.hidden = true; pn.insertBefore(aviso, pn.querySelector("footer"));
+    function dizer(txt) { aviso.textContent = txt; aviso.hidden = !txt; }
+    var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var instalado = window.matchMedia && matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+    bt.onclick = function () {
+      dizer("");
+      if (ios && !instalado) { dizer(T.ios || "No iPhone, toque em Compartilhar e em “Adicionar à Tela de Início”; depois abra o ALOHA pelo ícone e ative os avisos."); return; }
+      if (!OS) { dizer(T.carregando || "Ainda carregando. Tente de novo em alguns segundos (se persistir, desative bloqueadores de anúncio para este site)."); return; }
+      try {
+        OS.Notifications.requestPermission().then(rotulo, function (e) { try { console.error("OneSignal:", e); } catch (x) {} dizer(T.erro || "Não foi possível ativar os avisos neste aparelho."); });
+      } catch (e) { dizer(T.erro || "Não foi possível ativar os avisos neste aparelho."); }
+    };
     rotulo();
   }
   desenhar(); avisarNovas(); posicionar();
