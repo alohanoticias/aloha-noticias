@@ -126,15 +126,38 @@ def fonte(tam):
 def titulo(tela, texto):
     """Escreve o nome do assunto (texto simples, nunca logotipo) no canto inferior esquerdo."""
     base = tela.convert("RGBA")
-    f = fonte(round((150 if len(texto) <= 8 else 110) * S))
     d = ImageDraw.Draw(base)
     x, y = round(52 * S), A - round(52 * S)
-    caixa = d.textbbox((x, y), texto, font=f, anchor="ls")
+    maxw = base.width - x - round(90 * S)  # margem de seguranca a direita: texto nunca corta
+    tam = 150 if len(texto) <= 8 else 110
+    linhas = [texto]
+    while True:
+        f = fonte(round(tam * S))
+        if max(d.textlength(l, font=f) for l in linhas) <= maxw:
+            break
+        if tam > 70:
+            tam -= 4
+            continue
+        pal = texto.split()
+        if len(linhas) == 1 and len(pal) > 1:
+            melhor = min(range(1, len(pal)), key=lambda i: max(d.textlength(" ".join(pal[:i]), font=f), d.textlength(" ".join(pal[i:]), font=f)))
+            linhas = [" ".join(pal[:melhor]), " ".join(pal[melhor:])]
+            tam = 110
+            continue
+        tam -= 4
+        if tam < 30:
+            break
+    ent = round(tam * S * 1.12)
+    topo = y - ent * (len(linhas) - 1)
+    caixa = d.textbbox((x, topo), linhas[0], font=f, anchor="ls")
     sombra = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    ImageDraw.Draw(sombra).text((x + 5, y + 10), texto, font=f, fill=(0, 0, 0, 210), anchor="ls")
+    sd = ImageDraw.Draw(sombra)
+    for i, l in enumerate(linhas):
+        sd.text((x + 5, topo + ent * i + 10), l, font=f, fill=(0, 0, 0, 210), anchor="ls")
     base = Image.alpha_composite(base, sombra.filter(ImageFilter.GaussianBlur(16)))
     d = ImageDraw.Draw(base)
-    d.text((x, y), texto, font=f, fill=(255, 255, 255, 255), anchor="ls")
+    for i, l in enumerate(linhas):
+        d.text((x, topo + ent * i), l, font=f, fill=(255, 255, 255, 255), anchor="ls")
     barra = d.rectangle((x, caixa[1] - 35, x + 154, caixa[1] - 22), fill=(255, 196, 61, 255))
     return base.convert("RGB")
 

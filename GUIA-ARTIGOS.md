@@ -148,3 +148,7 @@ Regras:
 - Não use a mesma quantidade de imagens em todos os artigos. Decida pelo contexto: mais imagens onde a matéria é visual ou tem vários itens que pedem referência (listas de estreias, jogos e filmes com muita arte oficial), menos onde o texto se sustenta sozinho ou há pouca imagem boa.
 - Cada imagem precisa acrescentar algo ao trecho em que está. Sem imagem adequada, é melhor deixar sem.
 - Não repita a mesma imagem nem encha a página de artes parecidas.
+
+## Regra: texto da capa nunca pode ser cortado
+- O titulo da capa e curto (ideal ate 20 caracteres: o assunto, nao a manchete). `montar_capa.py` reduz a fonte e quebra em 2 linhas automaticamente, mas depois de montada, ABRA o jpg da capa e confira que todo o texto aparece inteiro.
+- Se algo aparecer cortado, encurte o titulo em `site/capas_fotos/<slug>.json`, apague o jpg e remonte (capas.yml).
