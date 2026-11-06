@@ -1,0 +1,31 @@
+{
+ "layout": "grade",
+ "editoria": "curiosidades",
+ "titulo": "24 fps",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Arriflex_435_ES.jpg/1920px-Arriflex_435_ES.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/3-strip_Technicolor_camera.jpg/1280px-3-strip_Technicolor_camera.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Film_Reel_on_an_IMAX_15_70_mm_Film_Projector.jpg/1280px-Film_Reel_on_an_IMAX_15_70_mm_Film_Projector.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}
