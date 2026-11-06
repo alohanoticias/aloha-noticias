@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ["television set 1950s", "vintage television receiver", "Todd-AO", "70mm film projector", "70 mm IMAX projector", "Around the World in 80 Days 1956", "movie theater projector film 35mm platter", "film camera crank silent era Pathé", "Lumiere cinematographe", "Oklahoma! film musical 1955"]
+QUERIES = ['Steam Deck handheld', 'Steam Deck dock', 'SteamOS', 'Valve Corporation', 'Steam Controller', 'Nintendo Switch 2 console', 'Nintendo Switch 2 dock', 'Nvidia GeForce RTX graphics card', 'Nvidia Tegra', 'DLSS comparison upscaling', 'PlayStation controller DualShock', 'PlayStation 1 console SCPH', 'PlayStation gamepad buttons', 'Sony PlayStation original', 'Konami arcade Gradius', 'Gradius NES cartridge', 'Contra NES cartridge', 'Nintendo Entertainment System controller', 'Konami headquarters Tokyo', 'NES console Famicom']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
