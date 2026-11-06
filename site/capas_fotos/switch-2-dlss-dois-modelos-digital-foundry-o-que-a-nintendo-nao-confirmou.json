@@ -1,23 +1,23 @@
 {
- "layout": "moldura",
- "fotos": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Nintendo_Switch_2_%E2%80%93_Tischmodus_20250606.png/1280px-Nintendo_Switch_2_%E2%80%93_Tischmodus_20250606.png",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Nintendo_Switch_2_motherboard_and_NVIDIA_SoC.jpg/1280px-Nintendo_Switch_2_motherboard_and_NVIDIA_SoC.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  }
- ],
- "titulo": "DLSS no Switch 2",
- "editoria": "tecnologia"
+  "layout": "moldura",
+  "fotos": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Nintendo_Switch_2_%E2%80%93_Tischmodus_20250606.png/1280px-Nintendo_Switch_2_%E2%80%93_Tischmodus_20250606.png",
+      "foco": [
+        0.5,
+        0.5
+      ],
+      "zoom": 1.0
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Nintendo_Switch_2_motherboard_and_NVIDIA_SoC.jpg/1280px-Nintendo_Switch_2_motherboard_and_NVIDIA_SoC.jpg",
+      "foco": [
+        0.5,
+        0.5
+      ],
+      "zoom": 1.0
+    }
+  ],
+  "titulo": "Switch 2",
+  "editoria": "tecnologia"
 }
