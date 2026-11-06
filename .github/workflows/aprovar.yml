@@ -24,7 +24,16 @@ jobs:
           git config user.email "contato@alohanoticias.com"
           git add -A
           git commit -m "Decisão do admin: ${{ github.event.issue.number }}" || exit 0
-          git push
+          for i in 1 2 3 4 5 6; do
+            git push && exit 0
+            echo "Push recusado (outra automação gravou antes); tentativa $i, atualizando e tentando de novo"
+            sleep $((i * 3))
+            git pull --rebase -X theirs -q || git rebase --abort
+            python3 site/gerar.py
+            git add -A
+            git diff --cached --quiet || git commit -qm "Regenera site"
+          done
+          exit 1
       - name: Fechar o pedido
         env:
           GH_TOKEN: ${{ github.token }}
