@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ["Kinetoscope Edison", "Todd-AO 70 mm camera", "Oklahoma! 1955 Todd-AO", "Vitaphone projector", "cinema projection booth", "35 mm movie camera", "Bell & Howell 2709 camera", "Technicolor camera", "film reels", "Steenbeck film editing", "cinema auditorium interior", "cathode ray tube television 1950s", "Hobbit 48 frames per second", "film projector shutter Maltese cross", "silent film era cinema"]
+QUERIES = ["television set 1950s", "vintage television receiver", "Todd-AO", "70mm film projector", "70 mm IMAX projector", "Around the World in 80 Days 1956", "movie theater projector film 35mm platter", "film camera crank silent era Pathé", "Lumiere cinematographe", "Oklahoma! film musical 1955"]
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
