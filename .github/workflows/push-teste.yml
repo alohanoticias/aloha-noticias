@@ -1,0 +1,19 @@
+name: Testar aviso push
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enviar aviso de teste
+        env:
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+        run: |
+          [ -n "$ONESIGNAL_REST_API_KEY" ] || { echo "ERRO: segredo ONESIGNAL_REST_API_KEY não encontrado"; exit 1; }
+          APP=$(python3 -c "import json;print(json.load(open('site/conteudo/push.json'))['onesignal_app_id'])")
+          curl -sS -X POST https://api.onesignal.com/notifications -H "Content-Type: application/json" -H "Authorization: Key $ONESIGNAL_REST_API_KEY" \
+            -d "{\"app_id\":\"$APP\",\"included_segments\":[\"Subscribed Users\"],\"target_channel\":\"push\",\"headings\":{\"en\":\"ALOHA NOTÍCIAS\"},\"contents\":{\"en\":\"Teste: os avisos estão funcionando.\"},\"url\":\"https://alohanoticias.com\"}" | tee /tmp/r.json
+          grep -q '"id"' /tmp/r.json || exit 1
