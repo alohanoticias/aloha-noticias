@@ -323,15 +323,15 @@ CONSENT_TXT = {"pt": "Usamos cookies para exibir anúncios e manter o site gratu
 SABER_MAIS = {"pt": "Saiba mais", **i18n.SABER}
 # Enquanto os anúncios não estão ligados, o aviso fala só do que o site já guarda no navegador.
 CONSENT_TXT_SEM_ADS = {
-    "pt": "Guardamos no seu navegador apenas suas preferências, como o tema claro ou escuro, e não usamos cookies de rastreamento. Se um dia exibirmos anúncios, eles só carregam com a sua permissão.",
-    "en": "We only store your preferences in your browser, such as light or dark theme, and we do not use tracking cookies. If we ever show ads, they will only load with your permission.",
-    "es": "Solo guardamos tus preferencias en tu navegador, como el tema claro u oscuro, y no usamos cookies de rastreo. Si algún día mostramos anuncios, solo se cargarán con tu permiso.",
-    "fr": "Nous ne conservons dans votre navigateur que vos préférences, comme le thème clair ou sombre, et nous n'utilisons pas de cookies de suivi. Si nous affichons un jour des publicités, elles ne se chargeront qu'avec votre accord.",
-    "de": "Wir speichern in Ihrem Browser nur Ihre Einstellungen, etwa das helle oder dunkle Design, und verwenden keine Tracking-Cookies. Sollten wir einmal Werbung zeigen, wird sie nur mit Ihrer Erlaubnis geladen.",
-    "it": "Salviamo nel tuo browser solo le tue preferenze, come il tema chiaro o scuro, e non usiamo cookie di tracciamento. Se un giorno mostreremo annunci, verranno caricati solo con il tuo consenso.",
-    "ja": "ブラウザには、ライト／ダークテーマなどの設定のみを保存し、追跡用のクッキーは使用しません。今後広告を表示する場合も、同意いただいた場合にのみ読み込みます。",
-    "zh": "我们只在您的浏览器中保存浅色或深色主题等偏好设置，不使用跟踪类 Cookie。如果将来展示广告，也只会在您同意后加载。",
-    "ar": "نحفظ في متصفحك تفضيلاتك فقط، مثل المظهر الفاتح أو الداكن، ولا نستخدم ملفات تعريف ارتباط للتتبع. وإذا عرضنا إعلانات يومًا ما فلن تُحمَّل إلا بإذنك.",
+    "pt": "Guardamos só suas preferências, como o tema, no navegador. Sem rastreamento.",
+    "en": "We only store your preferences, like the theme, in your browser. No tracking.",
+    "es": "Solo guardamos tus preferencias, como el tema, en tu navegador. Sin rastreo.",
+    "fr": "Nous ne conservons que vos préférences, comme le thème, dans votre navigateur. Aucun suivi.",
+    "de": "Wir speichern nur Ihre Einstellungen, etwa das Design, in Ihrem Browser. Kein Tracking.",
+    "it": "Salviamo nel browser solo le tue preferenze, come il tema. Nessun tracciamento.",
+    "ja": "ブラウザにはテーマなどの設定のみを保存します。追跡はしません。",
+    "zh": "我们只在浏览器中保存主题等偏好设置，不做跟踪。",
+    "ar": "نحفظ في متصفحك تفضيلاتك فقط، مثل المظهر. دون أي تتبع.",
 }
 PREFS_COOKIES = {"pt": "Preferências de cookies", "en": "Cookie preferences", "es": "Preferencias de cookies", "fr": "Préférences de cookies", "de": "Cookie-Einstellungen", "it": "Preferenze cookie", "ja": "クッキーの設定", "zh": "Cookie 偏好设置", "ar": "تفضيلات ملفات تعريف الارتباط"}
 
