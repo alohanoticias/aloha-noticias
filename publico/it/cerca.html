@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="../assets/css/aloha.css?v=3e890630">
+<link rel="stylesheet" href="../assets/css/aloha.css?v=96e5d279">
 <link rel="stylesheet" href="../assets/css/antigo.css?v=e396e6b0">
 <script src="../assets/js/tema.js?v=44a4e5f3"></script>
 </head>
@@ -87,9 +87,13 @@
       <li><a href="../feed.xml">RSS (portoghese)</a></li>
     </ul></div>
     <div class="idiomas" aria-label="Lingua"><span>Lingua:</span> <a href="../busca.html" hreflang="pt-BR" lang="pt-BR">Português</a><a href="../en/search.html" hreflang="en" lang="en">English</a><a href="../es/buscar.html" hreflang="es" lang="es">Español</a><a href="../fr/recherche.html" hreflang="fr" lang="fr">Français</a><a href="../de/suche.html" hreflang="de" lang="de">Deutsch</a><a href="cerca.html" hreflang="it" lang="it">Italiano</a><a href="../ja/search.html" hreflang="ja" lang="ja">日本語</a><a href="../zh/search.html" hreflang="zh-CN" lang="zh-CN">中文</a><a href="../ar/search.html" hreflang="ar" lang="ar">العربية</a></div>
-    <div class="rodape-base"><span>© 2026 ALOHA NOTÍCIAS</span></div>
+    <div class="rodape-base"><span>© 2026 ALOHA NOTÍCIAS</span> <a href="#" id="reabrir-consent">Preferenze cookie</a></div>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=9b389da7"></script>
+<div class="consent" id="consent" role="dialog" aria-label="Avviso sui cookie" hidden>
+  <p>Salviamo nel tuo browser solo le tue preferenze, come il tema chiaro o scuro, e non usiamo cookie di tracciamento. Se un giorno mostreremo annunci, verranno caricati solo con il tuo consenso. <a href="privacy.html">Scopri di più</a>.</p>
+  <div><button class="botao" id="consent-sim" type="button">Accetta</button> <button class="botao sec" id="consent-nao" type="button">Rifiuta</button></div>
+</div>
+<script src="../assets/js/site.js?v=9b389da7"></script><script src="../assets/js/consent.js?v=d62b46d0" data-client=""></script>
 </body>
 </html>
