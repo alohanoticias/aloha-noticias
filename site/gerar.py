@@ -1057,6 +1057,9 @@ def main():
         csp = csp.replace("frame-src ", "frame-src https://onesignal.com https://*.onesignal.com ", 1)
         (SAIDA / "OneSignalSDKWorker.js").write_text('importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");\n', encoding="utf-8")
     (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", csp), encoding="utf-8")
+    # endereços de cada matéria em cada idioma, para o aviso push abrir a página no idioma do aparelho
+    (SAIDA / "push-urls.json").write_text(json.dumps(
+        {m["slug"]: {l: url_abs(l, f"materia-{m['slug']}.html") for l in i18n.IDIOMAS_REAIS} for m in materias}, ensure_ascii=False), encoding="utf-8")
     if ANUNCIOS_ATIVOS and ADSENSE_PUB:
         (SAIDA / "ads.txt").write_text(f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
     (SAIDA / ".well-known").mkdir(exist_ok=True)
