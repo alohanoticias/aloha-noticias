@@ -22,9 +22,10 @@
   document.body.appendChild(pn); document.body.appendChild(btn);
 
   function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+  function desenharContador() { var nl = naoLidas(), c = btn.querySelector(".sino-n"); c.hidden = !nl; c.textContent = nl > 9 ? "9+" : nl; }
   function desenhar() {
-    var v = visiveis(), nl = naoLidas(), c = btn.querySelector(".sino-n");
-    c.hidden = !nl; c.textContent = nl > 9 ? "9+" : nl;
+    var v = visiveis();
+    desenharContador();
     var l = pn.querySelector(".sino-lista");
     if (!v.length) { l.innerHTML = '<p class="sino-vazio">' + esc(T.vazio || "O histórico de notificações está vazio") + "</p>"; return; }
     l.innerHTML = v.map(function (i) {
@@ -39,7 +40,7 @@
   pn.querySelector('[data-a="limpar"]').onclick = function () { limpo = N.itens.map(function (i) { return i.id; }); gravar(KC, JSON.stringify(limpo)); desenhar(); };
   pn.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a.sino-item");
-    if (a) { var id = a.getAttribute("data-id"); if (lidas.indexOf(id) < 0) { lidas.push(id); gravar(KL, JSON.stringify(lidas)); } }
+    if (a) { var id = a.getAttribute("data-id"); if (lidas.indexOf(id) < 0) { lidas.push(id); gravar(KL, JSON.stringify(lidas)); a.classList.remove("nova"); desenharContador(); } }
   });
 
   // Avisos do navegador: quem permitir recebe um aviso, ao abrir o site, das matérias publicadas desde a última visita.
@@ -63,5 +64,7 @@
   window.addEventListener("resize", posicionar);
   document.addEventListener("click", function () { setTimeout(posicionar, 60); });
   window.addEventListener("load", posicionar); setTimeout(posicionar, 300);
+  document.addEventListener("click", function (e) { if (!pn.hidden && !pn.contains(e.target) && !btn.contains(e.target)) pn.hidden = true; });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !pn.hidden) { pn.hidden = true; btn.focus(); } });
   desenhar(); avisarNovas(); posicionar();
 })();
