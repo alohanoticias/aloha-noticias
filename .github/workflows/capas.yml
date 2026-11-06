@@ -16,6 +16,7 @@ jobs:
       - name: Montar as capas que ainda não existem
         run: python3 site/montar_capa.py
       - name: Regenerar o site e enviar
+        if: always()
         run: |
           python3 site/gerar.py
           git config user.name "aloha-bot"

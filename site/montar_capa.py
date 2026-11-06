@@ -95,7 +95,7 @@ def baixar(url):
             with urllib.request.urlopen(req, timeout=60) as r:
                 return Image.open(io.BytesIO(r.read())).convert("RGB")
         except urllib.error.HTTPError as e:
-            if e.code != 429 or tentativa == 4:
+            if e.code not in (429, 500, 502, 503, 504, 520, 522, 524) or tentativa == 4:
                 raise
             time.sleep(10 * (tentativa + 1))  # o Wikimedia pede calma: espera e tenta de novo
 

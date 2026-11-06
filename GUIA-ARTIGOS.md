@@ -154,3 +154,4 @@ Regras:
 - Se algo aparecer cortado, encurte o titulo em `site/capas_fotos/<slug>.json`, apague o jpg e remonte (capas.yml).
 - O texto da capa fica sempre centralizado e simetrico (margens iguais dos dois lados, linhas centralizadas, barra de destaque centralizada acima do texto).
 - As linhas brancas de divisa das capas tem sempre a mesma espessura (18 px na grade de 1200x675; bordas de molduras 12 px) em todos os layouts, e as divisas inclinadas sao paralelas.
+- Nem toda capa precisa ser colagem: em alguns artigos use so uma imagem (layout "um"), alternando com os layouts de divisas para a home ficar variada. Titulo centralizado vale igual.
