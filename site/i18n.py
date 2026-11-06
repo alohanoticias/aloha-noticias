@@ -403,3 +403,19 @@ for _l, _v in _EXTRA.items():
 _H1 = {"en": "news, movies, games, technology and curiosities", "es": "noticias, cine, juegos, tecnología y curiosidades", "fr": "actualités, cinéma, jeux, technologie et curiosités", "de": "Nachrichten, Kino, Spiele, Technik und Kurioses", "it": "notizie, cinema, giochi, tecnologia e curiosità", "ja": "ニュース、映画、ゲーム、テクノロジー、トリビア", "zh": "新闻、影视、游戏、科技与趣闻", "ar": "أخبار وسينما وألعاب وتقنية ومعلومات طريفة"}
 for _l, _t in _H1.items():
     UI[_l].setdefault("notícias, cinema, games, tecnologia e curiosidades", _t)
+
+# Sino de notificações
+_K2 = ["Histórico de push", "O histórico de notificações está vazio", "marcar tudo como lido", "Limpar tudo"]
+_EX2 = {
+    "en": ["Push history", "Your notification history is empty", "mark all as read", "Clear all"],
+    "es": ["Historial de notificaciones", "El historial de notificaciones está vacío", "marcar todo como leído", "Borrar todo"],
+    "fr": ["Historique des notifications", "L'historique des notifications est vide", "tout marquer comme lu", "Tout effacer"],
+    "de": ["Benachrichtigungsverlauf", "Der Benachrichtigungsverlauf ist leer", "alle als gelesen markieren", "Alle löschen"],
+    "it": ["Cronologia notifiche", "La cronologia delle notifiche è vuota", "segna tutto come letto", "Cancella tutto"],
+    "ja": ["通知履歴", "通知履歴は空です", "すべて既読にする", "すべて消去"],
+    "zh": ["推送历史", "通知历史为空", "全部标为已读", "清除全部"],
+    "ar": ["سجل الإشعارات", "سجل الإشعارات فارغ", "تعليم الكل كمقروء", "مسح الكل"],
+}
+for _l, _v in _EX2.items():
+    for _k, _t in zip(_K2, _v):
+        UI[_l].setdefault(_k, _t)

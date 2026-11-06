@@ -389,7 +389,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 </main>
 {newsletter() if (com_news and NEWSLETTER_ATIVA) else ""}
 {rodape()}
-{consent_html()}<script src="assets/js/site.js"></script>{CONSENT_JS}
+{consent_html()}<script src="assets/js/site.js"></script><script src="assets/js/novidades{'' if LANG == 'pt' else '-' + LANG}.js"></script><script src="assets/js/sino.js"></script>{CONSENT_JS}
 </body>
 </html>
 """
@@ -691,6 +691,22 @@ def gerar_materia(m, preview=False, agendado=False):
 
 # ---------------------------------------------------------------- busca e páginas simples
 INDICES = {}
+NOVID = {}
+
+
+def gerar_novidades():
+    """Feed leve (15 matérias mais recentes) para o sino de notificações."""
+    pre = "" if LANG == "pt" else "../"
+    itens = []
+    for m in sorted(materias, key=lambda x: x["data"], reverse=True)[:15]:
+        im = (m.get("imagem") or {}).get("url", "")
+        if im and not im.startswith("http"):
+            im = pre + im
+        itens.append({"id": m["slug"], "titulo": m["titulo"], "editoria": ED[m["editoria"]]["nome"],
+                      "data": data_curta(m["data"]), "url": url_materia(m), "capa": im})
+    textos = {"titulo": t("Histórico de push"), "vazio": t("O histórico de notificações está vazio"),
+              "ler": t("marcar tudo como lido"), "limpar": t("Limpar tudo")}
+    NOVID[LANG] = "window.ALOHA_NOVID = " + json.dumps({"t": textos, "itens": itens}, ensure_ascii=False) + ";\n"
 
 
 def gerar_busca():
@@ -764,7 +780,7 @@ def montar_arquivos():
         _p = sum(len(b.split()) for b in _m["corpo"] if not b.startswith("!img"))
         if not 520 <= _p <= 880:
             print(f"AVISO tamanho: {_m['slug']} tem {_p} palavras (meta: 600 a 850, 3 a 4 min de leitura)")
-    arquivos = {"index.html": gerar_home(), "busca.html": gerar_busca(), "404.html": gerar_404()}
+    arquivos = {"index.html": gerar_home(), "busca.html": (gerar_novidades(), gerar_busca())[1], "404.html": gerar_404()}
     for e in editorias:
         arquivos[url_editoria(e["slug"])] = gerar_editoria(e)
     for m in materias:
@@ -1029,6 +1045,7 @@ def main():
         if lang != "pt":
             ind = localizar(ind, lang).replace('src=\\"assets/', 'src=\\"../assets/')
         (SAIDA / "assets/js" / ("indice.js" if lang == "pt" else f"indice-{lang}.js")).write_text(ind, encoding="utf-8")
+        (SAIDA / "assets/js" / ("novidades.js" if lang == "pt" else f"novidades-{lang}.js")).write_text(localizar(NOVID[lang], lang), encoding="utf-8")
     arquivos = por_idioma["pt"]
     (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", CSP_ADS if ANUNCIOS_ATIVOS else CSP_BASE), encoding="utf-8")
     if ANUNCIOS_ATIVOS and ADSENSE_PUB:
