@@ -399,6 +399,14 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .consent .botao{font-size:.8125rem;font-weight:600;line-height:1;padding:8px 16px;min-height:0;border-radius:999px;border:1px solid var(--tinta,#111);background:var(--tinta,#111);color:var(--fundo,#fff);box-shadow:none;text-transform:none;letter-spacing:0}
 .consent .botao.sec{background:transparent;color:var(--mare,#555);border-color:transparent}
 .consent .botao.sec:hover{color:var(--tinta,#111)}
+.consent-ico{flex:0 0 auto;width:18px;height:18px;color:var(--mare,#555)}
+@media (max-width:600px){
+  .consent{gap:6px 10px;padding:8px 12px;padding-bottom:max(8px,env(safe-area-inset-bottom));font-size:.6875rem;line-height:1.4;justify-content:flex-start}
+  .consent-ico{width:15px;height:15px}
+  .consent p{flex:1 1 0;min-width:0}
+  .consent>div{flex:1 0 100%;justify-content:flex-end;gap:2px}
+  .consent .botao{font-size:.6875rem;padding:6px 12px}
+}
 
 .nota-correcao{margin:28px 0 0;padding:14px 18px;border-left:4px solid #E76F51;background:rgba(231,111,81,.08);border-radius:0 8px 8px 0;font-size:.95rem}
 
@@ -451,5 +459,4 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 [dir="rtl"] .idioma-lista { right: auto; left: 0; }
 @media (max-width: 760px) { [dir="rtl"] .cab-acoes { margin-left: 0; margin-right: auto; } }
 
-.consent>div{display:flex;gap:8px;flex:0 0 auto}
 .rodape-base a{margin-left:16px;text-decoration:underline}
