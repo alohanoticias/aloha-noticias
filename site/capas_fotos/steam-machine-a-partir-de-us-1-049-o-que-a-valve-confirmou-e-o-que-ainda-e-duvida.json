@@ -1,0 +1,31 @@
+{
+ "layout": "tres",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Valve_Lobby_2016.jpg/1280px-Valve_Lobby_2016.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Steam_Controller_(top)_(24525157630).jpg/1280px-Steam_Controller_(top)_(24525157630).jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/System_7_on_the_Steamdeck_running_in_a_web_browser,_fullscreen.jpg/1280px-System_7_on_the_Steamdeck_running_in_a_web_browser,_fullscreen.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "titulo": "Steam Machine",
+ "editoria": "tecnologia"
+}

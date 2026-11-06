@@ -1,0 +1,308 @@
+{
+  "slug": "konami-code-o-atalho-que-um-programador-criou-para-vencer-gradius-e-esqueceu-de-apagar",
+  "editoria": "curiosidades",
+  "titulo": "Konami Code: o atalho que um programador criou para vencer Gradius e esqueceu de apagar",
+  "linha_fina": "Cima, cima, baixo, baixo, esquerda, direita, esquerda, direita, B, A nasceu como teste interno em 1986 e virou o código mais famoso dos videogames.",
+  "autor": "Equipe Aloha",
+  "data": "2026-11-14T09:00",
+  "tags": [
+    "Konami Code",
+    "Gradius",
+    "Contra",
+    "curiosidades",
+    "história dos games"
+  ],
+  "imagem": {
+    "url": "assets/img/capas/konami-code-o-atalho-que-um-programador-criou-para-vencer-gradius-e-esqueceu-de-apagar.jpg",
+    "alt": "Colagem de fotos reais do console e do controle do NES",
+    "credito": "Imagens: Chris Williams (CC0) e Evan-Amos (domínio público) / Wikimedia Commons"
+  },
+  "corpo": [
+    "Cima, cima, baixo, baixo, esquerda, direita, esquerda, direita, B, A. Mesmo quem nunca jogou na era do Nintendinho reconhece essa sequência. Ela tem dono, data e uma motivação bem pouco heroica: o programador não conseguia vencer o jogo que estava adaptando. Para contar a história, li a entrevista de 2003 do criador traduzida e citada pelo Engadget e as páginas da Wikipédia sobre o código e sobre o programador. As duas páginas se contradizem em um ponto, que mostro abaixo.",
+    "## Um jogo difícil demais",
+    "O autor é Kazuhisa Hashimoto, da Konami (o Engadget escreve o primeiro nome como Katsuhisa). Em 1986, ele trabalhava na versão para NES de Gradius, um jogo de nave que nasceu nos fliperamas em 1985. Segundo o Engadget, a equipe era de quatro pessoas. Hashimoto contou que um subordinado jogou a versão de fliperama até o fim e achou o jogo muito difícil. Ele mesmo, disse, tinha jogado pouco e não conseguia vencer, então colocou o código. E, nas palavras dele, garantiu que fosse \"fácil de lembrar\".",
+    "## O que o código fazia",
+    "Em Gradius, a sequência dá todos os power-ups de uma vez, com o jogo pausado, de acordo com a Wikipédia. Era uma ferramenta de teste: quem programa precisa chegar às fases finais sem jogar tudo de novo a cada ajuste. A Wikipédia o descreve como um recurso para testes internos, e o próprio Hashimoto escolheu uma sequência fácil de lembrar.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|Controle do NES, com os botões B e A usados no código|Imagem: Evan-Amos / Wikimedia Commons (domínio público)",
+    "## O esquecimento",
+    "O combinado era tirar o código antes de lançar. Não foi o que aconteceu. Aqui as duas páginas da Wikipédia divergem. A sobre o código afirma que ele foi descoberto quando o jogo era preparado para a produção em massa e que a equipe decidiu mantê-lo, pois removê-lo poderia causar erros (esse trecho está marcado como \"fonte necessária\"). A sobre Hashimoto diz que o jogo foi lançado já com o código e que foram os jogadores que o encontraram e avisaram a Konami. O Engadget não entra nesse ponto. O que as três versões têm em comum é o resultado: a sequência ficou.",
+    "## Como virou lenda",
+    "A fama internacional veio com Contra, no NES. A Wikipédia diz que o código se popularizou entre jogadores norte-americanos por causa dessa versão, na qual ele dá 30 vidas, o que explica apelidos como \"Contra Code\" e \"30 Lives Code\". Em japonês, o nome é Konami Command. A empresa reaproveitou a sequência em outros jogos da série Gradius e de outras franquias, com variações. Na Wikipédia aparecem exemplos como Gradius Galaxies, no Game Boy Advance, em que a nave se autodestrói depois dos power-ups (trocar para esquerda, esquerda, direita, direita evita o castigo), e Tetris Effect, em que o número 06061984 libera uma fase.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|Console NES, em versão vendida pela Mattel|Imagem: Matthew Paul Argall / Wikimedia Commons (CC BY 2.0)",
+    "## Fora dos games",
+    "O código também escapou dos jogos. A lista da Wikipédia inclui assistentes de voz que respondem à sequência com brincadeiras, como a Siri (\"Cheater!\") e o Google Assistant (\"Cheat mode enabled\"), e um site ou outro com recursos escondidos, como o Discord, que libera um jogo da cobrinha numa página de erro 404. A própria página avisa que algumas dessas entradas ainda precisam de fonte melhor, então vale tratá-las como curiosidade e não como garantia de que funcionam hoje. Há até uma música, \"Anyone Else but You\", dos Moldy Peaches, de 2001, que cita a sequência.",
+    "## O homem por trás",
+    "Hashimoto entrou na Konami em 1981, começando com placas de circuito para máquinas de fichas, e trabalhou em pelo menos nove jogos, entre eles The Goonies e International Superstar Soccer, segundo a Wikipédia. Nasceu em 15 de novembro de 1958 e morreu em 25 de fevereiro de 2020, aos 61 anos, o que a Konami confirmou. As páginas que li não informam a causa. Um detalhe curioso da Wikipédia: a página o descreve como alguém que criou o código \"sem querer\", o que combina com a história do esquecimento.",
+    "Fontes: [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (em inglês), [Wikipédia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (em inglês) e [Wikipédia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (em inglês)."
+  ],
+  "video": {
+    "youtube": "P7thhhTZVl4",
+    "titulo": "A história do código Konami (canal Pixelchanchada)"
+  },
+  "traducoes": {
+    "en": {
+      "slug": "konami-code-the-shortcut-a-programmer-made-to-beat-gradius-and-forgot-to-delete",
+      "titulo": "Konami Code: the shortcut a programmer made to beat Gradius and forgot to delete",
+      "linha_fina": "Up, up, down, down, left, right, left, right, B, A began as an internal test in 1986 and became the most famous code in video games.",
+      "tags": [
+        "Konami Code",
+        "Gradius",
+        "Contra",
+        "curiosities",
+        "gaming history"
+      ],
+      "alt": "Collage of real photos of the NES console and controller",
+      "credito": "Images: Chris Williams (CC0) and Evan-Amos (public domain) / Wikimedia Commons",
+      "video_titulo": "The history of the Konami Code (Pixelchanchada channel, in Portuguese)",
+      "corpo": [
+        "Up, up, down, down, left, right, left, right, B, A. Even people who never played in the 8-bit era recognize this sequence. It has an author, a date and a very unheroic motivation: the programmer couldn't beat the game he was adapting. To tell the story I read the creator's 2003 interview as translated and cited by Engadget, and the Wikipedia pages on the code and on the programmer. The two pages contradict each other on one point, which I show below.",
+        "## A game too hard",
+        "The author is Kazuhisa Hashimoto, of Konami (Engadget spells his first name Katsuhisa). In 1986 he was working on the NES version of Gradius, a spaceship shooter that was born in arcades in 1985. According to Engadget, the team had four people. Hashimoto said a subordinate played the arcade version to the end and found the game very hard. He himself, he said, had played little and couldn't beat it, so he put in the code. And, in his words, he made sure it was “easy to remember”.",
+        "## What the code did",
+        "In Gradius, the sequence gives all the power-ups at once, with the game paused, according to Wikipedia. Wikipedia describes it as a feature for in-house testing, and Hashimoto himself chose a sequence that was easy to remember.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|An NES controller, with the B and A buttons used in the code|Image: Evan-Amos / Wikimedia Commons (public domain)",
+        "## The oversight",
+        "The plan was to remove the code before release. That's not what happened. Here the two Wikipedia pages diverge. The one on the code says it was discovered when the game was being prepared for mass production and that the team decided to keep it, since removing it could cause bugs (that passage is marked “citation needed”). The one on Hashimoto says the game shipped with the code and that players found it and told Konami. Engadget doesn't address this point. What the three versions have in common is the result: the sequence stayed.",
+        "## How it became legend",
+        "International fame came with Contra, on the NES. Wikipedia says the code became popular among North American players because of that version, in which it gives 30 lives, which explains nicknames like “Contra Code” and “30 Lives Code”. In Japanese, the name is Konami Command. The company reused the sequence in other games of the Gradius series and in other franchises, with variations. On Wikipedia there are examples such as Gradius Galaxies, on the Game Boy Advance, where the ship self-destructs after the power-ups (switching to left, left, right, right avoids the penalty), and Tetris Effect, where the number 06061984 unlocks a stage.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|An NES console, in the version sold by Mattel|Image: Matthew Paul Argall / Wikimedia Commons (CC BY 2.0)",
+        "## Beyond games",
+        "The code also escaped the games. Wikipedia's list includes voice assistants that answer the sequence with jokes, such as Siri (“Cheater!”) and Google Assistant (“Cheat mode enabled”), and a website or two with hidden features, such as Discord, which unlocks a Snake game on a 404 error page. The page itself warns that some of these entries still need better sourcing, so treat them as trivia and not as a guarantee they work today. There is even a song, “Anyone Else but You” by The Moldy Peaches, from 2001, that cites the sequence.",
+        "## The man behind it",
+        "Hashimoto joined Konami in 1981, starting with circuit boards for medal-game machines, and worked on at least nine games, among them The Goonies and International Superstar Soccer, according to Wikipedia. He was born on November 15, 1958 and died on February 25, 2020, aged 61, which Konami confirmed. The pages I read don't give the cause. A curious detail from Wikipedia: the page describes him as someone who created the code “inadvertently”, which fits the oversight story.",
+        "Sources: [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/), [Wikipedia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) and [Wikipedia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto)."
+      ]
+    },
+    "es": {
+      "slug": "codigo-konami-el-atajo-que-un-programador-creo-para-vencer-a-gradius-y-olvido-borrar",
+      "titulo": "Código Konami: el atajo que un programador creó para vencer a Gradius y olvidó borrar",
+      "linha_fina": "Arriba, arriba, abajo, abajo, izquierda, derecha, izquierda, derecha, B, A nació como prueba interna en 1986 y se volvió el código más famoso de los videojuegos.",
+      "tags": [
+        "Código Konami",
+        "Gradius",
+        "Contra",
+        "curiosidades",
+        "historia de los videojuegos"
+      ],
+      "alt": "Collage de fotos reales de la consola y el mando de la NES",
+      "credito": "Imágenes: Chris Williams (CC0) y Evan-Amos (dominio público) / Wikimedia Commons",
+      "video_titulo": "La historia del código Konami (canal Pixelchanchada, en portugués)",
+      "corpo": [
+        "Arriba, arriba, abajo, abajo, izquierda, derecha, izquierda, derecha, B, A. Incluso quien nunca jugó en la era de los 8 bits reconoce esta secuencia. Tiene autor, fecha y una motivación poco heroica: el programador no podía pasarse el juego que estaba adaptando. Para contar la historia leí la entrevista de 2003 del creador, traducida y citada por Engadget, y las páginas de Wikipedia sobre el código y sobre el programador. Las dos páginas se contradicen en un punto, que muestro más abajo.",
+        "## Un juego demasiado difícil",
+        "El autor es Kazuhisa Hashimoto, de Konami (Engadget escribe su nombre como Katsuhisa). En 1986 trabajaba en la versión para NES de Gradius, un juego de naves nacido en los arcades en 1985. Según Engadget, el equipo era de cuatro personas. Hashimoto contó que un subordinado jugó la versión de arcade hasta el final y encontró el juego muy difícil. Él mismo, dijo, había jugado poco y no conseguía pasarlo, así que puso el código. Y, en sus palabras, se aseguró de que fuera «fácil de recordar».",
+        "## Qué hacía el código",
+        "En Gradius, la secuencia da todos los potenciadores de golpe, con el juego en pausa, según Wikipedia. Wikipedia lo describe como un recurso para pruebas internas, y el propio Hashimoto eligió una secuencia fácil de recordar.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|Un mando de NES, con los botones B y A que usa el código|Imagen: Evan-Amos / Wikimedia Commons (dominio público)",
+        "## El descuido",
+        "El plan era quitar el código antes del lanzamiento. No fue lo que ocurrió. Aquí las dos páginas de Wikipedia divergen. La del código afirma que se descubrió cuando el juego se preparaba para la producción en masa y que el equipo decidió mantenerlo porque quitarlo podía causar errores (ese pasaje está marcado como «cita requerida»). La de Hashimoto dice que el juego salió ya con el código y que fueron los jugadores quienes lo encontraron y avisaron a Konami. Engadget no entra en ese punto. Lo que tienen en común las tres versiones es el resultado: la secuencia se quedó.",
+        "## Cómo se volvió leyenda",
+        "La fama internacional llegó con Contra, en NES. Wikipedia dice que el código se popularizó entre los jugadores norteamericanos por esa versión, en la que da 30 vidas, lo que explica apodos como «Contra Code» y «30 Lives Code». En japonés, el nombre es Konami Command. La empresa reutilizó la secuencia en otros juegos de la serie Gradius y de otras franquicias, con variaciones. En Wikipedia aparecen ejemplos como Gradius Galaxies, en Game Boy Advance, donde la nave se autodestruye tras los potenciadores (cambiar a izquierda, izquierda, derecha, derecha evita el castigo), y Tetris Effect, donde el número 06061984 desbloquea una fase.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|Una consola NES, en la versión vendida por Mattel|Imagen: Matthew Paul Argall / Wikimedia Commons (CC BY 2.0)",
+        "## Fuera de los juegos",
+        "El código también escapó de los juegos. La lista de Wikipedia incluye asistentes de voz que responden a la secuencia con bromas, como Siri («Cheater!») y Google Assistant («Cheat mode enabled»), y algún sitio con funciones ocultas, como Discord, que desbloquea un juego de la serpiente en una página de error 404. La propia página avisa de que algunas de esas entradas aún necesitan mejores fuentes, así que conviene tratarlas como curiosidad y no como garantía de que funcionen hoy. Hay incluso una canción, «Anyone Else but You», de The Moldy Peaches, de 2001, que cita la secuencia.",
+        "## El hombre detrás",
+        "Hashimoto entró en Konami en 1981, empezando con placas de circuitos para máquinas de fichas, y trabajó en al menos nueve juegos, entre ellos The Goonies e International Superstar Soccer, según Wikipedia. Nació el 15 de noviembre de 1958 y murió el 25 de febrero de 2020, a los 61 años, lo que Konami confirmó. Las páginas que leí no informan la causa. Un detalle curioso de Wikipedia: la página lo describe como alguien que creó el código «sin querer», lo que encaja con la historia del descuido.",
+        "Fuentes: [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (en inglés), [Wikipedia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (en inglés) y [Wikipedia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (en inglés)."
+      ]
+    },
+    "fr": {
+      "slug": "konami-code-le-raccourci-cree-par-un-programmeur-pour-battre-gradius-et-oublie-de-supprimer",
+      "titulo": "Konami Code : le raccourci qu'un programmeur a créé pour battre Gradius et oublié de supprimer",
+      "linha_fina": "Haut, haut, bas, bas, gauche, droite, gauche, droite, B, A est né comme test interne en 1986 et est devenu le code le plus célèbre du jeu vidéo.",
+      "tags": [
+        "Konami Code",
+        "Gradius",
+        "Contra",
+        "curiosités",
+        "histoire du jeu vidéo"
+      ],
+      "alt": "Collage de photos réelles de la console et de la manette NES",
+      "credito": "Images : Chris Williams (CC0) et Evan-Amos (domaine public) / Wikimedia Commons",
+      "video_titulo": "L'histoire du Konami Code (chaîne Pixelchanchada, en portugais)",
+      "corpo": [
+        "Haut, haut, bas, bas, gauche, droite, gauche, droite, B, A. Même ceux qui n'ont jamais joué à l'ère des 8 bits reconnaissent cette séquence. Elle a un auteur, une date et une motivation peu héroïque : le programmeur n'arrivait pas à finir le jeu qu'il adaptait. Pour raconter l'histoire, j'ai lu l'interview de 2003 du créateur, traduite et citée par Engadget, et les pages de Wikipédia sur le code et sur le programmeur. Les deux pages se contredisent sur un point, que je montre plus bas.",
+        "## Un jeu trop difficile",
+        "L'auteur est Kazuhisa Hashimoto, de Konami (Engadget écrit son prénom Katsuhisa). En 1986, il travaillait sur la version NES de Gradius, un jeu de vaisseau né en arcade en 1985. Selon Engadget, l'équipe comptait quatre personnes. Hashimoto a raconté qu'un subordonné avait fini la version arcade et trouvé le jeu très difficile. Lui-même, dit-il, avait peu joué et n'arrivait pas à le battre, alors il a mis le code. Et, selon ses mots, il s'est assuré qu'il soit « facile à retenir ».",
+        "## Ce que faisait le code",
+        "Dans Gradius, la séquence donne tous les bonus d'un coup, jeu en pause, d'après Wikipédia. Wikipédia le décrit comme une fonction de test interne, et Hashimoto a lui-même choisi une séquence facile à retenir.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|Une manette NES, avec les boutons B et A utilisés dans le code|Image : Evan-Amos / Wikimedia Commons (domaine public)",
+        "## L'oubli",
+        "Le plan était de retirer le code avant la sortie. Ce n'est pas ce qui s'est passé. Ici, les deux pages de Wikipédia divergent. Celle sur le code affirme qu'il a été découvert quand le jeu était préparé pour la production de masse et que l'équipe a décidé de le garder, car le retirer risquait de provoquer des bogues (ce passage est signalé « référence nécessaire »). Celle sur Hashimoto dit que le jeu est sorti avec le code et que ce sont les joueurs qui l'ont trouvé et ont prévenu Konami. Engadget n'aborde pas ce point. Ce que les trois versions ont en commun, c'est le résultat : la séquence est restée.",
+        "## Comment elle est devenue légende",
+        "La renommée internationale est venue avec Contra, sur NES. Wikipédia dit que le code s'est popularisé chez les joueurs nord-américains grâce à cette version, où il donne 30 vies, ce qui explique des surnoms comme « Contra Code » et « 30 Lives Code ». En japonais, le nom est Konami Command. L'entreprise a réutilisé la séquence dans d'autres jeux de la série Gradius et d'autres licences, avec des variations. Sur Wikipédia figurent des exemples comme Gradius Galaxies, sur Game Boy Advance, où le vaisseau s'autodétruit après les bonus (passer à gauche, gauche, droite, droite évite la pénalité), et Tetris Effect, où le nombre 06061984 débloque un niveau.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|Une console NES, dans la version vendue par Mattel|Image : Matthew Paul Argall / Wikimedia Commons (CC BY 2.0)",
+        "## Hors des jeux",
+        "Le code a aussi échappé aux jeux. La liste de Wikipédia inclut des assistants vocaux qui répondent à la séquence par des blagues, comme Siri (« Cheater! ») et Google Assistant (« Cheat mode enabled »), et un site ou deux avec des fonctions cachées, comme Discord, qui débloque un jeu de serpent sur une page d'erreur 404. La page elle-même prévient que certaines de ces entrées manquent encore de meilleures sources ; mieux vaut donc les prendre comme des curiosités, pas comme une garantie qu'elles fonctionnent aujourd'hui. Il existe même une chanson, « Anyone Else but You », des Moldy Peaches, de 2001, qui cite la séquence.",
+        "## L'homme derrière",
+        "Hashimoto est entré chez Konami en 1981, en commençant par des cartes électroniques pour machines à jetons, et a travaillé sur au moins neuf jeux, dont The Goonies et International Superstar Soccer, selon Wikipédia. Il est né le 15 novembre 1958 et mort le 25 février 2020, à 61 ans, ce que Konami a confirmé. Les pages que j'ai lues n'en donnent pas la cause. Un détail curieux de Wikipédia : la page le décrit comme quelqu'un qui a créé le code « sans le vouloir », ce qui colle avec l'histoire de l'oubli.",
+        "Sources : [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (en anglais), [Wikipédia : Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (en anglais) et [Wikipédia : Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (en anglais)."
+      ]
+    },
+    "de": {
+      "slug": "konami-code-die-abkuerzung-die-ein-programmierer-fuer-gradius-baute-und-zu-loeschen-vergass",
+      "titulo": "Konami-Code: die Abkürzung, die ein Programmierer baute, um Gradius zu schaffen, und zu löschen vergaß",
+      "linha_fina": "Hoch, hoch, runter, runter, links, rechts, links, rechts, B, A entstand 1986 als interner Test und wurde zum berühmtesten Code der Videospiele.",
+      "tags": [
+        "Konami-Code",
+        "Gradius",
+        "Contra",
+        "Kuriositäten",
+        "Spielegeschichte"
+      ],
+      "alt": "Collage aus echten Fotos der NES-Konsole und ihres Controllers",
+      "credito": "Bilder: Chris Williams (CC0) und Evan-Amos (gemeinfrei) / Wikimedia Commons",
+      "video_titulo": "Die Geschichte des Konami-Codes (Kanal Pixelchanchada, auf Portugiesisch)",
+      "corpo": [
+        "Hoch, hoch, runter, runter, links, rechts, links, rechts, B, A. Selbst wer nie in der 8-Bit-Ära gespielt hat, erkennt diese Folge. Sie hat einen Urheber, ein Datum und ein wenig heldenhaftes Motiv: Der Programmierer schaffte das Spiel nicht, das er umsetzte. Für die Geschichte las ich das Interview des Erfinders von 2003 in der Übersetzung und Zitierung von Engadget sowie die Wikipedia-Seiten zum Code und zum Programmierer. Die beiden Seiten widersprechen sich in einem Punkt, den ich unten zeige.",
+        "## Ein zu schweres Spiel",
+        "Der Urheber ist Kazuhisa Hashimoto von Konami (Engadget schreibt den Vornamen Katsuhisa). 1986 arbeitete er an der NES-Version von Gradius, einem Raumschiff-Shooter, der 1985 in den Spielhallen entstand. Laut Engadget bestand das Team aus vier Personen. Hashimoto erzählte, ein Untergebener habe die Arcade-Version durchgespielt und das Spiel sehr schwer gefunden. Er selbst habe wenig gespielt und es nicht geschafft, also baute er den Code ein. Und er sorgte, in seinen Worten, dafür, dass er „leicht zu merken“ war.",
+        "## Was der Code tat",
+        "In Gradius gibt die Folge laut Wikipedia alle Power-ups auf einmal, bei pausiertem Spiel. Wikipedia beschreibt sie als Funktion für interne Tests, und Hashimoto selbst wählte eine leicht merkbare Folge.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|Ein NES-Controller mit den Tasten B und A, die der Code benutzt|Bild: Evan-Amos / Wikimedia Commons (gemeinfrei)",
+        "## Das Versehen",
+        "Geplant war, den Code vor der Veröffentlichung zu entfernen. So kam es nicht. Hier weichen die beiden Wikipedia-Seiten voneinander ab. Die zum Code behauptet, er sei entdeckt worden, als das Spiel für die Massenproduktion vorbereitet wurde, und das Team habe beschlossen, ihn zu behalten, da das Entfernen Fehler verursachen könne (diese Passage ist als „Beleg fehlt“ markiert). Die zu Hashimoto sagt, das Spiel sei mit dem Code erschienen und Spieler hätten ihn gefunden und Konami informiert. Engadget geht darauf nicht ein. Gemeinsam ist den drei Fassungen das Ergebnis: Die Folge blieb.",
+        "## Wie sie zur Legende wurde",
+        "Internationale Berühmtheit kam mit Contra auf dem NES. Wikipedia sagt, der Code sei unter nordamerikanischen Spielern wegen dieser Version populär geworden, in der er 30 Leben gibt, was Spitznamen wie „Contra Code“ und „30 Lives Code“ erklärt. Auf Japanisch heißt er Konami Command. Das Unternehmen verwendete die Folge in weiteren Spielen der Gradius-Reihe und anderer Marken wieder, mit Abwandlungen. Auf Wikipedia finden sich Beispiele wie Gradius Galaxies für den Game Boy Advance, wo sich das Schiff nach den Power-ups selbst zerstört (mit links, links, rechts, rechts statt der üblichen Folge entgeht man der Strafe), und Tetris Effect, wo die Zahl 06061984 ein Level freischaltet.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|Eine NES-Konsole in der von Mattel vertriebenen Version|Bild: Matthew Paul Argall / Wikimedia Commons (CC BY 2.0)",
+        "## Außerhalb der Spiele",
+        "Der Code entkam auch den Spielen. Die Liste der Wikipedia nennt Sprachassistenten, die auf die Folge mit Scherzen antworten, etwa Siri („Cheater!“) und Google Assistant („Cheat mode enabled“), sowie die eine oder andere Website mit versteckten Funktionen, etwa Discord, das auf einer 404-Fehlerseite ein Snake-Spiel freischaltet. Die Seite selbst warnt, dass einige dieser Einträge bessere Belege brauchen; man sollte sie daher als Kuriosität sehen und nicht als Garantie, dass sie heute noch funktionieren. Es gibt sogar einen Song, „Anyone Else but You“ von The Moldy Peaches aus dem Jahr 2001, der die Folge zitiert.",
+        "## Der Mann dahinter",
+        "Hashimoto kam 1981 zu Konami, begann mit Platinen für Medal-Automaten und arbeitete laut Wikipedia an mindestens neun Spielen, darunter The Goonies und International Superstar Soccer. Er wurde am 15. November 1958 geboren und starb am 25. Februar 2020 im Alter von 61 Jahren, was Konami bestätigte. Die Ursache nennen die Seiten, die ich las, nicht. Ein kurioses Detail der Wikipedia: Die Seite beschreibt ihn als jemanden, der den Code „versehentlich“ schuf, was zur Geschichte des Versehens passt.",
+        "Quellen: [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (auf Englisch), [Wikipedia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (auf Englisch) und [Wikipedia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (auf Englisch)."
+      ]
+    },
+    "it": {
+      "slug": "konami-code-la-scorciatoia-che-un-programmatore-creo-per-battere-gradius-e-dimentico-di-cancellare",
+      "titulo": "Konami Code: la scorciatoia che un programmatore creò per battere Gradius e dimenticò di cancellare",
+      "linha_fina": "Su, su, giù, giù, sinistra, destra, sinistra, destra, B, A nacque come test interno nel 1986 e divenne il codice più famoso dei videogiochi.",
+      "tags": [
+        "Konami Code",
+        "Gradius",
+        "Contra",
+        "curiosità",
+        "storia dei videogiochi"
+      ],
+      "alt": "Collage di foto reali della console e del controller NES",
+      "credito": "Immagini: Chris Williams (CC0) e Evan-Amos (pubblico dominio) / Wikimedia Commons",
+      "video_titulo": "La storia del Konami Code (canale Pixelchanchada, in portoghese)",
+      "corpo": [
+        "Su, su, giù, giù, sinistra, destra, sinistra, destra, B, A. Anche chi non ha mai giocato nell'era degli 8 bit riconosce questa sequenza. Ha un autore, una data e una motivazione per niente eroica: il programmatore non riusciva a battere il gioco che stava adattando. Per raccontare la storia ho letto l'intervista del 2003 al creatore, tradotta e citata da Engadget, e le pagine di Wikipedia sul codice e sul programmatore. Le due pagine si contraddicono su un punto, che mostro più sotto.",
+        "## Un gioco troppo difficile",
+        "L'autore è Kazuhisa Hashimoto, di Konami (Engadget scrive il nome Katsuhisa). Nel 1986 lavorava alla versione NES di Gradius, uno sparatutto spaziale nato nelle sale giochi nel 1985. Secondo Engadget, la squadra era di quattro persone. Hashimoto raccontò che un subordinato aveva finito la versione arcade e trovato il gioco molto difficile. Lui stesso, disse, aveva giocato poco e non riusciva a vincere, così inserì il codice. E, nelle sue parole, si assicurò che fosse «facile da ricordare».",
+        "## Cosa faceva il codice",
+        "In Gradius la sequenza dà tutti i potenziamenti in una volta, a gioco in pausa, secondo Wikipedia. Wikipedia lo descrive come una funzione per test interni, e lo stesso Hashimoto scelse una sequenza facile da ricordare.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|Un controller NES, con i pulsanti B e A usati nel codice|Immagine: Evan-Amos / Wikimedia Commons (pubblico dominio)",
+        "## La dimenticanza",
+        "Il piano era togliere il codice prima dell'uscita. Non andò così. Qui le due pagine di Wikipedia divergono. Quella sul codice afferma che fu scoperto quando il gioco veniva preparato per la produzione di massa e che il team decise di tenerlo, perché rimuoverlo poteva causare errori (quel passaggio è segnato «citazione necessaria»). Quella su Hashimoto dice che il gioco uscì già con il codice e che furono i giocatori a trovarlo e ad avvisare Konami. Engadget non affronta il punto. Ciò che le tre versioni hanno in comune è il risultato: la sequenza rimase.",
+        "## Come diventò leggenda",
+        "La fama internazionale arrivò con Contra, su NES. Wikipedia dice che il codice si diffuse tra i giocatori nordamericani grazie a quella versione, in cui dà 30 vite, il che spiega soprannomi come «Contra Code» e «30 Lives Code». In giapponese il nome è Konami Command. L'azienda riutilizzò la sequenza in altri giochi della serie Gradius e di altre serie, con variazioni. Su Wikipedia compaiono esempi come Gradius Galaxies, su Game Boy Advance, dove la nave si autodistrugge dopo i potenziamenti (passare a sinistra, sinistra, destra, destra evita la penalità), e Tetris Effect, dove il numero 06061984 sblocca un livello.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|Una console NES, nella versione venduta da Mattel|Immagine: Matthew Paul Argall / Wikimedia Commons (CC BY 2.0)",
+        "## Fuori dai giochi",
+        "Il codice è anche scappato dai giochi. L'elenco di Wikipedia include assistenti vocali che rispondono alla sequenza con battute, come Siri («Cheater!») e Google Assistant («Cheat mode enabled»), e qualche sito con funzioni nascoste, come Discord, che sblocca un gioco del serpente su una pagina di errore 404. La pagina stessa avverte che alcune di queste voci hanno ancora bisogno di fonti migliori, quindi vanno trattate come curiosità e non come garanzia che funzionino oggi. C'è perfino una canzone, «Anyone Else but You» dei Moldy Peaches, del 2001, che cita la sequenza.",
+        "## L'uomo dietro",
+        "Hashimoto entrò in Konami nel 1981, iniziando con schede elettroniche per macchine a gettoni, e lavorò ad almeno nove giochi, tra cui The Goonies e International Superstar Soccer, secondo Wikipedia. Nacque il 15 novembre 1958 e morì il 25 febbraio 2020, a 61 anni, come confermò Konami. Le pagine che ho letto non ne indicano la causa. Un dettaglio curioso di Wikipedia: la pagina lo descrive come qualcuno che creò il codice «senza volerlo», il che combacia con la storia della dimenticanza.",
+        "Fonti: [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (in inglese), [Wikipedia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (in inglese) e [Wikipedia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (in inglese)."
+      ]
+    },
+    "ja": {
+      "slug": "konami-code-shortcut-programmer-made-to-beat-gradius-and-forgot-to-delete-ja",
+      "titulo": "コナミコマンド：プログラマーが『グラディウス』をクリアするために作り、消し忘れた近道",
+      "linha_fina": "上上下下左右左右BAは1986年に社内テストとして生まれ、ビデオゲームで最も有名なコマンドになりました。",
+      "tags": [
+        "コナミコマンド",
+        "グラディウス",
+        "魂斗羅",
+        "雑学",
+        "ゲームの歴史"
+      ],
+      "alt": "NES本体とコントローラーの実写真コラージュ",
+      "credito": "画像：Chris Williams（CC0）、Evan-Amos（パブリックドメイン）／ウィキメディア・コモンズ",
+      "video_titulo": "コナミコマンドの歴史（Pixelchanchadaチャンネル、ポルトガル語）",
+      "corpo": [
+        "上、上、下、下、左、右、左、右、B、A。8ビット時代に遊んだことがない人でも、この並びは知っています。これには作者と日付があり、英雄的とは言いがたい動機がありました。移植していたゲームを、プログラマー自身がクリアできなかったのです。この話を書くために、Engadgetが翻訳・引用している作者の2003年のインタビューと、コマンドおよびプログラマーに関するWikipediaの2ページを読みました。2つのページは1点で食い違っており、それは後ほど示します。",
+        "## 難しすぎたゲーム",
+        "作者はコナミの橋本和久氏（Kazuhisa Hashimoto）です（Engadgetは名をKatsuhisaと綴っています）。1986年、彼は1985年にアーケードで生まれたシューティング『グラディウス』のファミコン版に取り組んでいました。Engadgetによれば、チームは4人でした。橋本氏は、部下がアーケード版を最後まで遊び、とても難しいゲームだと感じたと語っています。自分自身はあまり遊んでおらず、クリアできなかったので、コマンドを入れたといいます。そして彼の言葉では、「覚えやすい」ものにしておいたそうです。",
+        "## コマンドの働き",
+        "Wikipediaによれば、『グラディウス』ではこの入力で、ポーズ中にすべてのパワーアップが一度に手に入ります。Wikipediaは社内テスト用の機能と説明しており、橋本氏自身が覚えやすい並びを選びました。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|コマンドで使うBボタンとAボタンのあるファミコン風NESのコントローラー|画像：Evan-Amos／ウィキメディア・コモンズ（パブリックドメイン）",
+        "## 消し忘れ",
+        "予定では、発売前にコマンドを消すはずでした。そうはなりませんでした。ここで2つのWikipediaのページは食い違います。コマンドのページは、ゲームが量産の準備をしているときに発見され、削除するとバグを起こしかねないため残すことにした、と述べています（この部分には「要出典」の印があります）。橋本氏のページは、ゲームがコマンド入りのまま発売され、プレイヤーが見つけてコナミに知らせた、としています。Engadgetはこの点に触れていません。3つに共通するのは結果です。並びは残りました。",
+        "## 伝説になるまで",
+        "国際的な名声は、ファミコン版『魂斗羅』とともに来ました。Wikipediaは、このバージョンで30機になることから北米のプレイヤーに広まったと述べ、「Contra Code」「30 Lives Code」という呼び名の理由だとしています。日本語での名前はコナミコマンドです。会社はこの並びを、グラディウスシリーズの他作品や別のシリーズにも、変化をつけて再利用しました。Wikipediaには、ゲームボーイアドバンス版『Gradius Galaxies』でパワーアップ後に自機が自爆する例（左、左、右、右に変えると罰を避けられる）や、『Tetris Effect』で数字06061984によりステージが解放される例が載っています。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|マテル版として販売されたNES本体|画像：Matthew Paul Argall／ウィキメディア・コモンズ（CC BY 2.0）",
+        "## ゲームの外へ",
+        "このコマンドはゲームの外にも飛び出しました。Wikipediaの一覧には、この並びに冗談で返す音声アシスタント、たとえばSiri（「Cheater!」）やGoogleアシスタント（「Cheat mode enabled」）、そして隠し機能のあるサイト、たとえば404エラーページでスネークゲームが出るDiscordなどが挙がっています。ページ自体が、これらの項目の一部にはより良い出典が必要だと注意しているので、今も動く保証ではなく雑学として扱ってください。2001年のThe Moldy Peachesの曲「Anyone Else but You」がこの並びに触れているほどです。",
+        "## 背後にいた人",
+        "Wikipediaによれば、橋本氏は1981年にコナミに入社し、メダルゲーム機の基板から始め、『グーニーズ』や『International Superstar Soccer』を含む少なくとも9本のゲームに携わりました。1958年11月15日に生まれ、2020年2月25日に61歳で亡くなり、コナミがそれを確認しました。私が読んだページに死因は書かれていません。Wikipediaの興味深い細部として、同ページは彼を「うっかり」コマンドを作った人物として描いており、消し忘れの話と合っています。",
+        "出典：[Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/)（英語）、[Wikipedia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code)（英語）、[Wikipedia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto)（英語）。"
+      ]
+    },
+    "zh": {
+      "slug": "konami-code-shortcut-programmer-made-to-beat-gradius-and-forgot-to-delete-zh",
+      "titulo": "科乐美秘技：程序员为通关《Gradius》而做，却忘了删掉的捷径",
+      "linha_fina": "上上下下左右左右BA于1986年作为内部测试诞生，后来成为电子游戏中最著名的秘技。",
+      "tags": [
+        "科乐美秘技",
+        "Gradius",
+        "魂斗罗",
+        "趣闻",
+        "游戏史"
+      ],
+      "alt": "NES主机与手柄的真实照片拼贴",
+      "credito": "图片：Chris Williams（CC0）、Evan-Amos（公有领域）／维基共享资源",
+      "video_titulo": "科乐美秘技的历史（Pixelchanchada频道，葡萄牙语）",
+      "corpo": [
+        "上、上、下、下、左、右、左、右、B、A。即使没有玩过8位机时代的人，也认得这串按键。它有作者，有日期，还有一个一点也不英雄的动机：程序员自己通不了他正在移植的游戏。为了讲这个故事，我读了Engadget翻译并引用的作者2003年的采访，以及维基百科上关于这个秘技和这位程序员的两个页面。这两个页面在一点上互相矛盾，我会在下面说明。",
+        "## 一款太难的游戏",
+        "作者是科乐美的桥本和久（Kazuhisa Hashimoto，Engadget把名字写作Katsuhisa）。1986年，他在做《Gradius》的NES版，这是一款1985年诞生于街机的飞船射击游戏。据Engadget称，团队有四个人。桥本说，一名下属把街机版玩到了最后，觉得这游戏非常难。他自己，他说，玩得不多，也通不了关，于是加了这个秘技。用他的话说，他确保它“容易记住”。",
+        "## 秘技做什么",
+        "据维基百科，在《Gradius》中，这串按键会在游戏暂停时一次性给出所有强化道具。维基百科把它描述为内部测试用的功能，桥本本人选择了一串容易记住的按键。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|NES手柄，秘技中用到的B键和A键|图片：Evan-Amos／维基共享资源（公有领域）",
+        "## 疏忽",
+        "原本计划在发售前删掉秘技，结果并非如此。在这里，两个维基百科页面出现分歧。关于秘技的那一页称，它是在游戏准备量产时被发现的，团队决定保留，因为删除可能引发错误（这一段标有“需要来源”）。关于桥本的那一页则说，游戏是带着秘技发售的，是玩家发现后告知了科乐美。Engadget没有涉及这一点。三个版本的共同点是结果：这串按键留下了。",
+        "## 如何成为传奇",
+        "国际声誉随NES版《魂斗罗》而来。维基百科说，这个秘技因该版本在北美玩家中流行，在该版本中它能给30条命，这也解释了“Contra Code”和“30 Lives Code”这样的绰号。日语中它叫Konami Command。公司在《Gradius》系列的其他游戏和其他系列中也重复使用了这串按键，只是有所变化。维基百科列出了一些例子，比如Game Boy Advance上的《Gradius Galaxies》，飞船在获得强化道具后会自爆（改成左、左、右、右可避免惩罚），以及《Tetris Effect》，输入数字06061984可解锁一个关卡。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|美泰公司销售版本的NES主机|图片：Matthew Paul Argall／维基共享资源（CC BY 2.0）",
+        "## 游戏之外",
+        "这个秘技还跑出了游戏。维基百科的列表包括会用玩笑回应这串按键的语音助手，例如Siri（“Cheater!”）和Google助手（“Cheat mode enabled”），以及一两个有隐藏功能的网站，例如Discord，它在404错误页面上解锁一款贪吃蛇游戏。该页面本身提醒，其中一些条目仍需更好的来源，因此请把它们当作趣闻，而不是如今仍有效的保证。甚至有一首歌，The Moldy Peaches 2001年的《Anyone Else but You》，提到了这串按键。",
+        "## 幕后的人",
+        "据维基百科，桥本1981年进入科乐美，从游戏币机器的电路板做起，至少参与了九款游戏，其中有《七宝奇谋》和《International Superstar Soccer》。他生于1958年11月15日，2020年2月25日去世，享年61岁，科乐美对此作了确认。我读到的页面没有说明死因。维基百科有个有趣的细节：该页面把他描述为“无意中”创造了这个秘技的人，这与疏忽的故事相吻合。",
+        "来源：[Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/)（英语）、[维基百科：Konami Code](https://en.wikipedia.org/wiki/Konami_Code)（英语）和[维基百科：Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto)（英语）。"
+      ]
+    },
+    "ar": {
+      "slug": "konami-code-shortcut-programmer-made-to-beat-gradius-and-forgot-to-delete-ar",
+      "titulo": "شيفرة كونامي: الاختصار الذي صنعه مبرمج ليتغلب على غراديوس ونسي حذفه",
+      "linha_fina": "أعلى، أعلى، أسفل، أسفل، يسار، يمين، يسار، يمين، B، A بدأت اختبارًا داخليًا عام 1986 وأصبحت أشهر شيفرة في ألعاب الفيديو.",
+      "tags": [
+        "شيفرة كونامي",
+        "غراديوس",
+        "كونترا",
+        "طرائف",
+        "تاريخ الألعاب"
+      ],
+      "alt": "ملصق من صور حقيقية لجهاز NES وذراع التحكم",
+      "credito": "الصور: Chris Williams (CC0)، Evan-Amos (ملكية عامة) / ويكيميديا كومنز",
+      "video_titulo": "تاريخ شيفرة كونامي (قناة Pixelchanchada، بالبرتغالية)",
+      "corpo": [
+        "أعلى، أعلى، أسفل، أسفل، يسار، يمين، يسار، يمين، B، A. حتى من لم يلعب في عصر الـ8 بت يعرف هذا التسلسل. له صاحب وتاريخ ودافع غير بطولي إطلاقًا: المبرمج لم يستطع إنهاء اللعبة التي كان ينقلها. لأروي القصة قرأت مقابلة المبتكر من عام 2003 كما ترجمها ونقلها موقع إنجادجت، وصفحتي ويكيبيديا عن الشيفرة وعن المبرمج. الصفحتان تتناقضان في نقطة واحدة، سأعرضها أدناه.",
+        "## لعبة صعبة أكثر من اللازم",
+        "المؤلف هو كازوهيسا هاشيموتو من كونامي (يكتب إنجادجت اسمه الأول Katsuhisa). في عام 1986 كان يعمل على نسخة NES من لعبة غراديوس، وهي لعبة مركبات فضائية وُلدت في صالات الأركيد عام 1985. بحسب إنجادجت، كان الفريق من أربعة أشخاص. روى هاشيموتو أن أحد مرؤوسيه لعب نسخة الأركيد حتى النهاية ووجد اللعبة صعبة جدًا. وهو نفسه، كما قال، لعب قليلًا ولم يتمكن من إنهائها، فوضع الشيفرة. وبحسب تعبيره، حرص على أن تكون «سهلة التذكر».",
+        "## ماذا كانت تفعل الشيفرة",
+        "في غراديوس، يمنح التسلسل كل التعزيزات دفعة واحدة واللعبة متوقفة مؤقتًا، بحسب ويكيبيديا. وتصفه ويكيبيديا بأنه ميزة للاختبار الداخلي، وقد اختار هاشيموتو بنفسه تسلسلًا سهل التذكر.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|ذراع NES بالزرين B وA المستخدمين في الشيفرة|الصورة: Evan-Amos / ويكيميديا كومنز (ملكية عامة)",
+        "## السهو",
+        "كانت الخطة أن تُحذف الشيفرة قبل الإصدار. لكن هذا لم يحدث. هنا تختلف صفحتا ويكيبيديا. الصفحة عن الشيفرة تقول إنها اكتُشفت أثناء تجهيز اللعبة للإنتاج الكمي وإن الفريق قرر الإبقاء عليها لأن حذفها قد يسبب أخطاء (هذا المقطع موسوم بـ«مطلوب مصدر»). والصفحة عن هاشيموتو تقول إن اللعبة صدرت وفيها الشيفرة وإن اللاعبين هم من وجدوها وأبلغوا كونامي. أما إنجادجت فلا يتناول هذه النقطة. والمشترك بين الروايات الثلاث هو النتيجة: بقي التسلسل.",
+        "## كيف صارت أسطورة",
+        "جاءت الشهرة الدولية مع كونترا على NES. تقول ويكيبيديا إن الشيفرة انتشرت بين اللاعبين الأمريكيين الشماليين بسبب تلك النسخة، التي تمنح فيها 30 حياة، وهذا يفسر ألقابًا مثل «Contra Code» و«30 Lives Code». وفي اليابانية اسمها Konami Command. أعادت الشركة استخدام التسلسل في ألعاب أخرى من سلسلة غراديوس ومن سلاسل أخرى، مع اختلافات. وفي ويكيبيديا أمثلة مثل Gradius Galaxies على جيم بوي أدفانس، حيث تتدمر المركبة ذاتيًا بعد التعزيزات (والتحول إلى يسار، يسار، يمين، يمين يتفادى العقوبة)، وTetris Effect حيث يفتح الرقم 06061984 مرحلة.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|جهاز NES بالنسخة التي باعتها ماتيل|الصورة: Matthew Paul Argall / ويكيميديا كومنز (CC BY 2.0)",
+        "## خارج الألعاب",
+        "هربت الشيفرة أيضًا من الألعاب. تتضمن قائمة ويكيبيديا مساعدين صوتيين يردون على التسلسل بمزاح، مثل سيري («Cheater!») ومساعد جوجل («Cheat mode enabled»)، ومواقع قليلة بميزات مخفية، مثل ديسكورد الذي يفتح لعبة الثعبان في صفحة خطأ 404. وتحذر الصفحة نفسها من أن بعض هذه المدخلات لا تزال تحتاج مصادر أفضل، لذا يحسن التعامل معها كطرائف لا كضمان بأنها تعمل اليوم. وهناك حتى أغنية، «Anyone Else but You» لفرقة The Moldy Peaches عام 2001، تذكر التسلسل.",
+        "## الرجل خلفها",
+        "انضم هاشيموتو إلى كونامي عام 1981، بادئًا بلوحات الدوائر لآلات الميداليات، وعمل على تسع ألعاب على الأقل، منها The Goonies وInternational Superstar Soccer، بحسب ويكيبيديا. وُلد في 15 نوفمبر 1958 وتوفي في 25 فبراير 2020 عن 61 عامًا، وهو ما أكدته كونامي. الصفحات التي قرأتها لا تذكر السبب. وثمة تفصيل طريف في ويكيبيديا: تصفه الصفحة بأنه أنشأ الشيفرة «دون قصد»، وهذا يتفق مع قصة السهو.",
+        "المصادر: [إنجادجت](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (بالإنجليزية)، [ويكيبيديا: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (بالإنجليزية) و[ويكيبيديا: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (بالإنجليزية)."
+      ]
+    }
+  }
+}
