@@ -230,13 +230,14 @@ def idiomas_rodape():
     return f'<div class="idiomas" aria-label="{t("Traduzir esta página / Translate")}"><span>{t("Traduzir / Translate:")}</span> {links}</div>'
 
 
-ED_VISIVEIS = [e for e in editorias if e["slug"] != "financas"]  # Finanças fica fora do menu por enquanto
+def ed_visiveis():
+    return [e for e in editorias if e["slug"] != "financas"]  # Finanças fica fora do menu por enquanto
 ICONE_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
 LOGO_IMG = '<img src="assets/img/aloha-logo-v3.png" alt="ALOHA NOTÍCIAS" width="290" height="101">'
 
 
 def cabecalho(ativo):
-    itens = [("index.html", t("Início"), "inicio")] + [(url_editoria(e["slug"]), e["nome"], e["slug"]) for e in ED_VISIVEIS]
+    itens = [("index.html", t("Início"), "inicio")] + [(url_editoria(e["slug"]), e["nome"], e["slug"]) for e in ed_visiveis()]
     li = "".join(
         f'<li><a href="{u}"{" aria-current=\"page\"" if s == ativo else ""}>{esc(n)}</a></li>' for u, n, s in itens
     )
@@ -283,7 +284,7 @@ def newsletter():
 
 
 def rodape():
-    eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in ED_VISIVEIS)
+    eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in ed_visiveis())
     return f"""<footer class="rodape">
   <div class="wrap">
     <div><a class="rodape-logo" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
@@ -461,14 +462,14 @@ def titulo_secao(texto, h="h2"):
 
 def lateral():
     recentes = "".join(f'<li><a href="{url_materia(m)}">{esc(m["titulo"])}</a></li>' for m in materias[:6])
-    cats = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in ED_VISIVEIS)
+    cats = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in ed_visiveis())
     mais = "".join(
         f'<li><a class="mini" href="{url_materia(m)}">{capa(m)}{tag_v(m)}<strong>{esc(m["titulo"])}</strong>'
         f'<time datetime="{m["data"]}">{data_longa(m["data"])}</time></a></li>' for m in materias[:4])
     return f"""<aside class="lateral-site" aria-label="{t('Barra lateral')}">
   <section>{titulo_secao(t("Mais recentes"))}<ul class="mini-lista">{mais}</ul></section>
   <section>{titulo_secao(t("Pesquisar"))}<form class="pesquisar" action="busca.html" role="search">
-    <label class="sr-only" for="q-lateral">Pesquisar</label><input id="q-lateral" name="q" type="search"><button type="submit">{t("Pesquisar")}</button></form></section>
+    <label class="sr-only" for="q-lateral">{t("Pesquisar")}</label><input id="q-lateral" name="q" type="search"><button type="submit">{t("Pesquisar")}</button></form></section>
   <section>{titulo_secao(t("Matérias recentes"))}<ul class="lista-links">{recentes}</ul></section>
   <section>{titulo_secao(t("Categorias"))}<ul class="lista-links">{cats}</ul></section>
 </aside>"""
@@ -480,7 +481,7 @@ def gerar_home():
     usados = {m["slug"] for m in destaques}
     hero = "".join(hero_card(m, i == 0) for i, m in enumerate(destaques))
     secoes = []
-    for e in ED_VISIVEIS:
+    for e in ed_visiveis():
         da_ed = [m for m in materias if m["editoria"] == e["slug"]][:5]
         if not da_ed:
             continue
@@ -489,7 +490,7 @@ def gerar_home():
   {"".join(item_lista(m) for m in da_ed)}
   <a class="ver-tudo" href="{url_editoria(e['slug'])}">{t("Ver tudo em")} {esc(e['nome'])} »</a>
 </section>""")
-    corpo = f"""<h1 class="sr-only">{SITE}: notícias, cinema, games, tecnologia e finanças</h1>
+    corpo = f"""<h1 class="sr-only">{SITE}: {t("notícias, cinema, games, tecnologia e curiosidades")}</h1>
 <section class="hero hero-{len(destaques)}" aria-label="{t('Destaques')}"><div class="wrap hero-grade">{hero}</div></section>
 <div class="wrap duas-colunas">
   <div class="coluna-principal">{"".join(secoes)}</div>

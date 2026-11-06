@@ -383,3 +383,23 @@ for _l in IDIOMAS_REAIS[3:]:
     MESES[_l], DIAS[_l], EDITORIAS[_l], UI[_l], PAGINAS[_l] = _m.MES, _m.DIA, _m.ED, _m.UI, _m.PAG
     PRIV_ANUNCIOS[_l], CONSENT[_l], SABER[_l], NOMES_IDIOMA[_l] = _m.PRIV, _m.CONSENT, _m.SABER, _m.NOME
 IDIOMAS_REAIS = [l for l in IDIOMAS_REAIS if l in ("pt", "en", "es") or l in UI]
+
+# Textos de interface que faltavam em todos os idiomas (botões, busca, menu, barra lateral).
+_K = ["Leia mais", "Pesquisar", "Mais recentes", "Matérias recentes", "Categorias", "Barra lateral", "Menu"]
+_EXTRA = {
+    "en": ["Read more", "Search", "Latest", "Recent articles", "Categories", "Sidebar", "Menu"],
+    "es": ["Leer más", "Buscar", "Más recientes", "Artículos recientes", "Categorías", "Barra lateral", "Menú"],
+    "fr": ["Lire la suite", "Rechercher", "Les plus récents", "Articles récents", "Catégories", "Barre latérale", "Menu"],
+    "de": ["Weiterlesen", "Suchen", "Neueste", "Neueste Beiträge", "Kategorien", "Seitenleiste", "Menü"],
+    "it": ["Leggi di più", "Cerca", "Più recenti", "Articoli recenti", "Categorie", "Barra laterale", "Menu"],
+    "ja": ["続きを読む", "検索", "最新", "最新記事", "カテゴリー", "サイドバー", "メニュー"],
+    "zh": ["阅读更多", "搜索", "最新", "最新文章", "分类", "侧边栏", "菜单"],
+    "ar": ["اقرأ المزيد", "بحث", "الأحدث", "أحدث المقالات", "الأقسام", "الشريط الجانبي", "القائمة"],
+}
+for _l, _v in _EXTRA.items():
+    for _k, _t in zip(_K, _v):
+        UI[_l].setdefault(_k, _t)
+
+_H1 = {"en": "news, movies, games, technology and curiosities", "es": "noticias, cine, juegos, tecnología y curiosidades", "fr": "actualités, cinéma, jeux, technologie et curiosités", "de": "Nachrichten, Kino, Spiele, Technik und Kurioses", "it": "notizie, cinema, giochi, tecnologia e curiosità", "ja": "ニュース、映画、ゲーム、テクノロジー、トリビア", "zh": "新闻、影视、游戏、科技与趣闻", "ar": "أخبار وسينما وألعاب وتقنية ومعلومات طريفة"}
+for _l, _t in _H1.items():
+    UI[_l].setdefault("notícias, cinema, games, tecnologia e curiosidades", _t)
