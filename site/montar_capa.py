@@ -26,21 +26,23 @@ def O(cx, cy, raio, borda=0):
 # Cada layout é uma lista de formas, uma por foto (a primeira é a principal). Forma = lista de pontos (polígono), R(...) ou O(...).
 # Use um layout diferente do dos últimos artigos: a home fica variada.
 LAYOUTS = {
-    # painéis inclinados com divisórias brancas (padrão original)
-    "tres": [[(0, 0), (660, 0), (525, 675), (0, 675)],
-             [(678, 0), (1200, 0), (1200, 322), (614, 322)],
-             [(610, 340), (1200, 340), (1200, 675), (543, 675)]],
-    "dois": [[(0, 0), (700, 0), (560, 675), (0, 675)],
-             [(718, 0), (1200, 0), (1200, 675), (578, 675)]],
+    # Todos os layouts são simétricos (iguais dos dois lados ou do centro para fora) para a capa ficar centralizada.
+    # três painéis inclinados, do mesmo tamanho, com divisórias paralelas
+    "tres": [[(0, 0), (442, 0), (342, 675), (0, 675)],
+             [(458, 0), (842, 0), (742, 675), (358, 675)],
+             [(858, 0), (1200, 0), (1200, 675), (758, 675)]],
+    # dois painéis inclinados do mesmo tamanho (divisória no centro da capa)
+    "dois": [[(0, 0), (641, 0), (541, 675), (0, 675)],
+             [(659, 0), (1200, 0), (1200, 675), (559, 675)]],
     "um": [[(0, 0), (1200, 0), (1200, 675), (0, 675)]],
-    # mosaico reto: uma foto grande e duas empilhadas
-    "grade": [[(0, 0), (760, 0), (760, 675), (0, 675)],
-              [(778, 0), (1200, 0), (1200, 328), (778, 328)],
-              [(778, 346), (1200, 346), (1200, 675), (778, 675)]],
-    # o mesmo mosaico espelhado: duas empilhadas à esquerda, a grande à direita
-    "grade_b": [[(440, 0), (1200, 0), (1200, 675), (440, 675)],
-                [(0, 0), (422, 0), (422, 328), (0, 328)],
-                [(0, 346), (422, 346), (422, 675), (0, 675)]],
+    # mosaico reto: foto principal no centro e uma coluna de cada lado, do mesmo tamanho
+    "grade": [[(270, 0), (930, 0), (930, 675), (270, 675)],
+              [(0, 0), (252, 0), (252, 675), (0, 675)],
+              [(948, 0), (1200, 0), (1200, 675), (948, 675)]],
+    # foto principal larga em cima e duas do mesmo tamanho embaixo
+    "grade_b": [[(0, 0), (1200, 0), (1200, 396), (0, 396)],
+                [(0, 414), (591, 414), (591, 675), (0, 675)],
+                [(609, 414), (1200, 414), (1200, 675), (609, 675)]],
     # três colunas verticais
     "colunas": [[(0, 0), (388, 0), (388, 675), (0, 675)],
                 [(406, 0), (794, 0), (794, 675), (406, 675)],
@@ -49,12 +51,12 @@ LAYOUTS = {
     "faixas": [[(0, 0), (1200, 0), (1200, 213), (0, 213)],
                [(0, 231), (1200, 231), (1200, 444), (0, 444)],
                [(0, 462), (1200, 462), (1200, 675), (0, 675)]],
-    # foto em tela cheia com uma moldura menor sobreposta no canto
-    "moldura": [R(0, 0, 1200, 675), R(690, 340, 1140, 630, r=18, borda=12)],
-    # foto em tela cheia com um círculo sobreposto
-    "circulo": [R(0, 0, 1200, 675), O(920, 400, 190, borda=12)],
-    # foto em tela cheia com duas molduras pequenas lado a lado
-    "destaque": [R(0, 0, 1200, 675), R(560, 380, 850, 625, r=16, borda=12), R(880, 380, 1170, 625, r=16, borda=12)],
+    # foto em tela cheia com uma moldura menor centralizada embaixo
+    "moldura": [R(0, 0, 1200, 675), R(400, 390, 800, 640, r=18, borda=12)],
+    # foto em tela cheia com um círculo centralizado embaixo
+    "circulo": [R(0, 0, 1200, 675), O(600, 520, 150, borda=12)],
+    # foto em tela cheia com duas molduras pequenas centralizadas embaixo
+    "destaque": [R(0, 0, 1200, 675), R(295, 400, 585, 640, r=16, borda=12), R(615, 400, 905, 640, r=16, borda=12)],
 }
 
 
