@@ -153,3 +153,4 @@ Regras:
 - O titulo da capa e curto (ideal ate 20 caracteres: o assunto, nao a manchete). `montar_capa.py` reduz a fonte e quebra em 2 linhas automaticamente, mas depois de montada, ABRA o jpg da capa e confira que todo o texto aparece inteiro.
 - Se algo aparecer cortado, encurte o titulo em `site/capas_fotos/<slug>.json`, apague o jpg e remonte (capas.yml).
 - O texto da capa fica sempre centralizado e simetrico (margens iguais dos dois lados, linhas centralizadas, barra de destaque centralizada acima do texto).
+- As linhas brancas de divisa das capas tem sempre a mesma espessura (18 px na grade de 1200x675; bordas de molduras 12 px) em todos os layouts, e as divisas inclinadas sao paralelas.
