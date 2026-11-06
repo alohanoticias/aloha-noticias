@@ -1,10 +1,10 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ["Sony headquarters Tokyo", "Sony City Tokyo Minato", "PlayStation 5 console white", "PS5 Slim console", "PlayStation 5 living room"]
-TITULOS = ["Hand-painted hanafuda - late Edo period.jpg", "Mushibana by Nintendo (early Shōwa era).jpg", "Nintendo Hanafuda.jpg", "Filmprojektor mit Handkurbel,Heimprojektor für 35mm Stummfilm.Malteserkreuzgetriebe.JPG", "AGFA Vista 200 35 mm film strip.jpg", "Color print film strip 02 - positive.jpg", "-Man with a movie projector in a projection booth at a movie theater- (LOC) (55384266832).jpg", "35mmProjectorUnknown.jpg"]
+QUERIES = ["Kinetoscope Edison", "Todd-AO 70 mm camera", "Oklahoma! 1955 Todd-AO", "Vitaphone projector", "cinema projection booth", "35 mm movie camera", "Bell & Howell 2709 camera", "Technicolor camera", "film reels", "Steenbeck film editing", "cinema auditorium interior", "cathode ray tube television 1950s", "Hobbit 48 frames per second", "film projector shutter Maltese cross", "silent film era cinema"]
+TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
-    p = urllib.parse.urlencode({"action": "query", "format": "json", "generator": "search", "gsrsearch": q + " filetype:bitmap", "gsrnamespace": 6, "gsrlimit": 12, "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiextmetadatafilter": "LicenseShortName|Artist"})
+    p = urllib.parse.urlencode({"action": "query", "format": "json", "generator": "search", "gsrsearch": q + " filetype:bitmap", "gsrnamespace": 6, "gsrlimit": 10, "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiextmetadatafilter": "LicenseShortName|Artist"})
     try:
         d = json.load(urllib.request.urlopen(urllib.request.Request("https://commons.wikimedia.org/w/api.php?" + p, headers=UA), timeout=40))
     except Exception as e:
@@ -12,8 +12,9 @@ for q in QUERIES:
     print("##", q)
     for pg in (d.get("query", {}).get("pages", {}) or {}).values():
         ii = pg["imageinfo"][0]; m = ii.get("extmetadata", {})
-        if ii["width"] >= 1000:
-            print(f'{ii["width"]}x{ii["height"]} | {m.get("LicenseShortName",{}).get("value")} | {pg["title"]} | {ii["url"]}')
+        if ii["width"] >= 1000 and ii["width"] >= 1.2 * ii["height"]:
+            import re as _r
+            print(f'{ii["width"]}x{ii["height"]} | {m.get("LicenseShortName",{}).get("value")} | {_r.sub("<[^>]+>","",m.get("Artist",{}).get("value",""))[:40]} | {pg["title"][:90]}')
 
 print("#### AUTORES")
 for t in TITULOS:
