@@ -34,7 +34,7 @@
         '<span><small>' + esc(i.editoria) + " · " + esc(i.data) + "</small><b>" + esc(i.titulo) + "</b></span></a>";
     }).join("");
   }
-  btn.onclick = function () { pn.hidden = !pn.hidden; if (!pn.hidden) pedirPermissao(); };
+  btn.onclick = function () { pn.hidden = !pn.hidden; if (!pn.hidden && !N.push) pedirPermissao(); };
   pn.querySelector(".sino-x").onclick = function () { pn.hidden = true; };
   pn.querySelector('[data-a="ler"]').onclick = function () { lidas = N.itens.map(function (i) { return i.id; }); gravar(KL, JSON.stringify(lidas)); desenhar(); };
   pn.querySelector('[data-a="limpar"]').onclick = function () { limpo = N.itens.map(function (i) { return i.id; }); gravar(KC, JSON.stringify(limpo)); desenhar(); };
@@ -51,7 +51,7 @@
   function avisarNovas() {
     var visto = js(KV, null);
     gravar(KV, JSON.stringify(N.itens.map(function (i) { return i.id; })));
-    if (!visto || !("Notification" in window) || Notification.permission !== "granted") return;
+    if (N.push || !visto || !("Notification" in window) || Notification.permission !== "granted") return;
     N.itens.filter(function (i) { return visto.indexOf(i.id) < 0; }).slice(0, 3).forEach(function (i) {
       try { var n = new Notification(i.titulo, { body: i.editoria, icon: i.capa || undefined }); n.onclick = function () { window.open(i.url, "_self"); }; } catch (e) {}
     });
@@ -66,5 +66,26 @@
   window.addEventListener("load", posicionar); setTimeout(posicionar, 300);
   document.addEventListener("click", function (e) { if (!pn.hidden && !pn.contains(e.target) && !btn.contains(e.target)) pn.hidden = true; });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !pn.hidden) { pn.hidden = true; btn.focus(); } });
+  // Avisos com o site fechado (OneSignal): só ligam se houver App ID em site/conteudo/push.json
+  if (N.push) {
+    var bt = document.createElement("button");
+    bt.type = "button"; bt.className = "sino-ativar"; pn.insertBefore(bt, pn.querySelector("footer"));
+    var OS = null;
+    function rotulo() {
+      var ok = OS && OS.Notifications.permission;
+      var neg = ("Notification" in window) && Notification.permission === "denied";
+      bt.textContent = neg ? (T.bloqueado || "Avisos bloqueados no navegador") : ok ? (T.ativado || "Avisos ativados") : (T.ativar || "Ativar avisos no celular");
+      bt.disabled = neg || !!ok;
+    }
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    window.OneSignalDeferred.push(function (O) {
+      O.init({ appId: N.push, serviceWorkerPath: "/OneSignalSDKWorker.js", serviceWorkerParam: { scope: "/" }, notifyButton: { enable: false }, allowLocalhostAsSecureOrigin: true });
+      OS = O; rotulo();
+      O.Notifications.addEventListener("permissionChange", rotulo);
+    });
+    var sc = document.createElement("script"); sc.src = "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"; sc.defer = true; document.head.appendChild(sc);
+    bt.onclick = function () { if (OS) OS.Notifications.requestPermission().then(rotulo); };
+    rotulo();
+  }
   desenhar(); avisarNovas(); posicionar();
 })();

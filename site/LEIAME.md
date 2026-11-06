@@ -49,3 +49,9 @@ Cloudflare Pages, Vercel ou GitHub Pages. Depois, aponte o domínio para lá.
 
 Quando o volume de matérias crescer, este visual pode ser levado para um CMS (WordPress com tema próprio,
 ou Next.js com um painel como Sanity/Strapi), para a redação publicar sem editar arquivos.
+
+## Avisos push com o site fechado (OneSignal)
+1. Criar conta grátis em onesignal.com, app "Web", site https://alohanoticias.com (Typical Site, Custom Code), service worker em /OneSignalSDKWorker.js.
+2. Colocar o App ID em `site/conteudo/push.json` ({"onesignal_app_id": "..."}).
+3. Criar o segredo `ONESIGNAL_REST_API_KEY` (Settings > Secrets and variables > Actions) com a REST API Key do app.
+4. Pronto: cada artigo agendado publicado dispara o push (títulos nos 8 idiomas conforme o idioma do aparelho).

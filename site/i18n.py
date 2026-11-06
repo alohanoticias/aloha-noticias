@@ -419,3 +419,18 @@ _EX2 = {
 for _l, _v in _EX2.items():
     for _k, _t in zip(_K2, _v):
         UI[_l].setdefault(_k, _t)
+
+_K3 = ["Ativar avisos no celular", "Avisos ativados", "Avisos bloqueados no navegador"]
+_EX3 = {
+    "en": ["Turn on notifications", "Notifications on", "Notifications blocked in the browser"],
+    "es": ["Activar avisos", "Avisos activados", "Avisos bloqueados en el navegador"],
+    "fr": ["Activer les notifications", "Notifications activées", "Notifications bloquées dans le navigateur"],
+    "de": ["Benachrichtigungen aktivieren", "Benachrichtigungen aktiv", "Benachrichtigungen im Browser blockiert"],
+    "it": ["Attiva le notifiche", "Notifiche attive", "Notifiche bloccate nel browser"],
+    "ja": ["通知をオンにする", "通知はオンです", "ブラウザで通知がブロックされています"],
+    "zh": ["开启通知", "通知已开启", "浏览器已阻止通知"],
+    "ar": ["تفعيل الإشعارات", "الإشعارات مفعّلة", "الإشعارات محظورة في المتصفح"],
+}
+for _l, _v in _EX3.items():
+    for _k, _t in zip(_K3, _v):
+        UI[_l].setdefault(_k, _t)

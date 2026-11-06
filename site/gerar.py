@@ -267,6 +267,8 @@ NEWSLETTER_ATIVA = False  # ligue quando houver um serviço de e-mail conectado
 # depois do "Aceitar") e acrescentar a seção de anúncios à política de privacidade.
 ANUNCIOS_ATIVOS = False
 ADSENSE_PUB = ""
+_PUSH_CFG = Path(__file__).resolve().parent / "conteudo" / "push.json"
+ONESIGNAL_APP_ID = (json.loads(_PUSH_CFG.read_text(encoding="utf-8")).get("onesignal_app_id", "") if _PUSH_CFG.exists() else "").strip()
 
 
 def newsletter():
@@ -705,8 +707,9 @@ def gerar_novidades():
         itens.append({"id": m["slug"], "titulo": m["titulo"], "editoria": ED[m["editoria"]]["nome"],
                       "data": data_curta(m["data"]), "url": url_materia(m), "capa": im})
     textos = {"titulo": t("Histórico de push"), "vazio": t("O histórico de notificações está vazio"),
-              "ler": t("marcar tudo como lido"), "limpar": t("Limpar tudo")}
-    NOVID[LANG] = "window.ALOHA_NOVID = " + json.dumps({"t": textos, "itens": itens}, ensure_ascii=False) + ";\n"
+              "ler": t("marcar tudo como lido"), "limpar": t("Limpar tudo"),
+              "ativar": t("Ativar avisos no celular"), "ativado": t("Avisos ativados"), "bloqueado": t("Avisos bloqueados no navegador")}
+    NOVID[LANG] = "window.ALOHA_NOVID = " + json.dumps({"t": textos, "itens": itens, "push": ONESIGNAL_APP_ID}, ensure_ascii=False) + ";\n"
 
 
 def gerar_busca():
@@ -1047,7 +1050,13 @@ def main():
         (SAIDA / "assets/js" / ("indice.js" if lang == "pt" else f"indice-{lang}.js")).write_text(ind, encoding="utf-8")
         (SAIDA / "assets/js" / ("novidades.js" if lang == "pt" else f"novidades-{lang}.js")).write_text(localizar(NOVID[lang], lang), encoding="utf-8")
     arquivos = por_idioma["pt"]
-    (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", CSP_ADS if ANUNCIOS_ATIVOS else CSP_BASE), encoding="utf-8")
+    csp = CSP_ADS if ANUNCIOS_ATIVOS else CSP_BASE
+    if ONESIGNAL_APP_ID:  # avisos push (OneSignal): libera só o necessário
+        csp = csp.replace("script-src 'self'", "script-src 'self' https://cdn.onesignal.com https://onesignal.com", 1)
+        csp = csp.replace("connect-src 'self'", "connect-src 'self' https://onesignal.com https://*.onesignal.com", 1)
+        csp = csp.replace("frame-src ", "frame-src https://onesignal.com https://*.onesignal.com ", 1)
+        (SAIDA / "OneSignalSDKWorker.js").write_text('importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");\n', encoding="utf-8")
+    (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", csp), encoding="utf-8")
     if ANUNCIOS_ATIVOS and ADSENSE_PUB:
         (SAIDA / "ads.txt").write_text(f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
     (SAIDA / ".well-known").mkdir(exist_ok=True)

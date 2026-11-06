@@ -481,3 +481,5 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 :root[data-theme="dark"] .sino-btn { background: #141414; color: #fff; border-color: #fff; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sino-painel header { background: #141414; color: #fff; border-bottom-color: #fff; } }
 :root[data-theme="dark"] .sino-painel header { background: #141414; color: #fff; border-bottom-color: #fff; }
+.sino-ativar { margin: 0; padding: 10px 14px; border: 0; border-top: 1px solid var(--linha); background: var(--superficie); color: var(--tinta); font: 600 13px var(--f-marca); cursor: pointer; text-align: center; }
+.sino-ativar:disabled { cursor: default; color: var(--mare); font-weight: 500; }

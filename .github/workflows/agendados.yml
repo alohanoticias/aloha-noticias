@@ -17,6 +17,8 @@ jobs:
         run: |
           python3 site/publicar_agendados.py
           python3 site/gerar.py
+          cp publicados.txt /tmp/publicados.txt 2>/dev/null || true
+          rm -f publicados.txt
       - name: Enviar alteração
         run: |
           git config user.name "aloha-bot"
@@ -34,3 +36,11 @@ jobs:
             git diff --cached --quiet || git commit -qm "Regenera site"
           done
           exit 1
+      - name: Enviar aviso push das matérias publicadas
+        env:
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+        run: |
+          [ -f /tmp/publicados.txt ] || exit 0
+          sleep 90  # espera o site novo entrar no ar antes de avisar
+          cp /tmp/publicados.txt publicados.txt
+          python3 site/enviar_push.py
