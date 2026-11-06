@@ -128,7 +128,7 @@ def titulo(tela, texto):
     base = tela.convert("RGBA")
     d = ImageDraw.Draw(base)
     x, y = round(52 * S), A - round(52 * S)
-    maxw = base.width - x - round(90 * S)  # margem de seguranca a direita: texto nunca corta
+    maxw = base.width - 2 * x  # margens iguais dos dois lados: texto nunca corta e fica centralizado
     tam = 150 if len(texto) <= 8 else 110
     linhas = [texto]
     while True:
@@ -149,16 +149,17 @@ def titulo(tela, texto):
             break
     ent = round(tam * S * 1.12)
     topo = y - ent * (len(linhas) - 1)
-    caixa = d.textbbox((x, topo), linhas[0], font=f, anchor="ls")
+    cx = base.width // 2
+    caixa = d.textbbox((cx, topo), linhas[0], font=f, anchor="ms")
     sombra = Image.new("RGBA", base.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(sombra)
     for i, l in enumerate(linhas):
-        sd.text((x + 5, topo + ent * i + 10), l, font=f, fill=(0, 0, 0, 210), anchor="ls")
+        sd.text((cx + 5, topo + ent * i + 10), l, font=f, fill=(0, 0, 0, 210), anchor="ms")
     base = Image.alpha_composite(base, sombra.filter(ImageFilter.GaussianBlur(16)))
     d = ImageDraw.Draw(base)
     for i, l in enumerate(linhas):
-        d.text((x, topo + ent * i), l, font=f, fill=(255, 255, 255, 255), anchor="ls")
-    barra = d.rectangle((x, caixa[1] - 35, x + 154, caixa[1] - 22), fill=(255, 196, 61, 255))
+        d.text((cx, topo + ent * i), l, font=f, fill=(255, 255, 255, 255), anchor="ms")
+    barra = d.rectangle((cx - 77, caixa[1] - 35, cx + 77, caixa[1] - 22), fill=(255, 196, 61, 255))
     return base.convert("RGB")
 
 
