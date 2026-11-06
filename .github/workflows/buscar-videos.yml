@@ -1,0 +1,15 @@
+name: Buscar vídeos YouTube
+on:
+  workflow_dispatch:
+    inputs:
+      consultas:
+        description: "Consultas separadas por |"
+        required: true
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          Q: ${{ inputs.consultas }}
+        run: python3 site/buscar_videos.py "$Q"
