@@ -1,19 +1,19 @@
 {
-  "layout": "dois",
+  "layout": "duplo",
   "fotos": [
-    {
-      "url": "https://viciados.net/wp-content/uploads/2026/11/GTA-6-Grand-Theft-Auto-VI-Metro-de-Sao-Paulo-Brasil-2026.webp",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    },
     {
       "url": "https://imageio.forbes.com/specials-images/imageserve/6ab4d6b2721235cada955e7c/HS5A8RGWgAAoubN/0x0.jpg?crop=934%2C525%2Cx157%2Cy0%2Csafe&width=960",
       "foco": [
         0.5,
-        0.5
+        0.55
+      ],
+      "zoom": 1.0
+    },
+    {
+      "url": "https://viciados.net/wp-content/uploads/2026/11/GTA-6-Grand-Theft-Auto-VI-Metro-de-Sao-Paulo-Brasil-2026.webp",
+      "foco": [
+        0.5,
+        0.39
       ],
       "zoom": 1.0
     }

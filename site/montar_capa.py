@@ -35,6 +35,9 @@ LAYOUTS = {
     "dois": [[(0, 0), (641, 0), (541, 675), (0, 675)],
              [(659, 0), (1200, 0), (1200, 675), (559, 675)]],
     "um": [[(0, 0), (1200, 0), (1200, 675), (0, 675)]],
+    # duas faixas largas empilhadas, do mesmo tamanho (boas para imagens largas, como letreiros)
+    "duplo": [[(0, 0), (1200, 0), (1200, 328), (0, 328)],
+              [(0, 347), (1200, 347), (1200, 675), (0, 675)]],
     # mosaico reto: foto principal no centro e uma coluna de cada lado, do mesmo tamanho
     "grade": [[(270, 0), (930, 0), (930, 675), (270, 675)],
               [(0, 0), (252, 0), (252, 675), (0, 675)],
