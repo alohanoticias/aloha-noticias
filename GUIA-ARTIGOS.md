@@ -159,7 +159,7 @@ Regras:
 
 ## Regra fixa (decisão do usuário, 07/11/2026): fotos reais do assunto principal, representações só depois
 - Todo artigo precisa ter, obrigatoriamente, fotos ou artes REAIS do assunto principal: o letreiro, o painel, o jogo, o filme, o produto de que o texto trata (imagem oficial de divulgação ou foto publicada pela fonte jornalística que cobriu o fato, com crédito e fonte na legenda). A capa começa por elas: a primeira imagem da capa (a principal) é sempre real do assunto.
-- Imagens de representação (cidade, console parecido, banco de imagens livre como o Unsplash) só entram como complemento, DEPOIS de já haver imagens reais do assunto principal, e nunca no lugar delas. Não use representação como imagem principal da capa nem como única foto do texto.
+- Imagens de representação (cidade, console parecido, banco de imagens livre como o Unsplash) só entram como complemento, DEPOIS de já haver imagens reais do assunto principal, e nunca no lugar delas. Não use representação como imagem principal da capa nem como única foto do texto. A representação também tem de corresponder corretamente ao trecho em que aparece: mostrar de fato o que o parágrafo descreve (a cidade citada, o tipo de aparelho, a situação), com legenda e crédito honestos que digam que é uma foto ilustrativa e o que ela mostra. Representação que não bate com o texto não entra.
 - Se não houver imagem real do assunto principal, o rascunho não está pronto: avise o editor em vez de completar com foto parecida.
 - Continua valendo: nenhuma foto repetida no site e dentro do artigo.
 - Confira a capa montada (abra o jpg): mostra mesmo o assunto, sem cortar logotipo ou letreiro e sem marca d'água de terceiros.
