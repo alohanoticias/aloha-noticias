@@ -18,6 +18,7 @@ jobs:
         run: |
           python3 site/aprovar.py "$TITULO"
           python3 site/gerar.py
+          mv publicados.txt /tmp/publicados.txt 2>/dev/null || true
       - name: Enviar alteração
         run: |
           git config user.name "aloha-bot"
@@ -38,3 +39,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh issue close ${{ github.event.issue.number }} --comment "Feito. O site atualiza em cerca de 1 minuto." --repo ${{ github.repository }}
+      - name: Postar no canal do Telegram (se foi publicado na hora)
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          [ -f /tmp/publicados.txt ] || exit 0
+          sleep 90  # espera o site novo entrar no ar
+          cp /tmp/publicados.txt publicados.txt
+          python3 site/enviar_telegram.py

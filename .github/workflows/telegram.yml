@@ -1,0 +1,33 @@
+name: Telegram (teste ou postar matérias)
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Slugs das matérias para postar no canal, separados por espaço. Escreva 'todas' para postar todas as publicadas. Vazio = só mensagem de teste."
+        required: false
+        default: ""
+permissions:
+  contents: read
+jobs:
+  telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enviar
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SLUGS: ${{ github.event.inputs.slugs }}
+        run: |
+          [ -n "$TELEGRAM_BOT_TOKEN" ] || { echo "ERRO: segredo TELEGRAM_BOT_TOKEN não encontrado"; exit 1; }
+          [ -n "$TELEGRAM_CHAT_ID" ] || { echo "ERRO: segredo TELEGRAM_CHAT_ID não encontrado"; exit 1; }
+          if [ -z "$SLUGS" ]; then
+            C="$TELEGRAM_CHAT_ID"; case "$C" in @*|-*|[0-9]*) ;; *) C="@${C##*/}";; esac
+            curl -sS "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" --data-urlencode "chat_id=$C" \
+              --data-urlencode "text=Teste: o site já consegue postar aqui. 🌺" | tee /tmp/r.json
+            grep -q '"ok":true' /tmp/r.json || exit 1
+          elif [ "$SLUGS" = "todas" ]; then
+            python3 site/enviar_telegram.py $(python3 -c "import json;print(' '.join(m['slug'] for m in sorted(json.load(open('site/conteudo/materias.json')),key=lambda m:m['data'])))")
+          else
+            python3 site/enviar_telegram.py $SLUGS
+          fi

@@ -55,3 +55,4 @@ else:
     lista.append(d)
     mat.write_text(json.dumps(lista, ensure_ascii=False, indent=1), encoding="utf-8")
     origem.unlink(); print(f"Publicado {slug}")
+    (RAIZ / "publicados.txt").write_text(slug, encoding="utf-8")  # para o aviso no Telegram

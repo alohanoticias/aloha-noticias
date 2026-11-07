@@ -36,11 +36,23 @@ jobs:
             git diff --cached --quiet || git commit -qm "Regenera site"
           done
           exit 1
+      - name: Esperar o site novo entrar no ar
+        run: |
+          [ -f /tmp/publicados.txt ] || exit 0
+          sleep 90
+      - name: Postar no canal do Telegram
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          [ -f /tmp/publicados.txt ] || exit 0
+          cp /tmp/publicados.txt publicados.txt
+          python3 site/enviar_telegram.py
       - name: Enviar aviso push das matérias publicadas
         env:
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
         run: |
           [ -f /tmp/publicados.txt ] || exit 0
-          sleep 90  # espera o site novo entrar no ar antes de avisar
           cp /tmp/publicados.txt publicados.txt
           python3 site/enviar_push.py
