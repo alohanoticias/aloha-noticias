@@ -105,6 +105,43 @@ def baixar(url):
             time.sleep(10 * (tentativa + 1))  # o Wikimedia pede calma: espera e tenta de novo
 
 
+def logo_sem_fundo(spec_logo):
+    """Logo oficial sem caixa e sem borda: se a imagem tiver fundo preto, o preto vira transparente; recorta nas bordas do desenho."""
+    url = resolver(spec_logo["url"])
+    if url.startswith("/"):
+        bruto = open(url, "rb").read()
+    else:
+        req = urllib.request.Request(url, headers=UA)
+        bruto = urllib.request.urlopen(req, timeout=60).read()
+    im = Image.open(io.BytesIO(bruto)).convert("RGBA")
+    a = im.getchannel("A")
+    if a.getextrema()[0] > 250:  # sem transparência própria: tira o fundo escuro
+        rgb = im.convert("RGB")
+        mx = ImageChops.lighter(ImageChops.lighter(rgb.getchannel("R"), rgb.getchannel("G")), rgb.getchannel("B"))
+        a = mx.point(lambda v: 0 if v < 14 else min(255, round((v - 14) * 255 / 60)))
+        im.putalpha(a)
+    caixa = a.point(lambda v: 255 if v > 40 else 0).getbbox()
+    if caixa:
+        im = im.crop(caixa)
+    return im
+
+
+def pôr_logo(tela, spec_logo):
+    lg = logo_sem_fundo(spec_logo)
+    w = round(L * spec_logo.get("largura", 0.36))
+    lg = lg.resize((w, round(lg.height * w / lg.width)), Image.LANCZOS)
+    cx, cy = spec_logo.get("x", 0.5), spec_logo.get("y", 0.80)
+    pos = (round(L * cx - lg.width / 2), round(A * cy - lg.height / 2))
+    base = tela.convert("RGBA")
+    sombra = Image.new("RGBA", base.size, (0, 0, 0, 0))
+    sa = Image.new("L", base.size, 0)
+    sa.paste(lg.getchannel("A").point(lambda v: round(v * 0.85)), pos)
+    sombra.putalpha(sa.filter(ImageFilter.GaussianBlur(14)))
+    base = Image.alpha_composite(base, sombra)
+    base.alpha_composite(lg, pos)
+    return base.convert("RGB")
+
+
 def recorte(img, w, h, foco, zoom=1.0):
     esc = max(w / img.width, h / img.height) * zoom
     img = img.resize((max(w, round(img.width * esc)), max(h, round(img.height * esc))), Image.LANCZOS)
@@ -238,6 +275,8 @@ def montar(spec):
     ed = spec.get("editoria")
     if ed in TONS:
         tela = tom(tela, TONS[ed][1])
+    if spec.get("logo"):  # logo oficial por cima da colagem, sem caixa nem borda (depois do tom, para manter as cores)
+        tela = pôr_logo(tela, spec["logo"])
     if spec.get("titulo"):
         tela = titulo(tela, spec["titulo"])
     if spec.get("etiqueta") and ed in TONS:  # opcional; por padrão a capa não leva o nome da editoria

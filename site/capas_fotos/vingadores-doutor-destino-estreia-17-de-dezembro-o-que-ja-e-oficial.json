@@ -1,5 +1,5 @@
 {
-  "layout": "moldura",
+  "layout": "um",
   "fotos": [
     {
       "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
@@ -8,15 +8,13 @@
         0.5
       ],
       "zoom": 1.0
-    },
-    {
-      "url": "https://cdn.marvel.com/content/1x/avengersdoomsday_lob_log_def_02.webp",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
     }
   ],
-  "editoria": "cinema"
+  "editoria": "cinema",
+  "logo": {
+    "url": "https://cdn.marvel.com/content/1x/avengersdoomsday_lob_log_def_02.webp",
+    "largura": 0.36,
+    "x": 0.5,
+    "y": 0.8
+  }
 }
