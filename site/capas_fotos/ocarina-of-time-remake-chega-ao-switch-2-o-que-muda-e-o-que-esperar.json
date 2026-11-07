@@ -2,7 +2,7 @@
  "layout": "um",
  "fotos": [
   {
-   "url": "https://assets.nintendo.com/image/upload/f_jpg/q_auto/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/section_story/story-background.jpg",
+   "url": "https://assets.nintendo.com/image/upload/f_jpg/q_auto/store/software/switch2/70010000130792/2e76ea7cb3eb833a0cbe8c9b016b28b3a7ef95838b66c1eaced1c0db7747dd37",
    "foco": [
     0.5,
     0.5
@@ -10,5 +10,6 @@
    "zoom": 1.0
   }
  ],
+ "titulo": "Ocarina of Time Remake",
  "editoria": "games"
 }
