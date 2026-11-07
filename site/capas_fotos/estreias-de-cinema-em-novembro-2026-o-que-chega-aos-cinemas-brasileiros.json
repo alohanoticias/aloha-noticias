@@ -2,7 +2,7 @@
  "layout": "lado_a_lado",
  "cobrir": true,
  "fotos": [
-  {"url": "https://static0.moviewebimages.com/wordpress/wp-content/uploads/2026/10/doctor-doom-4dx-poster-for-avengers-doomsday.jpg?q=80&w=1400", "foco": [0.5, 0.4]},
+  {"url": "https://static0.moviewebimages.com/wordpress/wp-content/uploads/2026/10/doctor-doom-4dx-poster-for-avengers-doomsday.jpg?q=80&w=1400", "foco": [0.5, 0.0]},
   {"url": "https://godzilla.com/cdn/shop/files/Website_Mobile_Hero_Carousel_Main_GMZ_Release_Date_Announcement_Date_960x1478_1_792ac3d7-90a1-45db-854d-468c21439598.jpg?v=1791300460", "foco": [0.5, 0.3]}
  ],
  "editoria": "cinema"
