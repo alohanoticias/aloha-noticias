@@ -1134,7 +1134,7 @@ def main():
         return f'{m.group(1)}?v={_h.md5(f.read_bytes()).hexdigest()[:8]}"' if f.exists() else m.group(0)
     for pg in SAIDA.rglob("*.html"):
         t = pg.read_text(encoding="utf-8")
-        t2 = re.sub(r'(assets/(?:css|js)/[\w.-]+\.(?:css|js))"', _v, t)
+        t2 = re.sub(r'(assets/(?:css|js)/[\w.-]+\.(?:css|js)|assets/img/capas/[\w.-]+\.jpg)"', _v, t)
         if t2 != t:
             pg.write_text(t2, encoding="utf-8")
     sm = "".join(f"<url><loc>{url_abs(l, n)}</loc></url>" for l, arqs in por_idioma.items() for n in arqs if n not in ("404.html", "busca.html"))
