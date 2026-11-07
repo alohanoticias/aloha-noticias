@@ -1,16 +1,8 @@
 {
- "layout": "circulo",
+ "layout": "um",
  "fotos": [
   {
    "url": "https://images.unsplash.com/photo-1709587797077-7a2c94411514?fm=jpg&q=70&w=1600&auto=format&fit=crop",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1610119260051-a8d0b3a57e5e?fm=jpg&q=70&w=1600&auto=format&fit=crop",
    "foco": [
     0.5,
     0.5
