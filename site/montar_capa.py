@@ -165,11 +165,13 @@ def fonte(tam):
     return ImageFont.load_default()
 
 
-def titulo(tela, texto):
+def titulo(tela, texto, y_rel=None):
     """Escreve o nome do assunto (texto simples, nunca logotipo) no canto inferior esquerdo."""
     base = tela.convert("RGBA")
     d = ImageDraw.Draw(base)
     x, y = round(52 * S), A - round(52 * S)
+    if y_rel is not None:  # posição vertical da linha de base (fração da altura)
+        y = round(y_rel * base.height)
     maxw = base.width - 2 * x  # margens iguais dos dois lados: texto nunca corta e fica centralizado
     tam = 150 if len(texto) <= 8 else 110
     linhas = [texto]
@@ -301,7 +303,7 @@ def montar(spec):
     if spec.get("logo"):  # logo oficial por cima da colagem, sem caixa nem borda (depois do tom, para manter as cores)
         tela = pôr_logo(tela, spec["logo"])
     if spec.get("titulo"):
-        tela = titulo(tela, spec["titulo"])
+        tela = titulo(tela, spec["titulo"], spec.get("titulo_y"))
     if spec.get("etiqueta") and ed in TONS:  # opcional; por padrão a capa não leva o nome da editoria
         tela = etiqueta(tela, {"games": "Games", "anime": "Anime"}.get(ed, ed.capitalize()), TONS[ed][0])
     return tela
