@@ -1,9 +1,17 @@
 {
- "layout": "um",
+ "layout": "dois",
  "editoria": "tecnologia",
  "fotos": [
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Xbox_Series_X_mit_Controller.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Xbox_Series_X_and_S_with_controllers.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Radeon_VII_(Vorderseite).jpg",
    "foco": [
     0.5,
     0.5
