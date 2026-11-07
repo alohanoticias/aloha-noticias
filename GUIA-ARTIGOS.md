@@ -157,8 +157,9 @@ Regras:
 - Todos os layouts são simétricos (a capa fica centralizada). Depois de montada, ABRA o jpg e confira que logotipos e o elemento principal de cada foto não foram cortados; se foram, ajuste `foco`/`zoom` no json, apague o jpg e remonte.
 - Nem toda capa precisa ser colagem: em alguns artigos use so uma imagem (layout "um"), alternando com os layouts de divisas para a home ficar variada. Titulo centralizado vale igual.
 
-## Regra fixa (decisão do usuário, 07/11/2026): só fotos reais do assunto
-- Toda imagem do artigo (capa e fotos no texto) deve ser uma foto ou arte real DO assunto tratado: o letreiro, o painel, o jogo, o filme, o produto de que o texto fala. Nunca use foto "parecida" ou genérica só para representar (prédios de uma cidade para falar de uma campanha, console qualquer para falar de outro, etc.).
-- Isso vale mesmo que o banco de imagens livre (Unsplash) não tenha a foto: use imagem oficial de divulgação ou a foto publicada pela fonte jornalística que cobriu o fato, com crédito e fonte na legenda. Se não houver imagem real do assunto, deixe a imagem de fora do texto e avise o editor; não complete com foto parecida.
-- Confira a capa montada (abra o jpg) para ver se mostra mesmo o assunto, sem cortar logotipo ou letreiro e sem marca d'água de terceiros.
-
+## Regra fixa (decisão do usuário, 07/11/2026): fotos reais do assunto principal, representações só depois
+- Todo artigo precisa ter, obrigatoriamente, fotos ou artes REAIS do assunto principal: o letreiro, o painel, o jogo, o filme, o produto de que o texto trata (imagem oficial de divulgação ou foto publicada pela fonte jornalística que cobriu o fato, com crédito e fonte na legenda). A capa começa por elas: a primeira imagem da capa (a principal) é sempre real do assunto.
+- Imagens de representação (cidade, console parecido, banco de imagens livre como o Unsplash) só entram como complemento, DEPOIS de já haver imagens reais do assunto principal, e nunca no lugar delas. Não use representação como imagem principal da capa nem como única foto do texto.
+- Se não houver imagem real do assunto principal, o rascunho não está pronto: avise o editor em vez de completar com foto parecida.
+- Continua valendo: nenhuma foto repetida no site e dentro do artigo.
+- Confira a capa montada (abra o jpg): mostra mesmo o assunto, sem cortar logotipo ou letreiro e sem marca d'água de terceiros.
