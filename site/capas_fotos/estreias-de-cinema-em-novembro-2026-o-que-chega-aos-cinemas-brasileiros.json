@@ -1,22 +1,8 @@
 {
-  "layout": "moldura",
-  "fotos": [
-    {
-      "url": "https://images.unsplash.com/photo-1717915604557-94283edbcc1b?fm=jpg&q=70&w=1600&auto=format&fit=crop",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    },
-    {
-      "url": "https://images.unsplash.com/photo-1730303904327-493e7889f5c7?fm=jpg&q=70&w=1600&auto=format&fit=crop",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    }
-  ],
-  "editoria": "cinema"
+ "layout": "lado_a_lado",
+ "fotos": [
+  {"url": "https://comicbookmovie.com/images/articles/banners/avengers-doomsday-promo-art-reveals-4k-look-at-doctor-dooms-mask-russos-tease-movies-tone-ab226381.jpg"},
+  {"url": "https://godzilla.com/cdn/shop/files/Website_Mobile_Hero_Carousel_Main_GMZ_Release_Date_Announcement_Date_960x1478_1_792ac3d7-90a1-45db-854d-468c21439598.jpg?v=1791300460"}
+ ],
+ "editoria": "cinema"
 }

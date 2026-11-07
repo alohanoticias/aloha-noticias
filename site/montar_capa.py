@@ -239,7 +239,30 @@ def etiqueta(tela, texto, cor):
     return base.convert("RGB")
 
 
+def lado_a_lado(spec):
+    """Duas fotos inteiras (sem cortar), lado a lado e centralizadas, sobre fundo escuro neutro."""
+    from PIL import ImageFilter
+    tela = Image.new("RGB", (L, A), (18, 18, 22))
+    fotos = spec["fotos"]
+    gap, margem = 36, 40
+    pw = (L - 2 * margem - gap) // 2
+    ph = A - 2 * margem
+    imgs = [baixar(f["url"]) for f in fotos]
+    # as duas com a mesma altura quando couber; senão reduz o necessário
+    esc = min(min(ph / im.height, pw / im.width) for im in imgs)
+    tamanhos = [(round(im.width * esc), round(im.height * esc)) for im in imgs]
+    total = sum(w for w, _ in tamanhos) + gap
+    x = (L - total) // 2
+    for im, (w, h) in zip(imgs, tamanhos):
+        im = im.resize((w, h), Image.LANCZOS)
+        tela.paste(im, (x, (A - h) // 2))
+        x += w + gap
+    return tela
+
+
 def montar(spec):
+    if spec["layout"] == "lado_a_lado":
+        return lado_a_lado(spec)
     poligonos = LAYOUTS[spec["layout"]]
     fotos = spec["fotos"]
     if len(fotos) != len(poligonos):
