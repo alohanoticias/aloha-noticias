@@ -246,6 +246,12 @@ def lado_a_lado(spec):
     from PIL import ImageFilter
     tela = Image.new("RGB", (L, A), (18, 18, 22))
     fotos = spec["fotos"]
+    if spec.get("cobrir"):  # metade da capa para cada foto, preenchendo todo o quadro
+        meio = L // 2
+        for i, f in enumerate(fotos):
+            im = recorte(baixar(f["url"]), meio, A, f.get("foco", [.5, .5]), f.get("zoom", 1.0))
+            tela.paste(ImageEnhance.Contrast(ImageEnhance.Color(im).enhance(1.08)).enhance(1.04), (i * meio, 0))
+        return tela
     gap, margem = 36, 40
     pw = (L - 2 * margem - gap) // 2
     ph = A - 2 * margem
