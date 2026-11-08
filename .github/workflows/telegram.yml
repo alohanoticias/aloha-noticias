@@ -22,8 +22,10 @@ jobs:
           [ -n "$TELEGRAM_BOT_TOKEN" ] || { echo "ERRO: segredo TELEGRAM_BOT_TOKEN não encontrado"; exit 1; }
           [ -n "$TELEGRAM_CHAT_ID" ] || { echo "ERRO: segredo TELEGRAM_CHAT_ID não encontrado"; exit 1; }
           if [ -z "$SLUGS" ]; then
-            C="$TELEGRAM_CHAT_ID"; case "$C" in @*|-*|[0-9]*) ;; *) C="@${C##*/}";; esac
-            curl -sS "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" --data-urlencode "chat_id=$C" \
+            T=$(printf %s "$TELEGRAM_BOT_TOKEN" | tr -d " \t\r\n'\""); T=${T#bot}
+            echo "Token: ${#T} caracteres, formato $(printf %s "$T" | grep -qE '^[0-9]+:[A-Za-z0-9_-]{30,}$' && echo certo || echo ERRADO)"
+            C=$(printf %s "$TELEGRAM_CHAT_ID" | tr -d " \t\r\n'\""); case "$C" in @*|-*|[0-9]*) ;; *) C="@${C##*/}";; esac
+            curl -sS "https://api.telegram.org/bot$T/sendMessage" --data-urlencode "chat_id=$C" \
               --data-urlencode "text=Teste: o site já consegue postar aqui. 🌺" | tee /tmp/r.json
             grep -q '"ok":true' /tmp/r.json || exit 1
           elif [ "$SLUGS" = "todas" ]; then

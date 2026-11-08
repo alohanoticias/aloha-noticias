@@ -7,8 +7,10 @@ import html, json, os, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
-canal = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+token = "".join(os.environ.get("TELEGRAM_BOT_TOKEN", "").split()).strip("'\"")  # tira espaços/aspas coladas por engano
+if token.lower().startswith("bot"):
+    token = token[3:]
+canal = "".join(os.environ.get("TELEGRAM_CHAT_ID", "").split()).strip("'\"")
 if canal and not canal.startswith("@") and not canal.lstrip("-").isdigit():
     canal = "@" + canal.split("/")[-1]  # aceita "alohanoticias" ou "t.me/alohanoticias"
 if not token or not canal:
