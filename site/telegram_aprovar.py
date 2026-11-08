@@ -65,7 +65,7 @@ if limpar:
     sys.exit(0)
 
 FILA = RAIZ / "site/conteudo/telegram_fila.json"
-BOTAO = "👉🏻Clique para ver COMPLETO 🚨"
+BOTAO = "👉🏻 Clique para ver COMPLETO 🚨"
 import datetime as _dt
 agora = _dt.datetime.now(_dt.timezone.utc)
 
@@ -94,6 +94,16 @@ if sys.argv[1:2] == ["fila"]:
     gravar_fila({"itens": itens, "intervalo_min": intervalo, "proximo": agora.isoformat(timespec="seconds")})
     for it in itens:
         print("Na fila:", it["msg"], it["slug"][:60])
+    sys.exit(0)
+
+if sys.argv[1:2] == ["corrigir-botao"]:
+    # atualiza o texto do botão num post que já está no canal oficial: corrigir-botao <id_no_canal> <slug>
+    mid, slug = sys.argv[2], sys.argv[3]
+    urls = json.loads((RAIZ / "publico/push-urls.json").read_text(encoding="utf-8"))
+    url = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
+    r = api("editMessageReplyMarkup", {"chat_id": canal, "message_id": mid,
+                                       "reply_markup": json.dumps({"inline_keyboard": [[{"text": BOTAO, "url": url}]]})})
+    print("Botão corrigido:" if r.get("ok") else "Falhou:", mid, r.get("description", ""))
     sys.exit(0)
 
 oficial = api("getChat", {"chat_id": canal}).get("result", {})

@@ -78,7 +78,7 @@ for i, slug in enumerate(slugs):
             import hashlib
             img += "?v=" + hashlib.md5(local.read_bytes()).hexdigest()[:8]
     r = {}
-    teclado = [[{"text": "👉🏻Clique para ver COMPLETO 🚨", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
+    teclado = [[{"text": "👉🏻 Clique para ver COMPLETO 🚨", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
     extra = {"reply_markup": json.dumps({"inline_keyboard": teclado})}
     if img:
         r = api("sendPhoto", {"chat_id": destino, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
