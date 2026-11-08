@@ -1,10 +1,6 @@
 {
  "itens": [
   {
-   "msg": 104,
-   "slug": "jogos-vorazes-amanhecer-na-colheita-estreia-19-de-novembro-o-que-se-sabe"
-  },
-  {
    "msg": 105,
    "slug": "fsr-4-1-2-chega-ao-xbox-series-x-e-s-o-que-muda-para-quem-joga"
   },
@@ -42,5 +38,5 @@
   }
  ],
  "intervalo_min": 30,
- "proximo": "2026-11-08T18:56:03+00:00"
+ "proximo": "2026-11-08T19:44:22+00:00"
 }
