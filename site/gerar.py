@@ -615,7 +615,7 @@ def gerar_admin(rascunhos, agendados=()):
             f'<h3>{esc(d["titulo"])}</h3><p class="meta"><span>{esc(ED[d["editoria"]]["nome"])}</span></p></div></a></li>'
             for d in agendados)
         lista += f'<h2 style="margin-top:40px">Agendados</h2><ul class="lista-simples" style="max-width:820px">{itens2}</ul>'
-    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p></div></div>
+    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p><p><a class="botao-sec" href="admin/links.html">Links para redes sociais</a></p></div></div>
 <div class="wrap editoria-corpo">{lista}</div>"""
     return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
@@ -636,14 +636,46 @@ def autor_html(m):
     return f'<a href="equipe.html">{esc(autor_nome(m))}</a>' if m["autor"] == "Equipe Aloha" else esc(m["autor"])
 
 
+REDES_LINKS = [("YouTube", "youtube"), ("TikTok", "tiktok"), ("Instagram", "instagram"), ("Facebook", "facebook"),
+               ("X / Twitter", "x"), ("Threads", "threads"), ("WhatsApp", "whatsapp"), ("Telegram", "telegram"),
+               ("Kwai", "kwai"), ("Pinterest", "pinterest"), ("Reddit", "reddit"), ("Discord", "discord"), ("LinkedIn", "linkedin")]
+
+
+def gerar_links_admin(lista):
+    """Admin > Links: link de cada matéria já etiquetado para cada rede social (para medir no Analytics)."""
+    blocos = []
+    for m in lista:
+        base = "https://alohanoticias.com/" + url_materia(m)[:-5]
+        linhas = "".join(
+            f'<li class="link-rede"><span class="chapeu">{nome}</span>'
+            f'<input readonly value="{esc(base)}?utm_source={cod}&amp;utm_medium=social&amp;utm_campaign=post_{cod}" aria-label="Link para {nome}">'
+            f'<button class="botao-sec copiar" type="button">Copiar</button></li>'
+            for nome, cod in REDES_LINKS)
+        blocos.append(f'<details class="links-materia"><summary><strong>{esc(m["titulo"])}</strong> '
+                      f'<span class="meta">{data_curta(m["data"])}</span></summary><ul class="lista-simples">{linhas}</ul></details>')
+    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: links para redes sociais</h1>
+<p>Use sempre estes links ao divulgar uma matéria: cada um já leva a etiqueta da rede, e no Analytics a visita aparece como vinda dela (e no Tempo real como o evento visita_&lt;rede&gt;). Toque na matéria, depois em Copiar.</p>
+<p><a href="admin/">Voltar aos rascunhos</a></p></div></div>
+<div class="wrap editoria-corpo" style="max-width:820px">{"".join(blocos)}</div>
+<style>.links-materia{{border-bottom:1px solid var(--linha,#ddd);padding:14px 0}}.links-materia summary{{cursor:pointer}}
+.link-rede{{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:6px 0}}.link-rede .chapeu{{min-width:110px}}
+.link-rede input{{flex:1;min-width:200px;font-size:.85rem;padding:6px}}</style>
+<script src="assets/js/links-admin.js"></script>"""
+    return pagina("Admin: links", "Links etiquetados para redes sociais", "", corpo, com_news=False,
+                  extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
+
+
 def botoes_compartilhar(m):
     from urllib.parse import quote
     pre = "" if LANG == "pt" else LANG + "/"
-    u = quote("https://alohanoticias.com/" + pre + url_materia(m), safe="")
+    base = "https://alohanoticias.com/" + pre + url_materia(m)[:-5]  # endereço final, sem ".html"
+    def com(rede):  # etiqueta: quem chega por um compartilhamento conta como vindo daquela rede
+        return base + f"?utm_source={rede}&utm_medium=compartilhamento&utm_campaign=botao_compartilhar"
     tit = quote(m["titulo"], safe="")
-    tt = quote(m["titulo"] + " https://alohanoticias.com/" + pre + url_materia(m), safe="")
-    redes = [("WhatsApp", f"https://wa.me/?text={tt}"), ("X", f"https://twitter.com/intent/tweet?text={tit}&url={u}"),
-             ("Facebook", f"https://www.facebook.com/sharer/sharer.php?u={u}"), ("Telegram", f"https://t.me/share/url?url={u}&text={tit}")]
+    redes = [("WhatsApp", "https://wa.me/?text=" + quote(m["titulo"] + " " + com("whatsapp"), safe="")),
+             ("X", f"https://twitter.com/intent/tweet?text={tit}&url={quote(com('x'), safe='')}"),
+             ("Facebook", f"https://www.facebook.com/sharer/sharer.php?u={quote(com('facebook'), safe='')}"),
+             ("Telegram", f"https://t.me/share/url?url={quote(com('telegram'), safe='')}&text={tit}")]
     return "".join(f'<a class="botao-sec" href="{h}" target="_blank" rel="noopener noreferrer" aria-label="{t('Compartilhar no')} {n}">{n}</a>' for n, h in redes)
 
 
@@ -1106,6 +1138,7 @@ def main():
     agendados.sort(key=lambda d: d["data"])
     (SAIDA / "admin").mkdir(exist_ok=True)
     (SAIDA / "admin/index.html").write_text(resolver(gerar_admin(rascunhos, agendados), "pt", "admin/index.html", existe), encoding="utf-8")
+    (SAIDA / "admin/links.html").write_text(resolver(gerar_links_admin(materias), "pt", "admin/links.html", existe), encoding="utf-8")
     for d in rascunhos:
         (SAIDA / f"admin/{d['slug']}.html").write_text(resolver(gerar_materia(d, preview=True), "pt", f"admin/{d['slug']}.html", existe), encoding="utf-8")
     # prévias das traduções de rascunhos e agendados (admin/en/<slug>.html, admin/es/<slug>.html)
