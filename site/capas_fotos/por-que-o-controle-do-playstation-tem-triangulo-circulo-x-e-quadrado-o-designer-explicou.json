@@ -1,31 +1,17 @@
 {
-  "layout": "colunas",
-  "fotos": [
-    {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/DualShock_2.jpg/1280px-DualShock_2.jpg",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    },
-    {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/PSX-DualShock-Controller.jpg/1280px-PSX-DualShock-Controller.jpg",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    },
-    {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/PlayStation-DualShock.jpg/1280px-PlayStation-DualShock.jpg",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    }
-  ],
-  "titulo": "Botões PlayStation",
-  "editoria": "curiosidades"
+ "layout": "um",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/DualShock_4.jpg/1280px-DualShock_4.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "titulo": "Bot\u00f5es PlayStation",
+ "editoria": "curiosidades",
+ "titulo_tam": 80,
+ "titulo_y": 0.5
 }
