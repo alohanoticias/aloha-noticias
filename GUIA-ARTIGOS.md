@@ -58,6 +58,14 @@ Em cada execução, olhe os rascunhos pendentes em `rascunhos/`:
 - Se o assunto perdeu a relevância, **não apague**: diga na mensagem final qual é e por quê, para a pessoa decidir.
 - Se já há 6 ou mais rascunhos pendentes, não escreva rascunhos novos nesse dia: avise que há fila e peça para a pessoa aprovar ou rejeitar alguns.
 
+## Regra fixa: não repetir assunto nem formato (decisão do usuário, 08/11/2026)
+Antes de escolher a pauta, liste os títulos de `site/conteudo/materias.json` dos **últimos 10 dias**, mais tudo que está em `rascunhos/` e `agendados/`. O assunto novo não pode repetir:
+- **O mesmo produto, console, franquia ou plataforma** de um artigo dos últimos 7 dias (ex.: não fazer outro "chega ao Switch 2" se já saiu um na semana; não dois de GTA, PlayStation ou da mesma série seguidos).
+- **O mesmo tema técnico** de um artigo dos últimos 10 dias (ex.: dois sobre upscaling/FSR/DLSS).
+- **O mesmo formato na mesma editoria** de um artigo dos últimos 5 dias (ex.: dois "calendário de episódios" de anime; duas curiosidades no molde "a origem de...").
+- **A mesma data-gancho** com o mesmo verbo (dois títulos "chega em 12 de novembro").
+Se a pauta bater em qualquer item, troque por outra. Na revisão dos rascunhos e agendados, se encontrar algo repetido, apague e escreva outro no lugar (o usuário autorizou), mantendo os horários e a mistura de editorias da agenda.
+
 ## Escolha dos assuntos
 - Sempre assuntos do momento: o que está sendo comentado hoje, lançamentos e estreias da semana, anúncios oficiais, polêmicas já confirmadas. Confira nas buscas e nas páginas oficiais o que realmente está em alta antes de decidir.
 - Pense no leitor: escolha o que é interessante e útil para o público brasileiro (o que muda para ele, o que vale assistir ou jogar, o que ele precisa saber), não o que só enche espaço.
