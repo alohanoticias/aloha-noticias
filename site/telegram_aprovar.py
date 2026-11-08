@@ -64,7 +64,59 @@ if limpar:
     print(f"Canal de rascunho limpo: {apagadas} mensagens apagadas.")
     sys.exit(0)
 
+FILA = RAIZ / "site/conteudo/telegram_fila.json"
+BOTAO = "👉🏻Clique para ver COMPLETO 🚨"
+import datetime as _dt
+agora = _dt.datetime.now(_dt.timezone.utc)
+
+
+def ler_fila():
+    try:
+        return json.loads(FILA.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {"itens": [], "intervalo_min": 30, "proximo": ""}
+
+
+def gravar_fila(f):
+    FILA.write_text(json.dumps(f, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+if sys.argv[1:2] == ["fila"]:
+    # põe na fila as últimas N prévias do rascunho (as N matérias mais recentes, na ordem em que foram enviadas)
+    mats = sorted(json.loads((RAIZ / "site/conteudo/materias.json").read_text(encoding="utf-8")), key=lambda m: m["data"])
+    n = int(sys.argv[2]) if len(sys.argv) > 2 else len(mats)
+    intervalo = int(sys.argv[3]) if len(sys.argv) > 3 else 30
+    marca = api("sendMessage", {"chat_id": rascunho, "text": "…", "disable_notification": "true"})
+    m_id = marca.get("result", {}).get("message_id", 0)
+    api("deleteMessage", {"chat_id": rascunho, "message_id": m_id})
+    ids = list(range(m_id - n, m_id))
+    itens = [{"msg": i, "slug": m["slug"]} for i, m in zip(ids, mats[-n:])]
+    gravar_fila({"itens": itens, "intervalo_min": intervalo, "proximo": agora.isoformat(timespec="seconds")})
+    for it in itens:
+        print("Na fila:", it["msg"], it["slug"][:60])
+    sys.exit(0)
+
 oficial = api("getChat", {"chat_id": canal}).get("result", {})
+
+
+def postar(mid, links):
+    """Copia a prévia para o canal oficial e marca a prévia como postada. Devolve o link ou None."""
+    api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": mid})
+    c = api("copyMessage", {"chat_id": canal, "from_chat_id": rascunho, "message_id": mid,
+                            **({"reply_markup": json.dumps({"inline_keyboard": links})} if links else {})})
+    if not c.get("ok"):
+        print("Falhou ao copiar:", mid, c.get("description"))
+        return None
+    novo = c["result"]["message_id"]
+    un = oficial.get("username")
+    link = f"https://t.me/{un}/{novo}" if un else f"https://t.me/c/{str(oficial.get('id', ''))[4:]}/{novo}"
+    api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": mid,
+                                   "reply_markup": json.dumps({"inline_keyboard": links + [[{"text": "✅ Postado no canal — ver", "url": link}]]})})
+    return link
+
+
+fila = ler_fila()
+tratados = set()
 r = api("getUpdates", {"allowed_updates": TIPOS, "timeout": 0})
 ultimo = None
 for u in r.get("result", []):
@@ -82,31 +134,43 @@ for u in r.get("result", []):
     for linha in links:  # usa sempre o texto atual do botão, mesmo em prévias antigas
         for b in linha:
             if "COMPLETO" in b["text"] or b["text"].startswith("🚨"):
-                b["text"] = "👉🏻Clique para ver COMPLETO 🚨"
+                b["text"] = BOTAO
     if acao == "ok":
-        # tira os botões antes de copiar, para o post oficial sair limpo
-        api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"]})
-        c = api("copyMessage", {"chat_id": canal, "from_chat_id": rascunho, "message_id": msg["message_id"],
-                                **({"reply_markup": json.dumps({"inline_keyboard": links})} if links else {})})
-        if c.get("ok"):
-            mid = c["result"]["message_id"]
-            un = oficial.get("username")
-            link = f"https://t.me/{un}/{mid}" if un else f"https://t.me/c/{str(oficial.get('id', ''))[4:]}/{mid}"
-            api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"],
-                                           "reply_markup": json.dumps({"inline_keyboard": links + [[{"text": "✅ Postado no canal — ver", "url": link}]]})})
+        link = postar(msg["message_id"], links)
+        tratados.add(msg["message_id"])
+        if link:
             api("answerCallbackQuery", {"callback_query_id": q["id"], "text": "Postado no canal!"})
             print("Aprovado:", msg["message_id"], "->", link)
         else:
             api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"], "reply_markup": json.dumps(
                 {"inline_keyboard": links + [[{"text": "⚠️ Falhou — tocar para tentar de novo", "callback_data": "ok"}]]})})
-            print("Falhou ao copiar:", c.get("description"))
     elif acao == "no":
         api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"], "reply_markup": json.dumps(
             {"inline_keyboard": links + [[{"text": "❌ Descartado (tocar para aprovar mesmo assim)", "callback_data": "ok"}]]})})
         api("answerCallbackQuery", {"callback_query_id": q["id"], "text": "Descartado."})
+        tratados.add(msg["message_id"])
         print("Descartado:", msg["message_id"])
     else:
         api("answerCallbackQuery", {"callback_query_id": q["id"]})
 if ultimo is not None:
     api("getUpdates", {"offset": ultimo + 1, "timeout": 0})  # confirma o que já foi tratado
 print("Botões tratados." if ultimo is not None else "Nenhum botão tocado.")
+
+# fila: solta uma prévia por vez no canal oficial, no intervalo combinado
+if fila["itens"]:
+    antes = len(fila["itens"])
+    fila["itens"] = [it for it in fila["itens"] if it["msg"] not in tratados]  # aprovadas/descartadas à mão saem da fila
+    hora = _dt.datetime.fromisoformat(fila["proximo"]) if fila.get("proximo") else agora
+    if agora >= hora - _dt.timedelta(minutes=2):
+        it = fila["itens"].pop(0)
+        try:
+            urls = json.loads((RAIZ / "publico/push-urls.json").read_text(encoding="utf-8"))
+        except FileNotFoundError:
+            urls = {}
+        url = (urls.get(it["slug"]) or {}).get("pt") or f"https://alohanoticias.com/materia-{it['slug']}.html"
+        link = postar(it["msg"], [[{"text": BOTAO, "url": url}]])
+        print("Fila: postado", it["slug"][:60], "->", link)
+        fila["proximo"] = (agora + _dt.timedelta(minutes=fila.get("intervalo_min", 30))).isoformat(timespec="seconds")
+    if fila["itens"] or antes:
+        print(f"Fila: faltam {len(fila['itens'])}; próximo às {fila.get('proximo')}")
+        gravar_fila(fila)

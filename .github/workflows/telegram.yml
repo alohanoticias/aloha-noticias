@@ -7,7 +7,7 @@ on:
         required: false
         default: ""
 permissions:
-  contents: read
+  contents: write
 jobs:
   telegram:
     runs-on: ubuntu-latest
@@ -32,6 +32,10 @@ jobs:
             python3 site/telegram_aprovar.py descobrir
           elif [ "$SLUGS" = "limpar" ]; then
             python3 site/telegram_aprovar.py limpar
+          elif [ "${SLUGS%% *}" = "fila" ]; then
+            python3 site/telegram_aprovar.py $SLUGS
+            git config user.name "aloha-bot" && git config user.email "contato@alohanoticias.com"
+            git add site/conteudo/telegram_fila.json && git commit -qm "Telegram: fila de posts" && git push -q
           elif [ "$SLUGS" = "botoes" ]; then
             python3 site/telegram_aprovar.py
           elif [ "$SLUGS" = "todas" ]; then
