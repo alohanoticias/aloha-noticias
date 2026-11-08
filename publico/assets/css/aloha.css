@@ -483,3 +483,8 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 :root[data-theme="dark"] .sino-painel header { background: #141414; color: #fff; border-bottom-color: #fff; }
 .sino-ativar { margin: 0; padding: 10px 14px; border: 0; border-top: 1px solid var(--linha); background: var(--superficie); color: var(--tinta); font: 600 13px var(--f-marca); cursor: pointer; text-align: center; }
 .sino-ativar:disabled { cursor: default; color: var(--mare); font-weight: 500; }
+
+/* Rodapé: redes sociais oficiais */
+.redes-site a { display: inline-flex; align-items: center; gap: 8px; }
+.redes-site svg { flex: none; }
+.rodape .redes-titulo { margin-top: 20px; }

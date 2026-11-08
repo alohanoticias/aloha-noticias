@@ -16,7 +16,14 @@ RAIZ = Path(__file__).parent
 SAIDA = RAIZ.parent / "publico"
 SITE = "ALOHA NOTÍCIAS"
 # Endereços dos perfis oficiais (Instagram, YouTube, X, TikTok, etc.). Preencha quando existirem: o Google usa para ligar os perfis à marca.
-PERFIS = []
+# Redes sociais oficiais do site (a primeira aparece primeiro no rodapé). Para adicionar outra, inclua aqui.
+ICONE_TELEGRAM = ('<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
+                  'd="M21.9 4.3 18.6 19.8c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.2-8.3c.4-.4-.1-.6-.6-.2'
+                  'L6 13.4 1.1 11.9c-1.1-.3-1.1-1.1.2-1.6L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>')
+REDES_SITE = [("Telegram", "https://t.me/alohanoticias", ICONE_TELEGRAM)]
+SIGA = {"pt": "Siga o Aloha", "en": "Follow Aloha", "es": "Sigue a Aloha", "fr": "Suivez Aloha", "de": "Folge Aloha",
+        "it": "Segui Aloha", "ja": "Aloha をフォロー", "zh": "关注 Aloha", "ar": "تابع Aloha"}
+PERFIS = [u for _, u, _ in REDES_SITE]
 
 editorias = json.loads((RAIZ / "conteudo/editorias.json").read_text(encoding="utf-8"))
 materias = json.loads((RAIZ / "conteudo/materias.json").read_text(encoding="utf-8"))
@@ -287,10 +294,12 @@ def newsletter():
 
 def rodape():
     eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in ed_visiveis())
+    redes_li = "".join(f'<li><a href="{u}" target="_blank" rel="noopener me">{ic}<span>{n}</span></a></li>' for n, u, ic in REDES_SITE)
     return f"""<footer class="rodape">
   <div class="wrap">
     <div><a class="rodape-logo" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
-      <p>{t('Cinema, games e tecnologia explicados com calma, de olho no que importa.')}</p></div>
+      <p>{t('Cinema, games e tecnologia explicados com calma, de olho no que importa.')}</p>
+      <h2 class="redes-titulo">{SIGA.get(LANG, SIGA["pt"])}</h2><ul class="redes-site">{redes_li}</ul></div>
     <div><h2>{t('Editorias')}</h2><ul>{eds}</ul></div>
     <div><h2>{t('Institucional')}</h2><ul>
       <li><a href="sobre.html">{t("Sobre nós")}</a></li>
