@@ -1,0 +1,37 @@
+name: Capas com IA (prévia para aprovar)
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Slugs das capas separados por espaço, ou 'todas'"
+        required: true
+        default: "todas"
+permissions:
+  contents: read
+jobs:
+  ia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y fonts-inter || true
+      - name: Instalar a IA (Real-ESRGAN, só CPU)
+        run: |
+          pip install -q pillow numpy spandrel
+          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+          mkdir -p ia_modelos
+          curl -sSL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
+          curl -sSL -o ia_modelos/RealESRGAN_x4plus_anime_6B.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
+          ls -la ia_modelos
+      - name: Remontar as capas com as fotos aprimoradas
+        env:
+          SLUGS: ${{ github.event.inputs.slugs }}
+        run: |
+          if [ "$SLUGS" = "todas" ]; then SLUGS=$(ls site/capas_fotos | sed 's/\.json$//'); fi
+          python3 site/capa_ia.py $SLUGS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capas-ia
+          path: ia_saida/
+          retention-days: 7
