@@ -64,6 +64,25 @@ if limpar:
     print(f"Canal de rascunho limpo: {apagadas} mensagens apagadas.")
     sys.exit(0)
 
+if sys.argv[1:] == ["limpar"]:
+    # apaga todas as prévias do canal de rascunho (o Telegram não deixa listar, então vai por número de mensagem)
+    t = api("sendMessage", {"chat_id": rascunho, "text": "limpando…", "disable_notification": "true"})
+    ultimo_id = t.get("result", {}).get("message_id", 0)
+    ids = list(range(1, ultimo_id + 1))
+    apagou = True
+    for i in range(0, len(ids), 100):
+        r = api("deleteMessages", {"chat_id": rascunho, "message_ids": json.dumps(ids[i:i + 100])})
+        apagou = apagou and r.get("ok", False)
+        if not r.get("ok"):
+            print("Sem permissão para apagar:", r.get("description"))
+    if not apagou:  # sem permissão de apagar: marca como descartadas
+        for m in ids[:-1]:
+            api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": m, "reply_markup": json.dumps(
+                {"inline_keyboard": [[{"text": "❌ Descartado", "callback_data": "x"}]]})})
+        api("deleteMessage", {"chat_id": rascunho, "message_id": ultimo_id})
+    print("Rascunhos", "apagados" if apagou else "marcados como descartados", f"(até a mensagem {ultimo_id}).")
+    sys.exit(0)
+
 oficial = api("getChat", {"chat_id": canal}).get("result", {})
 r = api("getUpdates", {"allowed_updates": TIPOS, "timeout": 0})
 ultimo = None
