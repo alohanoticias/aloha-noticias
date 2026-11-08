@@ -17,7 +17,7 @@ SAIDA = RAIZ / "ia_saida"
 CAPAS = RAIZ / "site/assets/img/capas"
 MODELOS = {"foto": RAIZ / "ia_modelos/RealESRGAN_x4plus.pth",
            "anime": RAIZ / "ia_modelos/RealESRGAN_x4plus_anime_6B.pth"}
-LIMITE = 1100  # só fotos pequenas (lado maior abaixo disso) passam pela IA
+BASE = 960  # fotos maiores são reduzidas a este lado antes da IA: o detalhe real cabe aí, e a IA reconstrói em 4x
 
 if sys.argv[1:2] == ["--aplicar"]:
     for slug in sys.argv[2:]:
@@ -61,10 +61,12 @@ tipo_atual = "foto"
 
 def baixar_ia(url):
     img = baixar_original(url)
-    if max(img.size) < LIMITE:
-        print(f"   IA ({tipo_atual}) em foto {img.size[0]}x{img.size[1]}", flush=True)
-        img = ampliar(img, tipo_atual)
-    return img
+    w, h = img.size
+    if max(w, h) > BASE:
+        e = BASE / max(w, h)
+        img = img.resize((round(w * e), round(h * e)), Image.LANCZOS)
+    print(f"   IA ({tipo_atual}) em foto {w}x{h} (entrada {img.size[0]}x{img.size[1]})", flush=True)
+    return ampliar(img, tipo_atual)
 
 
 mc.baixar = baixar_ia
@@ -87,11 +89,13 @@ def comparar(antes, depois, destino):
     tela.save(destino, quality=90)
 
 
+EDITORIAS = {m["slug"]: m.get("editoria") for m in json.loads((RAIZ / "site/conteudo/materias.json").read_text(encoding="utf-8"))}
 SAIDA.mkdir(exist_ok=True)
 falhou = False
 for slug in sys.argv[1:]:
     spec = json.loads((RAIZ / f"site/capas_fotos/{slug}.json").read_text(encoding="utf-8"))
-    tipo_atual = "anime" if spec.get("editoria") == "anime" or spec.get("ia") == "anime" else "foto"
+    ed = spec.get("editoria") or EDITORIAS.get(slug)
+    tipo_atual = "anime" if ed == "anime" or spec.get("ia") == "anime" else "foto"
     print("Capa:", slug, flush=True)
     try:
         nova = mc.montar(spec)

@@ -7,7 +7,7 @@ on:
         required: true
         default: "todas"
 permissions:
-  contents: read
+  contents: write
 jobs:
   lista:
     runs-on: ubuntu-latest
@@ -35,8 +35,8 @@ jobs:
       - run: sudo apt-get install -y fonts-inter >/dev/null || true
       - name: Instalar a IA (Real-ESRGAN, só CPU)
         run: |
-          pip install -q pillow numpy spandrel
-          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -q --no-cache-dir pillow numpy spandrel
+          pip install -q --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
           mkdir -p ia_modelos
           curl -sSL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
           curl -sSL -o ia_modelos/RealESRGAN_x4plus_anime_6B.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
@@ -49,3 +49,21 @@ jobs:
           path: ia_saida/
           retention-days: 7
           if-no-files-found: ignore
+  juntar:
+    needs: ia
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: todas
+          merge-multiple: true
+      - name: Guardar a prévia no ramo ia-previa (o site não muda)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd todas && ls
+          git init -q && git checkout -q -b ia-previa
+          git config user.name "aloha-bot" && git config user.email "contato@alohanoticias.com"
+          git add -A && git commit -qm "Prévia das capas com IA"
+          git push -f -q "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" ia-previa
