@@ -1,10 +1,6 @@
 {
  "itens": [
   {
-   "msg": 111,
-   "slug": "steam-machine-a-partir-de-us-1-049-o-que-a-valve-confirmou-e-o-que-ainda-e-duvida"
-  },
-  {
    "msg": 112,
    "slug": "black-clover-esta-de-volta-apos-5-anos-calendario-da-2-temporada-e-a-dublagem"
   },
@@ -18,5 +14,5 @@
   }
  ],
  "intervalo_min": 30,
- "proximo": "2026-11-08T23:19:55+00:00"
+ "proximo": "2026-11-08T23:50:46+00:00"
 }
