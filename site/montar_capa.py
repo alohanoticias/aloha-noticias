@@ -90,15 +90,32 @@ def resolver(url):
     return url
 
 
+def sem_transparencia(img):
+    """Foto recortada (PNG com fundo transparente): coloca sobre um fundo de estúdio claro, em degradê,
+    em vez de deixar a transparência virar preto."""
+    if img.mode in ("RGBA", "LA") or (img.mode == "P" and "transparency" in img.info):
+        img = img.convert("RGBA")
+        if img.getchannel("A").getextrema()[0] < 255:
+            w, h = img.size
+            topo, base = (238, 240, 243), (196, 202, 210)
+            faixa = Image.new("RGB", (1, 256))
+            for y in range(256):
+                faixa.putpixel((0, y), tuple(round(topo[i] + (base[i] - topo[i]) * y / 255) for i in range(3)))
+            fundo = faixa.resize((w, h), Image.BILINEAR)
+            fundo.paste(img, (0, 0), img)
+            return fundo
+    return img.convert("RGB")
+
+
 def baixar(url):
     url = resolver(url)
     if url.startswith("/"):
-        return Image.open(url).convert("RGB")
+        return sem_transparencia(Image.open(url))
     req = urllib.request.Request(url, headers=UA)
     for tentativa in range(5):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
-                return Image.open(io.BytesIO(r.read())).convert("RGB")
+                return sem_transparencia(Image.open(io.BytesIO(r.read())))
         except urllib.error.HTTPError as e:
             if e.code not in (429, 500, 502, 503, 504, 520, 522, 524) or tentativa == 4:
                 raise
