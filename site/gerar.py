@@ -667,13 +667,16 @@ def gerar_links_admin(lista):
 
 def gerar_parceiros_admin(lista):
     """Admin > Parceiros: gera o link de um artigo com o nome do parceiro no final (para medir quem ele trouxe)."""
-    opcoes = "".join(f'<option value="https://alohanoticias.com/{url_materia(m)[:-5]}">{esc(m["titulo"])}</option>' for m in lista)
+    opcoes = "".join(f'<option value="{esc(m["slug"])}">{esc(m["titulo"])}</option>' for m in lista)
+    idiomas = "".join(f'<option value="{c}">{i18n.NOMES_IDIOMA[c]}</option>' for c in i18n.IDIOMAS_REAIS)
     corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: links de parceiros</h1>
-<p>Escolha o artigo, escreva o nome do parceiro e copie o link. Quem entrar por esse link aparece no Analytics como vindo do parceiro.</p>
+<p>Escolha o artigo, o idioma, o nome do parceiro e a rede, e copie o link. Quem entrar por esse link aparece no Analytics como vindo do parceiro.</p>
 <p><a href="admin/">Voltar aos rascunhos</a></p></div></div>
 <div class="wrap editoria-corpo parceiros" style="max-width:820px">
 <label for="p-artigo"><strong>Artigo</strong></label>
-<select id="p-artigo"><option value="https://alohanoticias.com/">Página inicial do site</option>{opcoes}</select>
+<select id="p-artigo"><option value="">Página inicial do site</option>{opcoes}</select>
+<label for="p-idioma"><strong>Idioma em que o artigo será divulgado</strong></label>
+<select id="p-idioma">{idiomas}</select>
 <label for="p-nome"><strong>Nome do parceiro</strong></label>
 <input id="p-nome" list="p-salvos" placeholder="ex.: Joao" autocomplete="off">
 <datalist id="p-salvos"></datalist>

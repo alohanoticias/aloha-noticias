@@ -1,6 +1,6 @@
 /* Admin > Parceiros: monta o link do artigo com o nome do parceiro no final e lembra os parceiros já usados. */
 (function () {
-  var artigo = document.getElementById("p-artigo"), nome = document.getElementById("p-nome"),
+  var artigo = document.getElementById("p-artigo"), idioma = document.getElementById("p-idioma"), nome = document.getElementById("p-nome"),
       link = document.getElementById("p-link"), rede = document.getElementById("p-rede"), codigo = document.getElementById("p-codigo"),
       copiar = document.getElementById("p-copiar"), salvos = document.getElementById("p-salvos");
   if (!artigo || !nome) return;
@@ -15,12 +15,27 @@
     return n.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
       .replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 20).replace(/_+$/, "");
   }
+  // endereço do artigo em cada idioma (o mesmo arquivo que o site já publica)
+  var urls = null, aviso = "";
+  fetch("/push-urls.json", { cache: "no-store" }).then(function (r) { return r.json(); })
+    .then(function (d) { urls = d; atualizar(); }, function () { urls = {}; atualizar(); });
+  function enderecoBase() {
+    var l = idioma.value, raiz = "https://alohanoticias.com/";
+    aviso = "";
+    if (!artigo.value) return l === "pt" ? raiz : raiz + l + "/";
+    var u = urls && urls[artigo.value] && (urls[artigo.value][l] || urls[artigo.value].pt);
+    if (urls && urls[artigo.value] && !urls[artigo.value][l]) aviso = " (este artigo ainda não tem versão nesse idioma: usei o português)";
+    return u ? u.replace(/\.html$/, "") : "";
+  }
   function atualizar() {
     var c = codigoDe(nome.value);
+    if (artigo.value && !urls) { link.value = ""; codigo.textContent = "Carregando endereços…"; return; }
     if (!c) { link.value = ""; codigo.textContent = ""; return; }
     if (!rede.value) { link.value = ""; codigo.textContent = "Escolha onde o parceiro vai divulgar."; return; }
-    link.value = artigo.value + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro";
-    codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value;
+    var base = enderecoBase();
+    if (!base) { link.value = ""; codigo.textContent = "Não achei o endereço deste artigo."; return; }
+    link.value = base + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro";
+    codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value + aviso;
   }
   copiar.addEventListener("click", function () {
     if (!link.value) { (nome.value ? rede : nome).focus(); return; }
@@ -31,6 +46,7 @@
     else { link.select(); document.execCommand("copy"); ok(); }
   });
   artigo.addEventListener("change", atualizar);
+  idioma.addEventListener("change", atualizar);
   nome.addEventListener("input", atualizar);
   rede.addEventListener("change", atualizar);
   mostrarSalvos();
