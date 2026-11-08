@@ -81,8 +81,8 @@ for u in r.get("result", []):
     links = [l for l in links if l and not l[0]["text"].startswith("✅ Postado")]
     for linha in links:  # usa sempre o texto atual do botão, mesmo em prévias antigas
         for b in linha:
-            if b["text"].startswith("🚨"):
-                b["text"] = "🚨Clique para ver COMPLETO 🚨"
+            if "COMPLETO" in b["text"] or b["text"].startswith("🚨"):
+                b["text"] = "👉🏻Clique para ver COMPLETO 🚨"
     if acao == "ok":
         # tira os botões antes de copiar, para o post oficial sair limpo
         api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"]})

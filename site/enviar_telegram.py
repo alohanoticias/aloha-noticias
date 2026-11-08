@@ -74,7 +74,7 @@ for i, slug in enumerate(slugs):
     if img and not img.startswith("http"):
         img = "https://alohanoticias.com/" + img.lstrip("/")
     r = {}
-    teclado = [[{"text": "🚨Clique para ver COMPLETO 🚨", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
+    teclado = [[{"text": "👉🏻Clique para ver COMPLETO 🚨", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
     extra = {"reply_markup": json.dumps({"inline_keyboard": teclado})}
     if img:
         r = api("sendPhoto", {"chat_id": destino, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
