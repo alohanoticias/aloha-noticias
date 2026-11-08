@@ -47,11 +47,16 @@ except FileNotFoundError:
 def api(metodo, dados):
     req = urllib.request.Request(f"https://api.telegram.org/bot{token}/{metodo}",
                                  data=urllib.parse.urlencode(dados).encode())
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return json.loads(r.read())
-    except urllib.error.HTTPError as e:
-        return json.loads(e.read() or b"{}")
+    for tentativa in range(4):  # a conexão com o Telegram às vezes cai: tenta de novo
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            return json.loads(e.read() or b"{}")
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            print("Conexão falhou, tentando de novo:", e)
+            time.sleep(5 * (tentativa + 1))
+    return {}
 
 
 def hashtag(nome):
