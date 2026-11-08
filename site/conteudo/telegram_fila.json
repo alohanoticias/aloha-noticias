@@ -1,10 +1,6 @@
 {
  "itens": [
   {
-   "msg": 68,
-   "slug": "gta-6-tudo-o-que-se-sabe-antes-do-lancamento"
-  },
-  {
    "msg": 69,
    "slug": "ocarina-of-time-remake-chega-ao-switch-2-o-que-muda-e-o-que-esperar"
   },
@@ -58,5 +54,5 @@
   }
  ],
  "intervalo_min": 30,
- "proximo": "2026-11-08T16:20:19+00:00"
+ "proximo": "2026-11-08T16:50:48+00:00"
 }
