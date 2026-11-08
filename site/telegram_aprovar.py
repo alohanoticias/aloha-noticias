@@ -79,7 +79,11 @@ UTM = "?utm_source=telegram&utm_medium=social&utm_campaign=canal_aloha"  # etiqu
 
 
 def com_utm(url):
-    return url if "utm_source=" in url else url.split("?")[0] + UTM
+    # endereço final (sem ".html": a Cloudflare redireciona e o salto pode perder a etiqueta) + etiqueta
+    base = url.split("?")[0]
+    if base.endswith(".html"):
+        base = base[:-5]
+    return base + UTM
 import datetime as _dt
 agora = _dt.datetime.now(_dt.timezone.utc)
 

@@ -64,6 +64,8 @@ for i, slug in enumerate(slugs):
     if not m:
         print("Não achei a matéria:", slug); falhas += 1; continue
     link = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
+    if link.endswith(".html"):
+        link = link[:-5]  # endereço final: a Cloudflare redireciona ".html" e o salto pode perder a etiqueta
     link += UTM  # etiqueta para medir os cliques vindos do Telegram
     titulo = html.escape(m["titulo"])
     resumo = html.escape(m.get("linha_fina", "").strip())
