@@ -58,9 +58,10 @@ if limpar:
         ids = list(range(ini, min(ini + 100, ate + 1)))
         r = api("deleteMessages", {"chat_id": rascunho, "message_ids": json.dumps(ids)})
         apagadas += len(ids) if r.get("ok") else 0
-        if not r.get("ok"):
-            print("Falhou:", r.get("description"))
-    print(f"Canal de rascunho limpo (até a mensagem {ate}).")
+        if not r.get("ok"):  # alguma não pode ser apagada (ex.: aviso de criação do canal): vai uma por uma
+            for i in ids:
+                apagadas += 1 if api("deleteMessage", {"chat_id": rascunho, "message_id": i}).get("ok") else 0
+    print(f"Canal de rascunho limpo: {apagadas} mensagens apagadas.")
     sys.exit(0)
 
 oficial = api("getChat", {"chat_id": canal}).get("result", {})
