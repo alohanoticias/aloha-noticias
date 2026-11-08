@@ -157,7 +157,7 @@ PAG["privacidade.html"] = ("Confidentialité", "Politique de confidentialité d'
 <p>Dernière mise à jour : novembre 2026. Nous respectons la loi brésilienne générale sur la protection des données (LGPD, loi 13.709/2018). Voici, simplement, ce qu'il advient de vos données lorsque vous visitez ce site.</p>
 <h2>Ce que nous collectons</h2>
 <p>Nous ne demandons pas d'inscription et n'utilisons pas de cookies publicitaires ni de suivi. Nous enregistrons uniquement, dans votre propre navigateur, votre préférence de thème clair ou sombre.</p>
-<p>Nous mesurons les visites avec un service de statistiques qui n'utilise pas de cookies et ne vous identifie pas personnellement (Cloudflare Web Analytics). Ce que nous voyons est agrégé, comme les pages les plus lues, le pays et le type d'appareil.</p>
+<p>Nous mesurons les visites avec Google Analytics, qui utilise des cookies de mesure d’audience pour compter les visites, les pages lues et la provenance des visiteurs (par exemple une recherche ou notre chaîne Telegram). Nous n’utilisons pas ces données pour vous identifier personnellement. Vous pouvez refuser dans l’avis sur les cookies ou via « Préférences de cookies » en bas de page ; les visiteurs de l’Union européenne, du Royaume-Uni et de la Suisse ne sont mesurés qu’après avoir accepté.</p>
 <h2>Services tiers</h2>
 <p>Les polices proviennent de Google Fonts. Les photos peuvent provenir d'Unsplash et les vidéos sont intégrées depuis YouTube en mode de confidentialité renforcée (youtube-nocookie.com). Lorsque ces éléments se chargent, ces services reçoivent votre adresse IP et peuvent avoir leurs propres règles de confidentialité. Le site est hébergé par Cloudflare.</p>
 @@ANUNCIOS@@<h2>E-mail de contact</h2>

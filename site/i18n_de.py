@@ -157,7 +157,7 @@ PAG["privacidade.html"] = ("Datenschutz", "Datenschutzerklärung von ALOHA NOTÍ
 <p>Zuletzt aktualisiert: November 2026. Wir halten uns an das brasilianische Datenschutzgesetz (LGPD, Gesetz 13.709/2018). Hier steht in einfachen Worten, was mit Ihren Daten geschieht, wenn Sie diese Seite besuchen.</p>
 <h2>Was wir erheben</h2>
 <p>Wir verlangen keine Registrierung und verwenden keine Werbe- oder Tracking-Cookies. Wir speichern nur in Ihrem eigenen Browser Ihre Einstellung für das helle oder dunkle Design.</p>
-<p>Besuche zählen wir mit einem Statistikdienst, der keine Cookies verwendet und Sie nicht persönlich identifiziert (Cloudflare Web Analytics). Was wir sehen, ist aggregiert, etwa meistgelesene Seiten, Land und Gerätetyp.</p>
+<p>Wir messen Besuche mit Google Analytics. Dafür werden Statistik-Cookies genutzt, um Besuche, gelesene Seiten und die Herkunft der Besuche zu zählen (zum Beispiel eine Suche oder unser Telegram-Kanal). Wir nutzen diese Daten nicht, um Sie persönlich zu identifizieren. Sie können im Cookie-Hinweis oder unter „Cookie-Einstellungen“ in der Fußzeile ablehnen; Besucher aus der EU, dem Vereinigten Königreich und der Schweiz werden erst nach ihrer Zustimmung gemessen.</p>
 <h2>Dienste Dritter</h2>
 <p>Schriften stammen von Google Fonts. Fotos können von Unsplash stammen, und Videos werden von YouTube im erweiterten Datenschutzmodus (youtube-nocookie.com) eingebettet. Beim Laden dieser Elemente erhalten diese Dienste Ihre IP-Adresse und haben möglicherweise eigene Datenschutzregeln. Die Seite wird von Cloudflare gehostet.</p>
 @@ANUNCIOS@@<h2>Kontakt-E-Mail</h2>

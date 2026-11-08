@@ -331,7 +331,7 @@ PAGINAS["en"]["privacidade.html"] = ("Privacy", "Privacy policy of ALOHA NOTÍCI
 <p>Last updated: November 2026. We follow Brazil's General Data Protection Law (LGPD, Law 13,709/2018). Here is, plainly, what happens to your data when you visit this site.</p>
 <h2>What we collect</h2>
 <p>We do not ask you to sign up and we do not use advertising or tracking cookies. We only store, in your own browser, your light or dark theme preference.</p>
-<p>We count visits with a statistics service that does not use cookies and does not identify you personally (Cloudflare Web Analytics). What we see is aggregated, such as most-read pages, country and device type.</p>
+<p>We measure visits with Google Analytics, which uses statistics cookies to count visits, pages read and where visits come from (for example, a search or our Telegram channel). We do not use this data to identify you personally. You can decline in the cookie notice or under “Cookie preferences” in the footer; visitors from the European Union, the UK and Switzerland are only measured after they accept.</p>
 <h2>Third-party services</h2>
 <p>Fonts come from Google Fonts. Photos may come from Unsplash, and videos are embedded from YouTube in enhanced privacy mode (youtube-nocookie.com). When these items load, those services receive your IP address and may have their own privacy rules. The site is hosted by Cloudflare.</p>
 @@ANUNCIOS@@<h2>Contact email</h2>
@@ -345,7 +345,7 @@ PAGINAS["es"]["privacidade.html"] = ("Privacidad", "Política de privacidad de A
 <p>Última actualización: noviembre de 2026. Cumplimos la Ley General de Protección de Datos de Brasil (LGPD, Ley 13.709/2018). Aquí está, de forma directa, lo que pasa con tus datos cuando visitas este sitio.</p>
 <h2>Qué recopilamos</h2>
 <p>No pedimos registro y no usamos cookies de publicidad ni de rastreo. Solo guardamos, en tu propio navegador, tu preferencia de tema claro u oscuro.</p>
-<p>Medimos las visitas con un servicio de estadísticas que no usa cookies y no te identifica personalmente (Cloudflare Web Analytics). Lo que vemos es agregado, como las páginas más leídas, el país y el tipo de dispositivo.</p>
+<p>Medimos las visitas con Google Analytics, que usa cookies de estadística para contar accesos, páginas leídas y de dónde llegan las visitas (por ejemplo, de una búsqueda o de nuestro canal de Telegram). No usamos estos datos para identificarte personalmente. Puedes rechazarlas en el aviso de cookies o en “Preferencias de cookies”, en el pie de página; a los visitantes de la Unión Europea, el Reino Unido y Suiza solo los medimos después de que acepten.</p>
 <h2>Servicios de terceros</h2>
 <p>Las fuentes tipográficas vienen de Google Fonts. Las fotos pueden venir de Unsplash y los videos se incrustan desde YouTube en modo de privacidad mejorada (youtube-nocookie.com). Al cargar esos contenidos, esos servicios reciben tu dirección IP y pueden tener sus propias reglas de privacidad. El sitio está alojado en Cloudflare.</p>
 @@ANUNCIOS@@<h2>Correo de contacto</h2>

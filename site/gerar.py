@@ -324,17 +324,17 @@ def og_da_capa(m):
 
 CONSENT_TXT = {"pt": "Usamos cookies para exibir anúncios e manter o site gratuito. Você escolhe: sem aceitar, não carregamos anúncios.", **i18n.CONSENT}
 SABER_MAIS = {"pt": "Saiba mais", **i18n.SABER}
-# Enquanto os anúncios não estão ligados, o aviso fala só do que o site já guarda no navegador.
+# Enquanto os anúncios não estão ligados, o aviso fala das estatísticas (Google Analytics).
 CONSENT_TXT_SEM_ADS = {
-    "pt": "Guardamos só suas preferências, como o tema, no navegador. Sem rastreamento.",
-    "en": "We only store your preferences, like the theme, in your browser. No tracking.",
-    "es": "Solo guardamos tus preferencias, como el tema, en tu navegador. Sin rastreo.",
-    "fr": "Nous ne conservons que vos préférences, comme le thème, dans votre navigateur. Aucun suivi.",
-    "de": "Wir speichern nur Ihre Einstellungen, etwa das Design, in Ihrem Browser. Kein Tracking.",
-    "it": "Salviamo nel browser solo le tue preferenze, come il tema. Nessun tracciamento.",
-    "ja": "ブラウザにはテーマなどの設定のみを保存します。追跡はしません。",
-    "zh": "我们只在浏览器中保存主题等偏好设置，不做跟踪。",
-    "ar": "نحفظ في متصفحك تفضيلاتك فقط، مثل المظهر. دون أي تتبع.",
+    "pt": "Usamos cookies de estatística (Google Analytics) para saber quais páginas são lidas e de onde vêm as visitas. Você pode recusar.",
+    "en": "We use statistics cookies (Google Analytics) to see which pages are read and where visits come from. You can decline.",
+    "es": "Usamos cookies de estadística (Google Analytics) para saber qué páginas se leen y de dónde llegan las visitas. Puedes rechazarlas.",
+    "fr": "Nous utilisons des cookies de mesure d’audience (Google Analytics) pour savoir quelles pages sont lues et d’où viennent les visites. Vous pouvez refuser.",
+    "de": "Wir nutzen Statistik-Cookies (Google Analytics), um zu sehen, welche Seiten gelesen werden und woher Besuche kommen. Sie können ablehnen.",
+    "it": "Usiamo cookie statistici (Google Analytics) per sapere quali pagine vengono lette e da dove arrivano le visite. Puoi rifiutarli.",
+    "ja": "どのページが読まれ、どこから訪問があったかを知るため、統計用クッキー（Google アナリティクス）を使用しています。拒否することもできます。",
+    "zh": "我们使用统计 Cookie（Google Analytics）来了解哪些页面被阅读以及访问来自哪里。您可以拒绝。",
+    "ar": "نستخدم ملفات تعريف ارتباط إحصائية (Google Analytics) لمعرفة الصفحات المقروءة ومن أين تأتي الزيارات. يمكنك الرفض.",
 }
 PREFS_COOKIES = {"pt": "Preferências de cookies", "en": "Cookie preferences", "es": "Preferencias de cookies", "fr": "Préférences de cookies", "de": "Cookie-Einstellungen", "it": "Preferenze cookie", "ja": "クッキーの設定", "zh": "Cookie 偏好设置", "ar": "تفضيلات ملفات تعريف الارتباط"}
 
@@ -878,7 +878,7 @@ def montar_arquivos():
 <p>Última atualização: novembro de 2026. Respeitamos a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018). Aqui está, de forma direta, o que acontece com os seus dados quando você visita este site.</p>
 <h2>O que coletamos</h2>
 <p>Não pedimos cadastro e não usamos cookies de publicidade ou de rastreamento. Guardamos no seu próprio navegador apenas a sua preferência de tema claro ou escuro.</p>
-<p>Medimos o número de acessos com um serviço de estatísticas que não usa cookies e não identifica você pessoalmente (Cloudflare Web Analytics). Os dados vistos por nós são agregados, como páginas mais lidas, país e tipo de aparelho.</p>
+<p>Medimos as visitas com o Google Analytics, que usa cookies de estatística para contar acessos, páginas lidas e de onde as visitas chegam (por exemplo, de uma busca ou do nosso canal no Telegram). Não usamos esses dados para identificar você pessoalmente. Você pode recusar no aviso de cookies ou em “Preferências de cookies”, no rodapé; visitantes da União Europeia, do Reino Unido e da Suíça só são medidos depois de aceitar.</p>
 <h2>Serviços de terceiros</h2>
 <p>As fontes de letra vêm do Google Fonts. Fotos podem vir do Unsplash e vídeos são incorporados do YouTube, em modo de privacidade aprimorada (youtube-nocookie.com). Ao carregar esses conteúdos, esses serviços recebem o seu endereço de IP e podem ter regras próprias de privacidade. O site é hospedado pela Cloudflare.</p>
 """ + (PRIV_ANUNCIOS if ANUNCIOS_ATIVOS else "") + """<h2>E-mail de contato</h2>

@@ -157,7 +157,7 @@ PAG["privacidade.html"] = ("Privacy", "Informativa sulla privacy di ALOHA NOTÍC
 <p>Ultimo aggiornamento: novembre 2026. Rispettiamo la legge brasiliana sulla protezione dei dati (LGPD, legge 13.709/2018). Ecco, in parole semplici, cosa succede ai tuoi dati quando visiti questo sito.</p>
 <h2>Cosa raccogliamo</h2>
 <p>Non chiediamo registrazione e non usiamo cookie pubblicitari né di tracciamento. Salviamo solo, nel tuo browser, la tua preferenza per il tema chiaro o scuro.</p>
-<p>Contiamo le visite con un servizio di statistiche che non usa cookie e non ti identifica personalmente (Cloudflare Web Analytics). Ciò che vediamo è aggregato, come le pagine più lette, il paese e il tipo di dispositivo.</p>
+<p>Misuriamo le visite con Google Analytics, che usa cookie statistici per contare gli accessi, le pagine lette e da dove arrivano le visite (per esempio da una ricerca o dal nostro canale Telegram). Non usiamo questi dati per identificarti personalmente. Puoi rifiutare nell’avviso sui cookie o in “Preferenze cookie” a piè di pagina; i visitatori dell’Unione europea, del Regno Unito e della Svizzera vengono misurati solo dopo aver accettato.</p>
 <h2>Servizi di terzi</h2>
 <p>I caratteri provengono da Google Fonts. Le foto possono provenire da Unsplash e i video sono incorporati da YouTube in modalità di privacy avanzata (youtube-nocookie.com). Quando questi elementi vengono caricati, i relativi servizi ricevono il tuo indirizzo IP e possono avere proprie regole sulla privacy. Il sito è ospitato da Cloudflare.</p>
 @@ANUNCIOS@@<h2>E-mail di contatto</h2>
