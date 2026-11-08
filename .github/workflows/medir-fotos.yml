@@ -1,0 +1,11 @@
+name: Medir fotos das capas
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  medir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q pillow numpy
+      - run: python3 site/medir_fotos.py
