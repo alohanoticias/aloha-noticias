@@ -1,10 +1,6 @@
 {
  "itens": [
   {
-   "msg": 105,
-   "slug": "fsr-4-1-2-chega-ao-xbox-series-x-e-s-o-que-muda-para-quem-joga"
-  },
-  {
    "msg": 106,
    "slug": "por-que-o-cinema-roda-a-24-quadros-por-segundo-som-custo-e-um-acordo"
   },
@@ -38,5 +34,5 @@
   }
  ],
  "intervalo_min": 30,
- "proximo": "2026-11-08T19:44:22+00:00"
+ "proximo": "2026-11-08T20:24:43+00:00"
 }
