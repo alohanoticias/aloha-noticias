@@ -1,0 +1,11 @@
+{
+  "layout": "grade_b",
+  "editoria": "games",
+  "fotos": [
+    {"url": "https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/john-carpenters-toxic-commando/images/08082025_9f958de182ca417aaf92e3858c52138b.png", "foco": [0.5, 0.5], "zoom": 1.0},
+    {"url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669620/c948bd619d3d4b548970a38cff48cccf28cd11b8/ss_c948bd619d3d4b548970a38cff48cccf28cd11b8.1920x1080.jpg", "foco": [0.5, 0.5], "zoom": 1.0},
+    {"url": "https://gameoverdrive.com.br/wp-content/uploads/2026/11/ss_3ce9c87b4cc5b44494f452a7a58c69b29419e1c0.1920x1080.webp", "foco": [0.5, 0.5], "zoom": 1.0}
+  ],
+  "titulo": "Game Pass",
+  "editoria": "games"
+}
