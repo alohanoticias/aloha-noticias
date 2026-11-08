@@ -1,10 +1,6 @@
 {
  "itens": [
   {
-   "msg": 107,
-   "slug": "vingadores-doutor-destino-estreia-17-de-dezembro-o-que-ja-e-oficial"
-  },
-  {
    "msg": 108,
    "slug": "antes-dos-videogames-a-nintendo-fazia-cartas-de-hanafuda-em-kyoto-a-historia-de-1889-ao-famicom"
   },
@@ -34,5 +30,5 @@
   }
  ],
  "intervalo_min": 30,
- "proximo": "2026-11-08T20:53:39+00:00"
+ "proximo": "2026-11-08T21:30:06+00:00"
 }
