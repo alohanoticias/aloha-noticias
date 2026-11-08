@@ -34,8 +34,9 @@
     if (!rede.value) { link.value = ""; codigo.textContent = "Escolha onde o parceiro vai divulgar."; return; }
     var base = enderecoBase();
     if (!base) { link.value = ""; codigo.textContent = "Não achei o endereço deste artigo."; return; }
-    link.value = base + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro";
-    codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value + aviso;
+    // marca as três coisas: parceiro (utm_source), rede (utm_medium) e idioma (utm_content)
+    link.value = base + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro&utm_content=" + idioma.value;
+    codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value + "_" + idioma.value + aviso;
   }
   copiar.addEventListener("click", function () {
     if (!link.value) { (nome.value ? rede : nome).focus(); return; }

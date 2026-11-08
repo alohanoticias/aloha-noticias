@@ -687,8 +687,8 @@ def gerar_parceiros_admin(lista):
 <textarea id="p-link" readonly rows="3" placeholder="Escreva o nome do parceiro para gerar o link"></textarea>
 <p><button class="botao" type="button" id="p-copiar">Copiar link</button></p>
 <h2 style="margin-top:32px">Como ver os resultados</h2>
-<p><strong>Na hora:</strong> Analytics &gt; Visão geral em tempo real &gt; quadro de eventos: aparece <em>parceiro_nome_rede</em> (ex.: parceiro_joao_instagram).</p>
-<p><strong>No dia seguinte:</strong> Aquisição de tráfego (ou Páginas e telas) com <em>Origem/mídia da sessão</em>: cada linha mostra parceiro / rede (ex.: joao / instagram). Para ver só parceiros, filtre <em>Campanha da sessão</em> = <em>parceiro</em>.</p>
+<p><strong>Na hora:</strong> Analytics &gt; Visão geral em tempo real &gt; quadro de eventos: aparece <em>parceiro_nome_rede_idioma</em> (ex.: parceiro_joao_instagram_pt).</p>
+<p><strong>No dia seguinte:</strong> Aquisição de tráfego (ou Páginas e telas) com <em>Origem/mídia da sessão</em>: cada linha mostra parceiro / rede (ex.: joao / instagram). Para ver só parceiros, filtre <em>Campanha da sessão</em> = <em>parceiro</em>; o idioma aparece na coluna <em>Conteúdo manual da sessão</em> (pt, en, es...).</p>
 </div>
 <style>.parceiros label{{display:block;margin:18px 0 6px}}.parceiros select,.parceiros input,.parceiros textarea{{width:100%;padding:10px;font-size:1rem;box-sizing:border-box}}</style>
 <script src="assets/js/parceiros-admin.js"></script>"""

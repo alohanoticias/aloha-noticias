@@ -54,9 +54,11 @@
     var parceiro = campanha === "parceiro" || midia === "parceiro";
     var redeP = campanha === "parceiro" ? midia : conteudo;
     redeP = /^[a-z0-9_]{1,12}$/i.test(redeP || "") ? "_" + redeP.toLowerCase() : "";
-    var nomeEvento = parceiro ? "parceiro_" + fonte.toLowerCase().slice(0, 40 - 9 - redeP.length) + redeP
+    var idiomaP = campanha === "parceiro" && /^[a-z]{2}$/i.test(conteudo || "") ? "_" + conteudo.toLowerCase() : "";
+    var fim = redeP + idiomaP;
+    var nomeEvento = parceiro ? "parceiro_" + fonte.toLowerCase().slice(0, 40 - 9 - fim.length) + fim
                               : "visita_" + fonte.toLowerCase();
-    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha, rede: redeP.slice(1) });
+    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha, rede: redeP.slice(1), idioma: idiomaP.slice(1) });
   }
   var s = document.createElement("script");
   s.async = true;
