@@ -17,7 +17,7 @@ SAIDA = RAIZ / "ia_saida"
 CAPAS = RAIZ / "site/assets/img/capas"
 MODELOS = {"foto": RAIZ / "ia_modelos/RealESRGAN_x4plus.pth",
            "anime": RAIZ / "ia_modelos/RealESRGAN_x4plus_anime_6B.pth"}
-LIMITE = 1600  # fotos com o lado maior abaixo disso passam pela IA
+LIMITE = 1100  # só fotos pequenas (lado maior abaixo disso) passam pela IA
 
 if sys.argv[1:2] == ["--aplicar"]:
     for slug in sys.argv[2:]:
