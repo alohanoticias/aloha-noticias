@@ -72,7 +72,11 @@ for i, slug in enumerate(slugs):
     texto += rodape
     img = (m.get("imagem") or {}).get("url", "")
     if img and not img.startswith("http"):
+        local = RAIZ / "site" / img.lstrip("/")
         img = "https://alohanoticias.com/" + img.lstrip("/")
+        if local.exists():  # versão no link: o Telegram baixa a capa atual, não uma antiga guardada
+            import hashlib
+            img += "?v=" + hashlib.md5(local.read_bytes()).hexdigest()[:8]
     r = {}
     teclado = [[{"text": "👉🏻Clique para ver COMPLETO 🚨", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
     extra = {"reply_markup": json.dumps({"inline_keyboard": teclado})}
