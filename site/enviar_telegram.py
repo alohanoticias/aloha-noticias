@@ -27,6 +27,8 @@ APROVAR = [{"text": "✅ Aprovar", "callback_data": "ok"}, {"text": "❌ Descart
 print("Destino:", "canal de rascunho" if rascunho else "canal oficial")
 
 slugs = sys.argv[1:]
+previa_oficial = "--como-oficial" in slugs  # manda no rascunho exatamente como sairia no canal oficial, sem botões de aprovação
+slugs = [x for x in slugs if x != "--como-oficial"]
 if not slugs:
     arq = RAIZ / "publicados.txt"
     slugs = arq.read_text(encoding="utf-8").split() if arq.exists() else []
@@ -71,7 +73,7 @@ for i, slug in enumerate(slugs):
     if img and not img.startswith("http"):
         img = "https://alohanoticias.com/" + img.lstrip("/")
     r = {}
-    teclado = [[{"text": "👉🏻 Leia no Aloha Notícias", "url": link}]] + ([APROVAR] if rascunho else [])
+    teclado = [[{"text": "👉🏻 Leia no Aloha Notícias", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
     extra = {"reply_markup": json.dumps({"inline_keyboard": teclado})}
     if img:
         r = api("sendPhoto", {"chat_id": destino, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
