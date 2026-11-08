@@ -2,7 +2,7 @@
    Respeita o aviso de cookies: sem "Aceitar", o Google só recebe sinais sem cookies (Consent Mode). */
 (function () {
   if (location.pathname.indexOf("/admin") === 0) return;
-  var ID = "GTM-N39FX8CC";
+  var ID = "G-GLYYDDCN1Q";  // Google Analytics 4 (fluxo alohanoticias.com)
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   window.gtag = gtag;
@@ -13,9 +13,10 @@
     analytics_storage: escolha === "1" ? "granted" : "denied"
   });
   gtag("js", new Date());
+  gtag("config", ID);
   var s = document.createElement("script");
   s.async = true;
-  s.src = "https://www.googletagmanager.com/gtm.js?id=" + ID;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
   document.head.appendChild(s);
   document.addEventListener("click", function (e) {
     var id = e.target && e.target.id;
