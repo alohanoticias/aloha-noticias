@@ -19,7 +19,7 @@ try:
 except FileNotFoundError:
     rascunho = ""
 descobrir = sys.argv[1:] == ["descobrir"]
-limpar = sys.argv[1:] == ["limpar"]  # apaga todas as mensagens do canal de rascunho (o canal oficial não é tocado)
+limpar = sys.argv[1:2] == ["limpar"]  # "limpar 83" apaga só até a mensagem 83  # apaga todas as mensagens do canal de rascunho (o canal oficial não é tocado)
 if not token or not canal or not (rascunho or descobrir):
     print("Aprovação pelo Telegram desligada."); sys.exit(0)
 
@@ -28,12 +28,18 @@ TIPOS = json.dumps(["callback_query", "my_chat_member", "channel_post"])  # semp
 
 
 def api(metodo, dados):
+    import time
     req = urllib.request.Request(f"https://api.telegram.org/bot{token}/{metodo}", data=urllib.parse.urlencode(dados).encode())
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return json.loads(r.read())
-    except urllib.error.HTTPError as e:
-        return json.loads(e.read() or b"{}")
+    for tentativa in range(4):  # a conexão com o Telegram às vezes cai: tenta de novo
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            return json.loads(e.read() or b"{}")
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            print("Conexão falhou, tentando de novo:", e)
+            time.sleep(5 * (tentativa + 1))
+    return {}
 
 
 if descobrir:
@@ -51,8 +57,11 @@ if descobrir:
     sys.exit(0)
 
 if limpar:
-    marca = api("sendMessage", {"chat_id": rascunho, "text": "Limpando…"})
-    ate = marca.get("result", {}).get("message_id", 0)
+    if len(sys.argv) > 2:
+        ate = int(sys.argv[2])
+    else:
+        marca = api("sendMessage", {"chat_id": rascunho, "text": "Limpando…"})
+        ate = marca.get("result", {}).get("message_id", 0)
     apagadas = 0
     for ini in range(1, ate + 1, 100):
         ids = list(range(ini, min(ini + 100, ate + 1)))

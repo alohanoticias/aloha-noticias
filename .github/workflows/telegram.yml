@@ -30,8 +30,8 @@ jobs:
             grep -q '"ok":true' /tmp/r.json || exit 1
           elif [ "$SLUGS" = "descobrir" ]; then
             python3 site/telegram_aprovar.py descobrir
-          elif [ "$SLUGS" = "limpar" ]; then
-            python3 site/telegram_aprovar.py limpar
+          elif [ "${SLUGS%% *}" = "limpar" ]; then
+            python3 site/telegram_aprovar.py $SLUGS
           elif [ "${SLUGS%% *}" = "fila" ]; then
             python3 site/telegram_aprovar.py $SLUGS
             git config user.name "aloha-bot" && git config user.email "contato@alohanoticias.com"
