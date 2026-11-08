@@ -19,8 +19,20 @@
   gtag("consent", "default", com({ analytics_storage: escolha === "0" ? "denied" : "granted" }));
   // modo de teste: com ?aloha_debug=1 no endereço, os dados aparecem em Administrador > DebugView
   var opcoes = /[?&]aloha_debug=1/.test(location.search) ? { debug_mode: true } : {};
+  // origem da visita (etiquetas utm do link): vai explícita para o Google, sem depender de ele ler o endereço
+  function param(n) { var m = location.search.match(new RegExp("[?&]" + n + "=([^&#]*)")); return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : ""; }
+  var fonte = param("utm_source"), midia = param("utm_medium"), campanha = param("utm_campaign");
+  if (fonte) {
+    opcoes.campaign_source = fonte;
+    if (midia) opcoes.campaign_medium = midia;
+    if (campanha) opcoes.campaign_name = campanha;
+  }
   gtag("js", new Date());
   gtag("config", ID, opcoes);
+  // evento próprio que aparece na hora no Tempo real (quadro "Contagem de eventos"): ex. visita_telegram
+  if (fonte && /^[a-z0-9_]{2,30}$/i.test(fonte)) {
+    gtag("event", "visita_" + fonte.toLowerCase(), { fonte: fonte, midia: midia, campanha: campanha });
+  }
   var s = document.createElement("script");
   s.async = true;
   s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
