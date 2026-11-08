@@ -23,8 +23,7 @@ try:
 except FileNotFoundError:
     rascunho = ""
 destino = rascunho or canal
-botoes = json.dumps({"inline_keyboard": [[{"text": "✅ Aprovar", "callback_data": "ok"},
-                                          {"text": "❌ Descartar", "callback_data": "no"}]]}) if rascunho else ""
+APROVAR = [{"text": "✅ Aprovar", "callback_data": "ok"}, {"text": "❌ Descartar", "callback_data": "no"}]
 print("Destino:", "canal de rascunho" if rascunho else "canal oficial")
 
 slugs = sys.argv[1:]
@@ -64,16 +63,16 @@ for i, slug in enumerate(slugs):
     link = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
     titulo = html.escape(m["titulo"])
     resumo = html.escape(m.get("linha_fina", "").strip())
-    rodape = f'\n\n👉🏻 <a href="{link}">Leia no Aloha Notícias</a>'  # sem hashtag, por pedido
+    rodape = ""  # o link vai no botão embaixo do post (sem hashtag, por pedido)
     texto = f"<b>{titulo}</b>\n\n{resumo}"
-    if len(texto) + len(rodape) > 1000:  # legenda de foto tem limite de 1024 caracteres
-        texto = texto[:1000 - len(rodape) - 1].rsplit(" ", 1)[0] + "…"
-    texto += rodape
+    if len(texto) > 1000:  # legenda de foto tem limite de 1024 caracteres
+        texto = texto[:999].rsplit(" ", 1)[0] + "…"
     img = (m.get("imagem") or {}).get("url", "")
     if img and not img.startswith("http"):
         img = "https://alohanoticias.com/" + img.lstrip("/")
     r = {}
-    extra = {"reply_markup": botoes} if botoes else {}
+    teclado = [[{"text": "👉🏻 Leia no Aloha Notícias", "url": link}]] + ([APROVAR] if rascunho else [])
+    extra = {"reply_markup": json.dumps({"inline_keyboard": teclado})}
     if img:
         r = api("sendPhoto", {"chat_id": destino, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
     if not r.get("ok"):

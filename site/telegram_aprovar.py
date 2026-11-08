@@ -61,25 +61,29 @@ for u in r.get("result", []):
     if str(msg["chat"]["id"]) != rascunho:
         api("answerCallbackQuery", {"callback_query_id": q["id"]}); continue
     acao = q.get("data")
+    # botões de link da prévia (ex.: "Leia no Aloha Notícias") vão junto para o post oficial
+    links = [[b for b in linha if b.get("url")] for linha in (msg.get("reply_markup") or {}).get("inline_keyboard", [])]
+    links = [l for l in links if l and not l[0]["text"].startswith("✅ Postado")]
     if acao == "ok":
         # tira os botões antes de copiar, para o post oficial sair limpo
         api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"]})
-        c = api("copyMessage", {"chat_id": canal, "from_chat_id": rascunho, "message_id": msg["message_id"]})
+        c = api("copyMessage", {"chat_id": canal, "from_chat_id": rascunho, "message_id": msg["message_id"],
+                                **({"reply_markup": json.dumps({"inline_keyboard": links})} if links else {})})
         if c.get("ok"):
             mid = c["result"]["message_id"]
             un = oficial.get("username")
             link = f"https://t.me/{un}/{mid}" if un else f"https://t.me/c/{str(oficial.get('id', ''))[4:]}/{mid}"
             api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"],
-                                           "reply_markup": json.dumps({"inline_keyboard": [[{"text": "✅ Postado no canal — ver", "url": link}]]})})
+                                           "reply_markup": json.dumps({"inline_keyboard": links + [[{"text": "✅ Postado no canal — ver", "url": link}]]})})
             api("answerCallbackQuery", {"callback_query_id": q["id"], "text": "Postado no canal!"})
             print("Aprovado:", msg["message_id"], "->", link)
         else:
             api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"], "reply_markup": json.dumps(
-                {"inline_keyboard": [[{"text": "⚠️ Falhou — tocar para tentar de novo", "callback_data": "ok"}]]})})
+                {"inline_keyboard": links + [[{"text": "⚠️ Falhou — tocar para tentar de novo", "callback_data": "ok"}]]})})
             print("Falhou ao copiar:", c.get("description"))
     elif acao == "no":
         api("editMessageReplyMarkup", {"chat_id": rascunho, "message_id": msg["message_id"], "reply_markup": json.dumps(
-            {"inline_keyboard": [[{"text": "❌ Descartado (tocar para aprovar mesmo assim)", "callback_data": "ok"}]]})})
+            {"inline_keyboard": links + [[{"text": "❌ Descartado (tocar para aprovar mesmo assim)", "callback_data": "ok"}]]})})
         api("answerCallbackQuery", {"callback_query_id": q["id"], "text": "Descartado."})
         print("Descartado:", msg["message_id"])
     else:
