@@ -9,6 +9,7 @@ import html, json, os, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
+UTM = "?utm_source=telegram&utm_medium=social&utm_campaign=canal_aloha"
 token = "".join(os.environ.get("TELEGRAM_BOT_TOKEN", "").split()).strip("'\"")  # tira espaços/aspas coladas por engano
 if token.lower().startswith("bot"):
     token = token[3:]
@@ -63,6 +64,7 @@ for i, slug in enumerate(slugs):
     if not m:
         print("Não achei a matéria:", slug); falhas += 1; continue
     link = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
+    link += UTM  # etiqueta para medir os cliques vindos do Telegram
     titulo = html.escape(m["titulo"])
     resumo = html.escape(m.get("linha_fina", "").strip())
     rodape = "\n\nA matéria está completa em nosso site <b>Aloha Notícias</b>."  # o link vai no botão (sem hashtag)

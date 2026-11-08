@@ -75,6 +75,11 @@ if limpar:
 
 FILA = RAIZ / "site/conteudo/telegram_fila.json"
 BOTAO = "👉🏻 Clique para ver COMPLETO 🚨"
+UTM = "?utm_source=telegram&utm_medium=social&utm_campaign=canal_aloha"  # etiqueta para medir os cliques vindos do Telegram
+
+
+def com_utm(url):
+    return url if "utm_source=" in url else url.split("?")[0] + UTM
 import datetime as _dt
 agora = _dt.datetime.now(_dt.timezone.utc)
 
@@ -100,7 +105,8 @@ if sys.argv[1:2] == ["fila"]:
     api("deleteMessage", {"chat_id": rascunho, "message_id": m_id})
     ids = list(range(m_id - n, m_id))
     itens = [{"msg": i, "slug": m["slug"]} for i, m in zip(ids, mats[-n:])]
-    gravar_fila({"itens": itens, "intervalo_min": intervalo, "proximo": agora.isoformat(timespec="seconds")})
+    inicio = sys.argv[4] if len(sys.argv) > 4 else agora.isoformat(timespec="seconds")
+    gravar_fila({"itens": itens, "intervalo_min": intervalo, "proximo": inicio})
     for it in itens:
         print("Na fila:", it["msg"], it["slug"][:60])
     sys.exit(0)
@@ -111,7 +117,7 @@ if sys.argv[1:2] == ["corrigir-botao"]:
     urls = json.loads((RAIZ / "publico/push-urls.json").read_text(encoding="utf-8"))
     url = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
     r = api("editMessageReplyMarkup", {"chat_id": canal, "message_id": mid,
-                                       "reply_markup": json.dumps({"inline_keyboard": [[{"text": BOTAO, "url": url}]]})})
+                                       "reply_markup": json.dumps({"inline_keyboard": [[{"text": BOTAO, "url": com_utm(url)}]]})})
     print("Botão corrigido:" if r.get("ok") else "Falhou:", mid, r.get("description", ""))
     sys.exit(0)
 
@@ -154,6 +160,7 @@ for u in r.get("result", []):
         for b in linha:
             if "COMPLETO" in b["text"] or b["text"].startswith("🚨"):
                 b["text"] = BOTAO
+                b["url"] = com_utm(b["url"])
     if acao == "ok":
         link = postar(msg["message_id"], links)
         tratados.add(msg["message_id"])
@@ -187,7 +194,7 @@ if fila["itens"]:
         except FileNotFoundError:
             urls = {}
         url = (urls.get(it["slug"]) or {}).get("pt") or f"https://alohanoticias.com/materia-{it['slug']}.html"
-        link = postar(it["msg"], [[{"text": BOTAO, "url": url}]])
+        link = postar(it["msg"], [[{"text": BOTAO, "url": com_utm(url)}]])
         print("Fila: postado", it["slug"][:60], "->", link)
         fila["proximo"] = (agora + _dt.timedelta(minutes=fila.get("intervalo_min", 30))).isoformat(timespec="seconds")
     if fila["itens"] or antes:
