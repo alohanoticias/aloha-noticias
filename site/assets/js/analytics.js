@@ -48,7 +48,9 @@
   gtag("config", ID, opcoes);
   // evento próprio que aparece na hora no Tempo real (quadro "Contagem de eventos"): ex. visita_telegram
   if (fonte && /^[a-z0-9_]{1,30}$/i.test(fonte)) {
-    gtag("event", "visita_" + fonte.toLowerCase(), { fonte: fonte, midia: midia, campanha: campanha });
+    // parceiros: evento parceiro_<nome>; redes: visita_<rede>
+    var nomeEvento = (midia === "parceiro" ? "parceiro_" : "visita_") + fonte.toLowerCase();
+    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha });
   }
   var s = document.createElement("script");
   s.async = true;

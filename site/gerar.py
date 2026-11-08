@@ -615,7 +615,7 @@ def gerar_admin(rascunhos, agendados=()):
             f'<h3>{esc(d["titulo"])}</h3><p class="meta"><span>{esc(ED[d["editoria"]]["nome"])}</span></p></div></a></li>'
             for d in agendados)
         lista += f'<h2 style="margin-top:40px">Agendados</h2><ul class="lista-simples" style="max-width:820px">{itens2}</ul>'
-    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p><p><a class="botao-sec" href="admin/links.html">Links para redes sociais</a></p></div></div>
+    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p><p><a class="botao-sec" href="admin/links.html">Links para redes sociais</a> <a class="botao-sec" href="admin/parceiros.html">Links de parceiros</a></p></div></div>
 <div class="wrap editoria-corpo">{lista}</div>"""
     return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
@@ -662,6 +662,32 @@ def gerar_links_admin(lista):
 .link-rede input{{flex:1;min-width:200px;font-size:.85rem;padding:6px}}</style>
 <script src="assets/js/links-admin.js"></script>"""
     return pagina("Admin: links", "Links etiquetados para redes sociais", "", corpo, com_news=False,
+                  extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
+
+
+def gerar_parceiros_admin(lista):
+    """Admin > Parceiros: gera o link de um artigo com o nome do parceiro no final (para medir quem ele trouxe)."""
+    opcoes = "".join(f'<option value="https://alohanoticias.com/{url_materia(m)[:-5]}">{esc(m["titulo"])}</option>' for m in lista)
+    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: links de parceiros</h1>
+<p>Escolha o artigo, escreva o nome do parceiro e copie o link. Quem entrar por esse link aparece no Analytics como vindo do parceiro.</p>
+<p><a href="admin/">Voltar aos rascunhos</a></p></div></div>
+<div class="wrap editoria-corpo parceiros" style="max-width:820px">
+<label for="p-artigo"><strong>Artigo</strong></label>
+<select id="p-artigo"><option value="https://alohanoticias.com/">Página inicial do site</option>{opcoes}</select>
+<label for="p-nome"><strong>Nome do parceiro</strong></label>
+<input id="p-nome" list="p-salvos" placeholder="ex.: Canal do João" autocomplete="off">
+<datalist id="p-salvos"></datalist>
+<p class="meta" id="p-codigo"></p>
+<label for="p-link"><strong>Link para enviar ao parceiro</strong></label>
+<textarea id="p-link" readonly rows="3" placeholder="Escreva o nome do parceiro para gerar o link"></textarea>
+<p><button class="botao" type="button" id="p-copiar">Copiar link</button></p>
+<h2 style="margin-top:32px">Como ver os resultados</h2>
+<p><strong>Na hora:</strong> Analytics &gt; Visão geral em tempo real &gt; quadro de eventos: aparece <em>parceiro_nome</em> (ex.: parceiro_canal_do_joao).</p>
+<p><strong>No dia seguinte:</strong> Páginas e telas &gt; Adicionar filtro &gt; <em>Mídia da sessão</em> contém <em>parceiro</em> (todos os parceiros) ou <em>Origem da sessão</em> contém o nome (um parceiro).</p>
+</div>
+<style>.parceiros label{{display:block;margin:18px 0 6px}}.parceiros select,.parceiros input,.parceiros textarea{{width:100%;padding:10px;font-size:1rem;box-sizing:border-box}}</style>
+<script src="assets/js/parceiros-admin.js"></script>"""
+    return pagina("Admin: parceiros", "Links de parceiros", "", corpo, com_news=False,
                   extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
 
@@ -1139,6 +1165,7 @@ def main():
     (SAIDA / "admin").mkdir(exist_ok=True)
     (SAIDA / "admin/index.html").write_text(resolver(gerar_admin(rascunhos, agendados), "pt", "admin/index.html", existe), encoding="utf-8")
     (SAIDA / "admin/links.html").write_text(resolver(gerar_links_admin(materias), "pt", "admin/links.html", existe), encoding="utf-8")
+    (SAIDA / "admin/parceiros.html").write_text(resolver(gerar_parceiros_admin(materias), "pt", "admin/parceiros.html", existe), encoding="utf-8")
     for d in rascunhos:
         (SAIDA / f"admin/{d['slug']}.html").write_text(resolver(gerar_materia(d, preview=True), "pt", f"admin/{d['slug']}.html", existe), encoding="utf-8")
     # prévias das traduções de rascunhos e agendados (admin/en/<slug>.html, admin/es/<slug>.html)
