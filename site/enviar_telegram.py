@@ -65,15 +65,16 @@ for i, slug in enumerate(slugs):
     link = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
     titulo = html.escape(m["titulo"])
     resumo = html.escape(m.get("linha_fina", "").strip())
-    rodape = ""  # o link vai no botão embaixo do post (sem hashtag, por pedido)
+    rodape = "\n\nA matéria está completa em nosso site <b>Aloha Notícias</b>."  # o link vai no botão (sem hashtag)
     texto = f"<b>{titulo}</b>\n\n{resumo}"
-    if len(texto) > 1000:  # legenda de foto tem limite de 1024 caracteres
-        texto = texto[:999].rsplit(" ", 1)[0] + "…"
+    if len(texto) + len(rodape) > 1000:  # legenda de foto tem limite de 1024 caracteres
+        texto = texto[:999 - len(rodape)].rsplit(" ", 1)[0] + "…"
+    texto += rodape
     img = (m.get("imagem") or {}).get("url", "")
     if img and not img.startswith("http"):
         img = "https://alohanoticias.com/" + img.lstrip("/")
     r = {}
-    teclado = [[{"text": "🚨 Leia no Aloha Notícias", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
+    teclado = [[{"text": "🚨Clique aqui para ver COMPLETO 🚨", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
     extra = {"reply_markup": json.dumps({"inline_keyboard": teclado})}
     if img:
         r = api("sendPhoto", {"chat_id": destino, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
