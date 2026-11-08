@@ -115,6 +115,31 @@ if sys.argv[1:2] == ["fila"]:
         print("Na fila:", it["msg"], it["slug"][:60])
     sys.exit(0)
 
+if sys.argv[1:2] == ["mapear"]:
+    # lista as prévias do rascunho (id -> título), lendo cada uma por encaminhamento: mapear <de> <ate>
+    for mid in range(int(sys.argv[2]), int(sys.argv[3]) + 1):
+        r = api("forwardMessage", {"chat_id": rascunho, "from_chat_id": rascunho, "message_id": mid, "disable_notification": "true"})
+        m = r.get("result") or {}
+        if not m:
+            continue
+        txt = (m.get("caption") or m.get("text") or "").split("\n")[0]
+        print(f"MAPA {mid} | {txt[:70]}")
+        api("deleteMessage", {"chat_id": rascunho, "message_id": m["message_id"]})
+    sys.exit(0)
+
+if sys.argv[1:2] == ["fila-adicionar"]:
+    # põe prévias no fim da fila: fila-adicionar <id>:<slug> [<id>:<slug> ...]
+    f = ler_fila()
+    if not f["itens"]:
+        f["proximo"] = agora.isoformat(timespec="seconds")
+    for par in sys.argv[2:]:
+        mid, slug = par.split(":", 1)
+        f["itens"].append({"msg": int(mid), "slug": slug})
+        print("Adicionado no fim da fila:", mid, slug[:60])
+    gravar_fila(f)
+    print(f"Fila: {len(f['itens'])} itens; próximo às {f['proximo']}")
+    sys.exit(0)
+
 if sys.argv[1:2] == ["verificar"]:
     # lê o botão de um post do canal oficial (encaminha ao rascunho, lê e apaga): verificar <id_no_canal>
     r = api("forwardMessage", {"chat_id": rascunho, "from_chat_id": canal, "message_id": sys.argv[2], "disable_notification": "true"})
