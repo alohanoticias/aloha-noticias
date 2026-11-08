@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "editoria": "games",
+ "titulo": "The Game Awards",
+ "fotos": [
+  {
+   "url": "https://culturageek.com.ar/wp-content/uploads/2026/08/the-game-awards-2026-fecha-www.culturageek.com_.ar_.webp",
+   "foco": [
+    0.3,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://culturageek.com.ar/wp-content/uploads/2026/02/tgas-stage-24.webp",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}
