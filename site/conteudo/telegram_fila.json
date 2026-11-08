@@ -1,10 +1,6 @@
 {
  "itens": [
   {
-   "msg": 101,
-   "slug": "ocarina-of-time-remake-chega-ao-switch-2-o-que-muda-e-o-que-esperar"
-  },
-  {
    "msg": 102,
    "slug": "estreias-de-cinema-em-novembro-2026-o-que-chega-aos-cinemas-brasileiros"
   },
@@ -54,5 +50,5 @@
   }
  ],
  "intervalo_min": 30,
- "proximo": "2026-11-08T16:57:56+00:00"
+ "proximo": "2026-11-08T17:34:44+00:00"
 }
