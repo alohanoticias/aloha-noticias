@@ -32,8 +32,6 @@ jobs:
             python3 site/telegram_aprovar.py descobrir
           elif [ "$SLUGS" = "limpar" ]; then
             python3 site/telegram_aprovar.py limpar
-          elif [ "$SLUGS" = "limpar" ]; then
-            python3 site/telegram_aprovar.py limpar
           elif [ "$SLUGS" = "botoes" ]; then
             python3 site/telegram_aprovar.py
           elif [ "$SLUGS" = "todas" ]; then
