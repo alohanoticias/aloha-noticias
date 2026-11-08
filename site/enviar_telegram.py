@@ -2,6 +2,8 @@
 Uso: python3 site/enviar_telegram.py               -> lê os slugs de publicados.txt
      python3 site/enviar_telegram.py slug1 slug2   -> posta essas matérias (ex.: as que já estavam no ar)
 Precisa dos segredos TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID (@ do canal ou ID numérico). Sem eles, não faz nada.
+Se site/conteudo/telegram.json tiver "rascunho_id", o post vai primeiro para o canal privado de rascunho,
+com botões Aprovar/Descartar (quem trata os botões é site/telegram_aprovar.py).
 Não apaga publicados.txt (o enviar_push.py usa o mesmo arquivo depois)."""
 import html, json, os, sys, time, urllib.parse, urllib.request
 from pathlib import Path
@@ -15,6 +17,15 @@ if canal and not canal.startswith("@") and not canal.lstrip("-").isdigit():
     canal = "@" + canal.split("/")[-1]  # aceita "alohanoticias" ou "t.me/alohanoticias"
 if not token or not canal:
     print("Telegram desligado (faltam TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID)."); sys.exit(0)
+
+try:
+    rascunho = str(json.loads((RAIZ / "site/conteudo/telegram.json").read_text(encoding="utf-8")).get("rascunho_id", "")).strip()
+except FileNotFoundError:
+    rascunho = ""
+destino = rascunho or canal
+botoes = json.dumps({"inline_keyboard": [[{"text": "✅ Aprovar", "callback_data": "ok"},
+                                          {"text": "❌ Descartar", "callback_data": "no"}]]}) if rascunho else ""
+print("Destino:", "canal de rascunho" if rascunho else "canal oficial")
 
 slugs = sys.argv[1:]
 if not slugs:
@@ -63,12 +74,13 @@ for i, slug in enumerate(slugs):
     if img and not img.startswith("http"):
         img = "https://alohanoticias.com/" + img.lstrip("/")
     r = {}
+    extra = {"reply_markup": botoes} if botoes else {}
     if img:
-        r = api("sendPhoto", {"chat_id": canal, "photo": img, "caption": texto, "parse_mode": "HTML"})
+        r = api("sendPhoto", {"chat_id": destino, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
     if not r.get("ok"):
         if img:
             print("Foto não foi aceita, mandando com prévia do link:", r.get("description"))
-        r = api("sendMessage", {"chat_id": canal, "text": texto, "parse_mode": "HTML"})
+        r = api("sendMessage", {"chat_id": destino, "text": texto, "parse_mode": "HTML", **extra})
     print(slug, "->", "ok" if r.get("ok") else r.get("description"))
     falhas += 0 if r.get("ok") else 1
     if i < len(slugs) - 1:
