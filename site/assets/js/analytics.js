@@ -20,7 +20,10 @@
   document.head.appendChild(s);
   document.addEventListener("click", function (e) {
     var id = e.target && e.target.id;
-    if (id === "consent-sim") gtag("consent", "update", { analytics_storage: "granted" });
+    if (id === "consent-sim") {
+      gtag("consent", "update", { analytics_storage: "granted" });
+      gtag("event", "page_view");  // conta a página em que a pessoa aceitou (antes só ia sem cookies)
+    }
     if (id === "consent-nao") gtag("consent", "update", { analytics_storage: "denied" });
   });
 })();
