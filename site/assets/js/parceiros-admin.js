@@ -10,7 +10,7 @@
     salvos.innerHTML = "";
     lista().forEach(function (n) { var o = document.createElement("option"); o.value = n; salvos.appendChild(o); });
   }
-  // "Canal do João" -> "canal_do_joao" (sem acento, sem espaço, até 20 letras)
+  // nome do parceiro como vai no link: "João Silva" -> "joao_silva" (sem acento, sem espaço, até 20 letras)
   function codigoDe(n) {
     return n.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
       .replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 20).replace(/_+$/, "");
@@ -19,7 +19,7 @@
     var c = codigoDe(nome.value);
     if (!c) { link.value = ""; codigo.textContent = ""; return; }
     if (!rede.value) { link.value = ""; codigo.textContent = "Escolha onde o parceiro vai divulgar."; return; }
-    link.value = artigo.value + "?utm_source=" + c + "&utm_medium=parceiro&utm_campaign=parceiro_" + c + "&utm_content=" + rede.value;
+    link.value = artigo.value + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro";
     codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value;
   }
   copiar.addEventListener("click", function () {

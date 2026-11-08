@@ -675,7 +675,7 @@ def gerar_parceiros_admin(lista):
 <label for="p-artigo"><strong>Artigo</strong></label>
 <select id="p-artigo"><option value="https://alohanoticias.com/">Página inicial do site</option>{opcoes}</select>
 <label for="p-nome"><strong>Nome do parceiro</strong></label>
-<input id="p-nome" list="p-salvos" placeholder="ex.: Canal do João" autocomplete="off">
+<input id="p-nome" list="p-salvos" placeholder="ex.: Joao" autocomplete="off">
 <datalist id="p-salvos"></datalist>
 <label for="p-rede"><strong>Onde o parceiro vai divulgar</strong></label>
 <select id="p-rede"><option value="">Escolha a rede</option>{"".join(f'<option value="{cod}">{nome}</option>' for nome, cod in REDES_LINKS)}<option value="site">Site ou blog</option><option value="email">E-mail / newsletter</option><option value="outro">Outro</option></select>
@@ -684,8 +684,8 @@ def gerar_parceiros_admin(lista):
 <textarea id="p-link" readonly rows="3" placeholder="Escreva o nome do parceiro para gerar o link"></textarea>
 <p><button class="botao" type="button" id="p-copiar">Copiar link</button></p>
 <h2 style="margin-top:32px">Como ver os resultados</h2>
-<p><strong>Na hora:</strong> Analytics &gt; Visão geral em tempo real &gt; quadro de eventos: aparece <em>parceiro_nome_rede</em> (ex.: parceiro_canal_do_joao_instagram).</p>
-<p><strong>No dia seguinte:</strong> Páginas e telas &gt; Adicionar filtro &gt; <em>Mídia da sessão</em> contém <em>parceiro</em> (todos os parceiros) ou <em>Origem da sessão</em> contém o nome (um parceiro). Para ver a rede, adicione a coluna <em>Conteúdo manual da sessão</em>.</p>
+<p><strong>Na hora:</strong> Analytics &gt; Visão geral em tempo real &gt; quadro de eventos: aparece <em>parceiro_nome_rede</em> (ex.: parceiro_joao_instagram).</p>
+<p><strong>No dia seguinte:</strong> Aquisição de tráfego (ou Páginas e telas) com <em>Origem/mídia da sessão</em>: cada linha mostra parceiro / rede (ex.: joao / instagram). Para ver só parceiros, filtre <em>Campanha da sessão</em> = <em>parceiro</em>.</p>
 </div>
 <style>.parceiros label{{display:block;margin:18px 0 6px}}.parceiros select,.parceiros input,.parceiros textarea{{width:100%;padding:10px;font-size:1rem;box-sizing:border-box}}</style>
 <script src="assets/js/parceiros-admin.js"></script>"""

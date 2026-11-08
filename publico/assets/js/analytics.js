@@ -50,10 +50,13 @@
   // evento próprio que aparece na hora no Tempo real (quadro "Contagem de eventos"): ex. visita_telegram
   if (fonte && /^[a-z0-9_]{1,30}$/i.test(fonte)) {
     // parceiros: evento parceiro_<nome>; redes: visita_<rede>
-    var redeP = /^[a-z0-9_]{1,12}$/i.test(conteudo) ? "_" + conteudo.toLowerCase() : "";
-    var nomeEvento = midia === "parceiro" ? "parceiro_" + fonte.toLowerCase().slice(0, 40 - 9 - redeP.length) + redeP
-                                         : "visita_" + fonte.toLowerCase();
-    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha, rede: conteudo });
+    // parceiro: link com utm_campaign=parceiro (nome em utm_source, rede em utm_medium)
+    var parceiro = campanha === "parceiro" || midia === "parceiro";
+    var redeP = campanha === "parceiro" ? midia : conteudo;
+    redeP = /^[a-z0-9_]{1,12}$/i.test(redeP || "") ? "_" + redeP.toLowerCase() : "";
+    var nomeEvento = parceiro ? "parceiro_" + fonte.toLowerCase().slice(0, 40 - 9 - redeP.length) + redeP
+                              : "visita_" + fonte.toLowerCase();
+    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha, rede: redeP.slice(1) });
   }
   var s = document.createElement("script");
   s.async = true;
