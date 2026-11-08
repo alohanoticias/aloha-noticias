@@ -140,6 +140,17 @@ def postar(mid, links):
     return link
 
 
+if sys.argv[1:2] == ["postar-agora"]:
+    # posta uma prévia já, sem mexer no horário da fila: postar-agora <id_no_rascunho> <slug>
+    mid, slug = int(sys.argv[2]), sys.argv[3]
+    try:
+        urls = json.loads((RAIZ / "publico/push-urls.json").read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        urls = {}
+    url = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
+    print("Postado agora:", slug[:60], "->", postar(mid, [[{"text": BOTAO, "url": com_utm(url)}]]))
+    sys.exit(0)
+
 fila = ler_fila()
 tratados = set()
 r = api("getUpdates", {"allowed_updates": TIPOS, "timeout": 0})
