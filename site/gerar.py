@@ -357,7 +357,8 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <html lang="{i18n.HTML_LANG[LANG]}"{' dir="rtl"' if LANG == "ar" else ''}>
 <head>
 <meta charset="utf-8">
-{BASE}<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{BASE}<script src="assets/js/analytics.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(tt)}</title>
 <meta name="description" content="{esc(descricao)}">
 <meta property="og:site_name" content="{SITE}">
@@ -753,14 +754,14 @@ PRIV_ANUNCIOS = """<h2>Anúncios e cookies</h2>
 <p>Saiba como o Google usa dados de sites parceiros em <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>. Você também pode gerenciar anúncios personalizados em <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>.</p>
 """
 
-CSP_BASE = ("default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+CSP_BASE = ("default-src 'self'; script-src 'self' https://www.googletagmanager.com https://*.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
             "font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; "
-            "frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; "
+            "frame-src https://www.youtube-nocookie.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; "
             "form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests")
-CSP_ADS = ("default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://www.googletagservices.com https://adservice.google.com https://partner.googleadservices.com; "
+CSP_ADS = ("default-src 'self'; script-src 'self' https://www.googletagmanager.com https://*.googletagmanager.com 'unsafe-inline' https://static.cloudflareinsights.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://www.googletagservices.com https://adservice.google.com https://partner.googleadservices.com; "
            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; "
            "frame-src https://www.youtube-nocookie.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com; "
-           "connect-src 'self' https://cloudflareinsights.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google; "
+           "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.adtrafficquality.google; "
            "object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests")
 
 HEADERS = """/*
