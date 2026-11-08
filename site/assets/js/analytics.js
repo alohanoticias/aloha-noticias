@@ -23,7 +23,7 @@
   var opcoes = /[?&]aloha_debug=1/.test(location.search) ? { debug_mode: true } : {};
   // origem da visita (etiquetas utm do link): vai explícita para o Google, sem depender de ele ler o endereço
   function param(n) { var m = location.search.match(new RegExp("[?&]" + n + "=([^&#]*)")); return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : ""; }
-  var fonte = param("utm_source"), midia = param("utm_medium"), campanha = param("utm_campaign");
+  var fonte = param("utm_source"), midia = param("utm_medium"), campanha = param("utm_campaign"), conteudo = param("utm_content");
   // sem etiqueta no link: descobre a rede pelo site de origem ou pelo navegador interno do app
   if (!fonte) {
     var ref = (document.referrer || "").toLowerCase(), ua = navigator.userAgent || "";
@@ -43,14 +43,17 @@
     opcoes.campaign_source = fonte;
     if (midia) opcoes.campaign_medium = midia;
     if (campanha) opcoes.campaign_name = campanha;
+    if (conteudo) opcoes.campaign_content = conteudo;  // parceiros: rede onde o link foi divulgado
   }
   gtag("js", new Date());
   gtag("config", ID, opcoes);
   // evento próprio que aparece na hora no Tempo real (quadro "Contagem de eventos"): ex. visita_telegram
   if (fonte && /^[a-z0-9_]{1,30}$/i.test(fonte)) {
     // parceiros: evento parceiro_<nome>; redes: visita_<rede>
-    var nomeEvento = (midia === "parceiro" ? "parceiro_" : "visita_") + fonte.toLowerCase();
-    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha });
+    var redeP = /^[a-z0-9_]{1,12}$/i.test(conteudo) ? "_" + conteudo.toLowerCase() : "";
+    var nomeEvento = midia === "parceiro" ? "parceiro_" + fonte.toLowerCase().slice(0, 40 - 9 - redeP.length) + redeP
+                                         : "visita_" + fonte.toLowerCase();
+    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha, rede: conteudo });
   }
   var s = document.createElement("script");
   s.async = true;
