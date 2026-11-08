@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "editoria": "tecnologia",
+ "titulo": "2,4 ou 5 GHz?",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_5_and_DualSense.jpg/1280px-PlayStation_5_and_DualSense.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Patch_cable_with_RJ45_connector.jpg/1920px-Patch_cable_with_RJ45_connector.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

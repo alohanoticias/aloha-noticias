@@ -1,0 +1,23 @@
+{
+ "layout": "duplo",
+ "editoria": "curiosidades",
+ "titulo": "Soprar o cartucho",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Super_Mario_World_cassette_on_Super_Nintendo_Entertainment_System_20080610.jpg/1920px-Super_Mario_World_cassette_on_Super_Nintendo_Entertainment_System_20080610.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Nintendo-Super-NES-Cartridge-Boards.jpg/1920px-Nintendo-Super-NES-Cartridge-Boards.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

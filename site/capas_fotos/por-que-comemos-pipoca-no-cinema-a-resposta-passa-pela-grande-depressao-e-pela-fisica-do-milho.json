@@ -1,0 +1,31 @@
+{
+ "layout": "grade",
+ "editoria": "curiosidades",
+ "titulo": "Pipoca no cinema",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Movies_Ten_-_Flickr_-_dankeck.jpg/1920px-Movies_Ten_-_Flickr_-_dankeck.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Popcorn_-_Studio_-_2011.jpg/1920px-Popcorn_-_Studio_-_2011.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Popcorn_9.jpg/1920px-Popcorn_9.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "layout": "destaque",
+ "editoria": "anime",
+ "titulo": "Spy×Family",
+ "fotos": [
+  {
+   "url": "https://i.ytimg.com/vi/e0wrj-qP4LI/maxresdefault.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://i.ytimg.com/vi/yX9SGEfeBEw/maxresdefault.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://i.ytimg.com/vi/vOYPn9SRGU0/maxresdefault.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

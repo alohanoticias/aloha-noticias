@@ -1,0 +1,299 @@
+{
+  "slug": "soprar-o-cartucho-funcionava-o-que-a-nintendo-dizia-e-o-que-acontecia-de-verdade",
+  "editoria": "curiosidades",
+  "titulo": "Soprar o cartucho funcionava? O que a Nintendo dizia e o que acontecia de verdade dentro do console",
+  "linha_fina": "O ritual de tirar a fita, soprar e colocar de novo marcou uma geração. O problema raramente era poeira, e a própria Nintendo pedia para ninguém fazer isso.",
+  "autor": "Equipe Aloha",
+  "data": "2026-11-14T10:41",
+  "tags": [
+    "cartucho",
+    "Nintendo",
+    "NES",
+    "retrô",
+    "curiosidades"
+  ],
+  "imagem": {
+    "url": "assets/img/capas/soprar-o-cartucho-funcionava-o-que-a-nintendo-dizia-e-o-que-acontecia-de-verdade.jpg",
+    "alt": "Cartucho de Super Mario World encaixado em um Super Nintendo e placas de cartuchos com os contatos dourados",
+    "credito": "Imagens: Wikimedia Commons"
+  },
+  "video": {
+    "youtube": "wZ26r2liopU",
+    "titulo": "Stop blowing into your game cartridges, em inglês (canal The Verge)"
+  },
+  "corpo": [
+    "Tela piscando, jogo que não liga, imagem embaralhada. Quem teve videogame de cartucho nos anos 1980 e 1990 sabe o que vinha depois: tirar a fita, **soprar os contatos** e colocar de novo. Muitas vezes, o jogo funcionava. Mas a explicação para isso tem pouco a ver com o sopro.",
+    "## O problema não era poeira",
+    "O hábito nasceu com o **NES**, o Nintendinho, segundo o iFixit. O console americano usava um sistema de encaixe diferente do Famicom japonês, em que o cartucho era empurrado para dentro e depois para baixo. O conector, com 72 pinos, tinha contatos dobrados para ceder um pouco e voltar ao lugar quando a fita saía, explica a Mental Floss.",
+    "Com o uso, esses pinos perdiam a pressão e o contato ficava irregular. Os conectores também sofriam com sujeira e oxidação. Na maior parte das vezes, o defeito era simplesmente **mau contato** entre o cartucho e o console, não poeira acumulada.",
+    "Havia ainda um segundo ponto de falha. O NES tinha um chip de bloqueio, o **10NES**, que conferia se o cartucho era original e da região certa. Se os pinos ligados a esse chip não fizessem bom contato, o console não liberava o jogo e ficava reiniciando, com a famosa luz vermelha piscando, como explica o site The Silicon Underground.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|Placa de um cartucho de NES, com os contatos dourados na borda|Imagem: Wikimedia Commons",
+    "## Por que parecia funcionar",
+    "A resposta mais simples: para soprar, era preciso **tirar e colocar o cartucho de novo**. Esse movimento já mudava a posição dos contatos e, muitas vezes, bastava para o jogo ligar. O sopro levava o crédito por algo que o encaixe tinha feito, como resume o Hardware.com.br.",
+    "Há também uma hipótese física. A umidade do sopro pode ter melhorado a condução por alguns instantes, o suficiente para o jogo carregar, segundo o The Silicon Underground. O problema é o efeito a longo prazo.",
+    "## Por que a Nintendo pedia para não soprar",
+    "O hálito leva **umidade e gotículas de saliva** para os contatos de metal. Com o tempo, isso acelera a corrosão e piora o contato, além de grudar mais sujeira, como explicam a Mental Floss e o TecMundo. Ou seja: o truque que salvava a partida de hoje podia estragar a fita no futuro.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|Verso de um cartucho de Nintendo 64 com etiqueta de avisos de uso|Imagem: Wikimedia Commons",
+    "A Nintendo sabia. A página oficial de solução de problemas do NES passou a dizer, em meados dos anos 2000, para **não soprar** nos cartuchos nem no console, e um aviso parecido foi impresso no verso dos cartuchos de Nintendo 64, segundo o iFixit. A empresa também chegou a vender um kit de limpeza oficial para os cartuchos e para a entrada do NES, lembra o Digital Trends.",
+    "E qual é o jeito certo? Para quem ainda joga em console antigo, o TecMundo recomenda limpar os contatos com cotonete levemente umedecido em **álcool isopropílico**, esperar secar antes de encaixar e guardar os cartuchos em local seco. Se o problema continuar em várias fitas, o defeito pode estar no conector do próprio console, que às vezes precisa ser trocado.",
+    "Fontes: [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them), [Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help), [The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/), [Hardware.com.br](https://www.hardware.com.br/?p=379383), [TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm) e [Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)."
+  ],
+  "traducoes": {
+    "en": {
+      "slug": "did-blowing-into-cartridges-work-what-nintendo-said-and-what-really-happened",
+      "titulo": "Did blowing into cartridges work? What Nintendo said and what really happened inside the console",
+      "linha_fina": "The ritual of pulling the cartridge, blowing on it and putting it back marked a generation. The problem was rarely dust, and Nintendo itself asked people not to do it.",
+      "tags": [
+        "cartridge",
+        "Nintendo",
+        "NES",
+        "retro",
+        "curiosities"
+      ],
+      "alt": "A Super Mario World cartridge inserted in a Super Nintendo and cartridge boards with gold contacts",
+      "credito": "Images: Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges (The Verge channel)",
+      "corpo": [
+        "A blinking screen, a game that won't start, scrambled graphics. Anyone who owned a cartridge console in the 1980s and 1990s knows what came next: pull the cartridge, **blow on the contacts** and put it back. Often the game worked. But the reason had little to do with blowing.",
+        "## The problem wasn't dust",
+        "The habit was born with the **NES**, according to iFixit. The console used a different loading system from the Japanese Famicom: the cartridge was pushed in and then down. Its 72-pin connector had contacts bent so they would give a little and spring back when the cartridge came out, Mental Floss explains.",
+        "With use, those pins lost tension and contact became unreliable. The connectors also suffered from grime and oxidation. Most of the time, the fault was simply a **bad connection** between cartridge and console, not built-up dust.",
+        "There was a second point of failure. The NES had a lockout chip, the **10NES**, which checked whether the cartridge was genuine and from the right region. If the pins tied to that chip didn't make good contact, the console refused the game and kept resetting, with the famous blinking red light, as The Silicon Underground explains.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|An NES cartridge board with gold contacts along the edge|Image: Wikimedia Commons",
+        "## Why it seemed to work",
+        "The simplest answer: to blow on it, you had to **take the cartridge out and put it back in**. That movement alone shifted the contacts and was often enough to make the game start. Blowing got the credit for something reseating had done, as Brazilian site Hardware.com.br puts it.",
+        "There is also a physical hypothesis. The moisture from your breath may have improved conductivity for a moment, enough for the game to load, according to The Silicon Underground. The problem is the long-term effect.",
+        "## Why Nintendo said not to blow",
+        "Breath carries **moisture and droplets of saliva** onto the metal contacts. Over time, that speeds up corrosion, worsens contact and attracts more dirt, as Mental Floss and TecMundo explain. In other words, the trick that saved today's session could ruin the cartridge later.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|The back of a Nintendo 64 cartridge with a label of usage warnings|Image: Wikimedia Commons",
+        "Nintendo knew. Its official NES troubleshooting page began saying, around the mid-2000s, **not to blow** into cartridges or the console, and a similar warning was printed on the back of Nintendo 64 cartridges, according to iFixit. The company also sold an official cleaning kit for NES cartridges and the console slot, Digital Trends recalls.",
+        "So what is the right way? For anyone still playing on old consoles, TecMundo recommends cleaning the contacts with a cotton swab lightly dampened with **isopropyl alcohol**, letting it dry before inserting, and storing cartridges somewhere dry. If the problem persists across several cartridges, the fault may be the console's own connector, which sometimes needs replacing.",
+        "Sources: [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them), [Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help), [The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/), [Hardware.com.br](https://www.hardware.com.br/?p=379383), [TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm) and [Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)."
+      ]
+    },
+    "es": {
+      "slug": "soplar-el-cartucho-funcionaba-lo-que-decia-nintendo-y-lo-que-pasaba-de-verdad",
+      "titulo": "¿Soplar el cartucho funcionaba? Lo que decía Nintendo y lo que pasaba de verdad dentro de la consola",
+      "linha_fina": "El ritual de sacar el cartucho, soplar y volver a meterlo marcó a una generación. El problema casi nunca era el polvo, y la propia Nintendo pedía que nadie lo hiciera.",
+      "tags": [
+        "cartucho",
+        "Nintendo",
+        "NES",
+        "retro",
+        "curiosidades"
+      ],
+      "alt": "Un cartucho de Super Mario World insertado en una Super Nintendo y placas de cartuchos con contactos dorados",
+      "credito": "Imágenes: Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges, en inglés (canal The Verge)",
+      "corpo": [
+        "Pantalla parpadeando, juego que no arranca, imagen revuelta. Quien tuvo una consola de cartuchos en los 80 y 90 sabe lo que venía después: sacar el cartucho, **soplar los contactos** y volver a meterlo. Muchas veces el juego funcionaba. Pero la explicación tiene poco que ver con el soplido.",
+        "## El problema no era el polvo",
+        "La costumbre nació con la **NES**, según iFixit. La consola usaba un sistema de carga distinto al de la Famicom japonesa: el cartucho se empujaba hacia dentro y luego hacia abajo. Su conector de 72 pines tenía contactos doblados para ceder un poco y volver a su sitio al sacar el cartucho, explica Mental Floss.",
+        "Con el uso, esos pines perdían presión y el contacto se volvía irregular. Los conectores también sufrían con la suciedad y la oxidación. La mayoría de las veces, el fallo era simplemente un **mal contacto** entre cartucho y consola, no polvo acumulado.",
+        "Había además un segundo punto débil. La NES tenía un chip de bloqueo, el **10NES**, que comprobaba si el cartucho era original y de la región correcta. Si los pines ligados a ese chip no hacían buen contacto, la consola no dejaba arrancar el juego y se reiniciaba una y otra vez, con la famosa luz roja parpadeando, como explica The Silicon Underground.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|Placa de un cartucho de NES con los contactos dorados en el borde|Imagen: Wikimedia Commons",
+        "## Por qué parecía funcionar",
+        "La respuesta más simple: para soplar había que **sacar el cartucho y volver a meterlo**. Ese movimiento ya cambiaba la posición de los contactos y muchas veces bastaba para que el juego arrancara. El soplido se llevaba el mérito de algo que había hecho el reencaje, como resume el sitio brasileño Hardware.com.br.",
+        "También hay una hipótesis física. La humedad del aliento pudo mejorar la conducción por unos instantes, lo suficiente para que el juego cargara, según The Silicon Underground. El problema es el efecto a largo plazo.",
+        "## Por qué Nintendo pedía no soplar",
+        "El aliento lleva **humedad y gotitas de saliva** a los contactos de metal. Con el tiempo, eso acelera la corrosión, empeora el contacto y atrae más suciedad, como explican Mental Floss y TecMundo. Es decir, el truco que salvaba la partida de hoy podía estropear el cartucho en el futuro.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|Parte trasera de un cartucho de Nintendo 64 con una etiqueta de advertencias de uso|Imagen: Wikimedia Commons",
+        "Nintendo lo sabía. Su página oficial de solución de problemas de la NES empezó a decir, a mediados de los 2000, que **no se soplara** en los cartuchos ni en la consola, y un aviso parecido se imprimió en la parte trasera de los cartuchos de Nintendo 64, según iFixit. La empresa también vendió un kit de limpieza oficial para los cartuchos y la ranura de la NES, recuerda Digital Trends.",
+        "¿Y cuál es la forma correcta? Para quien aún juega en consolas antiguas, TecMundo recomienda limpiar los contactos con un bastoncillo ligeramente humedecido en **alcohol isopropílico**, esperar a que se seque antes de insertarlo y guardar los cartuchos en un lugar seco. Si el problema sigue con varios cartuchos, el fallo puede estar en el conector de la propia consola, que a veces hay que cambiar.",
+        "Fuentes: [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them), [Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help), [The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/), [Hardware.com.br](https://www.hardware.com.br/?p=379383), [TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm) y [Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)."
+      ]
+    },
+    "fr": {
+      "slug": "souffler-dans-la-cartouche-ca-marchait-ce-que-disait-nintendo-et-ce-qui-se-passait-vraiment",
+      "titulo": "Souffler dans la cartouche, ça marchait ? Ce que disait Nintendo et ce qui se passait vraiment dans la console",
+      "linha_fina": "Le rituel consistant à retirer la cartouche, souffler dedans et la remettre a marqué une génération. Le problème était rarement la poussière, et Nintendo demandait de ne pas le faire.",
+      "tags": [
+        "cartouche",
+        "Nintendo",
+        "NES",
+        "rétro",
+        "curiosités"
+      ],
+      "alt": "Une cartouche de Super Mario World insérée dans une Super Nintendo et des circuits de cartouches aux contacts dorés",
+      "credito": "Images : Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges, en anglais (chaîne The Verge)",
+      "corpo": [
+        "Écran qui clignote, jeu qui ne démarre pas, image brouillée. Tous ceux qui ont eu une console à cartouches dans les années 1980 et 1990 connaissent la suite : retirer la cartouche, **souffler sur les contacts** et la remettre. Souvent, le jeu marchait. Mais l'explication n'a pas grand-chose à voir avec le souffle.",
+        "## Le problème n'était pas la poussière",
+        "L'habitude est née avec la **NES**, selon iFixit. La console utilisait un système de chargement différent de la Famicom japonaise : on poussait la cartouche vers l'intérieur, puis vers le bas. Son connecteur à 72 broches avait des contacts pliés pour céder un peu et revenir en place au retrait de la cartouche, explique Mental Floss.",
+        "À l'usage, ces broches perdaient leur pression et le contact devenait aléatoire. Les connecteurs souffraient aussi de la saleté et de l'oxydation. La plupart du temps, la panne venait tout simplement d'un **mauvais contact** entre la cartouche et la console, pas d'un amas de poussière.",
+        "Il existait un second point faible. La NES intégrait une puce de verrouillage, la **10NES**, qui vérifiait que la cartouche était authentique et de la bonne région. Si les broches liées à cette puce faisaient mal contact, la console refusait le jeu et redémarrait en boucle, avec le fameux voyant rouge clignotant, comme l'explique The Silicon Underground.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|Circuit d'une cartouche NES avec les contacts dorés sur le bord|Image : Wikimedia Commons",
+        "## Pourquoi ça semblait marcher",
+        "La réponse la plus simple : pour souffler, il fallait **retirer la cartouche et la remettre**. Ce seul geste modifiait la position des contacts et suffisait souvent à faire démarrer le jeu. Le souffle récoltait le mérite d'une simple réinsertion, résume le site brésilien Hardware.com.br.",
+        "Il existe aussi une hypothèse physique. L'humidité de l'haleine a pu améliorer la conduction quelques instants, assez pour charger le jeu, selon The Silicon Underground. Le problème, c'est l'effet à long terme.",
+        "## Pourquoi Nintendo demandait de ne pas souffler",
+        "L'haleine dépose **humidité et gouttelettes de salive** sur les contacts métalliques. Avec le temps, cela accélère la corrosion, dégrade le contact et attire davantage de saleté, comme l'expliquent Mental Floss et TecMundo. Autrement dit, l'astuce qui sauvait la partie du jour pouvait abîmer la cartouche plus tard.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|Dos d'une cartouche Nintendo 64 avec une étiquette d'avertissements|Image : Wikimedia Commons",
+        "Nintendo le savait. Sa page officielle de dépannage de la NES s'est mise à indiquer, vers le milieu des années 2000, de **ne pas souffler** dans les cartouches ni dans la console, et un avertissement similaire figurait au dos des cartouches Nintendo 64, selon iFixit. La firme a aussi vendu un kit de nettoyage officiel pour les cartouches et le port de la NES, rappelle Digital Trends.",
+        "Quelle est alors la bonne méthode ? Pour ceux qui jouent encore sur de vieilles consoles, TecMundo conseille de nettoyer les contacts avec un coton-tige légèrement imbibé d'**alcool isopropylique**, d'attendre que ce soit sec avant d'insérer la cartouche et de ranger celles-ci au sec. Si le problème touche plusieurs cartouches, la panne peut venir du connecteur de la console, qu'il faut parfois remplacer.",
+        "Sources : [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them), [Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help), [The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/), [Hardware.com.br](https://www.hardware.com.br/?p=379383), [TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm) et [Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)."
+      ]
+    },
+    "de": {
+      "slug": "hat-pusten-in-die-cartridge-geholfen-was-nintendo-sagte-und-was-wirklich-passierte",
+      "titulo": "Hat Pusten in die Cartridge geholfen? Was Nintendo sagte und was wirklich in der Konsole passierte",
+      "linha_fina": "Modul raus, reinpusten, wieder rein: Dieses Ritual prägte eine Generation. Staub war selten das Problem, und Nintendo bat ausdrücklich darum, es zu lassen.",
+      "tags": [
+        "Cartridge",
+        "Nintendo",
+        "NES",
+        "Retro",
+        "Kurioses"
+      ],
+      "alt": "Ein Super-Mario-World-Modul in einem Super Nintendo und Modulplatinen mit goldenen Kontakten",
+      "credito": "Bilder: Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges, auf Englisch (Kanal The Verge)",
+      "corpo": [
+        "Flackernder Bildschirm, Spiel startet nicht, verzerrte Grafik. Wer in den 1980ern und 1990ern eine Konsole mit Modulen hatte, kennt den nächsten Schritt: Modul raus, **auf die Kontakte pusten**, wieder rein. Oft lief das Spiel danach. Mit dem Pusten hatte das aber wenig zu tun.",
+        "## Das Problem war nicht Staub",
+        "Die Gewohnheit entstand mit dem **NES**, so iFixit. Die Konsole nutzte ein anderes Einschubsystem als das japanische Famicom: Das Modul wurde hineingeschoben und dann nach unten gedrückt. Der Anschluss mit 72 Kontakten hatte gebogene Pins, die etwas nachgaben und beim Herausziehen zurückfederten, erklärt Mental Floss.",
+        "Mit der Zeit verloren diese Pins an Spannung, und der Kontakt wurde unzuverlässig. Auch Schmutz und Oxidation setzten den Anschlüssen zu. Meist war der Fehler schlicht ein **Wackelkontakt** zwischen Modul und Konsole, kein Staub.",
+        "Dazu kam eine zweite Schwachstelle. Das NES hatte einen Sperrchip, den **10NES**, der prüfte, ob das Modul original und aus der richtigen Region war. Hatten die Pins dieses Chips keinen guten Kontakt, gab die Konsole das Spiel nicht frei und startete ständig neu, mit der berühmten blinkenden roten Leuchte, wie The Silicon Underground erklärt.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|Platine eines NES-Moduls mit goldenen Kontakten am Rand|Bild: Wikimedia Commons",
+        "## Warum es zu helfen schien",
+        "Die einfachste Antwort: Zum Pusten musste man das **Modul herausnehmen und wieder einstecken**. Schon diese Bewegung veränderte die Lage der Kontakte und reichte oft, damit das Spiel startete. Das Pusten bekam die Lorbeeren für etwas, das das erneute Einstecken bewirkt hatte, fasst die brasilianische Seite Hardware.com.br zusammen.",
+        "Es gibt auch eine physikalische Hypothese. Die Feuchtigkeit des Atems könnte die Leitfähigkeit für einen Moment verbessert haben, genug zum Laden des Spiels, so The Silicon Underground. Das Problem ist die Langzeitwirkung.",
+        "## Warum Nintendo vom Pusten abriet",
+        "Der Atem bringt **Feuchtigkeit und Speicheltröpfchen** auf die Metallkontakte. Mit der Zeit beschleunigt das Korrosion, verschlechtert den Kontakt und zieht mehr Schmutz an, wie Mental Floss und TecMundo erklären. Der Trick, der heute die Runde rettete, konnte das Modul also später ruinieren.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|Rückseite eines Nintendo-64-Moduls mit einem Etikett voller Warnhinweise|Bild: Wikimedia Commons",
+        "Nintendo wusste das. Die offizielle NES-Hilfeseite riet etwa ab Mitte der 2000er-Jahre ausdrücklich, **nicht in Module oder Konsole zu pusten**, und ein ähnlicher Hinweis stand auf der Rückseite von Nintendo-64-Modulen, so iFixit. Die Firma verkaufte außerdem ein offizielles Reinigungsset für Module und den Modulschacht des NES, erinnert Digital Trends.",
+        "Und wie geht es richtig? Wer noch auf alten Konsolen spielt, sollte laut TecMundo die Kontakte mit einem leicht in **Isopropylalkohol** getränkten Wattestäbchen reinigen, vor dem Einstecken trocknen lassen und Module trocken lagern. Bleibt das Problem bei mehreren Modulen, kann der Anschluss der Konsole selbst defekt sein und muss manchmal ersetzt werden.",
+        "Quellen: [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them), [Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help), [The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/), [Hardware.com.br](https://www.hardware.com.br/?p=379383), [TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm) und [Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)."
+      ]
+    },
+    "it": {
+      "slug": "soffiare-nella-cartuccia-funzionava-cosa-diceva-nintendo-e-cosa-succedeva-davvero",
+      "titulo": "Soffiare nella cartuccia funzionava? Cosa diceva Nintendo e cosa succedeva davvero dentro la console",
+      "linha_fina": "Il rito di togliere la cartuccia, soffiarci dentro e rimetterla ha segnato una generazione. Il problema era raramente la polvere, e la stessa Nintendo chiedeva di non farlo.",
+      "tags": [
+        "cartuccia",
+        "Nintendo",
+        "NES",
+        "retrò",
+        "curiosità"
+      ],
+      "alt": "Una cartuccia di Super Mario World inserita in un Super Nintendo e schede di cartucce con contatti dorati",
+      "credito": "Immagini: Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges, in inglese (canale The Verge)",
+      "corpo": [
+        "Schermo che lampeggia, gioco che non parte, immagine confusa. Chi ha avuto una console a cartucce negli anni '80 e '90 sa cosa veniva dopo: togliere la cartuccia, **soffiare sui contatti** e rimetterla. Spesso il gioco partiva. Ma la spiegazione c'entra poco con il soffio.",
+        "## Il problema non era la polvere",
+        "L'abitudine è nata con il **NES**, secondo iFixit. La console usava un sistema di inserimento diverso dal Famicom giapponese: la cartuccia veniva spinta dentro e poi verso il basso. Il connettore a 72 pin aveva contatti piegati per cedere un po' e tornare al loro posto quando la cartuccia veniva tolta, spiega Mental Floss.",
+        "Con l'uso, quei pin perdevano tensione e il contatto diventava irregolare. I connettori soffrivano anche di sporco e ossidazione. Nella maggior parte dei casi il guasto era semplicemente un **cattivo contatto** tra cartuccia e console, non polvere accumulata.",
+        "C'era poi un secondo punto debole. Il NES aveva un chip di blocco, il **10NES**, che verificava se la cartuccia fosse originale e della regione giusta. Se i pin collegati a quel chip non facevano buon contatto, la console non avviava il gioco e continuava a riavviarsi, con la famosa spia rossa lampeggiante, come spiega The Silicon Underground.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|Scheda di una cartuccia NES con i contatti dorati sul bordo|Immagine: Wikimedia Commons",
+        "## Perché sembrava funzionare",
+        "La risposta più semplice: per soffiare bisognava **togliere la cartuccia e rimetterla**. Quel gesto da solo cambiava la posizione dei contatti e spesso bastava a far partire il gioco. Il soffio si prendeva il merito di qualcosa fatto dal reinserimento, come riassume il sito brasiliano Hardware.com.br.",
+        "C'è anche un'ipotesi fisica. L'umidità del fiato potrebbe aver migliorato la conduzione per qualche istante, abbastanza da caricare il gioco, secondo The Silicon Underground. Il problema è l'effetto a lungo termine.",
+        "## Perché Nintendo chiedeva di non soffiare",
+        "Il fiato porta **umidità e goccioline di saliva** sui contatti metallici. Col tempo questo accelera la corrosione, peggiora il contatto e attira altro sporco, come spiegano Mental Floss e TecMundo. In pratica, il trucco che salvava la partita di oggi poteva rovinare la cartuccia domani.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|Retro di una cartuccia Nintendo 64 con un'etichetta di avvertenze|Immagine: Wikimedia Commons",
+        "Nintendo lo sapeva. La pagina ufficiale di assistenza del NES ha iniziato a dire, verso la metà degli anni 2000, di **non soffiare** nelle cartucce né nella console, e un avviso simile era stampato sul retro delle cartucce Nintendo 64, secondo iFixit. L'azienda vendeva anche un kit di pulizia ufficiale per le cartucce e per lo slot del NES, ricorda Digital Trends.",
+        "Qual è allora il modo giusto? Per chi gioca ancora su console vecchie, TecMundo consiglia di pulire i contatti con un cotton fioc leggermente inumidito di **alcol isopropilico**, aspettare che si asciughi prima di inserire la cartuccia e conservarle in un luogo asciutto. Se il problema riguarda più cartucce, il guasto può essere nel connettore della console stessa, che a volte va sostituito.",
+        "Fonti: [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them), [Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help), [The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/), [Hardware.com.br](https://www.hardware.com.br/?p=379383), [TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm) e [Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)."
+      ]
+    },
+    "ja": {
+      "slug": "cassette-ni-iki-wo-fukikakeru-to-naoru-nintendo-no-iibun-to-hontou-no-riyuu",
+      "titulo": "カセットに息を吹きかけると直る？　任天堂の注意書きと、本体の中で本当に起きていたこと",
+      "linha_fina": "カセットを抜いてフーッと吹き、差し直す。ある世代の定番の儀式でしたが、原因がほこりであることはまれで、任天堂自身もやめるよう呼びかけていました。",
+      "tags": [
+        "カセット",
+        "任天堂",
+        "NES",
+        "レトロ",
+        "雑学"
+      ],
+      "alt": "スーパーファミコン（北米版）に差したスーパーマリオワールドのカセットと、金色の端子が並ぶカセット基板",
+      "credito": "画像：Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges（英語、The Vergeチャンネル）",
+      "corpo": [
+        "画面がちらつく、ゲームが起動しない、画面がバグる。1980〜90年代にカセット式のゲーム機を持っていた人なら、次に何をしたか覚えているでしょう。カセットを抜いて**端子にフーッと息を吹きかけ**、差し直す。すると多くの場合、ゲームは動きました。でも、その理由は息とはほとんど関係ありません。",
+        "## 原因はほこりではなかった",
+        "iFixitによると、この習慣は北米版ファミコンの**NES**とともに生まれました。NESは日本のファミコンと違い、カセットを奥へ押し込んでから下へ倒す方式でした。Mental Flossの説明では、72ピンのコネクタの接点は少したわんで、カセットを抜くと元に戻るように曲げられていました。",
+        "使い込むうちにピンの張りが弱まり、接触が不安定になります。コネクタは汚れや酸化にも悩まされていました。たいていの場合、故障の原因は積もったほこりではなく、カセットと本体の**接触不良**だったのです。",
+        "もう一つの弱点もありました。NESには、カセットが正規品で正しい地域向けかを確かめる**「10NES」**というロックアウトチップがありました。The Silicon Undergroundによると、このチップにつながるピンの接触が悪いと本体はゲームを起動させず、有名な赤いランプを点滅させながら再起動を繰り返しました。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|縁に金色の端子が並ぶNESカセットの基板|画像：Wikimedia Commons",
+        "## なぜ効いたように見えたのか",
+        "いちばん簡単な答えは、吹くためには**カセットを一度抜いて差し直す**必要があったから、です。その動作だけで接点の位置が変わり、それで起動することがよくありました。ブラジルのHardware.com.brがまとめているように、差し直しの効果を息が横取りしていたわけです。",
+        "物理的な仮説もあります。The Silicon Undergroundによると、息の湿気が一瞬だけ導電性を高め、ゲームを読み込ませた可能性があります。問題は長い目で見たときの影響です。",
+        "## 任天堂が「吹かないで」と言った理由",
+        "息は金属の端子に**湿気や唾液の細かな粒**を運びます。Mental FlossやTecMundoが説明するように、それが時間とともに腐食を早め、接触を悪くし、汚れも付きやすくします。つまり、その日のプレイを救った技が、後でカセットを傷めていたかもしれないのです。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|使用上の注意を記したラベルが貼られたNINTENDO64カセットの裏面|画像：Wikimedia Commons",
+        "任天堂はわかっていました。iFixitによると、NESの公式トラブルシューティングページには2000年代半ばごろから、カセットや本体に**息を吹きかけない**よう明記されるようになり、NINTENDO64のカセット裏面にも同様の注意書きが印刷されていました。Digital Trendsによれば、任天堂はNESのカセットと差し込み口用の公式クリーニングキットも販売していました。",
+        "では正しい方法は？　今も古いゲーム機で遊ぶ人に向けて、TecMundoは、**イソプロピルアルコール**を少し含ませた綿棒で端子を拭き、乾いてから差し込み、カセットは湿気の少ない場所に保管するよう勧めています。複数のカセットで不具合が続く場合は、本体側のコネクタが原因で、交換が必要なこともあります。",
+        "出典： [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them)、[Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help)、[The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/)、[Hardware.com.br](https://www.hardware.com.br/?p=379383)、[TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm)、[Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)。"
+      ]
+    },
+    "zh": {
+      "slug": "chui-kadai-zhende-youyong-ma-rentiantang-zenme-shuo-yiji-zhuji-li-zhenzheng-fasheng-le-shenme",
+      "titulo": "吹卡带真的有用吗？任天堂怎么说，以及主机里真正发生了什么",
+      "linha_fina": "拔出卡带、吹一吹、再插回去，这个“仪式”伴随了一代人。问题很少是灰尘，任天堂自己也提醒大家别这么做。",
+      "tags": [
+        "卡带",
+        "任天堂",
+        "NES",
+        "复古",
+        "冷知识"
+      ],
+      "alt": "插在超级任天堂上的《超级马力欧世界》卡带，以及带金色触点的卡带电路板",
+      "credito": "图片：Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges（英语，The Verge 频道）",
+      "corpo": [
+        "画面闪烁、游戏开不了机、画面花屏。在1980和1990年代玩过卡带主机的人都知道接下来该做什么：拔出卡带，**对着触点吹一吹**，再插回去。很多时候游戏就能运行了。但真正的原因和吹气关系不大。",
+        "## 问题并不是灰尘",
+        "据 iFixit 介绍，这个习惯源于**NES**（美版红白机）。它的插卡方式和日本的 Famicom 不同：卡带要先推进去再往下压。Mental Floss 解释说，它的72针接口触点是弯曲的，插入时会稍微让开，拔出后再弹回原位。",
+        "用久了，这些针脚弹力减弱，接触就变得不稳定。接口还会受到污垢和氧化的影响。大多数时候，故障只是卡带和主机之间**接触不良**，而不是积了灰。",
+        "还有第二个薄弱环节。NES 有一块名为**10NES**的锁区芯片，用来检查卡带是否为正版、地区是否匹配。The Silicon Underground 解释说，如果与这块芯片相连的针脚接触不好，主机就不会让游戏运行，而是不断重启，著名的红灯也会一直闪烁。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|NES 卡带电路板，边缘是一排金色触点|图片：Wikimedia Commons",
+        "## 为什么看起来有效",
+        "最简单的答案是：要吹气，就得**先把卡带拔出来再插回去**。这个动作本身就改变了触点的位置，往往足以让游戏启动。正如巴西网站 Hardware.com.br 总结的，吹气抢走了“重新插拔”的功劳。",
+        "还有一种物理上的推测。据 The Silicon Underground 介绍，呼出气体中的湿气可能在短时间内改善了导电性，刚好够游戏读取。问题在于长期影响。",
+        "## 任天堂为什么劝人别吹",
+        "呼气会把**水汽和细小的唾沫**带到金属触点上。Mental Floss 和 TecMundo 解释说，日积月累会加速腐蚀、让接触更差，还更容易沾灰。也就是说，今天救了一局的小窍门，将来可能会毁掉卡带。",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|任天堂64卡带背面，贴有使用注意事项标签|图片：Wikimedia Commons",
+        "任天堂是知道的。据 iFixit 报道，大约在2000年代中期，NES 的官方故障排除页面开始明确写着**不要对卡带或主机吹气**，任天堂64卡带背面也印有类似提醒。Digital Trends 还提到，任天堂曾出售过针对 NES 卡带和卡槽的官方清洁套装。",
+        "那正确的做法是什么？对仍在玩老主机的人，TecMundo 建议用棉签蘸少量**异丙醇**擦拭触点，等完全干燥后再插入，并把卡带存放在干燥的地方。如果好几盘卡带都有问题，故障可能出在主机自身的接口上，有时需要更换。",
+        "来源： [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them)、[Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help)、[The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/)、[Hardware.com.br](https://www.hardware.com.br/?p=379383)、[TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm)、[Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)。"
+      ]
+    },
+    "ar": {
+      "slug": "hal-kan-al-nafkh-fi-al-kartrij-yanfa-ma-qalathu-nintendo-wa-ma-hadath-fialan",
+      "titulo": "هل كان النفخ في شريط اللعبة ينفع؟ ما قالته نينتندو وما كان يحدث فعلًا داخل الجهاز",
+      "linha_fina": "طقس إخراج الشريط والنفخ فيه ثم إعادته طبع جيلًا كاملًا. نادرًا ما كان الغبار هو المشكلة، ونينتندو نفسها طلبت ألا يفعل أحد ذلك.",
+      "tags": [
+        "شريط الألعاب",
+        "نينتندو",
+        "NES",
+        "ألعاب قديمة",
+        "حقائق طريفة"
+      ],
+      "alt": "شريط Super Mario World داخل جهاز سوبر نينتندو، ولوحات أشرطة بنقاط تلامس ذهبية",
+      "credito": "الصور: Wikimedia Commons",
+      "video_titulo": "Stop blowing into your game cartridges، بالإنجليزية (قناة The Verge)",
+      "corpo": [
+        "شاشة ترمش، ولعبة لا تعمل، وصورة مشوشة. من امتلك جهاز ألعاب بالأشرطة في الثمانينيات والتسعينيات يعرف ما كان يأتي بعدها: إخراج الشريط، و**النفخ على نقاط التلامس**، ثم إعادته. وكثيرًا ما كانت اللعبة تعمل. لكن السبب لا علاقة كبيرة له بالنفخ.",
+        "## المشكلة لم تكن الغبار",
+        "وُلدت العادة مع جهاز **NES**، بحسب iFixit. فقد استخدم نظام تحميل مختلفًا عن جهاز Famicom الياباني: يُدفع الشريط إلى الداخل ثم إلى الأسفل. وكان موصله ذو الدبابيس الاثنين والسبعين يضم نقاط تلامس مثنية لتلين قليلًا ثم تعود إلى مكانها عند إخراج الشريط، كما تشرح Mental Floss.",
+        "ومع الاستعمال كانت هذه الدبابيس تفقد ضغطها ويصبح التلامس متقطعًا. كما عانت الموصلات من الأوساخ والتأكسد. وفي معظم الحالات كان العطل ببساطة **ضعف التلامس** بين الشريط والجهاز، لا غبارًا متراكمًا.",
+        "وكانت هناك نقطة ضعف ثانية. فقد احتوى NES على شريحة قفل تسمى **10NES** تتحقق من أن الشريط أصلي ومن المنطقة الصحيحة. وإذا لم تتلامس الدبابيس المرتبطة بهذه الشريحة جيدًا، رفض الجهاز تشغيل اللعبة وظل يعيد التشغيل مع الضوء الأحمر الوامض الشهير، كما يشرح موقع The Silicon Underground.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Nintendo-NES-Tetris-Cartridge-Board.jpg/1920px-Nintendo-NES-Tetris-Cartridge-Board.jpg|لوحة شريط NES بنقاط تلامس ذهبية على الحافة|الصورة: Wikimedia Commons",
+        "## لماذا بدا أنه ينفع",
+        "الجواب الأبسط: كي تنفخ كان لا بد من **إخراج الشريط وإعادته**. وهذه الحركة وحدها كانت تغيّر وضع نقاط التلامس، وغالبًا ما كانت تكفي لتشغيل اللعبة. فنال النفخ الفضل في أمر صنعته إعادة التركيب، كما يلخص موقع Hardware.com.br البرازيلي.",
+        "وهناك أيضًا فرضية فيزيائية. فربما حسّنت رطوبة النفَس التوصيل للحظات، بما يكفي لتحميل اللعبة، بحسب The Silicon Underground. لكن المشكلة في الأثر على المدى البعيد.",
+        "## لماذا طلبت نينتندو عدم النفخ",
+        "ينقل النفَس **رطوبة ورذاذ لعاب** إلى نقاط التلامس المعدنية. ومع الوقت يسرّع ذلك التآكل ويضعف التلامس ويجذب مزيدًا من الأوساخ، كما تشرح Mental Floss وTecMundo. أي أن الحيلة التي أنقذت جولة اليوم قد تفسد الشريط لاحقًا.",
+        "!img https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/MajorasMaskBack.jpg/1920px-MajorasMaskBack.jpg|الجهة الخلفية لشريط نينتندو 64 مع ملصق تحذيرات الاستخدام|الصورة: Wikimedia Commons",
+        "وكانت نينتندو تعلم ذلك. فقد بدأت صفحتها الرسمية لحل مشكلات NES، نحو منتصف العقد الأول من الألفية، تنص صراحة على **عدم النفخ** في الأشرطة أو الجهاز، وطُبع تحذير مشابه على ظهر أشرطة نينتندو 64، بحسب iFixit. كما باعت الشركة طقم تنظيف رسميًا للأشرطة ولفتحة جهاز NES، كما يذكّر موقع Digital Trends.",
+        "فما الطريقة الصحيحة؟ لمن لا يزال يلعب على أجهزة قديمة، ينصح TecMundo بتنظيف نقاط التلامس بعود قطني مبلل قليلًا بـ**كحول الأيزوبروبيل**، والانتظار حتى يجف قبل إدخال الشريط، وحفظ الأشرطة في مكان جاف. وإذا استمرت المشكلة مع عدة أشرطة، فقد يكون العطل في موصل الجهاز نفسه، الذي يحتاج أحيانًا إلى استبدال.",
+        "المصادر: [iFixit](https://www.ifixit.com/News/97647/ask-ifixit-does-blowing-into-gaming-cartridges-actually-fix-them), [Mental Floss](https://www.mentalfloss.com/article/12589/did-blowing-nintendo-cartridges-really-help), [The Silicon Underground](https://dfarq.homeip.net/blowing-into-nes-cartridges/), [Hardware.com.br](https://www.hardware.com.br/?p=379383), [TecMundo](https://www.tecmundo.com.br/internet/2975-mito-ou-verdade-assoprar-cartuchos-de-video-game-funciona-.htm) و[Digital Trends](https://es.digitaltrends.com/videojuego/error-soplar-cartucho-nintendo/)."
+      ]
+    }
+  }
+}

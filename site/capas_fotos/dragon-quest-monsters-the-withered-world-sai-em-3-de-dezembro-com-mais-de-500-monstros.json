@@ -1,0 +1,31 @@
+{
+ "layout": "grade_b",
+ "editoria": "games",
+ "titulo": "Dragon Quest Monsters",
+ "fotos": [
+  {
+   "url": "https://www.gematsu.com/wp-content/uploads/2026/06/Dragon-Quest-Monsters-The-Withered-World_2026_06-11-26_028.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.gematsu.com/wp-content/uploads/2026/06/Dragon-Quest-Monsters-The-Withered-World_2026_06-11-26_006.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.gematsu.com/wp-content/uploads/2026/06/Dragon-Quest-Monsters-The-Withered-World_2026_06-11-26_011.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

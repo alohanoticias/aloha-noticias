@@ -1,0 +1,23 @@
+{
+ "layout": "moldura",
+ "editoria": "cinema",
+ "titulo": "Quasímodo",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Paris%2C_Notre_Dame_--_2014_--_1477.jpg/1920px-Paris%2C_Notre_Dame_--_2014_--_1477.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Notre_Dame_HDR.jpg/1920px-Notre_Dame_HDR.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}
