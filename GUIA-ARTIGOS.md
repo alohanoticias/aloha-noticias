@@ -58,13 +58,13 @@ Em cada execução, olhe os rascunhos pendentes em `rascunhos/`:
 - Se o assunto perdeu a relevância, **não apague**: diga na mensagem final qual é e por quê, para a pessoa decidir.
 - Se já há 6 ou mais rascunhos pendentes, não escreva rascunhos novos nesse dia: avise que há fila e peça para a pessoa aprovar ou rejeitar alguns.
 
-## Regra fixa: não repetir assunto nem formato (decisão do usuário, 08/11/2026)
-Antes de escolher a pauta, liste os títulos de `site/conteudo/materias.json` dos **últimos 10 dias**, mais tudo que está em `rascunhos/` e `agendados/`. O assunto novo não pode repetir:
-- **O mesmo produto, console, franquia ou plataforma** de um artigo dos últimos 7 dias (ex.: não fazer outro "chega ao Switch 2" se já saiu um na semana; não dois de GTA, PlayStation ou da mesma série seguidos).
-- **O mesmo tema técnico** de um artigo dos últimos 10 dias (ex.: dois sobre upscaling/FSR/DLSS).
-- **O mesmo formato na mesma editoria** de um artigo dos últimos 5 dias (ex.: dois "calendário de episódios" de anime; duas curiosidades no molde "a origem de...").
-- **A mesma data-gancho** com o mesmo verbo (dois títulos "chega em 12 de novembro").
-Se a pauta bater em qualquer item, troque por outra. Na revisão dos rascunhos e agendados, se encontrar algo repetido, apague e escreva outro no lugar (o usuário autorizou), mantendo os horários e a mistura de editorias da agenda.
+## Regra fixa: não repetir o mesmo assunto em sequência (decisão do usuário, 08/11/2026)
+"Repetido" é **o mesmo assunto escrito de outro jeito**, não o mesmo formato. Exemplos do usuário: três artigos seguidos sobre o mesmo jogo, ou três seguidos sobre o mesmo filme.
+Antes de escolher a pauta, liste os títulos de `site/conteudo/materias.json` dos **últimos 7 dias**, mais tudo que está em `rascunhos/` e `agendados/`:
+- Não escreva outro artigo sobre o **mesmo jogo, filme, série, anime ou produto** que já teve artigo nesses dias, a não ser que haja notícia nova e importante sobre ele (e mesmo assim nunca dois seguidos na agenda).
+- Formatos parecidos em assuntos diferentes **podem** (ex.: calendário de episódios de dois animes diferentes; dois "chega em tal data" de jogos diferentes).
+- Varie as editorias ao longo do dia, como já manda a agenda.
+Na revisão dos rascunhos e agendados, se houver artigos sobre o mesmo assunto contado de outro jeito, apague o excedente e escreva outro no lugar (o usuário autorizou), mantendo os horários e a mistura de editorias.
 
 ## Escolha dos assuntos
 - Sempre assuntos do momento: o que está sendo comentado hoje, lançamentos e estreias da semana, anúncios oficiais, polêmicas já confirmadas. Confira nas buscas e nas páginas oficiais o que realmente está em alta antes de decidir.
