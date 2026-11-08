@@ -111,6 +111,19 @@ if sys.argv[1:2] == ["fila"]:
         print("Na fila:", it["msg"], it["slug"][:60])
     sys.exit(0)
 
+if sys.argv[1:2] == ["verificar"]:
+    # lê o botão de um post do canal oficial (encaminha ao rascunho, lê e apaga): verificar <id_no_canal>
+    r = api("forwardMessage", {"chat_id": rascunho, "from_chat_id": canal, "message_id": sys.argv[2], "disable_notification": "true"})
+    m = r.get("result") or {}
+    for linha in (m.get("reply_markup") or {}).get("inline_keyboard", []):
+        for b in linha:
+            print("BOTÃO:", b.get("text"), "->", b.get("url"))
+    if not m:
+        print("Falhou:", r.get("description"))
+    else:
+        api("deleteMessage", {"chat_id": rascunho, "message_id": m["message_id"]})
+    sys.exit(0)
+
 if sys.argv[1:2] == ["corrigir-botao"]:
     # atualiza o texto do botão num post que já está no canal oficial: corrigir-botao <id_no_canal> <slug>
     mid, slug = sys.argv[2], sys.argv[3]
