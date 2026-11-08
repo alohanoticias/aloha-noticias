@@ -1,5 +1,11 @@
 name: Medir fotos das capas
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "Endereços de imagens (separados por espaço); vazio = fotos das capas"
+        required: false
+        default: ""
 permissions:
   contents: read
 jobs:
@@ -8,4 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q pillow numpy
-      - run: python3 site/medir_fotos.py
+      - env:
+          URLS: ${{ github.event.inputs.urls }}
+        run: python3 site/medir_fotos.py $URLS

@@ -23,6 +23,15 @@ def medir(img):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1:  # medir endereços avulsos: python3 site/medir_fotos.py URL1 URL2 ...
+        for url in sys.argv[1:]:
+            try:
+                img = mc.baixar(url)
+                n, b = medir(img)
+                print(f"MEDIDA {img.size[0]}x{img.size[1]} nitidez={n:.2f} bloco={b:.2f} {url}", flush=True)
+            except Exception as e:
+                print(f"MEDIDA ERRO {e} {url}", flush=True)
+        sys.exit(0)
     for f in sorted((mc.RAIZ / "site/capas_fotos").glob("*.json")):
         spec = json.loads(f.read_text(encoding="utf-8"))
         for foto in spec.get("fotos", []):
