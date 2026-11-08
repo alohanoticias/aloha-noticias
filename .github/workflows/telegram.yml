@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       slugs:
-        description: "Slugs das matérias para postar no canal, separados por espaço. Escreva 'todas' para postar todas as publicadas, 'descobrir' para ver os canais do bot, 'botoes' para tratar os botões agora. Vazio = só mensagem de teste."
+        description: "Slugs das matérias para postar no canal, separados por espaço. Escreva 'todas' para postar todas as publicadas, 'descobrir' para ver os canais do bot, 'botoes' para tratar os botões agora, 'limpar' para apagar tudo do canal de rascunho. Vazio = só mensagem de teste."
         required: false
         default: ""
 permissions:
@@ -30,6 +30,8 @@ jobs:
             grep -q '"ok":true' /tmp/r.json || exit 1
           elif [ "$SLUGS" = "descobrir" ]; then
             python3 site/telegram_aprovar.py descobrir
+          elif [ "$SLUGS" = "limpar" ]; then
+            python3 site/telegram_aprovar.py limpar
           elif [ "$SLUGS" = "botoes" ]; then
             python3 site/telegram_aprovar.py
           elif [ "$SLUGS" = "todas" ]; then

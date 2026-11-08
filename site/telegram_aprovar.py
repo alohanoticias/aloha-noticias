@@ -19,6 +19,7 @@ try:
 except FileNotFoundError:
     rascunho = ""
 descobrir = sys.argv[1:] == ["descobrir"]
+limpar = sys.argv[1:] == ["limpar"]  # apaga todas as mensagens do canal de rascunho (o canal oficial não é tocado)
 if not token or not canal or not (rascunho or descobrir):
     print("Aprovação pelo Telegram desligada."); sys.exit(0)
 
@@ -47,6 +48,19 @@ if descobrir:
         print(f"ID {i} | {t} | @{un or '-'} | {tp}")
     if not vistos:
         print("Nenhum canal visto. Mande uma mensagem qualquer no canal de rascunho e rode de novo.")
+    sys.exit(0)
+
+if limpar:
+    marca = api("sendMessage", {"chat_id": rascunho, "text": "Limpando…"})
+    ate = marca.get("result", {}).get("message_id", 0)
+    apagadas = 0
+    for ini in range(1, ate + 1, 100):
+        ids = list(range(ini, min(ini + 100, ate + 1)))
+        r = api("deleteMessages", {"chat_id": rascunho, "message_ids": json.dumps(ids)})
+        apagadas += len(ids) if r.get("ok") else 0
+        if not r.get("ok"):
+            print("Falhou:", r.get("description"))
+    print(f"Canal de rascunho limpo (até a mensagem {ate}).")
     sys.exit(0)
 
 oficial = api("getChat", {"chat_id": canal}).get("result", {})
