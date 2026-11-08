@@ -1,10 +1,6 @@
 {
  "itens": [
   {
-   "msg": 108,
-   "slug": "antes-dos-videogames-a-nintendo-fazia-cartas-de-hanafuda-em-kyoto-a-historia-de-1889-ao-famicom"
-  },
-  {
    "msg": 109,
    "slug": "gta-6-marketing-nas-ruas-miami-sao-paulo-o-que-a-rockstar-ja-espalhou"
   },
@@ -30,5 +26,5 @@
   }
  ],
  "intervalo_min": 30,
- "proximo": "2026-11-08T21:30:06+00:00"
+ "proximo": "2026-11-08T22:00:31+00:00"
 }
