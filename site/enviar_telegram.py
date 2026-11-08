@@ -64,8 +64,7 @@ for i, slug in enumerate(slugs):
     link = (urls.get(slug) or {}).get("pt") or f"https://alohanoticias.com/materia-{slug}.html"
     titulo = html.escape(m["titulo"])
     resumo = html.escape(m.get("linha_fina", "").strip())
-    tag = hashtag(eds.get(m.get("editoria", ""), "")) if m.get("editoria") else ""
-    rodape = f'\n\n👉 <a href="{link}">Leia no Aloha Notícias</a>' + (f"\n\n{tag}" if len(tag) > 1 else "")
+    rodape = f'\n\n👉🏻 <a href="{link}">Leia no Aloha Notícias</a>'  # sem hashtag, por pedido
     texto = f"<b>{titulo}</b>\n\n{resumo}"
     if len(texto) + len(rodape) > 1000:  # legenda de foto tem limite de 1024 caracteres
         texto = texto[:1000 - len(rodape) - 1].rsplit(" ", 1)[0] + "…"
