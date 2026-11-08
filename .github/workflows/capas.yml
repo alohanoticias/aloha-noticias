@@ -9,11 +9,29 @@ permissions:
 jobs:
   capas:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-      - run: pip install pillow
+      - run: pip install pillow numpy
       - run: sudo apt-get install -y fonts-inter || true
-      - name: Montar as capas que ainda não existem
+      - uses: actions/cache@v4
+        with:
+          path: ia_modelos
+          key: realesrgan-v1
+      - name: Instalar o aprimorador de imagem (IA)
+        id: ia
+        continue-on-error: true
+        run: |
+          pip install -q --no-cache-dir spandrel
+          pip install -q --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+          mkdir -p ia_modelos
+          [ -s ia_modelos/RealESRGAN_x4plus.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
+          [ -s ia_modelos/RealESRGAN_x4plus_anime_6B.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus_anime_6B.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
+      - name: Montar as capas novas com a regra de qualidade (IA)
+        if: steps.ia.outcome == 'success'
+        continue-on-error: true
+        run: python3 site/capa_ia.py --novas
+      - name: Montar sem IA as que faltarem (reserva, se a IA falhar)
         run: python3 site/montar_capa.py
       - name: Regenerar o site e enviar
         if: always()

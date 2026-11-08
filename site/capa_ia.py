@@ -1,7 +1,8 @@
 """Remonta capas com as fotos de origem aprimoradas por IA (Real-ESRGAN, 4x) antes da montagem.
 Mesmo layout, enquadramento, logo e título do site/capas_fotos/<slug>.json; só a qualidade das fotos muda.
 Não troca nada no site: grava em ia_saida/ a capa nova e uma comparação antes/depois para aprovação.
-Uso: python3 site/capa_ia.py slug1 slug2 ...      (precisa de torch, spandrel e dos modelos em ia_modelos/)
+Uso: python3 site/capa_ia.py --novas            (monta direto no site as capas que ainda não existem; usado pelo capas.yml)
+     python3 site/capa_ia.py slug1 slug2 ...      (prévia em ia_saida/; precisa de torch, spandrel e dos modelos em ia_modelos/)
      python3 site/capa_ia.py --aplicar slug ...    (copia de ia_saida/ para a capa do site)"""
 import json, shutil, sys
 from pathlib import Path
@@ -60,13 +61,23 @@ tipo_atual = "foto"
 
 
 def baixar_ia(url):
-    img = baixar_original(url)
-    w, h = img.size
+    """Regra de qualidade (foto por foto):
+    IA completa se a foto é pequena, tem quadriculado de JPEG, está borrada ou é anime/ilustração;
+    nas outras, retoque leve: metade IA, metade original (melhora sem deixar com cara de plástico)."""
+    from medir_fotos import medir
+    orig = baixar_original(url)
+    w, h = orig.size
+    nitidez, bloco = medir(orig)
+    img = orig
     if max(w, h) > BASE:
         e = BASE / max(w, h)
-        img = img.resize((round(w * e), round(h * e)), Image.LANCZOS)
-    print(f"   IA ({tipo_atual}) em foto {w}x{h} (entrada {img.size[0]}x{img.size[1]})", flush=True)
-    return ampliar(img, tipo_atual)
+        img = orig.resize((round(w * e), round(h * e)), Image.LANCZOS)
+    ia = ampliar(img, tipo_atual)
+    completa = max(w, h) < 1000 or bloco > 1.12 or nitidez < 1.0 or tipo_atual == "anime"
+    print(f"   foto {w}x{h} nitidez={nitidez:.2f} bloco={bloco:.2f} -> {'IA completa' if completa else 'retoque leve'} ({tipo_atual})", flush=True)
+    if completa:
+        return ia
+    return Image.blend(orig.convert("RGB"), ia.resize((w, h), Image.LANCZOS), 0.5)
 
 
 mc.baixar = baixar_ia
@@ -92,13 +103,21 @@ def comparar(antes, depois, destino):
 EDITORIAS = {m["slug"]: m.get("editoria") for m in json.loads((RAIZ / "site/conteudo/materias.json").read_text(encoding="utf-8"))}
 SAIDA.mkdir(exist_ok=True)
 falhou = False
-for slug in sys.argv[1:]:
+novas = sys.argv[1:2] == ["--novas"]
+slugs = sys.argv[2:] if novas else sys.argv[1:]
+if novas and not slugs:
+    slugs = [f.stem for f in sorted((RAIZ / "site/capas_fotos").glob("*.json")) if not (CAPAS / f"{f.stem}.jpg").exists()]
+    print("Capas novas:", slugs or "nenhuma", flush=True)
+for slug in slugs:
     spec = json.loads((RAIZ / f"site/capas_fotos/{slug}.json").read_text(encoding="utf-8"))
     ed = spec.get("editoria") or EDITORIAS.get(slug)
     tipo_atual = "anime" if ed == "anime" or spec.get("ia") == "anime" else "foto"
     print("Capa:", slug, flush=True)
     try:
         nova = mc.montar(spec)
+        if novas:  # capa nova: vai direto para o site, já com a regra de qualidade
+            nova.save(CAPAS / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
+            print("   pronta (no site)", flush=True); continue
         nova.save(SAIDA / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
         atual = CAPAS / f"{slug}.jpg"
         if atual.exists():
