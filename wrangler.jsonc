@@ -1,5 +1,10 @@
 {
   "name": "aloha-noticias",
   "compatibility_date": "2026-11-01",
-  "assets": { "directory": "./publico" }
+  "main": "worker/index.js",
+  "assets": {
+    "directory": "./publico",
+    "binding": "ASSETS",
+    "run_worker_first": ["/admin/*", "/admin", "/api/*"]
+  }
 }
