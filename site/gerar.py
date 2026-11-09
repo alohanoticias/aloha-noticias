@@ -624,7 +624,7 @@ def gerar_admin(rascunhos, agendados=()):
             f'<h3>{esc(d["titulo"])}</h3><p class="meta"><span>{esc(ED[d["editoria"]]["nome"])}</span></p></div></a></li>'
             for d in agendados)
         lista += f'<h2 style="margin-top:40px">Agendados</h2><ul class="lista-simples" style="max-width:820px">{itens2}</ul>'
-    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p><p><a class="botao-sec" href="admin/links.html">Links para redes sociais</a> <a class="botao-sec" href="admin/parceiros.html">Links de parceiros</a> <a class="botao-sec" href="admin/acessos.html">Painel de acessos</a></p></div></div>
+    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p><p><a class="botao-sec" href="admin/links.html">Links para redes sociais</a> <a class="botao-sec" href="admin/parceiros.html">Links de parceiros</a></p></div></div>
 <div class="wrap editoria-corpo">{lista}</div>"""
     return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
@@ -705,65 +705,6 @@ def gerar_parceiros_admin(lista):
 <style>.parceiros label{{display:block;margin:18px 0 6px}}.parceiros select,.parceiros input,.parceiros textarea{{width:100%;padding:10px;font-size:1rem;box-sizing:border-box}}</style>
 <script src="assets/js/parceiros-admin.js"></script>"""
     return pagina("Admin: parceiros", "Links de parceiros", "", corpo, com_news=False,
-                  extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
-
-
-def gerar_acessos_admin():
-    """Admin > Acessos: painel com os números do Google Analytics (visitas por hora, dia, semana e mês, origens e parceiros)."""
-    corpo = """<div class="topo-editoria"><div class="wrap"><h1>Painel de acessos</h1>
-<p>Números do Google Analytics do site. Os dados do dia podem levar algumas horas para aparecer por completo; o quadro "Agora" mostra quem está no site nos últimos 30 minutos.</p>
-<p><a href="admin/">Voltar aos rascunhos</a></p></div></div>
-<div class="wrap editoria-corpo acessos">
-<div class="ac-filtros" role="group" aria-label="Período">
-<button type="button" data-p="hoje">Hoje</button><button type="button" data-p="ontem">Ontem</button><button type="button" data-p="7" class="ativo">7 dias</button><button type="button" data-p="30">30 dias</button><button type="button" data-p="90">90 dias</button><button type="button" data-p="365">12 meses</button>
-<span class="ac-datas"><input type="date" id="ac-ini" aria-label="Início"> até <input type="date" id="ac-fim" aria-label="Fim"> <button type="button" id="ac-aplicar">Aplicar</button></span>
-</div>
-<p class="meta" id="ac-status">Carregando...</p>
-<section class="ac-agora"><h2>Agora</h2><div id="ac-tempo-real"></div></section>
-<section><h2>Resumo do período</h2><div class="ac-cards" id="ac-resumo"></div></section>
-<section><h2>Visitas ao longo do tempo</h2>
-<div class="ac-filtros" role="group" aria-label="Agrupar"><button type="button" data-g="hora">Por hora</button><button type="button" data-g="dia" class="ativo">Por dia</button><button type="button" data-g="semana">Por semana</button><button type="button" data-g="mes">Por mês</button></div>
-<canvas id="ac-grafico" height="300"></canvas><div class="ac-legenda"><span class="l1">Visitantes</span><span class="l2">Visitas</span><span class="l3">Páginas vistas</span></div>
-<details><summary>Ver tabela</summary><div id="ac-serie-tabela"></div></details></section>
-<div class="ac-duas">
-<section><h2>Horários de pico</h2><canvas id="ac-horas" height="220"></canvas></section>
-<section><h2>Dias da semana</h2><canvas id="ac-semana" height="220"></canvas></section>
-</div>
-<section><h2>Parceiros</h2><p class="meta">Visitas que chegaram pelos links de parceiros (campanha "parceiro").</p><div id="ac-parceiros"></div></section>
-<div class="ac-duas">
-<section><h2>Canais</h2><div id="ac-canais"></div></section>
-<section><h2>De onde vieram (origem / mídia)</h2><div id="ac-origens"></div></section>
-</div>
-<section><h2>Artigos e páginas mais vistos</h2><div id="ac-paginas"></div></section>
-<div class="ac-duas">
-<section><h2>Países</h2><div id="ac-paises"></div></section>
-<section><h2>Cidades</h2><div id="ac-cidades"></div></section>
-</div>
-<div class="ac-duas">
-<section><h2>Aparelhos</h2><div id="ac-aparelhos"></div></section>
-<section><h2>Versão do site lida</h2><div id="ac-versoes"></div></section>
-</div>
-<section><h2>Idioma do navegador</h2><div id="ac-idiomas"></div></section>
-</div>
-<style>
-.acessos section{margin:28px 0}.acessos h2{margin-bottom:10px}
-.ac-filtros{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}
-.ac-filtros button{padding:7px 12px;border:1px solid var(--linha);background:transparent;color:inherit;border-radius:6px;cursor:pointer;font-size:.95rem}
-.ac-filtros button.ativo{background:var(--marca);border-color:var(--marca);color:#fff}
-.ac-datas{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap}.ac-datas input{padding:6px}
-.ac-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.ac-card{border:1px solid var(--linha);border-radius:10px;padding:14px}.ac-card b{display:block;font-size:1.6rem;margin:4px 0}
-.ac-card small{font-size:.85rem}.ac-sobe{color:#2b8a3e}.ac-desce{color:#c92a2a}
-.acessos canvas{width:100%;display:block}
-.ac-legenda{display:flex;gap:16px;font-size:.9rem;margin-top:6px}.ac-legenda span:before{content:"";display:inline-block;width:12px;height:3px;margin-right:6px;vertical-align:middle;background:currentColor}
-.ac-legenda .l1{color:var(--marca)}.ac-legenda .l2{color:#1c7ed6}.ac-legenda .l3{color:#f59f00}
-.ac-duas{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-.acessos table{width:100%;border-collapse:collapse;font-size:.92rem}.acessos th,.acessos td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linha)}
-.acessos td.n,.acessos th.n{text-align:right;white-space:nowrap}.acessos td .barra{height:4px;background:var(--marca);border-radius:2px;margin-top:3px;opacity:.6}
-.ac-agora b.ac-num{font-size:2.2rem}
-</style>
-<script src="assets/js/acessos-admin.js"></script>"""
-    return pagina("Admin: acessos", "Painel de acessos", "", corpo, com_news=False,
                   extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
 
 
@@ -1242,7 +1183,6 @@ def main():
     (SAIDA / "admin/index.html").write_text(resolver(gerar_admin(rascunhos, agendados), "pt", "admin/index.html", existe), encoding="utf-8")
     (SAIDA / "admin/links.html").write_text(resolver(gerar_links_admin(materias), "pt", "admin/links.html", existe), encoding="utf-8")
     (SAIDA / "admin/parceiros.html").write_text(resolver(gerar_parceiros_admin(materias), "pt", "admin/parceiros.html", existe), encoding="utf-8")
-    (SAIDA / "admin/acessos.html").write_text(resolver(gerar_acessos_admin(), "pt", "admin/acessos.html", existe), encoding="utf-8")
     for d in rascunhos:
         (SAIDA / f"admin/{d['slug']}.html").write_text(resolver(gerar_materia(d, preview=True), "pt", f"admin/{d['slug']}.html", existe), encoding="utf-8")
     # prévias das traduções de rascunhos e agendados (admin/en/<slug>.html, admin/es/<slug>.html)
