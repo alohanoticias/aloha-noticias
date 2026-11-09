@@ -24,8 +24,9 @@ try:
 except FileNotFoundError:
     rascunho = ""
 destino = rascunho or canal
+AUTOMATICO = True  # posta no canal oficial na hora, junto com a cópia no rascunho (sem esperar botão)
 APROVAR = [{"text": "✅ Aprovar", "callback_data": "ok"}, {"text": "❌ Descartar", "callback_data": "no"}]
-print("Destino:", "canal de rascunho" if rascunho else "canal oficial")
+print("Destino:", "rascunho + canal oficial" if rascunho else "canal oficial")
 
 slugs = sys.argv[1:]
 previa_oficial = "--como-oficial" in slugs  # manda no rascunho exatamente como sairia no canal oficial, sem botões de aprovação
@@ -87,14 +88,19 @@ for i, slug in enumerate(slugs):
             import hashlib
             img += "?v=" + hashlib.md5(local.read_bytes()).hexdigest()[:8]
     r = {}
-    teclado = [[{"text": "👉🏻 Clique para ver COMPLETO 🚨", "url": link}]] + ([APROVAR] if rascunho and not previa_oficial else [])
+    teclado = [[{"text": "👉🏻 Clique para ver COMPLETO 🚨", "url": link}]]
     extra = {"reply_markup": json.dumps({"inline_keyboard": teclado})}
-    if img:
-        r = api("sendPhoto", {"chat_id": destino, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
-    if not r.get("ok"):
+    alvos = [canal] if not rascunho else ([rascunho] if previa_oficial else [rascunho, canal] if AUTOMATICO else [rascunho])
+    for alvo in alvos:
+        r = {}
         if img:
-            print("Foto não foi aceita, mandando com prévia do link:", r.get("description"))
-        r = api("sendMessage", {"chat_id": destino, "text": texto, "parse_mode": "HTML", **extra})
+            r = api("sendPhoto", {"chat_id": alvo, "photo": img, "caption": texto, "parse_mode": "HTML", **extra})
+        if not r.get("ok"):
+            if img:
+                print("Foto não foi aceita, mandando com prévia do link:", r.get("description"))
+            r = api("sendMessage", {"chat_id": alvo, "text": texto, "parse_mode": "HTML", **extra})
+        if len(alvos) > 1 and alvo != alvos[-1]:
+            time.sleep(1)
     print(slug, "->", "ok" if r.get("ok") else r.get("description"))
     falhas += 0 if r.get("ok") else 1
     if i < len(slugs) - 1:
