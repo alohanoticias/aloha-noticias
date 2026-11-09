@@ -121,3 +121,4 @@ body.painel{margin:0;background:var(--p-fundo);color:var(--p-tinta);font:15px/1.
 .m-agora b::after{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--p-ok);margin-left:8px;vertical-align:middle;animation:m-pulso 2s infinite}
 @keyframes m-pulso{50%{opacity:.3}}
 #m-dias{appearance:auto}
+.m-sub{color:var(--p-suave);font-weight:400;font-size:12px;margin-left:6px}

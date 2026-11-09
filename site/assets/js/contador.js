@@ -5,7 +5,8 @@
     if (localStorage.getItem("aloha-nao-contar") === "1") return;
     if (navigator.webdriver || document.visibilityState === "prerender") return;
   } catch (e) {}
-  var dados = JSON.stringify({ u: location.href, r: document.referrer });
+  var meta = document.querySelector('meta[name="aloha-slug"]');
+  var dados = JSON.stringify({ u: location.href, r: document.referrer, s: meta ? meta.content : "" });
   function enviar() {
     try {
       if (navigator.sendBeacon && navigator.sendBeacon("/api/v", new Blob([dados], { type: "text/plain" }))) return;

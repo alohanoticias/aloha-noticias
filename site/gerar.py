@@ -451,30 +451,40 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 </main>
 {newsletter() if (com_news and NEWSLETTER_ATIVA) else ""}
 {rodape()}
-{consent_html()}<script src="assets/js/site.js"></script><script src="assets/js/contador.js" defer></script><script src="assets/js/novidades{'' if LANG == 'pt' else '-' + LANG}.js"></script><script src="assets/js/sino.js"></script>{CONSENT_JS}
+{consent_html()}<script src="assets/js/site.js"></script><script src="assets/js/contador.js" defer></script><script src="assets/js/em-alta.js" defer></script><script src="assets/js/novidades{'' if LANG == 'pt' else '-' + LANG}.js"></script><script src="assets/js/sino.js"></script>{CONSENT_JS}
 </body>
 </html>
 """
 
 
+EM_ALTA = {"pt": "Em alta", "en": "Trending", "es": "Tendencia", "fr": "Tendance", "de": "Im Trend", "it": "Di tendenza", "ja": "話題", "zh": "热门", "ar": "رائج"}
+
+
+def alta(m):
+    """Selo "🔥 Em alta": escondido no HTML; assets/js/em-alta.js mostra nos artigos mais lidos dos últimos dias (contador próprio)."""
+    return f'<span class="em-alta" data-alta="{esc(m["slug"])}" hidden><span aria-hidden="true">🔥</span> {EM_ALTA.get(LANG, EM_ALTA["pt"])}</span>'
+
+
 def card(m, pequeno=False, mostrar_capa=True, chapeu=True):
     return f"""<a class="card{' pequeno' if pequeno else ''}" href="{url_materia(m)}">
   {capa(m) if mostrar_capa else ""}
-  {f'<span class="chapeu">{esc(ED[m["editoria"]]["nome"])}</span>' if chapeu else ""}
+  {f'<span class="chapeu">{esc(ED[m["editoria"]]["nome"])}</span>' if chapeu else ""}{alta(m)}
   <h3>{esc(m["titulo"])}</h3>
   <p class="meta"><time datetime="{m["data"]}">{data_curta(m["data"])}</time></p>
 </a>"""
 
 
 def mais_lidas(lista, cls=""):
+    """Lista "Mais lidas": vai no HTML com até 40 matérias (5 visíveis, na ordem padrão). assets/js/em-alta.js reordena pelas
+    leituras reais dos últimos 7 dias (contador próprio) e mostra as 5 primeiras; sem dados suficientes, fica a ordem padrão."""
     if len(lista) < 3:
         return ""
-    itens = "".join(f'<li><a href="{url_materia(m)}">{esc(m["titulo"])}</a></li>' for m in lista)
-    return f'<aside class="mais-lidas {cls}" aria-labelledby="ml-{cls or "x"}"><h2 id="ml-{cls or "x"}">{t("Mais lidas")}</h2><ol>{itens}</ol></aside>'
+    itens = "".join(f'<li data-slug="{esc(m["slug"])}"{"" if i < 5 else " hidden"}><a href="{url_materia(m)}">{esc(m["titulo"])}</a></li>' for i, m in enumerate(lista))
+    return f'<aside class="mais-lidas {cls}" aria-labelledby="ml-{cls or "x"}"><h2 id="ml-{cls or "x"}">{t("Mais lidas")}</h2><ol data-ml>{itens}</ol></aside>'
 
 
 # Ordem de "mais lidas" de exemplo (troque pela sua métrica de audiência)
-MAIS_LIDAS = materias[:5]
+MAIS_LIDAS = materias[:40]
 
 
 # ---------------------------------------------------------------- home
@@ -499,7 +509,7 @@ def hero_card(m, grande):
   {capa(m, "hero-img", prioridade=grande, sizes="(max-width: 760px) 100vw, 1100px" if grande else "(max-width: 760px) 100vw, 560px")}
   {tag_v(m)}
   <div class="hero-texto">
-    <time datetime="{m['data']}">{data_longa(m['data'])}</time>
+    {alta(m)}<time datetime="{m['data']}">{data_longa(m['data'])}</time>
     <h2>{esc(m['titulo'])}</h2>
     {fina}
   </div>
@@ -510,7 +520,7 @@ def item_lista(m):
     return f"""<article class="item-lista">
   <a class="il-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m)}{tag_v(m)}</a>
   <div class="il-texto">
-    <p class="meta-l"><span class="autor">{esc(autor_nome(m))}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
+    {alta(m)}<p class="meta-l"><span class="autor">{esc(autor_nome(m))}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
     <h3><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h3>
     <p class="resumo">{esc(m['linha_fina'])}</p>
     <a class="leia-mais" href="{url_materia(m)}">{t("Leia mais")} »</a>
@@ -577,7 +587,7 @@ def gerar_home():
 # ---------------------------------------------------------------- editoria
 def card_cat(m):
     return f"""<article class="card-cat">
-  <h2><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h2>
+  {alta(m)}<h2><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h2>
   <p class="meta-l"><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
   <a class="cc-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m)}</a>
   <p class="resumo">{esc(m['linha_fina'])}</p>
@@ -749,6 +759,7 @@ def gerar_metricas_admin(materias):
         nomes["/" + url_editoria(e["slug"])] = "Editoria: " + e["nome"]
     for m in materias:
         nomes["/" + url_materia(m)] = m["titulo"]
+        nomes["slug:" + m["slug"]] = m["titulo"]
     for n in ("sobre", "contato", "equipe", "politica-editorial", "privacidade", "termos"):
         nomes[f"/{n}.html"] = n.replace("-", " ").capitalize()
     acao = ('<select id="m-dias" class="p-btn" aria-label="Período"><option value="7">7 dias</option><option value="30" selected>30 dias</option>'
@@ -757,9 +768,10 @@ def gerar_metricas_admin(materias):
 <p class="m-aviso" id="m-aviso" hidden></p>
 <section class="p-painel"><header><h2>Visualizações por dia</h2><a href="#" id="m-tabela-dia">Ver tabela</a></header><div class="m-graf" id="m-serie"></div><div id="m-serie-tab" hidden></div></section>
 <div class="m-duas">
-<section class="p-painel"><header><h2>Páginas mais vistas</h2></header><div id="m-paginas"></div></section>
+<section class="p-painel"><header><h2>Artigos mais lidos (todos os idiomas)</h2></header><div id="m-artigos"></div></section>
 <section class="p-painel"><header><h2>De onde vieram</h2></header><div id="m-origens"></div></section>
 </div>
+<section class="p-painel"><header><h2>Páginas mais vistas</h2></header><div id="m-paginas"></div></section>
 <div class="m-duas">
 <section class="p-painel"><header><h2>Links etiquetados (utm_source)</h2></header><div id="m-fontes"></div></section>
 <section class="p-painel"><header><h2>Horário das visitas</h2></header><div class="m-graf" id="m-horas"></div></section>
@@ -771,7 +783,7 @@ def gerar_metricas_admin(materias):
 <section class="p-painel"><header><h2>Idioma do site</h2></header><div id="m-idiomas"></div></section>
 </div>
 <section class="p-painel"><header><h2>Como esta contagem funciona</h2></header><div class="m-sobre">
-<p>Contador próprio do site, separado do Google Analytics: conta cada página aberta por uma pessoa (robôs e o painel ficam de fora), sem cookies. Visitantes únicos são contados por dia, com um código que muda todo dia; por isso, no período, a soma pode contar a mesma pessoa mais de uma vez. Horários em Brasília.</p>
+<p>Contador próprio do site, separado do Google Analytics: conta cada página aberta por uma pessoa (robôs e o painel ficam de fora), sem cookies. Visitantes únicos são contados por dia, com um código que muda todo dia; por isso, no período, a soma pode contar a mesma pessoa mais de uma vez. Horários em Brasília. O selo "🔥 Em alta" aparece no site para os até 3 artigos com 10 ou mais leitores nos últimos 7 dias, e a lista "Mais lidas" segue a mesma contagem (sem mostrar números ao público).</p>
 <p><button type="button" class="p-btn" id="m-eu"></button> <span id="m-eu-txt"></span></p>
 </div></section>
 <script id="m-nomes" type="application/json">{json.dumps(nomes, ensure_ascii=False).replace("</", "<\\/")}</script>
@@ -923,7 +935,7 @@ def gerar_materia(m, preview=False, agendado=False):
     corpo = f"""<article class="wrap materia">
   <nav class="migalhas" aria-label="{t('Você está em')}"><a href="index.html">{t('Início')}</a><span aria-hidden="true">/</span><a href="{url_editoria(e['slug'])}">{esc(e['nome'])}</a></nav>
   <header class="materia-topo">
-    <span class="chapeu">{esc(e['nome'])}</span>
+    <span class="chapeu">{esc(e['nome'])}</span>{alta(m)}
     <h1>{esc(m['titulo'])}</h1>
     <p class="linha-fina">{esc(m['linha_fina'])}</p>
     <p class="meta"><span>{t("Por")} {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
@@ -951,6 +963,7 @@ def gerar_materia(m, preview=False, agendado=False):
         {"@type": "ListItem", "position": 2, "name": e["nome"], "item": pre_abs + url_editoria(e["slug"])},
         {"@type": "ListItem", "position": 3, "name": m["titulo"], "item": pre_abs + url_materia(m)}]}, ensure_ascii=False)
     head = f'<script type="application/ld+json">{ld}</script>\n<script type="application/ld+json">{migalhas_ld}</script>\n'
+    head += f'<meta name="aloha-slug" content="{esc(m["slug"])}">\n'
     if preview:
         corpo = faixa_rascunho(m, agendado) + corpo
         head = '<base href="/">\n<meta name="robots" content="noindex,nofollow">\n' + head
@@ -1179,7 +1192,7 @@ def aplicar_idioma(lang):
         editorias = [{"slug": e["slug"], "nome": i18n.EDITORIAS[lang][e["slug"]][0], "descricao": i18n.EDITORIAS[lang][e["slug"]][1]}
                      for e in EDITORIAS_PT]  # todas as seções, para o menu não apontar para páginas inexistentes
     ED = {e["slug"]: e for e in editorias}
-    MAIS_LIDAS = materias[:5]
+    MAIS_LIDAS = materias[:40]
     return True
 
 

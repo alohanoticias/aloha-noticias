@@ -124,6 +124,9 @@
     ranking("m-paginas", r.paginas, function (it) {
       return '<a href="' + esc(it.nome) + '" target="_blank" rel="noopener">' + esc(nomePagina(it.nome)) + "</a>";
     });
+    ranking("m-artigos", (r.artigos || []).map(function (a) { return { nome: a.nome, v: a.u, u: a.u, vis: a.v }; }), function (it) {
+      return esc(NOMES["slug:" + it.nome] || it.nome) + ' <small class="m-sub">' + n(it.vis) + " visualizações</small>";
+    }, "Ainda sem leituras de artigos registradas.");
     ranking("m-origens", r.origens, function (it) { return esc(ORIGEM[it.nome] || it.nome); });
     ranking("m-fontes", r.fontes, function (it) { return esc(it.nome); }, "Nenhuma visita por link etiquetado no período.");
     ranking("m-paises", r.paises, function (it) { return esc(it.nome ? ((paisNome && paisNome.of(it.nome)) || it.nome) : "Desconhecido"); });

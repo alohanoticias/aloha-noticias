@@ -495,3 +495,9 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .fontes ul { margin: 0; padding-left: 1.1rem; }
 .fontes li { margin: .2rem 0; font-size: .95rem; line-height: 1.5; }
 [dir="rtl"] .fontes { border-left: 0; border-right: 3px solid #bc3131; border-radius: 6px 0 0 6px; }
+
+/* Selo "Em alta" (artigos mais lidos da semana, contador próprio) */
+.em-alta { display: inline-flex; align-items: center; gap: 4px; width: fit-content; background: #bc3131; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1; padding: 4px 8px 4px 6px; border-radius: 999px; margin: 0 0 6px; }
+.em-alta[hidden] { display: none; }
+.materia-topo .em-alta { margin: 0 0 10px; }
+.mais-lidas li[hidden] { display: none; }

@@ -76,11 +76,25 @@ export default {
         pais: corta((request.cf && request.cf.country) || "", 2),
         aparelho: aparelho(ua),
         idioma: IDIOMAS.has(prim) ? prim : "pt",
+        slug: /^[a-z0-9-]{1,140}$/.test(String(d.s || "")) ? String(d.s) : "",
         chave: (request.headers.get("cf-connecting-ip") || "") + "|" + ua,
       };
       const obj = env.METRICAS.get(env.METRICAS.idFromName("aloha"));
       await obj.registrar(visita);
       return new Response(null, { status: 204 });
+    }
+
+    if (url.pathname === "/api/em-alta") {
+      // lista pública, sem números: quais artigos estão em alta e a ordem das "Mais lidas" (cache de 5 minutos)
+      const cache = caches.default, chave = new Request("https://alohanoticias.com/api/em-alta");
+      let resp = await cache.match(chave);
+      if (!resp) {
+        const obj = env.METRICAS.get(env.METRICAS.idFromName("aloha"));
+        resp = new Response(JSON.stringify(await obj.emAlta()), {
+          headers: { "content-type": "application/json; charset=utf-8", "cache-control": "public, max-age=300" } });
+        await cache.put(chave, resp.clone());
+      }
+      return resp;
     }
 
     if (url.pathname === "/admin/api/metricas") {
@@ -103,6 +117,8 @@ export class Metricas extends DurableObject {
       ts INTEGER NOT NULL, dia TEXT NOT NULL, hora INTEGER NOT NULL, caminho TEXT, origem TEXT, fonte TEXT, midia TEXT,
       campanha TEXT, conteudo TEXT, termo TEXT, pais TEXT, aparelho TEXT, idioma TEXT, visitante TEXT)`);
     this.sql.exec("CREATE INDEX IF NOT EXISTS visitas_dia ON visitas(dia)");
+    // coluna do artigo lido (acrescentada depois da primeira versão)
+    if (!this.sql.exec("PRAGMA table_info(visitas)").toArray().some((c) => c.name === "slug")) this.sql.exec("ALTER TABLE visitas ADD COLUMN slug TEXT DEFAULT ''");
     this.sql.exec("CREATE TABLE IF NOT EXISTS sal (dia TEXT PRIMARY KEY, valor TEXT NOT NULL)");
   }
 
@@ -126,8 +142,19 @@ export class Metricas extends DurableObject {
     const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(this.salDoDia(dia) + "|" + v.chave));
     const visitante = [...new Uint8Array(bytes).slice(0, 8)].map((b) => b.toString(16).padStart(2, "0")).join("");
     this.sql.exec(
-      "INSERT INTO visitas (ts, dia, hora, caminho, origem, fonte, midia, campanha, conteudo, termo, pais, aparelho, idioma, visitante) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-      ts, dia, hora, v.caminho, v.origem, v.fonte, v.midia, v.campanha, v.conteudo, v.termo, v.pais, v.aparelho, v.idioma, visitante);
+      "INSERT INTO visitas (ts, dia, hora, caminho, origem, fonte, midia, campanha, conteudo, termo, pais, aparelho, idioma, visitante, slug) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+      ts, dia, hora, v.caminho, v.origem, v.fonte, v.midia, v.campanha, v.conteudo, v.termo, v.pais, v.aparelho, v.idioma, visitante, v.slug || "");
+  }
+
+  // Artigos mais lidos dos últimos 7 dias (somando todos os idiomas), por visitantes únicos de cada dia.
+  // "alta": até 3 artigos com pelo menos ALTA_MIN leitores na semana. "lidas": ordem para a lista "Mais lidas".
+  async emAlta() {
+    const ALTA_MIN = 10;
+    const [desde] = Metricas.diaHora(Date.now() - 6 * 86400000);
+    const r = this.sql.exec(
+      "SELECT slug, COUNT(DISTINCT dia || visitante) AS u FROM visitas WHERE dia >= ? AND slug <> '' GROUP BY slug ORDER BY u DESC, MAX(ts) DESC LIMIT 20",
+      desde).toArray();
+    return { alta: r.filter((x) => x.u >= ALTA_MIN).slice(0, 3).map((x) => x.slug), lidas: r.length >= 3 ? r.map((x) => x.slug) : [] };
   }
 
   async resumo(dias) {
@@ -159,6 +186,7 @@ export class Metricas extends DurableObject {
       serie: q("SELECT dia, COUNT(*) AS v, COUNT(DISTINCT visitante) AS u FROM visitas WHERE dia >= ? GROUP BY dia ORDER BY dia", inicio),
       horas: q("SELECT hora, COUNT(*) AS v FROM visitas WHERE dia >= ? GROUP BY hora ORDER BY hora", inicio),
       paginas: top("caminho", 25),
+      artigos: q("SELECT slug AS nome, COUNT(*) AS v, COUNT(DISTINCT dia || visitante) AS u FROM visitas WHERE dia >= ? AND slug <> '' GROUP BY slug ORDER BY u DESC LIMIT 25", inicio),
       origens: top("origem", 12, "AND origem <> 'interno'"),
       fontes: top("fonte", 12, "AND fonte <> ''"),
       parceiros: q("SELECT fonte AS parceiro, midia AS rede, termo AS jogo, COUNT(*) AS v, COUNT(DISTINCT dia || visitante) AS u FROM visitas WHERE dia >= ? AND campanha = 'parceiro' GROUP BY fonte, midia, termo ORDER BY v DESC LIMIT 40", inicio),
