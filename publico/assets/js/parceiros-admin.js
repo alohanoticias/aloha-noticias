@@ -38,14 +38,75 @@
     link.value = base + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro&utm_content=" + idioma.value + (j ? "&utm_term=" + j : "");
     codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value + "_" + idioma.value + (j ? " (jogo: " + j + ")" : "") + aviso;
   }
+  // Registro: um único link por parceiro e artigo. Guardado neste navegador (use Exportar/Importar para levar a outro aparelho).
+  var REG = "aloha-parceiros-links";
+  function registro() { try { return JSON.parse(localStorage.getItem(REG) || "{}"); } catch (e) { return {}; } }
+  function gravarReg(r) { try { localStorage.setItem(REG, JSON.stringify(r)); } catch (e) {} }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  var aviso2 = document.getElementById("p-aviso"), painelReg = document.getElementById("p-registro");
+  function tituloArtigo() { return artigo.options[artigo.selectedIndex].text; }
+  function existente() {
+    var c = codigoDe(nome.value), r = registro();
+    return c && r[c] && r[c].links[artigo.value] ? r[c].links[artigo.value] : null;
+  }
+  function verExistente() {
+    var e = existente();
+    if (aviso2) aviso2.textContent = e ? "Este parceiro já tem um link para este artigo (" + e.rede + ", " + e.idioma + (e.jogo ? ", " + e.jogo : "") + "). Ao salvar, o link é atualizado: continua sendo um só." : "";
+  }
+  function salvar() {
+    var c = codigoDe(nome.value);
+    if (!c || !link.value) return false;
+    var r = registro(), item = r[c] || (r[c] = { nome: nome.value.trim(), links: {} });
+    var ja = !!item.links[artigo.value];
+    item.links[artigo.value] = { artigo: tituloArtigo(), idioma: idioma.value, rede: rede.value, jogo: jogo ? codigoDe(jogo.value) : "", url: link.value, quando: new Date().toISOString().slice(0, 10) };
+    gravarReg(r); desenhar();
+    if (aviso2) aviso2.textContent = ja ? "Link deste artigo atualizado para este parceiro (continua sendo um só)." : "Link salvo na lista do parceiro.";
+    return true;
+  }
+  function desenhar() {
+    if (!painelReg) return;
+    var r = registro(), nomes = Object.keys(r).sort();
+    if (!nomes.length) { painelReg.innerHTML = '<p class="meta">Nenhum link salvo ainda. Gere um link e toque em Copiar link: ele entra aqui, organizado por parceiro.</p>'; return; }
+    painelReg.innerHTML = nomes.map(function (c) {
+      var p = r[c], ids = Object.keys(p.links);
+      return '<details class="p-parc" open><summary><strong>' + esc(p.nome) + '</strong> <span class="meta">' + ids.length + (ids.length === 1 ? " link" : " links") + '</span></summary><ul class="p-parc-lista">' +
+        ids.map(function (id) { var l = p.links[id];
+          return '<li><div><b>' + esc(l.artigo) + '</b><br><small>' + esc(l.rede) + ' · ' + esc(l.idioma) + (l.jogo ? " · " + esc(l.jogo) : "") + ' · ' + esc(l.quando) + '</small><input readonly value="' + esc(l.url) + '"></div>' +
+            '<button type="button" class="botao-sec" data-copiar="' + esc(c) + '|' + esc(id) + '">Copiar</button> <button type="button" class="botao-sec" data-tirar="' + esc(c) + '|' + esc(id) + '">Remover</button></li>'; }).join("") + '</ul></details>';
+    }).join("");
+  }
+  function copiarTexto(t, b) {
+    function ok() { var o = b.textContent; b.textContent = "Copiado!"; setTimeout(function () { b.textContent = o; }, 1500); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, function () {});
+    else { var a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select(); document.execCommand("copy"); a.remove(); ok(); }
+  }
+  if (painelReg) painelReg.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    var k = (b.getAttribute("data-copiar") || b.getAttribute("data-tirar") || "").split("|"), r = registro();
+    if (!r[k[0]] || !r[k[0]].links[k[1]]) return;
+    if (b.hasAttribute("data-copiar")) copiarTexto(r[k[0]].links[k[1]].url, b);
+    else { delete r[k[0]].links[k[1]]; if (!Object.keys(r[k[0]].links).length) delete r[k[0]]; gravarReg(r); desenhar(); }
+  });
+  var exp = document.getElementById("p-exportar"), imp = document.getElementById("p-importar");
+  if (exp) exp.addEventListener("click", function () {
+    var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(registro(), null, 1)], { type: "application/json" })); a.download = "links-parceiros-aloha.json"; a.click();
+  });
+  if (imp) imp.addEventListener("change", function () {
+    var f = imp.files[0]; if (!f) return; var rd = new FileReader();
+    rd.onload = function () { try { var n = JSON.parse(rd.result), r = registro(); Object.keys(n).forEach(function (c) { if (!r[c]) r[c] = n[c]; else { r[c].nome = n[c].nome || r[c].nome; Object.keys(n[c].links).forEach(function (id) { r[c].links[id] = n[c].links[id]; }); } }); gravarReg(r); desenhar(); } catch (e) { alert("Arquivo inválido."); } };
+    rd.readAsText(f);
+  });
   copiar.addEventListener("click", function () {
     if (!link.value) { (nome.value ? rede : nome).focus(); return; }
     var n = nome.value.trim(), l = lista();
     if (n && l.indexOf(n) < 0) { l.unshift(n); try { localStorage.setItem(CHAVE, JSON.stringify(l.slice(0, 50))); } catch (e) {} mostrarSalvos(); }
-    function ok() { copiar.textContent = "Copiado!"; setTimeout(function () { copiar.textContent = "Copiar link"; }, 1500); }
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link.value).then(ok, function () { link.select(); document.execCommand("copy"); ok(); });
-    else { link.select(); document.execCommand("copy"); ok(); }
+    salvar(); copiarTexto(link.value, copiar);
   });
+  [artigo, nome].forEach(function (el) { el.addEventListener(el === nome ? "input" : "change", function () {
+    var e = existente(); verExistente();
+    if (e && el === artigo) { idioma.value = e.idioma; rede.value = e.rede; if (jogo) jogo.value = e.jogo; atualizar(); }
+  }); });
+  desenhar();
   artigo.addEventListener("change", atualizar);
   idioma.addEventListener("change", atualizar);
   nome.addEventListener("input", atualizar);

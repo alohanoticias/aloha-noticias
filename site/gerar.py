@@ -605,28 +605,114 @@ def faixa_rascunho(m, agendado=False):
             f'<span class="atalhos">Atalhos: {atalhos}</span> '
             f'<a class="botao-sec" id="agendar" href="{link_acao(acao, slug)}" target="_blank" rel="noopener noreferrer">{rot_agendar}</a> '
             f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">{rej}</a> '
-            f'{prev_trad(m)}<a href="admin/">Voltar à lista</a></div></div>\n<script src="assets/js/admin.js"></script>')
+            f'{prev_trad(m)}<a href="admin/rascunhos.html">Voltar ao painel</a></div></div>\n<script src="assets/js/admin.js"></script>')
 
 
-def gerar_admin(rascunhos, agendados=()):
-    if rascunhos:
-        itens = "".join(
-            f'<li><a href="admin/{esc(d["slug"])}.html"><div class="dupla" style="gap:6px"><span class="chapeu">{esc(ED[d["editoria"]]["nome"])}</span>'
-            f'<h3>{esc(d["titulo"])}</h3><p class="linha-fina" style="font-size:1rem">{esc(d["linha_fina"])}</p>'
-            f'<p class="meta"><span>{esc(d["autor"])}</span><time datetime="{d["data"]}">{data_curta(d["data"])}</time></p></div></a></li>'
-            for d in rascunhos)
-        lista = f'<ul class="lista-simples" style="max-width:820px">{itens}</ul>'
+NAV_PAINEL = [
+    ("Visão geral", [("index", "admin/", "▦", "Painel")]),
+    ("Conteúdo", [("rascunhos", "admin/rascunhos.html", "✎", "Rascunhos"), ("agendados", "admin/agendados.html", "◷", "Agendados"),
+                  ("publicados", "admin/publicados.html", "✔", "Publicados")]),
+    ("Divulgação", [("links", "admin/links.html", "↗", "Links das redes"), ("parceiros", "admin/parceiros.html", "☺", "Links de parceiros")]),
+]
+CONTAGENS_PAINEL = {}
+
+
+def painel_pagina(titulo, ativo, lede, conteudo, acao_topo=""):
+    """Estrutura do painel administrativo: menu lateral, barra superior e área de conteúdo (separada do visual do site)."""
+    menu = ""
+    for grupo, itens in NAV_PAINEL:
+        menu += f"<h6>{grupo}</h6>"
+        for chave, href, icone, nome in itens:
+            n = CONTAGENS_PAINEL.get(chave)
+            badge = f'<span class="n{"" if chave == "rascunhos" else " cinza"}">{n}</span>' if n else ""
+            menu += f'<a href="{href}" class="{"ativo" if chave == ativo else ""}"><span aria-hidden="true">{icone}</span> {nome}{badge}</a>'
+    return f"""<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>{esc(titulo)} · Painel Aloha</title>
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/aloha.css">
+<link rel="stylesheet" href="assets/css/painel.css">
+</head>
+<body class="painel">
+<aside class="p-lado">
+<a class="p-marca" href="admin/"><i>A</i><span>ALOHA<small>Painel de controle</small></span></a>
+<nav class="p-nav">{menu}
+<h6>Atalhos</h6>
+<a href="/" target="_blank" rel="noopener"><span aria-hidden="true">⌂</span> Ver o site</a>
+<a href="https://github.com/{REPO}/actions" target="_blank" rel="noopener"><span aria-hidden="true">⚙</span> Automações</a>
+</nav>
+<div class="p-rodape-lado">Equipe Aloha · acesso restrito</div>
+</aside>
+<div class="p-main">
+<header class="p-topo"><button class="p-menu" type="button" aria-label="Abrir menu">☰</button>
+<div class="grow"><h1>{esc(titulo)}</h1><p class="lede">{lede}</p></div>
+{acao_topo}<button class="p-btn" type="button" id="p-tema" title="Alternar claro/escuro">◐ Tema</button></header>
+<main class="p-conteudo painel-main">
+{conteudo}
+</main></div>
+<script src="assets/js/painel.js"></script>
+</body></html>"""
+
+
+def _linha_painel(d, tipo):
+    ed = esc(ED[d["editoria"]]["nome"])
+    if tipo == "agen":
+        tag = f'<span class="p-tag agen">{datetime.fromisoformat(d["data"]).strftime("%d/%m %H:%M")}</span>'
+        href, sub = f'admin/{esc(d["slug"])}.html', f"{ed} · {esc(d['autor'])}"
+    elif tipo == "rasc":
+        tag = '<span class="p-tag rasc">Aguardando</span>'
+        href, sub = f'admin/{esc(d["slug"])}.html', f"{ed} · {esc(d['autor'])} · {data_curta(d['data'])}"
     else:
-        lista = '<p class="linha-fina">Nenhum rascunho esperando aprovação no momento.</p>'
-    if agendados:
-        itens2 = "".join(
-            f'<li><a href="admin/{esc(d["slug"])}.html"><div class="dupla" style="gap:6px"><span class="chapeu">Agendado: {datetime.fromisoformat(d["data"]).strftime("%d/%m %H:%M")}</span>'
-            f'<h3>{esc(d["titulo"])}</h3><p class="meta"><span>{esc(ED[d["editoria"]]["nome"])}</span></p></div></a></li>'
-            for d in agendados)
-        lista += f'<h2 style="margin-top:40px">Agendados</h2><ul class="lista-simples" style="max-width:820px">{itens2}</ul>'
-    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: rascunhos</h1><p>Abra o rascunho, leia como ficará no site e clique em Aprovar e publicar ou em Rejeitar.</p><p><a class="botao-sec" href="admin/links.html">Links para redes sociais</a> <a class="botao-sec" href="admin/parceiros.html">Links de parceiros</a></p></div></div>
-<div class="wrap editoria-corpo">{lista}</div>"""
-    return pagina("Admin", "Rascunhos para aprovação", "", corpo, com_news=False, extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
+        tag = '<span class="p-tag pub">No ar</span>'
+        href, sub = url_materia(d), f"{ed} · {data_curta(d['data'])}"
+    busca = esc((d["titulo"] + " " + ed).lower())
+    alvo = ' target="_blank" rel="noopener"' if tipo == "pub" else ""
+    return (f'<li data-busca="{busca}"><a class="p-item" href="{href}"{alvo}><div class="t"><b>{esc(d["titulo"])}</b>'
+            f'<small>{sub}</small></div>{tag}</a></li>')
+
+
+def _lista_painel(itens, tipo, vazio):
+    if not itens:
+        return f'<div class="p-vazio">{vazio}</div>'
+    return '<ul class="p-lista">' + "".join(_linha_painel(d, tipo) for d in itens) + "</ul>"
+
+
+def gerar_admin(rascunhos, agendados=(), publicados=()):
+    """Admin > Visão geral: números, o que espera aprovação, a fila de agendamentos e os últimos publicados."""
+    pub = sorted(publicados, key=lambda d: d["data"], reverse=True)
+    prox = agendados[0] if agendados else None
+    cards = (f'<a class="p-stat{" destaque" if rascunhos else ""}" href="admin/rascunhos.html"><span>Aguardando aprovação</span><b>{len(rascunhos)}</b><small>rascunhos para revisar</small></a>'
+             f'<a class="p-stat" href="admin/agendados.html"><span>Agendados</span><b>{len(agendados)}</b><small>{"próximo: " + datetime.fromisoformat(prox["data"]).strftime("%d/%m às %H:%M") if prox else "nenhum na fila"}</small></a>'
+             f'<a class="p-stat" href="admin/publicados.html"><span>Publicados</span><b>{len(pub)}</b><small>{"último: " + data_curta(pub[0]["data"]) if pub else "ainda nenhum"}</small></a>'
+             f'<a class="p-stat" href="admin/parceiros.html"><span>Parceiros</span><b>→</b><small>links por parceiro e jogo</small></a>')
+    slots = "".join(f'<div class="p-slot"><b>{h}</b><span>horário padrão de publicação (Brasília)</span></div>' for h in HORARIOS_PADRAO)
+    conteudo = f"""<div class="p-cards">{cards}</div>
+<div class="p-grade"><div>
+<section class="p-painel"><header><h2>Aguardando sua aprovação</h2><a href="admin/rascunhos.html">Ver todos</a></header>{_lista_painel(rascunhos[:6], "rasc", "Nenhum rascunho esperando aprovação.")}</section>
+<section class="p-painel"><header><h2>Fila de agendamento</h2><a href="admin/agendados.html">Ver todos</a></header>{_lista_painel(agendados[:6], "agen", "Nada agendado no momento.")}</section>
+<section class="p-painel"><header><h2>Publicados recentemente</h2><a href="admin/publicados.html">Ver todos</a></header>{_lista_painel(pub[:6], "pub", "Nada publicado ainda.")}</section>
+</div><div>
+<section class="p-painel"><header><h2>Atalhos</h2></header><div class="p-atalhos">
+<a href="admin/rascunhos.html">Revisar rascunhos<small>Aprovar, agendar ou rejeitar</small></a>
+<a href="admin/links.html">Links das redes<small>Etiquetados por rede</small></a>
+<a href="admin/parceiros.html">Parceiros<small>Link por parceiro e jogo</small></a>
+<a href="/" target="_blank" rel="noopener">Ver o site<small>Abre em outra aba</small></a>
+<a href="https://github.com/{REPO}/actions" target="_blank" rel="noopener">Automações<small>Publicação e capas</small></a>
+</div></section>
+<section class="p-painel"><header><h2>Horários padrão</h2></header><div class="p-slots">{slots}</div></section>
+</div></div>"""
+    return painel_pagina("Visão geral", "index", "Resumo do site e do que precisa da sua atenção.", conteudo)
+
+
+def gerar_lista_admin(chave, titulo, lede, itens, tipo, vazio):
+    busca = '<input class="p-busca" id="p-busca" type="search" placeholder="Buscar por título ou editoria" aria-label="Buscar">'
+    conteudo = (f'<p>{busca}</p><section class="p-painel"><header><h2>{len(itens)} {"item" if len(itens) == 1 else "itens"}</h2></header>'
+                f'{_lista_painel(itens, tipo, vazio)}</section>')
+    return painel_pagina(titulo, chave, lede, conteudo)
 
 
 def atualizado_html(m):
@@ -662,26 +748,19 @@ def gerar_links_admin(lista):
             for nome, cod in REDES_LINKS)
         blocos.append(f'<details class="links-materia"><summary><strong>{esc(m["titulo"])}</strong> '
                       f'<span class="meta">{data_curta(m["data"])}</span></summary><ul class="lista-simples">{linhas}</ul></details>')
-    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: links para redes sociais</h1>
-<p>Use sempre estes links ao divulgar uma matéria: cada um já leva a etiqueta da rede, e no Analytics a visita aparece como vinda dela (e no Tempo real como o evento visita_&lt;rede&gt;). Toque na matéria, depois em Copiar.</p>
-<p><a href="admin/">Voltar aos rascunhos</a></p></div></div>
-<div class="wrap editoria-corpo" style="max-width:820px">{"".join(blocos)}</div>
+    corpo = f"""<div class="wrap editoria-corpo" style="max-width:820px">{"".join(blocos)}</div>
 <style>.links-materia{{border-bottom:1px solid var(--linha,#ddd);padding:14px 0}}.links-materia summary{{cursor:pointer}}
 .link-rede{{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:6px 0}}.link-rede .chapeu{{min-width:110px}}
 .link-rede input{{flex:1;min-width:200px;font-size:.85rem;padding:6px}}</style>
 <script src="assets/js/links-admin.js"></script>"""
-    return pagina("Admin: links", "Links etiquetados para redes sociais", "", corpo, com_news=False,
-                  extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
+    return painel_pagina("Links das redes", "links", "Cada link já leva a etiqueta da rede, para medir no Analytics.", corpo)
 
 
 def gerar_parceiros_admin(lista):
     """Admin > Parceiros: gera o link de um artigo com o nome do parceiro no final (para medir quem ele trouxe)."""
     opcoes = "".join(f'<option value="{esc(m["slug"])}">{esc(m["titulo"])}</option>' for m in lista)
     idiomas = "".join(f'<option value="{c}">{i18n.NOMES_IDIOMA[c]}</option>' for c in i18n.IDIOMAS_REAIS)
-    corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: links de parceiros</h1>
-<p>Escolha o artigo, o idioma, o nome do parceiro, o jogo ou assunto (rótulo, como roblox ou freefire) e a rede, e copie o link. Quem entrar por esse link aparece no Analytics como vindo do parceiro.</p>
-<p><a href="admin/">Voltar aos rascunhos</a></p></div></div>
-<div class="wrap editoria-corpo parceiros" style="max-width:820px">
+    corpo = f"""<div class="wrap editoria-corpo parceiros" style="max-width:820px">
 <label for="p-artigo"><strong>Artigo</strong></label>
 <select id="p-artigo"><option value="">Página inicial do site</option>{opcoes}</select>
 <label for="p-idioma"><strong>Idioma em que o artigo será divulgado</strong></label>
@@ -695,17 +774,21 @@ def gerar_parceiros_admin(lista):
 <label for="p-rede"><strong>Onde o parceiro vai divulgar</strong></label>
 <select id="p-rede"><option value="">Escolha a rede</option>{"".join(f'<option value="{cod}">{nome}</option>' for nome, cod in REDES_LINKS)}<option value="site">Site ou blog</option><option value="email">E-mail / newsletter</option><option value="outro">Outro</option></select>
 <p class="meta" id="p-codigo"></p>
+<p class="meta" id="p-aviso" style="color:var(--p-marca);font-weight:600"></p>
 <label for="p-link"><strong>Link para enviar ao parceiro</strong></label>
 <textarea id="p-link" readonly rows="3" placeholder="Escreva o nome do parceiro para gerar o link"></textarea>
 <p><button class="botao" type="button" id="p-copiar">Copiar link</button></p>
+<h2 style="margin-top:32px">Parceiros e seus links</h2>
+<p class="meta">Cada parceiro tem um único link por artigo: gerar de novo o mesmo artigo para o mesmo parceiro atualiza o link, não cria outro. A lista fica salva neste navegador; use Exportar/Importar para levar a outro aparelho.</p>
+<div id="p-registro"></div>
+<p><button class="botao-sec" type="button" id="p-exportar">Exportar lista</button> <label class="botao-sec" style="display:inline-flex;margin:0!important;cursor:pointer">Importar lista<input type="file" id="p-importar" accept="application/json" hidden></label></p>
 <h2 style="margin-top:32px">Como ver os resultados</h2>
 <p><strong>Na hora:</strong> Analytics &gt; Visão geral em tempo real &gt; quadro de eventos: aparece <em>parceiro_nome_rede_idioma</em> (ex.: parceiro_joao_instagram_pt).</p>
 <p><strong>No dia seguinte:</strong> Aquisição de tráfego (ou Páginas e telas) com <em>Origem/mídia da sessão</em>: cada linha mostra parceiro / rede (ex.: joao / instagram). O jogo/assunto aparece em <em>Termo da sessão</em>. Para ver só parceiros, filtre <em>Campanha da sessão</em> = <em>parceiro</em>; o idioma aparece na coluna <em>Conteúdo manual da sessão</em> (pt, en, es...).</p>
 </div>
 <style>.parceiros label{{display:block;margin:18px 0 6px}}.parceiros select,.parceiros input,.parceiros textarea{{width:100%;padding:10px;font-size:1rem;box-sizing:border-box}}</style>
 <script src="assets/js/parceiros-admin.js"></script>"""
-    return pagina("Admin: parceiros", "Links de parceiros", "", corpo, com_news=False,
-                  extra_head='<base href="/">\n<meta name="robots" content="noindex,nofollow">\n')
+    return painel_pagina("Links de parceiros", "parceiros", "Link por artigo, idioma, parceiro, jogo e rede.", corpo)
 
 
 def botoes_compartilhar(m):
@@ -1180,7 +1263,13 @@ def main():
             agendados.append(d)
     agendados.sort(key=lambda d: d["data"])
     (SAIDA / "admin").mkdir(exist_ok=True)
-    (SAIDA / "admin/index.html").write_text(resolver(gerar_admin(rascunhos, agendados), "pt", "admin/index.html", existe), encoding="utf-8")
+    CONTAGENS_PAINEL.update(rascunhos=len(rascunhos), agendados=len(agendados), publicados=len(materias))
+    (SAIDA / "admin/index.html").write_text(resolver(gerar_admin(rascunhos, agendados, materias), "pt", "admin/index.html", existe), encoding="utf-8")
+    for chave, tit, led, itens, tipo, vazio in [
+            ("rascunhos", "Rascunhos", "Leia como ficará no site e aprove, agende ou rejeite.", rascunhos, "rasc", "Nenhum rascunho esperando aprovação."),
+            ("agendados", "Agendados", "Artigos aprovados que saem no horário marcado.", agendados, "agen", "Nada agendado no momento."),
+            ("publicados", "Publicados", "Artigos que já estão no ar (abrem o site em outra aba).", sorted(materias, key=lambda d: d["data"], reverse=True), "pub", "Nada publicado ainda.")]:
+        (SAIDA / f"admin/{chave}.html").write_text(resolver(gerar_lista_admin(chave, tit, led, itens, tipo, vazio), "pt", f"admin/{chave}.html", existe), encoding="utf-8")
     (SAIDA / "admin/links.html").write_text(resolver(gerar_links_admin(materias), "pt", "admin/links.html", existe), encoding="utf-8")
     (SAIDA / "admin/parceiros.html").write_text(resolver(gerar_parceiros_admin(materias), "pt", "admin/parceiros.html", existe), encoding="utf-8")
     for d in rascunhos:
