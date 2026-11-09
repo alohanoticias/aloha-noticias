@@ -1,7 +1,7 @@
 """Monta capas em colagem a partir de fotos livres (Unsplash, Pexels, Wikimedia).
 Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1920x1080).
 Formato do .json:
-  {"layout": "tres" | "dois" | "um" | "grade" | "grade_b" | "colunas" | "faixas" | "moldura" | "circulo" | "destaque",
+  {"layout": "tres" | "dois" | "um" | "grade" | "grade_b" | "colunas" | "faixas" | "canto" | "cantos" | "circulo",
    "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional",
    "editoria": "cinema|games|tecnologia|anime|curiosidades" (opcional: aplica o tom e a etiqueta da editoria)}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
@@ -54,6 +54,14 @@ LAYOUTS = {
     "faixas": [[(0, 0), (1200, 0), (1200, 213), (0, 213)],
                [(0, 231), (1200, 231), (1200, 444), (0, 444)],
                [(0, 462), (1200, 462), (1200, 675), (0, 675)]],
+    # foto principal ocupando a capa e a segunda no canto superior direito, separada por divisa branca (18 px)
+    "canto": [[(0, 0), (726, 0), (726, 275), (1200, 275), (1200, 675), (0, 675)],
+              [(744, 0), (1200, 0), (1200, 257), (744, 257)]],
+    # foto principal ocupando a capa e uma foto em cada canto de cima, separadas por divisas brancas (simétrico)
+    "cantos": [[(474, 0), (726, 0), (726, 275), (1200, 275), (1200, 675), (0, 675), (0, 275), (474, 275)],
+               [(0, 0), (456, 0), (456, 257), (0, 257)],
+               [(744, 0), (1200, 0), (1200, 257), (744, 257)]],
+    # (antigos, não usar: quadrado com borda branca sobre a foto)
     # foto em tela cheia com uma moldura menor centralizada embaixo
     "moldura": [R(0, 0, 1200, 675), R(400, 390, 800, 640, r=18, borda=12)],
     # foto em tela cheia com um círculo centralizado embaixo
