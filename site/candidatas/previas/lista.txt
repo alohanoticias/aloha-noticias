@@ -1,11 +1,4 @@
-01 1920x1080 https://cms-media.roblox.com/assets/16c6060e-e5b4-4e3b-b497-4f2f82694257.jpg
-02 1200x600 https://cms-media.roblox.com/assets/e154289c-55a4-58d4-740f-f5dcef302ce7.webp
-03 1200x675 https://cms-media.roblox.com/assets/de30db82-b660-3e0e-94ff-11d9675d6e7c.webp
-04 681x383 https://static1.squarespace.com/static/6377df46f9ef275990030ac5/t/690b9b0edc1bc40ece1b6fa5/1762368270871/GaGDeadline.jpg?format=1500w
-05 1200x800 https://images.squarespace-cdn.com/content/v1/6377df46f9ef275990030ac5/1762462299171-YZ3UZ6WHT2ZXME5DCZWF/1200x800.jpg
-06 1280x720 https://www.dreadcentral.com/wp-content/uploads/2026/09/99-nights.png
-07 1024x1024 https://www.dreadcentral.com/wp-content/uploads/2026/09/99-nights2.jpg
-08 1200x630 https://cdn.ome.lt/i8t3FRIfAnNX2OzVcuzkKOrF6V0=/1200x630/smart/filters:format(webp)/extras/conteudos/99-Nights-in-the-Forest-Game-Log.webp
-09 8256x5504 https://upload.wikimedia.org/wikipedia/commons/2/26/Roblox_building_in_San_Mateo_CA_January_2026.jpg
-10 4000x1848 https://upload.wikimedia.org/wikipedia/commons/e/e4/Roblox_HQ_at_2850_South_Delaware_Street.jpg
-11 5798x3216 https://upload.wikimedia.org/wikipedia/commons/a/a8/2850_S._Delaware_Street.jpg
+01 1200x630 https://cdn.ome.lt/tM4O_wWY7pPEu7TFykvr3hNhl3E=/1200x630/smart/filters:format(webp)/extras/conteudos/jogos-vorazes-haymitch.jpg
+02 1200x630 https://cdn.ome.lt/7_dqi8wX_Y9hPt6DQq3ag5aCmck=/1200x630/smart/filters:format(webp)/extras/conteudos/amanhecernacolheita.webp
+03 1200x630 https://cdn.ome.lt/syGJV2uK5aESA4pjsNoBiD2o_Ng=/1200x630/smart/filters:format(webp)/extras/conteudos/jogos-vorazes-amanhecer-na-colheita.webp
+04 1200x630 https://cdn.ome.lt/wcQmpHvCZERx9UxuIYjaGrpIT6g=/1200x630/smart/filters:format(webp)/extras/conteudos/Hunger-Games-Sunrise-Reaping-3-e.webp
