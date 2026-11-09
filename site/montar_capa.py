@@ -1,7 +1,7 @@
 """Monta capas em colagem a partir de fotos livres (Unsplash, Pexels, Wikimedia).
 Lê site/capas_fotos/<slug>.json e grava site/assets/img/capas/<slug>.jpg (1920x1080).
 Formato do .json:
-  {"layout": "tres" | "dois" | "um" | "grade" | "grade_b" | "colunas" | "faixas" | "canto" | "cantos" | "circulo",
+  {"layout": "tres" | "dois" | "um" | "grade" | "grade_b" | "colunas" | "faixas" | "circulo"   (moldura, destaque, canto e cantos: proibidos, não usar),
    "fotos": [{"url": "...", "foco": [0.5, 0.5], "zoom": 1.0}, ...], "titulo": "texto opcional",
    "editoria": "cinema|games|tecnologia|anime|curiosidades" (opcional: aplica o tom e a etiqueta da editoria)}   (zoom >= 1 aproxima)
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/montar_capa.py"""
