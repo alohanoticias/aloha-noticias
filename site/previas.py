@@ -10,8 +10,16 @@ def baixar(u):
     h = {"User-Agent": ("AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)" if "wikimedia.org" in u else UA), "Accept": "image/*,*/*;q=0.8"}
     if not u.startswith("http"):
         return Image.open(RAIZ / "publico" / u).convert("RGB")
-    with urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=40) as r:
-        return Image.open(io.BytesIO(r.read(25_000_000))).convert("RGB")
+    import time
+    ultimo = None
+    for t in range(4):
+        try:
+            if "wikimedia.org" in u: time.sleep(1.5)
+            with urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=60) as r:
+                return Image.open(io.BytesIO(r.read(25_000_000))).convert("RGB")
+        except Exception as e:
+            ultimo = e; time.sleep(4 * (t + 1))
+    raise ultimo
 def mini(im, w, h):
     im = im.copy(); im.thumbnail((w, h)); fundo = Image.new("RGB", (w, h), (30, 30, 30)); fundo.paste(im, ((w - im.width) // 2, (h - im.height) // 2)); return fundo, im.size
 try: FONTE = ImageFont.load_default(size=15)
