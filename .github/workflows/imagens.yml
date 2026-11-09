@@ -1,10 +1,17 @@
 name: Checar imagens externas
 on:
   workflow_dispatch:
+    inputs:
+      urls:
+        description: "URLs candidatas (opcional, separadas por espaço)"
+        required: false
+        default: ""
 jobs:
   checar:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: pip install pillow
-      - run: python3 site/checar_imagens_externas.py
+      - env:
+          URLS: ${{ inputs.urls }}
+        run: python3 site/checar_imagens_externas.py $URLS
