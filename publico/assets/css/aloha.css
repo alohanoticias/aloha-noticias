@@ -488,3 +488,10 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .redes-site a { display: inline-flex; align-items: center; gap: 8px; }
 .redes-site svg { flex: none; }
 .rodape .redes-titulo { margin-top: 20px; }
+
+/* Bloco de fontes no fim da matéria */
+.fontes { margin: 2rem 0 1.5rem; padding: 1rem 1.2rem; border-left: 3px solid #bc3131; background: var(--superficie, rgba(127,127,127,.08)); border-radius: 0 6px 6px 0; }
+.fontes-tit { margin: 0 0 .4rem; font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; }
+.fontes ul { margin: 0; padding-left: 1.1rem; }
+.fontes li { margin: .2rem 0; font-size: .95rem; line-height: 1.5; }
+[dir="rtl"] .fontes { border-left: 0; border-right: 3px solid #bc3131; border-radius: 6px 0 0 6px; }

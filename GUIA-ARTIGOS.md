@@ -23,7 +23,20 @@ Crie até **3 rascunhos por dia** (veja "Meta diária"), de editorias e assuntos
 - Se uma informação vier de uma fonte só, deixe isso claro no texto.
 - Não copie trechos das fontes; reescreva com suas palavras.
 
+## Padrão de originalidade (preparação para o AdSense, 09/11/2026)
+O Google recusa sites cujas matérias só reorganizam o que outros veículos já publicaram. Todo rascunho precisa mostrar o trabalho próprio do Aloha. Antes de salvar, confira os 8 pontos:
+1. **Título claro, específico e fiel**: diz exatamente o que o texto entrega, sem exagero.
+2. **Abertura que responde o que aconteceu** em até duas frases (quem, o quê, quando).
+3. **Contexto para quem não acompanha o assunto**: o que veio antes, por que importa.
+4. **Fontes primárias primeiro**: comunicado oficial, página da empresa, loja, trailer ou post oficial. Veículos de imprensa entram como apoio, nunca como única base. Matéria apoiada em uma fonte só não está pronta.
+5. **Contribuição do Aloha**: pelo menos um trecho que não está em nenhuma fonte, como o que muda para o leitor brasileiro (preço em R$, horário de Brasília, dublagem, onde assistir ou jogar aqui), uma comparação com casos anteriores, uma conta simples conferida ou um guia prático. Esse trecho deve ser identificável (de preferência um subtítulo próprio).
+6. **Separar o confirmado do não confirmado** de forma explícita no texto ("o que é oficial" / "o que ainda não se sabe").
+7. **Links internos**: quando houver matéria do Aloha relacionada (mesmo jogo, filme, empresa ou série), cite-a com link no corpo do texto no formato `[texto](materia-<slug>.html)` (sem https: assim o site aponta para a versão certa em cada idioma; use o mesmo link nas 8 traduções), 1 ou 2 por artigo, só quando forem úteis de verdade. O bloco "Leia também" já escolhe sozinho as matérias com mais tags em comum, então use tags coerentes (o nome do jogo, filme, série ou empresa).
+8. **Linha "Fontes:" no fim**, com links clicáveis, fontes oficiais primeiro. O site transforma essa linha num bloco de fontes destacado. Mantenha o rótulo no início da linha em todos os idiomas ("Fontes:", "Sources:", "Fuentes:", "Sources :", "Quellen:", "Fonti:", "出典：", "来源：", "المصادر:").
+Se não houver como cumprir os pontos 4 a 6, escolha outra pauta. O tamanho não resolve a falta de contribuição: um texto de 600 palavras com análise própria vale mais que um de 850 que repete as fontes.
+
 ## Imagens e direitos
+- **Ordem de preferência das imagens** (para reduzir o risco de reclamação de direitos autorais, que pode derrubar a conta do AdSense): 1) material oficial de imprensa ou divulgação hospedado pela própria empresa (site oficial, press kit, loja, Xbox Wire, PlayStation Blog, Nintendo); 2) Wikimedia Commons e bancos livres (Unsplash, Pexels), com a licença na legenda; 3) arte oficial reproduzida por outro veículo, só quando não existir no site oficial. **Fotografias feitas por outros veículos ou por fotógrafos independentes** (ex.: foto de um painel tirada por um site de notícias) e imagens de fã-sites não entram: elas pertencem a quem fotografou, não ao estúdio. Na dúvida, avise o editor em vez de usar.
 - Sem marca d'água de terceiros. Sem fotos de pessoas públicas (rostos reconhecíveis) baixadas da web.
 - Sempre crédito na legenda.
 

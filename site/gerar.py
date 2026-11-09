@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 import i18n
+import privacidade
 
 RAIZ = Path(__file__).parent
 SAIDA = RAIZ.parent / "publico"
@@ -155,10 +156,49 @@ def video(m):
             f'allowfullscreen sandbox="allow-scripts allow-same-origin allow-presentation allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>')
 
 
-def capa(m, cls="capa"):
+_VARIANTES = {}
+TAMANHOS_CAPA = (640, 1280)
+
+
+def variantes_capa(url):
+    """Versões menores em WebP de uma capa local (assets/img/capas/<slug>.jpg), para celular e listas carregarem rápido.
+    Ficam em assets/img/capas/v/<slug>-<hash>-<largura>.webp: o hash muda quando a capa é remontada, e a versão
+    antiga é apagada. Sem a biblioteca Pillow (algumas automações), usa as versões que já existem ou só o .jpg."""
+    if url in _VARIANTES:
+        return _VARIANTES[url]
+    res = []
+    src = RAIZ / url
+    if url.startswith("assets/img/capas/") and url.endswith(".jpg") and src.exists():
+        h = hashlib.md5(src.read_bytes()).hexdigest()[:8]
+        pasta = RAIZ / "assets/img/capas/v"
+        for w in TAMANHOS_CAPA:
+            rel = f"assets/img/capas/v/{src.stem}-{h}-{w}.webp"
+            alvo = RAIZ / rel
+            if not alvo.exists():
+                try:
+                    from PIL import Image
+                except ImportError:
+                    res = []
+                    break
+                pasta.mkdir(exist_ok=True)
+                for velho in pasta.glob(f"{src.stem}-*-{w}.webp"):
+                    if re.fullmatch(re.escape(src.stem) + r"-[0-9a-f]{8}-" + str(w) + r"\.webp", velho.name):
+                        velho.unlink()
+                with Image.open(src) as im:
+                    im = im.convert("RGB")
+                    im.resize((w, round(w * im.height / im.width)), Image.LANCZOS).save(alvo, "WEBP", quality=78, method=6)
+            res.append((rel, w))
+    _VARIANTES[url] = res
+    return res
+
+
+def capa(m, cls="capa", prioridade=False, sizes="(max-width: 760px) 100vw, 640px", responsivo=True):
     im = m.get("imagem")
     if im:
-        return f'<img class="{cls}" src="{esc(im["url"])}" alt="{esc(im.get("alt", m["titulo"]))}" loading="lazy" decoding="async">'
+        v = variantes_capa(im["url"]) if responsivo else []
+        srcset = (f' srcset="{", ".join(f"{u} {w}w" for u, w in v)}, {esc(im["url"])} 1920w" sizes="{sizes}"' if v else "")
+        carga = 'loading="eager" fetchpriority="high"' if prioridade else 'loading="lazy"'
+        return f'<img class="{cls}" src="{esc(im["url"])}"{srcset} alt="{esc(im.get("alt", m["titulo"]))}" {carga} decoding="async">'
     fundo, onda, sol = TONS[m["editoria"]]
     h = int(hashlib.md5(m["slug"].encode()).hexdigest(), 16)
     sx = 260 + (h % 360)
@@ -273,7 +313,17 @@ NEWSLETTER_ATIVA = False  # ligue quando houver um serviço de e-mail conectado
 # Ligado, o site passa a: gerar o ads.txt, liberar o Google no CSP, mostrar o aviso de cookies (os anúncios só carregam
 # depois do "Aceitar") e acrescentar a seção de anúncios à política de privacidade.
 ANUNCIOS_ATIVOS = False
+# Código de editor do AdSense (ex.: "pub-1234567890123456"). Preenchido, já entra a meta tag "google-adsense-account"
+# em todas as páginas: é assim que o Google confirma que o site é seu no pedido de análise, sem carregar anúncios antes da hora.
 ADSENSE_PUB = ""
+# Idiomas que o Google deve indexar. As outras versões continuam no ar para o visitante, mas com "noindex" e fora do
+# sitemap, para o site não parecer conteúdo traduzido em massa na análise do AdSense. Para liberar um idioma depois
+# da aprovação, acrescente aqui, por exemplo {"pt", "en", "es"}.
+IDIOMAS_INDEXADOS = {"pt"}
+# Páginas de assunto (tags) com menos matérias que isto ficam fora do Google ("noindex"): páginas com 1 ou 2 links
+# contam como conteúdo raso. Elas continuam funcionando para quem navega.
+MIN_MATERIAS_TAG = 3
+NOINDEX = '<meta name="robots" content="noindex,follow">\n'
 _PUSH_CFG = Path(__file__).resolve().parent / "conteudo" / "push.json"
 ONESIGNAL_APP_ID = (json.loads(_PUSH_CFG.read_text(encoding="utf-8")).get("onesignal_app_id", "") if _PUSH_CFG.exists() else "").strip()
 
@@ -380,7 +430,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <meta property="og:title" content="{esc(titulo)}">
 <meta property="og:description" content="{esc(descricao)}">
 <link rel="canonical" href="https://alohanoticias.com/{{CANON}}">
-@@ALT@@
+{f'<meta name="google-adsense-account" content="ca-{ADSENSE_PUB}">' + chr(10) if ADSENSE_PUB else ""}@@ALT@@
 <meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
@@ -446,7 +496,7 @@ def tag_v(m):
 def hero_card(m, grande):
     fina = f'<p class="hero-fina">{esc(m["linha_fina"])}</p>' if grande else ""
     return f"""<a class="hero-card{' grande' if grande else ''}" href="{url_materia(m)}">
-  {capa(m, "hero-img")}
+  {capa(m, "hero-img", prioridade=grande, sizes="(max-width: 760px) 100vw, 1100px" if grande else "(max-width: 760px) 100vw, 560px")}
   {tag_v(m)}
   <div class="hero-texto">
     <time datetime="{m['data']}">{data_longa(m['data'])}</time>
@@ -547,10 +597,13 @@ def gerar_editoria(e):
   </div>
   {lateral()}
 </div>"""
-    return pagina(e["nome"], e["descricao"], e["slug"], corpo)
+    return pagina(e["nome"], e["descricao"], e["slug"], corpo, extra_head="" if da_ed else NOINDEX)
 
 
 # ---------------------------------------------------------------- matéria
+FONTES_RE = re.compile(r"^((?:Fontes|Fonte|Sources|Source|Fuentes|Fuente|Quellen|Quelle|Fonti|Fonte|情報源|出典|来源|المصادر)(?:\s*[(（][^)）]{1,40}[)）])?)\s*[:：]\s*")
+
+
 def corpo_texto(paragrafos):
     out = []
     for p in paragrafos:
@@ -559,8 +612,16 @@ def corpo_texto(paragrafos):
             out.append(f'<figure class="foto-corpo"><img src="{esc(url)}" alt="{esc(alt)}" loading="lazy" decoding="async"><figcaption class="credito">{esc(cred)}</figcaption></figure>')
         elif p.startswith("## "):
             out.append(f"<h2>{esc(p[3:])}</h2>")
+        elif FONTES_RE.match(p) and "](http" in p:
+            # Linha "Fontes: [A](url); [B](url)" vira um bloco próprio, com uma fonte por linha
+            rotulo = FONTES_RE.match(p).group(1)
+            links = re.findall(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", p)
+            itens = "".join(f'<li><a href="{esc(u)}" target="_blank" rel="noopener noreferrer">{esc(n)}</a></li>' for n, u in links)
+            out.append(f'<aside class="fontes" aria-label="{esc(rotulo)}"><p class="fontes-tit">{esc(rotulo)}</p><ul>{itens}</ul></aside>')
         else:
             t = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" target="_blank" rel="noopener noreferrer">\1</a>', esc(p))
+            # link interno para outra matéria do Aloha: [texto](materia-<slug>.html) (vira o endereço certo em cada idioma)
+            t = re.sub(r"\[([^\]]+)\]\((materia-[a-z0-9-]+\.html)\)", r'<a href="\2">\1</a>', t)
             t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
             out.append(f"<p>{t}</p>")
     return "\n".join(out)
@@ -807,15 +868,19 @@ def botoes_compartilhar(m):
 
 def gerar_materia(m, preview=False, agendado=False):
     e = ED[m["editoria"]]
-    relacionadas = [x for x in materias if x["editoria"] == m["editoria"] and x is not m][:3]
-    if len(relacionadas) < 3:
-        relacionadas += [x for x in materias if x is not m and x not in relacionadas][: 3 - len(relacionadas)]
+    # "Leia também": primeiro as matérias com mais assuntos (tags) em comum, depois a mesma editoria, depois as mais novas
+    tags_m = {slug_tag(x) for x in m.get("tags", [])}
+    candidatas = [x for x in materias if x["slug"] != m["slug"]]
+    candidatas.sort(key=lambda x: x["data"], reverse=True)  # mais novas primeiro; o sort abaixo é estável
+    candidatas.sort(key=lambda x: (-len(tags_m & {slug_tag(y) for y in x.get("tags", [])}), x["editoria"] != m["editoria"]))
+    relacionadas = candidatas[:3]
     tags = "".join(f'<a href="{url_tag(t)}">{esc(t)}</a>' for t in m.get("tags", []) if slug_tag(t))
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": m["titulo"],
         "description": m["linha_fina"], "datePublished": m["data"], "dateModified": m.get("atualizado") or m["data"], "articleSection": e["nome"],
         "image": [og_url(og_da_capa(m))], "mainEntityOfPage": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + url_materia(m), "inLanguage": i18n.HTML_LANG[LANG],
-        "author": {"@type": "Person" if m["autor"] != "Equipe Aloha" else "Organization", "name": autor_nome(m)},
+        "author": ({"@type": "Organization", "name": autor_nome(m), "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + "equipe.html"}
+                   if m["autor"] == "Equipe Aloha" else {"@type": "Person", "name": autor_nome(m)}),
         "publisher": {"@type": "Organization", "name": SITE, "url": "https://alohanoticias.com/", "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png"}},
     }, ensure_ascii=False)
     corpo = f"""<article class="wrap materia">
@@ -826,7 +891,7 @@ def gerar_materia(m, preview=False, agendado=False):
     <p class="linha-fina">{esc(m['linha_fina'])}</p>
     <p class="meta"><span>{t("Por")} {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
   </header>
-  <figure class="materia-capa" style="margin-inline:0">{capa(m)}{legenda(m)}</figure>{video(m)}
+  <figure class="materia-capa" style="margin-inline:0">{capa(m, prioridade=True, sizes="(max-width: 1100px) 100vw, 1100px")}{legenda(m)}</figure>{video(m)}
   <div class="materia-grade">
     <div class="texto">
       <div class="compartilhar"><span>{t("Compartilhe")}</span>{botoes_compartilhar(m)}<button class="botao-sec" id="copiar-link" type="button" data-rotulo="{t('Copiar link')}" data-ok="{t('Link copiado')}" data-erro="{t('Copie o endereço na barra do navegador')}">{t("Copiar link")}</button></div>
@@ -843,7 +908,12 @@ def gerar_materia(m, preview=False, agendado=False):
     <div class="grade-3">{"".join(card(x) for x in relacionadas)}</div>
   </div>
 </section>'''}"""
-    head = f'<script type="application/ld+json">{ld}</script>\n'
+    pre_abs = "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/")
+    migalhas_ld = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": t("Início"), "item": pre_abs},
+        {"@type": "ListItem", "position": 2, "name": e["nome"], "item": pre_abs + url_editoria(e["slug"])},
+        {"@type": "ListItem", "position": 3, "name": m["titulo"], "item": pre_abs + url_materia(m)}]}, ensure_ascii=False)
+    head = f'<script type="application/ld+json">{ld}</script>\n<script type="application/ld+json">{migalhas_ld}</script>\n'
     if preview:
         corpo = faixa_rascunho(m, agendado) + corpo
         head = '<base href="/">\n<meta name="robots" content="noindex,nofollow">\n' + head
@@ -877,7 +947,7 @@ def gerar_novidades():
 def gerar_busca():
     indice = [{
         "titulo": m["titulo"], "linha_fina": m["linha_fina"], "editoria": ED[m["editoria"]]["nome"],
-        "tags": m.get("tags", []), "url": url_materia(m), "data": data_longa(m["data"]), "capa": capa(m),
+        "tags": m.get("tags", []), "url": url_materia(m), "data": data_longa(m["data"]), "capa": capa(m, responsivo=False),
     } for m in materias]
     corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>{t("Buscar")}</h1>
   <form class="busca-form" id="form-busca" role="search">
@@ -892,7 +962,7 @@ def gerar_busca():
 <script src="assets/js/indice{'' if LANG == 'pt' else '-' + LANG}.js"></script>"""
     textos = {k: t(k) for k in ["Digite um assunto, por exemplo: GTA 6, Marvel ou cinema.", "Nada encontrado para", "Tente outra palavra.", "matéria encontrada", "matérias encontradas"]}
     INDICES[LANG] = ("window.ALOHA_T = " + json.dumps(textos, ensure_ascii=False) + ";\nwindow.ALOHA_INDICE = " + json.dumps(indice, ensure_ascii=False) + ";\n")
-    return pagina(t("Buscar"), t("Busque matérias da ALOHA NOTÍCIAS."), "", corpo, com_news=False)
+    return pagina(t("Buscar"), t("Busque matérias da ALOHA NOTÍCIAS."), "", corpo, com_news=False, extra_head=NOINDEX)
 
 
 def gerar_simples(titulo, descricao, conteudo):
@@ -903,14 +973,11 @@ def gerar_simples(titulo, descricao, conteudo):
 def gerar_404():
     corpo = f"""<div class="wrap erro"><div class="o">{O_SIMBOLO}</div><h1>{t("Essa onda passou")}</h1>
 <p>{t("A página que você procurou não existe ou mudou de endereço.")}</p><a class="botao" href="index.html">{t("Voltar para a página inicial")}</a></div>"""
-    return pagina(t("Página não encontrada"), t("Página não encontrada"), "", corpo, com_news=False)
+    return pagina(t("Página não encontrada"), t("Página não encontrada"), "", corpo, com_news=False, extra_head=NOINDEX)
 
 
 # ---------------------------------------------------------------- saída
-PRIV_ANUNCIOS = """<h2>Anúncios e cookies</h2>
-<p>Este site exibe anúncios do Google AdSense. Com a sua permissão, o Google e seus parceiros podem usar cookies e identificadores do aparelho para mostrar anúncios e medir o desempenho deles. Os anúncios só são carregados depois que você clica em &ldquo;Aceitar&rdquo; no aviso de cookies; se recusar, o site continua funcionando normalmente, sem anúncios. Você pode mudar de ideia a qualquer momento em <a href="#" id="reabrir-consent">preferências de cookies</a>.</p>
-<p>Saiba como o Google usa dados de sites parceiros em <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>. Você também pode gerenciar anúncios personalizados em <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>.</p>
-"""
+# Texto da política de privacidade (com a seção de anúncios): site/privacidade.py
 
 CSP_BASE = ("default-src 'self'; script-src 'self' https://www.googletagmanager.com https://*.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
             "font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; "
@@ -1001,7 +1068,8 @@ def montar_arquivos():
             f'<p class="meta"><time datetime="{x["data"]}">{data_curta(x["data"])}</time></p></div>{capa(x)}</a></li>' for x in lista)
         corpo = (f'<div class="topo-editoria"><div class="wrap"><h1>{esc(tg)}</h1><p>{len(lista)} {t("matéria") if len(lista) == 1 else t("matérias")} {t("sobre este assunto.")}</p></div></div>'
                  f'<div class="wrap editoria-corpo"><ul class="lista-simples" style="max-width:820px">{itens}</ul></div>')
-        arquivos[url_tag(tg)] = pagina(tg, f"{t('Matérias da ALOHA NOTÍCIAS sobre')} {tg}.", "", corpo)
+        arquivos[url_tag(tg)] = pagina(tg, f"{t('Matérias da ALOHA NOTÍCIAS sobre')} {tg}.", "", corpo,
+                                       extra_head=NOINDEX if len(lista) < MIN_MATERIAS_TAG else "")
     arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a redação da ALOHA NOTÍCIAS.", """
 <p>Fale com a gente pelo e-mail <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Para agilizar, coloque no assunto o motivo do contato:</p>
 <h2>Sugestão de pauta</h2><p>Viu algo que merece uma matéria? Mande o assunto e, se tiver, o link da fonte.</p>
@@ -1032,25 +1100,14 @@ def montar_arquivos():
 <p>Podemos alterar estes termos, e a versão em vigor é a publicada nesta página, com a data de atualização. Estes termos seguem as leis do Brasil.</p>
 <h2>Contato</h2>
 <p>Dúvidas sobre estes termos: <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>""")
-    arquivos["privacidade.html"] = gerar_simples("Privacidade", "Política de privacidade da ALOHA NOTÍCIAS.", """
-<p>Última atualização: novembro de 2026. Respeitamos a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018). Aqui está, de forma direta, o que acontece com os seus dados quando você visita este site.</p>
-<h2>O que coletamos</h2>
-<p>Não pedimos cadastro e não usamos cookies de publicidade ou de rastreamento. Guardamos no seu próprio navegador apenas a sua preferência de tema claro ou escuro.</p>
-<p>Medimos as visitas com o Google Analytics, que usa cookies de estatística para contar acessos, páginas lidas e de onde as visitas chegam (por exemplo, de uma busca ou do nosso canal no Telegram). Não usamos esses dados para identificar você pessoalmente. Você pode recusar no aviso de cookies ou em “Preferências de cookies”, no rodapé; visitantes da União Europeia, do Reino Unido e da Suíça só são medidos depois de aceitar.</p>
-<h2>Serviços de terceiros</h2>
-<p>As fontes de letra vêm do Google Fonts. Fotos podem vir do Unsplash e vídeos são incorporados do YouTube, em modo de privacidade aprimorada (youtube-nocookie.com). Ao carregar esses conteúdos, esses serviços recebem o seu endereço de IP e podem ter regras próprias de privacidade. O site é hospedado pela Cloudflare.</p>
-""" + (PRIV_ANUNCIOS if ANUNCIOS_ATIVOS else "") + """<h2>E-mail de contato</h2>
-<p>Se você nos escrever, usaremos o seu e-mail apenas para responder. Não vendemos nem repassamos os seus dados.</p>
-<h2>Seus direitos</h2>
-<p>Você pode pedir informações sobre os dados que temos sobre você, a correção ou a exclusão deles, escrevendo pela página de <a href="contato.html">contato</a>.</p>
-<h2>Mudanças</h2>
-<p>Se esta política mudar, a data acima será atualizada. Se passarmos a usar cookies, anúncios ou newsletter, vamos avisar aqui antes.</p>""")
+    arquivos["privacidade.html"] = gerar_simples(*privacidade.pagina("pt", ANUNCIOS_ATIVOS))
 
     if LANG != "pt":
         eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a>: {esc(e["descricao"])}</li>' for e in editorias)
         for nome, (tit, desc, corpo) in i18n.PAGINAS[LANG].items():
             corpo = corpo.replace("@@EDITORIAS@@", eds).replace("@@ANUNCIOS@@", i18n.PRIV_ANUNCIOS[LANG] if ANUNCIOS_ATIVOS else "")
             arquivos[nome] = gerar_simples(tit, desc, corpo)
+        arquivos["privacidade.html"] = gerar_simples(*privacidade.pagina(LANG, ANUNCIOS_ATIVOS))
         arquivos.pop("404.html", None)
     return arquivos
 
@@ -1168,8 +1225,8 @@ def resolver(html_, lang, nome, existe):
     """Troca os marcadores de idioma, canonical e hreflang e ajusta os caminhos dos arquivos compartilhados."""
     html_ = localizar(html_, lang)
     html_ = re.sub(r"@@L:([\w-]+)@@", lambda mo: rel_url(lang, mo.group(1), nome, existe), html_)
-    langs = [l for l in i18n.IDIOMAS_REAIS if nome in existe.get(l, ())]
-    alt = ""
+    langs = [l for l in i18n.IDIOMAS_REAIS if nome in existe.get(l, ()) and l in IDIOMAS_INDEXADOS]
+    alt = "" if lang in IDIOMAS_INDEXADOS or "noindex" in html_ else NOINDEX
     if len(langs) > 1:
         alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{url_abs(l, nome)}">\n' for l in langs)
         if "pt" in langs:
@@ -1179,6 +1236,7 @@ def resolver(html_, lang, nome, existe):
     html_ = html_.replace("{CANON}", canon)
     if lang != "pt":
         html_ = re.sub(r'(href|src)="(assets/|feed\.xml|manifest\.webmanifest)', r'\1="../\2', html_)
+        html_ = re.sub(r'srcset="([^"]*)"', lambda mo: 'srcset="' + re.sub(r'(^|, )assets/', r'\1../assets/', mo.group(1)) + '"', html_)
     return html_
 
 
@@ -1228,7 +1286,7 @@ def main():
     (SAIDA / ".well-known/security.txt").write_text(
         "Contact: mailto:contato@alohanoticias.com\nExpires: 2027-11-01T00:00:00.000Z\nPreferred-Languages: pt, en\nCanonical: https://alohanoticias.com/.well-known/security.txt\n", encoding="utf-8")
     (SAIDA / "manifest.webmanifest").write_text(json.dumps({
-        "name": "ALOHA NOTÍCIAS", "short_name": "ALOHA", "description": "Notícias, cinema, games, tecnologia, curiosidades e finanças.",
+        "name": "ALOHA NOTÍCIAS", "short_name": "ALOHA", "description": "Cinema, games, anime e tecnologia explicados com calma.",
         "start_url": "/", "scope": "/", "display": "standalone", "lang": "pt-BR",
         "background_color": "#FFFFFF", "theme_color": "#0a0a0a",
         "icons": [{"src": "assets/img/icone-app-192.png", "sizes": "192x192", "type": "image/png"},
@@ -1247,7 +1305,7 @@ def main():
         for m in materias[:30])
     (SAIDA / "feed.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
-        f"<title>{SITE}</title><link>https://alohanoticias.com/</link><description>Notícias, cinema, games, tecnologia, curiosidades e finanças.</description>"
+        f"<title>{SITE}</title><link>https://alohanoticias.com/</link><description>Cinema, games, anime e tecnologia explicados com calma.</description>"
         '<language>pt-BR</language><atom:link href="https://alohanoticias.com/feed.xml" rel="self" type="application/rss+xml"/>'
         + itens + "</channel></rss>", encoding="utf-8")
     rascunhos = []
@@ -1304,7 +1362,18 @@ def main():
         t2 = re.sub(r'(assets/(?:css|js)/[\w.-]+\.(?:css|js)|assets/img/capas/[\w.-]+\.jpg)"', _v, t)
         if t2 != t:
             pg.write_text(t2, encoding="utf-8")
-    sm = "".join(f"<url><loc>{url_abs(l, n)}</loc></url>" for l, arqs in por_idioma.items() for n in arqs if n not in ("404.html", "busca.html"))
+    # Sitemap: só idiomas indexados, sem páginas "noindex", com a data da última mudança de cada matéria
+    def _lastmod(n):
+        if n.startswith("materia-"):
+            m = next((x for x in MATERIAS_PT if url_materia(x) == n), None)
+            if m:
+                return (m.get("atualizado") or m["data"]) + ":00-03:00"
+        if n == "index.html" and MATERIAS_PT:
+            return max(x.get("atualizado") or x["data"] for x in MATERIAS_PT) + ":00-03:00"
+        return ""
+    sm = "".join(f"<url><loc>{url_abs(l, n)}</loc>" + (f"<lastmod>{_lastmod(n)}</lastmod>" if _lastmod(n) else "") + "</url>"
+                 for l, arqs in por_idioma.items() if l in IDIOMAS_INDEXADOS
+                 for n, conteudo in arqs.items() if n not in ("404.html", "busca.html") and 'name="robots" content="noindex' not in conteudo)
     (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
     (SAIDA / "688dca8a511dd5a078482e96f25fecb8.txt").write_text("688dca8a511dd5a078482e96f25fecb8", encoding="utf-8")  # chave IndexNow
     (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
