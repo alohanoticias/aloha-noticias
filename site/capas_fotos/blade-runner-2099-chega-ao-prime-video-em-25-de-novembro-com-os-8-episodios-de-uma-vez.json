@@ -1,0 +1,30 @@
+{
+ "layout": "faixas",
+ "titulo": "Blade Runner 2099",
+ "fotos": [
+  {
+   "url": "https://images.unsplash.com/photo-1752070485313-71ac5e594ad0?fm=jpg&q=80&w=1920&h=1080&auto=format&fit=crop",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1694057441996-5325f274c1c0?fm=jpg&q=80&w=1920&h=1080&auto=format&fit=crop",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1672872476232-da16b45c9001?fm=jpg&q=80&w=1920&h=1080&auto=format&fit=crop",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}
