@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Steam Deck handheld', 'Steam Deck dock', 'SteamOS', 'Valve Corporation', 'Steam Controller', 'Nintendo Switch 2 console', 'Nintendo Switch 2 dock', 'Nvidia GeForce RTX graphics card', 'Nvidia Tegra', 'DLSS comparison upscaling', 'PlayStation controller DualShock', 'PlayStation 1 console SCPH', 'PlayStation gamepad buttons', 'Sony PlayStation original', 'Konami arcade Gradius', 'Gradius NES cartridge', 'Contra NES cartridge', 'Nintendo Entertainment System controller', 'Konami headquarters Tokyo', 'NES console Famicom']
+QUERIES = ['Roblox','Roblox Corporation','Roblox game screenshot','Roblox logo','children playing tablet','child using smartphone game','parental controls smartphone','Dark forest night','Selfie smartphone face','Movie theater cinema screen'  ]
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
