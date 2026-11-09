@@ -1,3 +1,22 @@
-{"layout":"canto","editoria":"cinema","fotos":[
-{"url":"https://static.gosugamers.net/64/d7/7c/4cfb5410ed723000d64750dfb77d002ce6af642b5d5f0118dc69a9e8a9.webp?w=1600","foco":[0.5,0.5],"zoom":1.0},
-{"url":"https://images.squarespace-cdn.com/content/v1/6377df46f9ef275990030ac5/1762367950630-21WSLY9HN6XVS14B541E/GaGIG.jpg","foco":[0.5,0.5],"zoom":1.0}]}
+{
+ "layout": "canto",
+ "editoria": "cinema",
+ "fotos": [
+  {
+   "url": "https://static.gosugamers.net/64/d7/7c/4cfb5410ed723000d64750dfb77d002ce6af642b5d5f0118dc69a9e8a9.webp?w=1600",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://images.squarespace-cdn.com/content/v1/6377df46f9ef275990030ac5/1762367950630-21WSLY9HN6XVS14B541E/GaGIG.jpg",
+   "foco": [
+    0.33,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}
