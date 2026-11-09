@@ -451,7 +451,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 </main>
 {newsletter() if (com_news and NEWSLETTER_ATIVA) else ""}
 {rodape()}
-{consent_html()}<script src="assets/js/site.js"></script><script src="assets/js/novidades{'' if LANG == 'pt' else '-' + LANG}.js"></script><script src="assets/js/sino.js"></script>{CONSENT_JS}
+{consent_html()}<script src="assets/js/site.js"></script><script src="assets/js/contador.js" defer></script><script src="assets/js/novidades{'' if LANG == 'pt' else '-' + LANG}.js"></script><script src="assets/js/sino.js"></script>{CONSENT_JS}
 </body>
 </html>
 """
@@ -670,7 +670,7 @@ def faixa_rascunho(m, agendado=False):
 
 
 NAV_PAINEL = [
-    ("Visão geral", [("index", "admin/", "▦", "Painel")]),
+    ("Visão geral", [("index", "admin/", "▦", "Painel"), ("metricas", "admin/metricas.html", "▤", "Métricas")]),
     ("Conteúdo", [("rascunhos", "admin/rascunhos.html", "✎", "Rascunhos"), ("agendados", "admin/agendados.html", "◷", "Agendados"),
                   ("publicados", "admin/publicados.html", "✔", "Publicados")]),
     ("Divulgação", [("links", "admin/links.html", "↗", "Links das redes"), ("parceiros", "admin/parceiros.html", "☺", "Links de parceiros")]),
@@ -740,6 +740,43 @@ def _lista_painel(itens, tipo, vazio):
     if not itens:
         return f'<div class="p-vazio">{vazio}</div>'
     return '<ul class="p-lista">' + "".join(_linha_painel(d, tipo) for d in itens) + "</ul>"
+
+
+def gerar_metricas_admin(materias):
+    """Métricas de visitas do contador próprio do site (worker/index.js), sem Google Analytics."""
+    nomes = {"/": "Página inicial", "/busca.html": "Busca", "/404.html": "Página não encontrada"}
+    for e in editorias:
+        nomes["/" + url_editoria(e["slug"])] = "Editoria: " + e["nome"]
+    for m in materias:
+        nomes["/" + url_materia(m)] = m["titulo"]
+    for n in ("sobre", "contato", "equipe", "politica-editorial", "privacidade", "termos"):
+        nomes[f"/{n}.html"] = n.replace("-", " ").capitalize()
+    acao = ('<select id="m-dias" class="p-btn" aria-label="Período"><option value="7">7 dias</option><option value="30" selected>30 dias</option>'
+            '<option value="90">90 dias</option><option value="365">12 meses</option></select>')
+    conteudo = f"""<div class="p-cards" id="m-cards"><div class="p-stat"><span>Carregando</span><b>…</b><small>buscando os números</small></div></div>
+<p class="m-aviso" id="m-aviso" hidden></p>
+<section class="p-painel"><header><h2>Visualizações por dia</h2><a href="#" id="m-tabela-dia">Ver tabela</a></header><div class="m-graf" id="m-serie"></div><div id="m-serie-tab" hidden></div></section>
+<div class="m-duas">
+<section class="p-painel"><header><h2>Páginas mais vistas</h2></header><div id="m-paginas"></div></section>
+<section class="p-painel"><header><h2>De onde vieram</h2></header><div id="m-origens"></div></section>
+</div>
+<div class="m-duas">
+<section class="p-painel"><header><h2>Links etiquetados (utm_source)</h2></header><div id="m-fontes"></div></section>
+<section class="p-painel"><header><h2>Horário das visitas</h2></header><div class="m-graf" id="m-horas"></div></section>
+</div>
+<section class="p-painel"><header><h2>Parceiros</h2><a href="admin/parceiros.html">Criar links</a></header><div id="m-parceiros"></div></section>
+<div class="m-tres">
+<section class="p-painel"><header><h2>Países</h2></header><div id="m-paises"></div></section>
+<section class="p-painel"><header><h2>Aparelhos</h2></header><div id="m-aparelhos"></div></section>
+<section class="p-painel"><header><h2>Idioma do site</h2></header><div id="m-idiomas"></div></section>
+</div>
+<section class="p-painel"><header><h2>Como esta contagem funciona</h2></header><div class="m-sobre">
+<p>Contador próprio do site, separado do Google Analytics: conta cada página aberta por uma pessoa (robôs e o painel ficam de fora), sem cookies. Visitantes únicos são contados por dia, com um código que muda todo dia; por isso, no período, a soma pode contar a mesma pessoa mais de uma vez. Horários em Brasília.</p>
+<p><button type="button" class="p-btn" id="m-eu"></button> <span id="m-eu-txt"></span></p>
+</div></section>
+<script id="m-nomes" type="application/json">{json.dumps(nomes, ensure_ascii=False).replace("</", "<\\/")}</script>
+<script src="assets/js/metricas-admin.js"></script>"""
+    return painel_pagina("Métricas", "metricas", "Visitas contadas pelo próprio site, sem Google Analytics", conteudo, acao)
 
 
 def gerar_admin(rascunhos, agendados=(), publicados=()):
@@ -1328,6 +1365,7 @@ def main():
             ("agendados", "Agendados", "Artigos aprovados que saem no horário marcado.", agendados, "agen", "Nada agendado no momento."),
             ("publicados", "Publicados", "Artigos que já estão no ar (abrem o site em outra aba).", sorted(materias, key=lambda d: d["data"], reverse=True), "pub", "Nada publicado ainda.")]:
         (SAIDA / f"admin/{chave}.html").write_text(resolver(gerar_lista_admin(chave, tit, led, itens, tipo, vazio), "pt", f"admin/{chave}.html", existe), encoding="utf-8")
+    (SAIDA / "admin/metricas.html").write_text(resolver(gerar_metricas_admin(materias), "pt", "admin/metricas.html", existe), encoding="utf-8")
     (SAIDA / "admin/links.html").write_text(resolver(gerar_links_admin(materias), "pt", "admin/links.html", existe), encoding="utf-8")
     (SAIDA / "admin/parceiros.html").write_text(resolver(gerar_parceiros_admin(materias), "pt", "admin/parceiros.html", existe), encoding="utf-8")
     for d in rascunhos:

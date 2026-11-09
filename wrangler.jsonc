@@ -1,5 +1,11 @@
 {
   "name": "aloha-noticias",
   "compatibility_date": "2026-11-01",
-  "assets": { "directory": "./publico" }
+  // Worker pequeno só para o contador de visitas próprio (worker/index.js); o resto é o site estático de publico/
+  "main": "worker/index.js",
+  "assets": { "directory": "./publico", "binding": "ASSETS" },
+  "durable_objects": {
+    "bindings": [{ "name": "METRICAS", "class_name": "Metricas" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Metricas"] }]
 }

@@ -25,6 +25,8 @@ PRIV["pt"] = ("Política de privacidade", "Como a ALOHA NOTÍCIAS trata os dados
 <p>Na União Europeia, no Espaço Econômico Europeu, no Reino Unido e na Suíça, a medição só começa depois que você clica em &ldquo;Aceitar&rdquo; no aviso de cookies. Nos demais países, incluindo o Brasil, ela começa quando a página abre, com base no nosso interesse legítimo em entender como o site é usado. Em qualquer lugar você pode desligá-la clicando em &ldquo;Recusar&rdquo; no aviso ou em &ldquo;Preferências de cookies&rdquo;, no rodapé. Os dados ficam guardados pelo prazo de retenção configurado no Google Analytics. Saiba mais em <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">como o Google usa dados de sites parceiros</a>.</p>
 <h2>Hospedagem e segurança (Cloudflare)</h2>
 <p>O site é hospedado pela Cloudflare. Para entregar as páginas e proteger o site contra ataques, a Cloudflare processa dados técnicos de cada acesso, como endereço de IP, navegador e página pedida, e pode contar visitas de forma agregada, sem cookies.</p>
+<h2>Contagem própria de visitas</h2>
+<p>Além do Google Analytics, o próprio site conta as páginas vistas, sem cookies. Registramos a página aberta, o site ou link de onde a visita veio (incluindo as etiquetas do endereço), o país, o tipo de aparelho e o idioma da página. Para saber quantas pessoas diferentes vieram em cada dia, o endereço de IP e o navegador viram um código embaralhado com uma chave que muda todo dia e é apagada no dia seguinte. O IP não é guardado e esse código não permite identificar ninguém nem reconhecer a mesma pessoa em outro dia.</p>
 <h2>O que fica guardado no seu navegador</h2>
 <p>Guardamos no próprio navegador (armazenamento local, não enviado para nós) a sua escolha de tema claro ou escuro, a sua resposta ao aviso de cookies e quais avisos do sino de novidades você já viu. Você pode apagar tudo isso limpando os dados do site no navegador.</p>
 <h2>Notificações</h2>
@@ -59,6 +61,8 @@ PRIV["en"] = ("Privacy policy", "How ALOHA NOTÍCIAS handles the data of people 
 <p>In the European Union, the European Economic Area, the UK and Switzerland, measurement only starts after you click &ldquo;Accept&rdquo; in the cookie notice. In other countries, including Brazil, it starts when the page loads, based on our legitimate interest in understanding how the site is used. Anywhere, you can turn it off with &ldquo;Decline&rdquo; in the notice or under &ldquo;Cookie preferences&rdquo; in the footer. Data is kept for the retention period set in Google Analytics. Learn more about <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses data from partner sites</a>.</p>
 <h2>Hosting and security (Cloudflare)</h2>
 <p>The site is hosted by Cloudflare. To deliver pages and protect the site from attacks, Cloudflare processes technical data from each request, such as IP address, browser and page requested, and may count visits in aggregate, without cookies.</p>
+<h2>Our own visit count</h2>
+<p>Besides Google Analytics, the site itself counts page views, without cookies. We record the page opened, the site or link the visit came from (including the tags in the address), the country, the type of device and the page language. To know how many different people came each day, the IP address and browser are turned into a scrambled code using a key that changes every day and is deleted the next day. The IP is not stored, and this code cannot identify anyone or recognize the same person on another day.</p>
 <h2>What stays in your browser</h2>
 <p>We store in your own browser (local storage, not sent to us) your light or dark theme choice, your answer to the cookie notice and which items in the news bell you have already seen. You can erase all of it by clearing this site's data in your browser.</p>
 <h2>Notifications</h2>
@@ -93,6 +97,8 @@ PRIV["es"] = ("Política de privacidad", "Cómo ALOHA NOTÍCIAS trata los datos 
 <p>En la Unión Europea, el Espacio Económico Europeo, el Reino Unido y Suiza, la medición solo empieza después de que pulses &ldquo;Aceptar&rdquo; en el aviso de cookies. En los demás países, incluido Brasil, empieza al abrir la página, con base en nuestro interés legítimo en entender cómo se usa el sitio. En cualquier lugar puedes desactivarla con &ldquo;Rechazar&rdquo; en el aviso o en &ldquo;Preferencias de cookies&rdquo;, en el pie de página. Los datos se conservan durante el plazo configurado en Google Analytics. Más información sobre <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">cómo usa Google los datos de sitios asociados</a>.</p>
 <h2>Alojamiento y seguridad (Cloudflare)</h2>
 <p>El sitio está alojado en Cloudflare. Para entregar las páginas y proteger el sitio de ataques, Cloudflare trata datos técnicos de cada acceso, como dirección IP, navegador y página solicitada, y puede contar visitas de forma agregada, sin cookies.</p>
+<h2>Recuento propio de visitas</h2>
+<p>Además de Google Analytics, el propio sitio cuenta las páginas vistas, sin cookies. Registramos la página abierta, el sitio o enlace de donde llegó la visita (incluidas las etiquetas de la dirección), el país, el tipo de dispositivo y el idioma de la página. Para saber cuántas personas distintas vinieron cada día, la dirección IP y el navegador se convierten en un código cifrado con una clave que cambia cada día y se borra al día siguiente. La IP no se guarda y ese código no permite identificar a nadie ni reconocer a la misma persona otro día.</p>
 <h2>Lo que queda en tu navegador</h2>
 <p>Guardamos en tu propio navegador (almacenamiento local, que no se nos envía) tu elección de tema claro u oscuro, tu respuesta al aviso de cookies y qué avisos de la campana de novedades ya viste. Puedes borrarlo todo eliminando los datos de este sitio en el navegador.</p>
 <h2>Notificaciones</h2>
@@ -127,6 +133,8 @@ PRIV["fr"] = ("Politique de confidentialité", "Comment ALOHA NOTÍCIAS traite l
 <p>Dans l'Union européenne, l'Espace économique européen, au Royaume-Uni et en Suisse, la mesure ne commence qu'après un clic sur «&nbsp;Accepter&nbsp;» dans le bandeau cookies. Ailleurs, y compris au Brésil, elle démarre à l'ouverture de la page, sur la base de notre intérêt légitime à comprendre l'usage du site. Partout, vous pouvez la désactiver avec «&nbsp;Refuser&nbsp;» ou via «&nbsp;Préférences de cookies&nbsp;» en bas de page. Les données sont conservées pendant la durée configurée dans Google Analytics. En savoir plus sur <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">l'utilisation des données des sites partenaires par Google</a>.</p>
 <h2>Hébergement et sécurité (Cloudflare)</h2>
 <p>Le site est hébergé par Cloudflare. Pour servir les pages et protéger le site contre les attaques, Cloudflare traite des données techniques de chaque requête (adresse IP, navigateur, page demandée) et peut compter les visites de façon agrégée, sans cookies.</p>
+<h2>Notre propre comptage des visites</h2>
+<p>En plus de Google Analytics, le site compte lui-même les pages vues, sans cookies. Nous enregistrons la page ouverte, le site ou le lien d'origine de la visite (y compris les balises de l'adresse), le pays, le type d'appareil et la langue de la page. Pour savoir combien de personnes différentes sont venues chaque jour, l'adresse IP et le navigateur sont transformés en un code brouillé avec une clé qui change chaque jour et est effacée le lendemain. L'IP n'est pas conservée et ce code ne permet ni d'identifier quelqu'un ni de reconnaître la même personne un autre jour.</p>
 <h2>Ce qui reste dans votre navigateur</h2>
 <p>Nous enregistrons dans votre propre navigateur (stockage local, qui ne nous est pas transmis) votre choix de thème clair ou sombre, votre réponse au bandeau cookies et les alertes de la cloche que vous avez déjà vues. Vous pouvez tout effacer en supprimant les données de ce site dans votre navigateur.</p>
 <h2>Notifications</h2>
@@ -161,6 +169,8 @@ PRIV["de"] = ("Datenschutzerklärung", "Wie ALOHA NOTÍCIAS mit den Daten der Be
 <p>In der Europäischen Union, im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz beginnt die Messung erst, nachdem Sie im Cookie-Hinweis auf &bdquo;Akzeptieren&ldquo; geklickt haben. In anderen Ländern, auch in Brasilien, beginnt sie beim Laden der Seite, gestützt auf unser berechtigtes Interesse, die Nutzung der Website zu verstehen. Überall können Sie sie mit &bdquo;Ablehnen&ldquo; oder über &bdquo;Cookie-Einstellungen&ldquo; in der Fußzeile abschalten. Die Daten werden für die in Google Analytics eingestellte Aufbewahrungsdauer gespeichert. Mehr dazu, <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">wie Google Daten von Partnerwebsites nutzt</a>.</p>
 <h2>Hosting und Sicherheit (Cloudflare)</h2>
 <p>Die Website wird von Cloudflare gehostet. Um Seiten auszuliefern und Angriffe abzuwehren, verarbeitet Cloudflare technische Daten jedes Aufrufs, etwa IP-Adresse, Browser und aufgerufene Seite, und kann Besuche zusammengefasst und ohne Cookies zählen.</p>
+<h2>Eigene Besuchszählung</h2>
+<p>Zusätzlich zu Google Analytics zählt die Website selbst die Seitenaufrufe, ohne Cookies. Wir speichern die aufgerufene Seite, die Website oder den Link, von dem der Besuch kam (einschließlich der Kennungen in der Adresse), das Land, den Gerätetyp und die Sprache der Seite. Um zu wissen, wie viele verschiedene Personen an einem Tag kamen, werden IP-Adresse und Browser mit einem Schlüssel, der sich täglich ändert und am nächsten Tag gelöscht wird, in einen verschlüsselten Code umgewandelt. Die IP wird nicht gespeichert, und dieser Code erlaubt weder, jemanden zu identifizieren, noch dieselbe Person an einem anderen Tag wiederzuerkennen.</p>
 <h2>Was in Ihrem Browser bleibt</h2>
 <p>Im eigenen Browser (lokaler Speicher, der nicht an uns gesendet wird) speichern wir Ihre Wahl von hellem oder dunklem Design, Ihre Antwort auf den Cookie-Hinweis und welche Meldungen der Neuigkeiten-Glocke Sie schon gesehen haben. Sie können alles löschen, indem Sie die Daten dieser Website im Browser entfernen.</p>
 <h2>Benachrichtigungen</h2>
@@ -195,6 +205,8 @@ PRIV["it"] = ("Informativa sulla privacy", "Come ALOHA NOTÍCIAS tratta i dati d
 <p>Nell'Unione europea, nello Spazio economico europeo, nel Regno Unito e in Svizzera la misurazione parte solo dopo che fai clic su &laquo;Accetta&raquo; nell'avviso sui cookie. Negli altri paesi, Brasile compreso, parte all'apertura della pagina, sulla base del nostro legittimo interesse a capire come viene usato il sito. Ovunque puoi disattivarla con &laquo;Rifiuta&raquo; o da &laquo;Preferenze cookie&raquo; a fondo pagina. I dati sono conservati per il periodo impostato in Google Analytics. Scopri <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">come Google usa i dati dei siti partner</a>.</p>
 <h2>Hosting e sicurezza (Cloudflare)</h2>
 <p>Il sito è ospitato da Cloudflare. Per distribuire le pagine e proteggere il sito dagli attacchi, Cloudflare tratta dati tecnici di ogni richiesta, come indirizzo IP, browser e pagina richiesta, e può contare le visite in forma aggregata, senza cookie.</p>
+<h2>Conteggio interno delle visite</h2>
+<p>Oltre a Google Analytics, il sito stesso conta le pagine viste, senza cookie. Registriamo la pagina aperta, il sito o link da cui è arrivata la visita (comprese le etichette dell'indirizzo), il paese, il tipo di dispositivo e la lingua della pagina. Per sapere quante persone diverse sono arrivate ogni giorno, indirizzo IP e browser vengono trasformati in un codice cifrato con una chiave che cambia ogni giorno e viene cancellata il giorno dopo. L'IP non viene conservato e questo codice non permette di identificare nessuno né di riconoscere la stessa persona in un altro giorno.</p>
 <h2>Cosa resta nel tuo browser</h2>
 <p>Salviamo nel tuo browser (archiviazione locale, che non ci viene inviata) la scelta del tema chiaro o scuro, la risposta all'avviso sui cookie e quali avvisi della campanella delle novità hai già visto. Puoi cancellare tutto eliminando i dati di questo sito dal browser.</p>
 <h2>Notifiche</h2>
@@ -229,6 +241,8 @@ PRIV["ja"] = ("プライバシーポリシー", "ALOHA NOTÍCIAS が訪問者の
 <p>欧州連合、欧州経済領域、英国、スイスでは、クッキーの案内で「同意する」をクリックした後にのみ計測が始まります。ブラジルを含むその他の国では、サイトの利用状況を把握するという正当な利益に基づき、ページを開いた時点で計測が始まります。どの地域でも、案内の「拒否する」またはフッターの「クッキーの設定」から停止できます。データは Google アナリティクスで設定した保存期間だけ保管されます。詳しくは<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Google によるパートナーサイトのデータの使用</a>をご覧ください。</p>
 <h2>ホスティングとセキュリティ（Cloudflare）</h2>
 <p>当サイトは Cloudflare でホスティングされています。ページを配信し攻撃から守るため、Cloudflare は各アクセスの技術的なデータ（IP アドレス、ブラウザ、要求されたページなど）を処理し、クッキーを使わずに訪問数を集計することがあります。</p>
+<h2>サイト独自のアクセス集計</h2>
+<p>Google アナリティクスとは別に、当サイト自身がクッキーを使わずにページの閲覧数を数えています。記録するのは、開かれたページ、訪問の元になったサイトやリンク（アドレスのタグを含む）、国、端末の種類、ページの言語です。1日に何人が訪れたかを知るため、IP アドレスとブラウザは、毎日変わり翌日に削除される鍵で暗号化したコードに変換されます。IP は保存されず、このコードから個人を特定したり、別の日に同じ人だと判別したりすることはできません。</p>
 <h2>ブラウザに保存されるもの</h2>
 <p>ライト／ダークテーマの選択、クッキーの案内への回答、新着ベルのどの通知を見たかを、あなたのブラウザ内（ローカルストレージ。私たちには送信されません）に保存します。ブラウザでこのサイトのデータを削除すれば、すべて消去できます。</p>
 <h2>通知</h2>
@@ -263,6 +277,8 @@ PRIV["zh"] = ("隐私政策", "ALOHA NOTÍCIAS 如何处理网站访问者的数
 <p>在欧盟、欧洲经济区、英国和瑞士，只有在你点击 Cookie 提示中的“接受”后才开始统计。在包括巴西在内的其他国家，基于我们了解网站使用情况的正当利益，页面打开时即开始统计。在任何地区，你都可以点击“拒绝”或页脚的“Cookie 偏好设置”将其关闭。数据按 Google Analytics 中设置的保留期限保存。了解<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Google 如何使用合作网站的数据</a>。</p>
 <h2>托管与安全（Cloudflare）</h2>
 <p>本站由 Cloudflare 托管。为了传送页面并防御攻击，Cloudflare 会处理每次访问的技术数据（如 IP 地址、浏览器和请求的页面），并可能在不使用 Cookie 的情况下汇总统计访问量。</p>
+<h2>本站自有的访问统计</h2>
+<p>除 Google Analytics 外，本站自身也会在不使用 Cookie 的情况下统计页面浏览量。我们记录打开的页面、访问来源的网站或链接（包括网址中的标签）、国家、设备类型和页面语言。为了知道每天有多少不同的人访问，IP 地址和浏览器会用一把每天更换、次日删除的密钥转换成加密代码。IP 不会被保存，这个代码无法识别任何人，也无法在另一天认出同一个人。</p>
 <h2>保存在你浏览器中的内容</h2>
 <p>我们会在你自己的浏览器中（本地存储，不会发送给我们）保存你选择的浅色或深色主题、你对 Cookie 提示的选择，以及你已看过的新闻铃铛通知。在浏览器中清除本站数据即可全部删除。</p>
 <h2>通知</h2>
@@ -297,6 +313,8 @@ PRIV["ar"] = ("سياسة الخصوصية", "كيف يتعامل موقع ALOHA
 <p>في الاتحاد الأوروبي والمنطقة الاقتصادية الأوروبية والمملكة المتحدة وسويسرا، لا يبدأ القياس إلا بعد النقر على «موافق» في تنبيه ملفات تعريف الارتباط. وفي البلدان الأخرى، ومنها البرازيل، يبدأ عند فتح الصفحة استنادًا إلى مصلحتنا المشروعة في فهم كيفية استخدام الموقع. وفي أي مكان يمكنك إيقافه بالنقر على «رفض» أو من «تفضيلات ملفات تعريف الارتباط» أسفل الصفحة. تُحفظ البيانات طوال مدة الاحتفاظ المضبوطة في Google Analytics. اعرف المزيد عن <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">كيفية استخدام Google لبيانات المواقع الشريكة</a>.</p>
 <h2>الاستضافة والأمان (Cloudflare)</h2>
 <p>الموقع مستضاف لدى Cloudflare. لتقديم الصفحات وحماية الموقع من الهجمات، تعالج Cloudflare بيانات تقنية لكل طلب، مثل عنوان IP والمتصفح والصفحة المطلوبة، وقد تحصي الزيارات بشكل مجمّع ومن دون ملفات تعريف الارتباط.</p>
+<h2>عدّ الزيارات الخاص بالموقع</h2>
+<p>إلى جانب Google Analytics، يعدّ الموقع نفسه مشاهدات الصفحات من دون ملفات تعريف الارتباط. نسجل الصفحة المفتوحة، والموقع أو الرابط الذي جاءت منه الزيارة (بما في ذلك الوسوم في العنوان)، والبلد، ونوع الجهاز، ولغة الصفحة. ولمعرفة عدد الأشخاص المختلفين في كل يوم، يُحوَّل عنوان IP والمتصفح إلى رمز مشفّر بمفتاح يتغير كل يوم ويُحذف في اليوم التالي. لا يُحفظ عنوان IP، ولا يتيح هذا الرمز التعرّف على أي شخص أو تمييز الشخص نفسه في يوم آخر.</p>
 <h2>ما يبقى في متصفحك</h2>
 <p>نحفظ في متصفحك نفسه (تخزين محلي لا يُرسل إلينا) اختيارك للمظهر الفاتح أو الداكن، وردّك على تنبيه ملفات تعريف الارتباط، والتنبيهات التي رأيتها في جرس الأخبار. يمكنك حذف كل ذلك بمسح بيانات هذا الموقع من المتصفح.</p>
 <h2>الإشعارات</h2>
