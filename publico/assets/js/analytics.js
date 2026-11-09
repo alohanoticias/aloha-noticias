@@ -23,7 +23,7 @@
   var opcoes = /[?&]aloha_debug=1/.test(location.search) ? { debug_mode: true } : {};
   // origem da visita (etiquetas utm do link): vai explícita para o Google, sem depender de ele ler o endereço
   function param(n) { var m = location.search.match(new RegExp("[?&]" + n + "=([^&#]*)")); return m ? decodeURIComponent(m[1].replace(/\+/g, " ")) : ""; }
-  var fonte = param("utm_source"), midia = param("utm_medium"), campanha = param("utm_campaign"), conteudo = param("utm_content");
+  var fonte = param("utm_source"), midia = param("utm_medium"), campanha = param("utm_campaign"), conteudo = param("utm_content"), termo = param("utm_term");  // termo: jogo/assunto do artigo (roblox, freefire...)
   // sem etiqueta no link: descobre a rede pelo site de origem ou pelo navegador interno do app
   if (!fonte) {
     var ref = (document.referrer || "").toLowerCase(), ua = navigator.userAgent || "";
@@ -43,6 +43,7 @@
     opcoes.campaign_source = fonte;
     if (midia) opcoes.campaign_medium = midia;
     if (campanha) opcoes.campaign_name = campanha;
+    if (termo) opcoes.campaign_term = termo;
     if (conteudo) opcoes.campaign_content = conteudo;  // parceiros: rede onde o link foi divulgado
   }
   gtag("js", new Date());
@@ -58,7 +59,7 @@
     var fim = redeP + idiomaP;
     var nomeEvento = parceiro ? "parceiro_" + fonte.toLowerCase().slice(0, 40 - 9 - fim.length) + fim
                               : "visita_" + fonte.toLowerCase();
-    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha, rede: redeP.slice(1), idioma: idiomaP.slice(1) });
+    gtag("event", nomeEvento.slice(0, 40), { fonte: fonte, midia: midia, campanha: campanha, rede: redeP.slice(1), idioma: idiomaP.slice(1), jogo: (termo || "").toLowerCase().slice(0, 30) });
   }
   var s = document.createElement("script");
   s.async = true;

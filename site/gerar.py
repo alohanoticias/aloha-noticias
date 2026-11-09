@@ -679,7 +679,7 @@ def gerar_parceiros_admin(lista):
     opcoes = "".join(f'<option value="{esc(m["slug"])}">{esc(m["titulo"])}</option>' for m in lista)
     idiomas = "".join(f'<option value="{c}">{i18n.NOMES_IDIOMA[c]}</option>' for c in i18n.IDIOMAS_REAIS)
     corpo = f"""<div class="topo-editoria"><div class="wrap"><h1>Admin: links de parceiros</h1>
-<p>Escolha o artigo, o idioma, o nome do parceiro e a rede, e copie o link. Quem entrar por esse link aparece no Analytics como vindo do parceiro.</p>
+<p>Escolha o artigo, o idioma, o nome do parceiro, o jogo ou assunto (rótulo, como roblox ou freefire) e a rede, e copie o link. Quem entrar por esse link aparece no Analytics como vindo do parceiro.</p>
 <p><a href="admin/">Voltar aos rascunhos</a></p></div></div>
 <div class="wrap editoria-corpo parceiros" style="max-width:820px">
 <label for="p-artigo"><strong>Artigo</strong></label>
@@ -689,6 +689,9 @@ def gerar_parceiros_admin(lista):
 <label for="p-nome"><strong>Nome do parceiro</strong></label>
 <input id="p-nome" list="p-salvos" placeholder="ex.: Joao" autocomplete="off">
 <datalist id="p-salvos"></datalist>
+<label for="p-jogo"><strong>Jogo ou assunto do artigo (rótulo no link)</strong></label>
+<input id="p-jogo" list="p-jogos" placeholder="ex.: roblox, freefire, stumble guys, fortnite" autocomplete="off">
+<datalist id="p-jogos"><option value="roblox"><option value="freefire"><option value="stumble guys"><option value="fortnite"><option value="minecraft"><option value="gta"><option value="pokemon"></datalist>
 <label for="p-rede"><strong>Onde o parceiro vai divulgar</strong></label>
 <select id="p-rede"><option value="">Escolha a rede</option>{"".join(f'<option value="{cod}">{nome}</option>' for nome, cod in REDES_LINKS)}<option value="site">Site ou blog</option><option value="email">E-mail / newsletter</option><option value="outro">Outro</option></select>
 <p class="meta" id="p-codigo"></p>
@@ -697,7 +700,7 @@ def gerar_parceiros_admin(lista):
 <p><button class="botao" type="button" id="p-copiar">Copiar link</button></p>
 <h2 style="margin-top:32px">Como ver os resultados</h2>
 <p><strong>Na hora:</strong> Analytics &gt; Visão geral em tempo real &gt; quadro de eventos: aparece <em>parceiro_nome_rede_idioma</em> (ex.: parceiro_joao_instagram_pt).</p>
-<p><strong>No dia seguinte:</strong> Aquisição de tráfego (ou Páginas e telas) com <em>Origem/mídia da sessão</em>: cada linha mostra parceiro / rede (ex.: joao / instagram). Para ver só parceiros, filtre <em>Campanha da sessão</em> = <em>parceiro</em>; o idioma aparece na coluna <em>Conteúdo manual da sessão</em> (pt, en, es...).</p>
+<p><strong>No dia seguinte:</strong> Aquisição de tráfego (ou Páginas e telas) com <em>Origem/mídia da sessão</em>: cada linha mostra parceiro / rede (ex.: joao / instagram). O jogo/assunto aparece em <em>Termo da sessão</em>. Para ver só parceiros, filtre <em>Campanha da sessão</em> = <em>parceiro</em>; o idioma aparece na coluna <em>Conteúdo manual da sessão</em> (pt, en, es...).</p>
 </div>
 <style>.parceiros label{{display:block;margin:18px 0 6px}}.parceiros select,.parceiros input,.parceiros textarea{{width:100%;padding:10px;font-size:1rem;box-sizing:border-box}}</style>
 <script src="assets/js/parceiros-admin.js"></script>"""

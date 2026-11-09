@@ -2,7 +2,7 @@
 (function () {
   var artigo = document.getElementById("p-artigo"), idioma = document.getElementById("p-idioma"), nome = document.getElementById("p-nome"),
       link = document.getElementById("p-link"), rede = document.getElementById("p-rede"), codigo = document.getElementById("p-codigo"),
-      copiar = document.getElementById("p-copiar"), salvos = document.getElementById("p-salvos");
+      jogo = document.getElementById("p-jogo"), copiar = document.getElementById("p-copiar"), salvos = document.getElementById("p-salvos");
   if (!artigo || !nome) return;
   var CHAVE = "aloha-parceiros";
   function lista() { try { return JSON.parse(localStorage.getItem(CHAVE) || "[]"); } catch (e) { return []; } }
@@ -28,15 +28,15 @@
     return u ? u.replace(/\.html$/, "") : "";
   }
   function atualizar() {
-    var c = codigoDe(nome.value);
+    var c = codigoDe(nome.value), j = jogo ? codigoDe(jogo.value) : "";
     if (artigo.value && !urls) { link.value = ""; codigo.textContent = "Carregando endereços…"; return; }
     if (!c) { link.value = ""; codigo.textContent = ""; return; }
     if (!rede.value) { link.value = ""; codigo.textContent = "Escolha onde o parceiro vai divulgar."; return; }
     var base = enderecoBase();
     if (!base) { link.value = ""; codigo.textContent = "Não achei o endereço deste artigo."; return; }
-    // marca as três coisas: parceiro (utm_source), rede (utm_medium) e idioma (utm_content)
-    link.value = base + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro&utm_content=" + idioma.value;
-    codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value + "_" + idioma.value + aviso;
+    // marca: parceiro (utm_source), rede (utm_medium), idioma (utm_content) e jogo/assunto (utm_term, opcional)
+    link.value = base + "?utm_source=" + c + "&utm_medium=" + rede.value + "&utm_campaign=parceiro&utm_content=" + idioma.value + (j ? "&utm_term=" + j : "");
+    codigo.textContent = "No Analytics: parceiro_" + c + "_" + rede.value + "_" + idioma.value + (j ? " (jogo: " + j + ")" : "") + aviso;
   }
   copiar.addEventListener("click", function () {
     if (!link.value) { (nome.value ? rede : nome).focus(); return; }
@@ -50,5 +50,6 @@
   idioma.addEventListener("change", atualizar);
   nome.addEventListener("input", atualizar);
   rede.addEventListener("change", atualizar);
+  if (jogo) { jogo.addEventListener("input", atualizar); jogo.addEventListener("change", atualizar); }
   mostrarSalvos();
 })();
