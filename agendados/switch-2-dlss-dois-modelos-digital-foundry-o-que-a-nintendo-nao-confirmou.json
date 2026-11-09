@@ -14,8 +14,8 @@
   ],
   "imagem": {
     "url": "assets/img/capas/switch-2-dlss-dois-modelos-digital-foundry-o-que-a-nintendo-nao-confirmou.jpg",
-    "alt": "Colagem de fotos reais do Switch 2 em modo de mesa e do chip da Nvidia na placa",
-    "credito": "Imagens: PantheraLeo1359531 (CC BY 4.0) e Bechology (CC BY 4.0) / Wikimedia Commons"
+    "alt": "Arte de divulgação do Nintendo Switch 2 com o logotipo do console e, em destaque, o chip da Nvidia na placa",
+    "credito": "Imagens: Nintendo / divulgação, via NVIDIA; Bechology (CC BY 4.0) / Wikimedia Commons"
   },
   "corpo": [
     "O Switch 2 é um console portátil que também joga em 4K na TV, e boa parte desse truque depende de uma sigla: DLSS. Em outubro de 2025, a Digital Foundry mostrou evidências de que o console usa dois modelos diferentes da tecnologia. Para escrever este texto li a página da Nvidia, a análise de um blog brasileiro, a reportagem do Project N sobre Fallout 4 e três sites que descreveram o vídeo da Digital Foundry (Nintendo Life, Tom's Hardware e Club386). Não consegui abrir o vídeo em si, então tudo o que atribuo a ele vem desses textos.",
@@ -28,7 +28,7 @@
     "## E a Nintendo, confirmou?",
     "Não. O Nintendo Life escreve que não houve nenhuma palavra oficial da Nintendo ou da Nvidia sobre o assunto. O único respaldo além da própria análise, segundo o site, é um desenvolvedor anônimo que confirmou à Digital Foundry que a teoria está correta. Os apelidos \"DLSS Light\", \"Fat DLSS\" e \"Tiny DLSS\" são rótulos dos sites, não nomes da Nvidia. Os três textos também não informam a resolução interna em que os jogos são desenhados antes da reconstrução.",
     "## O que já mudou na prática",
-    "O exemplo mais recente que encontrei é Fallout 4: Anniversary Edition. Segundo o Project N, a Bethesda lançou em 26 de março de 2026 uma atualização que adiciona DLSS nos modos de 40 e 60 quadros por segundo. O recurso desliga sozinho em telas cheias de interface, como o Pip-Boy. O blog de Alexandre Porfírio, de outubro de 2026, cita ainda uma análise da Digital Foundry de fevereiro que apontou o DLSS em Resident Evil Requiem no Switch 2, com limitações na estabilidade da taxa de quadros. Esse segundo caso eu só conheço por essa citação, sem ter lido a análise original.",
+    "Um exemplo recente é Fallout 4: Anniversary Edition. Segundo o Project N, a Bethesda lançou em 26 de março de 2026 uma atualização que adiciona DLSS nos modos de 40 e 60 quadros por segundo. O recurso desliga sozinho em telas cheias de interface, como o Pip-Boy. O blog de Alexandre Porfírio, de outubro de 2026, cita ainda uma análise da Digital Foundry de fevereiro que apontou o DLSS em Resident Evil Requiem no Switch 2, com limitações na estabilidade da taxa de quadros. Esse segundo caso eu só conheço por essa citação, sem ter lido a análise original.",
     "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|Switch 2 encaixado na base, que leva a imagem à TV|Imagem: Crisco 1492 / Wikimedia Commons (CC BY-SA 4.0)",
     "## DLSS não é a IA que você está pensando",
     "O texto de Porfírio faz uma distinção que vale repetir. O DLSS é uma técnica de reconstrução de imagem. Não é inteligência artificial generativa, daquelas que conversam ou criam conteúdo. Ele lembra que o presidente da Nintendo, Shuntaro Furukawa, falou sobre IA na assembleia de acionistas de junho de 2026, reconhecendo o potencial da IA generativa e preocupações com propriedade intelectual e consumo de energia. Segundo o autor, não há confirmação de uso amplo de IA generativa nos jogos.",
@@ -52,8 +52,8 @@
         "Digital Foundry",
         "technology"
       ],
-      "alt": "Collage of real photos of the Switch 2 in tabletop mode and the Nvidia chip on the board",
-      "credito": "Images: PantheraLeo1359531 (CC BY 4.0) and Bechology (CC BY 4.0) / Wikimedia Commons",
+      "alt": "Nintendo Switch 2 promotional art with the console logo and, inset, the Nvidia chip on the board",
+      "credito": "Images: Nintendo / promotional, via NVIDIA; Bechology (CC BY 4.0) / Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS: image quality analysis (Digital Foundry channel, in English)",
       "corpo": [
         "The Switch 2 is a handheld that also plays in 4K on the TV, and a good part of that trick depends on one acronym: DLSS. In October 2025, Digital Foundry showed evidence that the console uses two different models of the technology. To write this piece I read Nvidia's page, a Brazilian blog's analysis, Project N's report on Fallout 4 and three sites that described the Digital Foundry video (Nintendo Life, Tom's Hardware and Club386). I could not open the video itself, so everything I attribute to it comes from those texts.",
@@ -66,7 +66,7 @@
         "## And did Nintendo confirm it?",
         "No. Nintendo Life writes that there has been no official word from Nintendo or Nvidia on the matter. The only backing beyond the analysis itself, according to the site, is an anonymous developer who confirmed to Digital Foundry that the theory is correct. The nicknames “DLSS Light”, “Fat DLSS” and “Tiny DLSS” are labels from the sites, not Nvidia names. The three texts also don't state the internal resolution at which the games are drawn before reconstruction.",
         "## What has already changed in practice",
-        "The most recent example I found is Fallout 4: Anniversary Edition. According to Project N, Bethesda released an update on March 26, 2026 that adds DLSS in the 40 and 60 frames-per-second modes. The feature turns itself off on screens full of interface, such as the Pip-Boy. Alexandre Porfírio's blog, from October 2026, also cites a February Digital Foundry analysis that pointed to DLSS in Resident Evil Requiem on the Switch 2, with limits in frame-rate stability. I only know that second case from that citation, without having read the original analysis.",
+        "A recent example is Fallout 4: Anniversary Edition. According to Project N, Bethesda released an update on March 26, 2026 that adds DLSS in the 40 and 60 frames-per-second modes. The feature turns itself off on screens full of interface, such as the Pip-Boy. Alexandre Porfírio's blog, from October 2026, also cites a February Digital Foundry analysis that pointed to DLSS in Resident Evil Requiem on the Switch 2, with limits in frame-rate stability. I only know that second case from that citation, without having read the original analysis.",
         "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|The Switch 2 in its dock, which sends the image to the TV|Image: Crisco 1492 / Wikimedia Commons (CC BY-SA 4.0)",
         "## DLSS is not the AI you might be thinking of",
         "Porfírio's text makes a distinction worth repeating. DLSS is an image-reconstruction technique. It is not generative artificial intelligence, the kind that chats or creates content. He recalls that Nintendo president Shuntaro Furukawa spoke about AI at the June 2026 shareholders' meeting, acknowledging the potential of generative AI and concerns about intellectual property and energy consumption. According to the author, there is no confirmation of broad use of generative AI in the games.",
@@ -86,8 +86,8 @@
         "Digital Foundry",
         "tecnología"
       ],
-      "alt": "Collage de fotos reales de la Switch 2 en modo sobremesa y del chip de Nvidia en la placa",
-      "credito": "Imágenes: PantheraLeo1359531 (CC BY 4.0) y Bechology (CC BY 4.0) / Wikimedia Commons",
+      "alt": "Arte promocional de Nintendo Switch 2 con el logotipo de la consola y, destacado, el chip de Nvidia en la placa",
+      "credito": "Imágenes: Nintendo / promocional, vía NVIDIA; Bechology (CC BY 4.0) / Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS: análisis de calidad de imagen (canal Digital Foundry, en inglés)",
       "corpo": [
         "La Switch 2 es una portátil que también juega en 4K en el televisor, y buena parte de ese truco depende de una sigla: DLSS. En octubre de 2025, Digital Foundry mostró indicios de que la consola usa dos modelos distintos de la tecnología. Para escribir este texto leí la página de Nvidia, el análisis de un blog brasileño, el reportaje de Project N sobre Fallout 4 y tres sitios que describieron el vídeo de Digital Foundry (Nintendo Life, Tom's Hardware y Club386). No pude abrir el vídeo en sí, así que todo lo que le atribuyo viene de esos textos.",
@@ -100,7 +100,7 @@
         "## ¿Y Nintendo lo confirmó?",
         "No. Nintendo Life escribe que no hubo ninguna palabra oficial de Nintendo ni de Nvidia sobre el asunto. El único respaldo, además del análisis, según el sitio, es un desarrollador anónimo que confirmó a Digital Foundry que la teoría es correcta. Los apodos «DLSS Light», «Fat DLSS» y «Tiny DLSS» son etiquetas de los sitios, no nombres de Nvidia. Los tres textos tampoco informan la resolución interna en que se dibujan los juegos antes de la reconstrucción.",
         "## Qué ha cambiado ya en la práctica",
-        "El ejemplo más reciente que encontré es Fallout 4: Anniversary Edition. Según Project N, Bethesda lanzó el 26 de marzo de 2026 una actualización que añade DLSS en los modos de 40 y 60 fotogramas por segundo. La función se desactiva sola en pantallas llenas de interfaz, como el Pip-Boy. El blog de Alexandre Porfírio, de octubre de 2026, cita además un análisis de Digital Foundry de febrero que señaló el DLSS en Resident Evil Requiem en la Switch 2, con limitaciones en la estabilidad de la tasa de fotogramas. Ese segundo caso solo lo conozco por esa cita, sin haber leído el análisis original.",
+        "Un ejemplo reciente es Fallout 4: Anniversary Edition. Según Project N, Bethesda lanzó el 26 de marzo de 2026 una actualización que añade DLSS en los modos de 40 y 60 fotogramas por segundo. La función se desactiva sola en pantallas llenas de interfaz, como el Pip-Boy. El blog de Alexandre Porfírio, de octubre de 2026, cita además un análisis de Digital Foundry de febrero que señaló el DLSS en Resident Evil Requiem en la Switch 2, con limitaciones en la estabilidad de la tasa de fotogramas. Ese segundo caso solo lo conozco por esa cita, sin haber leído el análisis original.",
         "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|La Switch 2 en su base, que lleva la imagen al televisor|Imagen: Crisco 1492 / Wikimedia Commons (CC BY-SA 4.0)",
         "## El DLSS no es la IA en la que estás pensando",
         "El texto de Porfírio hace una distinción que vale la pena repetir. El DLSS es una técnica de reconstrucción de imagen. No es inteligencia artificial generativa, de la que conversa o crea contenido. Recuerda que el presidente de Nintendo, Shuntaro Furukawa, habló de IA en la junta de accionistas de junio de 2026, reconociendo el potencial de la IA generativa y preocupaciones por la propiedad intelectual y el consumo de energía. Según el autor, no hay confirmación de un uso amplio de IA generativa en los juegos.",
@@ -120,8 +120,8 @@
         "Digital Foundry",
         "technologie"
       ],
-      "alt": "Collage de photos réelles de la Switch 2 en mode table et de la puce Nvidia sur la carte",
-      "credito": "Images : PantheraLeo1359531 (CC BY 4.0) et Bechology (CC BY 4.0) / Wikimedia Commons",
+      "alt": "Visuel promotionnel de la Nintendo Switch 2 avec le logo de la console et, en médaillon, la puce Nvidia sur la carte",
+      "credito": "Images : Nintendo / promotionnel, via NVIDIA ; Bechology (CC BY 4.0) / Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS : analyse de la qualité d'image (chaîne Digital Foundry, en anglais)",
       "corpo": [
         "La Switch 2 est une portable qui joue aussi en 4K sur la télévision, et une bonne partie de ce tour de force dépend d'un sigle : DLSS. En octobre 2025, Digital Foundry a montré des indices selon lesquels la console utilise deux modèles différents de la technologie. Pour écrire ce texte, j'ai lu la page de Nvidia, l'analyse d'un blog brésilien, le reportage de Project N sur Fallout 4 et trois sites qui ont décrit la vidéo de Digital Foundry (Nintendo Life, Tom's Hardware et Club386). Je n'ai pas pu ouvrir la vidéo elle-même ; tout ce que je lui attribue vient donc de ces textes.",
@@ -134,7 +134,7 @@
         "## Et Nintendo l'a-t-elle confirmé ?",
         "Non. Nintendo Life écrit qu'il n'y a eu aucune déclaration officielle de Nintendo ou de Nvidia sur le sujet. Le seul appui, hors l'analyse elle-même, d'après le site, est un développeur anonyme qui a confirmé à Digital Foundry que la théorie est correcte. Les surnoms « DLSS Light », « Fat DLSS » et « Tiny DLSS » sont des étiquettes des sites, pas des noms de Nvidia. Les trois textes n'indiquent pas non plus la résolution interne à laquelle les jeux sont dessinés avant la reconstruction.",
         "## Ce qui a déjà changé en pratique",
-        "L'exemple le plus récent que j'ai trouvé est Fallout 4: Anniversary Edition. Selon Project N, Bethesda a publié le 26 mars 2026 une mise à jour qui ajoute le DLSS dans les modes 40 et 60 images par seconde. La fonction se désactive toute seule sur les écrans chargés d'interface, comme le Pip-Boy. Le blog d'Alexandre Porfírio, d'octobre 2026, cite aussi une analyse de Digital Foundry de février qui a relevé le DLSS dans Resident Evil Requiem sur Switch 2, avec des limites de stabilité du taux d'images. Je ne connais ce second cas que par cette citation, sans avoir lu l'analyse originale.",
+        "Un exemple récent est Fallout 4: Anniversary Edition. Selon Project N, Bethesda a publié le 26 mars 2026 une mise à jour qui ajoute le DLSS dans les modes 40 et 60 images par seconde. La fonction se désactive toute seule sur les écrans chargés d'interface, comme le Pip-Boy. Le blog d'Alexandre Porfírio, d'octobre 2026, cite aussi une analyse de Digital Foundry de février qui a relevé le DLSS dans Resident Evil Requiem sur Switch 2, avec des limites de stabilité du taux d'images. Je ne connais ce second cas que par cette citation, sans avoir lu l'analyse originale.",
         "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|La Switch 2 dans son dock, qui envoie l’image à la télévision|Image : Crisco 1492 / Wikimedia Commons (CC BY-SA 4.0)",
         "## Le DLSS n'est pas l'IA à laquelle vous pensez",
         "Le texte de Porfírio fait une distinction qui mérite d'être répétée. Le DLSS est une technique de reconstruction d'image. Ce n'est pas de l'intelligence artificielle générative, celle qui converse ou crée du contenu. Il rappelle que le président de Nintendo, Shuntaro Furukawa, a parlé d'IA à l'assemblée des actionnaires de juin 2026, en reconnaissant le potentiel de l'IA générative et des inquiétudes sur la propriété intellectuelle et la consommation d'énergie. Selon l'auteur, rien ne confirme un usage large de l'IA générative dans les jeux.",
@@ -154,8 +154,8 @@
         "Digital Foundry",
         "Technologie"
       ],
-      "alt": "Collage aus echten Fotos der Switch 2 im Tischmodus und des Nvidia-Chips auf der Platine",
-      "credito": "Bilder: PantheraLeo1359531 (CC BY 4.0) und Bechology (CC BY 4.0) / Wikimedia Commons",
+      "alt": "Werbebild der Nintendo Switch 2 mit Konsolenlogo und, eingeblendet, dem Nvidia-Chip auf der Platine",
+      "credito": "Bilder: Nintendo / Pressematerial, über NVIDIA; Bechology (CC BY 4.0) / Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS: Analyse der Bildqualität (Kanal Digital Foundry, auf Englisch)",
       "corpo": [
         "Die Switch 2 ist ein Handheld, das auch am Fernseher in 4K spielt, und ein großer Teil dieses Tricks hängt an einer Abkürzung: DLSS. Im Oktober 2025 zeigte Digital Foundry Belege dafür, dass die Konsole zwei verschiedene Modelle der Technik nutzt. Für diesen Text habe ich die Seite von Nvidia, die Analyse eines brasilianischen Blogs, den Bericht von Project N über Fallout 4 und drei Seiten gelesen, die das Digital-Foundry-Video beschreiben (Nintendo Life, Tom's Hardware und Club386). Das Video selbst konnte ich nicht öffnen, alles, was ich ihm zuschreibe, stammt also aus diesen Texten.",
@@ -168,7 +168,7 @@
         "## Und hat Nintendo es bestätigt?",
         "Nein. Nintendo Life schreibt, es habe kein offizielles Wort von Nintendo oder Nvidia dazu gegeben. Die einzige Stütze neben der Analyse selbst ist laut der Seite ein anonymer Entwickler, der Digital Foundry bestätigte, dass die Theorie stimmt. Die Spitznamen „DLSS Light“, „Fat DLSS“ und „Tiny DLSS“ sind Bezeichnungen der Seiten, keine Nvidia-Namen. Auch die interne Auflösung, in der die Spiele vor der Rekonstruktion gezeichnet werden, nennen die drei Texte nicht.",
         "## Was sich praktisch schon geändert hat",
-        "Das jüngste Beispiel, das ich fand, ist Fallout 4: Anniversary Edition. Laut Project N veröffentlichte Bethesda am 26. März 2026 ein Update, das DLSS in den Modi mit 40 und 60 Bildern pro Sekunde ergänzt. Die Funktion schaltet sich auf Bildschirmen mit viel Oberfläche, etwa dem Pip-Boy, von selbst ab. Der Blog von Alexandre Porfírio vom Oktober 2026 zitiert außerdem eine Digital-Foundry-Analyse vom Februar, die DLSS in Resident Evil Requiem auf der Switch 2 bemerkte, mit Einschränkungen bei der Stabilität der Bildrate. Diesen zweiten Fall kenne ich nur aus dieser Zitierung, ohne die Originalanalyse gelesen zu haben.",
+        "Ein aktuelles Beispiel ist Fallout 4: Anniversary Edition. Laut Project N veröffentlichte Bethesda am 26. März 2026 ein Update, das DLSS in den Modi mit 40 und 60 Bildern pro Sekunde ergänzt. Die Funktion schaltet sich auf Bildschirmen mit viel Oberfläche, etwa dem Pip-Boy, von selbst ab. Der Blog von Alexandre Porfírio vom Oktober 2026 zitiert außerdem eine Digital-Foundry-Analyse vom Februar, die DLSS in Resident Evil Requiem auf der Switch 2 bemerkte, mit Einschränkungen bei der Stabilität der Bildrate. Diesen zweiten Fall kenne ich nur aus dieser Zitierung, ohne die Originalanalyse gelesen zu haben.",
         "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|Die Switch 2 in ihrer Dockingstation, die das Bild zum Fernseher bringt|Bild: Crisco 1492 / Wikimedia Commons (CC BY-SA 4.0)",
         "## DLSS ist nicht die KI, an die Sie denken",
         "Porfírios Text macht eine Unterscheidung, die man wiederholen sollte. DLSS ist eine Technik zur Bildrekonstruktion. Es ist keine generative künstliche Intelligenz, die Gespräche führt oder Inhalte erstellt. Er erinnert daran, dass Nintendo-Präsident Shuntaro Furukawa auf der Aktionärsversammlung im Juni 2026 über KI sprach und das Potenzial generativer KI sowie Sorgen um geistiges Eigentum und Energieverbrauch einräumte. Laut dem Autor gibt es keine Bestätigung für einen breiten Einsatz generativer KI in den Spielen.",
@@ -188,8 +188,8 @@
         "Digital Foundry",
         "tecnologia"
       ],
-      "alt": "Collage di foto reali della Switch 2 in modalità tavolo e del chip Nvidia sulla scheda",
-      "credito": "Immagini: PantheraLeo1359531 (CC BY 4.0) e Bechology (CC BY 4.0) / Wikimedia Commons",
+      "alt": "Immagine promozionale di Nintendo Switch 2 con il logo della console e, in evidenza, il chip Nvidia sulla scheda",
+      "credito": "Immagini: Nintendo / materiale promozionale, tramite NVIDIA; Bechology (CC BY 4.0) / Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS: analisi della qualità dell'immagine (canale Digital Foundry, in inglese)",
       "corpo": [
         "La Switch 2 è una portatile che gioca anche in 4K sul televisore, e buona parte di questo trucco dipende da una sigla: DLSS. A ottobre 2025 Digital Foundry ha mostrato indizi che la console usi due modelli diversi della tecnologia. Per scrivere questo testo ho letto la pagina di Nvidia, l'analisi di un blog brasiliano, il servizio di Project N su Fallout 4 e tre siti che hanno descritto il video di Digital Foundry (Nintendo Life, Tom's Hardware e Club386). Non sono riuscito ad aprire il video stesso, quindi tutto ciò che gli attribuisco viene da questi testi.",
@@ -202,7 +202,7 @@
         "## E Nintendo l'ha confermato?",
         "No. Nintendo Life scrive che non c'è stata alcuna parola ufficiale di Nintendo o di Nvidia sull'argomento. L'unico sostegno oltre all'analisi stessa, secondo il sito, è uno sviluppatore anonimo che ha confermato a Digital Foundry che la teoria è corretta. I soprannomi «DLSS Light», «Fat DLSS» e «Tiny DLSS» sono etichette dei siti, non nomi di Nvidia. I tre testi non indicano nemmeno la risoluzione interna a cui i giochi vengono disegnati prima della ricostruzione.",
         "## Cosa è già cambiato in pratica",
-        "L'esempio più recente che ho trovato è Fallout 4: Anniversary Edition. Secondo Project N, Bethesda ha rilasciato il 26 marzo 2026 un aggiornamento che aggiunge il DLSS nelle modalità a 40 e 60 fotogrammi al secondo. La funzione si disattiva da sola nelle schermate piene di interfaccia, come il Pip-Boy. Il blog di Alexandre Porfírio, di ottobre 2026, cita anche un'analisi di Digital Foundry di febbraio che ha segnalato il DLSS in Resident Evil Requiem su Switch 2, con limiti nella stabilità del frame rate. Questo secondo caso lo conosco solo da quella citazione, senza aver letto l'analisi originale.",
+        "Un esempio recente è Fallout 4: Anniversary Edition. Secondo Project N, Bethesda ha rilasciato il 26 marzo 2026 un aggiornamento che aggiunge il DLSS nelle modalità a 40 e 60 fotogrammi al secondo. La funzione si disattiva da sola nelle schermate piene di interfaccia, come il Pip-Boy. Il blog di Alexandre Porfírio, di ottobre 2026, cita anche un'analisi di Digital Foundry di febbraio che ha segnalato il DLSS in Resident Evil Requiem su Switch 2, con limiti nella stabilità del frame rate. Questo secondo caso lo conosco solo da quella citazione, senza aver letto l'analisi originale.",
         "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|La Switch 2 nel suo dock, che porta l’immagine alla TV|Immagine: Crisco 1492 / Wikimedia Commons (CC BY-SA 4.0)",
         "## Il DLSS non è l'IA a cui pensi",
         "Il testo di Porfírio fa una distinzione che vale la pena ripetere. Il DLSS è una tecnica di ricostruzione dell'immagine. Non è intelligenza artificiale generativa, quella che conversa o crea contenuti. Ricorda che il presidente di Nintendo, Shuntaro Furukawa, ha parlato di IA all'assemblea degli azionisti di giugno 2026, riconoscendo il potenziale dell'IA generativa e le preoccupazioni su proprietà intellettuale e consumo di energia. Secondo l'autore, non c'è conferma di un uso ampio di IA generativa nei giochi.",
@@ -222,8 +222,8 @@
         "Digital Foundry",
         "テクノロジー"
       ],
-      "alt": "テーブルモードのSwitch 2と基板上のNvidiaチップの実写真コラージュ",
-      "credito": "画像：PantheraLeo1359531（CC BY 4.0）、Bechology（CC BY 4.0）／ウィキメディア・コモンズ",
+      "alt": "本体ロゴ入りのNintendo Switch 2の宣伝画像と、基板上のNVIDIAチップ",
+      "credito": "画像：Nintendo／プロモーション素材（NVIDIA経由）、Bechology（CC BY 4.0）／Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS：画質分析（Digital Foundryチャンネル、英語）",
       "corpo": [
         "Switch 2は携帯機でありながらテレビでは4Kでも遊べますが、その仕掛けの多くはDLSSという略称にかかっています。2025年10月、Digital Foundryは、この本体が同じ技術の2つの異なるモデルを使っているという証拠を示しました。この記事のために、Nvidiaのページ、ブラジルのブログの分析、Fallout 4に関するProject Nの記事、そしてDigital Foundryの動画を紹介した3つのサイト（Nintendo Life、Tom's Hardware、Club386）を読みました。動画そのものは開けなかったため、動画に帰している内容はすべてそれらの記事からのものです。",
@@ -236,7 +236,7 @@
         "## 任天堂は確認したのか",
         "いいえ。Nintendo Lifeは、この件について任天堂もNvidiaも公式には何も発言していないと書いています。同サイトによれば、分析そのもの以外の裏付けは、理論が正しいとDigital Foundryに確認した匿名の開発者だけです。「DLSS Light」「Fat DLSS」「Tiny DLSS」という呼び名は各サイトが付けたラベルで、Nvidiaの名称ではありません。3つの記事は、再構築の前にゲームが描かれる内部解像度も明らかにしていません。",
         "## すでに実際に変わったこと",
-        "私が見つけた最新の例は『Fallout 4: Anniversary Edition』です。Project Nによれば、Bethesdaは2026年3月26日に、40fpsと60fpsのモードにDLSSを加えるアップデートを配信しました。機能は、Pip-Boyのようにインターフェースだらけの画面では自動的にオフになります。Alexandre Porfírioの2026年10月のブログは、2月のDigital Foundryの分析にも触れ、Switch 2版『Resident Evil Requiem』でのDLSSがフレームレートの安定性に限界を抱えていると指摘しています。この2つ目の例は、元の分析を読んでおらず、その引用でしか知りません。",
+        "最近の例は『Fallout 4: Anniversary Edition』です。Project Nによれば、Bethesdaは2026年3月26日に、40fpsと60fpsのモードにDLSSを加えるアップデートを配信しました。機能は、Pip-Boyのようにインターフェースだらけの画面では自動的にオフになります。Alexandre Porfírioの2026年10月のブログは、2月のDigital Foundryの分析にも触れ、Switch 2版『Resident Evil Requiem』でのDLSSがフレームレートの安定性に限界を抱えていると指摘しています。この2つ目の例は、元の分析を読んでおらず、その引用でしか知りません。",
         "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|テレビに映像を送るドックに入ったSwitch 2|画像：Crisco 1492／ウィキメディア・コモンズ（CC BY-SA 4.0）",
         "## DLSSはあなたが思うAIではない",
         "Porfírioの文章は、繰り返す価値のある区別をしています。DLSSは画像を再構築する技術です。会話したりコンテンツを作ったりする生成AIではありません。彼は、任天堂の古川俊太郎社長が2026年6月の株主総会でAIについて語り、生成AIの可能性と、知的財産やエネルギー消費への懸念を認めたことを挙げています。筆者によれば、ゲームで生成AIが広く使われているという確認はありません。",
@@ -256,8 +256,8 @@
         "Digital Foundry",
         "科技"
       ],
-      "alt": "Switch 2桌面模式与主板上Nvidia芯片的真实照片拼贴",
-      "credito": "图片：PantheraLeo1359531（CC BY 4.0）、Bechology（CC BY 4.0）／维基共享资源",
+      "alt": "Nintendo Switch 2 宣传图，带主机标志，并以小图展示主板上的 NVIDIA 芯片",
+      "credito": "图片：Nintendo／宣传素材，经 NVIDIA；Bechology（CC BY 4.0）／Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS：画质分析（Digital Foundry 频道，英文）",
       "corpo": [
         "Switch 2是一台掌机，在电视上也能以4K游玩，而这个本事有很大一部分取决于一个缩写：DLSS。2025年10月，Digital Foundry展示了证据，表明这台主机使用了这项技术的两种不同模型。为了写这篇文章，我读了Nvidia的页面、一家巴西博客的分析、Project N关于《辐射4》的报道，以及三家描述Digital Foundry视频的网站（Nintendo Life、Tom's Hardware和Club386）。我没能打开视频本身，所以归于视频的一切内容都来自这些文章。",
@@ -290,8 +290,8 @@
         "Digital Foundry",
         "تقنية"
       ],
-      "alt": "ملصق من صور حقيقية لسويتش 2 في وضع الطاولة وشريحة إنفيديا على اللوحة",
-      "credito": "الصور: PantheraLeo1359531 (CC BY 4.0)، Bechology (CC BY 4.0) / ويكيميديا كومنز",
+      "alt": "صورة ترويجية لجهاز Nintendo Switch 2 مع شعار الجهاز، وفي الإطار شريحة إنفيديا على اللوحة",
+      "credito": "الصور: Nintendo / مواد ترويجية عبر NVIDIA؛ Bechology (CC BY 4.0) / Wikimedia Commons",
       "video_titulo": "Nintendo Switch 2 DLSS: تحليل جودة الصورة (قناة Digital Foundry، بالإنجليزية)",
       "corpo": [
         "سويتش 2 جهاز محمول يلعب أيضًا بدقة 4K على التلفاز، وجزء كبير من هذه الحيلة يعتمد على اختصار واحد: DLSS. في أكتوبر 2025 عرض موقع Digital Foundry أدلة على أن الجهاز يستخدم نموذجين مختلفين من التقنية. لكتابة هذا النص قرأت صفحة إنفيديا، وتحليل مدونة برازيلية، وتقرير Project N عن Fallout 4، وثلاثة مواقع وصفت فيديو Digital Foundry (Nintendo Life وTom's Hardware وClub386). لم أتمكن من فتح الفيديو نفسه، لذا فكل ما أنسبه إليه يأتي من هذه النصوص.",
@@ -304,7 +304,7 @@
         "## وهل أكدت نينتندو ذلك؟",
         "لا. يكتب Nintendo Life أنه لم يصدر أي تصريح رسمي من نينتندو أو إنفيديا بهذا الشأن. والدعم الوحيد، إضافة إلى التحليل نفسه، بحسب الموقع، هو مطور مجهول أكد لـ Digital Foundry أن النظرية صحيحة. أما الألقاب «DLSS Light» و«Fat DLSS» و«Tiny DLSS» فهي تسميات من المواقع وليست أسماء إنفيديا. كما لا تذكر النصوص الثلاثة الدقة الداخلية التي تُرسم بها الألعاب قبل إعادة البناء.",
         "## ما الذي تغير فعلًا",
-        "أحدث مثال وجدته هو Fallout 4: Anniversary Edition. بحسب Project N، أصدرت Bethesda في 26 مارس 2026 تحديثًا يضيف DLSS في وضعي 40 و60 إطارًا في الثانية. وتتوقف الميزة تلقائيًا في الشاشات المزدحمة بالواجهة مثل Pip-Boy. وتستشهد مدونة ألكسندر بورفيريو، من أكتوبر 2026، أيضًا بتحليل لـ Digital Foundry من فبراير أشار إلى DLSS في Resident Evil Requiem على سويتش 2، مع حدود في ثبات معدل الإطارات. وهذه الحالة الثانية لا أعرفها إلا من هذا الاستشهاد، دون أن أقرأ التحليل الأصلي.",
+        "ومن الأمثلة الحديثة Fallout 4: Anniversary Edition. بحسب Project N، أصدرت Bethesda في 26 مارس 2026 تحديثًا يضيف DLSS في وضعي 40 و60 إطارًا في الثانية. وتتوقف الميزة تلقائيًا في الشاشات المزدحمة بالواجهة مثل Pip-Boy. وتستشهد مدونة ألكسندر بورفيريو، من أكتوبر 2026، أيضًا بتحليل لـ Digital Foundry من فبراير أشار إلى DLSS في Resident Evil Requiem على سويتش 2، مع حدود في ثبات معدل الإطارات. وهذه الحالة الثانية لا أعرفها إلا من هذا الاستشهاد، دون أن أقرأ التحليل الأصلي.",
         "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|سويتش 2 في قاعدتها التي تنقل الصورة إلى التلفاز|الصورة: Crisco 1492 / ويكيميديا كومنز (CC BY-SA 4.0)",
         "## DLSS ليس الذكاء الاصطناعي الذي تفكر فيه",
         "يضع نص بورفيريو تمييزًا يستحق التكرار. DLSS تقنية لإعادة بناء الصورة. وهو ليس ذكاءً اصطناعيًا توليديًا، من النوع الذي يتحدث أو ينشئ محتوى. ويذكّر بأن رئيس نينتندو شونتارو فوروكاوا تحدث عن الذكاء الاصطناعي في اجتماع المساهمين في يونيو 2026، معترفًا بإمكانات الذكاء الاصطناعي التوليدي وبمخاوف الملكية الفكرية واستهلاك الطاقة. ووفقًا للكاتب، لا يوجد تأكيد على استخدام واسع للذكاء الاصطناعي التوليدي في الألعاب.",
