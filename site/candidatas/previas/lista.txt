@@ -1,4 +1,10 @@
-01 1200x630 https://cdn.ome.lt/tM4O_wWY7pPEu7TFykvr3hNhl3E=/1200x630/smart/filters:format(webp)/extras/conteudos/jogos-vorazes-haymitch.jpg
-02 1200x630 https://cdn.ome.lt/7_dqi8wX_Y9hPt6DQq3ag5aCmck=/1200x630/smart/filters:format(webp)/extras/conteudos/amanhecernacolheita.webp
-03 1200x630 https://cdn.ome.lt/syGJV2uK5aESA4pjsNoBiD2o_Ng=/1200x630/smart/filters:format(webp)/extras/conteudos/jogos-vorazes-amanhecer-na-colheita.webp
-04 1200x630 https://cdn.ome.lt/wcQmpHvCZERx9UxuIYjaGrpIT6g=/1200x630/smart/filters:format(webp)/extras/conteudos/Hunger-Games-Sunrise-Reaping-3-e.webp
+01 1920x1080 https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/november/Chart_Leonids_wMeteors.jpg?w=1920&h=1080&fit=clip
+02 1920x1080 https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/november/Chart_Mars_and_Jupiter.jpg?w=1920&h=1080&fit=clip
+03 1920x1080 https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/november/2026-11%20Moon%20Phases.jpg?w=1920&h=1080&fit=clip
+04 1920x1080 https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar-system/skywatching/2026/november/Chart_Voyager1Location.jpg?w=1920&h=1080&fit=clip
+05 1280x853 https://archaeologymag.com/wp-content/uploads/ice-age-engravings-catalan-1.jpg
+06 917x1280 https://archaeologymag.com/wp-content/uploads/ice-age-engravings-catalan-2.jpg
+07 954x1280 https://archaeologymag.com/wp-content/uploads/ice-age-engravings-catalan-3.jpg
+08 400x280 https://assets.iflscience.com/assets/articleNo/85129/aImg/93472/cova-de-la-font-major-horse-engraving-s.png
+09 655x886 https://assets.iflscience.com/assets/articleNo/85129/iImg/93473/Captura%20de%20ecr%C3%A3%202026-11-06%20114823.png
+10 1241x859 https://assets.iflscience.com/assets/articleNo/85129/iImg/93474/Captura%20de%20ecr%C3%A3%202026-11-06%20115420.png
