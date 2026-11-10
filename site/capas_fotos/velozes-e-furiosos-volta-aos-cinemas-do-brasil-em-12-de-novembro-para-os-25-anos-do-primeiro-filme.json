@@ -1,31 +1,11 @@
 {
- "layout": "colunas",
+ "layout": "um",
  "fotos": [
   {
-   "url": "https://images.unsplash.com/photo-1610374634235-b51ef357f905?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1759145637501-5b280f628d7c?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1760359311395-df8f17b9b2b8?fm=jpg&q=80&w=1800&auto=format&fit=crop",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
+   "url": "https://rollingstone.com.br/wp-content/uploads/2026/09/U_FAST-FURIOUS_BRANDEDMOVIELANDSCAPE16x9.jpg",
+   "foco": [0.0, 0.8],
+   "zoom": 1.2
   }
  ],
- "titulo": "Velozes: 25 anos",
  "editoria": "cinema"
 }
