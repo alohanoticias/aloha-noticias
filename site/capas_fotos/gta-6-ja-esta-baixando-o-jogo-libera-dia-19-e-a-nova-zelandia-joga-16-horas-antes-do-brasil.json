@@ -1,0 +1,22 @@
+{
+ "layout": "duplo",
+ "fotos": [
+  {
+   "url": "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/39ak81277255o9/72074994d6364ad0de8872aa971fc47653f644ab.jpg",
+   "foco": [
+    0.5,
+    0.42
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/ak3ak31a49a221/c8c033070a0bfb2e3ec6ae7ff047ebe8ec551326.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "editoria": "games"
+}
