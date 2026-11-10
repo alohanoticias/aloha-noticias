@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Voyager 1 spacecraft','Voyager Golden Record','Voyager launch Titan Centaur 1977','Voyager spacecraft interstellar artist concept','Leonids meteor shower','Leonid meteor','Mars Jupiter conjunction','Supermoon','Full moon rising horizon','Milky Way night sky meteor','Magdalenian cave engraving horse','Paleolithic cave art engraving','Cave engravings Ice Age Spain','Cave walls graffiti visitors','Cova de la Font Major','Catalonia cave']
+QUERIES = ['Hoover Dam', 'Mount Olympus Greece', 'Parthenon Athens', 'Greek temple ruins', 'Temple of Poseidon Sounion', 'Blizzard Entertainment Irvine', 'Anaheim Convention Center', 'Gaming PC setup', 'Kaseya Center Miami', 'Nassau Bahamas skyline', 'Moynihan courthouse Manhattan', 'Cryptocurrency coins bitcoin', 'Schonbrunn Palace', 'Hofburg Vienna', 'Achilleion Corfu', 'Godollo Palace', 'Hungarian Parliament Budapest', 'Poplar autumn forest', 'Hay bales field', 'Autumn forest yellow leaves', 'Mushrooms on tree shelf fungus', 'Stockholm Mojang', 'Campfire camp forest', 'Cushions sofa']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
