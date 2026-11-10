@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Roblox','Roblox Corporation','Roblox game screenshot','Roblox logo','children playing tablet','child using smartphone game','parental controls smartphone','Dark forest night','Selfie smartphone face','Movie theater cinema screen'  ]
+QUERIES = ['Voyager 1 spacecraft','Voyager Golden Record','Voyager launch Titan Centaur 1977','Voyager spacecraft interstellar artist concept','Leonids meteor shower','Leonid meteor','Mars Jupiter conjunction','Supermoon','Full moon rising horizon','Milky Way night sky meteor','Magdalenian cave engraving horse','Paleolithic cave art engraving','Cave engravings Ice Age Spain','Cave walls graffiti visitors','Cova de la Font Major','Catalonia cave']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
