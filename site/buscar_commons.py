@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Fast and the Furious Toyota Supra', 'Fast and Furious Dodge Charger 1970', 'Fast and Furious car Universal Studios', 'The Fast and the Furious 2001 film', 'Fast Furious Supra orange', 'Dominic Toretto Charger', 'Fast and Furious Honda Civic', 'Fast and Furious Jetta', 'Fast Furious Supercharged Universal Studios Hollywood', 'Fast and Furious premiere 2001', 'Petersen Automotive Museum Fast Furious', 'Fast and Furious Eclipse Mitsubishi']
+QUERIES = ['Fast and Furious Dodge Charger 1970', 'Mitsubishi Eclipse Fast And Furious', 'Toyota Supra ver.the Fast and the Furious', 'Dodge Charger The Fast and the Furious', 'Fast Furious Car Show']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
@@ -14,7 +14,7 @@ for q in QUERIES:
         ii = pg["imageinfo"][0]; m = ii.get("extmetadata", {})
         if ii["width"] >= 1000 and ii["width"] >= 1.2 * ii["height"]:
             import re as _r
-            print(f'{ii["width"]}x{ii["height"]} | {m.get("LicenseShortName",{}).get("value")} | {_r.sub("<[^>]+>","",m.get("Artist",{}).get("value",""))[:40]} | {pg["title"][:90]}')
+            print(f'{ii["width"]}x{ii["height"]} | {m.get("LicenseShortName",{}).get("value")} | {_r.sub("<[^>]+>","",m.get("Artist",{}).get("value",""))[:40]} | {pg["title"]} | {ii["url"]}')
 
 print("#### AUTORES")
 for t in TITULOS:
