@@ -21,7 +21,11 @@ SITE = "ALOHA NOTÍCIAS"
 ICONE_TELEGRAM = ('<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
                   'd="M21.9 4.3 18.6 19.8c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.2-8.3c.4-.4-.1-.6-.6-.2'
                   'L6 13.4 1.1 11.9c-1.1-.3-1.1-1.1.2-1.6L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>')
-REDES_SITE = [("Telegram", "https://t.me/alohanoticias", ICONE_TELEGRAM)]
+ICONE_INSTAGRAM = ('<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" '
+                   'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/>'
+                   '<circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>')
+REDES_SITE = [("Instagram", "https://www.instagram.com/alohanoticiasbr/", ICONE_INSTAGRAM),
+              ("Telegram", "https://t.me/alohanoticias", ICONE_TELEGRAM)]
 SIGA = {"pt": "Siga o Aloha", "en": "Follow Aloha", "es": "Sigue a Aloha", "fr": "Suivez Aloha", "de": "Folge Aloha",
         "it": "Segui Aloha", "ja": "Aloha をフォロー", "zh": "关注 Aloha", "ar": "تابع Aloha"}
 PERFIS = [u for _, u, _ in REDES_SITE]
