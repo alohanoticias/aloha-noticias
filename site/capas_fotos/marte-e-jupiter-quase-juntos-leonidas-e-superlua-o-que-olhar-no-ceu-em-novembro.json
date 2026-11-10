@@ -1,0 +1,31 @@
+{
+ "layout": "tres",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Leonid_Meteor_%28cropped%29.jpg/1280px-Leonid_Meteor_%28cropped%29.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Conjunction_of_Mars_and_Jupiter.jpg/1280px-Conjunction_of_Mars_and_Jupiter.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/A_full_moon_rises_%28potw2402a%29.jpg/1280px-A_full_moon_rises_%28potw2402a%29.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "titulo": "Céu de novembro",
+ "editoria": "curiosidades"
+}
