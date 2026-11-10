@@ -147,14 +147,14 @@ export class Metricas extends DurableObject {
   }
 
   // Artigos mais lidos dos últimos 7 dias (somando todos os idiomas), por visitantes únicos de cada dia.
-  // "alta": até 3 artigos com pelo menos ALTA_MIN leitores na semana. "lidas": ordem para a lista "Mais lidas".
+  // "alta": até 3 artigos com pelo menos ALTA_MIN leitores na semana. "lidas": ordem para a lista "Mais lidas" (os lidos primeiro, o resto na ordem padrão).
   async emAlta() {
     const ALTA_MIN = 10;
     const [desde] = Metricas.diaHora(Date.now() - 6 * 86400000);
     const r = this.sql.exec(
       "SELECT slug, COUNT(DISTINCT dia || visitante) AS u FROM visitas WHERE dia >= ? AND slug <> '' GROUP BY slug ORDER BY u DESC, MAX(ts) DESC LIMIT 20",
       desde).toArray();
-    return { alta: r.filter((x) => x.u >= ALTA_MIN).slice(0, 3).map((x) => x.slug), lidas: r.length >= 3 ? r.map((x) => x.slug) : [] };
+    return { alta: r.filter((x) => x.u >= ALTA_MIN).slice(0, 3).map((x) => x.slug), lidas: r.map((x) => x.slug) };
   }
 
   async resumo(dias) {

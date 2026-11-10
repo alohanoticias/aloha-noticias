@@ -10,7 +10,7 @@
         Array.prototype.forEach.call(document.querySelectorAll('[data-alta="' + slug + '"]'), function (el) { el.hidden = false; });
       });
       var lidas = d.lidas || [];
-      if (lidas.length < 3) return;
+      if (!lidas.length) return;
       var atual = document.querySelector('meta[name="aloha-slug"]');
       atual = atual ? atual.content : "";
       Array.prototype.forEach.call(document.querySelectorAll("ol[data-ml]"), function (ol) {
