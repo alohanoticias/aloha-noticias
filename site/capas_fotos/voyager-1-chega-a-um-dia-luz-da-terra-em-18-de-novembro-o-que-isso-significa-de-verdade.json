@@ -1,16 +1,8 @@
 {
- "layout": "dois",
+ "layout": "um",
  "fotos": [
   {
    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/NASA%E2%80%99s_Voyager_Probe_Speeds_Through_Space_%28Artist%E2%80%99s_Concept%29_%28PIA26353%29.jpg/1280px-NASA%E2%80%99s_Voyager_Probe_Speeds_Through_Space_%28Artist%E2%80%99s_Concept%29_%28PIA26353%29.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/PIA17046_-_Voyager_1_Goes_Interstellar.jpg/1280px-PIA17046_-_Voyager_1_Goes_Interstellar.jpg",
    "foco": [
     0.5,
     0.5
