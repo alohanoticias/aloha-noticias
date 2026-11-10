@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Hoover Dam', 'Mount Olympus Greece', 'Parthenon Athens', 'Greek temple ruins', 'Temple of Poseidon Sounion', 'Blizzard Entertainment Irvine', 'Anaheim Convention Center', 'Gaming PC setup', 'Kaseya Center Miami', 'Nassau Bahamas skyline', 'Moynihan courthouse Manhattan', 'Cryptocurrency coins bitcoin', 'Schonbrunn Palace', 'Hofburg Vienna', 'Achilleion Corfu', 'Godollo Palace', 'Hungarian Parliament Budapest', 'Poplar autumn forest', 'Hay bales field', 'Autumn forest yellow leaves', 'Mushrooms on tree shelf fungus', 'Stockholm Mojang', 'Campfire camp forest', 'Cushions sofa']
+QUERIES = ['Fast and the Furious Toyota Supra', 'Fast and Furious Dodge Charger 1970', 'Fast and Furious car Universal Studios', 'The Fast and the Furious 2001 film', 'Fast Furious Supra orange', 'Dominic Toretto Charger', 'Fast and Furious Honda Civic', 'Fast and Furious Jetta', 'Fast Furious Supercharged Universal Studios Hollywood', 'Fast and Furious premiere 2001', 'Petersen Automotive Museum Fast Furious', 'Fast and Furious Eclipse Mitsubishi']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
