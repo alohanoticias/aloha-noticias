@@ -16,6 +16,9 @@ import privacidade
 RAIZ = Path(__file__).parent
 SAIDA = RAIZ.parent / "publico"
 SITE = "ALOHA NOTÍCIAS"
+# Nome no título da aba, no Google e nos dados para buscadores: o Google costuma trocar títulos só em maiúsculas por
+# minúsculas ("aloha notícias"), então ali o nome vai com só as iniciais maiúsculas. No visual do site continua ALOHA NOTÍCIAS.
+NOME_BUSCA = "Aloha Notícias"
 # Endereços dos perfis oficiais (Instagram, YouTube, X, TikTok, etc.). Preencha quando existirem: o Google usa para ligar os perfis à marca.
 # Redes sociais oficiais do site (a primeira aparece primeiro no rodapé). Para adicionar outra, inclua aqui.
 ICONE_TELEGRAM = ('<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
@@ -415,7 +418,9 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
     if '<base href="/">' in extra_head:
         BASE = '<base href="/">\n'
         extra_head = extra_head.replace('<base href="/">\n', "")
-    tt = f"{titulo} · {SITE}" if titulo != SITE else t("ALOHA NOTÍCIAS: notícias, cinema, games e tecnologia")
+    tt = (f"{titulo} · {SITE}" if titulo != SITE else t("ALOHA NOTÍCIAS: notícias, cinema, games e tecnologia")).replace(SITE, NOME_BUSCA)
+    # título da home com as iniciais maiúsculas (como aparece no Google)
+    tt = {"pt": "Aloha Notícias: Notícias, Cinema, Games e Tecnologia", "en": "Aloha Notícias: News, Movies, Games and Technology"}.get(LANG, tt) if titulo == SITE else tt
     return f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{' dir="rtl"' if LANG == "ar" else ''}>
 <head>
@@ -424,7 +429,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(tt)}</title>
 <meta name="description" content="{esc(descricao)}">
-<meta property="og:site_name" content="{SITE}">
+<meta property="og:site_name" content="{NOME_BUSCA}">
 <meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">
 <meta property="og:type" content="{og_tipo}">
 <meta property="og:url" content="https://alohanoticias.com/{{CANON}}">
@@ -438,6 +443,8 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/img/favicon-48.png" sizes="48x48">
+<link rel="icon" href="assets/img/icone-app-192.png" sizes="192x192">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="ALOHA">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png">
@@ -580,11 +587,11 @@ def gerar_home():
   {lateral()}
 </div>"""
     marca = {"@context": "https://schema.org", "@graph": [
-        {"@type": "WebSite", "@id": "https://alohanoticias.com/#site", "url": "https://alohanoticias.com/", "name": SITE,
-         "alternateName": ["Aloha Notícias", "Aloha Noticias", "alohanoticias.com"], "inLanguage": "pt-BR",
+        {"@type": "WebSite", "@id": "https://alohanoticias.com/#site", "url": "https://alohanoticias.com/", "name": NOME_BUSCA,
+         "alternateName": ["ALOHA NOTÍCIAS", "Aloha Noticias", "alohanoticias.com"], "inLanguage": "pt-BR",
          "publisher": {"@id": "https://alohanoticias.com/#org"}},
-        {"@type": "NewsMediaOrganization", "@id": "https://alohanoticias.com/#org", "name": SITE,
-         "alternateName": ["Aloha Notícias", "Aloha Noticias"], "url": "https://alohanoticias.com/",
+        {"@type": "NewsMediaOrganization", "@id": "https://alohanoticias.com/#org", "name": NOME_BUSCA,
+         "alternateName": ["ALOHA NOTÍCIAS", "Aloha Noticias"], "url": "https://alohanoticias.com/",
          "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png", "width": 512, "height": 512},
          "email": "contato@alohanoticias.com", "publishingPrinciples": "https://alohanoticias.com/politica-editorial.html",
          "ethicsPolicy": "https://alohanoticias.com/politica-editorial.html", "correctionsPolicy": "https://alohanoticias.com/politica-editorial.html",
@@ -715,7 +722,7 @@ def painel_pagina(titulo, ativo, lede, conteudo, acao_topo=""):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>{esc(titulo)} · Painel Aloha</title>
-<link rel="icon" href="assets/img/favicon.png">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="stylesheet" href="assets/css/aloha.css">
 <link rel="stylesheet" href="assets/css/painel.css">
 </head>
@@ -945,7 +952,7 @@ def gerar_materia(m, preview=False, agendado=False):
         "image": [og_url(og_da_capa(m))], "mainEntityOfPage": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + url_materia(m), "inLanguage": i18n.HTML_LANG[LANG],
         "author": ({"@type": "Organization", "name": autor_nome(m), "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + "equipe.html"}
                    if m["autor"] == "Equipe Aloha" else {"@type": "Person", "name": autor_nome(m)}),
-        "publisher": {"@type": "Organization", "name": SITE, "url": "https://alohanoticias.com/", "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png"}},
+        "publisher": {"@type": "Organization", "name": NOME_BUSCA, "url": "https://alohanoticias.com/", "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png"}},
     }, ensure_ascii=False)
     corpo = f"""<article class="wrap materia">
   <nav class="migalhas" aria-label="{t('Você está em')}"><a href="index.html">{t('Início')}</a><span aria-hidden="true">/</span><a href="{url_editoria(e['slug'])}">{esc(e['nome'])}</a></nav>
@@ -1442,6 +1449,10 @@ def main():
                  for n, conteudo in arqs.items() if n not in ("404.html", "busca.html") and 'name="robots" content="noindex' not in conteudo)
     (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
     (SAIDA / "688dca8a511dd5a078482e96f25fecb8.txt").write_text("688dca8a511dd5a078482e96f25fecb8", encoding="utf-8")  # chave IndexNow
+    # /favicon.ico na raiz: o Google e alguns navegadores procuram o ícone aqui antes de ler as tags da página
+    shutil.copyfile(RAIZ / "assets/img/favicon.ico", SAIDA / "favicon.ico")
+    # Endereços antigos do visual anterior que ainda aparecem no Google
+    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n", encoding="utf-8")
     (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
     print(f"{len(arquivos)} páginas geradas em {SAIDA}")
 
