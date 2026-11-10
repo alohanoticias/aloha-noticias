@@ -460,9 +460,16 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 EM_ALTA = {"pt": "Em alta", "en": "Trending", "es": "Tendencia", "fr": "Tendance", "de": "Im Trend", "it": "Di tendenza", "ja": "話題", "zh": "热门", "ar": "رائج"}
 
 
+# Ícone de foguinho só com contorno (cor do texto do selo)
+FOGO = ('<svg class="fogo" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" '
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12'
+        'c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3'
+        'a2.5 2.5 0 0 0 2.5 2.5z"/></svg>')
+
+
 def alta(m):
     """Selo "🔥 Em alta": escondido no HTML; assets/js/em-alta.js mostra nos artigos mais lidos dos últimos dias (contador próprio)."""
-    return f'<span class="em-alta" data-alta="{esc(m["slug"])}" hidden><span aria-hidden="true">🔥</span> {EM_ALTA.get(LANG, EM_ALTA["pt"])}</span>'
+    return f'<span class="em-alta" data-alta="{esc(m["slug"])}" hidden>{FOGO} {EM_ALTA.get(LANG, EM_ALTA["pt"])}</span>'
 
 
 def card(m, pequeno=False, mostrar_capa=True, chapeu=True):
@@ -783,7 +790,7 @@ def gerar_metricas_admin(materias):
 <section class="p-painel"><header><h2>Idioma do site</h2></header><div id="m-idiomas"></div></section>
 </div>
 <section class="p-painel"><header><h2>Como esta contagem funciona</h2></header><div class="m-sobre">
-<p>Contador próprio do site, separado do Google Analytics: conta cada página aberta por uma pessoa (robôs e o painel ficam de fora), sem cookies. Visitantes únicos são contados por dia, com um código que muda todo dia; por isso, no período, a soma pode contar a mesma pessoa mais de uma vez. Horários em Brasília. O selo "🔥 Em alta" aparece no site para os até 3 artigos com 10 ou mais leitores nos últimos 7 dias, e a lista "Mais lidas" segue a mesma contagem (sem mostrar números ao público).</p>
+<p>Contador próprio do site, separado do Google Analytics: conta cada página aberta por uma pessoa (robôs e o painel ficam de fora), sem cookies. Visitantes únicos são contados por dia, com um código que muda todo dia; por isso, no período, a soma pode contar a mesma pessoa mais de uma vez. Horários em Brasília. O selo "Em alta" aparece no site para os até 3 artigos com 10 ou mais leitores nos últimos 7 dias, e a lista "Mais lidas" segue a mesma contagem (sem mostrar números ao público).</p>
 <p><button type="button" class="p-btn" id="m-eu"></button> <span id="m-eu-txt"></span></p>
 </div></section>
 <script id="m-nomes" type="application/json">{json.dumps(nomes, ensure_ascii=False).replace("</", "<\\/")}</script>
