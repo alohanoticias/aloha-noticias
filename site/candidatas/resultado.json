@@ -1,1 +1,56 @@
-[]
+[
+ {
+  "titulo": "vf omelete 25 anos",
+  "pagina": "https://www.omelete.com.br/filmes/velozes-e-furiosos-25o-aniversario-reexibicao-universal-pics-trailer-poster",
+  "imagem": "https://cdn.ome.lt/JU74GtogsUNAYDYos9WVcu4Bko4=/1200x630/smart/filters:format(webp)/extras/conteudos/velozes.webp",
+  "dim": [
+   1200,
+   630
+  ]
+ },
+ {
+  "titulo": "vf ingresso",
+  "pagina": "https://www.ingresso.com/noticias/filme-velozes-e-furiosos-volta-aos-cinemas-brasil-em-comemoracao-aos-25-anos-da-franquia-saiba-mais",
+  "imagem": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/6429/5961aca8381d0355d1b0041958b6be3f.jpg",
+  "dim": [
+   1920,
+   1008
+  ]
+ },
+ {
+  "titulo": "vf bnews",
+  "pagina": "https://www.bnewssaopaulo.com.br/noticias/entretenimento/velozes-e-furiosos-retorna-aos-cinemas-brasileiros-em-comemoracao-aos-25-anos-da-franquia-confira.html",
+  "imagem": "https://www.bnewssaopaulo.com.br/media/uploads/2026/10/velozes-e-furiosos.jpg",
+  "dim": [
+   1200,
+   800
+  ]
+ },
+ {
+  "titulo": "vf omelete balde",
+  "pagina": "https://www.omelete.com.br/filmes/velozes-e-furiosos-balde-de-pipoca-relancamento-25-anos",
+  "imagem": "https://cdn.ome.lt/Yyaz7yN7rg-GE9n6hanuu6zvMlY=/1200x630/smart/filters:format(webp)/extras/conteudos/velozes-e-furiosos-recap-todos-filmes-da-franquia-f1847cd502e05a.jpg",
+  "dim": [
+   1200,
+   630
+  ]
+ },
+ {
+  "titulo": "vf omelete nos",
+  "pagina": "https://www.omelete.com.br/filmes/velozes-e-furiosos-tera-copo-especial-em-formato-de-nos-relancamento",
+  "imagem": "https://cdn.ome.lt/W-VJ_TbHLPWjGExcsD75PW7x8-w=/1200x630/smart/filters:format(webp)/extras/conteudos/vin-diesel-furious-8.webp",
+  "dim": [
+   1200,
+   630
+  ]
+ },
+ {
+  "titulo": "vf rolling stone",
+  "pagina": "https://rollingstone.com.br/lab/velozes-e-furiosos-colecao-completa-da-franquia-chega-ao-universal-no-brasil/",
+  "imagem": "https://rollingstone.com.br/wp-content/uploads/2026/09/U_FAST-FURIOUS_BRANDEDMOVIELANDSCAPE16x9.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ }
+]
