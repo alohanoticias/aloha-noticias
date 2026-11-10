@@ -771,7 +771,11 @@ def gerar_metricas_admin(materias):
         nomes[f"/{n}.html"] = n.replace("-", " ").capitalize()
     acao = ('<select id="m-dias" class="p-btn" aria-label="Período"><option value="7">7 dias</option><option value="30" selected>30 dias</option>'
             '<option value="90">90 dias</option><option value="365">12 meses</option></select>')
-    conteudo = f"""<div class="p-cards" id="m-cards"><div class="p-stat"><span>Carregando</span><b>…</b><small>buscando os números</small></div></div>
+    conteudo = f"""<section class="p-painel m-vivo"><header><h2><span class="m-ponto"></span>Ao vivo</h2><small id="v-hora"></small></header>
+<div class="m-vivo-corpo"><div class="m-vivo-num"><b id="v-pessoas">…</b><span>pessoas no site agora</span><small>quem abriu uma página nos últimos 5 minutos · atualiza a cada 15 s</small></div>
+<div class="m-vivo-lista"><h3>Lendo agora</h3><div id="v-paginas"></div></div>
+<div class="m-vivo-lista"><h3>Chegaram por</h3><div id="v-origens"></div><h3>Aparelho</h3><div id="v-aparelhos"></div></div></div></section>
+<div class="p-cards" id="m-cards"><div class="p-stat"><span>Carregando</span><b>…</b><small>buscando os números</small></div></div>
 <p class="m-aviso" id="m-aviso" hidden></p>
 <section class="p-painel"><header><h2>Visualizações por dia</h2><a href="#" id="m-tabela-dia">Ver tabela</a></header><div class="m-graf" id="m-serie"></div><div id="m-serie-tab" hidden></div></section>
 <div class="m-duas">

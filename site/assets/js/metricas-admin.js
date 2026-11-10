@@ -148,6 +148,26 @@
       });
   }
 
+  // ---------------------------------------------------------------- ao vivo
+  function lista(itens, nome) {
+    if (!itens.length) return '<p class="m-nada">Ninguém agora.</p>';
+    return '<ul class="m-vlista">' + itens.map(function (it) { return "<li><span>" + nome(it) + "</span><b>" + n(it.n) + "</b></li>"; }).join("") + "</ul>";
+  }
+  function aoVivo() {
+    fetch("/admin/api/ao-vivo", { credentials: "same-origin", cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) {
+        $("v-pessoas").textContent = n(d.pessoas);
+        $("v-hora").textContent = "atualizado às " + new Date(d.gerado).toLocaleTimeString("pt-BR");
+        $("v-paginas").innerHTML = lista(d.paginas, function (it) { return '<a href="' + esc(it.nome) + '" target="_blank" rel="noopener">' + esc(nomePagina(it.nome)) + "</a>"; });
+        $("v-origens").innerHTML = lista(d.origens, function (it) { return esc(ORIGEM[it.nome] || it.nome); });
+        $("v-aparelhos").innerHTML = lista(d.aparelhos, function (it) { return esc(APAR[it.nome] || it.nome); });
+      })
+      .catch(function () { $("v-pessoas").textContent = "—"; });
+  }
+  aoVivo();
+  setInterval(function () { if (document.visibilityState === "visible") aoVivo(); }, 15000);
+
   $("m-dias").addEventListener("change", carregar);
   $("m-tabela-dia").addEventListener("click", function (e) {
     e.preventDefault(); var t = $("m-serie-tab"); t.hidden = !t.hidden; this.textContent = t.hidden ? "Ver tabela" : "Esconder tabela";

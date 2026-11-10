@@ -30,10 +30,19 @@ function aparelho(ua) {
   return "computador";
 }
 
+// Apps de celular mandam "android-app://<pacote>" como origem
+const APPS = { "org.telegram.messenger": "telegram", "org.telegram.plus": "telegram", "org.thunderdog.challegram": "telegram",
+  "com.whatsapp": "whatsapp", "com.whatsapp.w4b": "whatsapp", "com.instagram.android": "instagram", "com.facebook.katana": "facebook",
+  "com.facebook.orca": "facebook", "com.facebook.lite": "facebook", "com.twitter.android": "x", "com.zhiliaoapp.musically": "tiktok",
+  "com.ss.android.ugc.trill": "tiktok", "com.google.android.youtube": "youtube", "com.discord": "discord", "com.reddit.frontpage": "reddit",
+  "com.google.android.googlequicksearchbox": "google", "com.google.android.gm": "gmail" };
+
 function origemDe(ref) {
   if (!ref) return "direto";
   try {
-    const h = new URL(ref).hostname.replace(/^www\./, "").replace(/^m\./, "").replace(/^l\./, "").replace(/^lm\./, "");
+    const u = new URL(ref);
+    if (u.protocol === "android-app:") return APPS[u.hostname] || (/telegram/.test(u.hostname) ? "telegram" : u.hostname.slice(0, 80));
+    const h = u.hostname.replace(/^www\./, "").replace(/^m\./, "").replace(/^l\./, "").replace(/^lm\./, "");
     if (h === "alohanoticias.com") return "interno";
     if (/(^|\.)google\./.test(h)) return "google";
     if (/(^|\.)bing\.com$/.test(h)) return "bing";
@@ -65,9 +74,13 @@ export default {
       const caminho = corta(decodeURIComponent(pagina.pathname).replace(/\/index\.html$/, "/"), 200);
       const prim = caminho.split("/")[1] || "";
       const q = pagina.searchParams;
+      const etiqueta = (q.get("utm_campaign") || "").toLowerCase() === "parceiro" ? (q.get("utm_medium") || "") : (q.get("utm_source") || "");
+      let origem = origemDe(d.r);
+      // Apps como o Telegram muitas vezes abrem o link sem informar a origem: aí vale a etiqueta (utm) do link
+      if (origem === "direto" && etiqueta) origem = corta(etiqueta, 60).toLowerCase();
       const visita = {
         caminho,
-        origem: origemDe(d.r),
+        origem,
         fonte: corta(q.get("utm_source"), 60).toLowerCase(),
         midia: corta(q.get("utm_medium"), 60).toLowerCase(),
         campanha: corta(q.get("utm_campaign"), 80).toLowerCase(),
@@ -95,6 +108,12 @@ export default {
         await cache.put(chave, resp.clone());
       }
       return resp;
+    }
+
+    if (url.pathname === "/admin/api/ao-vivo") {
+      if (!DOMINIOS.has(url.hostname) || !request.headers.get("cf-access-jwt-assertion")) return json({ erro: "acesso negado" }, 403);
+      const obj = env.METRICAS.get(env.METRICAS.idFromName("aloha"));
+      return json(await obj.aoVivo());
     }
 
     if (url.pathname === "/admin/api/metricas") {
@@ -157,6 +176,26 @@ export class Metricas extends DurableObject {
     return { alta: r.filter((x) => x.u >= ALTA_MIN).slice(0, 3).map((x) => x.slug), lidas: r.map((x) => x.slug) };
   }
 
+  // Pessoas no site agora: quem abriu alguma página nos últimos 5 minutos (estimativa padrão de "ao vivo", sem rastrear ninguém)
+  async aoVivo() {
+    const desde = Date.now() - 5 * 60000;
+    const q = (s, ...a) => this.sql.exec(s, ...a).toArray();
+    const ORIGEM_SQL = `CASE WHEN origem LIKE '%telegram%' THEN 'telegram' WHEN origem = 'direto' AND campanha = 'parceiro' AND midia <> '' THEN midia
+      WHEN origem = 'direto' AND fonte <> '' THEN fonte ELSE origem END`;
+    // página atual de cada pessoa = a última que ela abriu
+    const ultimas = q(`SELECT v.caminho, v.slug, v.aparelho, v.pais FROM visitas v
+      JOIN (SELECT visitante, MAX(ts) AS t FROM visitas WHERE ts >= ? GROUP BY visitante) u ON u.visitante = v.visitante AND u.t = v.ts`, desde);
+    const conta = (lista, chave) => Object.entries(lista.reduce((a, x) => { a[x[chave]] = (a[x[chave]] || 0) + 1; return a; }, {}))
+      .map(([nome, n]) => ({ nome, n })).sort((a, b) => b.n - a.n);
+    return {
+      gerado: Date.now(),
+      pessoas: ultimas.length,
+      paginas: conta(ultimas, "caminho").slice(0, 10),
+      aparelhos: conta(ultimas, "aparelho"),
+      origens: q(`SELECT ${ORIGEM_SQL} AS nome, COUNT(DISTINCT visitante) AS n FROM visitas WHERE ts >= ? AND origem <> 'interno' GROUP BY 1 ORDER BY n DESC LIMIT 6`, desde),
+    };
+  }
+
   async resumo(dias) {
     const agora = Date.now();
     const [hoje] = Metricas.diaHora(agora);
@@ -169,6 +208,9 @@ export class Metricas extends DurableObject {
       const u = q("SELECT COALESCE(SUM(u),0) AS u FROM (SELECT COUNT(DISTINCT visitante) AS u FROM visitas WHERE dia BETWEEN ? AND ? GROUP BY dia)", desde, ate)[0].u;
       return { visualizacoes: v, visitantes: u };
     };
+    const ORIGEM_SQL = `CASE WHEN origem LIKE '%telegram%' THEN 'telegram'
+      WHEN origem = 'direto' AND campanha = 'parceiro' AND midia <> '' THEN midia
+      WHEN origem = 'direto' AND fonte <> '' THEN fonte ELSE origem END`;
     const top = (campo, limite, extra = "") => q(
       `SELECT ${campo} AS nome, COUNT(*) AS v, COUNT(DISTINCT dia || visitante) AS u FROM visitas WHERE dia >= ? ${extra} GROUP BY ${campo} ORDER BY v DESC LIMIT ?`,
       inicio, limite);
@@ -187,7 +229,7 @@ export class Metricas extends DurableObject {
       horas: q("SELECT hora, COUNT(*) AS v FROM visitas WHERE dia >= ? GROUP BY hora ORDER BY hora", inicio),
       paginas: top("caminho", 25),
       artigos: q("SELECT slug AS nome, COUNT(*) AS v, COUNT(DISTINCT dia || visitante) AS u FROM visitas WHERE dia >= ? AND slug <> '' GROUP BY slug ORDER BY u DESC LIMIT 25", inicio),
-      origens: top("origem", 12, "AND origem <> 'interno'"),
+      origens: top(ORIGEM_SQL, 12, "AND origem <> 'interno'"),
       fontes: top("fonte", 12, "AND fonte <> ''"),
       parceiros: q("SELECT fonte AS parceiro, midia AS rede, termo AS jogo, COUNT(*) AS v, COUNT(DISTINCT dia || visitante) AS u FROM visitas WHERE dia >= ? AND campanha = 'parceiro' GROUP BY fonte, midia, termo ORDER BY v DESC LIMIT 40", inicio),
       paises: top("pais", 12),
