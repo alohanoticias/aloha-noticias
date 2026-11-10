@@ -1,0 +1,31 @@
+{
+ "layout": "tres",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Hiking_on_Mount_Olympus_54.jpg/1280px-Hiking_on_Mount_Olympus_54.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Colonnade_Parthenon_Acropolis%2C_Athens%2C_Greece.jpg/1280px-Colonnade_Parthenon_Acropolis%2C_Athens%2C_Greece.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Artemis_Temple_Stoa_DSCN1977a-1.jpg/1280px-Artemis_Temple_Stoa_DSCN1977a-1.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "titulo": "Percy Jackson 3",
+ "editoria": "cinema"
+}

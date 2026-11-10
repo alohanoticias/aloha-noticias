@@ -1,0 +1,31 @@
+{
+ "layout": "tres",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Michaelertrakt%2C_Hofburg%2C_Viena%2C_Austria%2C_2020-01-31%2C_DD_08-10_PAN.jpg/1280px-Michaelertrakt%2C_Hofburg%2C_Viena%2C_Austria%2C_2020-01-31%2C_DD_08-10_PAN.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/HUN-2015-Budapest-Hungarian_Parliament_%28Budapest%29_2015-01.jpg/1280px-HUN-2015-Budapest-Hungarian_Parliament_%28Budapest%29_2015-01.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Korfu_%28GR%29%2C_Gastouri%2C_Achilleion_--_2018_--_1316.jpg/1280px-Korfu_%28GR%29%2C_Gastouri%2C_Achilleion_--_2018_--_1316.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "titulo": "A Imperatriz",
+ "editoria": "cinema"
+}
