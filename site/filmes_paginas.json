@@ -1,9 +1,47 @@
 [
- {"titulo": "vf omelete 25 anos", "url": "https://www.omelete.com.br/filmes/velozes-e-furiosos-25o-aniversario-reexibicao-universal-pics-trailer-poster"},
- {"titulo": "vf ingresso", "url": "https://www.ingresso.com/noticias/filme-velozes-e-furiosos-volta-aos-cinemas-brasil-em-comemoracao-aos-25-anos-da-franquia-saiba-mais"},
- {"titulo": "vf bnews", "url": "https://www.bnewssaopaulo.com.br/noticias/entretenimento/velozes-e-furiosos-retorna-aos-cinemas-brasileiros-em-comemoracao-aos-25-anos-da-franquia-confira.html"},
- {"titulo": "vf omelete balde", "url": "https://www.omelete.com.br/filmes/velozes-e-furiosos-balde-de-pipoca-relancamento-25-anos"},
- {"titulo": "vf omelete nos", "url": "https://www.omelete.com.br/filmes/velozes-e-furiosos-tera-copo-especial-em-formato-de-nos-relancamento"},
- {"titulo": "vf rolling stone", "url": "https://rollingstone.com.br/lab/velozes-e-furiosos-colecao-completa-da-franquia-chega-ao-universal-no-brasil/"},
- {"titulo": "vf trailer yt", "url": "https://www.youtube.com/watch?v=nGOJiwBjdHw", "img": "https://i.ytimg.com/vi/nGOJiwBjdHw/maxresdefault.jpg"}
+ {
+  "titulo": "c1",
+  "url": "https://commons.wikimedia.org/wiki/File:Rodz%20%26%20Bodz%20Movie%20Car%20Museum%20auction%2C%20Fast%20%26%20Furious%20Dominic%20Toretto%27s%20Screen%20Used%201970%20Dodge%20Charger%20RT%202025-08-22.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Rodz%20%26%20Bodz%20Movie%20Car%20Museum%20auction%2C%20Fast%20%26%20Furious%20Dominic%20Toretto%27s%20Screen%20Used%201970%20Dodge%20Charger%20RT%202025-08-22.jpg?width=1600"
+ },
+ {
+  "titulo": "c2",
+  "url": "https://commons.wikimedia.org/wiki/File:1970%20Dodge%20Charger%20Universal%20Studios%20Hollywood.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/1970%20Dodge%20Charger%20Universal%20Studios%20Hollywood.jpg?width=1600"
+ },
+ {
+  "titulo": "c3",
+  "url": "https://commons.wikimedia.org/wiki/File:Mitsubishi%20Eclipse%20Fast%20And%20Furious.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi%20Eclipse%20Fast%20And%20Furious.jpg?width=1600"
+ },
+ {
+  "titulo": "c4",
+  "url": "https://commons.wikimedia.org/wiki/File:Mitsubishi%20Eclipse%20Fast%20and%20Furious%20Show%20at%20Legendy%202018%20in%20Prague.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi%20Eclipse%20Fast%20and%20Furious%20Show%20at%20Legendy%202018%20in%20Prague.jpg?width=1600"
+ },
+ {
+  "titulo": "c5",
+  "url": "https://commons.wikimedia.org/wiki/File:Toyota%20Supra%20%28A80%29%20ver.the%20Fast%20and%20the%20Furious.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Toyota%20Supra%20%28A80%29%20ver.the%20Fast%20and%20the%20Furious.jpg?width=1600"
+ },
+ {
+  "titulo": "c6",
+  "url": "https://commons.wikimedia.org/wiki/File:Dodge%20Charger%20-%20The%20Fast%20and%20the%20Furious.JPG",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Dodge%20Charger%20-%20The%20Fast%20and%20the%20Furious.JPG?width=1600"
+ },
+ {
+  "titulo": "c7",
+  "url": "https://commons.wikimedia.org/wiki/File:The%20Fast%20%26%20The%20Furious%20Car%20Show%20%282561914172%29.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Fast%20%26%20The%20Furious%20Car%20Show%20%282561914172%29.jpg?width=1600"
+ },
+ {
+  "titulo": "c8",
+  "url": "https://commons.wikimedia.org/wiki/File:Universal%20Studios%2C%20Florida%20%283314178096%29.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Universal%20Studios%2C%20Florida%20%283314178096%29.jpg?width=1600"
+ },
+ {
+  "titulo": "c9",
+  "url": "https://commons.wikimedia.org/wiki/File:Mitsubishi%20Eclipse%20Fast%20And%20Furious%20-%2048159658247.jpg",
+  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Mitsubishi%20Eclipse%20Fast%20And%20Furious%20-%2048159658247.jpg?width=1600"
+ }
 ]
