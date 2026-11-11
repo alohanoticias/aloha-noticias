@@ -976,7 +976,9 @@ def gerar_materia(m, preview=False, agendado=False):
     candidatas.sort(key=lambda x: x["data"], reverse=True)  # mais novas primeiro; o sort abaixo é estável
     candidatas.sort(key=lambda x: (-len(tags_m & {slug_tag(y) for y in x.get("tags", [])}), x["editoria"] != m["editoria"]))
     relacionadas = candidatas[:3]
-    tags = "".join(f'<a href="{url_tag(t)}">{esc(t)}</a>' for t in m.get("tags", []) if slug_tag(t))
+    _eds = {e["slug"]: e["nome"] for e in editorias}
+    tags = "".join(f'<a href="{url_editoria(slug_tag(t))}">{esc(_eds[slug_tag(t)])}</a>' if slug_tag(t) in _eds else f'<a href="{url_tag(t)}">{esc(t)}</a>'
+                   for t in m.get("tags", []) if slug_tag(t))  # tag igual a uma editoria leva à editoria, com o mesmo nome do menu
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": m["titulo"],
         "description": m["linha_fina"], "datePublished": m["data"], "dateModified": m.get("atualizado") or m["data"], "articleSection": e["nome"],
@@ -1390,7 +1392,7 @@ def main():
     arquivos = por_idioma["pt"]
     csp = CSP_ADS if ANUNCIOS_ATIVOS else CSP_BASE
     if ONESIGNAL_APP_ID:  # avisos push (OneSignal): libera só o necessário
-        csp = csp.replace("script-src 'self'", "script-src 'self' https://cdn.onesignal.com https://onesignal.com", 1)
+        csp = csp.replace("script-src 'self'", "script-src 'self' https://cdn.onesignal.com https://onesignal.com https://api.onesignal.com", 1)
         csp = csp.replace("connect-src 'self'", "connect-src 'self' https://onesignal.com https://*.onesignal.com", 1)
         csp = csp.replace("frame-src ", "frame-src https://onesignal.com https://*.onesignal.com ", 1)
         (SAIDA / "OneSignalSDKWorker.js").write_text('importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");\n', encoding="utf-8")
