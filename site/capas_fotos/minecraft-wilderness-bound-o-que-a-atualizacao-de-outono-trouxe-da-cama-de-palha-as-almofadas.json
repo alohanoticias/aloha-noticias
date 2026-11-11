@@ -1,24 +1,8 @@
 {
- "layout": "tres",
+ "layout": "um",
  "fotos": [
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Autumn_Symphony_-_Flickr_-_Jaykhuang.jpg/1280px-Autumn_Symphony_-_Flickr_-_Jaykhuang.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Forest_path_through_yellow_autumn_leaves_in_Tuntorp_1.jpg/1280px-Forest_path_through_yellow_autumn_leaves_in_Tuntorp_1.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Round_straw_bales_in_Bavaria_-02.jpg/1280px-Round_straw_bales_in_Bavaria_-02.jpg",
+   "url": "https://modbay.org/uploads/posts/2026-09/815f476f32_wild-bound-announce.webp",
    "foco": [
     0.5,
     0.5
@@ -26,6 +10,5 @@
    "zoom": 1.0
   }
  ],
- "titulo": "Wilderness Bound",
  "editoria": "games"
 }
