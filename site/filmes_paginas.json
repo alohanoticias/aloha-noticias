@@ -1,107 +1,57 @@
 [
  {
-  "titulo": "f1",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-1.jpg"
+  "titulo": "e1",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-1-1536x1024.jpg"
  },
  {
-  "titulo": "t1",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-1.jpg"
+  "titulo": "e8",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-8.jpg"
  },
  {
-  "titulo": "f2",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-2.jpg"
+  "titulo": "e2",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-2-1536x1024.jpg"
  },
  {
-  "titulo": "t2",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-2.jpg"
+  "titulo": "e3",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-3-1536x1024.jpg"
  },
  {
-  "titulo": "f3",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-3.jpg"
+  "titulo": "e4",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-4-1536x1024.jpg"
  },
  {
-  "titulo": "t3",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-3.jpg"
+  "titulo": "e5",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-5-1536x1024.jpg"
  },
  {
-  "titulo": "f4",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-4.jpg"
+  "titulo": "e6",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-6-1536x1024.jpg"
  },
  {
-  "titulo": "t4",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-4.jpg"
+  "titulo": "e7",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-7-1536x1024.jpg"
  },
  {
-  "titulo": "f5",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-5.jpg"
+  "titulo": "e9",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-9-1536x1024.jpg"
  },
  {
-  "titulo": "t5",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-5.jpg"
+  "titulo": "e10",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-10-1536x1024.jpg"
  },
  {
-  "titulo": "f6",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-6.jpg"
- },
- {
-  "titulo": "t6",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-6.jpg"
- },
- {
-  "titulo": "f7",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-7.jpg"
- },
- {
-  "titulo": "t7",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-7.jpg"
- },
- {
-  "titulo": "f8",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-8.jpg"
- },
- {
-  "titulo": "t8",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-8.jpg"
- },
- {
-  "titulo": "f9",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-9.jpg"
- },
- {
-  "titulo": "t9",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-9.jpg"
- },
- {
-  "titulo": "f10",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-10.jpg"
- },
- {
-  "titulo": "t10",
-  "url": "https://manofmany.com/",
-  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-10.jpg"
- },
- {
-  "titulo": "sc",
-  "url": "https://screencrush.com/",
-  "img": "https://townsquare.media/site/442/files/2026/07/attachment-dune-3-2-1.jpg"
+  "titulo": "e11",
+  "url": "https://www.whats-on-netflix.com/",
+  "img": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-11-1536x1024.jpg"
  }
 ]
