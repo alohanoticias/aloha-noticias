@@ -167,12 +167,14 @@ def legenda(m):
 
 
 def video(m):
+    """Capa leve do vídeo (miniatura + botão). O player do YouTube, que é pesado, só carrega quando o leitor clica."""
     v = m.get("video")
     if not v:
         return ""
-    return (f'<div class="wrap video-materia"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{esc(v["youtube"])}" '
-            f'title="{esc(v.get("titulo", "Video"))}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" '
-            f'allowfullscreen sandbox="allow-scripts allow-same-origin allow-presentation allow-popups" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>')
+    vid, tit = esc(v["youtube"]), esc(v.get("titulo", "Video"))
+    return (f'<div class="wrap video-materia"><div class="video"><a class="yt-capa" href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" data-titulo="{tit}" target="_blank" rel="noopener">'
+            f'<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="{tit}" width="480" height="360" loading="lazy" decoding="async">'
+            f'<span class="yt-play" aria-hidden="true"></span><span class="sr">{tit}</span></a></div></div>')
 
 
 _VARIANTES = {}
@@ -187,11 +189,12 @@ def variantes_capa(url):
         return _VARIANTES[url]
     res = []
     src = RAIZ / url
-    if url.startswith("assets/img/capas/") and url.endswith(".jpg") and src.exists():
+    if url.startswith("assets/img/") and url.endswith((".jpg", ".jpeg", ".png")) and src.exists():
         h = hashlib.md5(src.read_bytes()).hexdigest()[:8]
-        pasta = RAIZ / "assets/img/capas/v"
+        dir_rel = str(Path(url).parent).replace("\\", "/")
+        pasta = RAIZ / dir_rel / "v"
         for w in TAMANHOS_CAPA:
-            rel = f"assets/img/capas/v/{src.stem}-{h}-{w}.webp"
+            rel = f"{dir_rel}/v/{src.stem}-{h}-{w}.webp"
             alvo = RAIZ / rel
             if not alvo.exists():
                 try:
@@ -470,7 +473,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" id="fontes" media="print" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/css/aloha.css">
 <link rel="stylesheet" href="assets/css/antigo.css">
 <script src="assets/js/tema.js"></script>
@@ -657,7 +660,9 @@ def corpo_texto(paragrafos):
     for p in paragrafos:
         if p.startswith("!img "):
             url, alt, cred = (p[5:].split("|") + ["", ""])[:3]
-            out.append(f'<figure class="foto-corpo"><img src="{esc(url)}" alt="{esc(alt)}" loading="lazy" decoding="async"><figcaption class="credito">{esc(cred)}</figcaption></figure>')
+            v = variantes_capa(url) if url.startswith("assets/img/") else []
+            srcset = f' srcset="{", ".join(f"{u} {w}w" for u, w in v)}, {esc(url)} 1920w" sizes="(max-width: 760px) 100vw, 720px"' if v else ""
+            out.append(f'<figure class="foto-corpo"><img src="{esc(url)}"{srcset} alt="{esc(alt)}"{' width="1920" height="1080"' if v else ""} loading="lazy" decoding="async"><figcaption class="credito">{esc(cred)}</figcaption></figure>')
         elif p.startswith("## "):
             out.append(f"<h2>{esc(p[3:])}</h2>")
         elif FONTES_RE.match(p) and "](http" in p:
@@ -1012,6 +1017,10 @@ def gerar_materia(m, preview=False, agendado=False):
         {"@type": "ListItem", "position": 3, "name": m["titulo"], "item": pre_abs + url_materia(m)}]}, ensure_ascii=False)
     head = f'<script type="application/ld+json">{ld}</script>\n<script type="application/ld+json">{migalhas_ld}</script>\n'
     head += f'<meta name="aloha-slug" content="{esc(m["slug"])}">\n'
+    _im = m.get("imagem") or {}
+    _v = variantes_capa(_im.get("url", "")) if _im.get("url", "").startswith("assets/") else []
+    if _v:
+        head += f'<link rel="preload" as="image" href="{esc(_im["url"])}" imagesrcset="{", ".join(f"{u} {w}w" for u, w in _v)}, {esc(_im["url"])} 1920w" imagesizes="(max-width: 1100px) 100vw, 1100px" fetchpriority="high">\n'
     if preview:
         corpo = faixa_rascunho(m, agendado) + corpo
         head = '<base href="/">\n<meta name="robots" content="noindex,nofollow">\n' + head
@@ -1101,7 +1110,7 @@ HEADERS = """/*
   Cache-Control: no-store
 
 /assets/*
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 """
 
 
@@ -1306,6 +1315,16 @@ def localizar(html_, lang):
                   lambda mo: nome_idioma(lang, mo.group(1)), html_)
 
 
+_RE_IDX = re.compile(r'(https://alohanoticias\.com/(?:[a-z]{2}/)?)index\.html')
+_RE_HTML = re.compile(r'(https://alohanoticias\.com/[^"\'\s<>?#]*?)\.html')
+
+
+def limpa_abs(s):
+    """Endereços absolutos sem ".html": a Cloudflare redireciona /pagina.html para /pagina, e canonical, hreflang,
+    og:url, sitemap e dados estruturados devem apontar para o endereço final, não para um redirecionamento."""
+    return _RE_HTML.sub(r"\1", _RE_IDX.sub(r"\1", s))
+
+
 def url_abs(lang, nome):
     nome = nome_idioma(lang, nome)
     return "https://alohanoticias.com/" + prefixo(lang) + ("" if nome == "index.html" else nome)
@@ -1362,7 +1381,7 @@ def main():
     for lang, arqs in por_idioma.items():
         (SAIDA / prefixo(lang)).mkdir(exist_ok=True)
         for nome, conteudo in arqs.items():
-            (SAIDA / prefixo(lang) / nome_idioma(lang, nome)).write_text(resolver(conteudo, lang, nome, existe), encoding="utf-8")
+            (SAIDA / prefixo(lang) / nome_idioma(lang, nome)).write_text(limpa_abs(resolver(conteudo, lang, nome, existe)), encoding="utf-8")
         ind = INDICES[lang]
         if lang != "pt":
             ind = localizar(ind, lang).replace('src=\\"assets/', 'src=\\"../assets/')
@@ -1377,8 +1396,8 @@ def main():
         (SAIDA / "OneSignalSDKWorker.js").write_text('importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");\n', encoding="utf-8")
     (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", csp), encoding="utf-8")
     # endereços de cada matéria em cada idioma, para o aviso push abrir a página no idioma do aparelho
-    (SAIDA / "push-urls.json").write_text(json.dumps(
-        {m["slug"]: {l: url_abs(l, f"materia-{m['slug']}.html") for l in i18n.IDIOMAS_REAIS} for m in materias}, ensure_ascii=False), encoding="utf-8")
+    (SAIDA / "push-urls.json").write_text(limpa_abs(json.dumps(
+        {m["slug"]: {l: url_abs(l, f"materia-{m['slug']}.html") for l in i18n.IDIOMAS_REAIS} for m in materias}, ensure_ascii=False)), encoding="utf-8")
     if ANUNCIOS_ATIVOS and ADSENSE_PUB:
         (SAIDA / "ads.txt").write_text(f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
     (SAIDA / ".well-known").mkdir(exist_ok=True)
@@ -1406,7 +1425,7 @@ def main():
         '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
         f"<title>{SITE}</title><link>https://alohanoticias.com/</link><description>Cinema, games, anime e tecnologia explicados com calma.</description>"
         '<language>pt-BR</language><atom:link href="https://alohanoticias.com/feed.xml" rel="self" type="application/rss+xml"/>'
-        + itens + "</channel></rss>", encoding="utf-8")
+        + limpa_abs(itens) + "</channel></rss>", encoding="utf-8")
     import agenda
     agenda.ajustar_rascunhos()  # todo rascunho com data de um horário livre (máx. 3 por dia)
     rascunhos = []
@@ -1476,7 +1495,7 @@ def main():
     sm = "".join(f"<url><loc>{url_abs(l, n)}</loc>" + (f"<lastmod>{_lastmod(n)}</lastmod>" if _lastmod(n) else "") + "</url>"
                  for l, arqs in por_idioma.items() if l in IDIOMAS_INDEXADOS
                  for n, conteudo in arqs.items() if n not in ("404.html", "busca.html") and 'name="robots" content="noindex' not in conteudo)
-    (SAIDA / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>", encoding="utf-8")
+    (SAIDA / "sitemap.xml").write_text(limpa_abs('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sm + "</urlset>"), encoding="utf-8")
     (SAIDA / "688dca8a511dd5a078482e96f25fecb8.txt").write_text("688dca8a511dd5a078482e96f25fecb8", encoding="utf-8")  # chave IndexNow
     # /favicon.ico na raiz: o Google e alguns navegadores procuram o ícone aqui antes de ler as tags da página
     shutil.copyfile(RAIZ / "assets/img/favicon.ico", SAIDA / "favicon.ico")

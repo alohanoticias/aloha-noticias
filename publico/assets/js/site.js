@@ -133,3 +133,17 @@ document.addEventListener("error", function (e) {
   var el = e.target;
   if (el && el.tagName === "IMG" && el.closest && el.closest(".foto-corpo")) { el.closest(".foto-corpo").hidden = true; }
 }, true);
+// Vídeo leve: troca a miniatura pelo player do YouTube só quando o leitor clica
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("a.yt-capa");
+  if (!a) return;
+  e.preventDefault();
+  var f = document.createElement("iframe");
+  f.src = "https://www.youtube-nocookie.com/embed/" + a.getAttribute("data-yt") + "?autoplay=1";
+  f.title = a.getAttribute("data-titulo") || "Video";
+  f.allow = "accelerometer; autoplay; encrypted-media; picture-in-picture";
+  f.allowFullscreen = true;
+  f.setAttribute("sandbox", "allow-scripts allow-same-origin allow-presentation allow-popups");
+  f.referrerPolicy = "strict-origin-when-cross-origin";
+  a.replaceWith(f);
+});

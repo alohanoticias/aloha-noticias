@@ -508,3 +508,9 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .autor-cartao img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex: none; }
 .autor-cartao .autor-redes { display: flex; gap: 14px; flex-wrap: wrap; font-size: 1rem; }
 .autor-cartao .autor-redes a { font-weight: 600; }
+.yt-capa { position: absolute; inset: 0; display: block; background: #000; cursor: pointer; }
+.yt-capa img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+.yt-play { position: absolute; left: 50%; top: 50%; width: 72px; height: 50px; transform: translate(-50%, -50%); background: #e00; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,.4); }
+.yt-play::after { content: ""; position: absolute; left: 29px; top: 15px; border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
+.yt-capa:hover .yt-play { background: #f00; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
