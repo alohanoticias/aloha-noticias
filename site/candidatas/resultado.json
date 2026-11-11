@@ -1,92 +1,182 @@
 [
  {
-  "titulo": "wr1",
-  "pagina": "https://commons.wikimedia.org/wiki/File:Jordan%2C_Wadi_Rum_Desert%2C_Infinite_Spaces.jpg",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Jordan%2C_Wadi_Rum_Desert%2C_Infinite_Spaces.jpg/1920px-Jordan%2C_Wadi_Rum_Desert%2C_Infinite_Spaces.jpg",
+  "titulo": "wr3",
+  "pagina": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Wadi_rum_desert.jpg/1920px-Wadi_rum_desert.jpg",
+  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Wadi_rum_desert.jpg/1920px-Wadi_rum_desert.jpg",
   "dim": [
    1920,
-   1158
+   1440
   ]
  },
  {
-  "titulo": "wr2",
-  "pagina": "https://commons.wikimedia.org/wiki/File:Wadi_Rum_Desert%2C_Jordan%2C_The_%22Seven_Pillars_of_Wisdom%22.jpg",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Wadi_Rum_Desert%2C_Jordan%2C_The_%22Seven_Pillars_of_Wisdom%22.jpg/1920px-Wadi_Rum_Desert%2C_Jordan%2C_The_%22Seven_Pillars_of_Wisdom%22.jpg",
+  "titulo": "wr4",
+  "pagina": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jordan%2C_Wadi_Rum_Desert%2C_Khor_al_Ajram_2.jpg/1920px-Jordan%2C_Wadi_Rum_Desert%2C_Khor_al_Ajram_2.jpg",
+  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Jordan%2C_Wadi_Rum_Desert%2C_Khor_al_Ajram_2.jpg/1920px-Jordan%2C_Wadi_Rum_Desert%2C_Khor_al_Ajram_2.jpg",
   "dim": [
    1920,
    1280
   ]
  },
  {
-  "titulo": "op1",
-  "pagina": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/galeria-01-1.webp",
-  "imagem": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/galeria-01-1.webp",
-  "dim": [
-   544,
-   536
-  ]
- },
- {
-  "titulo": "op2",
-  "pagina": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/galeria-02-1.webp",
-  "imagem": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/galeria-02-1.webp",
-  "dim": [
-   544,
-   536
-  ]
- },
- {
-  "titulo": "op3",
-  "pagina": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/galeria-03-1.webp",
-  "imagem": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/galeria-03-1.webp",
-  "dim": [
-   544,
-   536
-  ]
- },
- {
-  "titulo": "fn1",
-  "pagina": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxresdefault.jpg",
-  "imagem": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxresdefault.jpg",
+  "titulo": "fn-f1",
+  "pagina": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxres1.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "fn2",
-  "pagina": "https://i.ytimg.com/vi/2E-YbSvagoo/maxresdefault.jpg",
-  "imagem": "https://i.ytimg.com/vi/2E-YbSvagoo/maxresdefault.jpg",
+  "titulo": "fn-f2",
+  "pagina": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxres2.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "xn1",
-  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxresdefault.jpg",
-  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxresdefault.jpg",
+  "titulo": "fn-f3",
+  "pagina": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/rnjWNafJy8Q/maxres3.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "xn2",
-  "pagina": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxresdefault.jpg",
-  "imagem": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxresdefault.jpg",
+  "titulo": "op-f1",
+  "pagina": "https://i.ytimg.com/vi/B7oNbjQyjDE/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/B7oNbjQyjDE/maxres1.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "xn3",
-  "pagina": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_image1600w.jpg",
-  "imagem": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_image1600w.jpg",
+  "titulo": "op-f2",
+  "pagina": "https://i.ytimg.com/vi/B7oNbjQyjDE/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/B7oNbjQyjDE/maxres2.jpg",
   "dim": [
-   1600,
-   900
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "op-f3",
+  "pagina": "https://i.ytimg.com/vi/B7oNbjQyjDE/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/B7oNbjQyjDE/maxres3.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "xn-f1",
+  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres1.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "xn-f2",
+  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres2.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "xn-f3",
+  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres3.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "du-f1",
+  "pagina": "https://i.ytimg.com/vi/iwNb50uScFM/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/iwNb50uScFM/maxres1.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "du-f2",
+  "pagina": "https://i.ytimg.com/vi/iwNb50uScFM/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/iwNb50uScFM/maxres2.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "du-f3",
+  "pagina": "https://i.ytimg.com/vi/iwNb50uScFM/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/iwNb50uScFM/maxres3.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "ry-f1",
+  "pagina": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres1.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "ry-f2",
+  "pagina": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres2.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "ry-f3",
+  "pagina": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres3.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "mt-f1",
+  "pagina": "https://i.ytimg.com/vi/mZTvjpX_2QE/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/mZTvjpX_2QE/maxres1.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "mt-f2",
+  "pagina": "https://i.ytimg.com/vi/mZTvjpX_2QE/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/mZTvjpX_2QE/maxres2.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "mt-f3",
+  "pagina": "https://i.ytimg.com/vi/mZTvjpX_2QE/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/mZTvjpX_2QE/maxres3.jpg",
+  "dim": [
+   1280,
+   720
   ]
  }
 ]
