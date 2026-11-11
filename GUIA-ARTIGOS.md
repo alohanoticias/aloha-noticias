@@ -84,6 +84,12 @@ Na revisão dos rascunhos e agendados, se houver artigos sobre o mesmo assunto c
 - Pense no leitor: escolha o que é interessante e útil para o público brasileiro (o que muda para ele, o que vale assistir ou jogar, o que ele precisa saber), não o que só enche espaço.
 - Escreva como uma pessoa escreveria para um amigo: voz natural, sem fórmula.
 
+## Limite de 3 artigos por dia (regra fixa, decisão do usuário, 10/11/2026)
+- Nunca mais de 3 artigos no mesmo dia, um em cada janela (9h–11h, 13h–15h, 18h–20h), contando publicados, agendados e rascunhos.
+- Todo rascunho novo sai com `data` = próximo horário livre: rode `python3 site/agenda.py` para ver os próximos horários livres. Mesmo que você erre, o `gerar.py` roda `agenda.ajustar_rascunhos()` e muda a data de qualquer rascunho que caia num dia cheio, numa janela ocupada, fora das janelas ou no passado.
+- Nunca dê ao rascunho a data de hoje se hoje já tem 3 artigos.
+- O admin mostra o horário sugerido do rascunho no campo de agendamento e avisa (com o próximo horário livre e um botão para usá-lo) quando a pessoa escolhe um dia que já tem 3 artigos; o "Publicar agora" pede confirmação se hoje já tem 3.
+
 ## Meta diária e horários
 - Meta: 3 rascunhos por dia, quando a fila permitir (veja "Manutenção"). A publicação, no ritmo que a pessoa escolher: o recomendado é 2 a 3 artigos por dia, espaçados.
 - **Horários padrão de saída** (horário de Brasília): **09:00, 13:00 e 19:00**. O admin tem atalhos para esses horários. Ao entregar os rascunhos, sugira na mensagem final qual rascunho ficaria bem em cada horário (ex.: o mais leve ao meio-dia, o mais denso à noite), sem agendar nada.

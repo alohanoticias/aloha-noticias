@@ -344,6 +344,8 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 @media (max-width: 760px) { .foto-corpo img, .materia-capa img { max-height: 70vh; } }
 
 .faixa-rascunho { background: #FFF3CD; color: #4A3B00; border-block: 1px solid #E8D48A; padding: 12px 0; font-size: 0.95rem; }
+.faixa-rascunho .aviso-agenda { flex-basis: 100%; background: #FBE3E0; color: #7A1F12; border: 1px solid #E8A99D; border-radius: 8px; padding: 8px 12px; font-weight: 600; }
+.faixa-rascunho .aviso-agenda[hidden] { display: none; }
 .faixa-rascunho .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .faixa-rascunho a:not(.botao):not(.botao-sec) { color: inherit; text-decoration: underline; }
 .faixa-rascunho .botao { background: #E76F51; color: #1E2A2D; }

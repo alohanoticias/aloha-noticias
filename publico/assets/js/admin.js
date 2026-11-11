@@ -27,6 +27,38 @@
     });
   });
   botao.addEventListener("click", function (e) { if (!campo.value) { e.preventDefault(); campo.focus(); } });
-  campo.addEventListener("input", atualizar);
-  atualizar();
+  campo.addEventListener("input", function () { atualizar(); avisar(); });
+
+  // Aviso de agenda: no máximo 3 artigos por dia. Mostra o próximo horário livre.
+  var ag = {}; try { ag = JSON.parse(f.getAttribute("data-agenda") || "{}"); } catch (e) {}
+  var ocup = ag.ocupacao || {}, max = ag.max || 3, livre = ag.livre;
+  var aviso = document.getElementById("aviso-agenda"), agora_ = document.getElementById("publicar-agora");
+  function dm(iso) { return iso.slice(8, 10) + "/" + iso.slice(5, 7); }
+  function listaDia(dia) { return (ocup[dia] || []).slice(); }
+  function mensagem(dia, quando) {
+    var h = listaDia(dia);
+    if (h.length < max) return "";
+    var txt = "Atenção: " + (quando === "hoje" ? "hoje" : "o dia " + dm(dia)) + " já tem " + h.length +
+      " artigos (" + h.join(", ") + "). O limite é " + max + " por dia.";
+    if (livre) txt += " Próximo horário livre: " + dm(livre) + " às " + livre.slice(11, 16) + ".";
+    return txt;
+  }
+  function mostrar(txt, usarLivre) {
+    if (!aviso) return;
+    if (!txt) { aviso.hidden = true; aviso.innerHTML = ""; return; }
+    aviso.hidden = false; aviso.textContent = txt;
+    if (usarLivre && livre) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = "Usar o horário livre";
+      b.addEventListener("click", function () { campo.value = livre; atualizar(); avisar(); });
+      aviso.appendChild(document.createTextNode(" ")); aviso.appendChild(b);
+    }
+  }
+  function avisar() { mostrar(campo.value ? mensagem(campo.value.slice(0, 10), "") : "", true); }
+  if (agora_) {
+    agora_.addEventListener("click", function (e) {
+      var hoje = fmt(new Date()).slice(0, 10), txt = mensagem(hoje, "hoje");
+      if (txt && !window.confirm(txt + "\n\nPublicar agora mesmo assim?")) { e.preventDefault(); mostrar(txt, true); }
+    });
+  }
+  atualizar(); avisar();
 })();

@@ -683,18 +683,24 @@ def faixa_rascunho(m, agendado=False):
         texto_ag, rot_agendar = "ou mudar para", "Reagendar"
         rej = "Cancelar agendamento"
     else:
-        rotulo, atual = "Rascunho, ainda não publicado.", ""
+        quando = datetime.fromisoformat(m["data"]).strftime("%d/%m às %H:%M")
+        rotulo, atual = f"Rascunho, ainda não publicado. Horário sugerido: {quando}.", f' value="{m["data"]}"'
         texto_ag, rot_agendar = "ou agendar para", "Agendar"
         rej = "Rejeitar"
     atalhos = " ".join(f'<button type="button" class="chip" data-hora="{h}">{h[:2]}h</button>' for h in HORARIOS_PADRAO)
-    return (f'<div class="faixa-rascunho" data-slug="{esc(slug)}" data-repo="{REPO}" data-acao="{acao}"><div class="wrap">'
+    import agenda
+    ocup = {dia: sorted(t.strftime("%H:%M") for t, _ in v) for dia, v in agenda.ocupacao(excluir=slug).items()}
+    livre = agenda.proximo_livre(slug, agenda.ocupacao(excluir=slug)).strftime("%Y-%m-%dT%H:%M")
+    dados_agenda = esc(json.dumps({"ocupacao": ocup, "livre": livre, "max": agenda.POR_DIA}, ensure_ascii=False))
+    return (f'<div class="faixa-rascunho" data-slug="{esc(slug)}" data-repo="{REPO}" data-acao="{acao}" data-agenda="{dados_agenda}"><div class="wrap">'
             f'<strong>{rotulo}</strong> '
-            f'<a class="botao" href="{link_acao("Aprovar", slug)}" target="_blank" rel="noopener noreferrer">Publicar agora</a> '
+            f'<a class="botao" id="publicar-agora" href="{link_acao("Aprovar", slug)}" target="_blank" rel="noopener noreferrer">Publicar agora</a> '
             f'<label class="agendar">{texto_ag} <input type="datetime-local" id="quando"{atual} aria-label="Data e hora de publicação"></label> '
             f'<span class="atalhos">Atalhos: {atalhos}</span> '
             f'<a class="botao-sec" id="agendar" href="{link_acao(acao, slug)}" target="_blank" rel="noopener noreferrer">{rot_agendar}</a> '
             f'<a class="botao-sec" href="{link_acao("Rejeitar", slug)}" target="_blank" rel="noopener noreferrer">{rej}</a> '
-            f'{prev_trad(m)}<a href="admin/rascunhos.html">Voltar ao painel</a></div></div>\n<script src="assets/js/admin.js"></script>')
+            f'{prev_trad(m)}<a href="admin/rascunhos.html">Voltar ao painel</a>'
+            f'<div class="aviso-agenda" id="aviso-agenda" role="alert" hidden></div></div></div>\n<script src="assets/js/admin.js"></script>')
 
 
 NAV_PAINEL = [
@@ -1380,6 +1386,8 @@ def main():
         f"<title>{SITE}</title><link>https://alohanoticias.com/</link><description>Cinema, games, anime e tecnologia explicados com calma.</description>"
         '<language>pt-BR</language><atom:link href="https://alohanoticias.com/feed.xml" rel="self" type="application/rss+xml"/>'
         + itens + "</channel></rss>", encoding="utf-8")
+    import agenda
+    agenda.ajustar_rascunhos()  # todo rascunho com data de um horário livre (máx. 3 por dia)
     rascunhos = []
     for f in sorted((RAIZ.parent / "rascunhos").glob("*.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
