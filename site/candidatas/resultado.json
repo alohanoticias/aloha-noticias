@@ -1,227 +1,146 @@
 [
  {
-  "titulo": "pg1",
-  "pagina": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%283%29.jpg/1920px-Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%283%29.jpg",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%283%29.jpg/1920px-Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%283%29.jpg",
+  "titulo": "pa",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Playing%20Pok%C3%A9mon%20Go%20on%20a%20bench.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Playing%20Pok%C3%A9mon%20Go%20on%20a%20bench.jpg?width=1600",
   "dim": [
    1920,
    1440
   ]
  },
  {
-  "titulo": "pg2",
-  "pagina": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%286%29.jpg/1920px-Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%286%29.jpg",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%286%29.jpg/1920px-Dia_Comunit%C3%A1rio_de_Pok%C3%A9mon_GO_%28Wooper%29%2C_Goi%C3%A2nia%2C_Goi%C3%A1s%2C_Brasil%2C_novembro_de_2023_%286%29.jpg",
+  "titulo": "pb",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/App-augmented-reality-game-gps-163042.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/App-augmented-reality-game-gps-163042.jpg?width=1600",
+  "dim": [
+   1920,
+   1280
+  ]
+ },
+ {
+  "titulo": "pc",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%284%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%284%29.jpg?width=1600",
   "dim": [
    1920,
    1440
   ]
  },
  {
-  "titulo": "rk1",
-  "pagina": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Philadelphia_Museum_of_Art_%26_Rocky_Balboa_statue_%2855259378261%29.jpg/1920px-Philadelphia_Museum_of_Art_%26_Rocky_Balboa_statue_%2855259378261%29.jpg",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Philadelphia_Museum_of_Art_%26_Rocky_Balboa_statue_%2855259378261%29.jpg/1920px-Philadelphia_Museum_of_Art_%26_Rocky_Balboa_statue_%2855259378261%29.jpg",
+  "titulo": "pd",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%285%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%285%29.jpg?width=1600",
+  "dim": [
+   1920,
+   1440
+  ]
+ },
+ {
+  "titulo": "pe",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%287%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%287%29.jpg?width=1600",
+  "dim": [
+   1920,
+   1440
+  ]
+ },
+ {
+  "titulo": "pf",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%288%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Dia%20Comunit%C3%A1rio%20de%20Pok%C3%A9mon%20GO%20%28Wooper%29%2C%20Goi%C3%A2nia%2C%20Goi%C3%A1s%2C%20Brasil%2C%20novembro%20de%202023%20%288%29.jpg?width=1600",
+  "dim": [
+   1920,
+   1440
+  ]
+ },
+ {
+  "titulo": "ph",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Many%20people%20playing%20Pokemon%20Go%20in%20Tsuruma%20Park%20at%20Night%202024%20-%203.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Many%20people%20playing%20Pokemon%20Go%20in%20Tsuruma%20Park%20at%20Night%202024%20-%203.jpg?width=1600",
+  "dim": [
+   1920,
+   1440
+  ]
+ },
+ {
+  "titulo": "pi",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Pok%C3%A9mon%20Go%20players%20in%20Anchorage%2C%20Alaska.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Pok%C3%A9mon%20Go%20players%20in%20Anchorage%2C%20Alaska.jpg?width=1600",
+  "dim": [
+   1920,
+   823
+  ]
+ },
+ {
+  "titulo": "pj",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/NanakitaPark%20Pokemongo.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/NanakitaPark%20Pokemongo.jpg?width=1600",
+  "dim": [
+   1920,
+   1440
+  ]
+ },
+ {
+  "titulo": "pk",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Pokemon%20Go%20%2828491177301%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Pokemon%20Go%20%2828491177301%29.jpg?width=1600",
+  "dim": [
+   1920,
+   1280
+  ]
+ },
+ {
+  "titulo": "pl",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Callinstra%C3%9Fe%20Ecke%20Hahnenstra%C3%9Fe%20in%20Hannover%2C%20Pok%C3%A9mon%20Go-Spielende.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Callinstra%C3%9Fe%20Ecke%20Hahnenstra%C3%9Fe%20in%20Hannover%2C%20Pok%C3%A9mon%20Go-Spielende.jpg?width=1600",
+  "dim": [
+   1920,
+   1081
+  ]
+ },
+ {
+  "titulo": "ra",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259378556%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259378556%29.jpg?width=1600",
   "dim": [
    1920,
    1281
   ]
  },
  {
-  "titulo": "rk4",
-  "pagina": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Philadelphia_Museum_of_Art_%28Rocky_Steps%29_%26_Yeadon_Fire_engine_%2849507367941%29.jpg/1920px-Philadelphia_Museum_of_Art_%28Rocky_Steps%29_%26_Yeadon_Fire_engine_%2849507367941%29.jpg",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Philadelphia_Museum_of_Art_%28Rocky_Steps%29_%26_Yeadon_Fire_engine_%2849507367941%29.jpg/1920px-Philadelphia_Museum_of_Art_%28Rocky_Steps%29_%26_Yeadon_Fire_engine_%2849507367941%29.jpg",
+  "titulo": "rb",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259379021%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259379021%29.jpg?width=1600",
   "dim": [
    1920,
-   1080
+   1281
   ]
  },
  {
-  "titulo": "pgv1",
-  "pagina": "https://i.ytimg.com/vi/9gZFB87SGEo/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/9gZFB87SGEo/maxres1.jpg",
+  "titulo": "rc",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259520673%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259520673%29.jpg?width=1600",
   "dim": [
-   1280,
-   720
+   1920,
+   1281
   ]
  },
  {
-  "titulo": "pgv2",
-  "pagina": "https://i.ytimg.com/vi/9gZFB87SGEo/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/9gZFB87SGEo/maxres2.jpg",
+  "titulo": "rd",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259612374%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259612374%29.jpg?width=1600",
   "dim": [
-   1280,
-   720
+   1920,
+   1281
   ]
  },
  {
-  "titulo": "pgv3",
-  "pagina": "https://i.ytimg.com/vi/9gZFB87SGEo/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/9gZFB87SGEo/maxres3.jpg",
+  "titulo": "me",
+  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/MCM4116B%20DRAM%20IC%20%2855610490178%29.jpg?width=1600",
+  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/MCM4116B%20DRAM%20IC%20%2855610490178%29.jpg?width=1600",
   "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "fnv1",
-  "pagina": "https://i.ytimg.com/vi/2E-YbSvagoo/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/2E-YbSvagoo/maxres1.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "fnv2",
-  "pagina": "https://i.ytimg.com/vi/2E-YbSvagoo/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/2E-YbSvagoo/maxres2.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "fnv3",
-  "pagina": "https://i.ytimg.com/vi/2E-YbSvagoo/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/2E-YbSvagoo/maxres3.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "swv1",
-  "pagina": "https://i.ytimg.com/vi/T9sg9GnyCYA/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/T9sg9GnyCYA/maxres1.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "swv2",
-  "pagina": "https://i.ytimg.com/vi/T9sg9GnyCYA/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/T9sg9GnyCYA/maxres2.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "swv3",
-  "pagina": "https://i.ytimg.com/vi/T9sg9GnyCYA/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/T9sg9GnyCYA/maxres3.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "sxv1",
-  "pagina": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres1.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "sxv2",
-  "pagina": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres2.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "sxv3",
-  "pagina": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres3.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "fwv1",
-  "pagina": "https://i.ytimg.com/vi/WU68dErBFWw/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/WU68dErBFWw/maxres1.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "fwv2",
-  "pagina": "https://i.ytimg.com/vi/WU68dErBFWw/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/WU68dErBFWw/maxres2.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "fwv3",
-  "pagina": "https://i.ytimg.com/vi/WU68dErBFWw/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/WU68dErBFWw/maxres3.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "ryv1",
-  "pagina": "https://i.ytimg.com/vi/zywhyPLhd54/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/zywhyPLhd54/maxres1.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "ryv2",
-  "pagina": "https://i.ytimg.com/vi/zywhyPLhd54/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/zywhyPLhd54/maxres2.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "ryv3",
-  "pagina": "https://i.ytimg.com/vi/zywhyPLhd54/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/zywhyPLhd54/maxres3.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "rmv1",
-  "pagina": "https://i.ytimg.com/vi/YxtAblfXohw/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/YxtAblfXohw/maxres1.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "rmv2",
-  "pagina": "https://i.ytimg.com/vi/YxtAblfXohw/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/YxtAblfXohw/maxres2.jpg",
-  "dim": [
-   1280,
-   720
-  ]
- },
- {
-  "titulo": "rmv3",
-  "pagina": "https://i.ytimg.com/vi/YxtAblfXohw/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/YxtAblfXohw/maxres3.jpg",
-  "dim": [
-   1280,
-   720
+   1920,
+   1280
   ]
  }
 ]
