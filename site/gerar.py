@@ -661,7 +661,13 @@ def corpo_texto(paragrafos):
         if p.startswith("!img "):
             url, alt, cred = (p[5:].split("|") + ["", ""])[:3]
             v = variantes_capa(url) if url.startswith("assets/img/") else []
-            srcset = f' srcset="{", ".join(f"{u} {w}w" for u, w in v)}, {esc(url)} 1920w" sizes="(max-width: 760px) 100vw, 720px"' if v else ""
+            mw = re.match(r"(https://upload\.wikimedia\.org/wikipedia/commons/thumb/.+/)(\d+)px-([^/]+)$", url)
+            if mw and int(mw.group(2)) > 960:  # Wikimedia tem miniatura padrão de 960px: o celular baixa essa
+                url_640 = f"{mw.group(1)}960px-{mw.group(3)}"
+                srcset_wm = f' srcset="{esc(url_640)} 960w, {esc(url)} {mw.group(2)}w" sizes="(max-width: 760px) 100vw, 720px"'
+            else:
+                srcset_wm = ""
+            srcset = f' srcset="{", ".join(f"{u} {w}w" for u, w in v)}, {esc(url)} 1920w" sizes="(max-width: 760px) 100vw, 720px"' if v else "" or srcset_wm
             out.append(f'<figure class="foto-corpo"><img src="{esc(url)}"{srcset} alt="{esc(alt)}"{' width="1920" height="1080"' if v else ""} loading="lazy" decoding="async"><figcaption class="credito">{esc(cred)}</figcaption></figure>')
         elif p.startswith("## "):
             out.append(f"<h2>{esc(p[3:])}</h2>")
