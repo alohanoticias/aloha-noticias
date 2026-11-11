@@ -538,6 +538,28 @@ FOGO = ('<svg class="fogo" viewBox="0 0 24 24" width="14" height="14" fill="none
         'a2.5 2.5 0 0 0 2.5 2.5z"/></svg>')
 
 
+EM_RESUMO = {"pt": "Em resumo", "en": "In short", "es": "En resumen", "fr": "En bref", "de": "Kurz gesagt", "it": "In breve",
+             "ja": "要点", "zh": "要点速览", "ar": "باختصار"}
+GUIA = {"pt": "Guia", "en": "Guide", "es": "Guía", "fr": "Guide", "de": "Ratgeber", "it": "Guida", "ja": "ガイド", "zh": "指南", "ar": "دليل"}
+GUIAS_UTEIS = {"pt": "Guias úteis", "en": "Useful guides", "es": "Guías útiles", "fr": "Guides pratiques", "de": "Praktische Ratgeber",
+               "it": "Guide utili", "ja": "お役立ちガイド", "zh": "实用指南", "ar": "أدلة مفيدة"}
+MIN_GUIAS_HOME = 4  # a faixa "Guias úteis" só aparece na home quando houver pelo menos isso de guias
+
+
+def selo_guia(m):
+    """Selo "Guia" nas matérias passo a passo (campo "guia": true no JSON)."""
+    return f'<span class="selo-guia">{GUIA.get(LANG, GUIA["pt"])}</span>' if m.get("guia") else ""
+
+
+def em_resumo(m):
+    """Quadro "Em resumo" no topo do texto (campo opcional "em_resumo": lista de 3 a 5 linhas curtas)."""
+    itens = [x for x in (m.get("em_resumo") or []) if str(x).strip()]
+    if not itens:
+        return ""
+    li = "".join(f'<li>{re.sub(r"[*][*]([^*]+)[*][*]", r"<strong>\1</strong>", esc(str(x)))}</li>' for x in itens)
+    return f'<aside class="em-resumo" aria-labelledby="em-resumo-tit"><h2 id="em-resumo-tit">{EM_RESUMO.get(LANG, EM_RESUMO["pt"])}</h2><ul>{li}</ul></aside>'
+
+
 def alta(m):
     """Selo "🔥 Em alta": escondido no HTML; assets/js/em-alta.js mostra nos artigos mais lidos dos últimos dias (contador próprio)."""
     return f'<span class="em-alta" data-alta="{esc(m["slug"])}" hidden>{FOGO} {EM_ALTA.get(LANG, EM_ALTA["pt"])}</span>'
@@ -546,7 +568,7 @@ def alta(m):
 def card(m, pequeno=False, mostrar_capa=True, chapeu=True):
     return f"""<a class="card{' pequeno' if pequeno else ''}" href="{url_materia(m)}">
   {capa(m) if mostrar_capa else ""}
-  {f'<span class="chapeu">{esc(ED[m["editoria"]]["nome"])}</span>' if chapeu else ""}{alta(m)}
+  {f'<span class="chapeu">{esc(ED[m["editoria"]]["nome"])}</span>' if chapeu else ""}{selo_guia(m)}{alta(m)}
   <h3>{esc(m["titulo"])}</h3>
   <p class="meta"><time datetime="{m["data"]}">{data_curta(m["data"])}</time></p>
 </a>"""
@@ -587,7 +609,7 @@ def hero_card(m, grande):
   {capa(m, "hero-img", prioridade=True if grande else "eager", sizes="(max-width: 760px) 100vw, 1100px" if grande else "(max-width: 760px) 100vw, 560px")}
   {tag_v(m)}
   <div class="hero-texto">
-    {alta(m)}<time datetime="{m['data']}">{data_longa(m['data'])}</time>
+    {selo_guia(m)}{alta(m)}<time datetime="{m['data']}">{data_longa(m['data'])}</time>
     <h2>{esc(m['titulo'])}</h2>
     {fina}
   </div>
@@ -598,7 +620,7 @@ def item_lista(m, primeiro=False):
     return f"""<article class="item-lista">
   <a class="il-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m, prioridade=True if primeiro else False)}{tag_v(m)}</a>
   <div class="il-texto">
-    {alta(m)}<p class="meta-l"><span class="autor">{esc(autor_nome(m))}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
+    {selo_guia(m)}{alta(m)}<p class="meta-l"><span class="autor">{esc(autor_nome(m))}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
     <h3><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h3>
     <p class="resumo">{esc(m['linha_fina'])}</p>
     <a class="leia-mais" href="{url_materia(m)}">{t("Leia mais")} »</a>
@@ -625,6 +647,16 @@ def lateral():
 </aside>"""
 
 
+def faixa_guias():
+    guias = [m for m in materias if m.get("guia")]
+    if len(guias) < MIN_GUIAS_HOME:
+        return ""
+    tit = GUIAS_UTEIS.get(LANG, GUIAS_UTEIS["pt"])
+    return (f'<section class="faixa-guias" aria-labelledby="sec-guias"><div class="wrap">'
+            f'<div class="tit-secao"><h2 id="sec-guias">{esc(tit)}</h2></div>'
+            f'<div class="grade-4">{"".join(card(m) for m in guias[:4])}</div></div></section>\n')
+
+
 def gerar_home():
     manchete = next((m for m in materias if m.get("manchete")), materias[0])
     destaques = [manchete] + [m for m in materias if m is not manchete][:2]
@@ -642,7 +674,7 @@ def gerar_home():
 </section>""")
     corpo = f"""<h1 class="sr-only">{SITE}: {t("notícias, cinema, games, tecnologia e curiosidades")}</h1>
 <section class="hero hero-{len(destaques)}" aria-label="{t('Destaques')}"><div class="wrap hero-grade">{hero}</div></section>
-<div class="wrap duas-colunas">
+{faixa_guias()}<div class="wrap duas-colunas">
   <div class="coluna-principal">{"".join(secoes)}</div>
   {lateral()}
 </div>"""
@@ -665,7 +697,7 @@ def gerar_home():
 # ---------------------------------------------------------------- editoria
 def card_cat(m, primeiro=False):
     return f"""<article class="card-cat">
-  {alta(m)}<h2><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h2>
+  {selo_guia(m)}{alta(m)}<h2><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h2>
   <p class="meta-l"><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
   <a class="cc-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m, prioridade=True if primeiro else False)}</a>
   <p class="resumo">{esc(m['linha_fina'])}</p>
@@ -1043,7 +1075,7 @@ def gerar_materia(m, preview=False, agendado=False):
     corpo = f"""<article class="wrap materia">
   <nav class="migalhas" aria-label="{t('Você está em')}"><a href="index.html">{t('Início')}</a><span aria-hidden="true">/</span><a href="{url_editoria(e['slug'])}">{esc(e['nome'])}</a></nav>
   <header class="materia-topo">
-    <span class="chapeu">{esc(e['nome'])}</span>{alta(m)}
+    <span class="chapeu">{esc(e['nome'])}</span>{selo_guia(m)}{alta(m)}
     <h1>{esc(m['titulo'])}</h1>
     <p class="linha-fina">{esc(m['linha_fina'])}</p>
     <p class="meta"><span>{t("Por")} {autor_html(m)}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
@@ -1052,7 +1084,7 @@ def gerar_materia(m, preview=False, agendado=False):
   <div class="materia-grade">
     <div class="texto">
       <div class="compartilhar"><span>{t("Compartilhe")}</span>{botoes_compartilhar(m)}<button class="botao-sec" id="copiar-link" type="button" data-rotulo="{t('Copiar link')}" data-ok="{t('Link copiado')}" data-erro="{t('Copie o endereço na barra do navegador')}">{t("Copiar link")}</button></div>
-      {corpo_texto(m['corpo'])}{correcao_html(m)}
+      {em_resumo(m)}{corpo_texto(m['corpo'])}{correcao_html(m)}
       <div class="tags" aria-label="{t('Assuntos')}">{tags}</div>
       {'' if LANG == 'pt' else f'<p class="nota-traducao">{t("Esta matéria foi escrita em português e adaptada para o inglês pela equipe.")} <a href="@@L:pt@@" hreflang="pt">{t("Original em português")}</a></p>'}
     </div>
@@ -1322,6 +1354,7 @@ def traduzir(m, tr, lang):
     d["titulo"], d["linha_fina"], d["corpo"] = tr["titulo"], tr["linha_fina"], tr["corpo"]
     d["tags"] = tr.get("tags", m.get("tags", []))
     d["correcao"] = tr.get("correcao")
+    d["em_resumo"] = tr.get("em_resumo") if m.get("em_resumo") else None
     if m.get("imagem"):
         d["imagem"] = {**m["imagem"], "alt": tr.get("alt", m["imagem"].get("alt", "")), "credito": tr.get("credito", m["imagem"].get("credito", ""))}
     if m.get("video"):

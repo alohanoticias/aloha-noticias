@@ -538,6 +538,24 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .fc-nota{font-size:.85rem;opacity:.8}
 .fc-status.ok{color:#2e8b57;font-weight:700}
 .fc-status.erro{color:#d64545;font-weight:700}
+/* Quadro "Em resumo" no topo das matérias de serviço */
+.em-resumo { border: 1px solid var(--linha); border-left: 4px solid #bc3131; border-radius: 8px; padding: 16px 20px 14px; margin: 0 0 28px; background: color-mix(in srgb, #bc3131 4%, transparent); }
+.em-resumo h2 { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 10px; color: #bc3131; }
+.em-resumo ul { margin: 0; padding-left: 1.1em; }
+.em-resumo li { margin: 0 0 6px; line-height: 1.5; }
+.em-resumo li:last-child { margin-bottom: 0; }
+[dir="rtl"] .em-resumo { border-left-width: 1px; border-right: 4px solid #bc3131; }
+[dir="rtl"] .em-resumo ul { padding-left: 0; padding-right: 1.1em; }
+/* Selo "Guia" (matérias passo a passo) */
+.selo-guia { display: inline-flex; align-items: center; width: fit-content; border: 1.5px solid currentColor; color: var(--coral-texto); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; padding: 3px 7px; border-radius: 999px; margin: 0 6px 6px 0; vertical-align: middle; }
+.materia-topo .selo-guia { margin: 0 8px 10px 0; }
+.card .chapeu + .selo-guia { margin-left: 8px; }
+/* Faixa "Guias úteis" na home (só com 4 guias ou mais) */
+.faixa-guias { padding-block: 28px 8px; }
+.grade-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 1000px) { .grade-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .grade-4 { grid-template-columns: minmax(0, 1fr); } }
+.hero-card .selo-guia { color: #fff; background: rgba(0, 0, 0, 0.35); }
 
 /* ALOHA NOTÍCIAS — visual do site antigo (abril/2023): topo preto, logo vermelho, menu preto com item ativo
    vermelho, painéis de destaque, lista com "Leia mais" e barra lateral. Carregado depois de aloha.css. */

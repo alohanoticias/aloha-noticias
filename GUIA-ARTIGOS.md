@@ -200,3 +200,21 @@ Regras:
 - Varie o formato do título. Evite sempre "X: o que muda/o que se sabe". Alterne entre pergunta, número/lista, guia ("Como..."), comparação ("X vs Y"), análise ("Por que...") e notícia direta.
 - Varie a estrutura: nem toda matéria precisa de intertítulos iguais; use perguntas e respostas, listas, tabela ou cronologia quando fizer sentido.
 - Título HTML até 60 caracteres (o gerador encurta, mas escreva pensando nisso). Título e URL precisam dizer a mesma coisa (mesma data, mesmo número).
+## Recursos para matérias de serviço (pensando no AdSense)
+
+**Quadro "Em resumo"** (campo opcional `"em_resumo"`, uma lista de 3 a 5 linhas curtas; cada tradução tem o seu `"em_resumo"`).
+Aparece no topo do texto, antes do primeiro parágrafo. Use nas matérias em que o leitor chega com uma pergunta prática
+(horário, data, preço, espaço, onde assistir, como ativar). Formato de cada linha: `**Rótulo:** resposta direta`.
+Não use em todas: notícia, análise e curiosidade normalmente ficam sem quadro (variar o formato entre os posts).
+Cada linha precisa estar confirmada no texto e nas fontes.
+
+**Guias** (campo `"guia": true`). Matéria passo a passo que resolve uma tarefa (ex.: como fazer o pré-download, como
+resgatar um código, como mudar o idioma do jogo). Ganha o selo "Guia" e entra na faixa "Guias úteis" da home, que só
+aparece quando houver 4 guias ou mais. Estrutura: o que você precisa antes → passos numerados (um por parágrafo ou
+subtítulo) → seção "Deu erro? Veja o que fazer" com os problemas comuns → fontes. Ficam dentro de Games ou
+Cinema & TV (sem editoria nova). Guias costumam ter o quadro "Em resumo". Incluir de vez em quando nos rascunhos diários,
+sem tomar o lugar das notícias do momento.
+
+**Título honesto.** O título nunca promete o que o texto não entrega: nada de "grátis", "liberado", "vazou",
+"confirmado" ou "de graça" se o texto não confirma exatamente isso. Condição importante vai no próprio título
+(ex.: "com pontos do Microsoft Rewards", "só para assinantes").
