@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Bradbury Building interior', 'Blade Runner spinner', 'Bradbury Building Los Angeles', 'Ennis House', 'Los Angeles night skyline', 'Union Station Los Angeles interior']
+QUERIES = ['Nintendo GameCube console', 'GameCube controller', 'Xbox original console 2001', 'Xbox Duke controller', 'GameCube disc', 'Halo Combat Evolved Xbox']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
