@@ -1,209 +1,326 @@
 [
  {
-  "titulo": "q1",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/hunchback-soul-of-paris-1536x864.webp",
+  "titulo": "pj2",
+  "pagina": "https://d23.com/",
+  "imagem": "https://d23.com/app/uploads/2026/09/00_178538_0602_ebc9a6f4.jpg",
   "dim": [
-   1536,
-   864
+   1920,
+   1080
   ]
  },
  {
-  "titulo": "q2",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/QUASIMODO-21AOUT-4764-1536x1024.webp",
+  "titulo": "pj3",
+  "pagina": "https://d23.com/",
+  "imagem": "https://d23.com/app/uploads/2026/09/01_178558_1734_v1_02acc8c3.jpg",
   "dim": [
-   1536,
-   1024
+   1920,
+   1080
   ]
  },
  {
-  "titulo": "q3",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/cassel-richet-redim.jpg",
+  "titulo": "pj4",
+  "pagina": "https://d23.com/",
+  "imagem": "https://d23.com/app/uploads/2026/09/02_178552_0537_38438daa.jpg",
   "dim": [
-   1343,
-   894
+   1920,
+   1080
   ]
  },
  {
-  "titulo": "q4",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/QUASIMODO-01SEPTEMBRE-7055-1536x1024.webp",
+  "titulo": "pj5",
+  "pagina": "https://d23.com/",
+  "imagem": "https://d23.com/app/uploads/2026/09/03_181030_0021_68dcb97b.jpg",
   "dim": [
-   1536,
-   1024
+   1920,
+   1080
   ]
  },
  {
-  "titulo": "q5",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/hunchback-soul-of-paris-first-look-1536x702.webp",
+  "titulo": "pj6",
+  "pagina": "https://d23.com/",
+  "imagem": "https://d23.com/app/uploads/2026/09/04_178556_1003_v2_111382b3.jpg",
   "dim": [
-   1536,
-   702
+   1920,
+   1080
   ]
  },
  {
-  "titulo": "q6",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/QUASIMODO-21AOUT-3875-1536x1024.webp",
+  "titulo": "pj7",
+  "pagina": "https://d23.com/",
+  "imagem": "https://d23.com/app/uploads/2026/09/IMAGE56.jpg",
   "dim": [
-   1536,
-   1024
+   1920,
+   1080
   ]
  },
  {
-  "titulo": "q7",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/netflixfr-1793376303-4019409697676843747-1459119278.jpg",
+  "titulo": "rk2",
+  "pagina": "https://komonews.com/",
+  "imagem": "https://komonews.com/resources/media2/16x9/1280/800/center/80/fcca5694-d2d8-4264-9abd-3bc9670c35f8-Rocky1.png",
   "dim": [
-   1088,
-   1344
+   800,
+   450
   ]
  },
  {
-  "titulo": "al1",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/Altruistsuniversal-base-na-14-zxx-1-1536x810.jpg",
+  "titulo": "rk3",
+  "pagina": "https://komonews.com/",
+  "imagem": "https://komonews.com/resources/media2/16x9/1176/800/77x0/80/0acf5177-c023-4504-b3dc-4d32eb99726b-Screenshot20260715at10.13.53AM.png",
   "dim": [
-   1536,
+   800,
+   450
+  ]
+ },
+ {
+  "titulo": "rk4",
+  "pagina": "https://komonews.com/",
+  "imagem": "https://komonews.com/resources/media2/16x9/1280/800/center/80/d66c0934-0a34-43b2-970b-fe36e84293b9-Rocky2.png",
+  "dim": [
+   800,
+   450
+  ]
+ },
+ {
+  "titulo": "wow1",
+  "pagina": "https://pixeltwelve.com/",
+  "imagem": "https://pixeltwelve.com/media/sanity/668ce6a42f25c3aa44780d659b1ffb80235ed52d-2560x1440.jpg?w=2560&q=90&fit=max&fm=jpg",
+  "dim": [
+   2560,
+   1440
+  ]
+ },
+ {
+  "titulo": "wow2",
+  "pagina": "https://pixeltwelve.com/",
+  "imagem": "https://pixeltwelve.com/media/sanity/d5f21517d2389a02afaabddaeaef7d86a7013b9f-2560x1440.jpg?w=2560&q=90&fit=max&fm=jpg",
+  "dim": [
+   2560,
+   1440
+  ]
+ },
+ {
+  "titulo": "wow3",
+  "pagina": "https://pixeltwelve.com/",
+  "imagem": "https://pixeltwelve.com/media/sanity/2d3f65bf229ad16fb436843f11c9b9cd9f3bf241-2560x1440.jpg?w=2560&q=90&fit=max&fm=jpg",
+  "dim": [
+   2560,
+   1440
+  ]
+ },
+ {
+  "titulo": "wow4",
+  "pagina": "https://pixeltwelve.com/",
+  "imagem": "https://pixeltwelve.com/media/sanity/48677bc7abe762329eeb31fa01e12e00c1b90947-2560x1440.jpg?w=2560&q=90&fit=max&fm=jpg",
+  "dim": [
+   2560,
+   1440
+  ]
+ },
+ {
+  "titulo": "pk624",
+  "pagina": "https://assets.pokemon.com/",
+  "imagem": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/624.png",
+  "dim": [
+   475,
+   475
+  ]
+ },
+ {
+  "titulo": "pk625",
+  "pagina": "https://assets.pokemon.com/",
+  "imagem": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/625.png",
+  "dim": [
+   475,
+   475
+  ]
+ },
+ {
+  "titulo": "pk983",
+  "pagina": "https://assets.pokemon.com/",
+  "imagem": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/983.png",
+  "dim": [
+   475,
+   475
+  ]
+ },
+ {
+  "titulo": "sm1",
+  "pagina": "https://cdn.theouterhaven.net/",
+  "imagem": "https://cdn.theouterhaven.net/wp-content/uploads/Steam-Machine-2026-image-01.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "sm2",
+  "pagina": "https://cdn.theouterhaven.net/",
+  "imagem": "https://cdn.theouterhaven.net/wp-content/uploads/Steam-Machine-2026-image-02.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "sm3",
+  "pagina": "https://cdn.theouterhaven.net/",
+  "imagem": "https://cdn.theouterhaven.net/wp-content/uploads/Steam-Controller-2026-02.jpg",
+  "dim": [
+   1080,
+   655
+  ]
+ },
+ {
+  "titulo": "sm4",
+  "pagina": "https://cdn.theouterhaven.net/",
+  "imagem": "https://cdn.theouterhaven.net/wp-content/uploads/Steam-Controller-2026-01.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "mt1",
+  "pagina": "https://img-eshop.cdn.nintendo.net/",
+  "imagem": "https://img-eshop.cdn.nintendo.net/i/11f7e695f10f9a38ce6d0aeb04d61d4ad673a906d363ce08e9e7d81e1e192b40.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "mt2",
+  "pagina": "https://img-eshop.cdn.nintendo.net/",
+  "imagem": "https://img-eshop.cdn.nintendo.net/i/89d6bdb9bb3dd1f27502173daa84ca821cc9477d99d45e5e420db649204e983d.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "mt3",
+  "pagina": "https://img-eshop.cdn.nintendo.net/",
+  "imagem": "https://img-eshop.cdn.nintendo.net/i/00feb434632116bcc18650b8c001d59e67a600da0b2924d67323be41f2b1a26e.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "mt4",
+  "pagina": "https://img-eshop.cdn.nintendo.net/",
+  "imagem": "https://img-eshop.cdn.nintendo.net/i/da7854eacad2b4dba85d82d40c291d345af82331b80f342d2ad2cd9b60865048.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "mt5",
+  "pagina": "https://img-eshop.cdn.nintendo.net/",
+  "imagem": "https://img-eshop.cdn.nintendo.net/i/48791a9d8fe67eb8bdf394103b926cf3d46030ad36e60eae55209ffdb27a7953.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "mt6",
+  "pagina": "https://img-eshop.cdn.nintendo.net/",
+  "imagem": "https://img-eshop.cdn.nintendo.net/i/be982b76395464a3817c3cb018eacc51668783661ce86e8e6838ab892dab9912.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "mt7",
+  "pagina": "https://img-eshop.cdn.nintendo.net/",
+  "imagem": "https://img-eshop.cdn.nintendo.net/i/f498db9ce9262e43c8906e9300942b36e767d1d2c3efe59f6e8ba0688ea7d982.jpg",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "fm1",
+  "pagina": "https://techprincess.it/",
+  "imagem": "https://techprincess.it/wp-content/uploads/2026/09/Football-manager-27-novita.webp",
+  "dim": [
+   1200,
+   675
+  ]
+ },
+ {
+  "titulo": "fm2",
+  "pagina": "https://techprincess.it/",
+  "imagem": "https://techprincess.it/wp-content/uploads/2026/09/scorciatorie-Football-manager-27.webp",
+  "dim": [
+   1200,
+   675
+  ]
+ },
+ {
+  "titulo": "ps1",
+  "pagina": "https://blog.playstation.com/",
+  "imagem": "https://blog.playstation.com/tachyon/2023/10/cd56722db7b991b3d7a33f1bafd55f80d0ac553d.png",
+  "dim": [
+   1920,
+   1080
+  ]
+ },
+ {
+  "titulo": "ps2",
+  "pagina": "https://live.staticflickr.com/",
+  "imagem": "https://live.staticflickr.com/65535/53247620407_f38d38045a_h.jpg",
+  "dim": [
+   1600,
+   1067
+  ]
+ },
+ {
+  "titulo": "ps3",
+  "pagina": "https://live.staticflickr.com/",
+  "imagem": "https://live.staticflickr.com/65535/53248858359_949d3ced6c_h.jpg",
+  "dim": [
+   1600,
+   1067
+  ]
+ },
+ {
+  "titulo": "ps4",
+  "pagina": "https://live.staticflickr.com/",
+  "imagem": "https://live.staticflickr.com/65535/53247620392_435cd6d96e_h.jpg",
+  "dim": [
+   1600,
+   1067
+  ]
+ },
+ {
+  "titulo": "ps5",
+  "pagina": "https://live.staticflickr.com/",
+  "imagem": "https://live.staticflickr.com/65535/53248997995_5b8fa1120f_h.jpg",
+  "dim": [
+   1600,
+   1067
+  ]
+ },
+ {
+  "titulo": "xb1",
+  "pagina": "https://developer.microsoft.com/",
+  "imagem": "https://developer.microsoft.com/content/dam/microsoftgamedev/blogs/images/header/2026/11/amd-fsr-upscaling-4-is-now-available-for-xbox-A---Featured-Hero-Tile-share-20261104-2310-XDCR-9AE86508.gif",
+  "dim": [
+   1440,
    810
   ]
  },
  {
-  "titulo": "al2",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-101-251208-RH-00583-RC-1536x1024.jpg",
+  "titulo": "xb2",
+  "pagina": "https://developer.microsoft.com/",
+  "imagem": "https://developer.microsoft.com/content/dam/microsoftgamedev/blogs/images/header/2026/11/amd-fsr-upscaling-4-is-now-available-for-xbox-figure-1.jpg",
   "dim": [
-   1536,
-   1024
-  ]
- },
- {
-  "titulo": "al3",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/The-Altruists-n-S1-E6-00-14-12-21-R-1536x638.jpg",
-  "dim": [
-   1536,
-   638
-  ]
- },
- {
-  "titulo": "al4",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-103-250721-RH-00115-RC2-1536x1024.jpg",
-  "dim": [
-   1536,
-   1024
-  ]
- },
- {
-  "titulo": "al5",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-107-251209-RH-00878-R-1536x1024.jpg",
-  "dim": [
-   1536,
-   1024
-  ]
- },
- {
-  "titulo": "al6",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/The-Altruists-n-S1-E2-00-17-50-02-C-1536x1024.jpg",
-  "dim": [
-   1536,
-   1024
-  ]
- },
- {
-  "titulo": "al7",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/The-Altruists-n-S1-E1-00-51-02-16-R2-1536x714.jpg",
-  "dim": [
-   1536,
-   714
-  ]
- },
- {
-  "titulo": "al8",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-101-250703-RH-00008-RC2-1536x1024.jpg",
-  "dim": [
-   1536,
-   1024
-  ]
- },
- {
-  "titulo": "al9",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-101-250713-EA-00244-R-1536x1024.jpg",
-  "dim": [
-   1536,
-   1024
-  ]
- },
- {
-  "titulo": "br1",
-  "pagina": "https://bleedingcool.com/",
-  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnM2mXQAAZU1g.jpg",
-  "dim": [
-   1745,
-   1163
-  ]
- },
- {
-  "titulo": "br2",
-  "pagina": "https://bleedingcool.com/",
-  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnObUXsAAqfsz.jpg",
-  "dim": [
-   1745,
-   1163
-  ]
- },
- {
-  "titulo": "br3",
-  "pagina": "https://bleedingcool.com/",
-  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnP_iWgAE5WSE.jpg",
-  "dim": [
-   1745,
-   1163
-  ]
- },
- {
-  "titulo": "br4",
-  "pagina": "https://bleedingcool.com/",
-  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnRktWYAEFtLb.jpg",
-  "dim": [
-   1745,
-   1163
-  ]
- },
- {
-  "titulo": "br5",
-  "pagina": "https://bleedingcool.com/",
-  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnS2DXYAAP2Hn.jpg",
-  "dim": [
-   2000,
-   1333
-  ]
- },
- {
-  "titulo": "rk1",
-  "pagina": "https://cinemadailyus.com/",
-  "imagem": "https://cinemadailyus.com/wp-content/uploads/2025/11/I-play-Rocky-Anthony-Ippolito.webp",
-  "dim": [
-   1000,
-   667
-  ]
- },
- {
-  "titulo": "pj1",
-  "pagina": "https://www.comicbasics.com/",
-  "imagem": "https://www.comicbasics.com/wp-content/uploads/2026/07/PERCY-JACKSON-AND-THE-OLYMPIANS.webp",
-  "dim": [
-   1200,
-   675
+   1600,
+   900
   ]
  }
 ]
