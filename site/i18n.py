@@ -101,7 +101,7 @@ UI = {
         "Aceitar": "Accept",
         "Recusar": "Decline",
         "Leia esta página em português (idioma original)": "Read this page in Portuguese (original language)",
-        "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Este artículo fue escrito en portugués y adaptado al español.",
+        "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "This article was written in Portuguese and adapted into English.",
         "Esta página também existe em": "This page is also available in",
         "Original em português": "Original in Portuguese",
     },
@@ -170,7 +170,7 @@ UI = {
         "Aceitar": "Aceptar",
         "Recusar": "Rechazar",
         "Leia esta página em português (idioma original)": "Lee esta página en portugués (idioma original)",
-        "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Este artículo fue escrito en portugués y adaptado al español por el equipo.",
+        "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Este artículo fue escrito en portugués y adaptado al español.",
         "Esta página também existe em": "Esta página también está disponible en",
         "Original em português": "Original en portugués",
     },
@@ -184,7 +184,7 @@ PAGINAS = {"en": {}, "es": {}}
 PAGINAS["en"]["sobre.html"] = ("About us", "Who is behind ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS is a Brazilian news site for people who want to understand what is going on without the noise. Our focus is movies, games and technology: premieres, releases and what is trending, with the facts checked.</p>
 <p>The site was created and is edited by <a href="equipe.html">João Gabriel</a>, a website and digital content creator.</p>
-<p>We write in Portuguese first. This English edition is adapted by our team for readers outside Brazil, so you will see Brazilian dates and release details explained where they matter.</p>
+<p>We write in Portuguese first. This English edition is adapted for readers outside Brazil, so you will see Brazilian dates and release details explained where they matter.</p>
 <h2>How we work</h2>
 <p>Every article cites its sources, separates fact from opinion and is openly corrected when we get something wrong. The details are in our <a href="politica-editorial.html">editorial policy</a>.</p>
 <h2>The name</h2>
@@ -195,7 +195,7 @@ PAGINAS["en"]["sobre.html"] = ("About us", "Who is behind ALOHA NOTÍCIAS.", """
 PAGINAS["es"]["sobre.html"] = ("Quiénes somos", "Quién está detrás de ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS es un sitio de noticias de Brasil para quienes quieren entender lo que pasa sin ruido. Nos centramos en cine, juegos y tecnología: estrenos, lanzamientos y lo que está en tendencia, con los datos verificados.</p>
 <p>El sitio fue creado y lo edita <a href="equipe.html">João Gabriel</a>, creador de sitios web y de contenido digital.</p>
-<p>Escribimos primero en portugués. Esta edición en español la adapta nuestro equipo para lectores de fuera de Brasil, y por eso explicamos las fechas y los detalles de estreno brasileños cuando importan.</p>
+<p>Escribimos primero en portugués. Esta edición en español está adaptada para lectores de fuera de Brasil, y por eso explicamos las fechas y los detalles de estreno brasileños cuando importan.</p>
 <h2>Cómo trabajamos</h2>
 <p>Cada artículo cita sus fuentes, separa los hechos de la opinión y se corrige a la vista de todos cuando nos equivocamos. Los detalles están en nuestra <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>El nombre</h2>
@@ -220,7 +220,7 @@ PAGINAS["en"]["politica-editorial.html"] = ("Editorial and corrections policy", 
 <h2>Independence</h2>
 <p>Our editorial content is independent. Ads, when they exist, are kept apart from the text and do not influence what we publish. If an article involves sponsorship or a partnership, we will say so clearly.</p>
 <h2>Translations</h2>
-<p>Portuguese is our original language. The English and Spanish editions are adapted by our team, not translated word for word, and may leave out details that only matter to a Brazilian audience. If the two versions differ, the Portuguese original prevails.</p>""")
+<p>Portuguese is our original language. The English and Spanish editions are adapted, not translated word for word, and may leave out details that only matter to a Brazilian audience. If the two versions differ, the Portuguese original prevails.</p>""")
 
 PAGINAS["es"]["politica-editorial.html"] = ("Política editorial y de correcciones", "Cómo ALOHA NOTÍCIAS investiga, escribe, ilustra y corrige sus artículos.", """
 <p>Esta página explica, en lenguaje sencillo, cómo se hace el contenido de ALOHA NOTÍCIAS. Si algo de esto no se cumple, queremos saberlo.</p>
@@ -239,7 +239,7 @@ PAGINAS["es"]["politica-editorial.html"] = ("Política editorial y de correccion
 <h2>Independencia</h2>
 <p>El contenido editorial es independiente. Los anuncios, cuando existan, van separados del texto y no influyen en lo que publicamos. Si un artículo tiene patrocinio o una alianza, lo diremos con claridad.</p>
 <h2>Traducciones</h2>
-<p>El portugués es nuestro idioma original. Las ediciones en inglés y en español las adapta nuestro equipo, no se traducen palabra por palabra, y pueden omitir detalles que solo importan al público brasileño. Si las versiones difieren, prevalece el original en portugués.</p>""")
+<p>El portugués es nuestro idioma original. Las ediciones en inglés y en español están adaptadas, no se traducen palabra por palabra, y pueden omitir detalles que solo importan al público brasileño. Si las versiones difieren, prevalece el original en portugués.</p>""")
 
 PAGINAS["en"]["equipe.html"] = ('João Gabriel', 'Who creates, writes and edits ALOHA NOTÍCIAS.', """
 <p><strong>João Gabriel</strong> is 21, Brazilian, a website creator and a digital content creator across platforms. He created ALOHA NOTÍCIAS and signs, reviews and approves every article published here.</p>
@@ -267,7 +267,7 @@ PAGINAS["es"]["equipe.html"] = ('João Gabriel', 'Quién crea, escribe y edita A
 <h2>Contacto</h2>
 <p>Pistas, correcciones y alianzas: <a href="contato.html">página de contacto</a>.</p>""")
 
-PAGINAS["en"]["contato.html"] = ("Contact and advertising", "Get in touch with the ALOHA NOTÍCIAS newsroom.", """
+PAGINAS["en"]["contato.html"] = ("Contact and advertising", "Get in touch with ALOHA NOTÍCIAS.", """
 <p>Email us at <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. To speed things up, put the reason in the subject line. We read English, Spanish and Portuguese.</p>
 <h2>Story tips</h2><p>Saw something worth an article? Send the topic and, if you have it, a link to the source.</p>
 <h2>Corrections</h2><p>Found a mistake? Send the article address and what is wrong, with a source if possible. See how we handle corrections in the <a href="politica-editorial.html">editorial policy</a>.</p>
@@ -275,7 +275,7 @@ PAGINAS["en"]["contato.html"] = ("Contact and advertising", "Get in touch with t
 <h2>Advertising and partnerships</h2><p>To advertise or propose a partnership, write to the same address. Sponsored content will always be labeled as such.</p>
 <h2>Privacy</h2><p>Requests about personal data follow what is in the <a href="privacidade.html">privacy policy</a>.</p>""")
 
-PAGINAS["es"]["contato.html"] = ("Contacto y publicidad", "Habla con la redacción de ALOHA NOTÍCIAS.", """
+PAGINAS["es"]["contato.html"] = ("Contacto y publicidad", "Habla con ALOHA NOTÍCIAS.", """
 <p>Escríbenos a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Para agilizar, pon el motivo en el asunto. Leemos español, inglés y portugués.</p>
 <h2>Sugerencias de temas</h2><p>¿Viste algo que merece un artículo? Envía el tema y, si lo tienes, el enlace de la fuente.</p>
 <h2>Correcciones</h2><p>¿Encontraste un error? Envía la dirección del artículo y qué está mal, con la fuente si es posible. Mira cómo tratamos las correcciones en la <a href="politica-editorial.html">política editorial</a>.</p>

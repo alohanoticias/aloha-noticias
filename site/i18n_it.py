@@ -88,7 +88,7 @@ PAG = {}
 PAG["sobre.html"] = ("Chi siamo", "Chi c'è dietro ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS è un sito di notizie brasiliano per chi vuole capire cosa succede senza il rumore di fondo. Ci concentriamo su cinema, videogiochi e tecnologia: anteprime, uscite e temi del momento, con i fatti verificati.</p>
 <p>Il sito è stato creato ed è diretto da <a href="equipe.html">João Gabriel</a>, creatore di siti web e di contenuti digitali.</p>
-<p>Scriviamo prima in portoghese. Questa edizione italiana è adattata dalla nostra redazione per i lettori fuori dal Brasile, perciò spieghiamo le date e i dettagli di uscita brasiliani dove servono.</p>
+<p>Scriviamo prima in portoghese. Questa edizione italiana è adattata per i lettori fuori dal Brasile, perciò spieghiamo le date e i dettagli di uscita brasiliani dove servono.</p>
 <h2>Come lavoriamo</h2>
 <p>Ogni articolo cita le proprie fonti, distingue i fatti dalle opinioni e viene corretto apertamente quando sbagliamo. I dettagli sono nella nostra <a href="politica-editorial.html">linea editoriale</a>.</p>
 <h2>Il nome</h2>
@@ -112,7 +112,7 @@ PAG["politica-editorial.html"] = ("Linea editoriale e correzioni", "Come ALOHA N
 <h2>Indipendenza</h2>
 <p>I nostri contenuti editoriali sono indipendenti. Gli annunci, quando ci sono, sono separati dal testo e non influenzano ciò che pubblichiamo. Se un articolo prevede una sponsorizzazione o una collaborazione, lo diremo chiaramente.</p>
 <h2>Traduzioni</h2>
-<p>Il portoghese è la nostra lingua originale. Le edizioni nelle altre lingue sono adattate dalla nostra redazione, non tradotte parola per parola, e possono omettere dettagli che interessano solo il pubblico brasiliano. Se le versioni differiscono, prevale l'originale in portoghese.</p>""")
+<p>Il portoghese è la nostra lingua originale. Le edizioni nelle altre lingue sono adattate, non tradotte parola per parola, e possono omettere dettagli che interessano solo il pubblico brasiliano. Se le versioni differiscono, prevale l'originale in portoghese.</p>""")
 PAG["equipe.html"] = ('João Gabriel', 'Chi crea, scrive e dirige ALOHA NOTÍCIAS.', """
 <p><strong>João Gabriel</strong> ha 21 anni, è brasiliano, creatore di siti web e creatore di contenuti digitali sulle piattaforme. Ha creato ALOHA NOTÍCIAS e firma, rivede e approva tutti gli articoli pubblicati qui.</p>
 <h2>Il sito</h2>
@@ -125,7 +125,7 @@ PAG["equipe.html"] = ('João Gabriel', 'Chi crea, scrive e dirige ALOHA NOTÍCIA
 <p>I fatti vengono confermati in più di una fonte, le fonti compaiono alla fine di ogni articolo e gli errori vengono corretti apertamente. Leggi la <a href="politica-editorial.html">linea editoriale</a>.</p>
 <h2>Contatti</h2>
 <p>Segnalazioni, correzioni e collaborazioni: <a href="contato.html">pagina dei contatti</a>.</p>""")
-PAG["contato.html"] = ("Contatti e pubblicità", "Contatta la redazione di ALOHA NOTÍCIAS.", """
+PAG["contato.html"] = ("Contatti e pubblicità", "Contatta ALOHA NOTÍCIAS.", """
 <p>Scrivici a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Per fare prima, indica il motivo nell'oggetto. Leggiamo italiano, inglese, spagnolo e portoghese.</p>
 <h2>Suggerimenti di argomenti</h2><p>Hai visto qualcosa che merita un articolo? Invia l'argomento e, se ce l'hai, il link alla fonte.</p>
 <h2>Correzioni</h2><p>Hai trovato un errore? Invia l'indirizzo dell'articolo e ciò che è sbagliato, possibilmente con una fonte. Vedi come gestiamo le correzioni nella <a href="politica-editorial.html">linea editoriale</a>.</p>

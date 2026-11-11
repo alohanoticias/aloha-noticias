@@ -88,7 +88,7 @@ PAG = {}
 PAG["sobre.html"] = ("Über uns", "Wer hinter ALOHA NOTÍCIAS steht.", """
 <p>ALOHA NOTÍCIAS ist eine brasilianische Nachrichtenseite für Menschen, die verstehen wollen, was passiert, ohne das Rauschen. Unser Schwerpunkt sind Kino, Games und Technik: Premieren, Neuerscheinungen und aktuelle Themen, mit geprüften Fakten.</p>
 <p>Die Website wurde von <a href="equipe.html">João Gabriel</a> gegründet, der sie auch herausgibt; er erstellt Websites und digitale Inhalte.</p>
-<p>Wir schreiben zuerst auf Portugiesisch. Diese deutsche Ausgabe wird von unserem Team für Leserinnen und Leser außerhalb Brasiliens adaptiert; deshalb erklären wir brasilianische Termine und Erscheinungsdetails dort, wo es darauf ankommt.</p>
+<p>Wir schreiben zuerst auf Portugiesisch. Diese deutsche Ausgabe wird für Leserinnen und Leser außerhalb Brasiliens adaptiert; deshalb erklären wir brasilianische Termine und Erscheinungsdetails dort, wo es darauf ankommt.</p>
 <h2>Wie wir arbeiten</h2>
 <p>Jeder Beitrag nennt seine Quellen, trennt Fakten von Meinung und wird offen korrigiert, wenn wir uns irren. Die Einzelheiten stehen in unseren <a href="politica-editorial.html">redaktionellen Richtlinien</a>.</p>
 <h2>Der Name</h2>
@@ -112,7 +112,7 @@ PAG["politica-editorial.html"] = ("Redaktionelle Richtlinien und Korrekturen", "
 <h2>Unabhängigkeit</h2>
 <p>Unsere redaktionellen Inhalte sind unabhängig. Anzeigen, sofern es sie gibt, sind vom Text getrennt und beeinflussen nicht, was wir veröffentlichen. Wenn ein Beitrag Sponsoring oder eine Kooperation betrifft, sagen wir das deutlich.</p>
 <h2>Übersetzungen</h2>
-<p>Portugiesisch ist unsere Originalsprache. Die Ausgaben in anderen Sprachen werden von unserem Team adaptiert, nicht wörtlich übersetzt, und lassen gegebenenfalls Details weg, die nur für ein brasilianisches Publikum wichtig sind. Weichen die Versionen voneinander ab, gilt das portugiesische Original.</p>""")
+<p>Portugiesisch ist unsere Originalsprache. Die Ausgaben in anderen Sprachen werden adaptiert, nicht wörtlich übersetzt, und lassen gegebenenfalls Details weg, die nur für ein brasilianisches Publikum wichtig sind. Weichen die Versionen voneinander ab, gilt das portugiesische Original.</p>""")
 PAG["equipe.html"] = ('João Gabriel', 'Wer ALOHA NOTÍCIAS gründet, schreibt und herausgibt.', """
 <p><strong>João Gabriel</strong> ist 21 Jahre alt, Brasilianer, Website-Ersteller und Ersteller digitaler Inhalte auf verschiedenen Plattformen. Er hat ALOHA NOTÍCIAS gegründet und zeichnet, prüft und gibt alle hier veröffentlichten Beiträge frei.</p>
 <h2>Die Website</h2>
@@ -125,7 +125,7 @@ PAG["equipe.html"] = ('João Gabriel', 'Wer ALOHA NOTÍCIAS gründet, schreibt u
 <p>Fakten werden in mehr als einer Quelle bestätigt, die Quellen stehen am Ende jedes Beitrags und Fehler werden offen korrigiert. Siehe die <a href="politica-editorial.html">redaktionellen Richtlinien</a>.</p>
 <h2>Kontakt</h2>
 <p>Themenvorschläge, Korrekturen und Kooperationen: <a href="contato.html">Kontaktseite</a>.</p>""")
-PAG["contato.html"] = ("Kontakt und Werbung", "Nehmen Sie Kontakt zur Redaktion von ALOHA NOTÍCIAS auf.", """
+PAG["contato.html"] = ("Kontakt und Werbung", "Nehmen Sie Kontakt mit ALOHA NOTÍCIAS auf.", """
 <p>Schreiben Sie uns an <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Damit es schneller geht, nennen Sie den Anlass im Betreff. Wir lesen Deutsch, Englisch, Spanisch und Portugiesisch.</p>
 <h2>Themenvorschläge</h2><p>Haben Sie etwas gesehen, das einen Beitrag wert ist? Schicken Sie uns das Thema und, falls vorhanden, einen Link zur Quelle.</p>
 <h2>Korrekturen</h2><p>Einen Fehler gefunden? Senden Sie uns die Adresse des Beitrags und was falsch ist, möglichst mit Quelle. Wie wir mit Korrekturen umgehen, steht in den <a href="politica-editorial.html">redaktionellen Richtlinien</a>.</p>

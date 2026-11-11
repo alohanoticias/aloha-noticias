@@ -760,7 +760,7 @@ def painel_pagina(titulo, ativo, lede, conteudo, acao_topo=""):
 <a href="/" target="_blank" rel="noopener"><span aria-hidden="true">⌂</span> Ver o site</a>
 <a href="https://github.com/{REPO}/actions" target="_blank" rel="noopener"><span aria-hidden="true">⚙</span> Automações</a>
 </nav>
-<div class="p-rodape-lado">Equipe Aloha · acesso restrito</div>
+<div class="p-rodape-lado">ALOHA NOTÍCIAS · acesso restrito</div>
 </aside>
 <div class="p-main">
 <header class="p-topo"><button class="p-menu" type="button" aria-label="Abrir menu">☰</button>
@@ -1169,7 +1169,7 @@ def montar_arquivos():
                  f'<div class="wrap editoria-corpo"><ul class="lista-simples" style="max-width:820px">{itens}</ul></div>')
         arquivos[url_tag(tg)] = pagina(tg, f"{t('Matérias da ALOHA NOTÍCIAS sobre')} {tg}.", "", corpo,
                                        extra_head=NOINDEX if len(lista) < MIN_MATERIAS_TAG else "")
-    arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a redação da ALOHA NOTÍCIAS.", """
+    arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a ALOHA NOTÍCIAS.", """
 <p>Fale com a gente pelo e-mail <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Para agilizar, coloque no assunto o motivo do contato:</p>
 <h2>Sugestão de pauta</h2><p>Viu algo que merece uma matéria? Mande o assunto e, se tiver, o link da fonte.</p>
 <h2>Correções</h2><p>Encontrou um erro? Envie o endereço da matéria e o que está incorreto, com a fonte, se possível. Veja como tratamos correções na <a href="politica-editorial.html">política editorial</a>.</p>
