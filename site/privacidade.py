@@ -15,7 +15,7 @@ MUDANCA = {}
 
 # ------------------------------------------------------------------ português (versão de referência)
 PRIV["pt"] = ("Política de privacidade", "Como a ALOHA NOTÍCIAS trata os dados de quem visita o site.", """
-<p>Última atualização: 9 de novembro de 2026. Esta página explica, sem juridiquês, quais dados são tratados quando você visita o ALOHA NOTÍCIAS (alohanoticias.com), para quê e como você controla isso. Seguimos a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018).</p>
+<p>Última atualização: 11 de novembro de 2026. Esta página explica, sem juridiquês, quais dados são tratados quando você visita o ALOHA NOTÍCIAS (alohanoticias.com), para quê e como você controla isso. Seguimos a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018).</p>
 <h2>Quem é o responsável</h2>
 <p>O responsável pelo tratamento dos dados descritos aqui é o ALOHA NOTÍCIAS. Para qualquer assunto de privacidade, escreva para <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>O que não coletamos</h2>
@@ -45,13 +45,14 @@ PRIV["pt"] = ("Política de privacidade", "Como a ALOHA NOTÍCIAS trata os dados
 <p>Quando algo mudar no funcionamento do site, atualizamos esta página e a data no topo.@@MUDANCA@@</p>""")
 ANUNCIOS["pt"] = """<h2>Anúncios (Google AdSense)</h2>
 <p>O site exibe anúncios do Google AdSense, que mantêm o conteúdo gratuito. O Google e seus parceiros podem usar cookies e identificadores do aparelho para mostrar anúncios, inclusive personalizados, limitar repetições e medir resultados. Os anúncios só carregam depois do &ldquo;Aceitar&rdquo; no aviso de cookies; se você recusar, o site funciona normalmente, sem anúncios. Para visitantes do Espaço Econômico Europeu, do Reino Unido e da Suíça, o consentimento é pedido por uma plataforma de gestão de consentimento certificada pelo Google. Você pode mudar a sua escolha em &ldquo;Preferências de cookies&rdquo;, no rodapé, e gerenciar a personalização em <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>. Saiba como o Google usa esses dados em <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+<p>Fornecedores terceiros, incluindo o Google, usam cookies para veicular anúncios com base nas visitas anteriores do usuário a este site ou a outros sites. O uso de cookies de publicidade, como o cookie DoubleClick, permite que o Google e seus parceiros veiculem anúncios com base nas visitas feitas a este e a outros sites na internet. Você pode desativar a publicidade personalizada nas <a href="https://adssettings.google.com" rel="noopener">Configurações de anúncios do Google</a>. Também é possível desativar o uso de cookies de outros fornecedores para publicidade personalizada em <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a>.</p>
 """
 SEMADS["pt"] = " Hoje o site não exibe anúncios e não usa cookies de publicidade."
 MUDANCA["pt"] = " Antes de passarmos a exibir anúncios, esta política será atualizada para explicar como eles funcionam."
 
 # ------------------------------------------------------------------ English
 PRIV["en"] = ("Privacy policy", "How ALOHA NOTÍCIAS handles the data of people who visit the site.", """
-<p>Last updated: November 9, 2026. This page explains, in plain words, what data is processed when you visit ALOHA NOTÍCIAS (alohanoticias.com), why, and how you control it. We follow Brazil's General Data Protection Law (LGPD, Law 13,709/2018).</p>
+<p>Last updated: November 11, 2026. This page explains, in plain words, what data is processed when you visit ALOHA NOTÍCIAS (alohanoticias.com), why, and how you control it. We follow Brazil's General Data Protection Law (LGPD, Law 13,709/2018).</p>
 <h2>Who is responsible</h2>
 <p>ALOHA NOTÍCIAS is responsible for the data processing described here. For any privacy matter, write to <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>What we don't collect</h2>
@@ -81,13 +82,14 @@ PRIV["en"] = ("Privacy policy", "How ALOHA NOTÍCIAS handles the data of people 
 <p>When something changes in how the site works, we update this page and the date at the top.@@MUDANCA@@ The Portuguese version prevails if there is any difference.</p>""")
 ANUNCIOS["en"] = """<h2>Ads (Google AdSense)</h2>
 <p>The site shows Google AdSense ads, which keep the content free. Google and its partners may use cookies and device identifiers to show ads, including personalized ones, cap how often they repeat and measure results. Ads only load after you click &ldquo;Accept&rdquo; in the cookie notice; if you decline, the site works normally without ads. For visitors in the European Economic Area, the UK and Switzerland, consent is requested through a Google-certified consent management platform. You can change your choice under &ldquo;Cookie preferences&rdquo; in the footer and manage personalization at <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>. See how Google uses this data at <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+<p>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies, such as the DoubleClick cookie, enables it and its partners to serve ads based on visits to this site and/or other sites on the Internet. You may opt out of personalized advertising in <a href="https://adssettings.google.com" rel="noopener">Google Ads Settings</a>. You can also opt out of a third-party vendor's use of cookies for personalized advertising at <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a>.</p>
 """
 SEMADS["en"] = " The site currently shows no ads and uses no advertising cookies."
 MUDANCA["en"] = " Before we start showing ads, this policy will be updated to explain how they work."
 
 # ------------------------------------------------------------------ Español
 PRIV["es"] = ("Política de privacidad", "Cómo ALOHA NOTÍCIAS trata los datos de quienes visitan el sitio.", """
-<p>Última actualización: 9 de noviembre de 2026. Esta página explica, sin tecnicismos, qué datos se tratan cuando visitas ALOHA NOTÍCIAS (alohanoticias.com), para qué y cómo puedes controlarlo. Cumplimos la Ley General de Protección de Datos de Brasil (LGPD, Ley 13.709/2018).</p>
+<p>Última actualización: 11 de noviembre de 2026. Esta página explica, sin tecnicismos, qué datos se tratan cuando visitas ALOHA NOTÍCIAS (alohanoticias.com), para qué y cómo puedes controlarlo. Cumplimos la Ley General de Protección de Datos de Brasil (LGPD, Ley 13.709/2018).</p>
 <h2>Quién es el responsable</h2>
 <p>ALOHA NOTÍCIAS es el responsable del tratamiento de los datos descritos aquí. Para cualquier asunto de privacidad, escribe a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Lo que no recopilamos</h2>
@@ -117,13 +119,14 @@ PRIV["es"] = ("Política de privacidad", "Cómo ALOHA NOTÍCIAS trata los datos 
 <p>Cuando algo cambie en el funcionamiento del sitio, actualizaremos esta página y la fecha de arriba.@@MUDANCA@@ Si hay diferencias, prevalece la versión en portugués.</p>""")
 ANUNCIOS["es"] = """<h2>Publicidad (Google AdSense)</h2>
 <p>El sitio muestra anuncios de Google AdSense, que mantienen el contenido gratuito. Google y sus socios pueden usar cookies e identificadores del dispositivo para mostrar anuncios, también personalizados, limitar repeticiones y medir resultados. Los anuncios solo se cargan después de &ldquo;Aceptar&rdquo; en el aviso de cookies; si rechazas, el sitio funciona con normalidad y sin anuncios. Para visitantes del Espacio Económico Europeo, el Reino Unido y Suiza, el consentimiento se solicita mediante una plataforma de gestión del consentimiento certificada por Google. Puedes cambiar tu elección en &ldquo;Preferencias de cookies&rdquo;, en el pie de página, y gestionar la personalización en <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>. Más información en <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+<p>Proveedores externos, incluido Google, usan cookies para mostrar anuncios basados en las visitas anteriores del usuario a este sitio o a otros sitios. El uso de cookies publicitarias, como la cookie de DoubleClick, permite a Google y a sus socios mostrar anuncios basados en las visitas a este y a otros sitios de internet. Puedes desactivar la publicidad personalizada en la <a href="https://adssettings.google.com" rel="noopener">Configuración de anuncios de Google</a>. También puedes desactivar el uso de cookies de otros proveedores para publicidad personalizada en <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a>.</p>
 """
 SEMADS["es"] = " Hoy el sitio no muestra anuncios ni usa cookies publicitarias."
 MUDANCA["es"] = " Antes de empezar a mostrar anuncios, actualizaremos esta política para explicar cómo funcionan."
 
 # ------------------------------------------------------------------ Français
 PRIV["fr"] = ("Politique de confidentialité", "Comment ALOHA NOTÍCIAS traite les données des visiteurs du site.", """
-<p>Dernière mise à jour : 9 novembre 2026. Cette page explique simplement quelles données sont traitées lorsque vous visitez ALOHA NOTÍCIAS (alohanoticias.com), dans quel but et comment vous gardez la main. Nous appliquons la loi brésilienne de protection des données (LGPD, loi 13.709/2018).</p>
+<p>Dernière mise à jour : 11 novembre 2026. Cette page explique simplement quelles données sont traitées lorsque vous visitez ALOHA NOTÍCIAS (alohanoticias.com), dans quel but et comment vous gardez la main. Nous appliquons la loi brésilienne de protection des données (LGPD, loi 13.709/2018).</p>
 <h2>Responsable du traitement</h2>
 <p>ALOHA NOTÍCIAS est responsable des traitements décrits ici. Pour toute question de confidentialité, écrivez à <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Ce que nous ne collectons pas</h2>
@@ -153,13 +156,14 @@ PRIV["fr"] = ("Politique de confidentialité", "Comment ALOHA NOTÍCIAS traite l
 <p>Quand le fonctionnement du site change, nous mettons à jour cette page et la date ci-dessus.@@MUDANCA@@ En cas de différence, la version portugaise fait foi.</p>""")
 ANUNCIOS["fr"] = """<h2>Publicité (Google AdSense)</h2>
 <p>Le site affiche des annonces Google AdSense, qui permettent de garder le contenu gratuit. Google et ses partenaires peuvent utiliser des cookies et des identifiants d'appareil pour afficher des annonces, y compris personnalisées, limiter leur répétition et mesurer leurs résultats. Les annonces ne se chargent qu'après «&nbsp;Accepter&nbsp;» ; si vous refusez, le site fonctionne normalement, sans publicité. Pour les visiteurs de l'Espace économique européen, du Royaume-Uni et de la Suisse, le consentement est recueilli par une plateforme de gestion du consentement certifiée par Google. Vous pouvez changer d'avis via «&nbsp;Préférences de cookies&nbsp;» et gérer la personnalisation sur <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>. Détails sur <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+<p>Des fournisseurs tiers, dont Google, utilisent des cookies pour diffuser des annonces en fonction des visites antérieures de l'utilisateur sur ce site ou sur d'autres sites. Les cookies publicitaires, comme le cookie DoubleClick, permettent à Google et à ses partenaires de diffuser des annonces en fonction des visites sur ce site et sur d'autres sites Internet. Vous pouvez désactiver la publicité personnalisée dans les <a href="https://adssettings.google.com" rel="noopener">Paramètres des annonces Google</a>. Vous pouvez aussi désactiver l'utilisation de cookies par d'autres fournisseurs pour la publicité personnalisée sur <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a>.</p>
 """
 SEMADS["fr"] = " Aujourd'hui, le site n'affiche pas de publicité et n'utilise pas de cookies publicitaires."
 MUDANCA["fr"] = " Avant d'afficher des publicités, nous mettrons cette politique à jour pour expliquer leur fonctionnement."
 
 # ------------------------------------------------------------------ Deutsch
 PRIV["de"] = ("Datenschutzerklärung", "Wie ALOHA NOTÍCIAS mit den Daten der Besucherinnen und Besucher umgeht.", """
-<p>Stand: 9. November 2026. Diese Seite erklärt verständlich, welche Daten verarbeitet werden, wenn Sie ALOHA NOTÍCIAS (alohanoticias.com) besuchen, wozu und wie Sie das steuern. Wir richten uns nach dem brasilianischen Datenschutzgesetz (LGPD, Gesetz 13.709/2018).</p>
+<p>Stand: 11. November 2026. Diese Seite erklärt verständlich, welche Daten verarbeitet werden, wenn Sie ALOHA NOTÍCIAS (alohanoticias.com) besuchen, wozu und wie Sie das steuern. Wir richten uns nach dem brasilianischen Datenschutzgesetz (LGPD, Gesetz 13.709/2018).</p>
 <h2>Verantwortlicher</h2>
 <p>Verantwortlich für die hier beschriebene Verarbeitung ist ALOHA NOTÍCIAS. Bei Fragen zum Datenschutz schreiben Sie an <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Was wir nicht erheben</h2>
@@ -189,13 +193,14 @@ PRIV["de"] = ("Datenschutzerklärung", "Wie ALOHA NOTÍCIAS mit den Daten der Be
 <p>Wenn sich an der Funktionsweise der Website etwas ändert, aktualisieren wir diese Seite und das Datum oben.@@MUDANCA@@ Bei Abweichungen gilt die portugiesische Fassung.</p>""")
 ANUNCIOS["de"] = """<h2>Werbung (Google AdSense)</h2>
 <p>Die Website zeigt Anzeigen von Google AdSense, die das Angebot kostenlos halten. Google und seine Partner können Cookies und Gerätekennungen nutzen, um Anzeigen auszuliefern, auch personalisierte, Wiederholungen zu begrenzen und Ergebnisse zu messen. Anzeigen werden erst nach &bdquo;Akzeptieren&ldquo; geladen; wenn Sie ablehnen, funktioniert die Website normal ohne Werbung. Für Besucher aus dem Europäischen Wirtschaftsraum, dem Vereinigten Königreich und der Schweiz wird die Einwilligung über eine von Google zertifizierte Plattform zur Einwilligungsverwaltung eingeholt. Sie können Ihre Wahl unter &bdquo;Cookie-Einstellungen&ldquo; ändern und die Personalisierung unter <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a> verwalten. Details unter <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+<p>Drittanbieter, einschließlich Google, verwenden Cookies, um Anzeigen auf Grundlage früherer Besuche eines Nutzers auf dieser oder anderen Websites auszuliefern. Mit Werbe-Cookies wie dem DoubleClick-Cookie können Google und seine Partner Anzeigen auf Grundlage von Besuchen auf dieser und anderen Websites im Internet ausliefern. Sie können personalisierte Werbung in den <a href="https://adssettings.google.com" rel="noopener">Google-Anzeigeneinstellungen</a> deaktivieren. Die Verwendung von Cookies durch andere Anbieter für personalisierte Werbung können Sie unter <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a> deaktivieren.</p>
 """
 SEMADS["de"] = " Derzeit zeigt die Website keine Werbung und nutzt keine Werbe-Cookies."
 MUDANCA["de"] = " Bevor wir Werbung zeigen, wird diese Erklärung aktualisiert und erläutert, wie sie funktioniert."
 
 # ------------------------------------------------------------------ Italiano
 PRIV["it"] = ("Informativa sulla privacy", "Come ALOHA NOTÍCIAS tratta i dati di chi visita il sito.", """
-<p>Ultimo aggiornamento: 9 novembre 2026. Questa pagina spiega in modo semplice quali dati vengono trattati quando visiti ALOHA NOTÍCIAS (alohanoticias.com), a che scopo e come puoi controllarlo. Seguiamo la legge brasiliana sulla protezione dei dati (LGPD, legge 13.709/2018).</p>
+<p>Ultimo aggiornamento: 11 novembre 2026. Questa pagina spiega in modo semplice quali dati vengono trattati quando visiti ALOHA NOTÍCIAS (alohanoticias.com), a che scopo e come puoi controllarlo. Seguiamo la legge brasiliana sulla protezione dei dati (LGPD, legge 13.709/2018).</p>
 <h2>Titolare del trattamento</h2>
 <p>Il titolare dei trattamenti descritti qui è ALOHA NOTÍCIAS. Per qualsiasi questione di privacy scrivi a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Cosa non raccogliamo</h2>
@@ -225,13 +230,14 @@ PRIV["it"] = ("Informativa sulla privacy", "Come ALOHA NOTÍCIAS tratta i dati d
 <p>Quando cambia qualcosa nel funzionamento del sito, aggiorniamo questa pagina e la data in alto.@@MUDANCA@@ In caso di differenze prevale la versione in portoghese.</p>""")
 ANUNCIOS["it"] = """<h2>Pubblicità (Google AdSense)</h2>
 <p>Il sito mostra annunci Google AdSense, che permettono di mantenere gratuiti i contenuti. Google e i suoi partner possono usare cookie e identificatori del dispositivo per mostrare annunci, anche personalizzati, limitarne la ripetizione e misurarne i risultati. Gli annunci si caricano solo dopo &laquo;Accetta&raquo;; se rifiuti, il sito funziona normalmente senza pubblicità. Per i visitatori dello Spazio economico europeo, del Regno Unito e della Svizzera, il consenso è raccolto tramite una piattaforma di gestione del consenso certificata da Google. Puoi cambiare scelta da &laquo;Preferenze cookie&raquo; e gestire la personalizzazione su <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>. Dettagli su <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+<p>Fornitori di terze parti, tra cui Google, utilizzano cookie per pubblicare annunci basati sulle visite precedenti dell'utente a questo sito o ad altri siti. I cookie pubblicitari, come il cookie DoubleClick, consentono a Google e ai suoi partner di pubblicare annunci basati sulle visite a questo e ad altri siti Internet. Puoi disattivare la pubblicità personalizzata nelle <a href="https://adssettings.google.com" rel="noopener">Impostazioni annunci di Google</a>. Puoi anche disattivare l'uso dei cookie di altri fornitori per la pubblicità personalizzata su <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a>.</p>
 """
 SEMADS["it"] = " Oggi il sito non mostra pubblicità e non usa cookie pubblicitari."
 MUDANCA["it"] = " Prima di mostrare pubblicità aggiorneremo questa informativa per spiegare come funziona."
 
 # ------------------------------------------------------------------ 日本語
 PRIV["ja"] = ("プライバシーポリシー", "ALOHA NOTÍCIAS が訪問者のデータをどのように扱うか。", """
-<p>最終更新日：2026年11月9日。このページでは、ALOHA NOTÍCIAS（alohanoticias.com）を訪れたときにどのようなデータが、何のために扱われ、どうすれば管理できるかを分かりやすく説明します。当サイトはブラジルの個人データ保護法（LGPD、法律第13.709/2018号）に従っています。</p>
+<p>最終更新日：2026年11月11日。このページでは、ALOHA NOTÍCIAS（alohanoticias.com）を訪れたときにどのようなデータが、何のために扱われ、どうすれば管理できるかを分かりやすく説明します。当サイトはブラジルの個人データ保護法（LGPD、法律第13.709/2018号）に従っています。</p>
 <h2>責任者</h2>
 <p>ここに記載するデータの取り扱いの責任者は ALOHA NOTÍCIAS です。プライバシーに関するお問い合わせは <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a> までお送りください。</p>
 <h2>収集しないもの</h2>
@@ -261,13 +267,14 @@ PRIV["ja"] = ("プライバシーポリシー", "ALOHA NOTÍCIAS が訪問者の
 <p>サイトの仕組みに変更があった場合は、このページと上部の日付を更新します。@@MUDANCA@@内容に違いがある場合はポルトガル語版が優先されます。</p>""")
 ANUNCIOS["ja"] = """<h2>広告（Google AdSense）</h2>
 <p>当サイトはコンテンツを無料で提供するため、Google AdSense の広告を表示しています。Google とそのパートナーは、パーソナライズ広告を含む広告の表示、表示回数の制限、効果測定のためにクッキーや端末の識別子を使用することがあります。広告はクッキーの案内で「同意する」をクリックした後にのみ読み込まれ、拒否した場合も広告なしで通常どおり利用できます。欧州経済領域、英国、スイスからの訪問者には、Google 認定の同意管理プラットフォームで同意を確認します。選択はフッターの「クッキーの設定」で変更でき、パーソナライズは <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a> で管理できます。詳しくは <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a> をご覧ください。</p>
+<p>Google を含む第三者配信事業者は、クッキーを使用して、ユーザーが当サイトや他のサイトに過去にアクセスした情報に基づいて広告を配信します。DoubleClick クッキーなどの広告クッキーにより、Google とそのパートナーは当サイトやインターネット上の他のサイトへのアクセス情報に基づいて広告を配信できます。パーソナライズ広告は <a href="https://adssettings.google.com" rel="noopener">Google の広告設定</a>で無効にできます。また、<a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a> で、第三者配信事業者によるパーソナライズ広告用クッキーの使用を無効にできます。</p>
 """
 SEMADS["ja"] = "現在、当サイトは広告を表示しておらず、広告用クッキーも使用していません。"
 MUDANCA["ja"] = "広告を表示する前に、その仕組みを説明するためこのポリシーを更新します。"
 
 # ------------------------------------------------------------------ 中文
 PRIV["zh"] = ("隐私政策", "ALOHA NOTÍCIAS 如何处理网站访问者的数据。", """
-<p>最后更新：2026年11月9日。本页用通俗的语言说明，当你访问 ALOHA NOTÍCIAS（alohanoticias.com）时，哪些数据会被处理、用途是什么，以及你如何控制。我们遵守巴西《通用数据保护法》（LGPD，第 13.709/2018 号法律）。</p>
+<p>最后更新：2026年11月11日。本页用通俗的语言说明，当你访问 ALOHA NOTÍCIAS（alohanoticias.com）时，哪些数据会被处理、用途是什么，以及你如何控制。我们遵守巴西《通用数据保护法》（LGPD，第 13.709/2018 号法律）。</p>
 <h2>负责人</h2>
 <p>本页所述数据处理的负责人是 ALOHA NOTÍCIAS。任何隐私问题，请写信至 <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>。</p>
 <h2>我们不收集的内容</h2>
@@ -297,13 +304,14 @@ PRIV["zh"] = ("隐私政策", "ALOHA NOTÍCIAS 如何处理网站访问者的数
 <p>网站运作方式发生变化时，我们会更新本页和顶部日期。@@MUDANCA@@如有差异，以葡萄牙语版本为准。</p>""")
 ANUNCIOS["zh"] = """<h2>广告（Google AdSense）</h2>
 <p>本站展示 Google AdSense 广告，以保持内容免费。Google 及其合作伙伴可能使用 Cookie 和设备标识符来展示广告（包括个性化广告）、限制重复展示并衡量效果。只有在你点击 Cookie 提示中的“接受”后才会加载广告；如果拒绝，网站照常使用，不显示广告。对于来自欧洲经济区、英国和瑞士的访问者，将通过经 Google 认证的同意管理平台征求同意。你可以在页脚的“Cookie 偏好设置”中更改选择，并在 <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a> 管理个性化设置。详情见 <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>。</p>
+<p>包括 Google 在内的第三方供应商会使用 Cookie，根据用户以往访问本网站或其他网站的情况投放广告。借助 DoubleClick Cookie 等广告 Cookie，Google 及其合作伙伴可以根据用户访问本网站和互联网上其他网站的情况投放广告。你可以在 <a href="https://adssettings.google.com" rel="noopener">Google 广告设置</a>中停用个性化广告，也可以在 <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a> 停用其他第三方供应商为个性化广告使用 Cookie。</p>
 """
 SEMADS["zh"] = "目前本站不展示广告，也不使用广告 Cookie。"
 MUDANCA["zh"] = "在开始展示广告之前，我们会更新本政策，说明广告如何运作。"
 
 # ------------------------------------------------------------------ العربية
 PRIV["ar"] = ("سياسة الخصوصية", "كيف يتعامل موقع ALOHA NOTÍCIAS مع بيانات زواره.", """
-<p>آخر تحديث: 9 نوفمبر 2026. توضح هذه الصفحة بلغة بسيطة البيانات التي تُعالَج عند زيارتك موقع ALOHA NOTÍCIAS (alohanoticias.com)، والغرض منها، وكيف تتحكم فيها. نلتزم بالقانون البرازيلي العام لحماية البيانات (LGPD، القانون 13.709/2018).</p>
+<p>آخر تحديث: 11 نوفمبر 2026. توضح هذه الصفحة بلغة بسيطة البيانات التي تُعالَج عند زيارتك موقع ALOHA NOTÍCIAS (alohanoticias.com)، والغرض منها، وكيف تتحكم فيها. نلتزم بالقانون البرازيلي العام لحماية البيانات (LGPD، القانون 13.709/2018).</p>
 <h2>الجهة المسؤولة</h2>
 <p>الجهة المسؤولة عن معالجة البيانات الموصوفة هنا هي ALOHA NOTÍCIAS. لأي مسألة تتعلق بالخصوصية، راسلنا على <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>ما لا نجمعه</h2>
@@ -333,16 +341,17 @@ PRIV["ar"] = ("سياسة الخصوصية", "كيف يتعامل موقع ALOHA
 <p>عند تغيّر أي شيء في طريقة عمل الموقع، نحدّث هذه الصفحة والتاريخ أعلاها.@@MUDANCA@@ عند وجود اختلاف، تكون النسخة البرتغالية هي المرجع.</p>""")
 ANUNCIOS["ar"] = """<h2>الإعلانات (Google AdSense)</h2>
 <p>يعرض الموقع إعلانات Google AdSense التي تُبقي المحتوى مجانيًا. قد تستخدم Google وشركاؤها ملفات تعريف الارتباط ومعرّفات الجهاز لعرض الإعلانات، ومنها الإعلانات المخصّصة، وللحد من تكرارها وقياس نتائجها. لا تُحمَّل الإعلانات إلا بعد النقر على «موافق»؛ وإذا رفضت يعمل الموقع بشكل طبيعي من دون إعلانات. بالنسبة لزوار المنطقة الاقتصادية الأوروبية والمملكة المتحدة وسويسرا، تُطلب الموافقة عبر منصة لإدارة الموافقة معتمدة من Google. يمكنك تغيير اختيارك من «تفضيلات ملفات تعريف الارتباط» وإدارة التخصيص في <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>. التفاصيل في <a href="https://policies.google.com/technologies/ads" rel="noopener">policies.google.com/technologies/ads</a>.</p>
+<p>تستخدم جهات خارجية، ومنها Google، ملفات تعريف الارتباط لعرض الإعلانات استنادًا إلى زيارات المستخدم السابقة لهذا الموقع أو لمواقع أخرى. ويتيح استخدام ملفات تعريف الارتباط الإعلانية، مثل ملف تعريف الارتباط DoubleClick، لـ Google وشركائها عرض الإعلانات استنادًا إلى الزيارات لهذا الموقع ولمواقع أخرى على الإنترنت. يمكنك إيقاف الإعلانات المخصّصة من <a href="https://adssettings.google.com" rel="noopener">إعدادات إعلانات Google</a>، كما يمكنك إيقاف استخدام جهات خارجية أخرى لملفات تعريف الارتباط للإعلانات المخصّصة عبر <a href="https://www.aboutads.info/choices" rel="noopener">www.aboutads.info</a>.</p>
 """
 SEMADS["ar"] = " لا يعرض الموقع حاليًا أي إعلانات ولا يستخدم ملفات تعريف ارتباط إعلانية."
 MUDANCA["ar"] = " قبل أن نبدأ في عرض الإعلانات، سنحدّث هذه السياسة لشرح طريقة عملها."
 
 
 def pagina(lang, anuncios_ativos):
-    """(titulo, descricao, html) da política no idioma, já com os marcadores trocados."""
+    """(titulo, descricao, html) da política no idioma, já com os marcadores trocados.
+    A seção de anúncios (Google AdSense, cookies de publicidade, DoubleClick e links de exclusão) aparece sempre,
+    para a política já estar pronta para a revisão do AdSense e para quando os anúncios forem ligados."""
     tit, desc, corpo = PRIV.get(lang, PRIV["pt"])
     lang = lang if lang in PRIV else "pt"
-    corpo = (corpo.replace("@@ANUNCIOS@@", ANUNCIOS[lang] if anuncios_ativos else "")
-                  .replace("@@SEMADS@@", "" if anuncios_ativos else SEMADS[lang])
-                  .replace("@@MUDANCA@@", "" if anuncios_ativos else MUDANCA[lang]))
+    corpo = corpo.replace("@@ANUNCIOS@@", ANUNCIOS[lang]).replace("@@SEMADS@@", "").replace("@@MUDANCA@@", "")
     return tit, desc, corpo
