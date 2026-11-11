@@ -474,8 +474,7 @@ def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" id="fontes" media="print" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/css/aloha.css">
-<link rel="stylesheet" href="assets/css/antigo.css">
+<link rel="stylesheet" href="assets/css/site.css">
 <script src="assets/js/tema.js"></script>
 {extra_head}</head>
 <body>
@@ -1377,6 +1376,8 @@ def main():
             shutil.rmtree(item) if item.is_dir() else item.unlink()
     (SAIDA / "assets").mkdir(parents=True, exist_ok=True)
     shutil.copytree(RAIZ / "assets", SAIDA / "assets", dirs_exist_ok=True)
+    # um só arquivo de estilo nas páginas do site (aloha.css + antigo.css): uma requisição a menos antes de mostrar a página
+    (SAIDA / "assets/css/site.css").write_text((RAIZ / "assets/css/aloha.css").read_text(encoding="utf-8") + "\n" + (RAIZ / "assets/css/antigo.css").read_text(encoding="utf-8"), encoding="utf-8")
 
     preparar_slugs()
     por_idioma = {}
