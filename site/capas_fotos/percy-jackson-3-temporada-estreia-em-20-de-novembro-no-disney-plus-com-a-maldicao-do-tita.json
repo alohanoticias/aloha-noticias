@@ -2,26 +2,26 @@
  "layout": "tres",
  "fotos": [
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Hiking_on_Mount_Olympus_54.jpg/1280px-Hiking_on_Mount_Olympus_54.jpg",
+   "url": "https://d23.com/app/uploads/2026/09/00_178538_0602_ebc9a6f4.jpg",
    "foco": [
     0.5,
-    0.5
+    0.3
    ],
    "zoom": 1.0
   },
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Colonnade_Parthenon_Acropolis%2C_Athens%2C_Greece.jpg/1280px-Colonnade_Parthenon_Acropolis%2C_Athens%2C_Greece.jpg",
+   "url": "https://d23.com/app/uploads/2026/09/02_178552_0537_38438daa.jpg",
    "foco": [
     0.5,
-    0.5
+    0.3
    ],
    "zoom": 1.0
   },
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Hoover_Dam%2C_Nevada_%28Arizona-Nevada%2C_USA%29_--_2012_--_6099.jpg/1280px-Hoover_Dam%2C_Nevada_%28Arizona-Nevada%2C_USA%29_--_2012_--_6099.jpg",
+   "url": "https://d23.com/app/uploads/2026/09/04_178556_1003_v2_111382b3.jpg",
    "foco": [
     0.5,
-    0.5
+    0.4
    ],
    "zoom": 1.0
   }

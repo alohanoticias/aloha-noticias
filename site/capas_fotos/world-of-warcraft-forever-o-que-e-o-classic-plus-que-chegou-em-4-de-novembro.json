@@ -2,17 +2,17 @@
  "layout": "dois",
  "fotos": [
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/BlizzardIrvine_%28crop%29.jpg/1280px-BlizzardIrvine_%28crop%29.jpg",
+   "url": "https://pixeltwelve.com/media/sanity/668ce6a42f25c3aa44780d659b1ffb80235ed52d-2560x1440.jpg?w=2560&q=90&fit=max&fm=jpg",
    "foco": [
-    0.5,
+    0.6,
     0.5
    ],
    "zoom": 1.0
   },
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Anaheim_Convention_Center_BlizzCon.jpg/1280px-Anaheim_Convention_Center_BlizzCon.jpg",
+   "url": "https://pixeltwelve.com/media/sanity/2d3f65bf229ad16fb436843f11c9b9cd9f3bf241-2560x1440.jpg?w=2560&q=90&fit=max&fm=jpg",
    "foco": [
-    0.5,
+    0.45,
     0.5
    ],
    "zoom": 1.0
