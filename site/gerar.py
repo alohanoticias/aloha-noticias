@@ -178,7 +178,7 @@ def video(m):
 
 
 _VARIANTES = {}
-TAMANHOS_CAPA = (640, 1280)
+TAMANHOS_CAPA = (640, 960, 1280)
 
 
 def variantes_capa(url):
@@ -227,7 +227,7 @@ def capa(m, cls="capa", prioridade=False, sizes="(max-width: 760px) 100vw, 640px
     if im:
         v = variantes_capa(im["url"]) if responsivo else []
         srcset = (f' srcset="{", ".join(f"{u} {w}w" for u, w in v)}, {esc(im["url"])} 1920w" sizes="{sizes}"' if v else "")
-        carga = 'loading="eager" fetchpriority="high"' if prioridade else 'loading="lazy"'
+        carga = 'loading="eager" fetchpriority="high"' if prioridade is True else ('loading="eager"' if prioridade == "eager" else 'loading="lazy"')
         return f'<img class="{cls}" src="{esc(im["url"])}"{srcset} alt="{esc(im.get("alt", m["titulo"]))}" {carga} decoding="async">'
     fundo, onda, sol = TONS[m["editoria"]]
     h = int(hashlib.md5(m["slug"].encode()).hexdigest(), 16)
@@ -547,7 +547,7 @@ def tag_v(m):
 def hero_card(m, grande):
     fina = f'<p class="hero-fina">{esc(m["linha_fina"])}</p>' if grande else ""
     return f"""<a class="hero-card{' grande' if grande else ''}" href="{url_materia(m)}">
-  {capa(m, "hero-img", prioridade=grande, sizes="(max-width: 760px) 100vw, 1100px" if grande else "(max-width: 760px) 100vw, 560px")}
+  {capa(m, "hero-img", prioridade=True if grande else "eager", sizes="(max-width: 760px) 100vw, 1100px" if grande else "(max-width: 760px) 100vw, 560px")}
   {tag_v(m)}
   <div class="hero-texto">
     {alta(m)}<time datetime="{m['data']}">{data_longa(m['data'])}</time>
@@ -557,9 +557,9 @@ def hero_card(m, grande):
 </a>"""
 
 
-def item_lista(m):
+def item_lista(m, primeiro=False):
     return f"""<article class="item-lista">
-  <a class="il-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m)}{tag_v(m)}</a>
+  <a class="il-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m, prioridade=True if primeiro else False)}{tag_v(m)}</a>
   <div class="il-texto">
     {alta(m)}<p class="meta-l"><span class="autor">{esc(autor_nome(m))}</span><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
     <h3><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h3>
@@ -600,7 +600,7 @@ def gerar_home():
             continue
         secoes.append(f"""<section class="secao-lista" aria-labelledby="sec-{e['slug']}">
   <div class="tit-secao"><h2 id="sec-{e['slug']}">{esc(e['nome'])}</h2></div>
-  {"".join(item_lista(m) for m in da_ed)}
+  {"".join(item_lista(m, primeiro=(not secoes and i == 0)) for i, m in enumerate(da_ed))}
   <a class="ver-tudo" href="{url_editoria(e['slug'])}">{t("Ver tudo em")} {esc(e['nome'])} »</a>
 </section>""")
     corpo = f"""<h1 class="sr-only">{SITE}: {t("notícias, cinema, games, tecnologia e curiosidades")}</h1>
@@ -626,11 +626,11 @@ def gerar_home():
 
 
 # ---------------------------------------------------------------- editoria
-def card_cat(m):
+def card_cat(m, primeiro=False):
     return f"""<article class="card-cat">
   {alta(m)}<h2><a href="{url_materia(m)}">{esc(m['titulo'])}</a></h2>
   <p class="meta-l"><time datetime="{m['data']}">{data_longa(m['data'])}</time></p>
-  <a class="cc-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m)}</a>
+  <a class="cc-capa" href="{url_materia(m)}" tabindex="-1" aria-hidden="true">{capa(m, prioridade=True if primeiro else False)}</a>
   <p class="resumo">{esc(m['linha_fina'])}</p>
   <a class="leia-mais" href="{url_materia(m)}">{t("Leia mais")} »</a>
 </article>"""
@@ -638,7 +638,7 @@ def card_cat(m):
 
 def gerar_editoria(e):
     da_ed = [m for m in materias if m["editoria"] == e["slug"]]
-    lista = "".join(card_cat(m) for m in da_ed) if da_ed else f'<p class="resumo">{t("Ainda não publicamos matérias nesta editoria. Volte em breve.")}</p>'
+    lista = "".join(card_cat(m, primeiro=(i == 0)) for i, m in enumerate(da_ed)) if da_ed else f'<p class="resumo">{t("Ainda não publicamos matérias nesta editoria. Volte em breve.")}</p>'
     corpo = f"""<div class="wrap duas-colunas">
   <div class="coluna-principal">
     <nav class="migalhas-v" aria-label="{t('Você está em')}"><a href="index.html">{t("Início")}</a> &gt; <span>{esc(e['nome'])}</span></nav>
