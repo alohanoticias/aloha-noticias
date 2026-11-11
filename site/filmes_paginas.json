@@ -1,17 +1,15 @@
 [
  {
-  "titulo": "mb1",
-  "url": "https://modbay.org/",
-  "img": "https://modbay.org/uploads/posts/2026-09/815f476f32_wild-bound-announce.webp"
+  "titulo": "vi",
+  "url": "https://www.rockstargames.com/VI",
+  "listar": "(/VI/_next/static/media/[A-Za-z0-9_\\-\\.~]+?\\.(?:jpg|jpeg|png|webp))",
+  "prefixo": "https://www.rockstargames.com",
+  "max": 60
  },
  {
-  "titulo": "mb2",
-  "url": "https://modbay.org/",
-  "img": "https://modbay.org/uploads/posts/2026-09/7b85ddaed7_minecrafts-third-drop-of-2026-is-officially-named-wilderness-bound.webp"
- },
- {
-  "titulo": "mb3",
-  "url": "https://modbay.org/",
-  "img": "https://modbay.org/uploads/posts/2026-09/76764755f9_minecrafts-third-drop-of-2026-is-officially-named-wilderness-bound.webp"
+  "titulo": "nwpre",
+  "url": "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10",
+  "listar": "(https://media-rockstargames-com\\.akamaized\\.net/tina-uploads/posts/[a-z0-9]+/[a-f0-9]+\\.(?:jpg|png|webp))",
+  "max": 30
  }
 ]

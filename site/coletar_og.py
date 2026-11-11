@@ -13,6 +13,23 @@ res = []
 def pegar(u):
     with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=40) as r:
         return r.read()
+# "listar": regex aplicada ao HTML da página; cada imagem encontrada vira um candidato (ex.: todas as fotos oficiais de um site)
+extra = []
+for it in itens:
+    if it.get("listar"):
+        try:
+            html = pegar(it["url"]).decode("utf-8", "ignore").replace("\\u0026", "&").replace("&amp;", "&")
+            vistos = []
+            for m in re.findall(it["listar"], html):
+                if m not in vistos: vistos.append(m)
+            for i, m in enumerate(vistos[: it.get("max", 40)]):
+                extra.append({"titulo": f'{it["titulo"]}{i + 1:02d}', "url": it["url"], "img": m if m.startswith("http") else it.get("prefixo", "") + m})
+            print("listados", it["titulo"], len(vistos))
+        except Exception as e:
+            print("FALHOU lista", it["titulo"], e)
+itens = [it for it in itens if not it.get("listar")] + extra
+(RAIZ / "candidatas").mkdir(exist_ok=True)
+(RAIZ / "candidatas" / "lista.json").write_text(json.dumps(extra, ensure_ascii=False, indent=1), encoding="utf-8")
 for it in itens:
     t, u = it["titulo"], it["url"]
     try:
