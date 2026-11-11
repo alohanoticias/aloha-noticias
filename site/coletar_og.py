@@ -26,6 +26,12 @@ for it in itens:
             img_url = m.group(1).replace("&amp;", "&")
         im = Image.open(io.BytesIO(pegar(img_url))).convert("RGB")
         res.append({"titulo": t, "pagina": u, "imagem": img_url, "dim": im.size})
+        if it.get("recorte") and it.get("salvar"):
+            # recorte opcional em resolução cheia (frações x0,y0,x1,y1) salvo em 1920x1080 no caminho indicado
+            x0, y0, x1, y1 = it["recorte"]; w, h = im.size
+            rc = im.crop((int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h))).resize((1920, 1080), Image.LANCZOS)
+            destino = RAIZ / it["salvar"]; destino.parent.mkdir(parents=True, exist_ok=True)
+            rc.save(destino, "JPEG", quality=90, optimize=True, progressive=True); print("recorte salvo", destino)
         im.thumbnail((1280, 1280)); im.save(saida / (re.sub(r"\W+", "-", t.lower()).strip("-") + ".jpg"), quality=85)
         print("ok", t, im.size, img_url[:110])
     except Exception as e:
