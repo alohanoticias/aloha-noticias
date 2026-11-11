@@ -1,7 +1,7 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Steamboat Willie 1928', 'Mickey Mouse Steamboat Willie frame']
-TITULOS = ['Nintendo Switch 2 in Docking Console.jpg', 'Nintendo Switch 2 – Tischmodus 20250606.png', 'SK Hynix DDR5 form factors.jpg', 'CXMT DDR5 SODIMM.png', 'Rocky Balboa statue (55259378556).jpg', 'Rocky Balboa statue (55259612374).jpg', 'Philadelphia Museum of Art (Rocky Steps) & Yeadon Fire engine (49507367941).jpg', 'MCM4116B DRAM IC (55610490178).jpg', 'Rocky Balboa statue (55259379021).jpg']
+QUERIES = ['DDR5 memory', 'DRAM module', 'RAM memory stick computer', 'memory chips circuit board', 'semiconductor wafer', 'Samsung memory', 'Micron memory', 'graphics card GDDR']
+TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
     p = urllib.parse.urlencode({"action": "query", "format": "json", "generator": "search", "gsrsearch": q + " filetype:bitmap", "gsrnamespace": 6, "gsrlimit": 10, "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiextmetadatafilter": "LicenseShortName|Artist"})
