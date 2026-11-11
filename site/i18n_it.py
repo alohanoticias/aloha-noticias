@@ -116,7 +116,7 @@ PAG["politica-editorial.html"] = ("Linea editoriale e correzioni", "Come ALOHA N
 <h2>Traduzioni</h2>
 <p>Il portoghese è la nostra lingua originale. Le edizioni nelle altre lingue sono adattate, non tradotte parola per parola, e possono omettere dettagli che interessano solo il pubblico brasiliano. Se le versioni differiscono, prevale l'originale in portoghese.</p>""")
 PAG["equipe.html"] = ('João Gabriel', 'Chi crea, scrive e dirige ALOHA NOTÍCIAS.', """
-<p><strong>João Gabriel</strong> ha 21 anni, è brasiliano, creatore di siti web e creatore di contenuti digitali sulle piattaforme. Ha creato ALOHA NOTÍCIAS e firma, rivede e approva tutti gli articoli pubblicati qui.</p>
+<p><strong>João Gabriel</strong> ha 21 anni, è brasiliano, creatore di siti web e creatore di contenuti digitali sulle piattaforme. Ha creato ALOHA NOTÍCIAS, dove firma analisi, guide e articoli su videogiochi, cinema e cultura pop.</p>
 <h2>Il sito</h2>
 <p>ALOHA NOTÍCIAS è un progetto indipendente su cinema, videogiochi e tecnologia, senza legami con studi, produttori o fabbricanti.</p>
 <h2>Cosa aspettarsi</h2>
@@ -168,3 +168,8 @@ PAG["privacidade.html"] = ("Privacy", "Informativa sulla privacy di ALOHA NOTÍC
 <p>Puoi chiedere informazioni sui dati che abbiamo su di te, la loro correzione o cancellazione, scrivendo tramite la <a href="contato.html">pagina dei contatti</a>.</p>
 <h2>Modifiche</h2>
 <p>Se questa informativa cambia, la data qui sopra sarà aggiornata. Se inizieremo a usare cookie, pubblicità o una newsletter, lo diremo prima qui. In caso di differenze prevale la versione in portoghese.</p>""")
+
+PAG["equipe-aloha.html"] = ('Team Aloha', 'Chi firma come Team Aloha su ALOHA NOTÍCIAS.', """
+<p><strong>Team Aloha</strong> è la firma della redazione di ALOHA NOTÍCIAS, usata in parte degli articoli su cinema, videogiochi, tecnologia, anime e curiosità.</p>
+<h2>Come nascono questi articoli</h2>
+<p>Seguono la stessa <a href="politica-editorial.html">linea editoriale</a> del resto del sito. Sono ricercati e scritti con il supporto di strumenti, come spiega la linea editoriale, e ogni articolo viene rivisto e approvato da una persona prima della pubblicazione.</p>""")

@@ -246,7 +246,7 @@ PAGINAS["es"]["politica-editorial.html"] = ("Política editorial y de correccion
 <p>El portugués es nuestro idioma original. Las ediciones en inglés y en español están adaptadas, no se traducen palabra por palabra, y pueden omitir detalles que solo importan al público brasileño. Si las versiones difieren, prevalece el original en portugués.</p>""")
 
 PAGINAS["en"]["equipe.html"] = ('João Gabriel', 'Who creates, writes and edits ALOHA NOTÍCIAS.', """
-<p><strong>João Gabriel</strong> is 21, Brazilian, a website creator and a digital content creator across platforms. He created ALOHA NOTÍCIAS and signs, reviews and approves every article published here.</p>
+<p><strong>João Gabriel</strong> is 21, Brazilian, a website creator and a digital content creator across platforms. He created ALOHA NOTÍCIAS, where he writes analyses, guides and stories about games, movies and pop culture.</p>
 <h2>The site</h2>
 <p>ALOHA NOTÍCIAS is an independent project about movies, games and technology, with no ties to studios, producers or manufacturers.</p>
 <h2>What to expect</h2>
@@ -257,7 +257,7 @@ PAGINAS["en"]["equipe.html"] = ('João Gabriel', 'Who creates, writes and edits 
 <p>Story tips, corrections and partnerships: <a href="contato.html">contact page</a>.</p>""")
 
 PAGINAS["es"]["equipe.html"] = ('João Gabriel', 'Quién crea, escribe y edita ALOHA NOTÍCIAS.', """
-<p><strong>João Gabriel</strong> tiene 21 años, es brasileño, creador de sitios web y creador de contenido digital en plataformas. Creó ALOHA NOTÍCIAS y firma, revisa y aprueba todos los artículos publicados aquí.</p>
+<p><strong>João Gabriel</strong> tiene 21 años, es brasileño, creador de sitios web y creador de contenido digital en plataformas. Creó ALOHA NOTÍCIAS, donde firma análisis, guías y artículos sobre videojuegos, cine y cultura pop.</p>
 <h2>El sitio</h2>
 <p>ALOHA NOTÍCIAS es un proyecto independiente sobre cine, videojuegos y tecnología, sin vínculos con estudios, productoras ni fabricantes.</p>
 <h2>Qué puedes esperar</h2>
@@ -471,3 +471,17 @@ _EX4 = {
 for _l, _v in _EX4.items():
     for _k, _t in zip(_K4, _v):
         UI[_l].setdefault(_k, _t)
+
+PAGINAS["en"]["equipe-aloha.html"] = ('Aloha Team', 'Who signs as Aloha Team at ALOHA NOTÍCIAS.', """
+<p><strong>Aloha Team</strong> is the newsroom byline of ALOHA NOTÍCIAS, used on some of the articles about movies, games, technology, anime and trivia.</p>
+<h2>How these articles are made</h2>
+<p>Articles signed by the Aloha Team follow the same <a href="politica-editorial.html">editorial policy</a> as the rest of the site: facts checked in more than one source, sources listed at the end and corrections made in the open. They are researched and drafted with the help of tools, as the policy explains, and every article is reviewed and approved by a person before it goes live.</p>
+<h2>Contact</h2>
+<p>Story tips, corrections and partnerships: <a href="contato.html">contact page</a>.</p>""")
+
+PAGINAS["es"]["equipe-aloha.html"] = ('Equipo Aloha', 'Quién firma como Equipo Aloha en ALOHA NOTÍCIAS.', """
+<p><strong>Equipo Aloha</strong> es la firma de la redacción de ALOHA NOTÍCIAS, usada en parte de los artículos sobre cine, videojuegos, tecnología, anime y curiosidades.</p>
+<h2>Cómo se hacen estos artículos</h2>
+<p>Los artículos firmados por el Equipo Aloha siguen la misma <a href="politica-editorial.html">política editorial</a> que el resto del sitio: datos verificados en más de una fuente, fuentes citadas al final y correcciones hechas a la vista. Se investigan y redactan con el apoyo de herramientas, como explica la política, y cada artículo pasa por revisión y aprobación humana antes de publicarse.</p>
+<h2>Contacto</h2>
+<p>Pistas, correcciones y alianzas: <a href="contato.html">página de contacto</a>.</p>""")

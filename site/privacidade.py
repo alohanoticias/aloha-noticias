@@ -19,7 +19,7 @@ PRIV["pt"] = ("Política de privacidade", "Como a ALOHA NOTÍCIAS trata os dados
 <h2>Quem é o responsável</h2>
 <p>O responsável pelo tratamento dos dados descritos aqui é o ALOHA NOTÍCIAS. Para qualquer assunto de privacidade, escreva para <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>O que não coletamos</h2>
-<p>O site não tem cadastro, login de leitor nem formulário que peça seus dados. Não sabemos o seu nome nem o seu e-mail, a menos que você nos escreva.@@SEMADS@@</p>
+<p>O site não tem cadastro nem login de leitor. O único lugar em que pedimos dados é o formulário da página de contato, e só se você quiser nos escrever.@@SEMADS@@</p>
 <h2>Estatísticas de visita (Google Analytics)</h2>
 <p>Usamos o Google Analytics 4 para saber quantas pessoas leem cada página, de que tipo de aparelho e de que país ou cidade aproximada, e de onde a visita chegou (uma busca, uma rede social, o nosso canal no Telegram ou o link de um parceiro, que identificamos por etiquetas no endereço). O Google Analytics usa cookies e identificadores do navegador. Recebemos números agregados e não usamos esses dados para identificar você.</p>
 <p>Na União Europeia, no Espaço Econômico Europeu, no Reino Unido e na Suíça, a medição só começa depois que você clica em &ldquo;Aceitar&rdquo; no aviso de cookies. Nos demais países, incluindo o Brasil, ela começa quando a página abre, com base no nosso interesse legítimo em entender como o site é usado. Em qualquer lugar você pode desligá-la clicando em &ldquo;Recusar&rdquo; no aviso ou em &ldquo;Preferências de cookies&rdquo;, no rodapé. Os dados ficam guardados pelo prazo de retenção configurado no Google Analytics. Saiba mais em <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">como o Google usa dados de sites parceiros</a>.</p>
@@ -35,8 +35,8 @@ PRIV["pt"] = ("Política de privacidade", "Como a ALOHA NOTÍCIAS trata os dados
 <p>As fontes de letra vêm do Google Fonts. Algumas fotos são exibidas a partir do endereço de origem (por exemplo, Wikimedia Commons, Unsplash ou sites de estúdios e de imprensa) e os vídeos são incorporados do YouTube em modo de privacidade aprimorada (youtube-nocookie.com). Ao carregar esses itens, esses serviços recebem o seu endereço de IP e seguem as próprias regras de privacidade. Os botões de compartilhar são links comuns: só enviam algo à rede social se você clicar.</p>
 @@ANUNCIOS@@<h2>Transferência internacional</h2>
 <p>Google, Cloudflare e OneSignal podem tratar dados em servidores fora do Brasil, com as garantias previstas nas próprias políticas e na LGPD.</p>
-<h2>E-mails que você nos envia</h2>
-<p>Se você escrever para a gente, usamos o seu e-mail apenas para responder e guardamos a conversa só pelo tempo necessário. Não vendemos nem repassamos dados a ninguém.</p>
+<h2>Mensagens e e-mails que você nos envia</h2>
+<p>Se você escrever para a gente, pelo formulário ou por e-mail, usamos o seu nome e o seu e-mail apenas para responder. As mensagens do formulário ficam guardadas no nosso servidor (Cloudflare) por até um ano e depois são apagadas; para evitar abusos, guardamos também um código embaralhado que não permite identificar você. Não vendemos nem repassamos dados a ninguém.</p>
 <h2>Seus direitos</h2>
 <p>Pela LGPD, você pode pedir a confirmação de que tratamos dados seus, o acesso a eles, a correção, a anonimização ou a eliminação, informações sobre com quem foram compartilhados e a revogação do consentimento. Escreva para <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).</p>
 <h2>Crianças e adolescentes</h2>
@@ -56,7 +56,7 @@ PRIV["en"] = ("Privacy policy", "How ALOHA NOTÍCIAS handles the data of people 
 <h2>Who is responsible</h2>
 <p>ALOHA NOTÍCIAS is responsible for the data processing described here. For any privacy matter, write to <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>What we don't collect</h2>
-<p>The site has no sign-up, no reader login and no form asking for your details. We don't know your name or email unless you write to us.@@SEMADS@@</p>
+<p>The site has no sign-up and no reader login. The only place we ask for details is the form on the contact page, and only if you choose to write to us.@@SEMADS@@</p>
 <h2>Visit statistics (Google Analytics)</h2>
 <p>We use Google Analytics 4 to see how many people read each page, on what kind of device, from which country or approximate city, and where the visit came from (a search, a social network, our Telegram channel or a partner link, identified by tags in the address). Google Analytics uses cookies and browser identifiers. We receive aggregated numbers and do not use this data to identify you.</p>
 <p>In the European Union, the European Economic Area, the UK and Switzerland, measurement only starts after you click &ldquo;Accept&rdquo; in the cookie notice. In other countries, including Brazil, it starts when the page loads, based on our legitimate interest in understanding how the site is used. Anywhere, you can turn it off with &ldquo;Decline&rdquo; in the notice or under &ldquo;Cookie preferences&rdquo; in the footer. Data is kept for the retention period set in Google Analytics. Learn more about <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses data from partner sites</a>.</p>
@@ -72,8 +72,8 @@ PRIV["en"] = ("Privacy policy", "How ALOHA NOTÍCIAS handles the data of people 
 <p>Fonts come from Google Fonts. Some photos are shown from their original address (for example Wikimedia Commons, Unsplash or studio and press websites), and videos are embedded from YouTube in enhanced privacy mode (youtube-nocookie.com). When these items load, those services receive your IP address and follow their own privacy rules. Share buttons are plain links: they only send something to a social network if you click them.</p>
 @@ANUNCIOS@@<h2>International transfers</h2>
 <p>Google, Cloudflare and OneSignal may process data on servers outside Brazil, with the safeguards set out in their own policies and in the LGPD.</p>
-<h2>Emails you send us</h2>
-<p>If you write to us, we use your email only to reply and keep the conversation only as long as needed. We do not sell or share data with anyone.</p>
+<h2>Messages and emails you send us</h2>
+<p>If you write to us, through the form or by email, we use your name and email only to reply. Form messages are stored on our server (Cloudflare) for up to one year and then deleted; to prevent abuse we also keep a scrambled code that cannot identify you. We do not sell or share data with anyone.</p>
 <h2>Your rights</h2>
 <p>Under the LGPD you can ask us to confirm whether we process your data, to access, correct, anonymize or delete it, to tell you who it was shared with, and to withdraw consent. Write to <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. You can also complain to Brazil's National Data Protection Authority (ANPD) or to the authority in your country.</p>
 <h2>Children</h2>
@@ -93,7 +93,7 @@ PRIV["es"] = ("Política de privacidad", "Cómo ALOHA NOTÍCIAS trata los datos 
 <h2>Quién es el responsable</h2>
 <p>ALOHA NOTÍCIAS es el responsable del tratamiento de los datos descritos aquí. Para cualquier asunto de privacidad, escribe a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Lo que no recopilamos</h2>
-<p>El sitio no tiene registro, ni inicio de sesión para lectores, ni formularios que pidan tus datos. No sabemos tu nombre ni tu correo, salvo que nos escribas.@@SEMADS@@</p>
+<p>El sitio no tiene registro ni inicio de sesión para lectores. El único lugar donde pedimos datos es el formulario de la página de contacto, y solo si decides escribirnos.@@SEMADS@@</p>
 <h2>Estadísticas de visitas (Google Analytics)</h2>
 <p>Usamos Google Analytics 4 para saber cuántas personas leen cada página, desde qué tipo de dispositivo y desde qué país o ciudad aproximada, y de dónde llegó la visita (una búsqueda, una red social, nuestro canal de Telegram o el enlace de un colaborador, identificados por etiquetas en la dirección). Google Analytics usa cookies e identificadores del navegador. Recibimos cifras agregadas y no usamos estos datos para identificarte.</p>
 <p>En la Unión Europea, el Espacio Económico Europeo, el Reino Unido y Suiza, la medición solo empieza después de que pulses &ldquo;Aceptar&rdquo; en el aviso de cookies. En los demás países, incluido Brasil, empieza al abrir la página, con base en nuestro interés legítimo en entender cómo se usa el sitio. En cualquier lugar puedes desactivarla con &ldquo;Rechazar&rdquo; en el aviso o en &ldquo;Preferencias de cookies&rdquo;, en el pie de página. Los datos se conservan durante el plazo configurado en Google Analytics. Más información sobre <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">cómo usa Google los datos de sitios asociados</a>.</p>
@@ -109,8 +109,8 @@ PRIV["es"] = ("Política de privacidad", "Cómo ALOHA NOTÍCIAS trata los datos 
 <p>Las fuentes tipográficas vienen de Google Fonts. Algunas fotos se muestran desde su dirección original (por ejemplo Wikimedia Commons, Unsplash o sitios de estudios y de prensa) y los vídeos se insertan desde YouTube en modo de privacidad mejorada (youtube-nocookie.com). Al cargarse, esos servicios reciben tu dirección IP y siguen sus propias reglas de privacidad. Los botones de compartir son enlaces normales: solo envían algo a la red social si haces clic.</p>
 @@ANUNCIOS@@<h2>Transferencias internacionales</h2>
 <p>Google, Cloudflare y OneSignal pueden tratar datos en servidores fuera de Brasil, con las garantías previstas en sus propias políticas y en la LGPD.</p>
-<h2>Correos que nos envías</h2>
-<p>Si nos escribes, usamos tu correo solo para responder y guardamos la conversación solo el tiempo necesario. No vendemos ni cedemos datos a nadie.</p>
+<h2>Mensajes y correos que nos envías</h2>
+<p>Si nos escribes, por el formulario o por correo, usamos tu nombre y tu correo solo para responder. Los mensajes del formulario se guardan en nuestro servidor (Cloudflare) hasta un año y luego se borran; para evitar abusos también guardamos un código cifrado que no permite identificarte. No vendemos ni cedemos datos a nadie.</p>
 <h2>Tus derechos</h2>
 <p>Según la LGPD puedes pedirnos que confirmemos si tratamos tus datos, acceder a ellos, corregirlos, anonimizarlos o eliminarlos, saber con quién se compartieron y retirar tu consentimiento. Escribe a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. También puedes reclamar ante la Autoridad Nacional de Protección de Datos de Brasil (ANPD) o ante la autoridad de tu país.</p>
 <h2>Menores</h2>
@@ -130,7 +130,7 @@ PRIV["fr"] = ("Politique de confidentialité", "Comment ALOHA NOTÍCIAS traite l
 <h2>Responsable du traitement</h2>
 <p>ALOHA NOTÍCIAS est responsable des traitements décrits ici. Pour toute question de confidentialité, écrivez à <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Ce que nous ne collectons pas</h2>
-<p>Le site n'a ni inscription, ni compte lecteur, ni formulaire demandant vos coordonnées. Nous ne connaissons ni votre nom ni votre e-mail, sauf si vous nous écrivez.@@SEMADS@@</p>
+<p>Le site n'a ni inscription ni compte lecteur. Le seul endroit où nous demandons des données est le formulaire de la page de contact, et seulement si vous choisissez de nous écrire.@@SEMADS@@</p>
 <h2>Mesure d'audience (Google Analytics)</h2>
 <p>Nous utilisons Google Analytics 4 pour savoir combien de personnes lisent chaque page, sur quel type d'appareil, depuis quel pays ou quelle ville approximative, et d'où vient la visite (moteur de recherche, réseau social, notre canal Telegram ou lien d'un partenaire, repérés par des balises dans l'adresse). Google Analytics utilise des cookies et des identifiants du navigateur. Nous recevons des chiffres agrégés et ne nous en servons pas pour vous identifier.</p>
 <p>Dans l'Union européenne, l'Espace économique européen, au Royaume-Uni et en Suisse, la mesure ne commence qu'après un clic sur «&nbsp;Accepter&nbsp;» dans le bandeau cookies. Ailleurs, y compris au Brésil, elle démarre à l'ouverture de la page, sur la base de notre intérêt légitime à comprendre l'usage du site. Partout, vous pouvez la désactiver avec «&nbsp;Refuser&nbsp;» ou via «&nbsp;Préférences de cookies&nbsp;» en bas de page. Les données sont conservées pendant la durée configurée dans Google Analytics. En savoir plus sur <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">l'utilisation des données des sites partenaires par Google</a>.</p>
@@ -146,8 +146,8 @@ PRIV["fr"] = ("Politique de confidentialité", "Comment ALOHA NOTÍCIAS traite l
 <p>Les polices viennent de Google Fonts. Certaines photos s'affichent depuis leur adresse d'origine (par exemple Wikimedia Commons, Unsplash ou des sites de studios et de presse) et les vidéos sont intégrées depuis YouTube en mode de confidentialité renforcée (youtube-nocookie.com). Au chargement, ces services reçoivent votre adresse IP et appliquent leurs propres règles. Les boutons de partage sont de simples liens : ils n'envoient rien au réseau social sans votre clic.</p>
 @@ANUNCIOS@@<h2>Transferts internationaux</h2>
 <p>Google, Cloudflare et OneSignal peuvent traiter des données sur des serveurs hors du Brésil, avec les garanties prévues par leurs politiques et par la LGPD.</p>
-<h2>E-mails que vous nous envoyez</h2>
-<p>Si vous nous écrivez, votre e-mail sert uniquement à vous répondre, et l'échange n'est conservé que le temps nécessaire. Nous ne vendons ni ne cédons de données.</p>
+<h2>Messages et e-mails que vous nous envoyez</h2>
+<p>Si vous nous écrivez, par le formulaire ou par e-mail, votre nom et votre e-mail servent uniquement à vous répondre. Les messages du formulaire sont conservés sur notre serveur (Cloudflare) jusqu'à un an, puis supprimés ; contre les abus, nous gardons aussi un code brouillé qui ne permet pas de vous identifier. Nous ne vendons ni ne cédons de données.</p>
 <h2>Vos droits</h2>
 <p>Vous pouvez nous demander de confirmer si nous traitons vos données, d'y accéder, de les corriger, de les anonymiser ou de les supprimer, de savoir avec qui elles ont été partagées et de retirer votre consentement. Écrivez à <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Vous pouvez aussi saisir l'autorité brésilienne (ANPD) ou celle de votre pays.</p>
 <h2>Mineurs</h2>
@@ -167,7 +167,7 @@ PRIV["de"] = ("Datenschutzerklärung", "Wie ALOHA NOTÍCIAS mit den Daten der Be
 <h2>Verantwortlicher</h2>
 <p>Verantwortlich für die hier beschriebene Verarbeitung ist ALOHA NOTÍCIAS. Bei Fragen zum Datenschutz schreiben Sie an <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Was wir nicht erheben</h2>
-<p>Die Website hat keine Registrierung, kein Leserkonto und kein Formular, das nach Ihren Daten fragt. Wir kennen weder Ihren Namen noch Ihre E-Mail-Adresse, außer Sie schreiben uns.@@SEMADS@@</p>
+<p>Die Website hat keine Registrierung und kein Leserkonto. Daten fragen wir nur im Formular der Kontaktseite ab, und nur wenn Sie uns schreiben möchten.@@SEMADS@@</p>
 <h2>Besuchsstatistik (Google Analytics)</h2>
 <p>Wir nutzen Google Analytics 4, um zu sehen, wie viele Menschen eine Seite lesen, mit welchem Gerätetyp, aus welchem Land oder ungefähr welcher Stadt und woher der Besuch kam (Suche, soziales Netzwerk, unser Telegram-Kanal oder ein Partnerlink, erkennbar an Kennungen in der Adresse). Google Analytics verwendet Cookies und Browser-Kennungen. Wir erhalten zusammengefasste Zahlen und nutzen sie nicht, um Sie zu identifizieren.</p>
 <p>In der Europäischen Union, im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz beginnt die Messung erst, nachdem Sie im Cookie-Hinweis auf &bdquo;Akzeptieren&ldquo; geklickt haben. In anderen Ländern, auch in Brasilien, beginnt sie beim Laden der Seite, gestützt auf unser berechtigtes Interesse, die Nutzung der Website zu verstehen. Überall können Sie sie mit &bdquo;Ablehnen&ldquo; oder über &bdquo;Cookie-Einstellungen&ldquo; in der Fußzeile abschalten. Die Daten werden für die in Google Analytics eingestellte Aufbewahrungsdauer gespeichert. Mehr dazu, <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">wie Google Daten von Partnerwebsites nutzt</a>.</p>
@@ -183,8 +183,8 @@ PRIV["de"] = ("Datenschutzerklärung", "Wie ALOHA NOTÍCIAS mit den Daten der Be
 <p>Schriftarten stammen von Google Fonts. Manche Fotos werden von ihrer Ursprungsadresse geladen (etwa Wikimedia Commons, Unsplash oder Websites von Studios und Medien), Videos werden von YouTube im erweiterten Datenschutzmodus (youtube-nocookie.com) eingebettet. Beim Laden erhalten diese Dienste Ihre IP-Adresse und wenden eigene Datenschutzregeln an. Teilen-Schaltflächen sind einfache Links: Sie senden nur etwas an ein Netzwerk, wenn Sie klicken.</p>
 @@ANUNCIOS@@<h2>Übermittlung ins Ausland</h2>
 <p>Google, Cloudflare und OneSignal können Daten auf Servern außerhalb Brasiliens verarbeiten, mit den in ihren Richtlinien und im LGPD vorgesehenen Garantien.</p>
-<h2>E-Mails an uns</h2>
-<p>Wenn Sie uns schreiben, nutzen wir Ihre E-Mail-Adresse nur für die Antwort und bewahren den Austausch nur so lange wie nötig auf. Wir verkaufen keine Daten und geben sie nicht weiter.</p>
+<h2>Nachrichten und E-Mails an uns</h2>
+<p>Wenn Sie uns über das Formular oder per E-Mail schreiben, nutzen wir Name und E-Mail-Adresse nur für die Antwort. Formularnachrichten werden auf unserem Server (Cloudflare) bis zu ein Jahr gespeichert und dann gelöscht; gegen Missbrauch speichern wir zudem einen verschlüsselten Code, der Sie nicht identifiziert. Wir verkaufen keine Daten und geben sie nicht weiter.</p>
 <h2>Ihre Rechte</h2>
 <p>Sie können Bestätigung verlangen, ob wir Daten von Ihnen verarbeiten, sowie Auskunft, Berichtigung, Anonymisierung oder Löschung, Informationen darüber, mit wem sie geteilt wurden, und den Widerruf Ihrer Einwilligung. Schreiben Sie an <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Sie können sich auch bei der brasilianischen Datenschutzbehörde (ANPD) oder der Aufsichtsbehörde Ihres Landes beschweren.</p>
 <h2>Kinder und Jugendliche</h2>
@@ -204,7 +204,7 @@ PRIV["it"] = ("Informativa sulla privacy", "Come ALOHA NOTÍCIAS tratta i dati d
 <h2>Titolare del trattamento</h2>
 <p>Il titolare dei trattamenti descritti qui è ALOHA NOTÍCIAS. Per qualsiasi questione di privacy scrivi a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>Cosa non raccogliamo</h2>
-<p>Il sito non ha registrazione, account per i lettori né moduli che chiedono i tuoi dati. Non conosciamo il tuo nome né la tua e-mail, a meno che tu non ci scriva.@@SEMADS@@</p>
+<p>Il sito non ha registrazione né account per i lettori. L'unico punto in cui chiediamo dati è il modulo della pagina contatti, e solo se scegli di scriverci.@@SEMADS@@</p>
 <h2>Statistiche delle visite (Google Analytics)</h2>
 <p>Usiamo Google Analytics 4 per sapere quante persone leggono ogni pagina, con che tipo di dispositivo, da quale paese o città approssimativa e da dove arriva la visita (una ricerca, un social network, il nostro canale Telegram o il link di un partner, riconosciuti da etichette nell'indirizzo). Google Analytics usa cookie e identificatori del browser. Riceviamo numeri aggregati e non li usiamo per identificarti.</p>
 <p>Nell'Unione europea, nello Spazio economico europeo, nel Regno Unito e in Svizzera la misurazione parte solo dopo che fai clic su &laquo;Accetta&raquo; nell'avviso sui cookie. Negli altri paesi, Brasile compreso, parte all'apertura della pagina, sulla base del nostro legittimo interesse a capire come viene usato il sito. Ovunque puoi disattivarla con &laquo;Rifiuta&raquo; o da &laquo;Preferenze cookie&raquo; a fondo pagina. I dati sono conservati per il periodo impostato in Google Analytics. Scopri <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">come Google usa i dati dei siti partner</a>.</p>
@@ -220,8 +220,8 @@ PRIV["it"] = ("Informativa sulla privacy", "Come ALOHA NOTÍCIAS tratta i dati d
 <p>I caratteri provengono da Google Fonts. Alcune foto sono mostrate dal loro indirizzo originale (per esempio Wikimedia Commons, Unsplash o siti di studi e testate) e i video sono incorporati da YouTube in modalità di privacy avanzata (youtube-nocookie.com). Durante il caricamento questi servizi ricevono il tuo indirizzo IP e seguono le proprie regole. I pulsanti di condivisione sono semplici link: inviano qualcosa al social solo se fai clic.</p>
 @@ANUNCIOS@@<h2>Trasferimenti internazionali</h2>
 <p>Google, Cloudflare e OneSignal possono trattare dati su server fuori dal Brasile, con le garanzie previste dalle loro informative e dalla LGPD.</p>
-<h2>E-mail che ci invii</h2>
-<p>Se ci scrivi, usiamo la tua e-mail solo per risponderti e conserviamo lo scambio solo per il tempo necessario. Non vendiamo né cediamo dati a nessuno.</p>
+<h2>Messaggi ed e-mail che ci invii</h2>
+<p>Se ci scrivi, tramite il modulo o per e-mail, usiamo nome ed e-mail solo per risponderti. I messaggi del modulo restano sul nostro server (Cloudflare) fino a un anno e poi vengono cancellati; contro gli abusi conserviamo anche un codice cifrato che non permette di identificarti. Non vendiamo né cediamo dati a nessuno.</p>
 <h2>I tuoi diritti</h2>
 <p>Puoi chiederci di confermare se trattiamo tuoi dati, di accedervi, correggerli, anonimizzarli o cancellarli, di sapere con chi sono stati condivisi e di revocare il consenso. Scrivi a <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Puoi anche rivolgerti all'autorità brasiliana (ANPD) o al Garante del tuo paese.</p>
 <h2>Minori</h2>
@@ -241,7 +241,7 @@ PRIV["ja"] = ("プライバシーポリシー", "ALOHA NOTÍCIAS が訪問者の
 <h2>責任者</h2>
 <p>ここに記載するデータの取り扱いの責任者は ALOHA NOTÍCIAS です。プライバシーに関するお問い合わせは <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a> までお送りください。</p>
 <h2>収集しないもの</h2>
-<p>当サイトには会員登録、読者ログイン、個人情報を求めるフォームはありません。ご連絡をいただかない限り、お名前やメールアドレスは分かりません。@@SEMADS@@</p>
+<p>当サイトには会員登録や読者ログインはありません。個人情報をお願いするのはお問い合わせページのフォームだけで、ご連絡いただく場合に限ります。@@SEMADS@@</p>
 <h2>アクセス統計（Google アナリティクス）</h2>
 <p>各ページを何人が読んだか、どの種類の端末から、どの国やおおよその都市から、どこから訪れたか（検索、SNS、当サイトの Telegram チャンネル、提携先のリンクなど。アドレスに付けたタグで判別します）を知るために Google アナリティクス 4 を使用しています。Google アナリティクスはクッキーとブラウザの識別子を使います。私たちが受け取るのは集計された数値で、あなたを特定するためには使いません。</p>
 <p>欧州連合、欧州経済領域、英国、スイスでは、クッキーの案内で「同意する」をクリックした後にのみ計測が始まります。ブラジルを含むその他の国では、サイトの利用状況を把握するという正当な利益に基づき、ページを開いた時点で計測が始まります。どの地域でも、案内の「拒否する」またはフッターの「クッキーの設定」から停止できます。データは Google アナリティクスで設定した保存期間だけ保管されます。詳しくは<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Google によるパートナーサイトのデータの使用</a>をご覧ください。</p>
@@ -257,8 +257,8 @@ PRIV["ja"] = ("プライバシーポリシー", "ALOHA NOTÍCIAS が訪問者の
 <p>フォントは Google Fonts から読み込みます。一部の写真は元のアドレス（Wikimedia Commons、Unsplash、スタジオや報道機関のサイトなど）から表示し、動画はプライバシー強化モードの YouTube（youtube-nocookie.com）から埋め込んでいます。読み込みの際、これらのサービスはあなたの IP アドレスを受け取り、それぞれのルールに従います。共有ボタンは通常のリンクで、クリックしない限り SNS に何も送りません。</p>
 @@ANUNCIOS@@<h2>国外への移転</h2>
 <p>Google、Cloudflare、OneSignal はブラジル国外のサーバーでデータを処理することがあり、各社のポリシーと LGPD に定める保護措置が適用されます。</p>
-<h2>お送りいただいたメール</h2>
-<p>ご連絡いただいた場合、メールアドレスは返信のためだけに使い、やり取りは必要な期間だけ保管します。データの販売や第三者への提供は行いません。</p>
+<h2>お送りいただいたメッセージとメール</h2>
+<p>フォームやメールでご連絡いただいた場合、お名前とメールアドレスは返信のためだけに使います。フォームのメッセージは当サイトのサーバー（Cloudflare）に最長1年保管した後に削除します。不正利用を防ぐため、個人を特定できない変換済みのコードも保管します。データの販売や第三者への提供は行いません。</p>
 <h2>あなたの権利</h2>
 <p>データを扱っているかの確認、アクセス、訂正、匿名化または削除、共有先についての情報、同意の撤回を求めることができます。<a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a> までご連絡ください。ブラジルの国家データ保護機関（ANPD）またはお住まいの国の機関に申し立てることもできます。</p>
 <h2>子どもについて</h2>
@@ -278,7 +278,7 @@ PRIV["zh"] = ("隐私政策", "ALOHA NOTÍCIAS 如何处理网站访问者的数
 <h2>负责人</h2>
 <p>本页所述数据处理的负责人是 ALOHA NOTÍCIAS。任何隐私问题，请写信至 <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>。</p>
 <h2>我们不收集的内容</h2>
-<p>本站没有注册、读者登录，也没有索取个人信息的表单。除非你给我们写信，否则我们不知道你的姓名或电子邮箱。@@SEMADS@@</p>
+<p>本站没有注册或读者登录。唯一需要填写资料的地方是联系页面的表单，而且只在你选择给我们写信时。@@SEMADS@@</p>
 <h2>访问统计（Google Analytics）</h2>
 <p>我们使用 Google Analytics 4 了解每个页面有多少人阅读、使用何种设备、来自哪个国家或大致城市，以及访问从哪里来（搜索、社交网络、我们的 Telegram 频道或合作伙伴链接，通过网址中的标签识别）。Google Analytics 会使用 Cookie 和浏览器标识符。我们收到的是汇总数字，不会用来识别你的身份。</p>
 <p>在欧盟、欧洲经济区、英国和瑞士，只有在你点击 Cookie 提示中的“接受”后才开始统计。在包括巴西在内的其他国家，基于我们了解网站使用情况的正当利益，页面打开时即开始统计。在任何地区，你都可以点击“拒绝”或页脚的“Cookie 偏好设置”将其关闭。数据按 Google Analytics 中设置的保留期限保存。了解<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">Google 如何使用合作网站的数据</a>。</p>
@@ -294,8 +294,8 @@ PRIV["zh"] = ("隐私政策", "ALOHA NOTÍCIAS 如何处理网站访问者的数
 <p>字体来自 Google Fonts。部分图片从其原始地址加载（例如 Wikimedia Commons、Unsplash 或制片公司和媒体网站），视频以增强隐私模式从 YouTube（youtube-nocookie.com）嵌入。加载时，这些服务会收到你的 IP 地址，并遵循各自的隐私规则。分享按钮只是普通链接，只有你点击时才会向社交网络发送内容。</p>
 @@ANUNCIOS@@<h2>跨境传输</h2>
 <p>Google、Cloudflare 和 OneSignal 可能在巴西境外的服务器上处理数据，并适用其政策和 LGPD 规定的保障措施。</p>
-<h2>你发给我们的邮件</h2>
-<p>如果你给我们写信，我们只用你的邮箱回复，并且只在必要期间保留往来记录。我们不会出售或向任何人提供数据。</p>
+<h2>你发给我们的留言和邮件</h2>
+<p>如果你通过表单或邮件给我们写信，我们只用你的姓名和邮箱回复。表单留言保存在我们的服务器（Cloudflare）上，最长一年后删除；为防止滥用，我们还会保存一个无法识别你身份的加密代码。我们不会出售或向任何人提供数据。</p>
 <h2>你的权利</h2>
 <p>你可以要求我们确认是否处理你的数据，并要求访问、更正、匿名化或删除数据，了解数据与谁共享，以及撤回同意。请写信至 <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>。你也可以向巴西国家数据保护局（ANPD）或你所在国家的主管机构投诉。</p>
 <h2>未成年人</h2>
@@ -315,7 +315,7 @@ PRIV["ar"] = ("سياسة الخصوصية", "كيف يتعامل موقع ALOHA
 <h2>الجهة المسؤولة</h2>
 <p>الجهة المسؤولة عن معالجة البيانات الموصوفة هنا هي ALOHA NOTÍCIAS. لأي مسألة تتعلق بالخصوصية، راسلنا على <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>.</p>
 <h2>ما لا نجمعه</h2>
-<p>لا يوجد في الموقع تسجيل ولا حساب للقراء ولا نموذج يطلب بياناتك. لا نعرف اسمك ولا بريدك الإلكتروني إلا إذا راسلتنا.@@SEMADS@@</p>
+<p>لا يوجد في الموقع تسجيل ولا حساب للقراء. المكان الوحيد الذي نطلب فيه بيانات هو نموذج صفحة الاتصال، وفقط إذا اخترت مراسلتنا.@@SEMADS@@</p>
 <h2>إحصاءات الزيارات (Google Analytics)</h2>
 <p>نستخدم Google Analytics 4 لمعرفة عدد من يقرأ كل صفحة، ونوع الجهاز، والبلد أو المدينة التقريبية، ومصدر الزيارة (بحث، أو شبكة اجتماعية، أو قناتنا على Telegram، أو رابط شريك، نتعرّف عليها من وسوم في العنوان). يستخدم Google Analytics ملفات تعريف الارتباط ومعرّفات المتصفح. نحصل على أرقام مجمّعة ولا نستخدمها للتعرّف على هويتك.</p>
 <p>في الاتحاد الأوروبي والمنطقة الاقتصادية الأوروبية والمملكة المتحدة وسويسرا، لا يبدأ القياس إلا بعد النقر على «موافق» في تنبيه ملفات تعريف الارتباط. وفي البلدان الأخرى، ومنها البرازيل، يبدأ عند فتح الصفحة استنادًا إلى مصلحتنا المشروعة في فهم كيفية استخدام الموقع. وفي أي مكان يمكنك إيقافه بالنقر على «رفض» أو من «تفضيلات ملفات تعريف الارتباط» أسفل الصفحة. تُحفظ البيانات طوال مدة الاحتفاظ المضبوطة في Google Analytics. اعرف المزيد عن <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">كيفية استخدام Google لبيانات المواقع الشريكة</a>.</p>
@@ -332,7 +332,7 @@ PRIV["ar"] = ("سياسة الخصوصية", "كيف يتعامل موقع ALOHA
 @@ANUNCIOS@@<h2>النقل الدولي</h2>
 <p>قد تعالج Google وCloudflare وOneSignal البيانات على خوادم خارج البرازيل، مع الضمانات المنصوص عليها في سياساتها وفي LGPD.</p>
 <h2>الرسائل التي ترسلها إلينا</h2>
-<p>إذا راسلتنا، نستخدم بريدك للرد فقط ونحتفظ بالمراسلة للمدة اللازمة فقط. لا نبيع البيانات ولا نشاركها مع أحد.</p>
+<p>إذا راسلتنا عبر النموذج أو البريد، نستخدم اسمك وبريدك للرد فقط. تُحفظ رسائل النموذج على خادمنا (Cloudflare) لمدة أقصاها سنة ثم تُحذف؛ ولمنع إساءة الاستخدام نحتفظ أيضًا برمز مشفّر لا يكشف هويتك. لا نبيع البيانات ولا نشاركها مع أحد.</p>
 <h2>حقوقك</h2>
 <p>يمكنك أن تطلب تأكيد ما إذا كنا نعالج بياناتك، والاطلاع عليها وتصحيحها أو إخفاء هويتها أو حذفها، ومعرفة الجهات التي شوركت معها، وسحب موافقتك. راسلنا على <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. ويمكنك أيضًا تقديم شكوى إلى الهيئة الوطنية البرازيلية لحماية البيانات (ANPD) أو إلى الجهة المختصة في بلدك.</p>
 <h2>القاصرون</h2>

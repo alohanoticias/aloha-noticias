@@ -114,10 +114,11 @@
   var alvo = l === "zh" ? "zh-CN" : l, texto = nomes[l] || nomes.en, destino;
   var alt = document.querySelector('link[rel="alternate"][hreflang^="' + l + '"]');
   if (alt) { destino = alt.href; }
-  else {
-    if (!nomes[l]) { alvo = "en"; texto = nomes.en; var altEn = document.querySelector('link[rel="alternate"][hreflang="en"]'); if (altEn && base !== "en") { destino = altEn.href; } }
-    if (!destino) destino = google(alvo);
+  else if (l !== "pt" && l !== "es" && base !== "en") {  // outras línguas: oferece a versão em inglês, se existir
+    var altEn = document.querySelector('link[rel="alternate"][hreflang="en"]');
+    if (altEn) { destino = altEn.href; texto = nomes.en; }
   }
+  if (!destino) return;  // sem versão revisada no idioma: não mostra aviso
   var b = document.createElement("div"); b.className = "aviso-idioma";
   b.innerHTML = '<a rel="noopener"></a><button type="button" aria-label="Fechar / Close">×</button>';
   var a = b.querySelector("a"); a.href = destino; a.textContent = texto;

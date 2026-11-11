@@ -309,8 +309,12 @@ def _item_idioma(code, nome, flag=True):
     return f'<li><a data-l="{code}" href="#" rel="noopener">{bd}<span>{nome}</span></a></li>'
 
 
+# Idiomas que aparecem no seletor e no rodapé (os demais continuam gerados, mas sem link e fora do Google)
+IDIOMAS_VISIVEIS = ["pt", "en", "es"]
+
+
 def seletor_idioma():
-    lista = "".join(_item_idioma(c, i18n.NOMES_IDIOMA[c]) for c in i18n.IDIOMAS_REAIS) + "".join(_item_idioma(c, n) for c, n in IDIOMAS_GOOGLE)
+    lista = "".join(_item_idioma(c, i18n.NOMES_IDIOMA[c]) for c in IDIOMAS_VISIVEIS)
     return (f'<details class="idioma-menu" id="idioma-menu"><summary class="botao-icone" aria-label="{t("Traduzir esta página / Translate")}">'
             f'{BANDEIRAS[LANG]}<span class="idioma-rotulo">{i18n.SIGLA[LANG]}</span></summary>'
             f'<ul class="idioma-lista"><li class="idioma-tit">{t("Traduzir / Translate")}</li>{lista}</ul></details>')
@@ -319,7 +323,7 @@ def seletor_idioma():
 def idiomas_rodape():
     links = "".join(
         (f'<a href="@@L:{c}@@" hreflang="{i18n.HTML_LANG[c]}" lang="{i18n.HTML_LANG[c]}">{i18n.NOMES_IDIOMA[c]}</a>' if c in i18n.IDIOMAS_REAIS else f'<a data-l="{c}" href="#" rel="noopener">{n}</a>')
-        for c, n in [(c, i18n.NOMES_IDIOMA[c]) for c in i18n.IDIOMAS_REAIS] + IDIOMAS_GOOGLE)
+        for c, n in [(c, i18n.NOMES_IDIOMA[c]) for c in IDIOMAS_VISIVEIS])
     return f'<div class="idiomas" aria-label="{t("Traduzir esta página / Translate")}"><span>{t("Traduzir / Translate:")}</span> {links}</div>'
 
 
@@ -346,7 +350,7 @@ def cabecalho(ativo):
   </div></div>
   <nav class="nav" aria-label="{t('Editorias')}"><div class="wrap"><ul>{li}</ul><div class="nav-ferr">{seletor_idioma()}<button class="botao-icone" id="botao-tema" type="button" aria-label="{t('Alternar tema')}">{ICONE_TEMA}</button><a class="nav-busca" href="busca.html" aria-label="{t('Buscar')}">{ICONE_BUSCA}</a></div></div></nav>
   <nav class="gaveta" id="gaveta" aria-label="{t('Editorias')}" hidden><div class="wrap">
-    <form class="gaveta-busca" action="busca.html" role="search"><label class="sr-only" for="q-gaveta">{t('Pesquisar')}</label><input id="q-gaveta" name="q" type="search" placeholder="{t('Pesquisar')} ..."><button type="submit" aria-label="{t('Buscar')}">{ICONE_BUSCA}</button></form>
+    <form class="gaveta-busca" action="busca.html" role="search"><label class="sr-only" for="q-gaveta">{t('Pesquisar')}</label><input id="q-gaveta" name="q" type="search" placeholder="{t('Ex.: GTA 6, Vingadores, Switch 2')}"><button type="submit" aria-label="{t('Buscar')}">{ICONE_BUSCA}</button></form>
     <ul>{li}</ul>
     <div class="gaveta-ferr">{seletor_idioma().replace(' id="idioma-menu"', '')}<button class="botao-icone botao-tema-m" type="button" aria-label="{t('Alternar tema')}">{ICONE_TEMA}</button></div>
   </div></nav>
@@ -365,7 +369,7 @@ ADSENSE_PUB = ""
 # Idiomas que o Google deve indexar. As outras versões continuam no ar para o visitante, mas com "noindex" e fora do
 # sitemap, para o site não parecer conteúdo traduzido em massa na análise do AdSense. Para liberar um idioma depois
 # da aprovação, acrescente aqui, por exemplo {"pt", "en", "es"}.
-IDIOMAS_INDEXADOS = {"pt"}
+IDIOMAS_INDEXADOS = {"pt", "en", "es"}
 # Páginas de assunto (tags) com menos matérias que isto ficam fora do Google ("noindex"): páginas com 1 ou 2 links
 # contam como conteúdo raso. Elas continuam funcionando para quem navega.
 MIN_MATERIAS_TAG = 3
@@ -402,6 +406,7 @@ def rodape():
       <li><a href="contato.html">{t("Contato e anúncios")}</a></li>
       <li><a href="busca.html">{t("Buscar")}</a></li>
       <li><a href="equipe.html">{t("Sobre o autor")}</a></li>
+      <li><a href="equipe-aloha.html">{t("Equipe Aloha")}</a></li>
       <li><a href="politica-editorial.html">{t("Política editorial")}</a></li>
       <li><a href="termos.html">{t("Termos de uso")}</a></li>
       <li><a href="privacidade.html">{t("Privacidade")}</a></li>
@@ -452,12 +457,29 @@ def consent_html():
 CONSENT_JS = f'<script src="assets/js/consent.js" data-client="{("ca-" + ADSENSE_PUB) if ANUNCIOS_ATIVOS and ADSENSE_PUB else ""}"></script>'
 
 
+def titulo_curto(titulo, limite=60):
+    """<title> com até ~60 caracteres (o Google corta o resto). Usa o título inteiro + marca quando cabe; senão, a parte
+    antes do primeiro ':' (ou ' - ', ',' e '?'); senão corta na última palavra que cabe. O título completo continua no H1 e no og:title."""
+    marca = f" · {NOME_BUSCA}"
+    if len(titulo) + len(marca) <= limite:
+        return titulo + marca
+    if len(titulo) <= limite:
+        return titulo
+    for sep in (": ", " – ", " - ", ", ", "? "):
+        if sep in titulo:
+            parte = titulo.split(sep)[0] + ("?" if sep == "? " else "")
+            if 20 <= len(parte) <= limite:
+                return parte + marca if len(parte) + len(marca) <= limite else parte
+    corte = titulo[:limite - 1].rsplit(" ", 1)[0].rstrip(",:;–-")
+    return corte + "…"
+
+
 def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img="assets/img/og-padrao.png", og_tipo="website"):
     BASE = ""
     if '<base href="/">' in extra_head:
         BASE = '<base href="/">\n'
         extra_head = extra_head.replace('<base href="/">\n', "")
-    tt = (f"{titulo} · {SITE}" if titulo != SITE else t("ALOHA NOTÍCIAS: notícias, cinema, games e tecnologia")).replace(SITE, NOME_BUSCA)
+    tt = (titulo_curto(titulo) if titulo != SITE else t("ALOHA NOTÍCIAS: notícias, cinema, games e tecnologia")).replace(SITE, NOME_BUSCA)
     # título da home com as iniciais maiúsculas (como aparece no Google)
     tt = {"pt": "Aloha Notícias: Notícias, Cinema, Games e Tecnologia", "en": "Aloha Notícias: News, Movies, Games and Technology"}.get(LANG, tt) if titulo == SITE else tt
     return f"""<!doctype html>
@@ -685,6 +707,13 @@ def corpo_texto(paragrafos):
                 srcset_wm = ""
             srcset = f' srcset="{", ".join(f"{u} {w}w" for u, w in v)}, {esc(url)} 1920w" sizes="(max-width: 760px) 100vw, 720px"' if v else "" or srcset_wm
             out.append(f'<figure class="foto-corpo"><img src="{esc(url)}"{srcset} alt="{esc(alt)}"{' width="1920" height="1080"' if v else ""} loading="lazy" decoding="async"><figcaption class="credito">{esc(cred)}</figcaption></figure>')
+        elif p.startswith("!tabela "):
+            # Tabela própria: "!tabela Legenda\ncab1 | cab2\nc1 | c2" (primeira linha depois da legenda é o cabeçalho)
+            linhas = p[8:].split("\n")
+            leg, cab, resto = linhas[0], linhas[1].split(" | "), [l.split(" | ") for l in linhas[2:] if l.strip()]
+            th = "".join(f'<th scope="col">{esc(c)}</th>' for c in cab)
+            trs = "".join("<tr>" + f'<th scope="row">{esc(r[0])}</th>' + "".join(f"<td>{esc(c)}</td>" for c in r[1:]) + "</tr>" for r in resto)
+            out.append(f'<div class="tabela-rolagem"><table class="tabela"><caption>{esc(leg)}</caption><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></div>')
         elif p.startswith("## "):
             out.append(f"<h2>{esc(p[3:])}</h2>")
         elif FONTES_RE.match(p) and "](http" in p:
@@ -751,7 +780,7 @@ def faixa_rascunho(m, agendado=False):
 
 
 NAV_PAINEL = [
-    ("Visão geral", [("index", "admin/", "▦", "Painel"), ("metricas", "admin/metricas.html", "▤", "Métricas")]),
+    ("Visão geral", [("index", "admin/", "▦", "Painel"), ("metricas", "admin/metricas.html", "▤", "Métricas"), ("mensagens", "admin/mensagens.html", "✉", "Mensagens")]),
     ("Conteúdo", [("rascunhos", "admin/rascunhos.html", "✎", "Rascunhos"), ("agendados", "admin/agendados.html", "◷", "Agendados"),
                   ("publicados", "admin/publicados.html", "✔", "Publicados")]),
     ("Divulgação", [("links", "admin/links.html", "↗", "Links das redes"), ("parceiros", "admin/parceiros.html", "☺", "Links de parceiros")]),
@@ -913,7 +942,9 @@ def correcao_html(m):
 
 
 def autor_html(m):
-    return f'<a href="equipe.html" rel="author">{esc(autor_nome(m))}</a>' if m["autor"] in ("Equipe Aloha", AUTOR) else esc(m["autor"])
+    if m["autor"] == "Equipe Aloha":
+        return f'<a href="equipe-aloha.html">{esc(autor_nome(m))}</a>'
+    return f'<a href="equipe.html" rel="author">{esc(autor_nome(m))}</a>' if m["autor"] == AUTOR else esc(m["autor"])
 
 
 REDES_LINKS = [("YouTube", "youtube"), ("TikTok", "tiktok"), ("Instagram", "instagram"), ("Facebook", "facebook"),
@@ -1006,7 +1037,7 @@ def gerar_materia(m, preview=False, agendado=False):
         "description": m["linha_fina"], "datePublished": m["data"], "dateModified": m.get("atualizado") or m["data"], "articleSection": e["nome"],
         "image": [og_url(og_da_capa(m))], "mainEntityOfPage": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + url_materia(m), "inLanguage": i18n.HTML_LANG[LANG],
         "author": ({"@type": "Person", "name": AUTOR, "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + "equipe.html", "sameAs": AUTOR_REDES}
-                   if m["autor"] == AUTOR else {"@type": "Organization", "name": autor_nome(m), "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + "equipe.html"}),
+                   if m["autor"] == AUTOR else {"@type": "Organization", "name": autor_nome(m), "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + nome_idioma(LANG, "equipe-aloha.html")}),
         "publisher": {"@type": "Organization", "name": NOME_BUSCA, "url": "https://alohanoticias.com/", "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png"}},
     }, ensure_ascii=False)
     corpo = f"""<article class="wrap materia">
@@ -1096,6 +1127,38 @@ def gerar_busca():
     return pagina(t("Buscar"), t("Busque matérias da ALOHA NOTÍCIAS."), "", corpo, com_news=False, extra_head=NOINDEX)
 
 
+FORM_TXT = {
+    "pt": ("Envie uma mensagem", "Nome", "E-mail", "Motivo", ["Sugestão de pauta", "Correção", "Direitos autorais e imagens", "Publicidade e parcerias", "Privacidade", "Outro assunto"], "Mensagem", "Enviar mensagem", "Respondemos pelo e-mail informado. Os dados servem só para responder a você, como explica a <a href=\"privacidade.html\">política de privacidade</a>.", "Enviando…", "Mensagem enviada. Obrigado! Respondemos pelo e-mail informado.", "Não foi possível enviar agora. Tente de novo ou escreva para contato@alohanoticias.com.", "Se preferir, escreva direto para o e-mail abaixo."),
+    "en": ("Send us a message", "Name", "Email", "Subject", ["Story tip", "Correction", "Copyright and images", "Advertising and partnerships", "Privacy", "Something else"], "Message", "Send message", "We reply to the email you provide. Your details are used only to answer you, as explained in our <a href=\"privacidade.html\">privacy policy</a>.", "Sending…", "Message sent. Thank you! We will reply by email.", "We couldn't send it right now. Try again or write to contato@alohanoticias.com.", "If you prefer, email us directly at the address below."),
+    "es": ("Envíanos un mensaje", "Nombre", "Correo electrónico", "Motivo", ["Sugerencia de tema", "Corrección", "Derechos de autor e imágenes", "Publicidad y alianzas", "Privacidad", "Otro asunto"], "Mensaje", "Enviar mensaje", "Respondemos al correo que indiques. Tus datos solo se usan para responderte, como explica la <a href=\"privacidade.html\">política de privacidad</a>.", "Enviando…", "Mensaje enviado. ¡Gracias! Te responderemos por correo.", "No se pudo enviar ahora. Inténtalo de nuevo o escribe a contato@alohanoticias.com.", "Si lo prefieres, escríbenos directamente a la dirección de abajo."),
+    "fr": ("Envoyez-nous un message", "Nom", "E-mail", "Motif", ["Idée de sujet", "Correction", "Droits d'auteur et images", "Publicité et partenariats", "Confidentialité", "Autre"], "Message", "Envoyer", "Nous répondons à l'adresse indiquée. Vos données servent uniquement à vous répondre (<a href=\"privacidade.html\">politique de confidentialité</a>).", "Envoi…", "Message envoyé. Merci !", "Envoi impossible pour le moment. Réessayez ou écrivez à contato@alohanoticias.com.", "Vous pouvez aussi écrire directement à l'adresse ci-dessous."),
+    "de": ("Schreiben Sie uns", "Name", "E-Mail", "Anliegen", ["Themenvorschlag", "Korrektur", "Urheberrecht und Bilder", "Werbung und Partnerschaften", "Datenschutz", "Sonstiges"], "Nachricht", "Senden", "Wir antworten an die angegebene Adresse. Ihre Daten dienen nur der Antwort (<a href=\"privacidade.html\">Datenschutzerklärung</a>).", "Wird gesendet…", "Nachricht gesendet. Danke!", "Senden derzeit nicht möglich. Bitte erneut versuchen oder an contato@alohanoticias.com schreiben.", "Sie können uns auch direkt an die Adresse unten schreiben."),
+    "it": ("Scrivici", "Nome", "E-mail", "Motivo", ["Proposta di notizia", "Correzione", "Diritti d'autore e immagini", "Pubblicità e collaborazioni", "Privacy", "Altro"], "Messaggio", "Invia", "Rispondiamo all'indirizzo indicato. I dati servono solo per risponderti (<a href=\"privacidade.html\">informativa sulla privacy</a>).", "Invio…", "Messaggio inviato. Grazie!", "Invio non riuscito. Riprova o scrivi a contato@alohanoticias.com.", "Se preferisci, scrivi direttamente all'indirizzo qui sotto."),
+    "ja": ("メッセージを送る", "お名前", "メールアドレス", "用件", ["記事の提案", "訂正", "著作権・画像", "広告・提携", "プライバシー", "その他"], "メッセージ", "送信", "入力されたメールアドレスに返信します。情報は返信のためにのみ使用します（<a href=\"privacidade.html\">プライバシーポリシー</a>）。", "送信中…", "送信しました。ありがとうございます。", "現在送信できません。もう一度お試しいただくか、contato@alohanoticias.com までご連絡ください。", "下記のメールアドレスに直接ご連絡いただくこともできます。"),
+    "zh": ("给我们留言", "姓名", "电子邮箱", "事由", ["新闻线索", "更正", "版权与图片", "广告与合作", "隐私", "其他"], "留言", "发送", "我们会回复到你填写的邮箱。资料仅用于回复你（见<a href=\"privacidade.html\">隐私政策</a>）。", "发送中…", "已发送，谢谢！", "暂时无法发送。请重试或写信至 contato@alohanoticias.com。", "你也可以直接发邮件到下面的地址。"),
+    "ar": ("راسلنا", "الاسم", "البريد الإلكتروني", "الموضوع", ["اقتراح خبر", "تصحيح", "حقوق النشر والصور", "الإعلانات والشراكات", "الخصوصية", "أمر آخر"], "الرسالة", "إرسال", "نرد على البريد الذي تكتبه. تُستخدم بياناتك للرد عليك فقط (<a href=\"privacidade.html\">سياسة الخصوصية</a>).", "جارٍ الإرسال…", "أُرسلت الرسالة. شكرًا!", "تعذّر الإرسال الآن. حاول مجددًا أو راسل contato@alohanoticias.com.", "يمكنك أيضًا مراسلتنا مباشرة على العنوان أدناه."),
+}
+
+
+def form_contato():
+    tit, nome, email, motivo, opcoes, msg, botao, nota, enviando, ok, erro, ou = FORM_TXT.get(LANG, FORM_TXT["en"])
+    ops = "".join(f'<option value="{i}">{esc(o)}</option>' for i, o in enumerate(opcoes))
+    return f"""<form class="form-contato" id="form-contato" action="/api/contato" method="post" data-enviando="{esc(enviando)}" data-ok="{esc(ok)}" data-erro="{esc(erro)}">
+<h2>{esc(tit)}</h2>
+<p class="fc-linha"><label for="fc-nome">{esc(nome)}</label><input id="fc-nome" name="nome" required maxlength="100" autocomplete="name"></p>
+<p class="fc-linha"><label for="fc-email">{esc(email)}</label><input id="fc-email" name="email" type="email" required maxlength="160" autocomplete="email"></p>
+<p class="fc-linha"><label for="fc-motivo">{esc(motivo)}</label><select id="fc-motivo" name="motivo">{ops}</select></p>
+<p class="fc-linha"><label for="fc-msg">{esc(msg)}</label><textarea id="fc-msg" name="mensagem" required minlength="10" maxlength="5000" rows="6"></textarea></p>
+<p class="fc-isca" aria-hidden="true"><label for="fc-site">Site</label><input id="fc-site" name="site" tabindex="-1" autocomplete="off"></p>
+<input type="hidden" name="idioma" value="{LANG}">
+<p class="fc-nota">{nota}</p>
+<p><button class="botao" type="submit">{esc(botao)}</button></p>
+<p class="fc-status" id="fc-status" role="status" aria-live="polite"></p>
+</form>
+<p>{esc(ou)}</p>
+<script src="assets/js/contato.js" defer></script>"""
+
+
 def gerar_simples(titulo, descricao, conteudo):
     corpo = f'<div class="wrap"><div class="pagina-texto"><h1>{esc(titulo)}</h1>{conteudo}</div></div>'
     return pagina(titulo, descricao, "", corpo)
@@ -1158,6 +1221,12 @@ def montar_arquivos():
 <p><em>Aloha</em> é a saudação havaiana que também significa afeto e respeito. É assim que queremos tratar quem nos lê.</p>
 <h2>Fale com a gente</h2>
 <p>Sugestões, correções e parcerias na página de <a href="contato.html">contato</a>.</p>""")
+    arquivos["equipe-aloha.html"] = gerar_simples('Equipe Aloha', 'Quem assina como Equipe Aloha no ALOHA NOTÍCIAS.', """
+<p><strong>Equipe Aloha</strong> é a assinatura da redação do ALOHA NOTÍCIAS, usada em parte das matérias sobre cinema, games, tecnologia, anime e curiosidades.</p>
+<h2>Como essas matérias são feitas</h2>
+<p>As matérias assinadas pela Equipe Aloha seguem a mesma <a href="politica-editorial.html">política editorial</a> do resto do site: fatos conferidos em mais de uma fonte, fontes citadas no fim do texto e correções feitas às claras. Elas são pesquisadas e redigidas com o apoio de ferramentas, como explica a política, e toda matéria passa por revisão e aprovação humana antes de ir ao ar.</p>
+<h2>Contato</h2>
+<p>Pautas, correções e parcerias: <a href="contato.html">página de contato</a>.</p>""")
     arquivos["politica-editorial.html"] = gerar_simples("Política editorial e de correções", "Como a ALOHA NOTÍCIAS apura, escreve, ilustra e corrige suas matérias.", """
 <p>Esta página explica, em linguagem simples, como o conteúdo da ALOHA NOTÍCIAS é feito. Se algo aqui não for cumprido, queremos saber.</p>
 <h2>Como apuramos</h2>
@@ -1179,7 +1248,7 @@ def montar_arquivos():
 <h2>Independência</h2>
 <p>O conteúdo editorial é independente. Anúncios, quando existirem, ficam separados do texto e não influenciam o que publicamos. Se uma matéria tiver patrocínio ou parceria, isso será informado claramente ao leitor.</p>""")
     arquivos["equipe.html"] = gerar_simples('João Gabriel', 'Quem cria, escreve e edita a ALOHA NOTÍCIAS.', autor_cartao() + f"""
-<p><strong>João Gabriel</strong> tem 21 anos, é brasileiro, criador de sites e criador de conteúdo digital em plataformas. Ele criou a ALOHA NOTÍCIAS e assina, revisa e aprova todas as matérias publicadas aqui.</p>
+<p><strong>João Gabriel</strong> tem 21 anos, é brasileiro, criador de sites e criador de conteúdo digital em plataformas. Ele criou a ALOHA NOTÍCIAS, onde assina análises, guias e matérias sobre games, cinema e cultura pop.</p>
 <h2>O site</h2>
 <p>A ALOHA NOTÍCIAS é um projeto independente sobre cinema, games e tecnologia, sem vínculo com estúdios, produtoras ou fabricantes.</p>
 <h2>O que você pode esperar</h2>
@@ -1202,7 +1271,7 @@ def montar_arquivos():
                  f'<div class="wrap editoria-corpo"><ul class="lista-simples" style="max-width:820px">{itens}</ul></div>')
         arquivos[url_tag(tg)] = pagina(tg, f"{t('Matérias da ALOHA NOTÍCIAS sobre')} {tg}.", "", corpo,
                                        extra_head=NOINDEX if len(lista) < MIN_MATERIAS_TAG else "")
-    arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a ALOHA NOTÍCIAS.", """
+    arquivos["contato.html"] = gerar_simples("Contato e anúncios", "Fale com a ALOHA NOTÍCIAS.", form_contato() + """
 <p>Fale com a gente pelo e-mail <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Para agilizar, coloque no assunto o motivo do contato:</p>
 <h2>Sugestão de pauta</h2><p>Viu algo que merece uma matéria? Mande o assunto e, se tiver, o link da fonte.</p>
 <h2>Correções</h2><p>Encontrou um erro? Envie o endereço da matéria e o que está incorreto, com a fonte, se possível. Veja como tratamos correções na <a href="politica-editorial.html">política editorial</a>.</p>
@@ -1238,7 +1307,7 @@ def montar_arquivos():
         eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a>: {esc(e["descricao"])}</li>' for e in editorias)
         for nome, (tit, desc, corpo) in i18n.PAGINAS[LANG].items():
             corpo = corpo.replace("@@EDITORIAS@@", eds).replace("@@ANUNCIOS@@", i18n.PRIV_ANUNCIOS[LANG] if ANUNCIOS_ATIVOS else "")
-            arquivos[nome] = gerar_simples(tit, desc, (autor_cartao() if nome == "equipe.html" else "") + corpo)
+            arquivos[nome] = gerar_simples(tit, desc, (autor_cartao() if nome == "equipe.html" else "") + (form_contato() if nome == "contato.html" else "") + corpo)
         arquivos["privacidade.html"] = gerar_simples(*privacidade.pagina(LANG, ANUNCIOS_ATIVOS))
         arquivos.pop("404.html", None)
     return arquivos
@@ -1292,6 +1361,7 @@ _F = {  # em ordem: en, es, fr, de, it, ja, zh, ar
     "contato": ["contact", "contacto", "contact", "kontakt", "contatti", "contact", "contact", "contact"],
     "busca": ["search", "buscar", "recherche", "suche", "cerca", "search", "search", "search"],
     "equipe": ["team", "equipo", "equipe", "team", "team", "team", "team", "team"],
+    "equipe-aloha": ["aloha-team", "equipo-aloha", "equipe-aloha", "aloha-team", "team-aloha", "aloha-team", "aloha-team", "aloha-team"],
     "politica-editorial": ["editorial-policy", "politica-editorial", "politique-editoriale", "redaktionelle-richtlinien", "linea-editoriale", "editorial-policy", "editorial-policy", "editorial-policy"],
     "termos": ["terms", "terminos", "conditions", "nutzungsbedingungen", "termini", "terms", "terms", "terms"],
     "privacidade": ["privacy", "privacidad", "confidentialite", "datenschutz", "privacy", "privacy", "privacy", "privacy"],
@@ -1369,7 +1439,7 @@ def resolver(html_, lang, nome, existe):
     html_ = re.sub(r"@@L:([\w-]+)@@", lambda mo: rel_url(lang, mo.group(1), nome, existe), html_)
     langs = [l for l in i18n.IDIOMAS_REAIS if nome in existe.get(l, ()) and l in IDIOMAS_INDEXADOS]
     alt = "" if lang in IDIOMAS_INDEXADOS or "noindex" in html_ else NOINDEX
-    if len(langs) > 1:
+    if len(langs) > 1 and lang in IDIOMAS_INDEXADOS:
         alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{url_abs(l, nome)}">\n' for l in langs)
         if "pt" in langs:
             alt += f'<link rel="alternate" hreflang="x-default" href="{url_abs("pt", nome)}">\n'
@@ -1475,6 +1545,8 @@ def main():
             ("publicados", "Publicados", "Artigos que já estão no ar (abrem o site em outra aba).", sorted(materias, key=lambda d: d["data"], reverse=True), "pub", "Nada publicado ainda.")]:
         (SAIDA / f"admin/{chave}.html").write_text(resolver(gerar_lista_admin(chave, tit, led, itens, tipo, vazio), "pt", f"admin/{chave}.html", existe), encoding="utf-8")
     (SAIDA / "admin/metricas.html").write_text(resolver(gerar_metricas_admin(materias), "pt", "admin/metricas.html", existe), encoding="utf-8")
+    (SAIDA / "admin/mensagens.html").write_text(resolver(painel_pagina("Mensagens", "mensagens", "O que chegou pelo formulário de contato do site",
+        '<section class="p-painel"><header><h2>Últimas mensagens</h2></header><div id="msg-lista"><p>Carregando…</p></div></section>\n<script src="assets/js/mensagens-admin.js"></script>'), "pt", "admin/mensagens.html", existe), encoding="utf-8")
     (SAIDA / "admin/links.html").write_text(resolver(gerar_links_admin(materias), "pt", "admin/links.html", existe), encoding="utf-8")
     (SAIDA / "admin/parceiros.html").write_text(resolver(gerar_parceiros_admin(materias), "pt", "admin/parceiros.html", existe), encoding="utf-8")
     for d in rascunhos:

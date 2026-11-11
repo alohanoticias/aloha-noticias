@@ -116,7 +116,7 @@ PAG["politica-editorial.html"] = ("Politique éditoriale et de corrections", "Co
 <h2>Traductions</h2>
 <p>Le portugais est notre langue d'origine. Les éditions dans les autres langues sont adaptées, et non traduites mot à mot, et peuvent omettre des détails qui n'intéressent que le public brésilien. En cas de différence entre les versions, l'original en portugais fait foi.</p>""")
 PAG["equipe.html"] = ('João Gabriel', 'Qui crée, écrit et édite ALOHA NOTÍCIAS.', """
-<p><strong>João Gabriel</strong> a 21 ans, est brésilien, créateur de sites web et créateur de contenu numérique sur les plateformes. Il a créé ALOHA NOTÍCIAS et signe, relit et approuve tous les articles publiés ici.</p>
+<p><strong>João Gabriel</strong> a 21 ans, est brésilien, créateur de sites web et créateur de contenu numérique sur les plateformes. Il a créé ALOHA NOTÍCIAS, où il signe des analyses, des guides et des articles sur les jeux vidéo, le cinéma et la culture pop.</p>
 <h2>Le site</h2>
 <p>ALOHA NOTÍCIAS est un projet indépendant consacré au cinéma, aux jeux vidéo et à la technologie, sans lien avec des studios, des producteurs ou des fabricants.</p>
 <h2>Ce que vous pouvez attendre</h2>
@@ -168,3 +168,8 @@ PAG["privacidade.html"] = ("Confidentialité", "Politique de confidentialité d'
 <p>Vous pouvez demander des informations sur les données que nous détenons à votre sujet, ainsi que leur correction ou leur suppression, en écrivant via la <a href="contato.html">page de contact</a>.</p>
 <h2>Modifications</h2>
 <p>Si cette politique change, la date ci-dessus sera mise à jour. Si nous commençons à utiliser des cookies, des publicités ou une newsletter, nous l'indiquerons d'abord ici. En cas de différence, la version portugaise prévaut.</p>""")
+
+PAG["equipe-aloha.html"] = ('Équipe Aloha', 'Qui signe Équipe Aloha sur ALOHA NOTÍCIAS.', """
+<p><strong>Équipe Aloha</strong> est la signature de la rédaction d'ALOHA NOTÍCIAS, utilisée pour une partie des articles sur le cinéma, les jeux vidéo, la technologie, l'anime et les curiosités.</p>
+<h2>Comment ces articles sont faits</h2>
+<p>Ils suivent la même <a href="politica-editorial.html">politique éditoriale</a> que le reste du site. Ils sont recherchés et rédigés avec l'aide d'outils, comme l'explique la politique, et chaque article est relu et approuvé par une personne avant sa mise en ligne.</p>""")

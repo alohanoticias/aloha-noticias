@@ -5,7 +5,7 @@ Responda sempre em português do Brasil.
 ## Passo a passo
 1. Pesquise na web (busca atual) um assunto em alta e **confirme fatos em pelo menos duas fontes**. Datas, preços e números só entram se aparecerem nas fontes.
 2. Escolha a editoria (anime, cinema, games, tecnologia, curiosidades, financas), alternando em relação aos últimos artigos de `site/conteudo/materias.json`.
-3. Monte o objeto do artigo (ele será salvo como **rascunho**, veja o passo 6) com: `slug`, `editoria`, `titulo`, `linha_fina`, `autor` (use "João Gabriel"), `data` (formato `2026-11-04T08:00`, horário de Brasília), `tags`, `corpo` (lista de parágrafos).
+3. Monte o objeto do artigo (ele será salvo como **rascunho**, veja o passo 6) com: `slug`, `editoria`, `titulo`, `linha_fina`, `autor` ("João Gabriel" ou "Equipe Aloha", veja a regra de autoria no passo 5), `data` (formato `2026-11-04T08:00`, horário de Brasília), `tags`, `corpo` (lista de parágrafos).
    - Subtítulo: parágrafo começando com `## `.
    - Foto no meio do texto: `!img URL|texto alternativo|crédito`.
    - Link: `[texto](https://...)` dentro do parágrafo. Negrito: `**texto**` (use com moderação, só em termos-chave).
@@ -63,7 +63,7 @@ Antes de salvar um rascunho, passe por estes pontos, para a pessoa receber algo 
 2. **Humanização**: leia como um leitor. Corte frases de efeito vazias, abertura genérica, fecho moralista, listas de três adjetivos, "vale ressaltar", "é importante destacar", "em um cenário", travessões em excesso. Varie o ritmo, use voz direta, dados específicos e uma observação própria do tema.
 3. **Originalidade**: texto reescrito com palavras próprias, sem copiar trechos das fontes, trazendo algo a mais (contexto, comparação, o que muda para o leitor).
 4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico ou financeiro como recomendação, imagens de terceiros só com crédito e fonte na legenda (decisão da diretoria), links só para fontes confiáveis, aviso informativo em Finanças.
-5. **Forma**: assinatura "João Gabriel", linha fina clara, tags coerentes, ortografia revisada, capa, fotos e vídeo conforme as regras abaixo.
+5. **Forma**: assinatura alternada: "João Gabriel" em matérias com análise, opinião, teste ou guia próprio (primeira pessoa permitida); "Equipe Aloha" em notícias diretas, calendários e explicativos. Mantenha as duas assinaturas misturadas ao longo da semana; linha fina clara, tags coerentes, ortografia revisada, capa, fotos e vídeo conforme as regras abaixo.
 
 ## Manutenção dos rascunhos que estão esperando
 Em cada execução, olhe os rascunhos pendentes em `rascunhos/`:
@@ -191,3 +191,12 @@ Regras:
 - Se não houver imagem real do assunto principal, o rascunho não está pronto: avise o editor em vez de completar com foto parecida.
 - Continua valendo: nenhuma foto repetida no site e dentro do artigo.
 - Confira a capa montada (abra o jpg): mostra mesmo o assunto, sem cortar logotipo ou letreiro e sem marca d'água de terceiros.
+
+## Valor próprio e variedade (obrigatório)
+
+- Toda matéria precisa ter pelo menos um elemento que outros sites não têm: tabela comparativa feita por nós, guia prático passo a passo, linha do tempo, análise ou opinião assinada, ou checklist.
+- Não repita a mesma atribuição ("Segundo o X", "Conforme o X") mais de uma vez. Varie: "em entrevista ao X", "o X apurou", "a própria empresa confirmou", ou cite a fonte só no fim.
+- Fontes primárias com link: entrevista original, comunicado oficial, página arquivada (Wayback Machine), revista original (ex.: Famitsu). Link no texto, não só no "Fontes:".
+- Varie o formato do título. Evite sempre "X: o que muda/o que se sabe". Alterne entre pergunta, número/lista, guia ("Como..."), comparação ("X vs Y"), análise ("Por que...") e notícia direta.
+- Varie a estrutura: nem toda matéria precisa de intertítulos iguais; use perguntas e respostas, listas, tabela ou cronologia quando fizer sentido.
+- Título HTML até 60 caracteres (o gerador encurta, mas escreva pensando nisso). Título e URL precisam dizer a mesma coisa (mesma data, mesmo número).

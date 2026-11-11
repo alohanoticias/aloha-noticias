@@ -116,7 +116,7 @@ PAG["politica-editorial.html"] = ("Redaktionelle Richtlinien und Korrekturen", "
 <h2>Übersetzungen</h2>
 <p>Portugiesisch ist unsere Originalsprache. Die Ausgaben in anderen Sprachen werden adaptiert, nicht wörtlich übersetzt, und lassen gegebenenfalls Details weg, die nur für ein brasilianisches Publikum wichtig sind. Weichen die Versionen voneinander ab, gilt das portugiesische Original.</p>""")
 PAG["equipe.html"] = ('João Gabriel', 'Wer ALOHA NOTÍCIAS gründet, schreibt und herausgibt.', """
-<p><strong>João Gabriel</strong> ist 21 Jahre alt, Brasilianer, Website-Ersteller und Ersteller digitaler Inhalte auf verschiedenen Plattformen. Er hat ALOHA NOTÍCIAS gegründet und zeichnet, prüft und gibt alle hier veröffentlichten Beiträge frei.</p>
+<p><strong>João Gabriel</strong> ist 21 Jahre alt, Brasilianer, Website-Ersteller und Ersteller digitaler Inhalte auf verschiedenen Plattformen. Er hat ALOHA NOTÍCIAS gegründet und schreibt dort Analysen, Ratgeber und Beiträge über Spiele, Film und Popkultur.</p>
 <h2>Die Website</h2>
 <p>ALOHA NOTÍCIAS ist ein unabhängiges Projekt über Film, Spiele und Technik, ohne Verbindungen zu Studios, Produktionsfirmen oder Herstellern.</p>
 <h2>Was Sie erwarten können</h2>
@@ -168,3 +168,8 @@ PAG["privacidade.html"] = ("Datenschutz", "Datenschutzerklärung von ALOHA NOTÍ
 <p>Sie können Auskunft über die zu Ihrer Person gespeicherten Daten sowie deren Berichtigung oder Löschung verlangen, indem Sie uns über die <a href="contato.html">Kontaktseite</a> schreiben.</p>
 <h2>Änderungen</h2>
 <p>Wenn sich diese Erklärung ändert, wird das obige Datum aktualisiert. Sollten wir Cookies, Werbung oder einen Newsletter einführen, sagen wir das zuerst hier. Bei Abweichungen gilt die portugiesische Fassung.</p>""")
+
+PAG["equipe-aloha.html"] = ('Aloha-Team', 'Wer bei ALOHA NOTÍCIAS als Aloha-Team zeichnet.', """
+<p><strong>Aloha-Team</strong> ist die Redaktionszeile von ALOHA NOTÍCIAS und steht über einem Teil der Beiträge zu Film, Spielen, Technik, Anime und Kuriosem.</p>
+<h2>Wie diese Beiträge entstehen</h2>
+<p>Sie folgen denselben <a href="politica-editorial.html">redaktionellen Richtlinien</a> wie der Rest der Website. Sie werden mit Hilfe von Werkzeugen recherchiert und entworfen, wie die Richtlinien erklären, und jeder Beitrag wird vor der Veröffentlichung von einem Menschen geprüft und freigegeben.</p>""")

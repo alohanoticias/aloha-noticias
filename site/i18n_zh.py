@@ -116,7 +116,7 @@ PAG["politica-editorial.html"] = ("编辑方针与更正政策", "ALOHA NOTÍCIA
 <h2>关于翻译</h2>
 <p>葡萄牙语是我们的原文语言。其他语言版本经过改写，而不是逐字翻译，可能会省去只对巴西读者有意义的细节。如果各版本之间存在差异，以葡萄牙语原文为准。</p>""")
 PAG["equipe.html"] = ('João Gabriel', '创建、撰写并编辑 ALOHA NOTÍCIAS 的人。', """
-<p><strong>若昂·加布里埃尔（João Gabriel）</strong>今年21岁，巴西人，是网站制作者，也是活跃于各平台的数字内容创作者。他创建了 ALOHA NOTÍCIAS，并为这里发布的每一篇文章署名、审核和批准。</p>
+<p><strong>若昂·加布里埃尔（João Gabriel）</strong>今年21岁，巴西人，是网站制作者，也是活跃于各平台的数字内容创作者。他创建了 ALOHA NOTÍCIAS，在这里撰写关于游戏、电影和流行文化的分析、指南和报道。</p>
 <h2>关于本站</h2>
 <p>ALOHA NOTÍCIAS 是一个关注影视、游戏和科技的独立项目，与电影公司、制作公司或制造商没有任何关联。</p>
 <h2>你可以期待什么</h2>
@@ -168,3 +168,8 @@ PAG["privacidade.html"] = ("隐私政策", "ALOHA NOTÍCIAS 的隐私政策。",
 <p>你可以通过<a href="contato.html">联系页面</a>写信，要求了解我们持有的你的数据，并要求更正或删除。</p>
 <h2>变更</h2>
 <p>如果本政策有变化，上方的日期会随之更新。如果我们开始使用 Cookie、广告或新闻邮件，会先在这里说明。如有差异，以葡萄牙语版本为准。</p>""")
+
+PAG["equipe-aloha.html"] = ('Aloha 编辑部', '关于 ALOHA NOTÍCIAS 的“Aloha 编辑部”署名。', """
+<p><strong>Aloha 编辑部</strong>是 ALOHA NOTÍCIAS 的编辑部署名，用于部分影视、游戏、科技、动漫和趣闻文章。</p>
+<h2>这些文章是怎样写成的</h2>
+<p>它们遵循与全站相同的<a href="politica-editorial.html">编辑方针</a>。正如方针所说，文章在工具辅助下调研和起草，每篇文章发布前都经过人工审核和批准。</p>""")

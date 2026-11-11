@@ -520,6 +520,25 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .link-botao { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 
+/* tabelas próprias nas matérias */
+.tabela-rolagem{overflow-x:auto;margin:1.6em 0;-webkit-overflow-scrolling:touch}
+.tabela{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.4;min-width:520px}
+.tabela caption{caption-side:top;text-align:left;font-weight:700;padding:0 0 .6em}
+.tabela th,.tabela td{padding:.6em .7em;border-bottom:1px solid rgba(127,127,127,.3);text-align:left;vertical-align:top}
+.tabela thead th{border-bottom:2px solid currentColor;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em}
+.tabela tbody th{font-weight:700}
+/* formulário de contato */
+.form-contato{margin:1.2em 0 2em;padding:1.4em;border:1px solid rgba(127,127,127,.3);border-radius:12px}
+.form-contato h2{margin-top:0}
+.fc-linha{display:flex;flex-direction:column;gap:.35em;margin:0 0 1em}
+.fc-linha label{font-weight:700;font-size:.92rem}
+.fc-linha input,.fc-linha select,.fc-linha textarea{font:inherit;padding:.65em .75em;border:1px solid rgba(127,127,127,.45);border-radius:8px;background:transparent;color:inherit;width:100%;box-sizing:border-box}
+.fc-linha select option{color:#111}
+.fc-isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fc-nota{font-size:.85rem;opacity:.8}
+.fc-status.ok{color:#2e8b57;font-weight:700}
+.fc-status.erro{color:#d64545;font-weight:700}
+
 /* ALOHA NOTÍCIAS — visual do site antigo (abril/2023): topo preto, logo vermelho, menu preto com item ativo
    vermelho, painéis de destaque, lista com "Leia mais" e barra lateral. Carregado depois de aloha.css. */
 

@@ -59,7 +59,7 @@ function origemDe(ref) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/v") {
@@ -95,6 +95,44 @@ export default {
       const obj = env.METRICAS.get(env.METRICAS.idFromName("aloha"));
       await obj.registrar(visita);
       return new Response(null, { status: 204 });
+    }
+
+    if (url.pathname === "/api/contato") {
+      // Formulário de contato: guarda a mensagem no mesmo banco (tabela "contatos") e, se houver as variáveis
+      // TELEGRAM_TOKEN e TELEGRAM_CHAT no Worker, avisa no Telegram. Limite: 5 mensagens por pessoa por dia.
+      if (request.method !== "POST") return json({ ok: false }, 405);
+      const origem = request.headers.get("origin") || "";
+      if (origem && !DOMINIOS.has(new URL(origem).hostname)) return json({ ok: false }, 403);
+      let d = {};
+      try { d = JSON.parse((await request.text()).slice(0, 8000) || "{}"); } catch (e) { return json({ ok: false }, 400); }
+      if (d.site) return json({ ok: true }); // campo-isca preenchido: robô
+      const MOTIVOS = ["Sugestão de pauta", "Correção", "Direitos autorais e imagens", "Publicidade e parcerias", "Privacidade", "Outro assunto"];
+      const msg = {
+        nome: corta(d.nome, 100).trim(),
+        email: corta(d.email, 160).trim(),
+        motivo: MOTIVOS[parseInt(d.motivo, 10)] || "Outro assunto",
+        mensagem: corta(d.mensagem, 5000).trim(),
+        idioma: IDIOMAS.has(d.idioma) ? d.idioma : "pt",
+        pagina: corta(d.pagina, 200),
+        chave: (request.headers.get("cf-connecting-ip") || "") + "|" + (request.headers.get("user-agent") || ""),
+      };
+      if (!msg.nome || msg.mensagem.length < 10 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(msg.email)) return json({ ok: false, erro: "dados" }, 400);
+      const obj = env.METRICAS.get(env.METRICAS.idFromName("aloha"));
+      const r = await obj.guardarContato(msg);
+      if (!r.ok) return json({ ok: false, erro: "limite" }, 429);
+      if (env.TELEGRAM_TOKEN && env.TELEGRAM_CHAT) {
+        const texto = `✉️ Nova mensagem pelo site\n${msg.motivo} (${msg.idioma})\nDe: ${msg.nome} <${msg.email}>\n\n${msg.mensagem.slice(0, 3000)}`;
+        ctx.waitUntil(fetch(`https://api.telegram.org/bot${env.TELEGRAM_TOKEN}/sendMessage`, {
+          method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT, text: texto, disable_web_page_preview: true }) }).catch(() => {}));
+      }
+      return json({ ok: true });
+    }
+
+    if (url.pathname === "/admin/api/contatos") {
+      if (!DOMINIOS.has(url.hostname) || !request.headers.get("cf-access-jwt-assertion")) return json({ erro: "acesso negado" }, 403);
+      const obj = env.METRICAS.get(env.METRICAS.idFromName("aloha"));
+      return json({ mensagens: await obj.listarContatos() });
     }
 
     if (url.pathname === "/api/em-alta") {
@@ -139,6 +177,27 @@ export class Metricas extends DurableObject {
     // coluna do artigo lido (acrescentada depois da primeira versão)
     if (!this.sql.exec("PRAGMA table_info(visitas)").toArray().some((c) => c.name === "slug")) this.sql.exec("ALTER TABLE visitas ADD COLUMN slug TEXT DEFAULT ''");
     this.sql.exec("CREATE TABLE IF NOT EXISTS sal (dia TEXT PRIMARY KEY, valor TEXT NOT NULL)");
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS contatos (ts INTEGER NOT NULL, dia TEXT NOT NULL, nome TEXT, email TEXT, motivo TEXT,
+      mensagem TEXT, idioma TEXT, pagina TEXT, remetente TEXT)`);
+  }
+
+  // Mensagens do formulário de contato. "remetente" é um código embaralhado (como nas visitas) só para limitar o envio por dia.
+  async guardarContato(m) {
+    const ts = Date.now();
+    const [dia] = Metricas.diaHora(ts);
+    const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(this.salDoDia(dia) + "|c|" + m.chave));
+    const remetente = [...new Uint8Array(bytes).slice(0, 8)].map((b) => b.toString(16).padStart(2, "0")).join("");
+    const n = this.sql.exec("SELECT COUNT(*) AS n FROM contatos WHERE dia = ? AND remetente = ?", dia, remetente).toArray()[0].n;
+    if (n >= 5) return { ok: false };
+    this.sql.exec("INSERT INTO contatos (ts, dia, nome, email, motivo, mensagem, idioma, pagina, remetente) VALUES (?,?,?,?,?,?,?,?,?)",
+      ts, dia, m.nome, m.email, m.motivo, m.mensagem, m.idioma, m.pagina, remetente);
+    // guarda no máximo um ano de mensagens
+    this.sql.exec("DELETE FROM contatos WHERE ts < ?", ts - 365 * 86400000);
+    return { ok: true };
+  }
+
+  async listarContatos() {
+    return this.sql.exec("SELECT ts, nome, email, motivo, mensagem, idioma, pagina FROM contatos ORDER BY ts DESC LIMIT 200").toArray();
   }
 
   static diaHora(ts) {
