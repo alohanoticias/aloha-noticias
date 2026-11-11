@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Fast and Furious Dodge Charger 1970', 'Mitsubishi Eclipse Fast And Furious', 'Toyota Supra ver.the Fast and the Furious', 'Dodge Charger The Fast and the Furious', 'Fast Furious Car Show']
+QUERIES = ['Steamboat Willie', 'Mickey Mouse 1928', 'Rocky statue Philadelphia', 'Rocky Steps Philadelphia Museum of Art', 'Wadi Rum desert', 'Nintendo Switch 2 console', 'DDR5 memory module', 'Steam Deck', 'Pokemon GO community day', 'Akihabara anime']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
