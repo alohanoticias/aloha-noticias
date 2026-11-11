@@ -663,7 +663,8 @@ def corpo_texto(paragrafos):
             mw = re.match(r"(https://upload\.wikimedia\.org/wikipedia/commons/thumb/.+/)(\d+)px-([^/]+)$", url)
             if mw and int(mw.group(2)) > 960:  # Wikimedia tem miniatura padrão de 960px: o celular baixa essa
                 url_640 = f"{mw.group(1)}960px-{mw.group(3)}"
-                srcset_wm = f' srcset="{esc(url_640)} 960w, {esc(url)} {mw.group(2)}w" sizes="(max-width: 760px) 100vw, 720px"'
+                _c = lambda u: esc(u.replace(",", "%2C"))  # vírgula no nome do arquivo quebraria a lista do srcset
+                srcset_wm = f' srcset="{_c(url_640)} 960w, {_c(url)} {mw.group(2)}w" sizes="(max-width: 760px) 100vw, 720px"'
             else:
                 srcset_wm = ""
             srcset = f' srcset="{", ".join(f"{u} {w}w" for u, w in v)}, {esc(url)} 1920w" sizes="(max-width: 760px) 100vw, 720px"' if v else "" or srcset_wm
