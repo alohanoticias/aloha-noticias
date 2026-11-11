@@ -213,6 +213,8 @@ PAGINAS["en"]["politica-editorial.html"] = ("Editorial and corrections policy", 
 <p>Rumors, leaks and behind-the-scenes information only appear when they are relevant, always labeled as unconfirmed and with the source named. We do not treat a rumor as fact.</p>
 <h2>Review before publishing</h2>
 <p>No article goes live without review and approval from the editor, <a href="equipe.html">João Gabriel</a>.</p>
+<h2>Use of artificial intelligence</h2>
+<p>We use artificial intelligence tools to support our work: to research and organize information, prepare drafts and adapt articles into other languages. No text goes live straight from the tool. Every article is checked against its sources, edited and approved by João Gabriel before it is published, and he is responsible for what appears on the site.</p>
 <h2>Images and videos</h2>
 <p>On the cover and in the text we use official promotional images of the subject itself, from studios, platforms, developers and manufacturers. Photos from free archives, such as Wikimedia Commons, only appear when they show something the text is talking about. Every image has a caption crediting who made it and, when there is one, the license. We do not use images with third-party watermarks. The video in an article, when there is one, is official content embedded from the channel where it was published, with the channel named. If you are the author or owner of an image and want a different credit or its removal, write to us through the <a href="contato.html">contact page</a>.</p>
 <h2>Corrections</h2>
@@ -232,6 +234,8 @@ PAGINAS["es"]["politica-editorial.html"] = ("Política editorial y de correccion
 <p>Los rumores, las filtraciones y la información de bastidores solo aparecen cuando son relevantes, siempre señalados como no confirmados y con la fuente indicada. No tratamos un rumor como un hecho.</p>
 <h2>Revisión antes de publicar</h2>
 <p>Ningún artículo sale al aire sin la revisión y la aprobación del editor, <a href="equipe.html">João Gabriel</a>.</p>
+<h2>Uso de inteligencia artificial</h2>
+<p>Usamos herramientas de inteligencia artificial como apoyo en el trabajo: para investigar y organizar información, preparar borradores y adaptar los artículos a otros idiomas. Ningún texto sale al aire directamente de la herramienta. Cada artículo se contrasta con las fuentes, se edita y lo aprueba João Gabriel antes de publicarse, y él responde por lo que aparece en el sitio.</p>
 <h2>Imágenes y videos</h2>
 <p>En la portada y en el texto usamos imágenes oficiales de promoción del propio tema, de estudios, plataformas, desarrolladoras y fabricantes. Las fotos de archivos libres, como Wikimedia Commons, solo aparecen cuando muestran algo de lo que habla el texto. Cada imagen lleva un pie con el crédito de quien la hizo y, cuando la hay, la licencia. No usamos imágenes con marcas de agua de terceros. El video de un artículo, cuando lo hay, es contenido oficial incrustado desde el canal donde se publicó, con el nombre del canal. Si eres autor o dueño de una imagen y quieres otro crédito o su retiro, escríbenos por la <a href="contato.html">página de contacto</a>.</p>
 <h2>Correcciones</h2>

@@ -105,6 +105,8 @@ PAG["politica-editorial.html"] = ("Politique éditoriale et de corrections", "Co
 <p>Les rumeurs, les fuites et les informations de coulisses n'apparaissent que lorsqu'elles sont pertinentes, toujours signalées comme non confirmées et avec la source indiquée. Nous ne traitons pas une rumeur comme un fait.</p>
 <h2>Relecture avant publication</h2>
 <p>Aucun article n'est mis en ligne sans la relecture et l'approbation de l'éditeur, <a href="equipe.html">João Gabriel</a>.</p>
+<h2>Utilisation de l'intelligence artificielle</h2>
+<p>Nous utilisons des outils d'intelligence artificielle pour nous aider dans notre travail : rechercher et organiser les informations, préparer des brouillons et adapter les articles dans d'autres langues. Aucun texte n'est mis en ligne directement depuis l'outil. Chaque article est vérifié auprès des sources, édité et approuvé par João Gabriel avant sa publication, et il répond de ce qui paraît sur le site.</p>
 <h2>Images et vidéos</h2>
 <p>En couverture et dans le texte, nous utilisons des images promotionnelles officielles du sujet lui-même, fournies par les studios, plateformes, développeurs et fabricants. Les photos d'archives libres, comme Wikimedia Commons, n'apparaissent que lorsqu'elles montrent quelque chose dont parle le texte. Chaque image porte une légende créditant son auteur et, le cas échéant, sa licence. Nous n'utilisons pas d'images portant le filigrane d'un tiers. La vidéo d'un article, quand il y en a une, est un contenu officiel intégré depuis la chaîne où il a été publié, avec le nom de la chaîne. Si vous êtes l'auteur ou le propriétaire d'une image et souhaitez un autre crédit ou son retrait, écrivez-nous via la <a href="contato.html">page de contact</a>.</p>
 <h2>Corrections</h2>
