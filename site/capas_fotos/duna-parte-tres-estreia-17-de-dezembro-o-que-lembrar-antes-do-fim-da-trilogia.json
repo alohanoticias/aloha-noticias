@@ -1,19 +1,11 @@
 {
- "layout": "duplo",
+ "layout": "um",
  "fotos": [
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Jordan%2C_Wadi_Rum_Desert%2C_Infinite_Spaces.jpg/1920px-Jordan%2C_Wadi_Rum_Desert%2C_Infinite_Spaces.jpg",
+   "url": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=original",
    "foco": [
     0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Wadi_Rum_Desert%2C_Jordan%2C_The_%22Seven_Pillars_of_Wisdom%22.jpg/1920px-Wadi_Rum_Desert%2C_Jordan%2C_The_%22Seven_Pillars_of_Wisdom%22.jpg",
-   "foco": [
-    0.5,
-    0.5
+    0.76
    ],
    "zoom": 1.0
   }
