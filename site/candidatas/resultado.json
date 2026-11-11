@@ -1,74 +1,20 @@
 [
  {
-  "titulo": "a3original",
-  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original",
-  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original",
+  "titulo": "b1",
+  "pagina": "https://mma.prnewswire.com/media/3004969/ADFC_1.jpg?p=original",
+  "imagem": "https://mma.prnewswire.com/media/3004969/ADFC_1.jpg?p=original",
   "dim": [
    2700,
    1800
   ]
  },
  {
-  "titulo": "a3publish",
-  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=publish",
-  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=publish",
+  "titulo": "b2",
+  "pagina": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg?p=original",
+  "imagem": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg?p=original",
   "dim": [
    2700,
-   1800
-  ]
- },
- {
-  "titulo": "a3facebook",
-  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=facebook",
-  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=facebook",
-  "dim": [
-   2700,
-   1414
-  ]
- },
- {
-  "titulo": "a3twitter",
-  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=twitter",
-  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=twitter",
-  "dim": [
-   1200,
-   800
-  ]
- },
- {
-  "titulo": "a4original",
-  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=original",
-  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=original",
-  "dim": [
-   2700,
-   4001
-  ]
- },
- {
-  "titulo": "a4publish",
-  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=publish",
-  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=publish",
-  "dim": [
-   1822,
-   2700
-  ]
- },
- {
-  "titulo": "a4facebook",
-  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=facebook",
-  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=facebook",
-  "dim": [
-   2700,
-   1414
-  ]
- },
- {
-  "titulo": "a4twitter",
-  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=twitter",
-  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=twitter",
-  "dim": [
-   810,
-   1200
+   1662
   ]
  }
 ]
