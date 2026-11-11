@@ -7,7 +7,7 @@
   --fundo: #ffffff;
   --superficie: #f4f4f4;
   --tinta: #2c2f34;
-  --mare: #777777;
+  --mare: #616161;
   --marca: #2c2f34;
   --linha: #e3e3e3;
   --coral: #bc3131;
@@ -179,7 +179,7 @@
   .topbar, .logo-area, .nav { display: none; }
   .barra-m { display: block; background: var(--preto); }
   .barra-m .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-  .menu-m, .busca-m { color: var(--vermelho); background: none; border: 0; padding: 6px; display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 15px; cursor: pointer; min-width: 84px; }
+  .menu-m, .busca-m { color: #e86565; background: none; border: 0; padding: 6px; display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 15px; cursor: pointer; min-width: 84px; }
   .busca-m { justify-content: flex-end; }
   .menu-m svg, .busca-m svg { width: 26px; height: 26px; }
   .logo-m { line-height: 0; }
