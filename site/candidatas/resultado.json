@@ -1,11 +1,29 @@
 [
  {
-  "titulo": "capa",
-  "pagina": "https://www.rockstargames.com/VI",
-  "imagem": "https://www.rockstargames.com/VI/_next/static/media/pre-load.0~7aq~08y784d.jpg",
+  "titulo": "spy-site",
+  "pagina": "https://spy-family.net/tvseries/",
+  "imagem": "https://spy-family.net/tvseries/assets/og/ogp22.jpg",
   "dim": [
-   4211,
-   2160
+   1200,
+   630
+  ]
+ },
+ {
+  "titulo": "spy-site2",
+  "pagina": "https://spy-family.net/",
+  "imagem": "https://spy-family.net/assets/og/ogp22.jpg",
+  "dim": [
+   1200,
+   630
+  ]
+ },
+ {
+  "titulo": "spy-news",
+  "pagina": "https://spy-family.net/news/",
+  "imagem": "https://spy-family.net/assets/og/ogp22.jpg",
+  "dim": [
+   1200,
+   630
   ]
  }
 ]
