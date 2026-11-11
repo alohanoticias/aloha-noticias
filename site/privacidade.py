@@ -1,4 +1,4 @@
-"""Política de privacidade nos 9 idiomas do site.
+"""Política de privacidade nos idiomas do site (pt, en, es; os textos de outros idiomas aqui não são mais usados).
 
 Cada texto descreve o que o site realmente faz hoje (Google Analytics com regra por região, Cloudflare,
 notificações OneSignal, conteúdo incorporado). Marcadores trocados pelo gerar.py:

@@ -1386,7 +1386,7 @@ def prefixo(lang):
 
 # Endereços traduzidos. Internamente cada página tem um nome em português (a "chave");
 # o nome final de cada idioma sai de nome_idioma(). Os links são reescritos em localizar().
-_L = ["en", "es", "fr", "de", "it", "ja", "zh", "ar"]
+_L = ["en", "es"]  # idiomas além do português (fr, de, it, ja, zh e ar foram retirados em 11/11/2026)
 PREF_MAT = dict(zip(_L, ["article", "articulo", "article", "artikel", "articolo", "kiji", "wenzhang", "maqal"]))
 PREF_TAG = dict(zip(_L, ["topic", "tema", "sujet", "thema", "argomento", "tag", "huati", "mawdu"]))
 _F = {  # em ordem: en, es, fr, de, it, ja, zh, ar
@@ -1631,7 +1631,7 @@ def main():
     # /favicon.ico na raiz: o Google e alguns navegadores procuram o ícone aqui antes de ler as tags da página
     shutil.copyfile(RAIZ / "assets/img/favicon.ico", SAIDA / "favicon.ico")
     # Endereços antigos do visual anterior que ainda aparecem no Google
-    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n", encoding="utf-8")
+    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "it", "ja", "zh", "ar")), encoding="utf-8")
     (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
     print(f"{len(arquivos)} páginas geradas em {SAIDA}")
 

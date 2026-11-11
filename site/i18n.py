@@ -1,7 +1,7 @@
 """Textos de interface e páginas institucionais em inglês e espanhol.
 O português é o idioma principal e fica no próprio gerar.py. As chaves de UI são o texto em português."""
 
-IDIOMAS_REAIS = ["pt", "en", "es", "fr", "de", "it", "ja", "zh", "ar"]
+IDIOMAS_REAIS = ["pt", "en", "es"]  # 11/11/2026: os demais idiomas foram retirados do site
 HTML_LANG = {"pt": "pt-BR", "en": "en", "es": "es", "fr": "fr", "de": "de", "it": "it", "ja": "ja", "zh": "zh-CN", "ar": "ar"}
 OG_LOCALE = {"pt": "pt_BR", "en": "en_US", "es": "es_ES", "fr": "fr_FR", "de": "de_DE", "it": "it_IT", "ja": "ja_JP", "zh": "zh_CN", "ar": "ar_AR"}
 SIGLA = {"pt": "PT", "en": "EN", "es": "ES", "fr": "FR", "de": "DE", "it": "IT", "ja": "JA", "zh": "ZH", "ar": "AR"}
@@ -400,12 +400,12 @@ _EXTRA = {
     "zh": ["阅读更多", "搜索", "最新", "最新文章", "分类", "侧边栏", "菜单"],
     "ar": ["اقرأ المزيد", "بحث", "الأحدث", "أحدث المقالات", "الأقسام", "الشريط الجانبي", "القائمة"],
 }
-for _l, _v in _EXTRA.items():
+for _l, _v in ((k, x) for k, x in _EXTRA.items() if k in UI):
     for _k, _t in zip(_K, _v):
         UI[_l].setdefault(_k, _t)
 
 _H1 = {"en": "news, movies, games, technology and curiosities", "es": "noticias, cine, juegos, tecnología y curiosidades", "fr": "actualités, cinéma, jeux, technologie et curiosités", "de": "Nachrichten, Kino, Spiele, Technik und Kurioses", "it": "notizie, cinema, giochi, tecnologia e curiosità", "ja": "ニュース、映画、ゲーム、テクノロジー、トリビア", "zh": "新闻、影视、游戏、科技与趣闻", "ar": "أخبار وسينما وألعاب وتقنية ومعلومات طريفة"}
-for _l, _t in _H1.items():
+for _l, _t in ((k, x) for k, x in _H1.items() if k in UI):
     UI[_l].setdefault("notícias, cinema, games, tecnologia e curiosidades", _t)
 
 # Sino de notificações
@@ -420,7 +420,7 @@ _EX2 = {
     "zh": ["推送历史", "通知历史为空", "全部标为已读", "清除全部"],
     "ar": ["سجل الإشعارات", "سجل الإشعارات فارغ", "تعليم الكل كمقروء", "مسح الكل"],
 }
-for _l, _v in _EX2.items():
+for _l, _v in ((k, x) for k, x in _EX2.items() if k in UI):
     for _k, _t in zip(_K2, _v):
         UI[_l].setdefault(_k, _t)
 
@@ -435,7 +435,7 @@ _EX3 = {
     "zh": ["开启通知", "通知已开启", "浏览器已阻止通知"],
     "ar": ["تفعيل الإشعارات", "الإشعارات مفعّلة", "الإشعارات محظورة في المتصفح"],
 }
-for _l, _v in _EX3.items():
+for _l, _v in ((k, x) for k, x in _EX3.items() if k in UI):
     for _k, _t in zip(_K3, _v):
         UI[_l].setdefault(_k, _t)
 
@@ -468,7 +468,7 @@ _EX4 = {
            "ما زال التحميل جارياً. حاول مجدداً بعد ثوانٍ (وإن استمر ذلك فعطّل مانع الإعلانات لهذا الموقع).",
            "تعذّر تفعيل الإشعارات على هذا الجهاز."],
 }
-for _l, _v in _EX4.items():
+for _l, _v in ((k, x) for k, x in _EX4.items() if k in UI):
     for _k, _t in zip(_K4, _v):
         UI[_l].setdefault(_k, _t)
 

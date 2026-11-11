@@ -32,7 +32,7 @@ O Google recusa sites cujas matérias só reorganizam o que outros veículos já
 5. **Contribuição do Aloha**: pelo menos um trecho que não está em nenhuma fonte, como o que muda para o leitor brasileiro (preço em R$, horário de Brasília, dublagem, onde assistir ou jogar aqui), uma comparação com casos anteriores, uma conta simples conferida ou um guia prático. Esse trecho deve ser identificável (de preferência um subtítulo próprio).
 6. **Separar o confirmado do não confirmado** de forma explícita no texto ("o que é oficial" / "o que ainda não se sabe").
 7. **Links internos**: quando houver matéria do Aloha relacionada (mesmo jogo, filme, empresa ou série), cite-a com link no corpo do texto no formato `[texto](materia-<slug>.html)` (sem https: assim o site aponta para a versão certa em cada idioma; use o mesmo link nas 8 traduções), 1 ou 2 por artigo, só quando forem úteis de verdade. O bloco "Leia também" já escolhe sozinho as matérias com mais tags em comum, então use tags coerentes (o nome do jogo, filme, série ou empresa).
-8. **Linha "Fontes:" no fim**, com links clicáveis, fontes oficiais primeiro. O site transforma essa linha num bloco de fontes destacado. Mantenha o rótulo no início da linha em todos os idiomas ("Fontes:", "Sources:", "Fuentes:", "Sources :", "Quellen:", "Fonti:", "出典：", "来源：", "المصادر:").
+8. **Linha "Fontes:" no fim**, com links clicáveis, fontes oficiais primeiro. O site transforma essa linha num bloco de fontes destacado. Mantenha o rótulo no início da linha em todos os idiomas ("Fontes:", "Sources:", "Fuentes:").
 Se não houver como cumprir os pontos 4 a 6, escolha outra pauta. O tamanho não resolve a falta de contribuição: um texto de 600 palavras com análise própria vale mais que um de 850 que repete as fontes.
 
 ## Imagens e direitos
@@ -135,14 +135,14 @@ Quando uma matéria publicada tiver data, fato ou número que mudou, não basta 
 ## Banco de pautas
 Antes de escolher os assuntos do dia, leia `PAUTAS.md` (pautas por janela de publicação, com o que confirmar). Pode usar as de lá ou outras do momento; ao usar uma, marque com ★ e acrescente novas pautas no fim da tabela quando surgirem.
 
-## Traduções: obrigatórias em todo rascunho (8 idiomas)
-O site tem versões reais em /en/, /es/, /fr/, /de/, /it/, /ja/, /zh/ e /ar/. Cada rascunho novo sai com o campo `"traducoes"` no mesmo JSON, com as chaves `"en"`, `"es"`, `"fr"`, `"de"`, `"it"`, `"ja"`, `"zh"` e `"ar"`. Cada uma leva:
+## Traduções: obrigatórias em todo rascunho (inglês e espanhol)
+Desde 11/11/2026 o site tem só três idiomas: português (principal e o único pensado para o AdSense), inglês em /en/ e espanhol em /es/. Francês, alemão, italiano, japonês, chinês e árabe foram retirados (os endereços antigos redirecionam para a home). Cada rascunho novo sai com o campo `"traducoes"` no mesmo JSON, só com as chaves `"en"` e `"es"`. Cada uma leva:
 `titulo`, `linha_fina`, `corpo` (mesma estrutura do original, mesma quantidade e ordem de parágrafos: `## subtítulos`, `!img URL|alt|crédito`, links), `tags`, `alt` (descrição da capa), `credito` (crédito da capa), `video_titulo`, `slug`. Opcional: `correcao`.
-`slug` é o endereço da matéria no idioma: minúsculas, só letras ASCII e hífens, até ~9 palavras. Em en/es/fr/de/it use as palavras do título traduzido; em ja/zh/ar use romanização (romaji, pinyin, transliteração) ou o título em inglês. Fica `/<idioma>/<prefixo>-<slug>.html`. Se faltar, o site usa o slug em português.
+`slug` é o endereço da matéria no idioma: minúsculas, só letras ASCII e hífens, até ~9 palavras. Use as palavras do título traduzido. Fica `/<idioma>/<prefixo>-<slug>.html`. Se faltar, o site usa o slug em português.
 Regras:
 - **Adaptar, não traduzir palavra por palavra.** Escreva como um redator nativo daquele idioma escreveria: expressões, ordem das ideias, formato de data, tom de notícia local. Para leitor de fora do Brasil, deixe claro quando algo é do Brasil (data de estreia, preço em R$, plataforma), e diga que datas em outros países podem ser diferentes.
-- Mantenha os mesmos fatos, números, datas e fontes. Não acrescente informação nova (nem conversão de câmbio, nem gêneros, nem títulos oficiais locais) que a fonte não traz. Títulos de filmes e jogos: use o título internacional só quando ele é conhecido com certeza; do contrário, mantenha o título original/brasileiro (em ja/zh/ar, o nome em letras latinas). Nomes de personagens e atores que não tenham grafia local certa ficam em letras latinas.
-- As fontes no fim vão com "(in Portuguese)" no idioma ("(en portugais)", "(auf Portugiesisch)", "(in portoghese)", "（ポルトガル語）", "（葡萄牙语）", "(بالبرتغالية)", "(en portugués)") quando o link é em português.
+- Mantenha os mesmos fatos, números, datas e fontes. Não acrescente informação nova (nem conversão de câmbio, nem gêneros, nem títulos oficiais locais) que a fonte não traz. Títulos de filmes e jogos: use o título internacional só quando ele é conhecido com certeza; do contrário, mantenha o título original/brasileiro. Nomes de personagens e atores que não tenham grafia local certa ficam em letras latinas.
+- As fontes no fim vão com "(in Portuguese)" no idioma ("(en portugués)" em espanhol) quando o link é em português.
 - Mantenha as URLs das imagens iguais; traduza apenas o texto alternativo e o crédito.
 - Para ver como ficou, abra a prévia em /admin (link "Prévia das traduções" no rascunho). Aprovar o rascunho publica todas as versões juntas.
 - Se um artigo for atualizado depois (campo `atualizado`/`correcao`), atualize também as traduções.

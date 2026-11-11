@@ -1,2 +1,14 @@
 /noticias /anime.html 301
 /noticias.html /anime.html 301
+/fr / 301
+/fr/* / 301
+/de / 301
+/de/* / 301
+/it / 301
+/it/* / 301
+/ja / 301
+/ja/* / 301
+/zh / 301
+/zh/* / 301
+/ar / 301
+/ar/* / 301
