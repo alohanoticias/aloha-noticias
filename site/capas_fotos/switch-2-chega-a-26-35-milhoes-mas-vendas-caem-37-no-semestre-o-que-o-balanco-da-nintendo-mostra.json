@@ -1,0 +1,29 @@
+{
+ "layout": "faixas",
+ "fotos": [
+  {
+   "url": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres3.jpg",
+   "foco": [
+    0.6,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres1.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://i.ytimg.com/vi/itpcsQQvgAQ/maxres2.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

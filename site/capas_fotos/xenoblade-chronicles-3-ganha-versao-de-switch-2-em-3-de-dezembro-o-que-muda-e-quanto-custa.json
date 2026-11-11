@@ -1,0 +1,29 @@
+{
+ "layout": "colunas",
+ "fotos": [
+  {
+   "url": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_image1280w.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.gematsu.com/wp-content/uploads/2026/09/Xenoblade-Chronicles-3-Nintendo-Switch-2-Edition_2026_09-09-26_020.jpg",
+   "foco": [
+    0.55,
+    0.4
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://www.gematsu.com/wp-content/uploads/2026/09/Xenoblade-Chronicles-3-Nintendo-Switch-2-Edition_2026_09-09-26_010.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

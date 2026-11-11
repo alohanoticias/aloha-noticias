@@ -1,0 +1,29 @@
+{
+ "layout": "colunas",
+ "fotos": [
+  {
+   "url": "https://www.laughingplace.com/uploads/media/2026/06/Mickey-Home-Alone.png",
+   "foco": [
+    0.62,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mickey_and_Minnie_Mouse_Steamboat_Willie.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mickey_Mouse_and_Peg_Leg_Pete_%28Steamboat_Willie_frame%29.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

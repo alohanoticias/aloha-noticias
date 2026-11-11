@@ -1,19 +1,11 @@
 {
- "layout": "duplo",
+ "layout": "um",
  "fotos": [
   {
    "url": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/6334/e9004d4a44d9993a0234aaa5d2fe6ef0.jpg",
    "foco": [
     0.5,
     0.45
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://i.ytimg.com/vi/B7oNbjQyjDE/maxres3.jpg",
-   "foco": [
-    0.5,
-    0.5
    ],
    "zoom": 1.0
   }

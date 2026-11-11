@@ -1,0 +1,29 @@
+{
+ "layout": "grade_b",
+ "fotos": [
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Semiconductor%20Wafer%20of%20Microelectronics.jpg?width=1920",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/SK%20hynix%2016GB%20DDR5-5600%20UDIMM%20HMCG78AGBUA084N%20BA.jpg?width=1920",
+   "foco": [
+    0.5,
+    0.3
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pile%20of%20Laptop%20%26%20Desktop%20RAM%20Memory%20Modules.jpg?width=1920",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

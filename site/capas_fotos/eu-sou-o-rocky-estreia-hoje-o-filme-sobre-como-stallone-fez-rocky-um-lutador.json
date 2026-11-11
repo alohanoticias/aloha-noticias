@@ -1,0 +1,29 @@
+{
+ "layout": "grade",
+ "fotos": [
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259379021%29.jpg?width=1920",
+   "foco": [
+    0.6,
+    0.35
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259378556%29.jpg?width=1920",
+   "foco": [
+    0.62,
+    0.3
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rocky%20Balboa%20statue%20%2855259612374%29.jpg?width=1920",
+   "foco": [
+    0.62,
+    0.4
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

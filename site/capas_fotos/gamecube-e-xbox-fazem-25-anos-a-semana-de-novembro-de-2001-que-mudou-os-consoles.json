@@ -1,0 +1,29 @@
+{
+ "layout": "tres",
+ "fotos": [
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube-Set.jpg?width=1920",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-console.jpg?width=1920",
+   "foco": [
+    0.55,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube%20Wavebird%20Controller%20on%20white%20background.jpg?width=1920",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}
