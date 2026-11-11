@@ -177,6 +177,8 @@ export class Metricas extends DurableObject {
     // coluna do artigo lido (acrescentada depois da primeira versão)
     if (!this.sql.exec("PRAGMA table_info(visitas)").toArray().some((c) => c.name === "slug")) this.sql.exec("ALTER TABLE visitas ADD COLUMN slug TEXT DEFAULT ''");
     this.sql.exec("CREATE TABLE IF NOT EXISTS sal (dia TEXT PRIMARY KEY, valor TEXT NOT NULL)");
+    // visitas em /it/ que tenham ficado marcadas com outro idioma enquanto o italiano esteve fora do contador (11/11/2026)
+    this.sql.exec("UPDATE visitas SET idioma = 'it' WHERE (caminho = '/it' OR caminho LIKE '/it/%') AND idioma <> 'it'");
     this.sql.exec(`CREATE TABLE IF NOT EXISTS contatos (ts INTEGER NOT NULL, dia TEXT NOT NULL, nome TEXT, email TEXT, motivo TEXT,
       mensagem TEXT, idioma TEXT, pagina TEXT, remetente TEXT)`);
   }
