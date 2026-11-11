@@ -1,26 +1,107 @@
 [
  {
-  "titulo": "r3",
-  "url": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original",
-  "img": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original",
-  "recorte": [
-   0.0,
-   0.38,
-   0.68,
-   0.954
-  ],
-  "salvar": "assets/img/estreias/duna-parte-tres-set-liwa-dunas.jpg"
+  "titulo": "f1",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-1.jpg"
  },
  {
-  "titulo": "r2",
-  "url": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg?p=original",
-  "img": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg?p=original",
-  "recorte": [
-   0.0,
-   0.25,
-   0.66,
-   0.853
-  ],
-  "salvar": "assets/img/estreias/duna-parte-tres-set-liwa-planicie.jpg"
+  "titulo": "t1",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-1.jpg"
+ },
+ {
+  "titulo": "f2",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-2.jpg"
+ },
+ {
+  "titulo": "t2",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-2.jpg"
+ },
+ {
+  "titulo": "f3",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-3.jpg"
+ },
+ {
+  "titulo": "t3",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-3.jpg"
+ },
+ {
+  "titulo": "f4",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-4.jpg"
+ },
+ {
+  "titulo": "t4",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-4.jpg"
+ },
+ {
+  "titulo": "f5",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-5.jpg"
+ },
+ {
+  "titulo": "t5",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-5.jpg"
+ },
+ {
+  "titulo": "f6",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-6.jpg"
+ },
+ {
+  "titulo": "t6",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-6.jpg"
+ },
+ {
+  "titulo": "f7",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-7.jpg"
+ },
+ {
+  "titulo": "t7",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-7.jpg"
+ },
+ {
+  "titulo": "f8",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-8.jpg"
+ },
+ {
+  "titulo": "t8",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-8.jpg"
+ },
+ {
+  "titulo": "f9",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-9.jpg"
+ },
+ {
+  "titulo": "t9",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-9.jpg"
+ },
+ {
+  "titulo": "f10",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Final-Trailer-images-10.jpg"
+ },
+ {
+  "titulo": "t10",
+  "url": "https://manofmany.com/",
+  "img": "https://manofmany.com/wp-content/uploads/2026/07/Dune-Part-Three-Trailer-10.jpg"
+ },
+ {
+  "titulo": "sc",
+  "url": "https://screencrush.com/",
+  "img": "https://townsquare.media/site/442/files/2026/07/attachment-dune-3-2-1.jpg"
  }
 ]
