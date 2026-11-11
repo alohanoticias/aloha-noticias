@@ -1,143 +1,80 @@
 [
  {
-  "titulo": "sw1",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Nintendo%20Switch%202%20in%20Docking%20Console.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Nintendo%20Switch%202%20in%20Docking%20Console.jpg?width=1920",
-  "dim": [
-   1920,
-   1030
-  ]
- },
- {
-  "titulo": "sw2",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Nintendo%20Switch%202%20%E2%80%93%20Tischmodus%2020250606.png?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Nintendo%20Switch%202%20%E2%80%93%20Tischmodus%2020250606.png?width=1920",
-  "dim": [
-   1920,
-   1258
-  ]
- },
- {
-  "titulo": "rm1",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/SK%20Hynix%20DDR5%20form%20factors.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/SK%20Hynix%20DDR5%20form%20factors.jpg?width=1920",
-  "dim": [
-   1920,
-   1536
-  ]
- },
- {
-  "titulo": "rm2",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/CXMT%20DDR5%20SODIMM.png?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/CXMT%20DDR5%20SODIMM.png?width=1920",
-  "dim": [
-   1920,
-   1054
-  ]
- },
- {
-  "titulo": "xnf1",
-  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres1.jpg",
+  "titulo": "ry-d",
+  "pagina": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxresdefault.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "xnf2",
-  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres2.jpg",
+  "titulo": "ry-t",
+  "pagina": "https://i.ytimg.com/vi/zywhyPLhd54/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/zywhyPLhd54/maxresdefault.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "xnf3",
-  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxres3.jpg",
+  "titulo": "ray-cat",
+  "pagina": "https://catracalivre.com.br/i/Pa6JErdI0YVIFm1qXY_kA1u8erBZen_UOlHwmpKbvwE/rs:fill:1200:630:1/g:sm/q:80/bG9jYWw6Ly8vMjAyNi8wOS9iZ3Bld25tenB5NC1oZGpwZy5qcGVn",
+  "imagem": "https://catracalivre.com.br/i/Pa6JErdI0YVIFm1qXY_kA1u8erBZen_UOlHwmpKbvwE/rs:fill:1200:630:1/g:sm/q:80/bG9jYWw6Ly8vMjAyNi8wOS9iZ3Bld25tenB5NC1oZGpwZy5qcGVn",
+  "dim": [
+   1200,
+   630
+  ]
+ },
+ {
+  "titulo": "xn-d",
+  "pagina": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/a4DiPlQcH_c/maxresdefault.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "ryf1",
-  "pagina": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres1.jpg",
-  "imagem": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres1.jpg",
+  "titulo": "xn-2",
+  "pagina": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxresdefault.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "ryf2",
-  "pagina": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres2.jpg",
-  "imagem": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres2.jpg",
+  "titulo": "xn2-1",
+  "pagina": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxres1.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "ryf3",
-  "pagina": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres3.jpg",
-  "imagem": "https://i.ytimg.com/vi/CTm3ynhIRbQ/maxres3.jpg",
+  "titulo": "xn2-2",
+  "pagina": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxres2.jpg",
   "dim": [
    1280,
    720
   ]
  },
  {
-  "titulo": "xn3",
-  "pagina": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_image1600w.jpg",
-  "imagem": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_image1600w.jpg",
+  "titulo": "xn2-3",
+  "pagina": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/nmLXU2Yzqfo/maxres3.jpg",
   "dim": [
-   1600,
-   900
+   1280,
+   720
   ]
  },
  {
-  "titulo": "ray-ch",
-  "pagina": "https://criticalhits.com.br/wp-content/uploads/2026/10/Guerreiras-Magicas-de-Rayearth-destacada.jpg",
-  "imagem": "https://criticalhits.com.br/wp-content/uploads/2026/10/Guerreiras-Magicas-de-Rayearth-destacada.jpg",
-  "dim": [
-   1340,
-   846
-  ]
- },
- {
-  "titulo": "ray-go",
-  "pagina": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/magic-knight-rayearth-2026-e-remake-ou-continuacao-2-go-discover-1600x900.webp",
-  "imagem": "https://gameoverdrive.com.br/wp-content/uploads/2026/10/magic-knight-rayearth-2026-e-remake-ou-continuacao-2-go-discover-1600x900.webp",
-  "dim": [
-   1600,
-   900
-  ]
- },
- {
-  "titulo": "rky-ing",
-  "pagina": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/6447/7c702fc2330200c5808c4c513d7d9a12.jpg",
-  "imagem": "https://ingresso-a.akamaihd.net/b2b/production/uploads/article/image/6447/7c702fc2330200c5808c4c513d7d9a12.jpg",
-  "dim": [
-   1920,
-   1008
-  ]
- },
- {
-  "titulo": "pg-ka",
-  "pagina": "https://lh3.googleusercontent.com/t5O4uk87m4uBdjNiiMgMq9nKNOkWyt3lNxwPc4dEqi8nL2ORXDgmO91Dc8orIGjysTupi4Jfr9F1FQq5jp36L68z7XZlddd8Kq-CSJQJEVfk=s0-e365",
-  "imagem": "https://lh3.googleusercontent.com/t5O4uk87m4uBdjNiiMgMq9nKNOkWyt3lNxwPc4dEqi8nL2ORXDgmO91Dc8orIGjysTupi4Jfr9F1FQq5jp36L68z7XZlddd8Kq-CSJQJEVfk=s0-e365",
-  "dim": [
-   1920,
-   1080
-  ]
- },
- {
-  "titulo": "mk-dj",
-  "pagina": "https://i.ytimg.com/vi/EtAQ-tzZI4E/maxresdefault.jpg",
-  "imagem": "https://i.ytimg.com/vi/EtAQ-tzZI4E/maxresdefault.jpg",
+  "titulo": "xn-uk",
+  "pagina": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_image1280w.jpg",
+  "imagem": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_image1280w.jpg",
   "dim": [
    1280,
    720
