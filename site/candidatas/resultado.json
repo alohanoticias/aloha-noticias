@@ -1,101 +1,209 @@
 [
  {
-  "titulo": "e1",
+  "titulo": "q1",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-1-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/hunchback-soul-of-paris-1536x864.webp",
+  "dim": [
+   1536,
+   864
+  ]
+ },
+ {
+  "titulo": "q2",
+  "pagina": "https://www.whats-on-netflix.com/",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/QUASIMODO-21AOUT-4764-1536x1024.webp",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e8",
+  "titulo": "q3",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-8.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/cassel-richet-redim.jpg",
   "dim": [
-   1080,
-   1350
+   1343,
+   894
   ]
  },
  {
-  "titulo": "e2",
+  "titulo": "q4",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-2-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/QUASIMODO-01SEPTEMBRE-7055-1536x1024.webp",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e3",
+  "titulo": "q5",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-3-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/hunchback-soul-of-paris-first-look-1536x702.webp",
+  "dim": [
+   1536,
+   702
+  ]
+ },
+ {
+  "titulo": "q6",
+  "pagina": "https://www.whats-on-netflix.com/",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/QUASIMODO-21AOUT-3875-1536x1024.webp",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e4",
+  "titulo": "q7",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-4-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/09/netflixfr-1793376303-4019409697676843747-1459119278.jpg",
+  "dim": [
+   1088,
+   1344
+  ]
+ },
+ {
+  "titulo": "al1",
+  "pagina": "https://www.whats-on-netflix.com/",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/Altruistsuniversal-base-na-14-zxx-1-1536x810.jpg",
+  "dim": [
+   1536,
+   810
+  ]
+ },
+ {
+  "titulo": "al2",
+  "pagina": "https://www.whats-on-netflix.com/",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-101-251208-RH-00583-RC-1536x1024.jpg",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e5",
+  "titulo": "al3",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-5-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/The-Altruists-n-S1-E6-00-14-12-21-R-1536x638.jpg",
+  "dim": [
+   1536,
+   638
+  ]
+ },
+ {
+  "titulo": "al4",
+  "pagina": "https://www.whats-on-netflix.com/",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-103-250721-RH-00115-RC2-1536x1024.jpg",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e6",
+  "titulo": "al5",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-6-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-107-251209-RH-00878-R-1536x1024.jpg",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e7",
+  "titulo": "al6",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-7-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/The-Altruists-n-S1-E2-00-17-50-02-C-1536x1024.jpg",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e9",
+  "titulo": "al7",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-9-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/The-Altruists-n-S1-E1-00-51-02-16-R2-1536x714.jpg",
+  "dim": [
+   1536,
+   714
+  ]
+ },
+ {
+  "titulo": "al8",
+  "pagina": "https://www.whats-on-netflix.com/",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-101-250703-RH-00008-RC2-1536x1024.jpg",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e10",
+  "titulo": "al9",
   "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-10-1536x1024.jpg",
+  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/08/ALTRUISTS-101-250713-EA-00244-R-1536x1024.jpg",
   "dim": [
    1536,
    1024
   ]
  },
  {
-  "titulo": "e11",
-  "pagina": "https://www.whats-on-netflix.com/",
-  "imagem": "https://www.whats-on-netflix.com/wp-content/uploads/2026/10/the-empress-final-first-looks-season-3-11-1536x1024.jpg",
+  "titulo": "br1",
+  "pagina": "https://bleedingcool.com/",
+  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnM2mXQAAZU1g.jpg",
   "dim": [
-   1536,
-   1024
+   1745,
+   1163
+  ]
+ },
+ {
+  "titulo": "br2",
+  "pagina": "https://bleedingcool.com/",
+  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnObUXsAAqfsz.jpg",
+  "dim": [
+   1745,
+   1163
+  ]
+ },
+ {
+  "titulo": "br3",
+  "pagina": "https://bleedingcool.com/",
+  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnP_iWgAE5WSE.jpg",
+  "dim": [
+   1745,
+   1163
+  ]
+ },
+ {
+  "titulo": "br4",
+  "pagina": "https://bleedingcool.com/",
+  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnRktWYAEFtLb.jpg",
+  "dim": [
+   1745,
+   1163
+  ]
+ },
+ {
+  "titulo": "br5",
+  "pagina": "https://bleedingcool.com/",
+  "imagem": "https://bleedingcool.com/wp-content/uploads/2026/07/HOQnS2DXYAAP2Hn.jpg",
+  "dim": [
+   2000,
+   1333
+  ]
+ },
+ {
+  "titulo": "rk1",
+  "pagina": "https://cinemadailyus.com/",
+  "imagem": "https://cinemadailyus.com/wp-content/uploads/2025/11/I-play-Rocky-Anthony-Ippolito.webp",
+  "dim": [
+   1000,
+   667
+  ]
+ },
+ {
+  "titulo": "pj1",
+  "pagina": "https://www.comicbasics.com/",
+  "imagem": "https://www.comicbasics.com/wp-content/uploads/2026/07/PERCY-JACKSON-AND-THE-OLYMPIANS.webp",
+  "dim": [
+   1200,
+   675
   ]
  }
 ]
