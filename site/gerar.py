@@ -408,7 +408,7 @@ def rodape():
       <li><a href="feed.xml">{t("RSS")}</a></li>
     </ul></div>
     {idiomas_rodape()}
-    <div class="rodape-base"><span>© {HOJE.year} {SITE}</span> <a href="#" id="reabrir-consent">{PREFS_COOKIES.get(LANG, PREFS_COOKIES["pt"])}</a></div>
+    <div class="rodape-base"><span>© {HOJE.year} {SITE}</span> <button type="button" class="link-botao" id="reabrir-consent">{PREFS_COOKIES.get(LANG, PREFS_COOKIES["pt"])}</button></div>
   </div>
 </footer>"""
 

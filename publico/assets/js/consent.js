@@ -18,5 +18,5 @@
   var sim = document.getElementById("consent-sim"), nao = document.getElementById("consent-nao"), re = document.getElementById("reabrir-consent");
   if (sim) sim.onclick = function () { gravar("1"); esconder(); carregarAds(); };
   if (nao) nao.onclick = function () { gravar("0"); esconder(); };
-  if (re) re.onclick = function (e) { e.preventDefault(); mostrar(); };
+  if (re) re.onclick = function (e) { e.preventDefault(); mostrar(); var b = sim || nao; if (b) b.focus(); };
 })();

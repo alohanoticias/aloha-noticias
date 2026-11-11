@@ -518,6 +518,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .yt-play::after { content: ""; position: absolute; left: 29px; top: 15px; border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
 .yt-capa:hover .yt-play { background: #f00; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.link-botao { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 
 /* ALOHA NOTÍCIAS — visual do site antigo (abril/2023): topo preto, logo vermelho, menu preto com item ativo
    vermelho, painéis de destaque, lista com "Leia mais" e barra lateral. Carregado depois de aloha.css. */
