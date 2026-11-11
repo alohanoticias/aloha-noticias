@@ -1,74 +1,173 @@
 [
  {
-  "titulo": "g1",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube-Set.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube-Set.jpg?width=1920",
+  "titulo": "dv1",
+  "pagina": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres1.jpg",
   "dim": [
-   1920,
-   1077
+   1280,
+   720
   ]
  },
  {
-  "titulo": "g2",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-Console-wDuke-L.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-Console-wDuke-L.jpg?width=1920",
+  "titulo": "dv2",
+  "pagina": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres2.jpg",
   "dim": [
-   1920,
-   831
+   1280,
+   720
   ]
  },
  {
-  "titulo": "g3",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube%20Wavebird%20Controller%20on%20white%20background.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube%20Wavebird%20Controller%20on%20white%20background.jpg?width=1920",
+  "titulo": "dv3",
+  "pagina": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres3.jpg",
   "dim": [
-   1920,
-   1371
+   1280,
+   720
   ]
  },
  {
-  "titulo": "g4",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft%20XBox%20%282001%29%202.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft%20XBox%20%282001%29%202.jpg?width=1920",
+  "titulo": "dvdefault",
+  "pagina": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxresdefault.jpg",
   "dim": [
-   1920,
-   1440
+   1280,
+   720
   ]
  },
  {
-  "titulo": "g5",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Original%20Xbox%20%282001%29%20HDD%20%2840932184041%29.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Original%20Xbox%20%282001%29%20HDD%20%2840932184041%29.jpg?width=1920",
+  "titulo": "dr1",
+  "pagina": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres1.jpg",
   "dim": [
-   1920,
-   1440
+   1280,
+   720
   ]
  },
  {
-  "titulo": "g6",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCubeDisk.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCubeDisk.jpg?width=1920",
+  "titulo": "dr2",
+  "pagina": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres2.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "dr3",
+  "pagina": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres3.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "drdefault",
+  "pagina": "https://i.ytimg.com/vi/rGNc8RRggzo/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/rGNc8RRggzo/maxresdefault.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "di1",
+  "pagina": "https://i.ytimg.com/vi/iwNb50uScFM/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/iwNb50uScFM/maxres1.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "di2",
+  "pagina": "https://i.ytimg.com/vi/iwNb50uScFM/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/iwNb50uScFM/maxres2.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "di3",
+  "pagina": "https://i.ytimg.com/vi/iwNb50uScFM/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/iwNb50uScFM/maxres3.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "didefault",
+  "pagina": "https://i.ytimg.com/vi/iwNb50uScFM/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/iwNb50uScFM/maxresdefault.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "dh1",
+  "pagina": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres1.jpg",
+  "imagem": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres1.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "dh2",
+  "pagina": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres2.jpg",
+  "imagem": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres2.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "dh3",
+  "pagina": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres3.jpg",
+  "imagem": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres3.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "dhdefault",
+  "pagina": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxresdefault.jpg",
+  "imagem": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxresdefault.jpg",
+  "dim": [
+   1280,
+   720
+  ]
+ },
+ {
+  "titulo": "om",
+  "pagina": "https://cdn.ome.lt/l9RgcOGq0KA6cOMwiXEgm8WyBT4=/1200x630/smart/filters:format(webp)/extras/conteudos/Captura_de_tela_2026-07-08_150334.png",
+  "imagem": "https://cdn.ome.lt/l9RgcOGq0KA6cOMwiXEgm8WyBT4=/1200x630/smart/filters:format(webp)/extras/conteudos/Captura_de_tela_2026-07-08_150334.png",
+  "dim": [
+   1200,
+   630
+  ]
+ },
+ {
+  "titulo": "bp",
+  "pagina": "https://www.bemparana.com.br/wp-content/uploads/2026/10/duna-3.jpg",
+  "imagem": "https://www.bemparana.com.br/wp-content/uploads/2026/10/duna-3.jpg",
+  "dim": [
+   399,
+   501
+  ]
+ },
+ {
+  "titulo": "sm",
+  "pagina": "https://www.showmetech.com.br/wp-content/uploads//2026/07/dune-part-three-trailer-still-legendary.jpg",
+  "imagem": "https://www.showmetech.com.br/wp-content/uploads//2026/07/dune-part-three-trailer-still-legendary.jpg",
   "dim": [
    1600,
-   1200
-  ]
- },
- {
-  "titulo": "g7",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Wii%20Remote%20%26%20GameCube%20Controller.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Wii%20Remote%20%26%20GameCube%20Controller.jpg?width=1920",
-  "dim": [
-   1920,
-   971
-  ]
- },
- {
-  "titulo": "g8",
-  "pagina": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-console.jpg?width=1920",
-  "imagem": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-console.jpg?width=1920",
-  "dim": [
-   1920,
-   883
+   900
   ]
  }
 ]
