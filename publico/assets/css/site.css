@@ -508,6 +508,8 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .autor-cartao img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex: none; }
 .autor-cartao .autor-redes { display: flex; gap: 14px; flex-wrap: wrap; font-size: 1rem; }
 .autor-cartao .autor-redes { align-items: center; gap: 16px; }
+.autor-cartao .autor-redes-bloco { display: flex; flex-direction: column; gap: 8px; }
+.autor-cartao .autor-redes-titulo { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
 .autor-cartao .autor-redes a { display: inline-flex; align-items: center; line-height: 0; transition: transform .15s ease, opacity .15s ease; }
 .autor-cartao .autor-redes a:hover, .autor-cartao .autor-redes a:focus-visible { transform: translateY(-2px); opacity: .9; }
 .yt-capa { position: absolute; inset: 0; display: block; background: #000; cursor: pointer; }

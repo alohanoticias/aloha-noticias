@@ -67,13 +67,17 @@ LOGO_INSTAGRAM = ('<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="
                   '<rect x="5" y="5" width="14" height="14" rx="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>'
                   '<circle cx="12" cy="12" r="3.4" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="16.4" cy="7.6" r="1.05" fill="#fff"/></svg>')
 
+REDES_SOCIAIS = {"pt": "Redes sociais", "en": "Social media", "es": "Redes sociales", "fr": "Réseaux sociaux", "de": "Soziale Netzwerke",
+                 "it": "Social network", "ja": "SNS", "zh": "社交媒体", "ar": "وسائل التواصل الاجتماعي"}
+
 
 def autor_cartao():
     """Foto e redes do autor, no topo da página do autor (todas as línguas)."""
     foto = f'<img src="{AUTOR_FOTO}" alt="{AUTOR}" width="120" height="120" loading="eager">' if (RAIZ / AUTOR_FOTO).exists() else ""
     redes = (f'<a class="rede-ig" href="https://www.instagram.com/ladinzera/" rel="me noopener" target="_blank" aria-label="Instagram" title="Instagram">{LOGO_INSTAGRAM}</a>'
              f'<a class="rede-yt" href="https://www.youtube.com/@ladinzando" rel="me noopener" target="_blank" aria-label="YouTube" title="YouTube">{LOGO_YOUTUBE}</a>')
-    return f'<div class="autor-cartao">{foto}<div class="autor-redes">{redes}</div></div>'
+    rot = REDES_SOCIAIS.get(LANG, REDES_SOCIAIS["pt"])
+    return f'<div class="autor-cartao">{foto}<div class="autor-redes-bloco"><span class="autor-redes-titulo">{rot}</span><div class="autor-redes">{redes}</div></div></div>'
 
 
 def autor_nome(m):
