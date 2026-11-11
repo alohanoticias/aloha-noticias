@@ -102,6 +102,38 @@
     "Cuando el router usa el mismo nombre para las dos redes, el aparato elige solo, y no siempre bien. En la **PS5** puedes forzar la banda: ve a Ajustes, después Red, Ajustes y Configurar conexión a internet; espera a que termine la búsqueda, pulsa el botón Options y elige 5 GHz en Bandas de frecuencia Wi-Fi, como explica Tech Advisor. En otros aparatos, la opción puede estar en la app del router.",
     "Fuentes: [Tecnoblog](https://tecnoblog.net/responde/roteador-5-ghz/), [TecMundo](https://www.tecmundo.com.br/produto/60428-tecmundo-explica-wifi-diferenca-entre-2-4-ghz-5-ghz-video.htm), [Canaltech](https://canaltech.com.br/produtos/wifi-24-e-5-ghz-saiba-a-diferenca-e-qual-e-melhor-usar-em-cada-aparelho/), [Game Overdrive](https://gameoverdrive.com.br/wifi-24-ghz-ou-5-ghz-jogar-online/) y [Tech Advisor](https://www.techadvisor.com/article/745922/how-to-make-the-ps5-connect-to-5ghz-wi-fi.html)."
    ]
+  },
+  "it": {
+   "slug": "wi-fi-2-4-ghz-o-5-ghz-quale-usare-per-console-e-tv-e-quando-vince-il-cavo",
+   "titulo": "Wi-Fi a 2,4 GHz o 5 GHz: quale usare per console e TV, e quando il cavo vince ancora",
+   "linha_fina": "La banda a 5 GHz è più veloce e soffre meno interferenze, ma perde forza con i muri. Ecco come scegliere e come forzare il cambio sulla console.",
+   "tags": [
+    "Wi-Fi",
+    "router",
+    "internet",
+    "videogiochi",
+    "tecnologia"
+   ],
+   "alt": "Una console PlayStation 5 con controller e un cavo di rete con connettore RJ45",
+   "credito": "Immagini: Wikimedia Commons",
+   "video_titulo": "TecMundo Explica: Wi-Fi, la differenza tra 2,4 GHz e 5 GHz (canale TecMundo, in portoghese)",
+   "corpo": [
+    "Molti router creano **due reti**: una a **2,4 GHz** e una a **5 GHz**, a volte con nomi simili, a volte con lo stesso nome. Per navigare dal telefono la differenza si nota appena. Ma per scaricare giochi, giocare online o guardare film in 4K sulla TV, scegliere la rete giusta può cambiare molto l'esperienza.",
+    "## Velocità, portata e interferenze",
+    "La regola generale è semplice: **i 5 GHz sono più veloci ma arrivano meno lontano**; **i 2,4 GHz arrivano più lontano ma sono più lenti**. Il sito brasiliano Tecnoblog cita dati di Intel: fino a circa 100 Mb/s a 2,4 GHz, fino a 1 Gb/s a 5 GHz e fino a 2 Gb/s nella banda a 6 GHz dei router più recenti. Sono massimi teorici; nella pratica dipende dal dispositivo, dalla distanza e dall'abbonamento.",
+    "La portata segue la fisica delle onde: le frequenze più basse attraversano meglio muri e mobili. Per questo il segnale a 2,4 GHz arriva di solito più forte nella stanza in fondo, mentre quello a 5 GHz cala più in fretta in presenza di ostacoli.",
+    "Le interferenze, invece, giocano contro i 2,4 GHz. TecMundo paragona i canali alle corsie di una strada: questa banda ha solo **tre canali che non si sovrappongono**, contro più di 20 nella banda a 5 GHz. Nei palazzi pieni di router, i 2,4 GHz diventano un ingorgo. Canaltech ricorda che anche microonde e dispositivi Bluetooth usano questa banda e possono disturbare.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Netgear-Nighthawk-AC1900-WiFi-Router.jpg/1920px-Netgear-Nighthawk-AC1900-WiFi-Router.jpg|Router Wi-Fi dual band con tre antenne|Immagine: Wikimedia Commons",
+    "## Quale rete per ogni dispositivo",
+    "Per **console, TV e computer** il consiglio più diffuso è la rete a 5 GHz, purché il dispositivo sia abbastanza vicino al router. Canaltech mette PS5 e Xbox Series tra i dispositivi che ne traggono vantaggio. Anche telefoni e portatili, quando si trovano nella stessa stanza o in quella accanto.",
+    "La rete a **2,4 GHz** ha più senso per i dispositivi lontani dal router o che richiedono poca velocità, come lampadine, prese e telecamere smart. Game Overdrive aggiunge una precisazione utile: se la console sta nella stanza più lontana, dietro diversi muri, la connessione a 2,4 GHz può essere **più stabile**, anche se più lenta.",
+    "Un avviso importante: nessuna delle due bande risolve un **ping alto** quando il problema sta nel provider, nel percorso verso il server o nel server del gioco stesso. Cambiare rete migliora la parte che avviene in casa, non il resto del tragitto.",
+    "## Quando il cavo resta la scelta migliore",
+    "Se si può portare un cavo di rete fino alla console o alla TV, resta l'opzione più stabile. Game Overdrive cita la raccomandazione del produttore di router TP-Link: per giocare, prima Ethernet; se non si può, Wi-Fi a 5 GHz o 6 GHz.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Asus_WL-500G_Premium_rear.jpeg/1920px-Asus_WL-500G_Premium_rear.jpeg|Retro di un router, con porte di rete per il cavo e un'antenna|Immagine: Wikimedia Commons",
+    "Quando il router usa lo stesso nome per entrambe le reti, il dispositivo sceglie da solo, e non sempre bene. Sulla **PS5** si può forzare la banda: in Impostazioni, andate su Rete, poi Impostazioni e Configura connessione Internet; aspettate la fine della ricerca, premete il tasto Options e scegliete 5 GHz in Bande di frequenza Wi-Fi, come spiega Tech Advisor. Su altri dispositivi l'opzione può trovarsi nell'app del router.",
+    "Fonti: [Tecnoblog](https://tecnoblog.net/responde/roteador-5-ghz/), [TecMundo](https://www.tecmundo.com.br/produto/60428-tecmundo-explica-wifi-diferenca-entre-2-4-ghz-5-ghz-video.htm), [Canaltech](https://canaltech.com.br/produtos/wifi-24-e-5-ghz-saiba-a-diferenca-e-qual-e-melhor-usar-em-cada-aparelho/), [Game Overdrive](https://gameoverdrive.com.br/wifi-24-ghz-ou-5-ghz-jogar-online/) e [Tech Advisor](https://www.techadvisor.com/article/745922/how-to-make-the-ps5-connect-to-5ghz-wi-fi.html)."
+   ]
   }
  }
 }

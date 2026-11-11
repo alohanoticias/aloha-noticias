@@ -310,7 +310,7 @@ def _item_idioma(code, nome, flag=True):
 
 
 # Idiomas que aparecem no seletor e no rodapé (os demais continuam gerados, mas sem link e fora do Google)
-IDIOMAS_VISIVEIS = ["pt", "en", "es"]
+IDIOMAS_VISIVEIS = ["pt", "en", "es", "it"]
 
 
 def seletor_idioma():
@@ -369,7 +369,7 @@ ADSENSE_PUB = ""
 # Idiomas que o Google deve indexar. As outras versões continuam no ar para o visitante, mas com "noindex" e fora do
 # sitemap, para o site não parecer conteúdo traduzido em massa na análise do AdSense. Para liberar um idioma depois
 # da aprovação, acrescente aqui, por exemplo {"pt", "en", "es"}.
-IDIOMAS_INDEXADOS = {"pt", "en", "es"}
+IDIOMAS_INDEXADOS = {"pt", "en", "es", "it"}
 # Páginas de assunto (tags) com menos matérias que isto ficam fora do Google ("noindex"): páginas com 1 ou 2 links
 # contam como conteúdo raso. Elas continuam funcionando para quem navega.
 MIN_MATERIAS_TAG = 3
@@ -1397,9 +1397,10 @@ def prefixo(lang):
 
 # Endereços traduzidos. Internamente cada página tem um nome em português (a "chave");
 # o nome final de cada idioma sai de nome_idioma(). Os links são reescritos em localizar().
-_L = ["en", "es"]  # idiomas além do português (fr, de, it, ja, zh e ar foram retirados em 11/11/2026)
-PREF_MAT = dict(zip(_L, ["article", "articulo", "article", "artikel", "articolo", "kiji", "wenzhang", "maqal"]))
-PREF_TAG = dict(zip(_L, ["topic", "tema", "sujet", "thema", "argomento", "tag", "huati", "mawdu"]))
+_TODOS = ["en", "es", "fr", "de", "it", "ja", "zh", "ar"]  # ordem das listas abaixo
+_L = ["en", "es", "it"]  # idiomas além do português no site (fr, de, ja, zh e ar retirados em 11/11/2026; italiano de volta no mesmo dia)
+PREF_MAT = {l: v for l, v in zip(_TODOS, ["article", "articulo", "article", "artikel", "articolo", "kiji", "wenzhang", "maqal"]) if l in _L}
+PREF_TAG = {l: v for l, v in zip(_TODOS, ["topic", "tema", "sujet", "thema", "argomento", "tag", "huati", "mawdu"]) if l in _L}
 _F = {  # em ordem: en, es, fr, de, it, ja, zh, ar
     "sobre": ["about", "quienes-somos", "a-propos", "ueber-uns", "chi-siamo", "about", "about", "about"],
     "contato": ["contact", "contacto", "contact", "kontakt", "contatti", "contact", "contact", "contact"],
@@ -1415,7 +1416,7 @@ _F = {  # em ordem: en, es, fr, de, it, ja, zh, ar
     "anime": ["anime", "anime", "anime", "anime", "anime", "anime", "dongman", "anime"],
     "curiosidades": ["curiosities", "curiosidades", "curiosites", "kurioses", "curiosita", "trivia", "qushi", "curiosities"],
 }
-FIXOS = {k: dict(zip(_L, v)) for k, v in _F.items()}
+FIXOS = {k: {l: x for l, x in zip(_TODOS, v) if l in _L} for k, v in _F.items()}
 SLUGS_IDIOMA = {}  # {lang: {slug_pt: slug_no_idioma}}
 
 
@@ -1642,7 +1643,7 @@ def main():
     # /favicon.ico na raiz: o Google e alguns navegadores procuram o ícone aqui antes de ler as tags da página
     shutil.copyfile(RAIZ / "assets/img/favicon.ico", SAIDA / "favicon.ico")
     # Endereços antigos do visual anterior que ainda aparecem no Google
-    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "it", "ja", "zh", "ar")), encoding="utf-8")
+    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "ja", "zh", "ar")), encoding="utf-8")
     (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
     print(f"{len(arquivos)} páginas geradas em {SAIDA}")
 

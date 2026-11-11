@@ -105,6 +105,39 @@
     "Hashimoto entró en Konami en 1981, empezando con placas de circuitos para máquinas de fichas, y trabajó en al menos nueve juegos, entre ellos The Goonies e International Superstar Soccer, según Wikipedia. Nació el 15 de noviembre de 1958 y murió el 25 de febrero de 2020, a los 61 años, lo que Konami confirmó. Las páginas que leí no informan la causa. Un detalle curioso de Wikipedia: la página lo describe como alguien que creó el código «sin querer», lo que encaja con la historia del descuido.",
     "Fuentes: [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (en inglés), [Wikipedia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (en inglés) y [Wikipedia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (en inglés)."
    ]
+  },
+  "it": {
+   "slug": "konami-code-la-scorciatoia-che-un-programmatore-creo-per-battere-gradius-e-dimentico-di-cancellare",
+   "titulo": "Konami Code: la scorciatoia che un programmatore creò per battere Gradius e dimenticò di cancellare",
+   "linha_fina": "Su, su, giù, giù, sinistra, destra, sinistra, destra, B, A nacque come test interno nel 1986 e divenne il codice più famoso dei videogiochi.",
+   "tags": [
+    "Konami Code",
+    "Gradius",
+    "Contra",
+    "curiosità",
+    "storia dei videogiochi"
+   ],
+   "alt": "Collage di foto reali della console e del controller NES",
+   "credito": "Immagini: Chris Williams (CC0) e Evan-Amos (pubblico dominio) / Wikimedia Commons",
+   "video_titulo": "La storia del Konami Code (canale Pixelchanchada, in portoghese)",
+   "corpo": [
+    "Su, su, giù, giù, sinistra, destra, sinistra, destra, B, A. Anche chi non ha mai giocato nell'era degli 8 bit riconosce questa sequenza. Ha un autore, una data e una motivazione per niente eroica: il programmatore non riusciva a battere il gioco che stava adattando. Per raccontare la storia ho letto l'intervista del 2003 al creatore, tradotta e citata da Engadget, e le pagine di Wikipedia sul codice e sul programmatore. Le due pagine si contraddicono su un punto, che mostro più sotto.",
+    "## Un gioco troppo difficile",
+    "L'autore è Kazuhisa Hashimoto, di Konami (Engadget scrive il nome Katsuhisa). Nel 1986 lavorava alla versione NES di Gradius, uno sparatutto spaziale nato nelle sale giochi nel 1985. Secondo Engadget, la squadra era di quattro persone. Hashimoto raccontò che un subordinato aveva finito la versione arcade e trovato il gioco molto difficile. Lui stesso, disse, aveva giocato poco e non riusciva a vincere, così inserì il codice. E, nelle sue parole, si assicurò che fosse «facile da ricordare».",
+    "## Cosa faceva il codice",
+    "In Gradius la sequenza dà tutti i potenziamenti in una volta, a gioco in pausa, secondo Wikipedia. Era uno strumento di test: chi programma deve poter arrivare ai livelli finali senza rigiocare tutto a ogni modifica. Wikipedia lo descrive come una funzione per test interni, e lo stesso Hashimoto scelse una sequenza facile da ricordare.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Nintendo-Entertainment-System-NES-Controller-BR.jpg/1280px-Nintendo-Entertainment-System-NES-Controller-BR.jpg|Un controller NES, con i pulsanti B e A usati nel codice|Immagine: Evan-Amos / Wikimedia Commons (pubblico dominio)",
+    "## La dimenticanza",
+    "Il piano era togliere il codice prima dell'uscita. Non andò così. Qui le due pagine di Wikipedia divergono. Quella sul codice afferma che fu scoperto quando il gioco veniva preparato per la produzione di massa e che il team decise di tenerlo, perché rimuoverlo poteva causare errori (quel passaggio è segnato «citazione necessaria»). Quella su Hashimoto dice che il gioco uscì già con il codice e che furono i giocatori a trovarlo e ad avvisare Konami. Engadget non affronta il punto. Ciò che le tre versioni hanno in comune è il risultato: la sequenza rimase.",
+    "## Come diventò leggenda",
+    "La fama internazionale arrivò con Contra, su NES. Wikipedia dice che il codice si diffuse tra i giocatori nordamericani grazie a quella versione, in cui dà 30 vite, il che spiega soprannomi come «Contra Code» e «30 Lives Code». In giapponese il nome è Konami Command. L'azienda riutilizzò la sequenza in altri giochi della serie Gradius e di altre serie, con variazioni. Su Wikipedia compaiono esempi come Gradius Galaxies, su Game Boy Advance, dove la nave si autodistrugge dopo i potenziamenti (passare a sinistra, sinistra, destra, destra evita la penalità), e Tetris Effect, dove il numero 06061984 sblocca un livello.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg/1280px-Nintendo_Entertainment_System_-_Mattel_Version_(42532353740).jpg|Una console NES, nella versione venduta da Mattel|Immagine: Matthew Paul Argall / Wikimedia Commons (CC BY 2.0)",
+    "## Fuori dai giochi",
+    "Il codice è anche scappato dai giochi. L'elenco di Wikipedia include assistenti vocali che rispondono alla sequenza con battute, come Siri («Cheater!») e Google Assistant («Cheat mode enabled»), e qualche sito con funzioni nascoste, come Discord, che sblocca un gioco del serpente su una pagina di errore 404. La pagina stessa avverte che alcune di queste voci hanno ancora bisogno di fonti migliori, quindi vanno trattate come curiosità e non come garanzia che funzionino oggi. C'è perfino una canzone, «Anyone Else but You» dei Moldy Peaches, del 2001, che cita la sequenza.",
+    "## L'uomo dietro",
+    "Hashimoto entrò in Konami nel 1981, iniziando con schede elettroniche per macchine a gettoni, e lavorò ad almeno nove giochi, tra cui The Goonies e International Superstar Soccer, secondo Wikipedia. Nacque il 15 novembre 1958 e morì il 25 febbraio 2020, a 61 anni, come confermò Konami. Le pagine che ho letto non ne indicano la causa. Un dettaglio curioso di Wikipedia: la pagina lo descrive come qualcuno che creò il codice «senza volerlo», il che combacia con la storia della dimenticanza.",
+    "Fonti: [Engadget](https://www.engadget.com/2012/01/16/the-origin-of-the-konami-code-as-told-by-its-inventor/) (in inglese), [Wikipedia: Konami Code](https://en.wikipedia.org/wiki/Konami_Code) (in inglese) e [Wikipedia: Kazuhisa Hashimoto](https://en.wikipedia.org/wiki/Kazuhisa_Hashimoto) (in inglese)."
+   ]
   }
  }
 }

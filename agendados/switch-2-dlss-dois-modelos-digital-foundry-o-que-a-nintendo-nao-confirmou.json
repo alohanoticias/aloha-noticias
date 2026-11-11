@@ -108,6 +108,40 @@
     "En la práctica, la calidad de imagen de la Switch 2 dependerá de cada estudio: qué modelo usar, en qué resolución y con qué meta de rendimiento. Eso explica por qué dos juegos en la misma consola pueden verse tan distintos. Cuando salga una comparativa de un juego que te interese, conviene buscar cuál de los dos enfoques usa.",
     "Fuentes: [NVIDIA Brasil](https://blog.nvidia.com.br/blog/nintendo-switch-2-leveled-up-with-nvidia-ai-powered-dlss-and-4k-gaming/) (en portugués), [Nintendo Life](https://www.nintendolife.com/news/2025/10/digital-foundry-delivers-a-technical-breakdown-of-switch-2s-dlss) (en inglés), [Tom's Hardware](https://www.tomshardware.com/video-games/nintendo/nintendo-switch-2-supports-two-different-types-of-nvidia-dlss-a-second-light-version-for-upscaling-beyond-1080p-along-with-the-standard-pc-like-cnn-model) (en inglés), [Club386](https://www.club386.com/nintendo-switch-2-supports-two-types-of-nvidia-dlss-and-one-is-not-seen-on-pc/) (en inglés), [Project N](https://projectn.com.br/fallout-4-recebe-grande-atualizacao-no-nintendo-switch-2-com-suporte-a-dlss-e-melhorias-de-desempenho/) (en portugués) y [Alexandre Porfírio](https://alexandreporfirio.com/2026/10/nintendo-switch-2-inteligencia-artificial-dlss/) (en portugués)."
    ]
+  },
+  "it": {
+   "slug": "la-switch-2-usa-due-tipi-di-dlss-cosa-ha-trovato-digital-foundry",
+   "titulo": "La Switch 2 usa due tipi di DLSS? Cosa ha trovato Digital Foundry e cosa Nintendo non ha confermato",
+   "linha_fina": "Un'analisi di ottobre 2025 indica un modello completo e uno più leggero nella console. Cosa cambia sullo schermo e cosa resta supposizione.",
+   "tags": [
+    "Nintendo Switch 2",
+    "DLSS",
+    "Nvidia",
+    "Digital Foundry",
+    "tecnologia"
+   ],
+   "alt": "Immagine promozionale di Nintendo Switch 2 con il logo della console e, in evidenza, il chip Nvidia sulla scheda",
+   "credito": "Immagini: Nintendo / materiale promozionale, tramite NVIDIA; Bechology (CC BY 4.0) / Wikimedia Commons",
+   "video_titulo": "Nintendo Switch 2 DLSS: analisi della qualità dell'immagine (canale Digital Foundry, in inglese)",
+   "corpo": [
+    "La Switch 2 è una portatile che gioca anche in 4K sul televisore, e buona parte di questo trucco dipende da una sigla: DLSS. A ottobre 2025 Digital Foundry ha mostrato indizi che la console usi due modelli diversi della tecnologia. Per scrivere questo testo ho letto la pagina di Nvidia, l'analisi di un blog brasiliano, il servizio di Project N su Fallout 4 e tre siti che hanno descritto il video di Digital Foundry (Nintendo Life, Tom's Hardware e Club386). Non sono riuscito ad aprire il video stesso, quindi tutto ciò che gli attribuisco viene da questi testi.",
+    "## Cos'è il DLSS, in parole semplici",
+    "La console disegna il gioco a una risoluzione più bassa e una rete neurale, addestrata da Nvidia, ricostruisce l'immagine a una risoluzione più alta. Questo pesa meno sulla scheda grafica che disegnare tutto in alta risoluzione. Nvidia dice, in un testo di aprile 2025, che il processore della Switch 2 è fatto su misura da lei e ha Tensor Core, le unità dedicate a questo tipo di calcolo di intelligenza artificiale. L'azienda promette giochi fino a 4K sulla TV e fino a 120 fotogrammi al secondo a 1080p in modalità portatile.",
+    "## Cosa ha trovato Digital Foundry",
+    "Secondo i tre siti, l'analisi indica due modelli. Il primo ricorda il modello CNN (rete neurale convoluzionale) usato su PC prima del DLSS 4, offre un'immagine più stabile ed è limitato a uscite in 1080p. Nintendo Life cita Cyberpunk 2077: Ultimate Edition e Street Fighter 6 come esempi. Il secondo è una versione più leggera, che costa circa la metà del tempo di elaborazione per fotogramma e consente risoluzioni superiori a 1080p. Secondo Nintendo Life compare in Star Wars Outlaws, Hogwarts Legacy, The Touryst e Fast Fusion.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Nintendo_Switch_2_NVIDIA_SoC_GMLX30-A1.jpg/1280px-Nintendo_Switch_2_NVIDIA_SoC_GMLX30-A1.jpg|Il chip Nvidia usato nella Switch 2|Immagine: Bechology / Wikimedia Commons (CC BY 4.0)",
+    "Il prezzo della versione leggera è la nitidezza in movimento. Tom's Hardware e Club386 dicono che perde definizione e può mostrare bordi instabili quando si muovono la telecamera o gli oggetti, e Club386 descrive un'immagine pulita, vicina a 1440p o 4K, «solo nelle parti statiche». Nintendo Life aggiunge che il presentatore Alex Battaglia fatica a vedere un'utilità di quel modello in modalità TV.",
+    "## E Nintendo l'ha confermato?",
+    "No. Nintendo Life scrive che non c'è stata alcuna parola ufficiale di Nintendo o di Nvidia sull'argomento. L'unico sostegno oltre all'analisi stessa, secondo il sito, è uno sviluppatore anonimo che ha confermato a Digital Foundry che la teoria è corretta. I soprannomi «DLSS Light», «Fat DLSS» e «Tiny DLSS» sono etichette dei siti, non nomi di Nvidia. I tre testi non indicano nemmeno la risoluzione interna a cui i giochi vengono disegnati prima della ricostruzione.",
+    "## Cosa è già cambiato in pratica",
+    "Un esempio recente è Fallout 4: Anniversary Edition. Secondo Project N, Bethesda ha rilasciato il 26 marzo 2026 un aggiornamento che aggiunge il DLSS nelle modalità a 40 e 60 fotogrammi al secondo. La funzione si disattiva da sola nelle schermate piene di interfaccia, come il Pip-Boy. Il blog di Alexandre Porfírio, di ottobre 2026, cita anche un'analisi di Digital Foundry di febbraio che ha segnalato il DLSS in Resident Evil Requiem su Switch 2, con limiti nella stabilità del frame rate. Questo secondo caso lo conosco solo da quella citazione, senza aver letto l'analisi originale.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nintendo_Switch_2_in_Docking_Console.jpg/1280px-Nintendo_Switch_2_in_Docking_Console.jpg|La Switch 2 nel suo dock, che porta l’immagine alla TV|Immagine: Crisco 1492 / Wikimedia Commons (CC BY-SA 4.0)",
+    "## Il DLSS non è l'IA a cui pensi",
+    "Il testo di Porfírio fa una distinzione che vale la pena ripetere. Il DLSS è una tecnica di ricostruzione dell'immagine. Non è intelligenza artificiale generativa, quella che conversa o crea contenuti. Ricorda che il presidente di Nintendo, Shuntaro Furukawa, ha parlato di IA all'assemblea degli azionisti di giugno 2026, riconoscendo il potenziale dell'IA generativa e le preoccupazioni su proprietà intellettuale e consumo di energia. Secondo l'autore, non c'è conferma di un uso ampio di IA generativa nei giochi.",
+    "## Cosa resta al giocatore",
+    "In pratica, la qualità dell'immagine della Switch 2 dipenderà da ogni studio: quale modello usare, a quale risoluzione e con quale obiettivo di prestazioni. Questo spiega perché due giochi sulla stessa console possano apparire così diversi. Quando uscirà un confronto di un gioco che ti interessa, vale la pena cercare quale dei due approcci usa.",
+    "Fonti: [NVIDIA Brasil](https://blog.nvidia.com.br/blog/nintendo-switch-2-leveled-up-with-nvidia-ai-powered-dlss-and-4k-gaming/) (in portoghese), [Nintendo Life](https://www.nintendolife.com/news/2025/10/digital-foundry-delivers-a-technical-breakdown-of-switch-2s-dlss) (in inglese), [Tom's Hardware](https://www.tomshardware.com/video-games/nintendo/nintendo-switch-2-supports-two-different-types-of-nvidia-dlss-a-second-light-version-for-upscaling-beyond-1080p-along-with-the-standard-pc-like-cnn-model) (in inglese), [Club386](https://www.club386.com/nintendo-switch-2-supports-two-types-of-nvidia-dlss-and-one-is-not-seen-on-pc/) (in inglese), [Project N](https://projectn.com.br/fallout-4-recebe-grande-atualizacao-no-nintendo-switch-2-com-suporte-a-dlss-e-melhorias-de-desempenho/) (in portoghese) e [Alexandre Porfírio](https://alexandreporfirio.com/2026/10/nintendo-switch-2-inteligencia-artificial-dlss/) (in portoghese)."
+   ]
   }
  }
 }

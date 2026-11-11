@@ -15,7 +15,7 @@
 import { DurableObject } from "cloudflare:workers";
 
 const DOMINIOS = new Set(["alohanoticias.com", "www.alohanoticias.com"]);
-const IDIOMAS = new Set(["en", "es"]);
+const IDIOMAS = new Set(["en", "es", "it"]);
 const ROBO = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegrambot|preview|headless|lighthouse|pagespeed|gtmetrix|monitor|uptime|curl|wget|python|axios|node-fetch|go-http/i;
 const FUSO_MS = -3 * 3600 * 1000; // horário de Brasília (sem horário de verão desde 2019)
 

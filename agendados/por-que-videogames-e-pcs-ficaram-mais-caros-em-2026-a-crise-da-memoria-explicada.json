@@ -111,6 +111,41 @@
     "Para quien piensa comprar consola o PC, la lección de 2026 es que esperar no garantizó un precio menor. Conviene comparar con calma, mirar ofertas de fin de año y comprobar que el modelo más barato tenga memoria y almacenamiento suficientes, porque ampliar después también salió caro.",
     "Fuentes: [TrendForce, previsión del 4.º trimestre (en inglés)](https://www.trendforce.com/presscenter/news/20260930-13258.html); [TrendForce vía I-Connect007, 2.º trimestre (en inglés)](https://iconnect007.com/article/149414/ai-server-demand-to-drive-memory-contract-price-increases-in-2q26-as-csps-secure-supply-via-longterm-agreements/149411/pcb); [Evertiq (en inglés)](https://evertiq.com/news/2026-10-02-ai-keeps-memory-prices-climbing-in-q4-as-consumer-demand-weakens); [Yahoo Finance, precios de PS5 (en inglés)](https://finance.yahoo.com/markets/stocks/articles/sony-hikes-prices-ps5-ps5-090300322.html); [PC Gamer (en inglés)](https://www.pcgamer.com/hardware/sony-hikes-the-ps5-price-by-usd100-ps5-pro-by-usd150-this-was-a-necessary-step/); [Notebookcheck, Switch 2 (en inglés)](https://www.notebookcheck.net/Nintendo-Switch-2-gets-a-price-hike.1292255.0.html); [WPXI (en inglés)](https://www.wpxi.com/contributor/switch-2-price/KET42PLN4M62VCTEURUOWX4OHY/); [Omelete, Steam Machine (en portugués)](https://www.omelete.com.br/games/steam-machine-preco-data-lancamento); [CBS News (YouTube)](https://www.youtube.com/watch?v=YxtAblfXohw)."
    ]
+  },
+  "it": {
+   "slug": "perche-console-e-pc-sono-rincarati-nel-2026-la-crisi-della-memoria-spiegata",
+   "titulo": "Perché console e PC sono rincarati nel 2026: la crisi della memoria spiegata",
+   "linha_fina": "I data center per l'intelligenza artificiale comprano gran parte della memoria prodotta nel mondo. Questo ha già fatto salire i prezzi di PlayStation 5, Switch 2 e Steam Machine, e la pressione continua a fine anno.",
+   "tags": [
+    "memoria RAM",
+    "DRAM",
+    "prezzi",
+    "PlayStation 5",
+    "Nintendo Switch 2"
+   ],
+   "alt": "Montaggio con un wafer di chip che riflette luce colorata, un modulo di memoria DDR5 SK hynix e una pila di moduli di memoria per portatili e desktop",
+   "credito": "Foto: DrHughManning, ITEagle Europe e Wilbysuffolk / Wikimedia Commons (CC BY-SA 4.0)",
+   "video_titulo": "AI-fueled memory chip shortage could raise prices of everyday tech (canale CBS News, in inglese)",
+   "corpo": [
+    "Chi ha cercato il prezzo di una console, di un portatile o di una scheda video nel 2026 se n'è accorto: quasi tutto è aumentato. Il motivo più citato dagli stessi produttori è lo stesso, la **memoria**. I chip DRAM, che diventano la RAM dei dispositivi, e i NAND, usati per l'archiviazione, sono diventati molto più cari.",
+    "## Cosa è successo",
+    "La spiegazione breve è l'intelligenza artificiale. I data center che fanno girare i servizi di IA hanno bisogno di enormi quantità di memoria, e le poche aziende che producono questi chip hanno spostato la produzione verso i server, dove i margini sono più alti. Ne resta meno per PC, smartphone e console.",
+    "La società di analisi TrendForce, che segue questo mercato, ha registrato forti aumenti per tutto l'anno. Nel secondo trimestre prevedeva un rialzo dal 58% al 63% dei prezzi contrattuali della DRAM convenzionale rispetto al trimestre precedente.",
+    "!img https://commons.wikimedia.org/wiki/Special:FilePath/CXMT%20DDR5%20SODIMM.png?width=1920|Modulo di memoria DDR5 per portatili, formato SODIMM, su sfondo chiaro|Foto: Padgriffin / Wikimedia Commons",
+    "## Le console l'hanno sentito",
+    "Sony ha annunciato il 27 marzo un aumento mondiale di PlayStation 5, in vigore dal 2 aprile. Negli Stati Uniti il modello con lettore è passato da 549,99 a 649,99 dollari, e PS5 Pro da 749,99 a 899,99 dollari. L'azienda ha parlato di pressioni dell'economia globale; la stampa di settore ha indicato la memoria come fattore centrale.",
+    "Nintendo è stata più diretta. Annunciando a maggio l'aumento di Switch 2, da 449,99 a 499,99 dollari negli USA dal 1° settembre, il presidente Shuntaro Furukawa ha indicato la carenza di memoria come motivo principale. Secondo l'emittente WPXI, ha anche detto che il nuovo prezzo non copre tutto il costo aggiuntivo.",
+    "## E i PC?",
+    "Sul PC il conto si vede sia nei componenti sia nei sistemi già assemblati. Valve, per esempio, ha lanciato Steam Machine a partire da 1.049 dollari e già a febbraio aveva avvertito che avrebbe rivisto prezzo e tempi per il rincaro della memoria, come ricorda Omelete.",
+    "Per chi assembla o aggiorna il proprio computer, significa banchi di RAM e SSD più cari di un anno fa. Anche le schede video ne risentono, perché la memoria grafica segue la stessa tendenza.",
+    "!img https://commons.wikimedia.org/wiki/Special:FilePath/Micron%20Memory%20Japan%20Hiroshima%20Factory%2001.jpg?width=1920|Stabilimento di Micron Memory Japan a Hiroshima, con colline sullo sfondo e campi e case in primo piano|Foto: ノボホショコロトソ / Wikimedia Commons (CC BY 4.0)",
+    "## Migliorerà?",
+    "Non presto. Per l'ultimo trimestre del 2026 TrendForce prevede ancora rialzi dal 10% al 15% nei contratti di DRAM convenzionale e dal 15% al 20% per la memoria NAND. Il ritmo è rallentato, ma i prezzi continuano a salire, e secondo la società l'offerta di memoria per PC potrebbe ridursi nel 2027, man mano che più capacità va ai server.",
+    "C'è un segnale di limite: TrendForce ripete che i clienti dei prodotti di consumo, come i produttori di PC e smartphone, sono vicini al massimo che possono pagare. Ma le nuove fabbriche richiedono anni, quindi il sollievo dipende da un'offerta che ancora non esiste.",
+    "## Cosa fare in pratica",
+    "Per chi pensa di comprare una console o un PC, la lezione del 2026 è che aspettare non ha garantito un prezzo più basso. Meglio confrontare con calma, tenere d'occhio le offerte di fine anno e controllare che il modello più economico abbia memoria e spazio sufficienti, perché anche espandere dopo è diventato caro.",
+    "Fonti: [TrendForce, previsioni per il 4° trimestre (in inglese)](https://www.trendforce.com/presscenter/news/20260930-13258.html); [TrendForce via I-Connect007, 2° trimestre (in inglese)](https://iconnect007.com/article/149414/ai-server-demand-to-drive-memory-contract-price-increases-in-2q26-as-csps-secure-supply-via-longterm-agreements/149411/pcb); [Evertiq (in inglese)](https://evertiq.com/news/2026-10-02-ai-keeps-memory-prices-climbing-in-q4-as-consumer-demand-weakens); [Yahoo Finance, prezzi PS5 (in inglese)](https://finance.yahoo.com/markets/stocks/articles/sony-hikes-prices-ps5-ps5-090300322.html); [PC Gamer (in inglese)](https://www.pcgamer.com/hardware/sony-hikes-the-ps5-price-by-usd100-ps5-pro-by-usd150-this-was-a-necessary-step/); [Notebookcheck, Switch 2 (in inglese)](https://www.notebookcheck.net/Nintendo-Switch-2-gets-a-price-hike.1292255.0.html); [WPXI (in inglese)](https://www.wpxi.com/contributor/switch-2-price/KET42PLN4M62VCTEURUOWX4OHY/); [Omelete, Steam Machine (in portoghese)](https://www.omelete.com.br/games/steam-machine-preco-data-lancamento); [CBS News (YouTube)](https://www.youtube.com/watch?v=YxtAblfXohw)."
+   ]
   }
  }
 }

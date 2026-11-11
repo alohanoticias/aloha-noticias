@@ -1,7 +1,7 @@
 """Textos de interface e páginas institucionais em inglês e espanhol.
 O português é o idioma principal e fica no próprio gerar.py. As chaves de UI são o texto em português."""
 
-IDIOMAS_REAIS = ["pt", "en", "es"]  # 11/11/2026: os demais idiomas foram retirados do site
+IDIOMAS_REAIS = ["pt", "en", "es", "it"]  # 11/11/2026: fr, de, ja, zh e ar retirados; italiano mantido (traz buscas)
 HTML_LANG = {"pt": "pt-BR", "en": "en", "es": "es", "fr": "fr", "de": "de", "it": "it", "ja": "ja", "zh": "zh-CN", "ar": "ar"}
 OG_LOCALE = {"pt": "pt_BR", "en": "en_US", "es": "es_ES", "fr": "fr_FR", "de": "de_DE", "it": "it_IT", "ja": "ja_JP", "zh": "zh_CN", "ar": "ar_AR"}
 SIGLA = {"pt": "PT", "en": "EN", "es": "ES", "fr": "FR", "de": "DE", "it": "IT", "ja": "JA", "zh": "ZH", "ar": "AR"}

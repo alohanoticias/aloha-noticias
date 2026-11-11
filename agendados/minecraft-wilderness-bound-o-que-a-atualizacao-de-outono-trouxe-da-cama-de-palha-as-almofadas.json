@@ -111,6 +111,41 @@
     "GamingOnLinux enumera otros cambios de la versión Java: el modo espectador ahora usa portales, el juego ganó compatibilidad con el idioma gótico y, en Linux, prefiere Wayland cuando está disponible y usa SDL3 para ventanas y entrada. El vídeo de abajo es el tráiler oficial de la actualización, publicado en el canal de Minecraft, en inglés.",
     "Fuentes: [Game Over Drive](https://gameoverdrive.com.br/minecraft-26-3-wilderness-bound/) (en portugués), [Minecraft.net](https://www.minecraft.net/it-it/article/drop-3-2026-name-announce) (en italiano), [Minecraft.net](https://www.minecraft.net/de-de/updates/wilderness-bound-drop) (en alemán) y [GamingOnLinux](https://www.gamingonlinux.com/2026/09/minecraft-java-edition-26-3-wilderness-bound-update-released/page=1/) (en inglés)."
    ]
+  },
+  "it": {
+   "slug": "minecraft-wilderness-bound-cosa-ha-portato-laggiornamento-autunnale-dal-letto-di-paglia-ai-cuscini",
+   "titulo": "Minecraft Wilderness Bound: cosa ha portato l'aggiornamento autunnale, dal letto di paglia ai cuscini",
+   "linha_fina": "Il terzo aggiornamento del 2026 ha aggiunto una foresta dalle foglie colorate, accampamenti abbandonati e nuovi blocchi per decorare, ma nessun nuovo mob.",
+   "tags": [
+    "Minecraft",
+    "Wilderness Bound",
+    "Mojang",
+    "aggiornamento",
+    "Minecraft 26.3"
+   ],
+   "alt": "Artwork ufficiale di Minecraft Wilderness Bound, con Alex che tiene una mappa davanti ad alberi autunnali",
+   "credito": "Immagine: Mojang Studios, materiale promozionale",
+   "video_titulo": "Minecraft, Wilderness Bound: trailer ufficiale (canale Minecraft, in inglese)",
+   "corpo": [
+    "Mojang ha battezzato il terzo aggiornamento del 2026 di Minecraft con il nome Wilderness Bound. Il nome si adatta ai contenuti: una foresta autunnale, accampamenti abbandonati da esplorare e oggetti per chi ama decorare. È disponibile da qualche settimana, ma l'elenco delle novità resta valido per chi non ci è ancora entrato.",
+    "## Quando è uscito, e la discrepanza tra le date",
+    "L'annuncio ufficiale di Mojang dice che la spedizione parte il 15 settembre, e anche il sito PlayNews indica martedì 15 settembre come giorno di lancio. GamingOnLinux, invece, registra la versione Java 26.3 come uscita il 17 settembre. La differenza può derivare da un rilascio scaglionato tra edizioni e piattaforme, ma le fonti non lo spiegano, quindi non si può stabilire il motivo. Su Bedrock lo stesso contenuto è arrivato nella linea 26.50, secondo Game Over Drive.",
+    "## La foresta dalle foglie colorate",
+    "La protagonista è il bioma Dappled Forest, una foresta dai colori autunnali che può comparire vicino ai biomi freddi. Porta i pioppi, alberi con foglie rosse, arancioni o gialle, con un set completo di legno per costruire. Arrivano anche gli arbusti rossi e i funghi a mensola; i funghi servono come spinta per il parkour e, secondo la pagina ufficiale, entrano anche negli stufati.",
+    "!img assets/img/estreias/minecraft-wilderness-bound-floresta-acampamento.jpg|Pioppi dalle foglie rosse nella Dappled Forest, con un letto di paglia in un accampamento al centro|Immagine: Mojang Studios, materiale promozionale",
+    "## Accampamenti abbandonati",
+    "Gli Abandoned Camps sono strutture con tenda e falò, con bauli e barili di bottino, e compaiono in 18 biomi, secondo Game Over Drive. Alcune mappe da esploratore trovate al loro interno indicano altri accampamenti o strutture esistenti. L'idea è dare al giocatore un indizio su chi è passato prima, senza bisogno di nessun nuovo mob: l'aggiornamento, di fatto, non ne aggiunge nessuno.",
+    "!img assets/img/estreias/minecraft-wilderness-bound-fogueira-almofadas.jpg|Giocatori intorno a un falò in un accampamento, con cuscini, bauli e lanterne|Immagine: Mojang Studios, materiale promozionale",
+    "## Letto di paglia e cuscini",
+    "Il letto di paglia permette di saltare la notte senza cambiare il punto di rinascita. È consumabile, vale per una notte e non funziona nel Nether né nell'End, e si fa con tre balle di fieno, il che dà quattro letti, secondo Game Over Drive. I cuscini, in 16 colori, si fanno con tre lastre di lana dello stesso colore o si trovano negli accampamenti, e fanno da sedile attorno al falò.",
+    "## Blocchi e Realms",
+    "Per i costruttori, l'aggiornamento aggiunge scale e lastre di lana e di cemento in tutti i 16 colori. Nei Realms, la versione Java ha ottenuto fino a cinque codici d'invito, che possono essere disattivati o avere una scadenza, e la distanza massima di rendering è salita da 12 a 25 chunk, sempre secondo Game Over Drive. La pagina ufficiale aggiunge che fino a 10 giocatori di qualsiasi piattaforma Bedrock possono unirsi a una spedizione nei Realms, e che ci sono oggetti gratuiti nel guardaroba e un pacchetto di suoni «Haunts and Harvest» sul Marketplace.",
+    "## Dettagli che sfuggono",
+    "Secondo la pagina ufficiale, il fungo a mensola può crescere fino a diventare un fungo grande con la farina d'ossa, e gli arbusti rossi mantengono il colore se piantati in altri biomi, il che li rende utili per decorare fuori dalla foresta. Anche le mappe degli accampamenti abbandonati hanno un nuovo design. Mojang ricorda nell'annuncio che le funzioni richiedono Minecraft Bedrock o Java e possono cambiare durante lo sviluppo.",
+    "## Dettagli tecnici",
+    "GamingOnLinux elenca altre modifiche della versione Java: la modalità spettatore ora usa i portali, il gioco ha ottenuto il supporto alla lingua gotica e, su Linux, preferisce Wayland quando disponibile e usa SDL3 per finestre e input. Il video qui sotto è il trailer ufficiale dell'aggiornamento, pubblicato sul canale di Minecraft, in inglese.",
+    "Fonti: [Game Over Drive](https://gameoverdrive.com.br/minecraft-26-3-wilderness-bound/) (in portoghese), [Minecraft.net](https://www.minecraft.net/it-it/article/drop-3-2026-name-announce), [Minecraft.net](https://www.minecraft.net/de-de/updates/wilderness-bound-drop) (in tedesco) e [GamingOnLinux](https://www.gamingonlinux.com/2026/09/minecraft-java-edition-26-3-wilderness-bound-update-released/page=1/) (in inglese)."
+   ]
   }
  }
 }
