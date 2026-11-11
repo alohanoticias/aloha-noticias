@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Steamboat Willie', 'Mickey Mouse 1928', 'Rocky statue Philadelphia', 'Rocky Steps Philadelphia Museum of Art', 'Wadi Rum desert', 'Nintendo Switch 2 console', 'DDR5 memory module', 'Steam Deck', 'Pokemon GO community day', 'Akihabara anime']
+QUERIES = ['Pokemon GO smartphone', 'Pokemon Go playing', 'Pokemon GO Brasil', 'Pokemon Go event park', 'Pokestop', 'Pokemon GO Fest', 'DRAM chip wafer', 'memory module RAM sticks', 'Rocky Balboa statue']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
