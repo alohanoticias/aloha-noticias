@@ -57,10 +57,22 @@ AUTOR_REDES = ["https://www.instagram.com/ladinzera/", "https://www.youtube.com/
 AUTOR_FOTO = "assets/img/autor/joao-gabriel.jpg"
 
 
+# Logos coloridos das redes do autor (página do autor)
+LOGO_YOUTUBE = ('<svg viewBox="0 0 28 20" width="42" height="30" aria-hidden="true" focusable="false">'
+                '<rect width="28" height="20" rx="5.5" fill="#FF0000"/><path d="M11.2 5.8v8.4l7.2-4.2z" fill="#fff"/></svg>')
+LOGO_INSTAGRAM = ('<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false">'
+                  '<defs><radialGradient id="ig-grad" cx="0.3" cy="1.07" r="1.3"><stop offset="0" stop-color="#FFDD55"/>'
+                  '<stop offset="0.1" stop-color="#FFDD55"/><stop offset="0.5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient></defs>'
+                  '<rect width="24" height="24" rx="6.5" fill="url(#ig-grad)"/>'
+                  '<rect x="5" y="5" width="14" height="14" rx="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>'
+                  '<circle cx="12" cy="12" r="3.4" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="16.4" cy="7.6" r="1.05" fill="#fff"/></svg>')
+
+
 def autor_cartao():
     """Foto e redes do autor, no topo da página do autor (todas as línguas)."""
     foto = f'<img src="{AUTOR_FOTO}" alt="{AUTOR}" width="120" height="120" loading="eager">' if (RAIZ / AUTOR_FOTO).exists() else ""
-    redes = '<a href="https://www.instagram.com/ladinzera/" rel="me noopener" target="_blank">Instagram</a><a href="https://www.youtube.com/@ladinzando" rel="me noopener" target="_blank">YouTube</a>'
+    redes = (f'<a class="rede-ig" href="https://www.instagram.com/ladinzera/" rel="me noopener" target="_blank" aria-label="Instagram" title="Instagram">{LOGO_INSTAGRAM}</a>'
+             f'<a class="rede-yt" href="https://www.youtube.com/@ladinzando" rel="me noopener" target="_blank" aria-label="YouTube" title="YouTube">{LOGO_YOUTUBE}</a>')
     return f'<div class="autor-cartao">{foto}<div class="autor-redes">{redes}</div></div>'
 
 
