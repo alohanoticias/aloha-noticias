@@ -459,27 +459,36 @@ CONSENT_JS = f'<script src="assets/js/consent.js" data-client="{("ca-" + ADSENSE
 
 def titulo_curto(titulo, limite=60):
     """<title> com até ~60 caracteres (o Google corta o resto). Usa o título inteiro + marca quando cabe; senão, a parte
-    antes do primeiro ':' (ou ' - ', ',' e '?'); senão corta na última palavra que cabe. O título completo continua no H1 e no og:title."""
+    mais longo antes de ": ", " – ", " - " ou "? " (na vírgula, só o primeiro trecho); senão corta na última palavra. A matéria pode definir "titulo_seo". O título completo continua no H1 e no og:title."""
     marca = f" · {NOME_BUSCA}"
     if len(titulo) + len(marca) <= limite:
         return titulo + marca
     if len(titulo) <= limite:
         return titulo
-    for sep in (": ", " – ", " - ", ", ", "? "):
-        if sep in titulo:
-            parte = titulo.split(sep)[0] + ("?" if sep == "? " else "")
-            if 20 <= len(parte) <= limite:
-                return parte + marca if len(parte) + len(marca) <= limite else parte
+    # o trecho mais longo que termina num separador (": ", " – ", " - ", ", ", "? ") e cabe no limite
+    import re as _re
+    # vírgula só entra se não houver outro separador que sirva (evita cortar listas no meio: "triângulo, círculo")
+    partes = []
+    for padrao in (r": | – | - |\? ", r", "):
+        partes = [titulo[:m.start()] + ("?" if m.group() == "? " else "") for m in _re.finditer(padrao, titulo)]
+        partes = [x for x in partes if 20 <= len(x) <= limite]
+        if partes:
+            if padrao == r", ":
+                partes = partes[:1]  # na vírgula, só o primeiro trecho
+            break
+    if partes:
+        parte = max(partes, key=len)
+        return parte + marca if len(parte) + len(marca) <= limite else parte
     corte = titulo[:limite - 1].rsplit(" ", 1)[0].rstrip(",:;–-")
     return corte + "…"
 
 
-def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img="assets/img/og-padrao.png", og_tipo="website"):
+def pagina(titulo, descricao, ativo, corpo, com_news=True, extra_head="", og_img="assets/img/og-padrao.png", og_tipo="website", titulo_aba=None):
     BASE = ""
     if '<base href="/">' in extra_head:
         BASE = '<base href="/">\n'
         extra_head = extra_head.replace('<base href="/">\n', "")
-    tt = (titulo_curto(titulo) if titulo != SITE else t("ALOHA NOTÍCIAS: notícias, cinema, games e tecnologia")).replace(SITE, NOME_BUSCA)
+    tt = (titulo_curto(titulo_aba or titulo) if titulo != SITE else t("ALOHA NOTÍCIAS: notícias, cinema, games e tecnologia")).replace(SITE, NOME_BUSCA)
     # título da home com as iniciais maiúsculas (como aparece no Google)
     tt = {"pt": "Aloha Notícias: Notícias, Cinema, Games e Tecnologia", "en": "Aloha Notícias: News, Movies, Games and Technology"}.get(LANG, tt) if titulo == SITE else tt
     return f"""<!doctype html>
@@ -1111,7 +1120,8 @@ def gerar_materia(m, preview=False, agendado=False):
     if preview:
         corpo = faixa_rascunho(m, agendado) + corpo
         head = '<base href="/">\n<meta name="robots" content="noindex,nofollow">\n' + head
-    return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head, og_img=og_da_capa(m), og_tipo="article")
+    # "titulo_seo" (opcional, até 60 caracteres): texto da aba e do resultado no Google, quando o título longo perderia o termo buscado
+    return pagina(m["titulo"], m["linha_fina"], e["slug"], corpo, extra_head=head, og_img=og_da_capa(m), og_tipo="article", titulo_aba=m.get("titulo_seo"))
 
 
 # ---------------------------------------------------------------- busca e páginas simples
@@ -1354,6 +1364,7 @@ def traduzir(m, tr, lang):
     d["titulo"], d["linha_fina"], d["corpo"] = tr["titulo"], tr["linha_fina"], tr["corpo"]
     d["tags"] = tr.get("tags", m.get("tags", []))
     d["correcao"] = tr.get("correcao")
+    d["titulo_seo"] = tr.get("titulo_seo")  # nunca herda o do português
     d["em_resumo"] = tr.get("em_resumo") if m.get("em_resumo") else None
     if m.get("imagem"):
         d["imagem"] = {**m["imagem"], "alt": tr.get("alt", m["imagem"].get("alt", "")), "credito": tr.get("credito", m["imagem"].get("credito", ""))}
