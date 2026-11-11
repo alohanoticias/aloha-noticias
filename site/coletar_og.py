@@ -1,14 +1,14 @@
 """Coleta a imagem de compartilhamento (og:image) de páginas de trailer/filme e monta folhas de contato
 para escolher imagens dos artigos de estreias. Roda no GitHub (workflow 'Coletar imagens de filmes').
 Uso: python3 site/coletar_og.py   (lê site/filmes_paginas.json: [{"titulo":..., "url":...}])"""
-import io, json, re, sys, urllib.request
+import io, json, os, re, sys, urllib.request
 from pathlib import Path
 from PIL import Image, ImageDraw
 RAIZ = Path(__file__).resolve().parent
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
       "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8"}
-itens = json.loads((RAIZ / "filmes_paginas.json").read_text(encoding="utf-8"))
-saida = RAIZ / "candidatas"; saida.mkdir(exist_ok=True)
+itens = json.loads((RAIZ / os.environ.get("PAGINAS", "filmes_paginas.json")).read_text(encoding="utf-8"))
+saida = RAIZ / os.environ.get("SAIDA_CAND", "candidatas"); saida.mkdir(exist_ok=True)
 res = []
 def pegar(u):
     with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=40) as r:
@@ -28,8 +28,8 @@ for it in itens:
         except Exception as e:
             print("FALHOU lista", it["titulo"], e)
 itens = [it for it in itens if not it.get("listar")] + extra
-(RAIZ / "candidatas").mkdir(exist_ok=True)
-(RAIZ / "candidatas" / "lista.json").write_text(json.dumps(extra, ensure_ascii=False, indent=1), encoding="utf-8")
+saida.mkdir(exist_ok=True)
+(saida / "lista.json").write_text(json.dumps(extra, ensure_ascii=False, indent=1), encoding="utf-8")
 for it in itens:
     t, u = it["titulo"], it["url"]
     try:

@@ -1,0 +1,23 @@
+name: Coletar imagens (lista extra)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pillow
+      - run: python3 site/coletar_og.py
+        env:
+          PAGINAS: img_extra.json
+          SAIDA_CAND: candidatas_extra
+      - name: Enviar
+        run: |
+          git config user.name "aloha-bot"
+          git config user.email "contato@alohanoticias.com"
+          git add -A site/candidatas_extra site/assets/img
+          git diff --cached --quiet && exit 0
+          git commit -m "Imagens candidatas (lista extra)"
+          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; sleep 5; done
