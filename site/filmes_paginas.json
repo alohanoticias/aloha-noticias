@@ -1,42 +1,12 @@
 [
  {
-  "titulo": "a3original",
-  "url": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original",
-  "img": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original"
+  "titulo": "b1",
+  "url": "https://mma.prnewswire.com/media/3004969/ADFC_1.jpg?p=original",
+  "img": "https://mma.prnewswire.com/media/3004969/ADFC_1.jpg?p=original"
  },
  {
-  "titulo": "a3publish",
-  "url": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=publish",
-  "img": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=publish"
- },
- {
-  "titulo": "a3facebook",
-  "url": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=facebook",
-  "img": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=facebook"
- },
- {
-  "titulo": "a3twitter",
-  "url": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=twitter",
-  "img": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=twitter"
- },
- {
-  "titulo": "a4original",
-  "url": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=original",
-  "img": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=original"
- },
- {
-  "titulo": "a4publish",
-  "url": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=publish",
-  "img": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=publish"
- },
- {
-  "titulo": "a4facebook",
-  "url": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=facebook",
-  "img": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=facebook"
- },
- {
-  "titulo": "a4twitter",
-  "url": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=twitter",
-  "img": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=twitter"
+  "titulo": "b2",
+  "url": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg?p=original",
+  "img": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg?p=original"
  }
 ]
