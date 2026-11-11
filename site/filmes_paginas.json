@@ -1,42 +1,97 @@
 [
  {
-  "titulo": "g1",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube-Set.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube-Set.jpg?width=1920"
+  "titulo": "dv1",
+  "url": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres1.jpg",
+  "img": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres1.jpg"
  },
  {
-  "titulo": "g2",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-Console-wDuke-L.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-Console-wDuke-L.jpg?width=1920"
+  "titulo": "dv2",
+  "url": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres2.jpg",
+  "img": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres2.jpg"
  },
  {
-  "titulo": "g3",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube%20Wavebird%20Controller%20on%20white%20background.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCube%20Wavebird%20Controller%20on%20white%20background.jpg?width=1920"
+  "titulo": "dv3",
+  "url": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres3.jpg",
+  "img": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxres3.jpg"
  },
  {
-  "titulo": "g4",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft%20XBox%20%282001%29%202.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft%20XBox%20%282001%29%202.jpg?width=1920"
+  "titulo": "dvdefault",
+  "url": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxresdefault.jpg",
+  "img": "https://i.ytimg.com/vi/vRq6txB8Ifo/maxresdefault.jpg"
  },
  {
-  "titulo": "g5",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Original%20Xbox%20%282001%29%20HDD%20%2840932184041%29.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Original%20Xbox%20%282001%29%20HDD%20%2840932184041%29.jpg?width=1920"
+  "titulo": "dr1",
+  "url": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres1.jpg",
+  "img": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres1.jpg"
  },
  {
-  "titulo": "g6",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCubeDisk.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/GameCubeDisk.jpg?width=1920"
+  "titulo": "dr2",
+  "url": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres2.jpg",
+  "img": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres2.jpg"
  },
  {
-  "titulo": "g7",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wii%20Remote%20%26%20GameCube%20Controller.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Wii%20Remote%20%26%20GameCube%20Controller.jpg?width=1920"
+  "titulo": "dr3",
+  "url": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres3.jpg",
+  "img": "https://i.ytimg.com/vi/rGNc8RRggzo/maxres3.jpg"
  },
  {
-  "titulo": "g8",
-  "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-console.jpg?width=1920",
-  "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Xbox-console.jpg?width=1920"
+  "titulo": "drdefault",
+  "url": "https://i.ytimg.com/vi/rGNc8RRggzo/maxresdefault.jpg",
+  "img": "https://i.ytimg.com/vi/rGNc8RRggzo/maxresdefault.jpg"
+ },
+ {
+  "titulo": "di1",
+  "url": "https://i.ytimg.com/vi/iwNb50uScFM/maxres1.jpg",
+  "img": "https://i.ytimg.com/vi/iwNb50uScFM/maxres1.jpg"
+ },
+ {
+  "titulo": "di2",
+  "url": "https://i.ytimg.com/vi/iwNb50uScFM/maxres2.jpg",
+  "img": "https://i.ytimg.com/vi/iwNb50uScFM/maxres2.jpg"
+ },
+ {
+  "titulo": "di3",
+  "url": "https://i.ytimg.com/vi/iwNb50uScFM/maxres3.jpg",
+  "img": "https://i.ytimg.com/vi/iwNb50uScFM/maxres3.jpg"
+ },
+ {
+  "titulo": "didefault",
+  "url": "https://i.ytimg.com/vi/iwNb50uScFM/maxresdefault.jpg",
+  "img": "https://i.ytimg.com/vi/iwNb50uScFM/maxresdefault.jpg"
+ },
+ {
+  "titulo": "dh1",
+  "url": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres1.jpg",
+  "img": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres1.jpg"
+ },
+ {
+  "titulo": "dh2",
+  "url": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres2.jpg",
+  "img": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres2.jpg"
+ },
+ {
+  "titulo": "dh3",
+  "url": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres3.jpg",
+  "img": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxres3.jpg"
+ },
+ {
+  "titulo": "dhdefault",
+  "url": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxresdefault.jpg",
+  "img": "https://i.ytimg.com/vi/Hl8inT6qHfE/maxresdefault.jpg"
+ },
+ {
+  "titulo": "om",
+  "url": "https://cdn.ome.lt/l9RgcOGq0KA6cOMwiXEgm8WyBT4=/1200x630/smart/filters:format(webp)/extras/conteudos/Captura_de_tela_2026-07-08_150334.png",
+  "img": "https://cdn.ome.lt/l9RgcOGq0KA6cOMwiXEgm8WyBT4=/1200x630/smart/filters:format(webp)/extras/conteudos/Captura_de_tela_2026-07-08_150334.png"
+ },
+ {
+  "titulo": "bp",
+  "url": "https://www.bemparana.com.br/wp-content/uploads/2026/10/duna-3.jpg",
+  "img": "https://www.bemparana.com.br/wp-content/uploads/2026/10/duna-3.jpg"
+ },
+ {
+  "titulo": "sm",
+  "url": "https://www.showmetech.com.br/wp-content/uploads//2026/07/dune-part-three-trailer-still-legendary.jpg",
+  "img": "https://www.showmetech.com.br/wp-content/uploads//2026/07/dune-part-three-trailer-still-legendary.jpg"
  }
 ]
