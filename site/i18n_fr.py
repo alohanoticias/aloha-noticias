@@ -26,6 +26,7 @@ UI = {
     "Sobre nós": "À propos de nous",
     "Contato e anúncios": "Contact et publicité",
     "Equipe Aloha": "Équipe Aloha",
+    "Sobre o autor": "À propos de l'auteur",
     "Política editorial": "Politique éditoriale",
     "Termos de uso": "Conditions d'utilisation",
     "Privacidade": "Confidentialité",
@@ -73,7 +74,7 @@ UI = {
     "Aceitar": "Accepter",
     "Recusar": "Refuser",
     "Leia esta página em português (idioma original)": "Lire cette page en portugais (langue d'origine)",
-    "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Cet article a été écrit en portugais et adapté en français par l'équipe.",
+    "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Cet article a été écrit en portugais et adapté en français.",
     "Esta página também existe em": "Cette page existe aussi en",
     "Original em português": "Original en portugais",
 }
@@ -86,6 +87,7 @@ PRIV = """<h2>Publicités et cookies</h2>
 PAG = {}
 PAG["sobre.html"] = ("À propos de nous", "Qui est derrière ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS est un site d'actualités brésilien pour celles et ceux qui veulent comprendre ce qui se passe sans le bruit. Nous nous concentrons sur le cinéma, les jeux vidéo et la technologie : sorties, lancements et sujets du moment, avec des faits vérifiés.</p>
+<p>Le site a été créé et est édité par <a href="equipe.html">João Gabriel</a>, créateur de sites web et de contenu numérique.</p>
 <p>Nous écrivons d'abord en portugais. Cette édition française est adaptée par notre équipe pour les lecteurs hors du Brésil ; vous y trouverez donc des dates et des détails de sortie brésiliens expliqués quand cela compte.</p>
 <h2>Notre façon de travailler</h2>
 <p>Chaque article cite ses sources, distingue les faits de l'opinion et est corrigé ouvertement lorsque nous nous trompons. Les détails figurent dans notre <a href="politica-editorial.html">politique éditoriale</a>.</p>
@@ -102,27 +104,27 @@ PAG["politica-editorial.html"] = ("Politique éditoriale et de corrections", "Co
 <h2>Rumeurs et fuites</h2>
 <p>Les rumeurs, les fuites et les informations de coulisses n'apparaissent que lorsqu'elles sont pertinentes, toujours signalées comme non confirmées et avec la source indiquée. Nous ne traitons pas une rumeur comme un fait.</p>
 <h2>Relecture avant publication</h2>
-<p>Aucun article n'est mis en ligne sans la relecture et l'approbation d'une personne de l'équipe.</p>
+<p>Aucun article n'est mis en ligne sans la relecture et l'approbation de l'éditeur, <a href="equipe.html">João Gabriel</a>.</p>
 <h2>Images et vidéos</h2>
-<p>Nos couvertures sont composées par notre équipe à partir de photos de banques d'images libres de droits, comme Unsplash, avec le nom du photographe indiqué dans l'article, et d'éléments graphiques qui nous sont propres. Nous n'utilisons ni affiches, ni jaquettes, ni images protégées de films, de jeux ou de personnages. La vidéo d'un article, lorsqu'il y en a une, est un contenu officiel intégré depuis la chaîne où elle a été publiée, avec le nom de la chaîne. Si vous êtes l'auteur ou le propriétaire d'une image et souhaitez une autre mention ou son retrait, écrivez-nous.</p>
+<p>En couverture et dans le texte, nous utilisons des images promotionnelles officielles du sujet lui-même, fournies par les studios, plateformes, développeurs et fabricants. Les photos d'archives libres, comme Wikimedia Commons, n'apparaissent que lorsqu'elles montrent quelque chose dont parle le texte. Chaque image porte une légende créditant son auteur et, le cas échéant, sa licence. Nous n'utilisons pas d'images portant le filigrane d'un tiers. La vidéo d'un article, quand il y en a une, est un contenu officiel intégré depuis la chaîne où il a été publié, avec le nom de la chaîne. Si vous êtes l'auteur ou le propriétaire d'une image et souhaitez un autre crédit ou son retrait, écrivez-nous via la <a href="contato.html">page de contact</a>.</p>
 <h2>Corrections</h2>
 <p>Lorsque nous trouvons une erreur, nous corrigeons l'article et signalons la correction dans le texte. Nous mettons aussi à jour les articles lorsque des dates ou des faits changent, afin que le contenu ne devienne pas obsolète. Si vous avez trouvé une erreur, envoyez l'article et ce qui est incorrect via la <a href="contato.html">page de contact</a>. Nous répondons dès que possible.</p>
 <h2>Indépendance</h2>
 <p>Notre contenu éditorial est indépendant. Les publicités, lorsqu'il y en a, sont séparées du texte et n'influencent pas ce que nous publions. Si un article implique un parrainage ou un partenariat, nous le dirons clairement.</p>
 <h2>Traductions</h2>
 <p>Le portugais est notre langue d'origine. Les éditions dans les autres langues sont adaptées par notre équipe, et non traduites mot à mot, et peuvent omettre des détails qui n'intéressent que le public brésilien. En cas de différence entre les versions, l'original en portugais fait foi.</p>""")
-PAG["equipe.html"] = ("Équipe Aloha", "Qui signe les articles d'ALOHA NOTÍCIAS et ce que nous couvrons.", """
-<p>Équipe Aloha est la signature de la rédaction d'ALOHA NOTÍCIAS. Elle réunit les personnes qui enquêtent, écrivent, réalisent les couvertures et relisent ce qui est publié ici.</p>
-<h2>Qui est derrière le site</h2>
-<p>ALOHA NOTÍCIAS est un projet éditorial indépendant, mené par une équipe et sans lien avec des studios, des producteurs ou des fabricants. Chaque article est relu et approuvé par une personne avant sa mise en ligne.</p>
-<h2>À quoi vous attendre</h2>
-<p>Des informations vérifiées auprès de plusieurs sources, des sources citées à la fin de chaque texte, des rumeurs signalées comme telles et des corrections faites au grand jour. Si quelque chose est faux, nous voulons le savoir.</p>
+PAG["equipe.html"] = ('João Gabriel', 'Qui crée, écrit et édite ALOHA NOTÍCIAS.', """
+<p><strong>João Gabriel</strong> a 21 ans, est brésilien, créateur de sites web et créateur de contenu numérique sur les plateformes. Il a créé ALOHA NOTÍCIAS et signe, relit et approuve tous les articles publiés ici.</p>
+<h2>Le site</h2>
+<p>ALOHA NOTÍCIAS est un projet indépendant consacré au cinéma, aux jeux vidéo et à la technologie, sans lien avec des studios, des producteurs ou des fabricants.</p>
+<h2>Ce que vous pouvez attendre</h2>
+<p>Des informations vérifiées dans plus d'une source, des sources citées à la fin de chaque texte, des rumeurs signalées comme telles et des corrections faites ouvertement. Si quelque chose est faux, je veux le savoir.</p>
 <h2>Ce que nous couvrons</h2>
 <ul>@@EDITORIAS@@</ul>
-<h2>Notre façon de travailler</h2>
-<p>Nous confirmons les faits auprès de plusieurs sources, citons nos sources à la fin de chaque article et corrigeons les erreurs ouvertement. Consultez la <a href="politica-editorial.html">politique éditoriale</a>.</p>
-<h2>Nous contacter</h2>
-<p>Pistes de sujets, corrections et partenariats : <a href="contato.html">page de contact</a>.</p>""")
+<h2>Notre méthode</h2>
+<p>Les faits sont confirmés dans plus d'une source, les sources figurent à la fin de chaque article et les erreurs sont corrigées ouvertement. Voir la <a href="politica-editorial.html">politique éditoriale</a>.</p>
+<h2>Contact</h2>
+<p>Idées de sujets, corrections et partenariats : <a href="contato.html">page de contact</a>.</p>""")
 PAG["contato.html"] = ("Contact et publicité", "Contactez la rédaction d'ALOHA NOTÍCIAS.", """
 <p>Écrivez-nous à <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Pour aller plus vite, indiquez le motif dans l'objet. Nous lisons le français, l'anglais, l'espagnol et le portugais.</p>
 <h2>Propositions de sujets</h2><p>Vous avez vu quelque chose qui mérite un article ? Envoyez le sujet et, si possible, le lien vers la source.</p>

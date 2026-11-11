@@ -26,6 +26,7 @@ UI = {
     "Sobre nós": "Chi siamo",
     "Contato e anúncios": "Contatti e pubblicità",
     "Equipe Aloha": "Team Aloha",
+    "Sobre o autor": "L'autore",
     "Política editorial": "Linea editoriale",
     "Termos de uso": "Termini di utilizzo",
     "Privacidade": "Privacy",
@@ -73,7 +74,7 @@ UI = {
     "Aceitar": "Accetta",
     "Recusar": "Rifiuta",
     "Leia esta página em português (idioma original)": "Leggi questa pagina in portoghese (lingua originale)",
-    "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Questo articolo è stato scritto in portoghese e adattato in italiano dalla redazione.",
+    "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Questo articolo è stato scritto in portoghese e adattato in italiano.",
     "Esta página também existe em": "Questa pagina esiste anche in",
     "Original em português": "Originale in portoghese",
 }
@@ -86,6 +87,7 @@ PRIV = """<h2>Pubblicità e cookie</h2>
 PAG = {}
 PAG["sobre.html"] = ("Chi siamo", "Chi c'è dietro ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS è un sito di notizie brasiliano per chi vuole capire cosa succede senza il rumore di fondo. Ci concentriamo su cinema, videogiochi e tecnologia: anteprime, uscite e temi del momento, con i fatti verificati.</p>
+<p>Il sito è stato creato ed è diretto da <a href="equipe.html">João Gabriel</a>, creatore di siti web e di contenuti digitali.</p>
 <p>Scriviamo prima in portoghese. Questa edizione italiana è adattata dalla nostra redazione per i lettori fuori dal Brasile, perciò spieghiamo le date e i dettagli di uscita brasiliani dove servono.</p>
 <h2>Come lavoriamo</h2>
 <p>Ogni articolo cita le proprie fonti, distingue i fatti dalle opinioni e viene corretto apertamente quando sbagliamo. I dettagli sono nella nostra <a href="politica-editorial.html">linea editoriale</a>.</p>
@@ -102,25 +104,25 @@ PAG["politica-editorial.html"] = ("Linea editoriale e correzioni", "Come ALOHA N
 <h2>Voci e indiscrezioni</h2>
 <p>Voci, indiscrezioni e informazioni dietro le quinte compaiono solo quando sono rilevanti, sempre indicate come non confermate e con la fonte citata. Non trattiamo una voce come un fatto.</p>
 <h2>Revisione prima della pubblicazione</h2>
-<p>Nessun articolo viene pubblicato senza la revisione e l'approvazione di una persona della redazione.</p>
+<p>Nessun articolo viene pubblicato senza la revisione e l'approvazione dell'editore, <a href="equipe.html">João Gabriel</a>.</p>
 <h2>Immagini e video</h2>
-<p>Le nostre copertine sono realizzate dalla redazione con foto di archivi di immagini liberamente utilizzabili, come Unsplash, con il nome dell'autore indicato nell'articolo, e con elementi grafici nostri. Non usiamo locandine, copertine o immagini protette di film, giochi o personaggi. Il video di un articolo, quando c'è, è un contenuto ufficiale incorporato dal canale in cui è stato pubblicato, con il nome del canale. Se sei l'autore o il proprietario di un'immagine e vuoi un altro credito o la rimozione, scrivici.</p>
+<p>In copertina e nel testo usiamo immagini promozionali ufficiali dell'argomento stesso, fornite da studi, piattaforme, sviluppatori e produttori. Le foto di archivi liberi, come Wikimedia Commons, compaiono solo quando mostrano qualcosa di cui parla il testo. Ogni immagine ha una didascalia con il credito di chi l'ha realizzata e, quando c'è, la licenza. Non usiamo immagini con filigrane di terzi. Il video di un articolo, quando c'è, è un contenuto ufficiale incorporato dal canale in cui è stato pubblicato, con il nome del canale. Se sei l'autore o il proprietario di un'immagine e vuoi un altro credito o la rimozione, scrivici dalla <a href="contato.html">pagina dei contatti</a>.</p>
 <h2>Correzioni</h2>
 <p>Quando troviamo un errore, correggiamo l'articolo e segnaliamo la correzione nel testo. Aggiorniamo gli articoli anche quando date o fatti cambiano, perché il contenuto non diventi obsoleto. Se hai trovato un errore, invia l'articolo e ciò che è sbagliato tramite la <a href="contato.html">pagina dei contatti</a>. Rispondiamo il prima possibile.</p>
 <h2>Indipendenza</h2>
 <p>I nostri contenuti editoriali sono indipendenti. Gli annunci, quando ci sono, sono separati dal testo e non influenzano ciò che pubblichiamo. Se un articolo prevede una sponsorizzazione o una collaborazione, lo diremo chiaramente.</p>
 <h2>Traduzioni</h2>
 <p>Il portoghese è la nostra lingua originale. Le edizioni nelle altre lingue sono adattate dalla nostra redazione, non tradotte parola per parola, e possono omettere dettagli che interessano solo il pubblico brasiliano. Se le versioni differiscono, prevale l'originale in portoghese.</p>""")
-PAG["equipe.html"] = ("Team Aloha", "Chi firma gli articoli di ALOHA NOTÍCIAS e di cosa ci occupiamo.", """
-<p>Team Aloha è la firma della redazione di ALOHA NOTÍCIAS. Riunisce le persone che fanno ricerca, scrivono, realizzano le copertine e rivedono ciò che viene pubblicato qui.</p>
-<h2>Chi c'è dietro</h2>
-<p>ALOHA NOTÍCIAS è un progetto editoriale indipendente, gestito da una squadra e senza legami con studi, produttori o fabbricanti. Ogni articolo viene rivisto e approvato da una persona prima di andare online.</p>
+PAG["equipe.html"] = ('João Gabriel', 'Chi crea, scrive e dirige ALOHA NOTÍCIAS.', """
+<p><strong>João Gabriel</strong> ha 21 anni, è brasiliano, creatore di siti web e creatore di contenuti digitali sulle piattaforme. Ha creato ALOHA NOTÍCIAS e firma, rivede e approva tutti gli articoli pubblicati qui.</p>
+<h2>Il sito</h2>
+<p>ALOHA NOTÍCIAS è un progetto indipendente su cinema, videogiochi e tecnologia, senza legami con studi, produttori o fabbricanti.</p>
 <h2>Cosa aspettarsi</h2>
-<p>Informazioni verificate in più di una fonte, fonti citate alla fine di ogni testo, voci indicate come tali e correzioni fatte alla luce del sole. Se qualcosa è sbagliato, vogliamo saperlo.</p>
+<p>Informazioni verificate in più di una fonte, fonti citate alla fine di ogni testo, voci di corridoio indicate come tali e correzioni fatte apertamente. Se qualcosa è sbagliato, voglio saperlo.</p>
 <h2>Di cosa ci occupiamo</h2>
 <ul>@@EDITORIAS@@</ul>
 <h2>Come lavoriamo</h2>
-<p>Confermiamo i fatti in più di una fonte, citiamo le fonti alla fine di ogni articolo e correggiamo gli errori apertamente. Vedi la <a href="politica-editorial.html">linea editoriale</a>.</p>
+<p>I fatti vengono confermati in più di una fonte, le fonti compaiono alla fine di ogni articolo e gli errori vengono corretti apertamente. Leggi la <a href="politica-editorial.html">linea editoriale</a>.</p>
 <h2>Contatti</h2>
 <p>Segnalazioni, correzioni e collaborazioni: <a href="contato.html">pagina dei contatti</a>.</p>""")
 PAG["contato.html"] = ("Contatti e pubblicità", "Contatta la redazione di ALOHA NOTÍCIAS.", """

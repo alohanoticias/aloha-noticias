@@ -53,6 +53,7 @@ UI = {
         "Sobre nós": "About us",
         "Contato e anúncios": "Contact and advertising",
         "Equipe Aloha": "Aloha Team",
+        "Sobre o autor": 'About the author',
         "Política editorial": "Editorial policy",
         "Termos de uso": "Terms of use",
         "Privacidade": "Privacy",
@@ -100,7 +101,7 @@ UI = {
         "Aceitar": "Accept",
         "Recusar": "Decline",
         "Leia esta página em português (idioma original)": "Read this page in Portuguese (original language)",
-        "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "This article was written in Portuguese and adapted into English by our team.",
+        "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Este artículo fue escrito en portugués y adaptado al español.",
         "Esta página também existe em": "This page is also available in",
         "Original em português": "Original in Portuguese",
     },
@@ -121,6 +122,7 @@ UI = {
         "Sobre nós": "Quiénes somos",
         "Contato e anúncios": "Contacto y publicidad",
         "Equipe Aloha": "Equipo Aloha",
+        "Sobre o autor": 'Sobre el autor',
         "Política editorial": "Política editorial",
         "Termos de uso": "Términos de uso",
         "Privacidade": "Privacidad",
@@ -181,6 +183,7 @@ PAGINAS = {"en": {}, "es": {}}
 
 PAGINAS["en"]["sobre.html"] = ("About us", "Who is behind ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS is a Brazilian news site for people who want to understand what is going on without the noise. Our focus is movies, games and technology: premieres, releases and what is trending, with the facts checked.</p>
+<p>The site was created and is edited by <a href="equipe.html">João Gabriel</a>, a website and digital content creator.</p>
 <p>We write in Portuguese first. This English edition is adapted by our team for readers outside Brazil, so you will see Brazilian dates and release details explained where they matter.</p>
 <h2>How we work</h2>
 <p>Every article cites its sources, separates fact from opinion and is openly corrected when we get something wrong. The details are in our <a href="politica-editorial.html">editorial policy</a>.</p>
@@ -191,6 +194,7 @@ PAGINAS["en"]["sobre.html"] = ("About us", "Who is behind ALOHA NOTÍCIAS.", """
 
 PAGINAS["es"]["sobre.html"] = ("Quiénes somos", "Quién está detrás de ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS es un sitio de noticias de Brasil para quienes quieren entender lo que pasa sin ruido. Nos centramos en cine, juegos y tecnología: estrenos, lanzamientos y lo que está en tendencia, con los datos verificados.</p>
+<p>El sitio fue creado y lo edita <a href="equipe.html">João Gabriel</a>, creador de sitios web y de contenido digital.</p>
 <p>Escribimos primero en portugués. Esta edición en español la adapta nuestro equipo para lectores de fuera de Brasil, y por eso explicamos las fechas y los detalles de estreno brasileños cuando importan.</p>
 <h2>Cómo trabajamos</h2>
 <p>Cada artículo cita sus fuentes, separa los hechos de la opinión y se corrige a la vista de todos cuando nos equivocamos. Los detalles están en nuestra <a href="politica-editorial.html">política editorial</a>.</p>
@@ -208,9 +212,9 @@ PAGINAS["en"]["politica-editorial.html"] = ("Editorial and corrections policy", 
 <h2>Rumors and leaks</h2>
 <p>Rumors, leaks and behind-the-scenes information only appear when they are relevant, always labeled as unconfirmed and with the source named. We do not treat a rumor as fact.</p>
 <h2>Review before publishing</h2>
-<p>No article goes live without review and approval from a person on the team.</p>
+<p>No article goes live without review and approval from the editor, <a href="equipe.html">João Gabriel</a>.</p>
 <h2>Images and videos</h2>
-<p>Our covers are put together by our team from free-to-use stock photos, such as Unsplash, with the photographer credited in the article, plus graphic elements of our own. We do not use posters, covers or protected images from movies, games or characters. The video in an article, when there is one, is official content embedded from the channel where it was published, with the channel named. If you are the author or owner of an image and want a different credit or its removal, write to us.</p>
+<p>On the cover and in the text we use official promotional images of the subject itself, from studios, platforms, developers and manufacturers. Photos from free archives, such as Wikimedia Commons, only appear when they show something the text is talking about. Every image has a caption crediting who made it and, when there is one, the license. We do not use images with third-party watermarks. The video in an article, when there is one, is official content embedded from the channel where it was published, with the channel named. If you are the author or owner of an image and want a different credit or its removal, write to us through the <a href="contato.html">contact page</a>.</p>
 <h2>Corrections</h2>
 <p>When we find a mistake, we fix the article and mark the correction in the text. We also update articles when dates or facts change, so the content does not go stale. If you found an error, send the article and what is wrong through the <a href="contato.html">contact page</a>. We reply as soon as we can.</p>
 <h2>Independence</h2>
@@ -227,9 +231,9 @@ PAGINAS["es"]["politica-editorial.html"] = ("Política editorial y de correccion
 <h2>Rumores y filtraciones</h2>
 <p>Los rumores, las filtraciones y la información de bastidores solo aparecen cuando son relevantes, siempre señalados como no confirmados y con la fuente indicada. No tratamos un rumor como un hecho.</p>
 <h2>Revisión antes de publicar</h2>
-<p>Ningún artículo sale al aire sin la revisión y la aprobación de una persona del equipo.</p>
+<p>Ningún artículo sale al aire sin la revisión y la aprobación del editor, <a href="equipe.html">João Gabriel</a>.</p>
 <h2>Imágenes y videos</h2>
-<p>Nuestras portadas las arma el equipo con fotos de bancos de imágenes de uso libre, como Unsplash, con el crédito del autor en el artículo, y con elementos gráficos propios. No usamos pósteres, portadas ni imágenes protegidas de películas, juegos o personajes. El video de un artículo, cuando lo hay, es contenido oficial incrustado desde el canal donde se publicó, con el nombre del canal. Si eres autor o dueño de una imagen y quieres otro crédito o su retiro, escríbenos.</p>
+<p>En la portada y en el texto usamos imágenes oficiales de promoción del propio tema, de estudios, plataformas, desarrolladoras y fabricantes. Las fotos de archivos libres, como Wikimedia Commons, solo aparecen cuando muestran algo de lo que habla el texto. Cada imagen lleva un pie con el crédito de quien la hizo y, cuando la hay, la licencia. No usamos imágenes con marcas de agua de terceros. El video de un artículo, cuando lo hay, es contenido oficial incrustado desde el canal donde se publicó, con el nombre del canal. Si eres autor o dueño de una imagen y quieres otro crédito o su retiro, escríbenos por la <a href="contato.html">página de contacto</a>.</p>
 <h2>Correcciones</h2>
 <p>Cuando encontramos un error, corregimos el artículo y marcamos la corrección en el texto. También actualizamos artículos cuando cambian fechas o datos, para que el contenido no quede desactualizado. Si encontraste un error, envía el artículo y lo que está mal por la <a href="contato.html">página de contacto</a>. Respondemos lo antes posible.</p>
 <h2>Independencia</h2>
@@ -237,29 +241,29 @@ PAGINAS["es"]["politica-editorial.html"] = ("Política editorial y de correccion
 <h2>Traducciones</h2>
 <p>El portugués es nuestro idioma original. Las ediciones en inglés y en español las adapta nuestro equipo, no se traducen palabra por palabra, y pueden omitir detalles que solo importan al público brasileño. Si las versiones difieren, prevalece el original en portugués.</p>""")
 
-PAGINAS["en"]["equipe.html"] = ("Aloha Team", "Who signs the ALOHA NOTÍCIAS articles and what we cover.", """
-<p>Aloha Team is the byline of the ALOHA NOTÍCIAS newsroom. It brings together the people who research, write, build the covers and review what is published here.</p>
-<h2>Who is behind it</h2>
-<p>ALOHA NOTÍCIAS is an independent editorial project, run by a team and with no ties to studios, producers or manufacturers. Every article is reviewed and approved by a person before it goes live.</p>
+PAGINAS["en"]["equipe.html"] = ('João Gabriel', 'Who creates, writes and edits ALOHA NOTÍCIAS.', """
+<p><strong>João Gabriel</strong> is 21, Brazilian, a website creator and a digital content creator across platforms. He created ALOHA NOTÍCIAS and signs, reviews and approves every article published here.</p>
+<h2>The site</h2>
+<p>ALOHA NOTÍCIAS is an independent project about movies, games and technology, with no ties to studios, producers or manufacturers.</p>
 <h2>What to expect</h2>
-<p>Information checked in more than one source, sources cited at the end of every piece, rumors labeled as such and corrections made in the open. If something is wrong, we want to know.</p>
+<p>Information checked in more than one source, sources cited at the end of every piece, rumors labeled as such and corrections made in the open. If something is wrong, I want to know.</p>
 <h2>What we cover</h2>
 <ul>@@EDITORIAS@@</ul>
 <h2>How we work</h2>
-<p>We confirm facts in more than one source, cite our sources at the end of each article and correct errors openly. See the <a href="politica-editorial.html">editorial policy</a>.</p>
+<p>Facts are confirmed in more than one source, sources are listed at the end of each article and errors are corrected openly. See the <a href="politica-editorial.html">editorial policy</a>.</p>
 <h2>Get in touch</h2>
 <p>Story tips, corrections and partnerships: <a href="contato.html">contact page</a>.</p>""")
 
-PAGINAS["es"]["equipe.html"] = ("Equipo Aloha", "Quién firma los artículos de ALOHA NOTÍCIAS y qué cubrimos.", """
-<p>Equipo Aloha es la firma de la redacción de ALOHA NOTÍCIAS. Reúne a quienes investigan, escriben, arman las portadas y revisan lo que se publica aquí.</p>
-<h2>Quién está detrás</h2>
-<p>ALOHA NOTÍCIAS es un proyecto editorial independiente, dirigido por un equipo y sin vínculos con estudios, productoras ni fabricantes. Cada artículo lo revisa y aprueba una persona antes de salir al aire.</p>
+PAGINAS["es"]["equipe.html"] = ('João Gabriel', 'Quién crea, escribe y edita ALOHA NOTÍCIAS.', """
+<p><strong>João Gabriel</strong> tiene 21 años, es brasileño, creador de sitios web y creador de contenido digital en plataformas. Creó ALOHA NOTÍCIAS y firma, revisa y aprueba todos los artículos publicados aquí.</p>
+<h2>El sitio</h2>
+<p>ALOHA NOTÍCIAS es un proyecto independiente sobre cine, videojuegos y tecnología, sin vínculos con estudios, productoras ni fabricantes.</p>
 <h2>Qué puedes esperar</h2>
-<p>Información verificada en más de una fuente, fuentes citadas al final de cada texto, rumores señalados como tales y correcciones hechas a la vista. Si algo está mal, queremos saberlo.</p>
+<p>Información verificada en más de una fuente, fuentes citadas al final de cada texto, rumores señalados como tales y correcciones hechas a la vista. Si algo está mal, quiero saberlo.</p>
 <h2>Qué cubrimos</h2>
 <ul>@@EDITORIAS@@</ul>
 <h2>Cómo trabajamos</h2>
-<p>Confirmamos los datos en más de una fuente, citamos las fuentes al final de cada artículo y corregimos los errores abiertamente. Consulta la <a href="politica-editorial.html">política editorial</a>.</p>
+<p>Los datos se confirman en más de una fuente, las fuentes aparecen al final de cada artículo y los errores se corrigen abiertamente. Consulta la <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>Contacto</h2>
 <p>Pistas, correcciones y alianzas: <a href="contato.html">página de contacto</a>.</p>""")
 

@@ -504,3 +504,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .materia-topo .em-alta { margin: 0 0 10px; }
 .mais-lidas li[hidden] { display: none; }
 .em-alta .fogo { flex: none; margin-top: -1px; }
+.autor-cartao { display: flex; align-items: center; gap: 20px; margin-block: 0.4em 0.6em; }
+.autor-cartao img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex: none; }
+.autor-cartao .autor-redes { display: flex; gap: 14px; flex-wrap: wrap; font-size: 1rem; }
+.autor-cartao .autor-redes a { font-weight: 600; }

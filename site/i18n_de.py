@@ -26,6 +26,7 @@ UI = {
     "Sobre nós": "Über uns",
     "Contato e anúncios": "Kontakt und Werbung",
     "Equipe Aloha": "Aloha-Team",
+    "Sobre o autor": 'Über den Autor',
     "Política editorial": "Redaktionelle Richtlinien",
     "Termos de uso": "Nutzungsbedingungen",
     "Privacidade": "Datenschutz",
@@ -73,7 +74,7 @@ UI = {
     "Aceitar": "Akzeptieren",
     "Recusar": "Ablehnen",
     "Leia esta página em português (idioma original)": "Diese Seite auf Portugiesisch lesen (Originalsprache)",
-    "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Dieser Beitrag wurde auf Portugiesisch geschrieben und vom Team für den deutschsprachigen Raum adaptiert.",
+    "Esta matéria foi escrita em português e adaptada para o inglês pela equipe.": "Dieser Beitrag wurde auf Portugiesisch geschrieben und für den deutschsprachigen Raum adaptiert.",
     "Esta página também existe em": "Diese Seite gibt es auch auf",
     "Original em português": "Original auf Portugiesisch",
 }
@@ -86,6 +87,7 @@ PRIV = """<h2>Werbung und Cookies</h2>
 PAG = {}
 PAG["sobre.html"] = ("Über uns", "Wer hinter ALOHA NOTÍCIAS steht.", """
 <p>ALOHA NOTÍCIAS ist eine brasilianische Nachrichtenseite für Menschen, die verstehen wollen, was passiert, ohne das Rauschen. Unser Schwerpunkt sind Kino, Games und Technik: Premieren, Neuerscheinungen und aktuelle Themen, mit geprüften Fakten.</p>
+<p>Die Website wurde von <a href="equipe.html">João Gabriel</a> gegründet, der sie auch herausgibt; er erstellt Websites und digitale Inhalte.</p>
 <p>Wir schreiben zuerst auf Portugiesisch. Diese deutsche Ausgabe wird von unserem Team für Leserinnen und Leser außerhalb Brasiliens adaptiert; deshalb erklären wir brasilianische Termine und Erscheinungsdetails dort, wo es darauf ankommt.</p>
 <h2>Wie wir arbeiten</h2>
 <p>Jeder Beitrag nennt seine Quellen, trennt Fakten von Meinung und wird offen korrigiert, wenn wir uns irren. Die Einzelheiten stehen in unseren <a href="politica-editorial.html">redaktionellen Richtlinien</a>.</p>
@@ -102,27 +104,27 @@ PAG["politica-editorial.html"] = ("Redaktionelle Richtlinien und Korrekturen", "
 <h2>Gerüchte und Leaks</h2>
 <p>Gerüchte, Leaks und Hintergrundinformationen erscheinen nur, wenn sie relevant sind, stets als unbestätigt gekennzeichnet und mit Nennung der Quelle. Ein Gerücht behandeln wir nicht als Tatsache.</p>
 <h2>Prüfung vor der Veröffentlichung</h2>
-<p>Kein Beitrag geht ohne Prüfung und Freigabe durch eine Person aus dem Team online.</p>
+<p>Kein Beitrag geht ohne Prüfung und Freigabe durch den Herausgeber, <a href="equipe.html">João Gabriel</a>, online.</p>
 <h2>Bilder und Videos</h2>
-<p>Unsere Titelbilder setzt unser Team aus frei nutzbaren Fotos von Bildagenturen wie Unsplash zusammen, mit Nennung der Fotografin oder des Fotografen im Beitrag, ergänzt durch eigene grafische Elemente. Wir verwenden keine Plakate, Cover oder geschützten Bilder von Filmen, Spielen oder Figuren. Das Video in einem Beitrag, sofern vorhanden, ist offizieller Inhalt, der von dem Kanal eingebettet wird, auf dem es veröffentlicht wurde, mit Nennung des Kanals. Wenn Sie Urheber oder Inhaber eines Bildes sind und eine andere Nennung oder die Entfernung wünschen, schreiben Sie uns.</p>
+<p>Für Titelbild und Text verwenden wir offizielles Pressematerial zum jeweiligen Thema, von Studios, Plattformen, Entwicklern und Herstellern. Fotos aus freien Archiven wie Wikimedia Commons erscheinen nur, wenn sie etwas zeigen, wovon der Text spricht. Jedes Bild hat eine Bildunterschrift mit der Urheberangabe und, falls vorhanden, der Lizenz. Wir verwenden keine Bilder mit Wasserzeichen Dritter. Das Video eines Beitrags ist, wenn vorhanden, offizieller Inhalt, eingebettet aus dem Kanal, in dem er veröffentlicht wurde, mit Nennung des Kanals. Wenn Sie Urheber oder Rechteinhaber eines Bildes sind und eine andere Angabe oder die Entfernung wünschen, schreiben Sie uns über die <a href="contato.html">Kontaktseite</a>.</p>
 <h2>Korrekturen</h2>
 <p>Wenn wir einen Fehler finden, korrigieren wir den Beitrag und kennzeichnen die Korrektur im Text. Wir aktualisieren Beiträge auch, wenn sich Termine oder Fakten ändern, damit der Inhalt nicht veraltet. Wenn Sie einen Fehler gefunden haben, senden Sie uns über die <a href="contato.html">Kontaktseite</a> den Beitrag und was falsch ist. Wir antworten so schnell wie möglich.</p>
 <h2>Unabhängigkeit</h2>
 <p>Unsere redaktionellen Inhalte sind unabhängig. Anzeigen, sofern es sie gibt, sind vom Text getrennt und beeinflussen nicht, was wir veröffentlichen. Wenn ein Beitrag Sponsoring oder eine Kooperation betrifft, sagen wir das deutlich.</p>
 <h2>Übersetzungen</h2>
 <p>Portugiesisch ist unsere Originalsprache. Die Ausgaben in anderen Sprachen werden von unserem Team adaptiert, nicht wörtlich übersetzt, und lassen gegebenenfalls Details weg, die nur für ein brasilianisches Publikum wichtig sind. Weichen die Versionen voneinander ab, gilt das portugiesische Original.</p>""")
-PAG["equipe.html"] = ("Aloha-Team", "Wer die Beiträge von ALOHA NOTÍCIAS zeichnet und was wir abdecken.", """
-<p>Aloha-Team ist die Autorenzeile der Redaktion von ALOHA NOTÍCIAS. Sie vereint die Menschen, die hier recherchieren, schreiben, die Titelbilder gestalten und prüfen, was veröffentlicht wird.</p>
-<h2>Wer dahintersteht</h2>
-<p>ALOHA NOTÍCIAS ist ein unabhängiges redaktionelles Projekt, das von einem Team betrieben wird und keine Verbindungen zu Studios, Produktionsfirmen oder Herstellern hat. Jeder Beitrag wird von einer Person geprüft und freigegeben, bevor er online geht.</p>
+PAG["equipe.html"] = ('João Gabriel', 'Wer ALOHA NOTÍCIAS gründet, schreibt und herausgibt.', """
+<p><strong>João Gabriel</strong> ist 21 Jahre alt, Brasilianer, Website-Ersteller und Ersteller digitaler Inhalte auf verschiedenen Plattformen. Er hat ALOHA NOTÍCIAS gegründet und zeichnet, prüft und gibt alle hier veröffentlichten Beiträge frei.</p>
+<h2>Die Website</h2>
+<p>ALOHA NOTÍCIAS ist ein unabhängiges Projekt über Film, Spiele und Technik, ohne Verbindungen zu Studios, Produktionsfirmen oder Herstellern.</p>
 <h2>Was Sie erwarten können</h2>
-<p>In mehr als einer Quelle geprüfte Informationen, Quellenangaben am Ende jedes Textes, als solche gekennzeichnete Gerüchte und offen vorgenommene Korrekturen. Wenn etwas nicht stimmt, möchten wir es wissen.</p>
+<p>Informationen, die in mehr als einer Quelle geprüft wurden, Quellenangaben am Ende jedes Textes, als solche gekennzeichnete Gerüchte und offen vorgenommene Korrekturen. Wenn etwas falsch ist, möchte ich es wissen.</p>
 <h2>Was wir abdecken</h2>
 <ul>@@EDITORIAS@@</ul>
 <h2>Wie wir arbeiten</h2>
-<p>Wir bestätigen Fakten in mehr als einer Quelle, nennen unsere Quellen am Ende jedes Beitrags und korrigieren Fehler offen. Siehe die <a href="politica-editorial.html">redaktionellen Richtlinien</a>.</p>
+<p>Fakten werden in mehr als einer Quelle bestätigt, die Quellen stehen am Ende jedes Beitrags und Fehler werden offen korrigiert. Siehe die <a href="politica-editorial.html">redaktionellen Richtlinien</a>.</p>
 <h2>Kontakt</h2>
-<p>Themenhinweise, Korrekturen und Kooperationen: <a href="contato.html">Kontaktseite</a>.</p>""")
+<p>Themenvorschläge, Korrekturen und Kooperationen: <a href="contato.html">Kontaktseite</a>.</p>""")
 PAG["contato.html"] = ("Kontakt und Werbung", "Nehmen Sie Kontakt zur Redaktion von ALOHA NOTÍCIAS auf.", """
 <p>Schreiben Sie uns an <a href="mailto:contato@alohanoticias.com">contato@alohanoticias.com</a>. Damit es schneller geht, nennen Sie den Anlass im Betreff. Wir lesen Deutsch, Englisch, Spanisch und Portugiesisch.</p>
 <h2>Themenvorschläge</h2><p>Haben Sie etwas gesehen, das einen Beitrag wert ist? Schicken Sie uns das Thema und, falls vorhanden, einen Link zur Quelle.</p>

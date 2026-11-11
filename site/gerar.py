@@ -52,6 +52,18 @@ def t(s):
     return s if LANG == "pt" else i18n.UI[LANG].get(s, s)
 
 
+AUTOR = "João Gabriel"
+AUTOR_REDES = ["https://www.instagram.com/ladinzera/", "https://www.youtube.com/@ladinzando"]
+AUTOR_FOTO = "assets/img/autor/joao-gabriel.jpg"
+
+
+def autor_cartao():
+    """Foto e redes do autor, no topo da página do autor (todas as línguas)."""
+    foto = f'<img src="{AUTOR_FOTO}" alt="{AUTOR}" width="120" height="120" loading="eager">' if (RAIZ / AUTOR_FOTO).exists() else ""
+    redes = '<a href="https://www.instagram.com/ladinzera/" rel="me noopener" target="_blank">Instagram</a><a href="https://www.youtube.com/@ladinzando" rel="me noopener" target="_blank">YouTube</a>'
+    return f'<div class="autor-cartao">{foto}<div class="autor-redes">{redes}</div></div>'
+
+
 def autor_nome(m):
     return t(m["autor"])
 
@@ -370,7 +382,7 @@ def rodape():
       <li><a href="sobre.html">{t("Sobre nós")}</a></li>
       <li><a href="contato.html">{t("Contato e anúncios")}</a></li>
       <li><a href="busca.html">{t("Buscar")}</a></li>
-      <li><a href="equipe.html">{t("Equipe Aloha")}</a></li>
+      <li><a href="equipe.html">{t("Sobre o autor")}</a></li>
       <li><a href="politica-editorial.html">{t("Política editorial")}</a></li>
       <li><a href="termos.html">{t("Termos de uso")}</a></li>
       <li><a href="privacidade.html">{t("Privacidade")}</a></li>
@@ -874,7 +886,7 @@ def correcao_html(m):
 
 
 def autor_html(m):
-    return f'<a href="equipe.html">{esc(autor_nome(m))}</a>' if m["autor"] == "Equipe Aloha" else esc(m["autor"])
+    return f'<a href="equipe.html" rel="author">{esc(autor_nome(m))}</a>' if m["autor"] in ("Equipe Aloha", AUTOR) else esc(m["autor"])
 
 
 REDES_LINKS = [("YouTube", "youtube"), ("TikTok", "tiktok"), ("Instagram", "instagram"), ("Facebook", "facebook"),
@@ -964,8 +976,8 @@ def gerar_materia(m, preview=False, agendado=False):
         "@context": "https://schema.org", "@type": "NewsArticle", "headline": m["titulo"],
         "description": m["linha_fina"], "datePublished": m["data"], "dateModified": m.get("atualizado") or m["data"], "articleSection": e["nome"],
         "image": [og_url(og_da_capa(m))], "mainEntityOfPage": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + url_materia(m), "inLanguage": i18n.HTML_LANG[LANG],
-        "author": ({"@type": "Organization", "name": autor_nome(m), "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + "equipe.html"}
-                   if m["autor"] == "Equipe Aloha" else {"@type": "Person", "name": autor_nome(m)}),
+        "author": ({"@type": "Person", "name": AUTOR, "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + "equipe.html", "sameAs": AUTOR_REDES}
+                   if m["autor"] == AUTOR else {"@type": "Organization", "name": autor_nome(m), "url": "https://alohanoticias.com/" + ("" if LANG == "pt" else LANG + "/") + "equipe.html"}),
         "publisher": {"@type": "Organization", "name": NOME_BUSCA, "url": "https://alohanoticias.com/", "logo": {"@type": "ImageObject", "url": "https://alohanoticias.com/assets/img/icone-app-512.png"}},
     }, ensure_ascii=False)
     corpo = f"""<article class="wrap materia">
@@ -1106,6 +1118,7 @@ def montar_arquivos():
 
     arquivos["sobre.html"] = gerar_simples("Sobre nós", "Quem faz a ALOHA NOTÍCIAS.", """
 <p>A ALOHA NOTÍCIAS é um site de notícias para quem quer entender o que está acontecendo sem pressa e sem barulho. Nosso foco é cinema, games e tecnologia: estreias, lançamentos e o que está em alta, com a informação conferida.</p>
+<p>O site foi criado e é editado por <a href="equipe.html">João Gabriel</a>, criador de sites e de conteúdo digital.</p>
 <h2>Como trabalhamos</h2>
 <p>Cada matéria cita suas fontes, separa fato de opinião e é corrigida de forma transparente quando erramos. Os detalhes estão na nossa <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>O nome</h2>
@@ -1117,7 +1130,7 @@ def montar_arquivos():
 <h2>Como apuramos</h2>
 <p>Procuramos confirmar cada informação importante em mais de uma fonte antes de publicar. Datas, preços e números só entram no texto quando aparecem nas fontes consultadas, que listamos no fim de cada matéria. Quando uma informação vem de uma fonte só, ou ainda não foi confirmada, dizemos isso no texto.</p>
 <h2>Revisão antes de publicar</h2>
-<p>Nenhuma matéria vai ao ar sem a revisão e a aprovação de uma pessoa da equipe.</p>
+<p>Nenhuma matéria vai ao ar sem a revisão e a aprovação do editor, <a href="equipe.html">João Gabriel</a>.</p>
 <h2>Fato e opinião</h2>
 <p>Separamos o que foi apurado do que é análise. Textos de opinião ou recomendação são identificados como tal.</p>
 <h2>Como escolhemos os assuntos</h2>
@@ -1125,22 +1138,22 @@ def montar_arquivos():
 <h2>Boatos e rumores</h2>
 <p>Rumores, vazamentos e informações de bastidores só aparecem quando são relevantes, e sempre identificados como não confirmados, com a fonte indicada. Não tratamos boato como fato.</p>
 <h2>Imagens e vídeos</h2>
-<p>As capas são montadas pela nossa equipe como colagens de fotos reais do próprio assunto: imagens oficiais de divulgação (de estúdios, desenvolvedoras e fabricantes), fotos de acervos livres, como o Wikimedia Commons, e fotos de bancos de uso livre, como o Unsplash. Dentro dos textos usamos fotos relacionadas ao trecho em que aparecem. Toda imagem leva legenda com o crédito de quem a fez e, quando há, a licença. Não usamos imagens com marca d'água de terceiros nem fotos de pessoas copiadas da internet sem autorização. O vídeo de uma matéria, quando existe, é um conteúdo oficial incorporado do canal onde foi publicado, com o nome do canal indicado. Se você é autor ou dono de uma imagem e quer outro crédito ou a remoção, escreva para a gente pela página de <a href="contato.html">contato</a>.</p>
+<p>Na capa e no texto usamos imagens oficiais de divulgação do próprio assunto, de estúdios, plataformas, desenvolvedoras e fabricantes. Fotos de acervos livres, como o Wikimedia Commons, só entram quando mostram algo de que o texto fala. Toda imagem leva legenda com o crédito de quem a fez e, quando há, a licença. Não usamos imagens com marca d'água de terceiros. O vídeo de uma matéria, quando existe, é um conteúdo oficial incorporado do canal onde foi publicado, com o nome do canal indicado. Se você é autor ou dono de uma imagem e quer outro crédito ou a remoção, escreva para a gente pela página de <a href="contato.html">contato</a>.</p>
 <h2>Correções</h2>
 <p>Quando encontramos um erro, corrigimos a matéria e indicamos a correção no texto. Também atualizamos matérias quando datas ou fatos mudam, para que o conteúdo não fique desatualizado. Se você encontrou um erro, envie a matéria e o que está incorreto pela página de <a href="contato.html">contato</a>. Respondemos o quanto antes.</p>
 <h2>Independência</h2>
 <p>O conteúdo editorial é independente. Anúncios, quando existirem, ficam separados do texto e não influenciam o que publicamos. Se uma matéria tiver patrocínio ou parceria, isso será informado claramente ao leitor.</p>""")
-    arquivos["equipe.html"] = gerar_simples("Equipe Aloha", "Quem assina as matérias da ALOHA NOTÍCIAS e o que cobrimos.", f"""
-<p>Equipe Aloha é a assinatura da redação do ALOHA NOTÍCIAS, um site independente em português sobre cinema, games e tecnologia. Reúne quem pesquisa, escreve, monta as capas e revisa as matérias publicadas aqui.</p>
-<h2>Quem está por trás</h2>
-<p>O ALOHA NOTÍCIAS é um projeto editorial independente, mantido por uma equipe e sem vínculo com estúdios, produtoras ou fabricantes. Toda matéria passa por revisão e aprovação de uma pessoa antes de ir ao ar.</p>
+    arquivos["equipe.html"] = gerar_simples('João Gabriel', 'Quem cria, escreve e edita a ALOHA NOTÍCIAS.', autor_cartao() + f"""
+<p><strong>João Gabriel</strong> tem 21 anos, é brasileiro, criador de sites e criador de conteúdo digital em plataformas. Ele criou a ALOHA NOTÍCIAS e assina, revisa e aprova todas as matérias publicadas aqui.</p>
+<h2>O site</h2>
+<p>A ALOHA NOTÍCIAS é um projeto independente sobre cinema, games e tecnologia, sem vínculo com estúdios, produtoras ou fabricantes.</p>
 <h2>O que você pode esperar</h2>
-<p>Informação conferida em mais de uma fonte, fontes citadas no fim de cada texto, rumores identificados como tal e correções feitas às claras. Se algo estiver errado, a gente quer saber.</p>
+<p>Informação conferida em mais de uma fonte, fontes citadas no fim de cada texto, rumores identificados como tal e correções feitas às claras. Se algo estiver errado, eu quero saber.</p>
 <h2>O que cobrimos</h2>
 <ul>{"".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a>: {esc(e["descricao"])}</li>' for e in editorias)}</ul>
 <h2>Como trabalhamos</h2>
-<p>Confirmamos os fatos em mais de uma fonte, citamos as fontes no fim de cada matéria e corrigimos os erros de forma aberta. Veja a <a href="politica-editorial.html">política editorial</a>.</p>
-<h2>Fale com a gente</h2>
+<p>Os fatos são confirmados em mais de uma fonte, as fontes aparecem no fim de cada matéria e os erros são corrigidos de forma aberta. Veja a <a href="politica-editorial.html">política editorial</a>.</p>
+<h2>Contato</h2>
 <p>Pautas, correções e parcerias: <a href="contato.html">página de contato</a>.</p>""")
     por_tag = {}
     for m in materias:
@@ -1192,7 +1205,7 @@ def montar_arquivos():
         eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a>: {esc(e["descricao"])}</li>' for e in editorias)
         for nome, (tit, desc, corpo) in i18n.PAGINAS[LANG].items():
             corpo = corpo.replace("@@EDITORIAS@@", eds).replace("@@ANUNCIOS@@", i18n.PRIV_ANUNCIOS[LANG] if ANUNCIOS_ATIVOS else "")
-            arquivos[nome] = gerar_simples(tit, desc, corpo)
+            arquivos[nome] = gerar_simples(tit, desc, (autor_cartao() if nome == "equipe.html" else "") + corpo)
         arquivos["privacidade.html"] = gerar_simples(*privacidade.pagina(LANG, ANUNCIOS_ATIVOS))
         arquivos.pop("404.html", None)
     return arquivos

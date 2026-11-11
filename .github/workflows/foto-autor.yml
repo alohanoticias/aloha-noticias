@@ -1,0 +1,34 @@
+name: Converter foto do autor
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  converter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pillow pillow-heif
+      - name: Converter HEIC em JPG quadrado, sem metadados
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          import pillow_heif
+          pillow_heif.register_heif_opener()
+          src = Path("site/autor_origem/foto.heic")
+          im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+          w, h = im.size; lado = min(w, h)
+          x = (w - lado) // 2; y = max(0, int((h - lado) * 0.3))
+          im = im.crop((x, y, x + lado, y + lado)).resize((600, 600), Image.LANCZOS)
+          out = Path("site/assets/img/autor/joao-gabriel.jpg"); out.parent.mkdir(parents=True, exist_ok=True)
+          im.save(out, "JPEG", quality=88, optimize=True, progressive=True)  # sem EXIF (sem localização)
+          src.unlink()
+          print("ok", w, h)
+          PY
+      - name: Regenerar e enviar
+        run: |
+          python3 site/gerar.py
+          git config user.name "aloha-bot"; git config user.email "contato@alohanoticias.com"
+          git add -A; git commit -m "Foto do autor" || exit 0
+          for i in 1 2 3 4 5; do git push && exit 0; sleep 5; git pull --rebase -X theirs -q; python3 site/gerar.py; git add -A; git diff --cached --quiet || git commit -qm "Regenera site"; done
