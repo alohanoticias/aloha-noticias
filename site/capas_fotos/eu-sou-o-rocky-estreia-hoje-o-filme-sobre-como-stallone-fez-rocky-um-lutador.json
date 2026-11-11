@@ -1,27 +1,11 @@
 {
- "layout": "grade",
+ "layout": "um",
  "fotos": [
   {
    "url": "https://cinemadailyus.com/wp-content/uploads/2025/11/I-play-Rocky-Anthony-Ippolito.webp",
    "foco": [
-    0.45,
+    0.5,
     0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://komonews.com/resources/media2/16x9/1280/800/center/80/fcca5694-d2d8-4264-9abd-3bc9670c35f8-Rocky1.png",
-   "foco": [
-    0.5,
-    0.4
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://komonews.com/resources/media2/16x9/1280/800/center/80/d66c0934-0a34-43b2-970b-fe36e84293b9-Rocky2.png",
-   "foco": [
-    0.5,
-    0.4
    ],
    "zoom": 1.0
   }

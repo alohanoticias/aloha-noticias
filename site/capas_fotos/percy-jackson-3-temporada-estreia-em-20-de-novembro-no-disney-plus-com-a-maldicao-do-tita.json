@@ -1,18 +1,10 @@
 {
- "layout": "tres",
+ "layout": "dois",
  "fotos": [
   {
    "url": "https://d23.com/app/uploads/2026/09/00_178538_0602_ebc9a6f4.jpg",
    "foco": [
-    0.5,
-    0.3
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://d23.com/app/uploads/2026/09/02_178552_0537_38438daa.jpg",
-   "foco": [
-    0.5,
+    0.55,
     0.3
    ],
    "zoom": 1.0
@@ -20,7 +12,7 @@
   {
    "url": "https://d23.com/app/uploads/2026/09/04_178556_1003_v2_111382b3.jpg",
    "foco": [
-    0.5,
+    0.45,
     0.4
    ],
    "zoom": 1.0
