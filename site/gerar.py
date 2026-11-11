@@ -194,6 +194,14 @@ def variantes_capa(url):
                 with Image.open(src) as im:
                     im = im.convert("RGB")
                     im.resize((w, round(w * im.height / im.width)), Image.LANCZOS).save(alvo, "WEBP", quality=78, method=6)
+            # a cópia de assets/ para o site publicado acontece antes das páginas; garante que a versão nova vá junto
+            copia = SAIDA / rel
+            if not copia.exists():
+                copia.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(alvo, copia)
+                for velho in copia.parent.glob(f"{src.stem}-*-{w}.webp"):
+                    if velho.name != copia.name and re.fullmatch(re.escape(src.stem) + r"-[0-9a-f]{8}-" + str(w) + r"\.webp", velho.name):
+                        velho.unlink()
             res.append((rel, w))
     _VARIANTES[url] = res
     return res
