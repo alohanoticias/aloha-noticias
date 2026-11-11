@@ -1,38 +1,74 @@
 [
  {
-  "titulo": "adfc1",
-  "pagina": "https://mma.prnewswire.com/media/3004969/ADFC_1.jpg",
-  "imagem": "https://mma.prnewswire.com/media/3004969/ADFC_1.jpg",
+  "titulo": "a3original",
+  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original",
+  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=original",
   "dim": [
-   400,
-   267
+   2700,
+   1800
   ]
  },
  {
-  "titulo": "adfc2",
-  "pagina": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg",
-  "imagem": "https://mma.prnewswire.com/media/3004970/ADFC_2.jpg",
+  "titulo": "a3publish",
+  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=publish",
+  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=publish",
   "dim": [
-   400,
-   246
+   2700,
+   1800
   ]
  },
  {
-  "titulo": "adfc3",
-  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg",
-  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg",
+  "titulo": "a3facebook",
+  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=facebook",
+  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=facebook",
   "dim": [
-   400,
-   267
+   2700,
+   1414
   ]
  },
  {
-  "titulo": "adfc4",
-  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg",
-  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg",
+  "titulo": "a3twitter",
+  "pagina": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=twitter",
+  "imagem": "https://mma.prnewswire.com/media/3004971/ADFC_3.jpg?p=twitter",
   "dim": [
-   270,
-   400
+   1200,
+   800
+  ]
+ },
+ {
+  "titulo": "a4original",
+  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=original",
+  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=original",
+  "dim": [
+   2700,
+   4001
+  ]
+ },
+ {
+  "titulo": "a4publish",
+  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=publish",
+  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=publish",
+  "dim": [
+   1822,
+   2700
+  ]
+ },
+ {
+  "titulo": "a4facebook",
+  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=facebook",
+  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=facebook",
+  "dim": [
+   2700,
+   1414
+  ]
+ },
+ {
+  "titulo": "a4twitter",
+  "pagina": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=twitter",
+  "imagem": "https://mma.prnewswire.com/media/3004972/ADFC_4.jpg?p=twitter",
+  "dim": [
+   810,
+   1200
   ]
  }
 ]
