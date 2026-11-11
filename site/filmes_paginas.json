@@ -1,15 +1,21 @@
 [
  {
-  "titulo": "vi",
+  "titulo": "capa",
   "url": "https://www.rockstargames.com/VI",
-  "listar": "(/VI/_next/static/media/[A-Za-z0-9_\\-\\.~]+?\\.(?:jpg|jpeg|png|webp))",
-  "prefixo": "https://www.rockstargames.com",
-  "max": 60
+  "img": "https://www.rockstargames.com/VI/_next/static/media/pre-load.0~7aq~08y784d.jpg",
+  "recorte": [
+   0.044,
+   0,
+   0.956,
+   1
+  ],
+  "salvar": "assets/img/capas/gta-6-truque-da-nova-zelandia-funciona-no-brasil-xbox-ps5-e-horarios.jpg"
  },
  {
-  "titulo": "nwpre",
-  "url": "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10",
-  "listar": "(https://media-rockstargames-com\\.akamaized\\.net/tina-uploads/posts/[a-z0-9]+/[a-f0-9]+\\.(?:jpg|png|webp))",
-  "max": 30
+  "titulo": "sc",
+  "url": "https://www.rockstargames.com/VI",
+  "listar": "(/VI/_next/static/media/(?!shard|poster|logo|meta|pre-load|an-extended)[A-Za-z0-9_\\-\\.~]+?_landscape[A-Za-z0-9_\\-\\.~]*?\\.jpg)",
+  "prefixo": "https://www.rockstargames.com",
+  "max": 45
  }
 ]
