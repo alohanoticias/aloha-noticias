@@ -153,6 +153,14 @@ if sys.argv[1:2] == ["verificar"]:
         api("deleteMessage", {"chat_id": rascunho, "message_id": m["message_id"]})
     sys.exit(0)
 
+if sys.argv[1:2] == ["apagar"]:
+    # apaga uma mensagem: apagar oficial|rascunho <id> [<id> ...]
+    chat = canal if sys.argv[2] == "oficial" else rascunho
+    for mid in sys.argv[3:]:
+        r = api("deleteMessage", {"chat_id": chat, "message_id": mid})
+        print("Apagada:" if r.get("ok") else "Falhou:", sys.argv[2], mid, r.get("description", ""))
+    sys.exit(0)
+
 if sys.argv[1:2] == ["corrigir-botao"]:
     # atualiza o texto do botão num post que já está no canal oficial: corrigir-botao <id_no_canal> <slug>
     mid, slug = sys.argv[2], sys.argv[3]

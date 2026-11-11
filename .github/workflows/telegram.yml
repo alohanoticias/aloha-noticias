@@ -36,7 +36,7 @@ jobs:
             python3 site/telegram_aprovar.py $SLUGS
             git config user.name "aloha-bot" && git config user.email "contato@alohanoticias.com"
             git add site/conteudo/telegram_fila.json && git commit -qm "Telegram: fila de posts" && git push -q
-          elif [ "${SLUGS%% *}" = "corrigir-botao" ] || [ "${SLUGS%% *}" = "postar-agora" ] || [ "${SLUGS%% *}" = "verificar" ] || [ "${SLUGS%% *}" = "mapear" ]; then
+          elif [ "${SLUGS%% *}" = "corrigir-botao" ] || [ "${SLUGS%% *}" = "postar-agora" ] || [ "${SLUGS%% *}" = "verificar" ] || [ "${SLUGS%% *}" = "mapear" ] || [ "${SLUGS%% *}" = "apagar" ]; then
             python3 site/telegram_aprovar.py $SLUGS
           elif [ "$SLUGS" = "botoes" ]; then
             python3 site/telegram_aprovar.py

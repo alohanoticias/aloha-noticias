@@ -99,6 +99,7 @@ for i, slug in enumerate(slugs):
             if img:
                 print("Foto não foi aceita, mandando com prévia do link:", r.get("description"))
             r = api("sendMessage", {"chat_id": alvo, "text": texto, "parse_mode": "HTML", **extra})
+        print("  mensagem", (r.get("result") or {}).get("message_id"), "em", "rascunho" if alvo == rascunho else "canal oficial")
         if len(alvos) > 1 and alvo != alvos[-1]:
             time.sleep(1)
     print(slug, "->", "ok" if r.get("ok") else r.get("description"))
