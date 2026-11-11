@@ -118,11 +118,9 @@ PAG["equipe.html"] = ('João Gabriel', '创建、撰写并编辑 ALOHA NOTÍCIAS
 <h2>关于本站</h2>
 <p>ALOHA NOTÍCIAS 是一个关注影视、游戏和科技的独立项目，与电影公司、制作公司或制造商没有任何关联。</p>
 <h2>你可以期待什么</h2>
-<p>经过多个来源核实的信息、每篇文末列出的来源、明确标注的传闻，以及公开进行的更正。如果有错误，我很想知道。</p>
+<p>经过多个来源核实的信息、每篇文末列出的来源、明确标注的传闻，以及公开进行的更正。如果有错误，我很想知道。详情请见<a href="politica-editorial.html">编辑方针</a>。</p>
 <h2>我们报道的内容</h2>
 <ul>@@EDITORIAS@@</ul>
-<h2>我们的做法</h2>
-<p>事实经多个来源确认，来源列在每篇文章末尾，错误公开更正。请参阅<a href="politica-editorial.html">编辑方针</a>。</p>
 <h2>联系方式</h2>
 <p>选题建议、更正与合作：<a href="contato.html">联系页面</a>。</p>""")
 PAG["contato.html"] = ("联系我们与广告合作", "联系 ALOHA NOTÍCIAS。", """

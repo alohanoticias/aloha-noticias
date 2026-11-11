@@ -118,11 +118,9 @@ PAG["equipe.html"] = ('João Gabriel', 'Chi crea, scrive e dirige ALOHA NOTÍCIA
 <h2>Il sito</h2>
 <p>ALOHA NOTÍCIAS è un progetto indipendente su cinema, videogiochi e tecnologia, senza legami con studi, produttori o fabbricanti.</p>
 <h2>Cosa aspettarsi</h2>
-<p>Informazioni verificate in più di una fonte, fonti citate alla fine di ogni testo, voci di corridoio indicate come tali e correzioni fatte apertamente. Se qualcosa è sbagliato, voglio saperlo.</p>
+<p>Informazioni verificate in più di una fonte, fonti citate alla fine di ogni testo, voci di corridoio indicate come tali e correzioni fatte apertamente. Se qualcosa è sbagliato, voglio saperlo. I dettagli sono nella <a href="politica-editorial.html">linea editoriale</a>.</p>
 <h2>Di cosa ci occupiamo</h2>
 <ul>@@EDITORIAS@@</ul>
-<h2>Come lavoriamo</h2>
-<p>I fatti vengono confermati in più di una fonte, le fonti compaiono alla fine di ogni articolo e gli errori vengono corretti apertamente. Leggi la <a href="politica-editorial.html">linea editoriale</a>.</p>
 <h2>Contatti</h2>
 <p>Segnalazioni, correzioni e collaborazioni: <a href="contato.html">pagina dei contatti</a>.</p>""")
 PAG["contato.html"] = ("Contatti e pubblicità", "Contatta ALOHA NOTÍCIAS.", """

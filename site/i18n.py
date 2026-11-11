@@ -246,11 +246,9 @@ PAGINAS["en"]["equipe.html"] = ('João Gabriel', 'Who creates, writes and edits 
 <h2>The site</h2>
 <p>ALOHA NOTÍCIAS is an independent project about movies, games and technology, with no ties to studios, producers or manufacturers.</p>
 <h2>What to expect</h2>
-<p>Information checked in more than one source, sources cited at the end of every piece, rumors labeled as such and corrections made in the open. If something is wrong, I want to know.</p>
+<p>Information checked in more than one source, sources cited at the end of every piece, rumors labeled as such and corrections made in the open. If something is wrong, I want to know. The details are in the <a href="politica-editorial.html">editorial policy</a>.</p>
 <h2>What we cover</h2>
 <ul>@@EDITORIAS@@</ul>
-<h2>How we work</h2>
-<p>Facts are confirmed in more than one source, sources are listed at the end of each article and errors are corrected openly. See the <a href="politica-editorial.html">editorial policy</a>.</p>
 <h2>Get in touch</h2>
 <p>Story tips, corrections and partnerships: <a href="contato.html">contact page</a>.</p>""")
 
@@ -259,11 +257,9 @@ PAGINAS["es"]["equipe.html"] = ('João Gabriel', 'Quién crea, escribe y edita A
 <h2>El sitio</h2>
 <p>ALOHA NOTÍCIAS es un proyecto independiente sobre cine, videojuegos y tecnología, sin vínculos con estudios, productoras ni fabricantes.</p>
 <h2>Qué puedes esperar</h2>
-<p>Información verificada en más de una fuente, fuentes citadas al final de cada texto, rumores señalados como tales y correcciones hechas a la vista. Si algo está mal, quiero saberlo.</p>
+<p>Información verificada en más de una fuente, fuentes citadas al final de cada texto, rumores señalados como tales y correcciones hechas a la vista. Si algo está mal, quiero saberlo. Los detalles están en la <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>Qué cubrimos</h2>
 <ul>@@EDITORIAS@@</ul>
-<h2>Cómo trabajamos</h2>
-<p>Los datos se confirman en más de una fuente, las fuentes aparecen al final de cada artículo y los errores se corrigen abiertamente. Consulta la <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>Contacto</h2>
 <p>Pistas, correcciones y alianzas: <a href="contato.html">página de contacto</a>.</p>""")
 

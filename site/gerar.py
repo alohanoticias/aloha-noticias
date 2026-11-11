@@ -1148,11 +1148,9 @@ def montar_arquivos():
 <h2>O site</h2>
 <p>A ALOHA NOTÍCIAS é um projeto independente sobre cinema, games e tecnologia, sem vínculo com estúdios, produtoras ou fabricantes.</p>
 <h2>O que você pode esperar</h2>
-<p>Informação conferida em mais de uma fonte, fontes citadas no fim de cada texto, rumores identificados como tal e correções feitas às claras. Se algo estiver errado, eu quero saber.</p>
+<p>Informação conferida em mais de uma fonte, fontes citadas no fim de cada texto, rumores identificados como tal e correções feitas às claras. Se algo estiver errado, eu quero saber. Os detalhes estão na <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>O que cobrimos</h2>
 <ul>{"".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a>: {esc(e["descricao"])}</li>' for e in editorias)}</ul>
-<h2>Como trabalhamos</h2>
-<p>Os fatos são confirmados em mais de uma fonte, as fontes aparecem no fim de cada matéria e os erros são corrigidos de forma aberta. Veja a <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>Contato</h2>
 <p>Pautas, correções e parcerias: <a href="contato.html">página de contato</a>.</p>""")
     por_tag = {}
