@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Atari 2600 console Evan-Amos', 'Atari CX2600 joystick', 'Estudios Globo Rio de Janeiro', 'Netflix office Sao Paulo', 'Animate store Ikebukuro', 'Mandarake Nakano Broadway', 'manga bookstore Japan shelves', 'Studio Ghibli Museum exterior', 'Sunrise studio Ogikubo', 'Production I.G building', 'Nintendo 64 console Evan-Amos', 'game timer speedrun stopwatch', 'Rio de Janeiro favela aerial', 'Sao Paulo skyline Avenida Paulista', 'Pantanal Brazil wetlands', 'Amazon river aerial Manaus']
+QUERIES = ['Autodromo Jose Carlos Pace Interlagos aerial', 'Interlagos circuit grandstand', 'Goiania skyline', 'Goiania aerial view', 'Sao Bernardo do Campo', 'Ayrton Senna helmet museum']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
