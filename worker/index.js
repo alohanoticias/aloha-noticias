@@ -162,9 +162,33 @@ export default {
       return json(await obj.resumo(dias));
     }
 
+    // Idiomas em repouso (en/es/it fora do ar até a aprovação do AdSense): /en/..., /es/..., /it/... levam (302)
+    // à mesma página em português, pelo mapa que o gerador grava em repouso.json
+    const prim = url.pathname.split("/")[1] || "";
+    if (prim.length === 2 && request.method === "GET") {
+      const r = await repouso(env, url);
+      if (r.idiomas.includes(prim)) {
+        const chave = decodeURIComponent(url.pathname).replace(/\/$/, "").replace(/\.html$/, "");
+        const destino = r.mapa[chave] || "/";
+        return Response.redirect(new URL(destino, url.origin).toString(), 302);
+      }
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
+
+let REPOUSO = null;
+async function repouso(env, url) {
+  if (REPOUSO) return REPOUSO;
+  try {
+    const r = await env.ASSETS.fetch(new Request(new URL("/repouso.json", url.origin)));
+    REPOUSO = r.ok ? await r.json() : { idiomas: [], mapa: {} };
+  } catch (e) {
+    REPOUSO = { idiomas: [], mapa: {} };
+  }
+  return REPOUSO;
+}
 
 export class Metricas extends DurableObject {
   constructor(ctx, env) {

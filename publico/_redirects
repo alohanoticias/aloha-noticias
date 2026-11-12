@@ -1,11 +1,5 @@
 /noticias /anime.html 301
 /noticias.html /anime.html 301
-/en / 302
-/en/* / 302
-/es / 302
-/es/* / 302
-/it / 302
-/it/* / 302
 /fr / 301
 /fr/* / 301
 /de / 301

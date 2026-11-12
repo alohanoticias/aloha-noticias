@@ -1657,17 +1657,19 @@ def main():
     # /favicon.ico na raiz: o Google e alguns navegadores procuram o ícone aqui antes de ler as tags da página
     shutil.copyfile(RAIZ / "assets/img/favicon.ico", SAIDA / "favicon.ico")
     # Endereços antigos do visual anterior que ainda aparecem no Google
-    # Idiomas em repouso: cada página antiga leva à mesma página em português (302, temporário, porque vão voltar)
-    repouso = ""
+    # Idiomas em repouso: cada página antiga leva à mesma página em português (302, temporário, porque vão voltar).
+    # O mapa vai para repouso.json e quem redireciona é o Worker (worker/index.js): com ~850 linhas no _redirects
+    # o build do Cloudflare falhava (12/11/2026), então o _redirects fica só com as regras curtas.
+    repouso = {}
     for l, arqs in em_repouso.items():
         for n in arqs:
             if n in ("404.html",):
                 continue
             destino = "/" + ("" if n == "index.html" else n[:-5]) if n in existe["pt"] else "/"
             orig = "/" + l + ("" if n == "index.html" else "/" + nome_idioma(l, n)[:-5])
-            repouso += f"{orig} {destino} 302\n" + ("" if n == "index.html" else f"{orig}.html {destino} 302\n")
-        repouso += f"/{l}/ / 302\n/{l}/* / 302\n"
-    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + repouso + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "ja", "zh", "ar")), encoding="utf-8")
+            repouso[orig] = destino
+    (SAIDA / "repouso.json").write_text(json.dumps({"idiomas": sorted(em_repouso), "mapa": repouso}, ensure_ascii=False), encoding="utf-8")
+    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "ja", "zh", "ar")), encoding="utf-8")
     (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
     print(f"{len(arquivos)} páginas geradas em {SAIDA}")
 
