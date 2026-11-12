@@ -1,13 +1,21 @@
 {
- "layout": "um",
+ "layout": "dois",
  "fotos": [
   {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Netflix_headquarters.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Goi%C3%A2nia_Agosto_de_2019.jpg",
    "foco": [
     0.5,
-    0.55
+    0.45
    ],
-   "zoom": 1.15
+   "zoom": 1.1
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace%2C_July_3%2C_2018_SkySat_%28cropped%29.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.1
   }
  ],
  "titulo": "Brasil no streaming",
