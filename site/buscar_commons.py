@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Foley', 'foley props', 'sound effects man radio', 'radio sound effects props', 'NBC sound effects', 'coconut shells sound', 'sound effects truck', 'Interlagos circuit', 'Autódromo José Carlos Pace', 'Netflix logo', 'Netflix iPhone', 'Weekly Shonen Jump', 'manga magazines Japan', 'manga volumes shelf', 'light novel', 'tankobon', 'Pizza Planet truck', 'A113 CalArts', 'Raiders of the Lost Ark hieroglyphs', 'Wilhelm scream', 'cinema premiere Thursday', 'movie theater lobby Brazil', 'Ancine']
+QUERIES = ['wind machine theatre', 'thunder sheet', 'aeoliphone', 'theatre sound effects machine', 'sound effects board', 'gravel pit footsteps', 'Foley pit', 'sound stage props shoes', 'Minecraft', 'Minecraft screenshot', 'Roblox', 'Fortnite', 'Free Fire game']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
