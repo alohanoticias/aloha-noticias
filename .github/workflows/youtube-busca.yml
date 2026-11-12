@@ -1,0 +1,15 @@
+name: Buscar vídeos no YouTube
+on:
+  workflow_dispatch:
+    inputs:
+      termos:
+        description: "Termos de busca separados por ;"
+        required: true
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          TERMOS: ${{ inputs.termos }}
+        run: IFS=";" read -ra T <<< "$TERMOS"; python3 site/buscar_youtube.py "${T[@]}"
