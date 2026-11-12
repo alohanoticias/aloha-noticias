@@ -37,7 +37,7 @@ SOBRANCELHA = [(356, 152), (390, 141), (430, 150), (462, 166), (478, 186), (474,
 PIVO_SOBRANCELHA = (360, 168)
 OLHO_ESQ_POLI = [(379, 204), (384, 196), (396, 189), (412, 187), (426, 190), (438, 196), (448, 203), (453, 212),
                  (450, 224), (442, 234), (430, 240), (416, 238), (402, 231), (390, 221), (382, 211)]
-OLHO_DIR_POLI = [(510, 186), (520, 183), (528, 188), (531, 198), (529, 210), (520, 213), (511, 210), (508, 198)]
+OLHO_DIR_POLI = [(506, 185), (520, 181), (531, 185), (537, 196), (535, 212), (520, 215), (508, 211), (504, 198)]
 OLHO_ESQ = dict(c=(413, 213), r=(31, 20), ang=5, cor=(234, 231, 236))
 OLHO_DIR = dict(c=(518, 200), r=(11, 10), ang=0, cor=(44, 42, 48))
 BRACO_A, BRACO_B = (690, 548), (705, 685)
@@ -79,11 +79,25 @@ def suave(x):
     return x * x * (3 - 2 * x)
 
 
+def preencher(img, desconhecido, conhecido, sigma):
+    """Preenche a área 'desconhecido' com as cores vizinhas 'conhecido' (pena e sombra continuam iguais)."""
+    out = img.astype(np.float32).copy()
+    k = conhecido.astype(np.float32) * (~desconhecido)
+    for sg in (sigma, sigma * 2, sigma * 4):        # 3 passadas: perto primeiro, depois mais longe
+        num = cv2.GaussianBlur(out[..., :3] * k[..., None], (0, 0), sg)
+        den = cv2.GaussianBlur(k, (0, 0), sg)[..., None]
+        cheio = num / np.maximum(den, 1e-4)
+        ok = (den[..., 0] > 0.02) & desconhecido & (k < 0.5)
+        out[ok, :3] = cheio[ok]
+        k = np.maximum(k, ok.astype(np.float32))
+    return out.astype(np.uint8)
+
+
 def olho_fechado(img_bgra, poli, dil=2, cor_fixa=None):
     """Reconstrói a pele por cima do olho (interpolando, coluna a coluna, a pena de cima e a de baixo).
     Devolve recorte: x0, y0, máscara, pele (BGRA), topo[x], fundo[x]."""
     xs, ys = zip(*poli)
-    x0, y0, x1, y1 = min(xs) - 6, min(ys) - 6, max(xs) + 7, max(ys) + 7
+    x0, y0, x1, y1 = min(xs) - 14, min(ys) - 10, max(xs) + 15, max(ys) + 14
     m = np.zeros((y1 - y0, x1 - x0), np.uint8)
     cv2.fillPoly(m, [np.array([(x - x0, y - y0) for x, y in poli], np.int32)], 1)
     m = cv2.dilate(m, np.ones((2 * dil + 1, 2 * dil + 1), np.uint8))
@@ -94,16 +108,21 @@ def olho_fechado(img_bgra, poli, dil=2, cor_fixa=None):
         yy = np.where(m[:, x])[0]
         if len(yy):
             topo[x], fundo[x] = yy.min(), yy.max()
-    # cor da pálpebra: a pena logo abaixo do olho (anel inferior), com sombra leve no alto
-    anel = cv2.dilate(m, np.ones((7, 7), np.uint8)) & ~cv2.dilate(m, np.ones((3, 3), np.uint8)).astype(bool)
-    yy_, xx_ = np.mgrid[0:h, 0:w]
-    baixo = anel.astype(bool) & (yy_ > h * 0.55) & (reg[..., 3] > 200)
-    cor = np.median(reg[baixo][:, :3], axis=0) if baixo.sum() > 5 else np.array([236, 233, 238], np.float32)
-    if cor_fixa is not None:
-        cor = np.array(cor_fixa, np.float32)
-    g = np.clip((yy_ - topo.clip(0)[None, :]) / max(1, h * 0.5), 0, 1)[..., None]
-    pele = np.dstack([cor[None, None, :] * (0.86 + 0.14 * g), reg[..., 3:]]).astype(np.float32)
-    return dict(x0=x0, y0=y0, mask=m, pele=pele.astype(np.uint8), topo=topo, fundo=fundo)
+    hsv = cv2.cvtColor(reg[..., :3].astype(np.uint8), cv2.COLOR_BGR2HSV)
+    if cor_fixa is not None:   # olho de trás: pálpebra feita das penas pretas em volta
+        pena = (hsv[..., 2] < 95) & (reg[..., 3] > 200)
+        pele = preencher(reg, m.astype(bool), pena & ~cv2.dilate(m, np.ones((3, 3), np.uint8)).astype(bool), 2.0).astype(np.float32)
+    else:
+        pena = (hsv[..., 2] > 150) & (hsv[..., 1] < 70) & (reg[..., 3] > 200)
+        pele = preencher(reg, m.astype(bool), pena & ~cv2.dilate(m, np.ones((3, 3), np.uint8)).astype(bool), 3.0).astype(np.float32)
+        pele[..., :3] *= 0.97                          # pálpebra um tiquinho mais escura que a pena
+    fora = np.zeros(m.shape, np.uint8)
+    if cor_fixa is not None:   # parte do olho de trás que passa do contorno da cabeça some ao fechar (em rampa)
+        xs_ = np.arange(w)[None, :] + x0
+        ys_ = np.arange(h)[:, None] + y0
+        borda_x = 530 + (ys_ - 186) * 0.2            # contorno da cabeça (levemente inclinado)
+        fora = (np.clip((xs_ - borda_x) / 4.0, 0, 1) * m * 255).astype(np.uint8)
+    return dict(x0=x0, y0=y0, mask=m, pele=pele.astype(np.uint8), topo=topo, fundo=fundo, fora=fora)
 
 
 def main(caminho):
@@ -138,7 +157,11 @@ def main(caminho):
     lim = np.zeros((h, w), np.uint8); cv2.fillPoly(lim, [np.array(MANDIBULA_LIMITE, np.int32)], 1)
     m_bin = (cv2.dilate(mand, np.ones((3, 3), np.uint8)) & lim).astype(bool)
     m_bin |= (lim > 0) & (yy > linha(BICO_BORDA, xx) - 5) & (yy < linha(BICO_BORDA, xx) + 10) & (xx > 398)
-    m_alfa = cv2.GaussianBlur(cv2.dilate(m_bin.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(np.float32), (0, 0), 0.45)
+    m_dil = cv2.dilate(m_bin.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
+    borda_m = m_dil & ~cv2.erode(m_dil.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool)
+    claro_m = cv2.cvtColor(base_orig[..., :3], cv2.COLOR_BGR2GRAY) > 150
+    m_dil &= ~(borda_m & claro_m & (yy > linha(BICO_BORDA, xx) + 3))      # sem fio claro na borda
+    m_alfa = cv2.GaussianBlur(m_dil.astype(np.float32), (0, 0), 0.6)
     mandibula = np.dstack([base_orig[..., :3], (np.clip(m_alfa, 0, 1) * base_orig[..., 3]).astype(np.uint8)])
     mand = m_bin.astype(np.uint8)
 
@@ -153,10 +176,12 @@ def main(caminho):
     sobra = abaixo & (queixo == 0) & (xx > 470) & (xx < 545) & (yy > 300) & (yy < linha(COLARINHO, xx) - 2)
     base[sobra & ~cv2.dilate(lugar.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool) & ~perto_borda, 3] = 0
     base[perto_borda & lugar, :3] = (40, 28, 70)   # interior escuro da boca (BGR)
-    tom = np.clip((yy - 320) / 75, 0, 1)
-    cor = np.stack([236 - 30 * tom, 233 - 30 * tom, 238 - 28 * tom], -1)
-    k = cv2.GaussianBlur(pena.astype(np.float32), (0, 0), 1.0)[..., None]
-    base[..., :3] = (base[..., :3] * (1 - k) + cor * k).astype(np.uint8)
+    hsv_b = cv2.cvtColor(base[..., :3], cv2.COLOR_BGR2HSV)
+    pena_px = (hsv_b[..., 2] > 140) & (hsv_b[..., 1] < 70) & (base[..., 3] > 200)
+    conhecido = pena_px & ~cv2.dilate(lugar.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool)
+    cheio = preencher(base, pena, conhecido, 4.0)
+    k = cv2.GaussianBlur(pena.astype(np.float32), (0, 0), 0.8)[..., None]
+    base[..., :3] = (base[..., :3] * (1 - k) + cheio[..., :3] * k).astype(np.uint8)
     base[ar, 3] = 0
     pts = (np.array(QUEIXO_BORDA, np.float32) * 16).astype(np.int32)
     cv2.polylines(base, [pts], False, CONTORNO + (255,), 4, cv2.LINE_AA, shift=4)
@@ -191,6 +216,9 @@ def main(caminho):
     dol = cv2.distanceTransform((1 - olho).astype(np.uint8), cv2.DIST_L2, 5)
     w_olho = suave(1 - dol / 10.0)
 
+    ot = np.zeros((h, w), np.uint8); cv2.fillPoly(ot, [np.array(OLHO_DIR_POLI, np.int32)], 1)
+    dot = cv2.distanceTransform((1 - ot).astype(np.uint8), cv2.DIST_L2, 5)
+    w_ot = suave(1 - dot / 5.0)
     x0, y0, x1, y1 = RECORTE
     c = lambda m: m[y0:y1, x0:x1].astype(np.float16)
     cv2.imwrite(os.path.join(SAIDA, "base.png"), base[y0:y1, x0:x1])
@@ -198,18 +226,18 @@ def main(caminho):
     cv2.imwrite(os.path.join(SAIDA, "bico_sup.png"), bico_sup[y0:y1, x0:x1])
     olhos = {}
     for nome, poli in (("esq", OLHO_ESQ_POLI), ("dir", OLHO_DIR_POLI)):
-        o = olho_fechado(base_orig, poli, cor_fixa=(24, 21, 27) if nome == "dir" else None)
+        o = olho_fechado(base_orig, poli, dil=3 if nome == "esq" else 2, cor_fixa=(24, 21, 27) if nome == "dir" else None)
         for k_, v_ in o.items():
             olhos[f"{nome}_{k_}"] = np.array(v_) - (x0 if k_ == "x0" else y0 if k_ == "y0" else 0)
     np.savez_compressed(os.path.join(SAIDA, "olhos.npz"), **olhos)
-    np.savez_compressed(os.path.join(SAIDA, "pesos.npz"), cabeca=c(w_cab), braco=c(w_bra), sobrancelha=c(w_sob), olho=c(w_olho),
+    np.savez_compressed(os.path.join(SAIDA, "pesos.npz"), cabeca=c(w_cab), braco=c(w_bra), sobrancelha=c(w_sob), olho=c(w_olho), olho_tras=c(w_ot),
                         acima_bico=c(cv2.GaussianBlur((~abaixo).astype(np.float32), (0, 0), 0.8)))
     rel = lambda p: [p[0] - x0, p[1] - y0]
     olho = lambda o: dict(c=rel(o["c"]), r=list(o["r"]), ang=o["ang"], cor=list(o["cor"]))
     json.dump(dict(tamanho=[x1 - x0, y1 - y0], pivo_cabeca=rel(PIVO_CABECA), pivo_braco=rel(PIVO_BRACO),
                    dobradica=rel(DOBRADICA), regiao_boca=[300 - x0, 200 - y0, 640 - x0, 430 - y0],
                    regiao_braco=[560 - x0, 340 - y0, 1000 - x0, 800 - y0],
-                   angulo_fechado=20.0, pivo_sobrancelha=rel(PIVO_SOBRANCELHA), centro_olho=rel((415, 213)), olho_esq=olho(OLHO_ESQ), olho_dir=olho(OLHO_DIR)),
+                   angulo_fechado=20.0, pivo_sobrancelha=rel(PIVO_SOBRANCELHA), centro_olho=rel((415, 213)), olho_tras_y=[183 - y0, 211 - y0], olho_esq=olho(OLHO_ESQ), olho_dir=olho(OLHO_DIR)),
               open(os.path.join(SAIDA, "rig.json"), "w"), indent=1)
     print("rig salvo em", SAIDA)
 

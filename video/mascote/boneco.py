@@ -25,17 +25,20 @@ class Boneco:
         self.w_cab, self.w_bra = rs(p["cabeca"]), rs(p["braco"])
         self.w_sob = rs(p["sobrancelha"]) if "sobrancelha" in p else None
         self.w_olho = rs(p["olho"]) if "olho" in p else None
+        self.w_ot = rs(p["olho_tras"]) if "olho_tras" in p else None
         self.bico_sup = cv2.resize(cv2.imread(os.path.join(pasta, "bico_sup.png"), cv2.IMREAD_UNCHANGED), (W, H),
                                    interpolation=cv2.INTER_AREA)
         ol = np.load(os.path.join(pasta, "olhos.npz"))
         self.olhos_rec = []
         for nome in ("esq", "dir"):
-            d = {k: ol[f"{nome}_{k}"] for k in ("x0", "y0", "mask", "pele", "topo", "fundo")}
+            d = {k: ol[f"{nome}_{k}"] for k in ("x0", "y0", "mask", "pele", "topo", "fundo", "fora")}
+            d["tras"] = nome == "dir"
             if s != 1.0:
                 hh, ww = d["mask"].shape
                 nw, nh = max(2, int(ww * s)), max(2, int(hh * s))
                 d["mask"] = cv2.resize(d["mask"], (nw, nh), interpolation=cv2.INTER_NEAREST)
                 d["pele"] = cv2.resize(d["pele"], (nw, nh), interpolation=cv2.INTER_AREA)
+                d["fora"] = cv2.resize(d["fora"], (nw, nh), interpolation=cv2.INTER_NEAREST)
                 xs = np.linspace(0, ww - 1, nw)
                 d["topo"] = np.interp(xs, np.arange(ww), d["topo"]) * s
                 d["fundo"] = np.interp(xs, np.arange(ww), d["fundo"]) * s
@@ -52,6 +55,7 @@ class Boneco:
         self.ang_fechado = rig["angulo_fechado"]
         self.piv_sob = [v * s for v in rig.get("pivo_sobrancelha", [300, 168])]
         self.c_olho = [v * s for v in rig.get("centro_olho", [355, 213])]
+        self.ot_y = [v * s for v in rig.get("olho_tras_y", [183, 211])]
         self.olhos = []
         for k in ("olho_esq", "olho_dir"):
             o = rig[k]
@@ -101,6 +105,11 @@ class Boneco:
         reg = img[y0:y0 + h, x0:x0 + w].astype(np.float32)
         p = pele.astype(np.float32)
         reg[..., :3] = reg[..., :3] * (1 - k) + p[..., :3] * k
+        if d["tras"]:
+            fo = cv2.GaussianBlur(d["fora"].astype(np.float32) / 255.0, (0, 0), 0.8)[..., None]
+            reg[..., 3:] *= (1 - k * fo)
+            img[y0:y0 + h, x0:x0 + w] = reg.astype(np.uint8)
+            return                                    # olho de trás: sem cílio (fica só a pena)
         # cílio: curva da borda, mais grosso no meio, fino nas pontas (desenhado em 4x)
         S = 4
         cam = np.zeros((h * S, w * S), np.uint8)
@@ -178,6 +187,17 @@ class Boneco:
         else:
             sx, sy = tx.copy(), ty.copy()
         sx, sy = self._expressao(sx, sy, sob_y, sob_rot, olho_esc)
+        b_ = min(1, max(0, piscada))
+        if False and self.w_ot is not None and b_ > 0.02:
+            # olho de trás: achata para a linha de baixo; a pena de cima desce como pálpebra
+            h_, w_ = self.w_ot.shape
+            ix = np.clip(sx + 0.5, 0, w_ - 1).astype(np.int32); iy = np.clip(sy + 0.5, 0, h_ - 1).astype(np.int32)
+            wt = self.w_ot[iy, ix]
+            yc = self.ot_y[1] - 2 * self.s
+            esc = max(0.08, 1 - 0.92 * b_)
+            alvo = np.maximum(yc + (sy - yc) / esc, self.ot_y[0] + 1 * self.s)
+            alvo = np.where(sy < yc, alvo, sy)
+            sy = sy + wt * (alvo - sy)
         mx[:L], my[:L] = sx, sy
         # antebraço
         if abs(braco) > 0.01:
