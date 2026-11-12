@@ -1,10 +1,11 @@
-"""Animação do mascote por deformação contínua (sem camadas recortadas).
+"""Animação do mascote por deformação contínua (sem camadas recortadas aparentes).
 
-    b = Boneco(pasta_rig, escala=0.95)
-    img = b.quadro(boca=0.7, piscada=0.0, cabeca=2.0, braco=-5.0)   # PIL RGBA
+    b = Boneco("rig/apresenta", escala=0.8)
+    img = b.quadro(boca=0.7, piscada=0.0, cabeca=2.0, braco=-5.0, sob_y=0, sob_rot=0, olho_esc=1)
 
 boca: 1 = bico aberto como na arte, 0 = fechado. piscada: 0 aberto .. 1 fechado.
 cabeca/braco: graus (positivo = anti-horário: bico para cima / mão para cima).
+sob_y / sob_rot / olho_esc: expressão (sobrancelha sobe/desce e inclina, olho abre mais).
 """
 import json, math, os
 import cv2
@@ -16,59 +17,45 @@ class Boneco:
     def __init__(self, pasta, escala=1.0):
         self.s = s = escala
         rig = json.load(open(os.path.join(pasta, "rig.json")))
-        base = cv2.imread(os.path.join(pasta, "base.png"), cv2.IMREAD_UNCHANGED)
+        self.rig = rig
         W, H = int(rig["tamanho"][0] * s), int(rig["tamanho"][1] * s)
         self.W, self.H = W, H
-        self.base = cv2.resize(base, (W, H), interpolation=cv2.INTER_AREA)
+        ld = lambda n: cv2.resize(cv2.imread(os.path.join(pasta, n), cv2.IMREAD_UNCHANGED), (W, H), interpolation=cv2.INTER_AREA)
+        self.base, self.mand, self.bico_sup = ld("base.png"), ld("mandibula.png"), ld("bico_sup.png")
         p = np.load(os.path.join(pasta, "pesos.npz"))
         rs = lambda m: cv2.resize(m.astype(np.float32), (W, H), interpolation=cv2.INTER_LINEAR)
-        self.w_cab, self.w_bra = rs(p["cabeca"]), rs(p["braco"])
-        self.w_sob = rs(p["sobrancelha"]) if "sobrancelha" in p else None
-        self.w_olho = rs(p["olho"]) if "olho" in p else None
-        self.w_ot = rs(p["olho_tras"]) if "olho_tras" in p else None
-        self.bico_sup = cv2.resize(cv2.imread(os.path.join(pasta, "bico_sup.png"), cv2.IMREAD_UNCHANGED), (W, H),
-                                   interpolation=cv2.INTER_AREA)
-        ol = np.load(os.path.join(pasta, "olhos.npz"))
-        self.olhos_rec = []
-        for nome in ("esq", "dir"):
-            d = {k: ol[f"{nome}_{k}"] for k in ("x0", "y0", "mask", "pele", "topo", "fundo", "fora")}
-            d["tras"] = nome == "dir"
-            if s != 1.0:
-                hh, ww = d["mask"].shape
-                nw, nh = max(2, int(ww * s)), max(2, int(hh * s))
-                d["mask"] = cv2.resize(d["mask"], (nw, nh), interpolation=cv2.INTER_NEAREST)
-                d["pele"] = cv2.resize(d["pele"], (nw, nh), interpolation=cv2.INTER_AREA)
-                d["fora"] = cv2.resize(d["fora"], (nw, nh), interpolation=cv2.INTER_NEAREST)
-                xs = np.linspace(0, ww - 1, nw)
-                d["topo"] = np.interp(xs, np.arange(ww), d["topo"]) * s
-                d["fundo"] = np.interp(xs, np.arange(ww), d["fundo"]) * s
-                d["x0"], d["y0"] = d["x0"] * s, d["y0"] * s
-            d["x0"], d["y0"] = int(round(float(d["x0"]))), int(round(float(d["y0"])))
-            self.olhos_rec.append(d)
-        self.mand = cv2.resize(cv2.imread(os.path.join(pasta, "mandibula.png"), cv2.IMREAD_UNCHANGED), (W, H),
-                               interpolation=cv2.INTER_AREA)
-        self.acima = rs(p["acima_bico"])
+        self.w_cab, self.w_bra, self.w_sob, self.w_olho = rs(p["cabeca"]), rs(p["braco"]), rs(p["sobrancelha"]), rs(p["olho"])
         sc = lambda v: [x * s for x in v]
         self.pc, self.pb, self.dob = sc(rig["pivo_cabeca"]), sc(rig["pivo_braco"]), sc(rig["dobradica"])
+        self.ponta = sc(rig["ponta_bico"])
         self.rb = [int(v * s) for v in rig["regiao_boca"]]
         self.rbr = [int(v * s) for v in rig["regiao_braco"]]
+        self.tem_boca, self.tem_braco = rig["boca"], rig["braco"]
         self.ang_fechado = rig["angulo_fechado"]
-        self.piv_sob = [v * s for v in rig.get("pivo_sobrancelha", [300, 168])]
-        self.c_olho = [v * s for v in rig.get("centro_olho", [355, 213])]
-        self.ot_y = [v * s for v in rig.get("olho_tras_y", [183, 211])]
+        self.piv_sob, self.c_olho = sc(rig["pivo_sobrancelha"]), sc(rig["centro_olho"])
+        self.K = rig.get("K", 1.0) * s
+        ol = np.load(os.path.join(pasta, "olhos.npz"))
         self.olhos = []
-        for k in ("olho_esq", "olho_dir"):
-            o = rig[k]
-            self.olhos.append(dict(c=sc(o["c"]), r=sc(o["r"]), ang=o["ang"], cor=o["cor"]))
+        for nome in ("esq", "dir"):
+            d = {k: ol[f"{nome}_{k}"] for k in ("x0", "y0", "mask", "pele", "topo", "fundo")}
+            hh, ww = d["mask"].shape
+            nw, nh = max(2, int(ww * s)), max(2, int(hh * s))
+            d["mask"] = cv2.resize(d["mask"], (nw, nh), interpolation=cv2.INTER_NEAREST)
+            d["pele"] = cv2.resize(d["pele"], (nw, nh), interpolation=cv2.INTER_AREA)
+            xs = np.linspace(0, ww - 1, nw)
+            d["topo"] = np.where(np.interp(xs, np.arange(ww), d["topo"]) >= 0, np.interp(xs, np.arange(ww), d["topo"]) * s, -1)
+            d["fundo"] = np.interp(xs, np.arange(ww), d["fundo"]) * s
+            d["x0"], d["y0"] = int(round(float(d["x0"]) * s)), int(round(float(d["y0"]) * s))
+            d["tras"] = nome == "dir"
+            self.olhos.append(d)
         self.gx, self.gy = np.meshgrid(np.arange(W, dtype=np.float32), np.arange(H, dtype=np.float32))
         ys = np.where(self.w_cab.max(axis=1) > 0.001)[0]
         self.lim_cab = int(ys.max()) + 2 if len(ys) else 0
-        self.rb[3] = min(self.rb[3], self.lim_cab)
+        self.rb[3] = min(self.rb[3], H)
 
     # ------------------------------------------------------------------
     @staticmethod
     def _inverso(tx, ty, c, graus, peso, iters=4):
-        """Acha a origem s de cada ponto t para F(s) = c + R(graus*peso(s))(s - c)."""
         h, w = peso.shape
         dx, dy = tx - c[0], ty - c[1]
         sx, sy = tx.copy(), ty.copy()
@@ -78,57 +65,48 @@ class Boneco:
             iy = np.clip(sy + 0.5, 0, h - 1).astype(np.int32)
             a = -k * peso[iy, ix]
             ca, sa = np.cos(a), np.sin(a)
-            # rotação anti-horária na tela (y para baixo)
             sx = c[0] + ca * dx + sa * dy
             sy = c[1] - sa * dx + ca * dy
         return sx, sy
 
     def _piscar(self, img, d, b):
-        """Pálpebra: a pele reconstruída desce do topo do olho até a linha de olho fechado,
-        com um cílio que afina nas pontas. Em b=1 o olho inteiro vira pele + cílio curvo."""
         if b <= 0.02:
             return
         x0, y0, m, pele = d["x0"], d["y0"], d["mask"], d["pele"]
         h, w = m.shape
-        topo, fundo = d["topo"], d["fundo"]
+        h = min(h, img.shape[0] - y0); w = min(w, img.shape[1] - x0)
+        m, pele = m[:h, :w], pele[:h, :w]
+        topo, fundo = d["topo"][:w], d["fundo"][:w]
         cols = np.where(topo >= 0)[0]
         if not len(cols):
             return
-        fech = topo + 0.66 * (fundo - topo)          # onde fica o cílio com o olho fechado
-        borda = topo + min(1, b) * (fech - topo)     # borda da pálpebra agora
+        fech = topo + 0.66 * (fundo - topo)
+        borda = topo + min(1, b) * (fech - topo)
         yy = np.arange(h, dtype=np.float32)[:, None]
         cobre = np.clip(borda[None, :] - yy + 0.5, 0, 1) * (topo[None, :] >= 0)
-        if b > 0.85:                                  # no fim cobre também o resto do olho
-            cobre = np.maximum(cobre, (b - 0.85) / 0.15 * np.ones_like(cobre))
-        mm = cv2.GaussianBlur(m.astype(np.float32), (0, 0), 0.7)
+        if b > 0.85:
+            cobre = np.maximum(cobre, (b - 0.85) / 0.15)
+        mm = cv2.GaussianBlur(m.astype(np.float32), (0, 0), 0.8)
         k = (cobre * mm)[..., None]
         reg = img[y0:y0 + h, x0:x0 + w].astype(np.float32)
-        p = pele.astype(np.float32)
-        reg[..., :3] = reg[..., :3] * (1 - k) + p[..., :3] * k
-        if d["tras"]:
-            fo = cv2.GaussianBlur(d["fora"].astype(np.float32) / 255.0, (0, 0), 0.8)[..., None]
-            reg[..., 3:] *= (1 - k * fo)
-            img[y0:y0 + h, x0:x0 + w] = reg.astype(np.uint8)
-            return                                    # olho de trás: sem cílio (fica só a pena)
-        # cílio: curva da borda, mais grosso no meio, fino nas pontas (desenhado em 4x)
-        S = 4
-        cam = np.zeros((h * S, w * S), np.uint8)
-        c0, c1 = cols.min() + 1, cols.max() - 1
-        sup, inf = [], []
-        for x in range(c0, c1 + 1):
-            u = (x - c0) / max(1, c1 - c0)
-            esp = (0.6 + 2.6 * math.sin(math.pi * u) ** 0.7) * max(0.6, self.s) * (0.55 + 0.45 * min(1, b))
-            y = borda[x]
-            sup.append((x * S, (y - esp / 2) * S)); inf.append((x * S, (y + esp / 2) * S))
-        poli = np.array(sup + inf[::-1], np.int32)
-        cv2.fillPoly(cam, [poli], 255, cv2.LINE_AA)
-        cam = cv2.resize(cam, (w, h), interpolation=cv2.INTER_AREA).astype(np.float32)[..., None] / 255
-        cor = np.array([28, 22, 26], np.float32)
-        reg[..., :3] = reg[..., :3] * (1 - cam) + cor * cam
+        reg[..., :3] = reg[..., :3] * (1 - k) + pele[..., :3].astype(np.float32) * k
+        if not d["tras"]:
+            S = 4
+            cam = np.zeros((h * S, w * S), np.uint8)
+            c0, c1 = cols.min() + 1, cols.max() - 1
+            sup, inf = [], []
+            for x in range(c0, c1 + 1):
+                u = (x - c0) / max(1, c1 - c0)
+                esp = (0.6 + 2.6 * math.sin(math.pi * u) ** 0.7) * max(0.6, self.K * 0.8) * (0.55 + 0.45 * min(1, b))
+                y = borda[x]
+                sup.append((x * S, (y - esp / 2) * S)); inf.append((x * S, (y + esp / 2) * S))
+            cv2.fillPoly(cam, [np.array(sup + inf[::-1], np.int32)], 255, cv2.LINE_AA)
+            cam = cv2.resize(cam, (w, h), interpolation=cv2.INTER_AREA).astype(np.float32)[..., None] / 255
+            reg[..., :3] = reg[..., :3] * (1 - cam) + np.array([28, 22, 26], np.float32) * cam
         img[y0:y0 + h, x0:x0 + w] = reg.astype(np.uint8)
 
     def _bico(self, src, graus):
-        """Gira a mandíbula na dobradiça; o bico de cima (recorte exato) vai por cima."""
+        """Mandíbula (peça do próprio desenho) gira na dobradiça; o bico de cima vai por cima."""
         x0, y0, x1, y1 = self.rb
         cx, cy = self.dob[0] - x0, self.dob[1] - y0
         M = cv2.getRotationMatrix2D((cx, cy), graus, 1.0)
@@ -136,10 +114,6 @@ class Boneco:
                              borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0, 0)).astype(np.float32)
         a = rot[..., 3:] / 255
         reg = src[y0:y1, x0:x1].astype(np.float32)
-        if graus > 0.5:   # sombra suave da mandíbula sobre o queixo
-            sh = cv2.GaussianBlur(a[..., 0], (0, 0), 3 * self.s)
-            sh = np.roll(sh, int(4 * self.s), axis=0)[..., None] * 0.25 * (reg[..., 3:] / 255) * min(1, graus / 6)
-            reg[..., :3] *= (1 - sh)
         reg[..., :3] = reg[..., :3] * (1 - a) + rot[..., :3] * a
         reg[..., 3:] = np.maximum(reg[..., 3:], a * 255)
         bs = self.bico_sup[y0:y1, x0:x1].astype(np.float32)
@@ -149,16 +123,13 @@ class Boneco:
         src[y0:y1, x0:x1] = reg.astype(np.uint8)
 
     def ponta_bico(self, cabeca=0.0):
-        """Ponta do bico (coordenadas do quadro) para a cabeça girada 'cabeca' graus."""
-        px, py = 548 * self.s, 352 * self.s
+        px, py = self.ponta
         c = self.pc; k = math.radians(cabeca)
         dx, dy = px - c[0], py - c[1]
         return c[0] + math.cos(k) * dx + math.sin(k) * dy, c[1] - math.sin(k) * dx + math.cos(k) * dy
 
-    def _expressao(self, sx, sy, sob_y=0.0, sob_rot=0.0, olho_esc=1.0):
-        """Desloca a sobrancelha (sobe/desce e inclina) e aumenta o olho — deformação suave do
-        próprio desenho, sem colagem. Recebe/devolve as coordenadas de origem (mapa inverso)."""
-        if self.w_sob is None or (abs(sob_y) < 0.05 and abs(sob_rot) < 0.05 and abs(olho_esc - 1) < 0.003):
+    def _expressao(self, sx, sy, sob_y, sob_rot, olho_esc):
+        if abs(sob_y) < 0.05 and abs(sob_rot) < 0.05 and abs(olho_esc - 1) < 0.003:
             return sx, sy
         h, w = self.w_sob.shape
         ix = np.clip(sx + 0.5, 0, w - 1).astype(np.int32); iy = np.clip(sy + 0.5, 0, h - 1).astype(np.int32)
@@ -167,19 +138,20 @@ class Boneco:
         dx, dy = sx - self.piv_sob[0], sy - self.piv_sob[1]
         rx = self.piv_sob[0] + math.cos(-k) * dx + math.sin(-k) * dy
         ry = self.piv_sob[1] - math.sin(-k) * dx + math.cos(-k) * dy
-        nx = sx + ws * (rx - sx); ny = sy + ws * (ry - sy + sob_y * self.s)
+        nx = sx + ws * (rx - sx); ny = sy + ws * (ry - sy + sob_y * self.K / 1.5)
         ex = self.c_olho[0] + (nx - self.c_olho[0]) / olho_esc
         ey = self.c_olho[1] + (ny - self.c_olho[1]) / olho_esc
-        nx = nx + wo * (ex - nx); ny = ny + wo * (ey - ny)
-        return nx, ny
+        return nx + wo * (ex - nx), ny + wo * (ey - ny)
 
     def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0, sob_y=0.0, sob_rot=0.0, olho_esc=1.0):
         src = self.base.copy()
-        self._bico(src, self.ang_fechado * (1 - min(1.15, max(0, boca))))
-        for d in self.olhos_rec:
+        if self.tem_boca:
+            self._bico(src, self.ang_fechado * (1 - min(1.1, max(0, boca))))
+        else:
+            self._bico(src, 0.0)
+        for d in self.olhos:
             self._piscar(src, d, min(1, max(0, piscada)))
         mx, my = self.gx.copy(), self.gy.copy()
-        # cabeça (+ bico dentro dela)
         L = self.lim_cab
         tx, ty = self.gx[:L], self.gy[:L]
         if abs(cabeca) > 0.01:
@@ -187,23 +159,10 @@ class Boneco:
         else:
             sx, sy = tx.copy(), ty.copy()
         sx, sy = self._expressao(sx, sy, sob_y, sob_rot, olho_esc)
-        b_ = min(1, max(0, piscada))
-        if False and self.w_ot is not None and b_ > 0.02:
-            # olho de trás: achata para a linha de baixo; a pena de cima desce como pálpebra
-            h_, w_ = self.w_ot.shape
-            ix = np.clip(sx + 0.5, 0, w_ - 1).astype(np.int32); iy = np.clip(sy + 0.5, 0, h_ - 1).astype(np.int32)
-            wt = self.w_ot[iy, ix]
-            yc = self.ot_y[1] - 2 * self.s
-            esc = max(0.08, 1 - 0.92 * b_)
-            alvo = np.maximum(yc + (sy - yc) / esc, self.ot_y[0] + 1 * self.s)
-            alvo = np.where(sy < yc, alvo, sy)
-            sy = sy + wt * (alvo - sy)
         mx[:L], my[:L] = sx, sy
-        # antebraço
-        if abs(braco) > 0.01:
+        if self.tem_braco and abs(braco) > 0.01:
             x0, y0, x1, y1 = self.rbr
             nx, ny = self._inverso(self.gx[y0:y1, x0:x1], self.gy[y0:y1, x0:x1], self.pb, braco, self.w_bra)
             mx[y0:y1, x0:x1], my[y0:y1, x0:x1] = nx, ny
         out = cv2.remap(src, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0, 0))
-
         return Image.fromarray(cv2.cvtColor(out, cv2.COLOR_BGRA2RGBA))

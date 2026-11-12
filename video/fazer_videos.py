@@ -123,8 +123,8 @@ def resolver_midia(m, pasta):
             c = os.path.join(pasta, f"clip-{abs(hash(m['video_url'])) % 10**8}-{ini}.mp4")
             if not os.path.exists(c):
                 r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(ini), "-i", m["video_url"],
-                                    "-t", str(dur + 0.5), "-an", "-vf", "scale=-2:1080", "-c:v", "libx264",
-                                    "-preset", "veryfast", "-crf", "18", c], capture_output=True, text=True, timeout=300)
+                                    "-t", str(dur + 0.5), "-an", "-vf", "scale=1920:-2:flags=lanczos", "-c:v", "libx264",
+                                    "-preset", "veryfast", "-crf", "14", c], capture_output=True, text=True, timeout=300)
                 if r.returncode != 0 or not os.path.exists(c):
                     raise RuntimeError("ffmpeg url: " + r.stderr[-300:])
             return {"tipo": "video", "caminho": c, "inicio": 0}

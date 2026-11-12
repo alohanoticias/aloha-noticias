@@ -1,0 +1,46 @@
+{
+ "tamanho": [
+  1534,
+  1455
+ ],
+ "K": 1.5,
+ "boca": true,
+ "braco": true,
+ "pivo_cabeca": [
+  630,
+  725
+ ],
+ "pivo_braco": [
+  1005,
+  990
+ ],
+ "dobradica": [
+  570,
+  556
+ ],
+ "ponta_bico": [
+  893,
+  712
+ ],
+ "regiao_boca": [
+  468,
+  300,
+  938,
+  800
+ ],
+ "regiao_braco": [
+  900,
+  0,
+  1534,
+  1180
+ ],
+ "angulo_fechado": 20.0,
+ "pivo_sobrancelha": [
+  505,
+  415
+ ],
+ "centro_olho": [
+  588.8571166992188,
+  480.8571472167969
+ ]
+}

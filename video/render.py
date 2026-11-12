@@ -7,6 +7,7 @@
 """
 import math, os, random, re, subprocess, sys, wave
 import numpy as np
+import cv2
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -61,53 +62,75 @@ def com_sombra(im, raio=10, opac=0.5, desl=7):
 
 
 # ============================================================ fundo
+MEIO_Y = 820      # centro da faixa de mídia quando ela não cabe na tela toda
+
+
+def _dims_video(caminho):
+    try:
+        r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                            "-of", "csv=p=0", caminho], capture_output=True, text=True, timeout=30)
+        w_, h_ = [int(v) for v in r.stdout.strip().split(",")[:2]]
+        return w_, h_
+    except Exception:
+        return 1920, 1080
+
+
+def _cabe(iw, ih):
+    """Cobre a tela vertical sem cortar demais? (senão: inteira, com bordas desfocadas)"""
+    r = max(W / iw, H / ih)
+    return (W / (iw * r)) >= 0.8 and (H / (ih * r)) >= 0.8
+
+
 class Plano:
-    """Um trecho do fundo: foto (zoom/deslize lentos) ou vídeo."""
+    """Um trecho do fundo: foto ou vídeo. Se não cabe na tela vertical, aparece inteiro e centralizado,
+    com o próprio fundo desfocado nas bordas (nada de imagem esticada ou cortada demais)."""
     def __init__(self, midia, t0, t1, semente):
         self.t0, self.t1, self.m = t0, t1, midia
         rnd = random.Random(semente)
-        self.zoom0, self.zoom1 = (1.0, 1.1) if rnd.random() < 0.5 else (1.1, 1.0)
-        self.dir = rnd.choice([-1, 1])
-        self.video = midia["tipo"] == "video"
+        self.zoom0, self.zoom1 = (1.0, 1.06) if rnd.random() < 0.5 else (1.06, 1.0)
         self.proc = None
         if midia is None or midia.get("tipo") == "cor":
             y = np.linspace(0, 1, H)[:, None, None]
             arr = (np.array([40, 14, 16]) * (1 - y) + np.array([8, 8, 10]) * y).repeat(W, axis=1).astype(np.uint8)
-            midia = {"tipo": "imagem", "inteira": False}
-            self.m = midia; self.video = False; self.proc = None; self.inteira = False
-            self.im = Image.fromarray(arr).resize((int(W * 1.12), int(H * 1.12)))
+            self.video, self.cobre = False, True
+            self.im = Image.fromarray(arr).resize((int(W * 1.06), int(H * 1.06)))
             return
-        self.inteira = bool(midia.get("inteira"))
-        if not self.video and self.inteira:
-            # foto de produto: aparece inteira (largura da tela) sobre ela mesma desfocada
-            im0 = Image.open(midia["caminho"])
-            if im0.mode in ("RGBA", "LA", "P"):
-                im0 = im0.convert("RGBA")
-                fundo_t = Image.new("RGBA", im0.size, (24, 20, 26, 255)); fundo_t.alpha_composite(im0); im0 = fundo_t
-            im = im0.convert("RGB")
-            r = max(W / im.width, H / im.height)
-            fundo = im.resize((int(im.width * r) // 8, int(im.height * r) // 8), Image.BILINEAR)
-            fundo = fundo.filter(ImageFilter.GaussianBlur(6)).resize((int(im.width * r), int(im.height * r)), Image.BILINEAR)
-            fx, fy = (fundo.width - W) // 2, (fundo.height - H) // 2
-            self.fundo = Image.blend(fundo.crop((fx, fy, fx + W, fy + H)), Image.new("RGB", (W, H), PRETO), 0.35)
-            k = W / im.width
-            self.foto = im.resize((W, int(im.height * k)), Image.LANCZOS)
+        self.video = midia["tipo"] == "video"
+        if self.video:
+            iw, ih = _dims_video(midia["caminho"])
+            self.cobre = _cabe(iw, ih) and not midia.get("inteira")
             return
-        if not self.video:
-            im = Image.open(midia["caminho"]).convert("RGB")
-            folga = 1.03 if midia.get("foco") else 1.12
-            r = max(W * folga / im.width, H * folga / im.height)
-            if midia.get("foco"):
-                self.zoom0, self.zoom1 = (1.0, 1.05)
+        im0 = Image.open(midia["caminho"])
+        if im0.mode in ("RGBA", "LA", "P"):
+            im0 = im0.convert("RGBA")
+            t_ = Image.new("RGBA", im0.size, (24, 20, 26, 255)); t_.alpha_composite(im0); im0 = t_
+        im = im0.convert("RGB")
+        self.cobre = _cabe(im.width, im.height) and not midia.get("inteira")
+        if self.cobre:
+            r = max(W * 1.06 / im.width, H * 1.06 / im.height)
             self.im = im.resize((int(im.width * r), int(im.height * r)), Image.LANCZOS)
+        else:
+            r = max(W / im.width, H / im.height)
+            f = im.resize((max(1, int(im.width * r) // 10), max(1, int(im.height * r) // 10)), Image.BILINEAR)
+            f = f.filter(ImageFilter.GaussianBlur(4)).resize((int(im.width * r), int(im.height * r)), Image.BILINEAR)
+            fx, fy = (f.width - W) // 2, (f.height - H) // 2
+            self.fundo = Image.blend(f.crop((fx, fy, fx + W, fy + H)), Image.new("RGB", (W, H), PRETO), 0.4)
+            k = min(W / im.width, (H * 0.62) / im.height)
+            self.foto = im.resize((int(im.width * k), int(im.height * k)), Image.LANCZOS)
 
     def quadro(self, t):
         p = min(1, max(0, (t - self.t0) / max(0.01, self.t1 - self.t0)))
         if self.video:
             if self.proc is None:
-                vf = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}"
+                if self.cobre:
+                    vf = f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS}"
+                else:
+                    vf = (f"split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
+                          f"boxblur=24:2,eq=brightness=-0.12[bg];[b]scale={W}:-2:flags=lanczos[fg];"
+                          f"[bg][fg]overlay=0:{MEIO_Y}-h/2,fps={FPS}")
                 cmd = ["ffmpeg", "-loglevel", "error", "-ss", str(self.m.get("inicio", 0)),
-                       "-t", f"{self.t1 - self.t0 + 0.5:.2f}", "-i", self.m["caminho"], "-an", "-vf", vf,
+                       "-t", f"{self.t1 - self.t0 + 0.5:.2f}", "-i", self.m["caminho"], "-an",
+                       "-filter_complex" if not self.cobre else "-vf", vf,
                        "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
                 self.proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
                 self.ultimo = Image.new("RGB", (W, H), PRETO)
@@ -115,22 +138,16 @@ class Plano:
             if len(buf) == W * H * 3:
                 self.ultimo = Image.frombytes("RGB", (W, H), buf)
             return self.ultimo
-        if self.inteira:
-            z = 1.0 + 0.06 * ease(p)
-            fo = self.foto.resize((int(W * z), int(self.foto.height * z)), Image.BILINEAR)
+        if not self.cobre:
+            z = 1.0 + 0.05 * ease(p)
+            fo = self.foto.resize((int(self.foto.width * z), int(self.foto.height * z)), Image.LANCZOS)
             out = self.fundo.copy()
-            out.paste(fo, ((W - fo.width) // 2, int(H * 0.47 - fo.height / 2)))
+            out.paste(fo, ((W - fo.width) // 2, int(MEIO_Y - fo.height / 2)))
             return out
         z = self.zoom0 + (self.zoom1 - self.zoom0) * ease(p)
-        ww, hh = W / z, H / z
-        mx, my = self.im.width - ww, self.im.height - hh
-        foco = self.m.get("foco")
-        if foco:   # foto de produto: fica centrada no objeto, só um respiro de movimento
-            fx = min(1, max(0, foco[0] + self.dir * 0.06 * (p - 0.5) * 2)); fy = foco[1]
-        else:
-            fx = 0.5 + self.dir * 0.42 * (p - 0.5) * 2; fy = 0.45
-        x, y = mx * fx, my * fy
-        return self.im.crop((int(x), int(y), int(x + ww), int(y + hh))).resize((W, H), Image.BILINEAR)
+        ww, hh = W * 1.0 / z, H * 1.0 / z
+        x, y = (self.im.width - ww) / 2, (self.im.height - hh) / 2          # sempre centralizado
+        return self.im.crop((int(x), int(y), int(x + ww), int(y + hh))).resize((W, H), Image.LANCZOS)
 
     def fechar(self):
         if self.proc:
@@ -174,7 +191,7 @@ class Legendas:
     def img(self, palavras, ativa):
         k = (tuple(palavras), ativa)
         if k not in self.cache:
-            txt = [p.upper() for p in palavras]
+            txt = list(palavras)
             tam = 70
             while tam > 40 and fonte(tam).getlength(" ".join(txt)) > 930:   # sempre uma linha só
                 tam -= 2
@@ -319,6 +336,42 @@ def espelhar_pose(ps, nome, esc):
 
 POSE_K = {}
 POSE_ALTURA = 840
+ESCALA_MASCOTE = 0.72        # tamanho da cabeça na tela (as poses são igualadas pela cabeça)
+ANCORA_X, ANCORA_Y = 300, 1430   # onde fica o pescoço (lado esquerdo)
+MARGEM_RIG = 160
+
+
+def espelhar_logo(img, bb, k, nome=""):
+    """Depois de espelhar o boneco, recoloca o emblema "e" no sentido certo: o emblema espelhado é coberto
+    com a cor da superfície (cubo vermelho do microfone / tela do tablet) e o desenho certo vai por cima."""
+    if not bb:
+        return img
+    m_ = 75 if nome == "tablet" else 25
+    x0, y0, x1, y1 = [int((v + d) * k) for v, d in zip(bb, (-m_, -m_, m_, m_))]
+    Wi = img.width
+    fx0, fx1 = Wi - x1, Wi - x0
+    reg = np.array(img.crop((fx0, y0, fx1, y1))).astype(np.float32)      # região como está (espelhada)
+    certo = reg[:, ::-1].copy()                                          # a mesma região no sentido original
+    def emblema(a):
+        r_, g_, b_ = a[..., 0], a[..., 1], a[..., 2]
+        branco = (r_ > 150) & (g_ > 150) & (b_ > 150)
+        if nome == "microfone":
+            return branco
+        verm = (r_ > 120) & (g_ < 110) & (b_ < 110) & (r_ > g_ * 1.6)
+        return branco | verm
+    e_esp, e_cer = emblema(reg), emblema(certo)
+    if nome == "microfone":
+        sup = (reg[..., 0] > 140) & (reg[..., 1] < 90) & ~e_esp
+    else:
+        sup = (reg[..., :3].max(axis=2) < 110) & ~e_esp & (reg[..., 3] > 200)
+    cor = np.median(reg[sup][:, :3], axis=0) if sup.sum() > 10 else np.array([40, 40, 44])
+    tampa = cv2.GaussianBlur(cv2.dilate(e_esp.astype(np.uint8), np.ones((7, 7), np.uint8)).astype(np.float32), (0, 0), 1.2)[..., None]
+    out = reg.copy()
+    out[..., :3] = out[..., :3] * (1 - tampa) + cor * tampa
+    poe = cv2.GaussianBlur(cv2.dilate(e_cer.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(np.float32), (0, 0), 1.0)[..., None]
+    out[..., :3] = out[..., :3] * (1 - poe) + certo[..., :3] * poe
+    img.paste(Image.fromarray(np.clip(out, 0, 255).astype(np.uint8), "RGBA"), (fx0, y0))
+    return img
 
 
 # ============================================================ animação
@@ -380,8 +433,8 @@ def planejar(falas, total, dur_voz, env):
     m_sy, m_sr, m_oe, m_tp = Mola(160, 15), Mola(120, 14), Mola(140, 15, 1.0), Mola(90, 13)
     EXPR = {  # (sobrancelha y, inclinação, escala do olho, pálpebra)
         "neutro": (0, 0, 1.0, 0), "feliz": (-2, 0, 1.0, 0), "surpreso": (-9, 0, 1.09, 0),
-        "bravo": (3, -13, 1.0, 0.22), "determinado": (2, -8, 1.0, 0.12),
-        "desconfiado": (2, -6, 1.0, 0.42), "entediado": (3, 0, 1.0, 0.52), "pensativo": (0, -5, 1.0, 0.38)}
+        "bravo": (3, -7, 1.0, 0.22), "determinado": (2, -5, 1.0, 0.12),
+        "desconfiado": (2, -4, 1.0, 0.42), "entediado": (3, 0, 1.0, 0.52), "pensativo": (0, -3, 1.0, 0.38)}
     m_x, m_esc, m_bob = Mola(60, 12), Mola(70, 11, 1.0), Mola(140, 16)
     boca = 0.0
     lado_ant = falas[0].get("lado", "esq")
@@ -399,10 +452,10 @@ def planejar(falas, total, dur_voz, env):
         if fim:
             g["tchau"] = max(g["tchau"], ease((t - dur_voz) / 0.3))
         e = env[min(k, len(env) - 1)]
-        alvo = min(1.1, e * 1.15)
+        alvo = min(1.05, 0.14 + e * 0.95) if e > 0.04 else 0.0     # entre sílabas o bico não bate fechado
         if g["risada"] > 0.4 and e > 0.05:
             alvo = max(alvo, 0.65 + 0.4 * abs(math.sin(2 * math.pi * 4.4 * t)))
-        boca += (alvo - boca) * (0.72 if alvo > boca else 0.4)
+        boca += (alvo - boca) * (0.6 if alvo > boca else 0.32)
         idle = 1.3 * math.sin(2 * math.pi * 0.29 * t) + 0.8 * math.sin(2 * math.pi * 0.13 * t + 1.3)
         if acento[k]:
             m_cab.v -= 26 * acento[k]
@@ -427,18 +480,19 @@ def planejar(falas, total, dur_voz, env):
                       sob_y=sob_y, sob_rot=sob_rot, olho_esc=olho_esc,
                       coment=1.0 if (fala and fala.get("tipo") == "comentario" and not fim) else 0.0))
         lado_ant = lado
-    # poses da folha (microfone, aponta_tela, tablet, braco_cruzado, apresenta, joinha):
-    # aparecem no começo da fala por até 1,6 s e no encerramento (joinha)
+    # pose de cada fala (a fala inteira, sempre animada); encerramento com joinha
     for k in range(n):
-        q = P[k]; q["pose"], q["pose_mix"] = None, 0.0
+        q = P[k]
         f = q["fala"]
-        if f and f.get("pose"):
-            dtf = q["t"] - f["inicio"]
-            dur = min(1.6, f["fim"] - f["inicio"])
-            if -0.1 <= dtf <= dur + 0.15:
-                q["pose"] = f["pose"]; q["pose_mix"] = ease((dtf + 0.1) / 0.12) * ease((dur + 0.15 - dtf) / 0.12)
-        if q["fim"] and q["t"] > dur_voz + 0.5:
-            q["pose"] = "joinha"; q["pose_mix"] = ease((q["t"] - dur_voz - 0.5) / 0.12)
+        q["pose"] = (f.get("pose") if f else None) or "apresenta"
+        if q["fim"] and q["t"] > dur_voz + 0.45:
+            q["pose"] = "joinha"
+    ult_troca = -99
+    for k in range(n):
+        if k and P[k]["pose"] != P[k - 1]["pose"]:
+            ult_troca = k
+        d_ = (k - ult_troca) / FPS
+        P[k]["pop"] = 0.965 + 0.035 * ease_out_back(min(1, d_ / 0.18), 2.0) if d_ < 0.3 else 1.0
     trocas = [k for k in range(1, n) if P[k]["lado"] != P[k - 1]["lado"]]
     for k in range(n):
         P[k]["saida"] = 0.0
@@ -460,23 +514,12 @@ def planejar(falas, total, dur_voz, env):
 def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_rig=None, amostras=None,
                midia_final=None):
     """midias: uma lista por fala, de {'tipo': 'imagem'|'video', 'caminho', 'inicio'}."""
-    bon = Boneco(pasta_rig or os.path.join(AQUI, "mascote", "rig"), ESCALA)
-    poses = {}
-    pdir = os.path.join(AQUI, "mascote", "poses")
-    if os.path.isdir(pdir):
-        for fn in os.listdir(pdir):
-            if fn.endswith(".png"):
-                im = Image.open(os.path.join(pdir, fn)).convert("RGBA")
-                k = POSE_ALTURA / im.height             # mesma escala de cabeça do mascote
-                POSE_K[fn[:-4]] = k
-                poses[fn[:-4]] = im.resize((int(im.width * k), POSE_ALTURA), Image.LANCZOS)
-        lj = os.path.join(pdir, "logos.json")
-        if os.path.exists(lj):
-            import json as _j
-            for nome_, bb in _j.load(open(lj)).items():
-                if bb:
-                    m_ = 70
-                    LOGO_POSES[nome_] = (bb[0] - m_, bb[1] - m_, bb[2] + m_, bb[3] + m_)
+    pasta_rig = pasta_rig or os.path.join(AQUI, "mascote", "rig")
+    import json as _j
+    escalas = _j.load(open(os.path.join(pasta_rig, "escalas.json")))
+    bonecos = {nome: Boneco(os.path.join(pasta_rig, nome), ESCALA_MASCOTE / e) for nome, e in escalas.items()}
+    lj = os.path.join(pasta_rig, "logos.json")
+    logos = _j.load(open(lj)) if os.path.exists(lj) else {}
     falas = [{**f, **tt} for f, tt in zip(roteiro["falas"], falas_tempos)]
     total = dur_voz + FINAL
     n = int(total * FPS)
@@ -554,39 +597,27 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
                         im = im.resize((int(im.width * e2), int(im.height * e2)), Image.BILINEAR)
                     fr.alpha_composite(im, (int(W / 2 - im.width / 2), int(ytopo + 130 - im.height / 2)))
                     break
-        # ---- mascote (rig animado) ou pose da folha
+        # ---- mascote: a pose da fala, sempre animada (bico, olhos, cabeça; braço na "apresenta")
+        nome_p = q["pose"] if q["pose"] in bonecos else "apresenta"
+        bon = bonecos[nome_p]
         mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"], q["sob_y"], q["sob_rot"], q["olho_esc"])
-        es = q["esc"]
+        es = q["esc"] * q["pop"]
         esq = q["lado"] == "esq"
-        pm = q["pose_mix"] if q["pose"] in poses else 0.0
-
-        def posicionar(img_m, larg_ref):
-            xx = (-130 + q["dx"]) if esq else (W - larg_ref + 130 - q["dx"])
-            xx += (-1 if esq else 1) * q["saida"] * 760
-            yy = H - img_m.height + 60 - q["bob"] + q["saida"] * 120
-            return xx, yy
         if abs(es - 1) > 0.003:
             mq = mq.resize((int(mq.width * es), int(mq.height * es)), Image.BILINEAR)
+        pcx, pcy = bon.pc[0] * es, bon.pc[1] * es
         if not esq:
-            mq = mq.transpose(Image.FLIP_LEFT_RIGHT)
-        x, y = posicionar(mq, mq.width)
-        desenho = mq; dx_ = x; dy_ = y
-        if pm > 0.5:
-            ps = poses[q["pose"]]
-            pop = 0.96 + 0.04 * ease_out_back(min(1, pm), 2.0)
-            e3 = es * pop
-            ps = ps.resize((int(ps.width * e3), int(ps.height * e3)), Image.BILINEAR)
-            if not esq:
-                ps = espelhar_pose(ps, q["pose"], e3)
-            # alinha pela base e pelo lado de dentro do mascote
-            px_ = (x + 60 * es) if esq else (x + mq.width - 60 * es - ps.width)
-            py_ = H - ps.height + 40 - q["bob"] + q["saida"] * 120
-            desenho, dx_, dy_ = ps, px_, py_
-        a = desenho.split()[3].resize((max(1, desenho.width // 8), max(1, desenho.height // 8))).filter(ImageFilter.GaussianBlur(3))
-        sh = Image.new("RGBA", desenho.size, (0, 0, 0, 255)); sh.putalpha(a.resize(desenho.size, Image.BILINEAR).point(lambda v: int(v * 0.5)))
-        fr.alpha_composite(sh, (int(dx_ + (14 if esq else -14)), int(dy_ + 18)))
-        fr.alpha_composite(desenho, (int(dx_), int(dy_)))
-        ocupado = desenho.split()[3].point(lambda v: 255 if v > 20 else 0)
+            mq = espelhar_logo(mq.transpose(Image.FLIP_LEFT_RIGHT), logos.get(nome_p), bon.s * es, nome_p)
+            pcx = mq.width - pcx
+        # o pescoço fica sempre no mesmo lugar da tela; troca de pose não "pula"
+        ax = (ANCORA_X + q["dx"]) if esq else (W - ANCORA_X - q["dx"])
+        ax += (-1 if esq else 1) * q["saida"] * 900
+        ay = ANCORA_Y - q["bob"] + q["saida"] * 140
+        ay = max(ay, H + 6 - (mq.height - pcy))            # o corte de baixo da arte nunca aparece
+        x, y = ax - pcx, ay - pcy
+        dx_, dy_ = x, y
+        fr.alpha_composite(mq, (int(x), int(y)))
+        ocupado = mq.split()[3].point(lambda v: 255 if v > 20 else 0)
         # ---- balão
         if f and f.get("tipo") == "comentario" and q["saida"] < 0.02 and not q["fim"]:
             if i not in baloes:
@@ -600,9 +631,9 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
                 ponta_x = (b.M + 48 - 26) * e2           # ponta do rabicho dentro da imagem
                 ponta_y = (b.M + b.bh + b.RAB) * e2
                 # ponta do bico no rig (cabeça girada) -> tela, acompanhando tamanho e lado do mascote
-                bpx, bpy = bon.ponta_bico(q["cab"])
-                bico_x = x + bpx * es if esq else x + mq.width - bpx * es
-                bico_y = y + bpy * es
+                bpx, bpy = bon.ponta_bico(q["cab"]); bpx, bpy = bpx * es / 1.0, bpy * es / 1.0
+                bico_x = x + bpx if esq else x + mq.width - bpx
+                bico_y = y + bpy
                 if esq:
                     bx = bico_x + 18 - ponta_x
                 else:
@@ -628,7 +659,7 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
            "-r", str(FPS), "-i", "-"]
     if wav:
         cmd += ["-i", wav]
-    cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", "19", "-pix_fmt", "yuv420p", "-movflags", "+faststart"]
+    cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-pix_fmt", "yuv420p", "-movflags", "+faststart"]
     if wav:
         cmd += ["-c:a", "aac", "-b:a", "160k", "-shortest"]
     cmd += [tmp]
