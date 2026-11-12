@@ -309,11 +309,19 @@ def _item_idioma(code, nome, flag=True):
     return f'<li><a data-l="{code}" href="#" rel="noopener">{bd}<span>{nome}</span></a></li>'
 
 
-# Idiomas que aparecem no seletor e no rodapé (os demais continuam gerados, mas sem link e fora do Google)
-IDIOMAS_VISIVEIS = ["pt", "en", "es", "it"]
+# Idiomas no ar. Os que ficam de fora estão "em repouso": as traduções continuam guardadas nos artigos e os rascunhos
+# continuam chegando traduzidos, mas as páginas não são publicadas, o seletor de idioma some e os endereços antigos
+# (/en/..., /es/..., /it/...) levam, com redirecionamento temporário (302), para a mesma página em português.
+# 12/11/2026: só "pt" até a aprovação do AdSense. Para religar, volte a lista para ["pt", "en", "es", "it"]
+# (e acrescente os idiomas em IDIOMAS_INDEXADOS quando quiser que voltem ao Google).
+IDIOMAS_NO_AR = ["pt"]
+# Idiomas que aparecem no seletor e no rodapé
+IDIOMAS_VISIVEIS = [l for l in ["pt", "en", "es", "it"] if l in IDIOMAS_NO_AR]
 
 
 def seletor_idioma():
+    if len(IDIOMAS_VISIVEIS) < 2:
+        return ""
     lista = "".join(_item_idioma(c, i18n.NOMES_IDIOMA[c]) for c in IDIOMAS_VISIVEIS)
     return (f'<details class="idioma-menu" id="idioma-menu"><summary class="botao-icone" aria-label="{t("Traduzir esta página / Translate")}">'
             f'{BANDEIRAS[LANG]}<span class="idioma-rotulo">{i18n.SIGLA[LANG]}</span></summary>'
@@ -321,6 +329,8 @@ def seletor_idioma():
 
 
 def idiomas_rodape():
+    if len(IDIOMAS_VISIVEIS) < 2:
+        return ""
     links = "".join(
         (f'<a href="@@L:{c}@@" hreflang="{i18n.HTML_LANG[c]}" lang="{i18n.HTML_LANG[c]}">{i18n.NOMES_IDIOMA[c]}</a>' if c in i18n.IDIOMAS_REAIS else f'<a data-l="{c}" href="#" rel="noopener">{n}</a>')
         for c, n in [(c, i18n.NOMES_IDIOMA[c]) for c in IDIOMAS_VISIVEIS])
@@ -371,6 +381,7 @@ ADSENSE_PUB = ""
 # da aprovação, acrescente aqui, por exemplo {"pt", "en", "es"}.
 # 12/11/2026: só "pt" até a aprovação do AdSense; depois liberar aos poucos ("en" e "es" primeiro, "it" depois).
 IDIOMAS_INDEXADOS = {"pt"}
+IDIOMAS_INDEXADOS &= set(IDIOMAS_NO_AR)  # idioma em repouso nunca entra no Google
 # Páginas de assunto (tags) com menos matérias que isto ficam fora do Google ("noindex"): páginas com 1 ou 2 links
 # contam como conteúdo raso. Elas continuam funcionando para quem navega.
 MIN_MATERIAS_TAG = 3
@@ -1520,6 +1531,8 @@ def main():
     aplicar_idioma("pt")
 
     existe = {l: set(a) for l, a in por_idioma.items()}
+    em_repouso = {l: por_idioma.pop(l) for l in list(por_idioma) if l not in IDIOMAS_NO_AR}
+    existe = {l: set(a) for l, a in por_idioma.items()}
     for lang, arqs in por_idioma.items():
         (SAIDA / prefixo(lang)).mkdir(exist_ok=True)
         for nome, conteudo in arqs.items():
@@ -1539,7 +1552,7 @@ def main():
     (SAIDA / "_headers").write_text(HEADERS.replace("{CSP}", csp), encoding="utf-8")
     # endereços de cada matéria em cada idioma, para o aviso push abrir a página no idioma do aparelho
     (SAIDA / "push-urls.json").write_text(limpa_abs(json.dumps(
-        {m["slug"]: {l: url_abs(l, f"materia-{m['slug']}.html") for l in i18n.IDIOMAS_REAIS} for m in materias}, ensure_ascii=False)), encoding="utf-8")
+        {m["slug"]: {l: url_abs(l if l in IDIOMAS_NO_AR else "pt", f"materia-{m['slug']}.html") for l in i18n.IDIOMAS_REAIS} for m in materias}, ensure_ascii=False)), encoding="utf-8")
     if ANUNCIOS_ATIVOS and ADSENSE_PUB:
         (SAIDA / "ads.txt").write_text(f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
     (SAIDA / ".well-known").mkdir(exist_ok=True)
@@ -1644,7 +1657,17 @@ def main():
     # /favicon.ico na raiz: o Google e alguns navegadores procuram o ícone aqui antes de ler as tags da página
     shutil.copyfile(RAIZ / "assets/img/favicon.ico", SAIDA / "favicon.ico")
     # Endereços antigos do visual anterior que ainda aparecem no Google
-    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "ja", "zh", "ar")), encoding="utf-8")
+    # Idiomas em repouso: cada página antiga leva à mesma página em português (302, temporário, porque vão voltar)
+    repouso = ""
+    for l, arqs in em_repouso.items():
+        for n in arqs:
+            if n in ("404.html",):
+                continue
+            destino = "/" + ("" if n == "index.html" else n[:-5]) if n in existe["pt"] else "/"
+            orig = "/" + l + ("" if n == "index.html" else "/" + nome_idioma(l, n)[:-5])
+            repouso += f"{orig} {destino} 302\n" + ("" if n == "index.html" else f"{orig}.html {destino} 302\n")
+        repouso += f"/{l}/ / 302\n/{l}/* / 302\n"
+    (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + repouso + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "ja", "zh", "ar")), encoding="utf-8")
     (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
     print(f"{len(arquivos)} páginas geradas em {SAIDA}")
 
