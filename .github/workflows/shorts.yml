@@ -1,0 +1,67 @@
+name: Vídeos curtos (mascote)
+on:
+  push:
+    branches: [video-mascote]
+    paths: ["video/**", ".github/workflows/shorts.yml"]
+  schedule:
+    - cron: "17 23 * * *"   # 20h17 em Brasília (vale quando estiver no ramo principal)
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "Data das matérias (AAAA-MM-DD). Vazio = hoje"
+        required: false
+        default: ""
+      slug:
+        description: "Só uma matéria (slug). Vazio = todas do dia"
+        required: false
+        default: ""
+permissions:
+  contents: write
+jobs:
+  videos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependências
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q edge-tts yt-dlp numpy pillow opencv-python-headless scipy
+      - name: Gerar vídeos
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event_name }}" = "push" ]; then
+            ARGS="--slug $(cat video/roteiros/TESTE 2>/dev/null || echo gta-6-truque-da-nova-zelandia-como-jogar-antes-no-brasil-xbox-ps5)"
+          fi
+          [ -n "${{ github.event.inputs.data }}" ] && ARGS="$ARGS --data ${{ github.event.inputs.data }}"
+          [ -n "${{ github.event.inputs.slug }}" ] && ARGS="$ARGS --slug ${{ github.event.inputs.slug }}"
+          python3 video/fazer_videos.py $ARGS
+      - name: Guardar vídeo de teste no ramo (só no push do ramo de teste)
+        if: github.event_name == 'push'
+        run: |
+          mkdir -p video/prontos && cp video/saida/*.mp4 video/prontos/
+          git config user.name "aloha-bot" && git config user.email "contato@alohanoticias.com"
+          git add video/prontos video/roteiros
+          git commit -qm "Vídeo de teste do mascote [skip ci]" && git push -q || true
+      - name: Guardar roteiros novos
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "aloha-bot" && git config user.email "contato@alohanoticias.com"
+          git add video/roteiros && (git diff --cached --quiet || (git commit -qm "Vídeos: roteiros do dia" && git push -q))
+      - name: Mandar os vídeos no Telegram (opcional)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_VIDEOS_CHAT_ID: ${{ secrets.TELEGRAM_VIDEOS_CHAT_ID }}
+        run: |
+          [ -n "$TELEGRAM_VIDEOS_CHAT_ID" ] || { echo "Sem TELEGRAM_VIDEOS_CHAT_ID: vídeos só nos artefatos."; exit 0; }
+          for f in video/saida/*.mp4; do
+            curl -sS "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendVideo" -F chat_id="$TELEGRAM_VIDEOS_CHAT_ID" \
+              -F supports_streaming=true -F caption="$(basename "$f" .mp4)" -F video=@"$f" > /dev/null
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: videos-${{ github.run_id }}
+          path: video/saida/*.mp4
+          retention-days: 30

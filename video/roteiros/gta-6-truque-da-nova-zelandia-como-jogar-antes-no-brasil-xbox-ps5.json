@@ -1,0 +1,104 @@
+{
+ "slug": "gta-6-truque-da-nova-zelandia-como-jogar-antes-no-brasil-xbox-ps5",
+ "voz": {
+  "nome": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+5Hz"
+ },
+ "titulo_curto": "GTA 6: o truque da *Nova Zelândia*",
+ "falas": [
+  {
+   "texto": "Atenção, galera: GTA 6 sai dia 19, mas a Nova Zelândia joga dezesseis horas antes da gente, por causa do fuso.",
+   "tipo": "noticia",
+   "destaque": "16 HORAS ANTES",
+   "gesto": "aponta",
+   "lado": "esq",
+   "midia": [
+    {
+     "youtube": "VQRLujxTm3c",
+     "inicio": 8,
+     "dur": 4
+    },
+    {
+     "arquivo": "video/midia/gta-6/jason-lucia-armas.jpg"
+    },
+    {
+     "arquivo": "video/midia/gta-6/vice-city-noite.jpg"
+    }
+   ]
+  },
+  {
+   "texto": "Dezesseis horas! Dá pra zerar e ainda soltar spoiler no grupo da família.",
+   "tipo": "comentario",
+   "gesto": "risada",
+   "lado": "esq",
+   "midia": [
+    {
+     "arquivo": "video/midia/gta-6/jason-lucia-carro.jpg"
+    }
+   ]
+  },
+  {
+   "texto": "No Xbox, o truque é mudar a localização do console pra Nova Zelândia. Mas ninguém garante que funciona.",
+   "tipo": "noticia",
+   "destaque": "XBOX: MUDA A REGIÃO",
+   "lado": "dir",
+   "midia": [
+    {
+     "commons": "Xbox Series X",
+     "tipo": "video"
+    },
+    {
+     "arquivo": "video/midia/gta-6/xbox-series-x.jpg",
+     "inteira": true
+    },
+    {
+     "arquivo": "video/midia/gta-6/assalto.jpg"
+    }
+   ]
+  },
+  {
+   "texto": "No PS5 é pior: precisa de conta neozelandesa e de outra cópia do jogo.",
+   "tipo": "noticia",
+   "destaque": "PS5: OUTRA CÓPIA",
+   "gesto": "aponta",
+   "lado": "dir",
+   "midia": [
+    {
+     "arquivo": "video/midia/gta-6/ps5.jpg",
+     "inteira": true
+    }
+   ]
+  },
+  {
+   "texto": "Comprar GTA duas vezes? Aí é amor demais, hein.",
+   "tipo": "comentario",
+   "gesto": "pensativo",
+   "lado": "esq",
+   "midia": [
+    {
+     "arquivo": "video/midia/gta-6/gta6-boia-piscina.jpg"
+    }
+   ]
+  },
+  {
+   "texto": "O passo a passo completo tá no Aloha Notícias!",
+   "tipo": "noticia",
+   "gesto": "tchau",
+   "lado": "esq",
+   "midia": [
+    {
+     "youtube": "QdBZY2fkU-0",
+     "inicio": 20,
+     "dur": 3
+    },
+    {
+     "arquivo": "video/midia/gta-6/jason-lucia-por-do-sol.jpg"
+    }
+   ]
+  }
+ ],
+ "fundo_final": {
+  "arquivo": "video/midia/gta-6/jason-lucia-bandana.jpg"
+ }
+}
