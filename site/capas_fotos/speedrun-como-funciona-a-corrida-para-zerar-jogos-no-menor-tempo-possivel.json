@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "fotos": [
+  {
+   "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/ss_03bfe6bd5ddac7f747c8d2aa1a4f82cfd53c6dcb.1920x1080.jpg?t=1714089525",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Nintendo_64_con_mario64.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.2
+  }
+ ],
+ "titulo": "Speedrun",
+ "editoria": "games"
+}

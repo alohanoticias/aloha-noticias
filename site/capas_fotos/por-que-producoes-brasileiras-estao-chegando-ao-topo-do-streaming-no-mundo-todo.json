@@ -1,0 +1,15 @@
+{
+ "layout": "um",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Netflix_headquarters.jpg",
+   "foco": [
+    0.5,
+    0.55
+   ],
+   "zoom": 1.15
+  }
+ ],
+ "titulo": "Brasil no streaming",
+ "editoria": "cinema"
+}

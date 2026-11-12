@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Studio_Ghibli_20110726%28studio_2nd%29.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.1
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/PRODUCTION_I.G_STUDIO.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.1
+  }
+ ],
+ "titulo": "Estúdios de anime",
+ "editoria": "anime"
+}

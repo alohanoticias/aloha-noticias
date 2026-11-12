@@ -1,0 +1,155 @@
+{
+ "slug": "speedrun-como-funciona-a-corrida-para-zerar-jogos-no-menor-tempo-possivel",
+ "editoria": "games",
+ "titulo": "Speedrun: como funciona a corrida para zerar jogos no menor tempo possível",
+ "linha_fina": "Categorias, regras, cronômetro e maratonas beneficentes que arrecadam milhões. Entenda o que está por trás dos recordes mundiais e onde o Brasil entra nessa história.",
+ "autor": "Equipe Aloha",
+ "data": "2026-11-29T09:48",
+ "tags": [
+  "speedrun",
+  "recorde mundial",
+  "Games Done Quick",
+  "BRAT",
+  "Super Mario 64",
+  "Celeste",
+  "any%"
+ ],
+ "imagem": {
+  "url": "assets/img/capas/speedrun-como-funciona-a-corrida-para-zerar-jogos-no-menor-tempo-possivel.jpg",
+  "alt": "Cena de Celeste com a protagonista escalando uma montanha sob chuva, em pixel art rosa e lilás",
+  "credito": "Imagens: Maddy Makes Games / divulgação, via Steam; Jjrocas / Wikimedia Commons (CC BY-SA 4.0)"
+ },
+ "video": {
+  "youtube": "M9Li3gm4JCI",
+  "titulo": "Hollow Knight: Silksong em 54 minutos no AGDQ 2026 (Games Done Quick)"
+ },
+ "corpo": [
+  "Terminar um jogo de 30 horas em 20 minutos parece impossível, até você assistir a um speedrun. A palavra vem do inglês e quer dizer algo como \"corrida de velocidade\": o objetivo é chegar aos créditos finais no menor tempo possível, seguindo regras definidas pela própria comunidade. O que começou como passatempo de fóruns na internet virou um hobby com rankings, recordes disputados por centésimos de segundo e maratonas que arrecadam milhões de dólares para caridade.",
+  "## As categorias: nem todo recorde é igual",
+  "Cada jogo tem várias categorias, e é isso que torna as comparações justas. A mais famosa é a any%, em que vale tudo para chegar ao fim, independentemente de quanto do jogo foi completado. Na categoria 100%, o jogador precisa coletar ou concluir tudo o que o jogo exige. Há ainda as versões glitchless, que proíbem o uso de falhas de programação, e categorias específicas criadas pelos fãs de cada título.",
+  "Super Mario 64 é um bom exemplo. Os recordes são separados pelo número de estrelas coletadas: 120, 70, 16, 1 e até 0 estrelas. Cada categoria exige rotas e técnicas diferentes, e algumas só existem porque jogadores descobriram jeitos de pular partes que o jogo, em tese, tornaria obrigatórias.",
+  "!img https://upload.wikimedia.org/wikipedia/commons/0/0d/N64_Clear_Blue_with_Super_Mario_64_20100603.jpg|Nintendo 64 com o cartucho de Super Mario 64, um dos jogos mais populares do speedrun|Foto: Noa Kosanovic / Wikimedia Commons (CC BY 3.0)",
+  "## Como um recorde é validado",
+  "A maior parte dos rankings fica no site speedrun.com, que reúne rankings de dezenas de milhares de jogos. Para entrar na tabela, o jogador envia o vídeo completo da partida, com o cronômetro visível, e moderadores voluntários conferem se as regras foram seguidas. O tempo costuma ser medido com programas como o LiveSplit, que divide a partida em trechos e mostra, em tempo real, se o jogador está à frente ou atrás do seu melhor resultado.",
+  "Também existe uma diferença importante entre RTA e TAS. RTA, sigla de \"tempo real\", é a partida feita por uma pessoa, com controle na mão. TAS, sigla de \"speedrun assistido por ferramenta\", é uma execução programada quadro a quadro em emulador. Os TAS mostram o limite teórico de um jogo e não competem com os recordes humanos.",
+  "!img https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/ss_4b0f0222341b64a37114033aca9994551f27c161.1920x1080.jpg?t=1714089525|Cena de Celeste. O jogo virou referência no speedrun pela precisão dos controles|Imagem: Maddy Makes Games / divulgação, via Steam",
+  "## As maratonas que viraram eventos de caridade",
+  "O maior evento do mundo é o Games Done Quick, criado em 2010 nos Estados Unidos. Duas vezes por ano, corredores se revezam ao vivo durante uma semana inteira, com transmissão pela internet e doações do público. A edição de janeiro de 2026, o Awesome Games Done Quick, arrecadou cerca de 2,44 milhões de dólares para a Prevent Cancer Foundation. Somando todas as edições, o evento já passou dos 60 milhões de dólares doados, segundo os organizadores.",
+  "O formato também tem seus problemas. Em 2022, um corredor foi banido do evento por ter apresentado uma partida pré-gravada como se fosse ao vivo, o que mostra por que a verificação é levada tão a sério pela comunidade.",
+  "## E o Brasil nessa história?",
+  "O Brasil tem uma comunidade forte e reconhecida lá fora. A principal maratona nacional é a Brazilians Against Time, a BRAT, criada em 2016 pelo speedrunner Hugo \"Hugo4fun\" Carvalho depois de ele participar do Games Done Quick. A primeira edição foi presencial, em São Paulo, e beneficiou a AACD. Desde então, a BRAT realiza maratonas online e presenciais com corredores brasileiros e doações para instituições de caridade.",
+  "## Como começar",
+  "Não é preciso ser recordista para fazer speedrun. A dica de quem está na comunidade é escolher um jogo de que você goste muito, porque serão centenas de tentativas. Depois, basta procurar a página dele no speedrun.com, ler as regras da categoria, assistir aos melhores tempos e instalar um cronômetro. O primeiro objetivo não é o recorde mundial, mas o seu próprio recorde pessoal.",
+  "Fontes: [Prevent Cancer Foundation, resultado do AGDQ 2026](https://preventcancer.org/news/games-done-quick-raises-over-2-4-million-for-prevent-cancer-foundation-at-annual-gaming-marathon/), [Nintendo Life, AGDQ 2026 e o banimento de 2022](https://www.nintendolife.com/news/2026/01/awesome-games-done-quick-2026-raises-usd2-44-million-for-charity), [Games.gg, total histórico após o SGDQ 2026](https://games.gg/news/sgdq-2026-raises-2-4-million/) (em inglês), [TecMundo, a primeira maratona brasileira](https://www.tecmundo.com.br/video-game-e-jogos/97384-brazilians-against-time-conheca-primeira-maratona-brasileira-speedrun.htm) e [Diário Online, a origem da BRAT](https://dol.com.br/entretenimento/games/noticia-421167-brazilians-against-time-correndo-por-um-bom-motivo.html)."
+ ],
+ "traducoes": {
+  "en": {
+   "slug": "speedrunning-how-it-works",
+   "titulo": "Speedrunning: how the race to finish games as fast as possible works",
+   "linha_fina": "Categories, rules, timers and charity marathons that raise millions. Here's what's behind world records and where Brazil fits into the story.",
+   "tags": [
+    "speedrun",
+    "world record",
+    "Games Done Quick",
+    "BRAT",
+    "Super Mario 64",
+    "Celeste",
+    "any%"
+   ],
+   "alt": "Scene from Celeste with the protagonist climbing a mountain in the rain, in pink and lilac pixel art",
+   "credito": "Images: Maddy Makes Games / press, via Steam; Jjrocas / Wikimedia Commons (CC BY-SA 4.0)",
+   "video_titulo": "Hollow Knight: Silksong in 54 minutes at AGDQ 2026 (Games Done Quick)",
+   "corpo": [
+    "Finishing a 30-hour game in 20 minutes sounds impossible, until you watch a speedrun. The goal is to reach the end credits in the shortest possible time, following rules set by the community itself. What started as a pastime on internet forums became a hobby with leaderboards, records contested by hundredths of a second and marathons that raise millions of dollars for charity.",
+    "## Categories: not every record is the same",
+    "Each game has several categories, and that is what makes comparisons fair. The most famous is any%, in which anything goes to reach the end, regardless of how much of the game was completed. In the 100% category, the player must collect or complete everything the game requires. There are also glitchless versions, which ban the use of programming bugs, and specific categories created by each title's fans.",
+    "Super Mario 64 is a good example. Records are split by the number of stars collected: 120, 70, 16, 1 and even 0 stars. Each category requires different routes and techniques, and some only exist because players found ways to skip parts the game would, in theory, make mandatory.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/0/0d/N64_Clear_Blue_with_Super_Mario_64_20100603.jpg|A Nintendo 64 with the Super Mario 64 cartridge, one of the most popular games in speedrunning|Photo: Noa Kosanovic / Wikimedia Commons (CC BY 3.0)",
+    "## How a record is validated",
+    "Most leaderboards live on speedrun.com, which hosts rankings for tens of thousands of games. To get on the board, the player submits the full video of the run, with the timer visible, and volunteer moderators check whether the rules were followed. Time is usually measured with programs like LiveSplit, which splits the run into segments and shows, in real time, whether the player is ahead of or behind their best result.",
+    "There is also an important difference between RTA and TAS. RTA, short for real-time attack, is a run done by a person, controller in hand. TAS, short for tool-assisted speedrun, is a run programmed frame by frame in an emulator. TAS runs show a game's theoretical limit and don't compete with human records.",
+    "!img https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/ss_4b0f0222341b64a37114033aca9994551f27c161.1920x1080.jpg?t=1714089525|Scene from Celeste. The game became a speedrunning reference thanks to its precise controls|Image: Maddy Makes Games / press, via Steam",
+    "## The marathons that became charity events",
+    "The world's biggest event is Games Done Quick, created in 2010 in the United States. Twice a year, runners take turns live for a whole week, streamed online with donations from viewers. The January 2026 edition, Awesome Games Done Quick, raised about $2.44 million for the Prevent Cancer Foundation. Across all editions, the event has passed $60 million donated, according to the organizers.",
+    "The format has its problems too. In 2022, a runner was banned from the event for presenting a pre-recorded run as if it were live, which shows why the community takes verification so seriously.",
+    "## And Brazil?",
+    "Brazil has a strong community that is recognized abroad. The main national marathon is Brazilians Against Time, or BRAT, created in 2016 by speedrunner Hugo \"Hugo4fun\" Carvalho after he took part in Games Done Quick. The first edition was held in person in São Paulo and benefited AACD, a Brazilian rehabilitation charity. Since then, BRAT has held online and in-person marathons with Brazilian runners and donations to charities.",
+    "## How to start",
+    "You don't have to be a record holder to speedrun. The advice from the community is to pick a game you really love, because there will be hundreds of attempts. Then just look up its page on speedrun.com, read the category rules, watch the best times and install a timer. The first goal isn't the world record, but your own personal best.",
+    "Sources: [Prevent Cancer Foundation, AGDQ 2026 result](https://preventcancer.org/news/games-done-quick-raises-over-2-4-million-for-prevent-cancer-foundation-at-annual-gaming-marathon/), [Nintendo Life, AGDQ 2026 and the 2022 ban](https://www.nintendolife.com/news/2026/01/awesome-games-done-quick-2026-raises-usd2-44-million-for-charity), [Games.gg, all-time total after SGDQ 2026](https://games.gg/news/sgdq-2026-raises-2-4-million/), [TecMundo, the first Brazilian marathon](https://www.tecmundo.com.br/video-game-e-jogos/97384-brazilians-against-time-conheca-primeira-maratona-brasileira-speedrun.htm) and [Diário Online, BRAT's origin](https://dol.com.br/entretenimento/games/noticia-421167-brazilians-against-time-correndo-por-um-bom-motivo.html) (the last two in Portuguese)."
+   ]
+  },
+  "es": {
+   "slug": "speedrun-como-funciona-es",
+   "titulo": "Speedrun: cómo funciona la carrera para terminar juegos en el menor tiempo posible",
+   "linha_fina": "Categorías, reglas, cronómetro y maratones benéficos que recaudan millones. Entiende qué hay detrás de los récords mundiales y dónde entra Brasil en esta historia.",
+   "tags": [
+    "speedrun",
+    "récord mundial",
+    "Games Done Quick",
+    "BRAT",
+    "Super Mario 64",
+    "Celeste",
+    "any%"
+   ],
+   "alt": "Escena de Celeste con la protagonista escalando una montaña bajo la lluvia, en pixel art rosa y lila",
+   "credito": "Imágenes: Maddy Makes Games / divulgación, vía Steam; Jjrocas / Wikimedia Commons (CC BY-SA 4.0)",
+   "video_titulo": "Hollow Knight: Silksong en 54 minutos en AGDQ 2026 (Games Done Quick)",
+   "corpo": [
+    "Terminar un juego de 30 horas en 20 minutos parece imposible, hasta que ves un speedrun. La palabra viene del inglés y significa algo así como \"carrera de velocidad\": el objetivo es llegar a los créditos finales en el menor tiempo posible, siguiendo reglas definidas por la propia comunidad. Lo que empezó como pasatiempo de foros en internet se volvió un hobby con clasificaciones, récords disputados por centésimas de segundo y maratones que recaudan millones de dólares para obras benéficas.",
+    "## Las categorías: no todos los récords son iguales",
+    "Cada juego tiene varias categorías, y eso es lo que hace justas las comparaciones. La más famosa es any%, en la que vale todo para llegar al final, sin importar cuánto del juego se haya completado. En la categoría 100%, el jugador debe reunir o completar todo lo que exige el juego. También existen las versiones glitchless, que prohíben usar fallos de programación, y categorías específicas creadas por los fans de cada título.",
+    "Super Mario 64 es un buen ejemplo. Los récords se separan por el número de estrellas reunidas: 120, 70, 16, 1 e incluso 0 estrellas. Cada categoría exige rutas y técnicas distintas, y algunas solo existen porque los jugadores descubrieron formas de saltarse partes que el juego, en teoría, haría obligatorias.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/0/0d/N64_Clear_Blue_with_Super_Mario_64_20100603.jpg|Nintendo 64 con el cartucho de Super Mario 64, uno de los juegos más populares del speedrun|Foto: Noa Kosanovic / Wikimedia Commons (CC BY 3.0)",
+    "## Cómo se valida un récord",
+    "La mayoría de las clasificaciones están en el sitio speedrun.com, que reúne rankings de decenas de miles de juegos. Para entrar en la tabla, el jugador envía el video completo de la partida, con el cronómetro visible, y moderadores voluntarios comprueban si se respetaron las reglas. El tiempo suele medirse con programas como LiveSplit, que divide la partida en tramos y muestra en tiempo real si el jugador va por delante o por detrás de su mejor resultado.",
+    "También hay una diferencia importante entre RTA y TAS. RTA, de \"ataque en tiempo real\", es la partida hecha por una persona, con el mando en la mano. TAS, de \"speedrun asistido por herramientas\", es una ejecución programada cuadro a cuadro en un emulador. Los TAS muestran el límite teórico de un juego y no compiten con los récords humanos.",
+    "!img https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/ss_4b0f0222341b64a37114033aca9994551f27c161.1920x1080.jpg?t=1714089525|Escena de Celeste. El juego se volvió referencia en el speedrun por la precisión de sus controles|Imagen: Maddy Makes Games / divulgación, vía Steam",
+    "## Los maratones que se volvieron eventos benéficos",
+    "El mayor evento del mundo es Games Done Quick, creado en 2010 en Estados Unidos. Dos veces al año, los corredores se turnan en directo durante una semana entera, con transmisión por internet y donaciones del público. La edición de enero de 2026, Awesome Games Done Quick, recaudó unos 2,44 millones de dólares para la Prevent Cancer Foundation. Sumando todas las ediciones, el evento ya superó los 60 millones de dólares donados, según los organizadores.",
+    "El formato también tiene sus problemas. En 2022, un corredor fue expulsado del evento por presentar una partida pregrabada como si fuera en directo, lo que muestra por qué la comunidad se toma tan en serio la verificación.",
+    "## ¿Y Brasil?",
+    "Brasil tiene una comunidad fuerte y reconocida fuera del país. El principal maratón nacional es Brazilians Against Time, la BRAT, creado en 2016 por el speedrunner Hugo \"Hugo4fun\" Carvalho después de participar en Games Done Quick. La primera edición fue presencial, en São Paulo, y benefició a la AACD, una institución brasileña de rehabilitación. Desde entonces, la BRAT organiza maratones en línea y presenciales con corredores brasileños y donaciones a instituciones benéficas.",
+    "## Cómo empezar",
+    "No hace falta ser plusmarquista para hacer speedrun. El consejo de la comunidad es elegir un juego que te guste mucho, porque serán cientos de intentos. Después, basta con buscar su página en speedrun.com, leer las reglas de la categoría, ver los mejores tiempos e instalar un cronómetro. El primer objetivo no es el récord mundial, sino tu propia mejor marca.",
+    "Fuentes: [Prevent Cancer Foundation, resultado de AGDQ 2026](https://preventcancer.org/news/games-done-quick-raises-over-2-4-million-for-prevent-cancer-foundation-at-annual-gaming-marathon/), [Nintendo Life, AGDQ 2026 y la expulsión de 2022](https://www.nintendolife.com/news/2026/01/awesome-games-done-quick-2026-raises-usd2-44-million-for-charity), [Games.gg, total histórico tras SGDQ 2026](https://games.gg/news/sgdq-2026-raises-2-4-million/) (en inglés), [TecMundo, el primer maratón brasileño](https://www.tecmundo.com.br/video-game-e-jogos/97384-brazilians-against-time-conheca-primeira-maratona-brasileira-speedrun.htm) y [Diário Online, el origen de la BRAT](https://dol.com.br/entretenimento/games/noticia-421167-brazilians-against-time-correndo-por-um-bom-motivo.html) (en portugués)."
+   ]
+  },
+  "it": {
+   "slug": "speedrun-come-funziona",
+   "titulo": "Speedrun: come funziona la corsa per finire i giochi nel minor tempo possibile",
+   "linha_fina": "Categorie, regole, cronometro e maratone benefiche che raccolgono milioni. Ecco cosa c'è dietro i record mondiali e dove entra il Brasile in questa storia.",
+   "tags": [
+    "speedrun",
+    "record mondiale",
+    "Games Done Quick",
+    "BRAT",
+    "Super Mario 64",
+    "Celeste",
+    "any%"
+   ],
+   "alt": "Scena di Celeste con la protagonista che scala una montagna sotto la pioggia, in pixel art rosa e lilla",
+   "credito": "Immagini: Maddy Makes Games / ufficio stampa, via Steam; Jjrocas / Wikimedia Commons (CC BY-SA 4.0)",
+   "video_titulo": "Hollow Knight: Silksong in 54 minuti all'AGDQ 2026 (Games Done Quick)",
+   "corpo": [
+    "Finire un gioco da 30 ore in 20 minuti sembra impossibile, finché non guardi uno speedrun. La parola viene dall'inglese e significa più o meno \"corsa veloce\": l'obiettivo è arrivare ai titoli di coda nel minor tempo possibile, seguendo regole stabilite dalla stessa comunità. Quello che è nato come passatempo nei forum su internet è diventato un hobby con classifiche, record contesi per centesimi di secondo e maratone che raccolgono milioni di dollari in beneficenza.",
+    "## Le categorie: non tutti i record sono uguali",
+    "Ogni gioco ha diverse categorie, ed è questo che rende i confronti equi. La più famosa è any%, in cui tutto è lecito pur di arrivare alla fine, indipendentemente da quanto del gioco sia stato completato. Nella categoria 100% il giocatore deve raccogliere o completare tutto ciò che il gioco richiede. Esistono anche le versioni glitchless, che vietano l'uso di bug di programmazione, e categorie specifiche create dai fan di ciascun titolo.",
+    "Super Mario 64 è un buon esempio. I record sono separati per numero di stelle raccolte: 120, 70, 16, 1 e perfino 0 stelle. Ogni categoria richiede percorsi e tecniche diversi, e alcune esistono solo perché i giocatori hanno scoperto modi per saltare parti che il gioco, in teoria, renderebbe obbligatorie.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/0/0d/N64_Clear_Blue_with_Super_Mario_64_20100603.jpg|Un Nintendo 64 con la cartuccia di Super Mario 64, uno dei giochi più popolari nello speedrun|Foto: Noa Kosanovic / Wikimedia Commons (CC BY 3.0)",
+    "## Come viene convalidato un record",
+    "La maggior parte delle classifiche si trova sul sito speedrun.com, che raccoglie i ranking di decine di migliaia di giochi. Per entrare in tabella, il giocatore invia il video completo della partita, con il cronometro visibile, e moderatori volontari verificano che le regole siano state rispettate. Il tempo si misura di solito con programmi come LiveSplit, che divide la partita in segmenti e mostra in tempo reale se il giocatore è avanti o indietro rispetto al suo miglior risultato.",
+    "C'è anche una differenza importante tra RTA e TAS. RTA, da \"real-time attack\", è la partita fatta da una persona, controller in mano. TAS, da \"tool-assisted speedrun\", è un'esecuzione programmata fotogramma per fotogramma in un emulatore. I TAS mostrano il limite teorico di un gioco e non competono con i record umani.",
+    "!img https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/ss_4b0f0222341b64a37114033aca9994551f27c161.1920x1080.jpg?t=1714089525|Scena di Celeste. Il gioco è diventato un riferimento nello speedrun per la precisione dei comandi|Immagine: Maddy Makes Games / ufficio stampa, via Steam",
+    "## Le maratone diventate eventi di beneficenza",
+    "L'evento più grande del mondo è Games Done Quick, nato nel 2010 negli Stati Uniti. Due volte l'anno, i runner si danno il cambio in diretta per un'intera settimana, con trasmissione online e donazioni del pubblico. L'edizione di gennaio 2026, Awesome Games Done Quick, ha raccolto circa 2,44 milioni di dollari per la Prevent Cancer Foundation. Sommando tutte le edizioni, l'evento ha superato i 60 milioni di dollari donati, secondo gli organizzatori.",
+    "Il formato ha anche i suoi problemi. Nel 2022 un runner è stato bandito dall'evento per aver presentato una partita preregistrata come se fosse in diretta, il che spiega perché la comunità prenda così sul serio le verifiche.",
+    "## E il Brasile?",
+    "Il Brasile ha una comunità forte e riconosciuta all'estero. La principale maratona nazionale è Brazilians Against Time, la BRAT, creata nel 2016 dallo speedrunner Hugo \"Hugo4fun\" Carvalho dopo aver partecipato a Games Done Quick. La prima edizione si è svolta in presenza a San Paolo ed è andata a beneficio dell'AACD, un ente brasiliano di riabilitazione. Da allora la BRAT organizza maratone online e in presenza con runner brasiliani e donazioni a enti benefici.",
+    "## Come cominciare",
+    "Non serve essere detentori di record per fare speedrun. Il consiglio di chi fa parte della comunità è scegliere un gioco che ami molto, perché i tentativi saranno centinaia. Poi basta cercare la sua pagina su speedrun.com, leggere le regole della categoria, guardare i tempi migliori e installare un cronometro. Il primo obiettivo non è il record mondiale, ma il tuo record personale.",
+    "Fonti: [Prevent Cancer Foundation, risultato dell'AGDQ 2026](https://preventcancer.org/news/games-done-quick-raises-over-2-4-million-for-prevent-cancer-foundation-at-annual-gaming-marathon/), [Nintendo Life, AGDQ 2026 e il bando del 2022](https://www.nintendolife.com/news/2026/01/awesome-games-done-quick-2026-raises-usd2-44-million-for-charity), [Games.gg, totale storico dopo lo SGDQ 2026](https://games.gg/news/sgdq-2026-raises-2-4-million/) (in inglese), [TecMundo, la prima maratona brasiliana](https://www.tecmundo.com.br/video-game-e-jogos/97384-brazilians-against-time-conheca-primeira-maratona-brasileira-speedrun.htm) e [Diário Online, l'origine della BRAT](https://dol.com.br/entretenimento/games/noticia-421167-brazilians-against-time-correndo-por-um-bom-motivo.html) (in portoghese)."
+   ]
+  }
+ }
+}
