@@ -285,6 +285,8 @@ def main():
     ref = com_margem(cv2.imread(os.path.join(HD, ref_nome + ".png"), cv2.IMREAD_UNCHANGED))
     C = deslocar(cfgs[ref_nome], MARGEM)
     preparar(ref_nome, ref, C, os.path.join(SAIDA, ref_nome))
+    rj = os.path.join(SAIDA, ref_nome, "rig.json"); r_ = json.load(open(rj)); r_["M_de_apresenta"] = [[1, 0, 0], [0, 1, 0]]
+    json.dump(r_, open(rj, "w"), indent=1)
     escalas = {ref_nome: 1.0}
     for nome, extra in cfgs.items():
         if nome == ref_nome:
@@ -296,6 +298,8 @@ def main():
         print(nome, "pontos casados:", n, "escala", round(D["escala_cabeca"], 3))
         preparar(nome, alvo, D, os.path.join(SAIDA, nome))
         escalas[nome] = D["escala_cabeca"]
+        rj = os.path.join(SAIDA, nome, "rig.json"); r_ = json.load(open(rj)); r_["M_de_apresenta"] = M.tolist()
+        json.dump(r_, open(rj, "w"), indent=1)
     json.dump(escalas, open(os.path.join(SAIDA, "escalas.json"), "w"), indent=1)
     sys.path.insert(0, AQUI)
     from preparar_poses import logo_bbox

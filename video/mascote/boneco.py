@@ -48,6 +48,18 @@ class Boneco:
             d["x0"], d["y0"] = int(round(float(d["x0"]) * s)), int(round(float(d["y0"]) * s))
             d["tras"] = nome == "dir"
             self.olhos.append(d)
+        self.bocas = None
+        bp = os.path.join(pasta, "bocas.npz")
+        if os.path.exists(bp):
+            bz = np.load(bp)
+            bx0, by0 = int(bz["x0"]), int(bz["y0"])
+            self.bocas = []
+            for i in range(1, 9):
+                b, m = bz[f"b{i}"], bz[f"m{i}"].astype(np.float32)
+                nw, nh = max(2, int(b.shape[1] * s)), max(2, int(b.shape[0] * s))
+                self.bocas.append((cv2.resize(b, (nw, nh), interpolation=cv2.INTER_AREA).astype(np.float32),
+                                   cv2.resize(m, (nw, nh), interpolation=cv2.INTER_LINEAR)[..., None]))
+            self.boca_xy = (int(round(bx0 * s)), int(round(by0 * s)))
         self.gx, self.gy = np.meshgrid(np.arange(W, dtype=np.float32), np.arange(H, dtype=np.float32))
         ys = np.where(self.w_cab.max(axis=1) > 0.001)[0]
         self.lim_cab = int(ys.max()) + 2 if len(ys) else 0
@@ -122,6 +134,22 @@ class Boneco:
         reg[..., 3:] = np.maximum(reg[..., 3:], bs[..., 3:])
         src[y0:y1, x0:x1] = reg.astype(np.uint8)
 
+    def _boca_desenho(self, src, v):
+        """Troca o bico pelo desenho v (1..8), misturando a borda suavemente."""
+        b, m = self.bocas[v - 1]
+        x0, y0 = self.boca_xy
+        h, w = m.shape[:2]
+        h = min(h, src.shape[0] - y0); w = min(w, src.shape[1] - x0)
+        b, m = b[:h, :w], m[:h, :w]
+        reg = src[y0:y0 + h, x0:x0 + w].astype(np.float32)
+        a_b = b[..., 3:] / 255.0
+        a_r = reg[..., 3:] / 255.0
+        # "over" com a máscara: dentro da região vale o desenho (inclusive o vazio em volta do bico)
+        a_out = a_b * m + a_r * (1 - m)
+        cor = (b[..., :3] * a_b * m + reg[..., :3] * a_r * (1 - m)) / np.maximum(a_out, 1e-4)
+        reg[..., :3] = cor; reg[..., 3:] = a_out * 255
+        src[y0:y0 + h, x0:x0 + w] = np.clip(reg, 0, 255).astype(np.uint8)
+
     def ponta_bico(self, cabeca=0.0):
         px, py = self.ponta
         c = self.pc; k = math.radians(cabeca)
@@ -143,9 +171,11 @@ class Boneco:
         ey = self.c_olho[1] + (ny - self.c_olho[1]) / olho_esc
         return nx + wo * (ex - nx), ny + wo * (ey - ny)
 
-    def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0, sob_y=0.0, sob_rot=0.0, olho_esc=1.0):
+    def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0, sob_y=0.0, sob_rot=0.0, olho_esc=1.0, visema=None):
         src = self.base.copy()
-        if self.tem_boca:
+        if visema and self.bocas:
+            self._boca_desenho(src, int(visema))       # desenho de bico pronto (sem a mandíbula girada)
+        elif self.tem_boca:
             self._bico(src, self.ang_fechado * (1 - min(1.1, max(0, boca))))
         else:
             self._bico(src, 0.0)

@@ -488,6 +488,49 @@ def planejar(falas, total, dur_voz, env):
             ult_troca = k
         d_ = (k - ult_troca) / FPS
         P[k]["pop"] = 0.965 + 0.035 * ease_out_back(min(1, d_ / 0.18), 2.0) if d_ < 0.3 else 1.0
+    # ---- sincronia labial com os desenhos de bico
+    vis = [1] * n
+    import unicodedata as _u
+    def _base(ch):
+        return _u.normalize("NFD", ch)[0]
+    for f in falas:
+        for txt, a, b in f["palavras"]:
+            letras = [c for c in txt.lower() if c.isalpha()]
+            if not letras:
+                continue
+            pesos = [2.2 if _base(c) in "aeiou" else 1.0 for c in letras]
+            tot = sum(pesos); t0_ = a
+            for c, w_ in zip(letras, pesos):
+                t1_ = t0_ + (b - a) * w_ / tot
+                bc = _base(c)
+                if bc == "a": v = 4
+                elif bc in "ei": v = 6
+                elif bc in "ou": v = 5
+                elif bc in "mbp": v = 1
+                elif bc in "fv": v = 2
+                else: v = 3
+                for k_ in range(int(t0_ * FPS), min(n, int(round(t1_ * FPS)) + 0)):
+                    vis[k_] = v
+                t0_ = t1_
+    for k in range(n):
+        e_ = env[min(k, len(env) - 1)]
+        f = P[k]["fala"]
+        if vis[k] == 4 and e_ < 0.45:
+            vis[k] = 3                                   # "a" fraco: meio aberto
+        if vis[k] in (3, 4, 5, 6) and e_ < 0.12:
+            vis[k] = 2
+        if f and f.get("gesto") == "risada" and P[k]["t"] - f["inicio"] < 1.1 and vis[k] != 1:
+            vis[k] = 7                                   # começa rindo
+        if f and (f.get("expressao") == "surpreso" or f.get("gesto") == "surpreso") and 0 <= P[k]["t"] - f["inicio"] < 0.35 and vis[k] != 1:
+            vis[k] = 8
+        if P[k]["fim"]:
+            vis[k] = 1
+    # sem piscar de desenho: cada bico fica pelo menos 2 quadros
+    for k in range(1, n - 1):
+        if vis[k] != vis[k - 1] and vis[k] != vis[k + 1]:
+            vis[k] = vis[k - 1]
+    for k in range(n):
+        P[k]["visema"] = vis[k]
     trocas = [k for k in range(1, n) if P[k]["lado"] != P[k - 1]["lado"]]
     for k in range(n):
         P[k]["saida"] = 0.0
@@ -595,7 +638,8 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
         # ---- mascote: a pose da fala, sempre animada (bico, olhos, cabeça; braço na "apresenta")
         nome_p = q["pose"] if q["pose"] in bonecos else "apresenta"
         bon = bonecos[nome_p]
-        mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"], q["sob_y"], q["sob_rot"], q["olho_esc"])
+        mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"], q["sob_y"], q["sob_rot"], q["olho_esc"],
+                        visema=q.get("visema") if nome_p != "joinha" or not q["fim"] else 1)
         es = q["esc"] * q["pop"]
         esq = q["lado"] == "esq"
         if abs(es - 1) > 0.003:

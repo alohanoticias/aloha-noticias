@@ -22,3 +22,6 @@ Segredos opcionais: `ANTHROPIC_API_KEY` (escreve o roteiro quando não houver ar
 e `TELEGRAM_VIDEOS_CHAT_ID` (use um chat separado do canal de rascunhos, que publica sozinho).
 
 Teste local sem voz: `python3 video/fazer_videos.py --data 2026-11-11 --sem-voz`.
+
+- `mascote/referencias/bocas/folha-bocas.png` — 8 desenhos de bico (fechado, pouco aberto, meio, bem aberto, O/U, E/I, rindo, surpreso). `python3 video/mascote/preparar_bocas.py` encaixa no rig; o vídeo troca o desenho conforme o som de cada sílaba.
+- Ordem para refazer o mascote: `preparar_mascote.py` e depois `preparar_bocas.py`.
