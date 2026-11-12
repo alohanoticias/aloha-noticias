@@ -65,6 +65,13 @@ Antes de salvar um rascunho, passe por estes pontos, para a pessoa receber algo 
 4. **Risco de AdSense**: sem título sensacionalista ou clickbait, sem promessa de ganho, sem conteúdo médico ou financeiro como recomendação, imagens de terceiros só com crédito e fonte na legenda (decisão da diretoria), links só para fontes confiáveis, aviso informativo em Finanças.
 5. **Forma**: assinatura alternada: "João Gabriel" em matérias com análise, opinião, teste ou guia próprio (primeira pessoa permitida); "Equipe Aloha" em notícias diretas, calendários e explicativos. Mantenha as duas assinaturas misturadas ao longo da semana: mais ou menos metade para cada uma, nunca mais de 2 artigos seguidos com o mesmo autor na agenda, e confira os agendados antes de salvar um rascunho novo (em 12/11/2026 a agenda inteira tinha saído só com "João Gabriel"); linha fina clara, tags coerentes, ortografia revisada, capa, fotos e vídeo conforme as regras abaixo.
 
+## Checagem antes da publicação (menos correções, 12/11/2026)
+Em 12/11/2026, 5 dos 27 artigos publicados tinham nota de correção. Para baixar esse número:
+1. **Datas, preços e horários só da fonte oficial** (estúdio, distribuidora, plataforma, loja). Se só um portal publicou, diga no texto que é informação de uma fonte só ou deixe de fora.
+2. **Conferir de novo na véspera**: todo agendado com data, preço, horário ou elenco é reaberto nas fontes oficiais no dia anterior à publicação. Se algo mudou, corrija o agendado antes de ele ir ao ar (é bem melhor que uma nota de correção depois).
+3. **Nada de "a confirmar" virando fato**: rumor, vazamento e palpite de insider aparecem como tal no texto, nunca no título.
+4. **Fuso horário**: horário de Brasília sempre, com a conta feita a partir do horário oficial (GMT, PT, JST).
+
 ## Manutenção dos rascunhos que estão esperando
 Em cada execução, olhe os rascunhos pendentes em `rascunhos/`:
 - Se algum fato mudou (decisão, estreia, preço, resultado, "nesta quinta" que já passou), atualize o texto e a data do rascunho, e conte isso na mensagem final.
@@ -218,3 +225,12 @@ sem tomar o lugar das notícias do momento.
 **Título honesto.** O título nunca promete o que o texto não entrega: nada de "grátis", "liberado", "vazou",
 "confirmado" ou "de graça" se o texto não confirma exatamente isso. Condição importante vai no próprio título
 (ex.: "com pontos do Microsoft Rewards", "só para assinantes").
+
+
+## Parceiros e tráfego (proteção da conta do AdSense, 12/11/2026)
+Tráfego inválido é o que mais derruba contas do AdSense depois da aprovação. Valem sempre:
+- Nunca pagar parceiro por clique, por visita ou por "acesso", e nunca oferecer prêmio, sorteio ou vantagem em jogo em troca de visitas.
+- Nunca pedir (nem sugerir) que alguém clique nos anúncios, nem colocar texto como "apoie clicando". Ninguém da equipe clica nos próprios anúncios.
+- Divulgação em comunidades de jogos com público infantil (Roblox, Free Fire, Stumble Guys): o link leva para a matéria, sem promessa de recompensa.
+- Acompanhar no painel de métricas do /admin cada origem de parceiro: se uma origem manda muita visita de uma vez, ou visitas que saem logo, pausar aquele link e investigar antes que vire problema.
+- Nada de tráfego comprado, robôs, trocas de visita ou "grupos de clique".
