@@ -32,6 +32,9 @@ QUEIXO = [(388, 250), (440, 285), (486, 306), (494, 336), (484, 370), (472, 398)
 MANDIBULA_LIMITE = [(394, 250), (512, 304), (515, 322), (510, 340), (496, 372), (474, 390),
                     (446, 384), (424, 360), (410, 330), (400, 296)]
 QUEIXO_BORDA = [(493, 322), (494, 336), (484, 370), (470, 394)]
+SOBRANCELHA = [(356, 152), (390, 141), (430, 150), (462, 166), (478, 186), (474, 206), (458, 203),
+               (432, 190), (402, 184), (374, 184), (358, 177)]
+PIVO_SOBRANCELHA = (360, 168)
 OLHO_ESQ_POLI = [(379, 204), (384, 196), (396, 189), (412, 187), (426, 190), (438, 196), (448, 203), (453, 212),
                  (450, 224), (442, 234), (430, 240), (416, 238), (402, 231), (390, 221), (382, 211)]
 OLHO_DIR_POLI = [(510, 186), (520, 183), (528, 188), (531, 198), (529, 210), (520, 213), (511, 210), (508, 198)]
@@ -178,6 +181,16 @@ def main(caminho):
     lado = ((bx - ax) * (yy - ay) - (by - ay) * (xx - ax)) / nrm      # <0 = lado do antebraço
     w_bra = suave((-lado + 8) / 46.0) * suave((790 - yy) / 30.0) * (xx > 560)
 
+    # ---- pesos das expressões (sobrancelha e olho de perto)
+    sob = np.zeros((h, w), np.uint8)
+    cv2.fillPoly(sob, [np.array(SOBRANCELHA, np.int32)], 1)
+    dsb = cv2.distanceTransform((1 - sob).astype(np.uint8), cv2.DIST_L2, 5)
+    w_sob = suave(1 - dsb / 9.0)
+    olho = np.zeros((h, w), np.uint8)
+    cv2.fillPoly(olho, [np.array(OLHO_ESQ_POLI, np.int32)], 1)
+    dol = cv2.distanceTransform((1 - olho).astype(np.uint8), cv2.DIST_L2, 5)
+    w_olho = suave(1 - dol / 10.0)
+
     x0, y0, x1, y1 = RECORTE
     c = lambda m: m[y0:y1, x0:x1].astype(np.float16)
     cv2.imwrite(os.path.join(SAIDA, "base.png"), base[y0:y1, x0:x1])
@@ -189,14 +202,14 @@ def main(caminho):
         for k_, v_ in o.items():
             olhos[f"{nome}_{k_}"] = np.array(v_) - (x0 if k_ == "x0" else y0 if k_ == "y0" else 0)
     np.savez_compressed(os.path.join(SAIDA, "olhos.npz"), **olhos)
-    np.savez_compressed(os.path.join(SAIDA, "pesos.npz"), cabeca=c(w_cab), braco=c(w_bra),
+    np.savez_compressed(os.path.join(SAIDA, "pesos.npz"), cabeca=c(w_cab), braco=c(w_bra), sobrancelha=c(w_sob), olho=c(w_olho),
                         acima_bico=c(cv2.GaussianBlur((~abaixo).astype(np.float32), (0, 0), 0.8)))
     rel = lambda p: [p[0] - x0, p[1] - y0]
     olho = lambda o: dict(c=rel(o["c"]), r=list(o["r"]), ang=o["ang"], cor=list(o["cor"]))
     json.dump(dict(tamanho=[x1 - x0, y1 - y0], pivo_cabeca=rel(PIVO_CABECA), pivo_braco=rel(PIVO_BRACO),
                    dobradica=rel(DOBRADICA), regiao_boca=[300 - x0, 200 - y0, 640 - x0, 430 - y0],
                    regiao_braco=[560 - x0, 340 - y0, 1000 - x0, 800 - y0],
-                   angulo_fechado=20.0, olho_esq=olho(OLHO_ESQ), olho_dir=olho(OLHO_DIR)),
+                   angulo_fechado=20.0, pivo_sobrancelha=rel(PIVO_SOBRANCELHA), centro_olho=rel((415, 213)), olho_esq=olho(OLHO_ESQ), olho_dir=olho(OLHO_DIR)),
               open(os.path.join(SAIDA, "rig.json"), "w"), indent=1)
     print("rig salvo em", SAIDA)
 

@@ -23,6 +23,8 @@ class Boneco:
         p = np.load(os.path.join(pasta, "pesos.npz"))
         rs = lambda m: cv2.resize(m.astype(np.float32), (W, H), interpolation=cv2.INTER_LINEAR)
         self.w_cab, self.w_bra = rs(p["cabeca"]), rs(p["braco"])
+        self.w_sob = rs(p["sobrancelha"]) if "sobrancelha" in p else None
+        self.w_olho = rs(p["olho"]) if "olho" in p else None
         self.bico_sup = cv2.resize(cv2.imread(os.path.join(pasta, "bico_sup.png"), cv2.IMREAD_UNCHANGED), (W, H),
                                    interpolation=cv2.INTER_AREA)
         ol = np.load(os.path.join(pasta, "olhos.npz"))
@@ -48,6 +50,8 @@ class Boneco:
         self.rb = [int(v * s) for v in rig["regiao_boca"]]
         self.rbr = [int(v * s) for v in rig["regiao_braco"]]
         self.ang_fechado = rig["angulo_fechado"]
+        self.piv_sob = [v * s for v in rig.get("pivo_sobrancelha", [300, 168])]
+        self.c_olho = [v * s for v in rig.get("centro_olho", [355, 213])]
         self.olhos = []
         for k in ("olho_esq", "olho_dir"):
             o = rig[k]
@@ -142,7 +146,25 @@ class Boneco:
         dx, dy = px - c[0], py - c[1]
         return c[0] + math.cos(k) * dx + math.sin(k) * dy, c[1] - math.sin(k) * dx + math.cos(k) * dy
 
-    def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0):
+    def _expressao(self, sx, sy, sob_y=0.0, sob_rot=0.0, olho_esc=1.0):
+        """Desloca a sobrancelha (sobe/desce e inclina) e aumenta o olho — deformação suave do
+        próprio desenho, sem colagem. Recebe/devolve as coordenadas de origem (mapa inverso)."""
+        if self.w_sob is None or (abs(sob_y) < 0.05 and abs(sob_rot) < 0.05 and abs(olho_esc - 1) < 0.003):
+            return sx, sy
+        h, w = self.w_sob.shape
+        ix = np.clip(sx + 0.5, 0, w - 1).astype(np.int32); iy = np.clip(sy + 0.5, 0, h - 1).astype(np.int32)
+        ws, wo = self.w_sob[iy, ix], self.w_olho[iy, ix]
+        k = math.radians(sob_rot)
+        dx, dy = sx - self.piv_sob[0], sy - self.piv_sob[1]
+        rx = self.piv_sob[0] + math.cos(-k) * dx + math.sin(-k) * dy
+        ry = self.piv_sob[1] - math.sin(-k) * dx + math.cos(-k) * dy
+        nx = sx + ws * (rx - sx); ny = sy + ws * (ry - sy + sob_y * self.s)
+        ex = self.c_olho[0] + (nx - self.c_olho[0]) / olho_esc
+        ey = self.c_olho[1] + (ny - self.c_olho[1]) / olho_esc
+        nx = nx + wo * (ex - nx); ny = ny + wo * (ey - ny)
+        return nx, ny
+
+    def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0, sob_y=0.0, sob_rot=0.0, olho_esc=1.0):
         src = self.base.copy()
         self._bico(src, self.ang_fechado * (1 - min(1.15, max(0, boca))))
         for d in self.olhos_rec:
@@ -155,6 +177,7 @@ class Boneco:
             sx, sy = self._inverso(tx, ty, self.pc, cabeca, self.w_cab)
         else:
             sx, sy = tx.copy(), ty.copy()
+        sx, sy = self._expressao(sx, sy, sob_y, sob_rot, olho_esc)
         mx[:L], my[:L] = sx, sy
         # antebraço
         if abs(braco) > 0.01:

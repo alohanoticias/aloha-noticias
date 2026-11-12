@@ -318,6 +318,7 @@ def espelhar_pose(ps, nome, esc):
 
 
 POSE_K = {}
+POSE_ALTURA = 840
 
 
 # ============================================================ animação
@@ -376,6 +377,11 @@ def planejar(falas, total, dur_voz, env):
                 if i < n:
                     acento[i] = 1.0 + 0.06 * len(w)
     m_cab, m_bra = Mola(110, 12), Mola(55, 9)
+    m_sy, m_sr, m_oe, m_tp = Mola(160, 15), Mola(120, 14), Mola(140, 15, 1.0), Mola(90, 13)
+    EXPR = {  # (sobrancelha y, inclinação, escala do olho, pálpebra)
+        "neutro": (0, 0, 1.0, 0), "feliz": (-2, 0, 1.0, 0), "surpreso": (-9, 0, 1.09, 0),
+        "bravo": (3, -13, 1.0, 0.22), "determinado": (2, -8, 1.0, 0.12),
+        "desconfiado": (2, -6, 1.0, 0.42), "entediado": (3, 0, 1.0, 0.52), "pensativo": (0, -5, 1.0, 0.38)}
     m_x, m_esc, m_bob = Mola(60, 12), Mola(70, 11, 1.0), Mola(140, 16)
     boca = 0.0
     lado_ant = falas[0].get("lado", "esq")
@@ -407,15 +413,18 @@ def planejar(falas, total, dur_voz, env):
         bra = m_bra.passo(2.4 * math.sin(2 * math.pi * 0.21 * t + 0.6) + 16 * g["aponta"] - 12 * g["pensativo"]
                           + g["tchau"] * (9 + 15 * math.sin(2 * math.pi * 2.3 * t))
                           + 5 * g["risada"] * math.sin(2 * math.pi * 5.0 * t))
-        p = pisc[k]
+        ex = (fala or {}).get("expressao") or {"pensativo": "pensativo", "surpreso": "surpreso"}.get((fala or {}).get("gesto"), "neutro")
+        ev = EXPR.get(ex, EXPR["neutro"])
+        if acento[k] and ex in ("neutro", "feliz", "surpreso"):
+            m_sy.v -= 70 * acento[k]                                 # sobrancelha sobe na palavra forte
+        sob_y = m_sy.passo(ev[0]); sob_rot = m_sr.passo(ev[1]); olho_esc = m_oe.passo(ev[2]); tampa = m_tp.passo(ev[3])
+        p = max(pisc[k], tampa)
         if fala and fala.get("gesto") == "risada":
             dtf = t - fala["inicio"]
             p = max(p, ease(dtf / 0.12) * ease((0.95 - dtf) / 0.15))      # ri de olho fechado e abre
-        elif fala and fala.get("gesto") == "pensativo":
-            dtf = t - fala["inicio"]
-            p = max(p, 0.45 * ease(dtf / 0.2) * ease((1.4 - dtf) / 0.25))
         lado = (prox or {}).get("lado", lado_ant) if not fim else lado_ant
         P.append(dict(t=t, fala=fala, fim=fim, boca=boca, pisc=p, cab=cab, bra=bra, e=e, g=g, lado=lado,
+                      sob_y=sob_y, sob_rot=sob_rot, olho_esc=olho_esc,
                       coment=1.0 if (fala and fala.get("tipo") == "comentario" and not fim) else 0.0))
         lado_ant = lado
     # poses da folha (microfone, aponta_tela, tablet, braco_cruzado, apresenta, joinha):
@@ -458,9 +467,16 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
         for fn in os.listdir(pdir):
             if fn.endswith(".png"):
                 im = Image.open(os.path.join(pdir, fn)).convert("RGBA")
-                k = 900 / im.height                     # mesma altura de tronco do mascote
+                k = POSE_ALTURA / im.height             # mesma escala de cabeça do mascote
                 POSE_K[fn[:-4]] = k
-                poses[fn[:-4]] = im.resize((int(im.width * k), 900), Image.LANCZOS)
+                poses[fn[:-4]] = im.resize((int(im.width * k), POSE_ALTURA), Image.LANCZOS)
+        lj = os.path.join(pdir, "logos.json")
+        if os.path.exists(lj):
+            import json as _j
+            for nome_, bb in _j.load(open(lj)).items():
+                if bb:
+                    m_ = 70
+                    LOGO_POSES[nome_] = (bb[0] - m_, bb[1] - m_, bb[2] + m_, bb[3] + m_)
     falas = [{**f, **tt} for f, tt in zip(roteiro["falas"], falas_tempos)]
     total = dur_voz + FINAL
     n = int(total * FPS)
@@ -539,7 +555,7 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
                     fr.alpha_composite(im, (int(W / 2 - im.width / 2), int(ytopo + 130 - im.height / 2)))
                     break
         # ---- mascote (rig animado) ou pose da folha
-        mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"])
+        mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"], q["sob_y"], q["sob_rot"], q["olho_esc"])
         es = q["esc"]
         esq = q["lado"] == "esq"
         pm = q["pose_mix"] if q["pose"] in poses else 0.0

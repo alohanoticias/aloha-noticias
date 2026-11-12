@@ -54,6 +54,8 @@ de ~30 segundos que sai a partir das matérias publicadas no dia.
 - `pose` (opcional): uma posição da folha do personagem por até 1,6 s no começo da fala: `microfone`,
   `aponta_tela` (aponta para quem assiste), `tablet`, `braco_cruzado`, `apresenta`, `joinha`.
   O encerramento usa sempre `joinha`.
+- `expressao` (opcional): `neutro`, `feliz`, `surpreso`, `bravo`, `determinado`, `desconfiado`, `entediado`,
+  `pensativo` — mexe sobrancelha e pálpebra do próprio desenho (sem colagem).
 - `lado`: `esq` ou `dir` — canto do mascote. Trocar de lado 1 ou 2 vezes por vídeo; nos comentários ele chega mais perto.
 - `fundo_final`: mídia do cartão de encerramento.
 - `gesto` (opcional): `aponta` (levanta a mão), `risada` (fecha os olhos e balança), `pensativo`

@@ -28,6 +28,14 @@
   800
  ],
  "angulo_fechado": 20.0,
+ "pivo_sobrancelha": [
+  300,
+  168
+ ],
+ "centro_olho": [
+  355,
+  213
+ ],
  "olho_esq": {
   "c": [
    353,

@@ -31,7 +31,8 @@
      "url": "https://www.rockstargames.com/VI/_next/static/media/mobile.0mi46.hy2kwfa.jpg"
     }
    ],
-   "pose": "microfone"
+   "pose": "microfone",
+   "expressao": "surpreso"
   },
   {
    "texto": "Dezesseis horas! Dá pra zerar e ainda soltar spoiler no grupo da família.",
@@ -47,7 +48,8 @@
     {
      "url": "https://www.rockstargames.com/VI/_next/static/media/onlyInLeonidaMobile.0mupfnk-x6x~r.jpg"
     }
-   ]
+   ],
+   "expressao": "feliz"
   },
   {
    "texto": "No Xbox, o truque é mudar a localização do console pra Nova Zelândia. Mas ninguém garante que funciona.",
@@ -70,7 +72,8 @@
      "dur": 2.2
     }
    ],
-   "pose": "apresenta"
+   "pose": "apresenta",
+   "expressao": "desconfiado"
   },
   {
    "texto": "No PS5 é pior: precisa de conta neozelandesa e de outra cópia do jogo.",
@@ -88,7 +91,8 @@
      "dur": 2.2
     }
    ],
-   "pose": "aponta_tela"
+   "pose": "aponta_tela",
+   "expressao": "bravo"
   },
   {
    "texto": "Comprar GTA duas vezes? Aí é amor demais, hein.",
@@ -105,7 +109,8 @@
      "dur": 1.8
     }
    ],
-   "pose": "braco_cruzado"
+   "pose": "braco_cruzado",
+   "expressao": "desconfiado"
   },
   {
    "texto": "O passo a passo completo tá no Aloha Notícias!",
@@ -122,7 +127,8 @@
      "url": "https://www.rockstargames.com/VI/_next/static/media/k4ak9okk485712.0cj_8hoskvfgy.jpg"
     }
    ],
-   "pose": "joinha"
+   "pose": "joinha",
+   "expressao": "feliz"
   }
  ],
  "fundo_final": {

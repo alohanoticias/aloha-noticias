@@ -69,10 +69,44 @@ def ampliar(c, fg):
     return np.dstack([big, a])
 
 
+def logo_bbox(rgba):
+    """Caixa do emblema "e" (vermelho com branco dentro) — para desespelhar quando a pose vira."""
+    hsv = cv2.cvtColor(rgba[..., :3], cv2.COLOR_BGR2HSV)
+    red = (((hsv[..., 0] < 10) | (hsv[..., 0] > 170)) & (hsv[..., 1] > 120) & (hsv[..., 2] > 90)).astype(np.uint8)
+    white = (hsv[..., 2] > 200) & (hsv[..., 1] < 40)
+    n, lab, st, _ = cv2.connectedComponentsWithStats(red)
+    melhor, nota = None, 0
+    h = rgba.shape[0]
+    for i in range(1, n):
+        x, y, w, hh, a = st[i]
+        if a < 400 or y < h * 0.4:
+            continue
+        wi = white[y:y + hh, x:x + w].mean()
+        if wi > nota:
+            melhor, nota = (int(x), int(y), int(x + w), int(y + hh)), wi
+    return melhor
+
+
 def main(folha_p):
+    import json
     os.makedirs(SAIDA, exist_ok=True)
+    hd = os.path.join(AQUI, "referencias", "poses-hd")
+    logos = {}
+    for nome in REGIOES:
+        p = os.path.join(hd, nome + ".png")
+        if os.path.exists(p):           # arte em alta (preferida)
+            im = cv2.imread(p, cv2.IMREAD_UNCHANGED)
+            ys, xs = np.where(im[..., 3] > 10)
+            im = im[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+            cv2.imwrite(os.path.join(SAIDA, nome + ".png"), im)
+            if nome in ("microfone", "tablet"):
+                logos[nome] = logo_bbox(im)
+            print("pose HD", nome, im.shape[:2])
+    json.dump(logos, open(os.path.join(SAIDA, "logos.json"), "w"))
     folha = cv2.imread(folha_p)
     for nome, caixa in REGIOES.items():
+        if os.path.exists(os.path.join(hd, nome + ".png")):
+            continue
         c, fg = recortar(folha, caixa)
         if nome == "braco_cruzado":
             c = luvas_pretas(c, fg)
