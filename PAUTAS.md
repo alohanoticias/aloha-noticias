@@ -46,3 +46,9 @@ Regra de sempre: conferir cada fato em 2 fontes na hora de escrever (datas mudam
 - Percy Jackson T3 (pauta 4) reconferido em Omelete e Overdrive (ambos de 11/10): estreia 20/11 no Disney+, 8 episódios, 2 por sexta (20/11, 27/11, 04/12, 11/12); sem horário no Brasil. Continua faltando vídeo com canal conferido e fotos.
 - Game Pass onda 1 de novembro: einerd, Omelete e Windows Report publicaram a lista (15 jogos); ainda falta ler a fonte oficial (Xbox Wire).
 - Lara Croft: Tomb Raider (Netflix, 12/11): a busca só trouxe matérias da série animada anterior; sem confirmação, não escrever.
+
+## Notas de pesquisa (12/11/2026, rodada sem rascunho novo)
+- Pasta rascunhos/ não existe (0 pendentes); agendados/ tem 34 itens. Nada a atualizar nos pendentes.
+- Nenhum rascunho novo: o Unsplash voltou a ser bloqueado (PROVENANCE_REQUIRED), então não há como obter fotos livres com o endereço completo (photo-ID-sufixo) para capa e corpo; o Xbox Wire também não abriu e TechTudo/Tecnoblog recusam leitura automática. Não inventei IDs nem fontes.
+- Pauta pronta quando houver acesso: GTA 6 no Xbox One via Xbox Cloud Gaming a partir de 19/11 (só uma fonte lida, Mix Vale de 11/11: comunicado Rockstar+Microsoft de 10/11, config do Series S, jogo comprado à parte, cotas de nuvem Essential 5h/Premium 10h/Ultimate 15h, pacotes US$ 3,99/10h, 7,99/25h, 11,99/50h, Remote Play). Falta fonte oficial e segunda fonte; "plano gratuito com anúncios" do Xbox Cloud Gaming (TechTudo) não confirmado. GTA 6 já tem 3+ artigos no site: cuidado com repetição.
+- Observação: o prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it.
