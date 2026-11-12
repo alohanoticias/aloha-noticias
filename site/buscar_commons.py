@@ -1,6 +1,6 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Autodromo Jose Carlos Pace Interlagos aerial', 'Interlagos circuit grandstand', 'Goiania skyline', 'Goiania aerial view', 'Sao Bernardo do Campo', 'Ayrton Senna helmet museum']
+QUERIES = ['Herbert Richers', 'estudio de dublagem', 'dubbing studio Brazil', 'Foley stage', 'Foley artist recording', 'Foley room studio', 'Fuji Television headquarters Odaiba', 'TV Tokyo headquarters', 'Tokyo MX', 'Valve Corporation headquarters Bellevue', 'Steam gift card', 'Steam Wallet card', 'Congresso Nacional Brasilia', 'Senado Federal plenario', 'Camara dos Deputados plenario', 'AMC theatre exterior', 'Agencia Nacional do Cinema', 'Ancine Rio de Janeiro', 'film set lighting gaffer', 'HMI light film set', 'Shueisha headquarters Jimbocho', 'Kadokawa headquarters', 'Weekly Shonen Jump issue', 'Kadokawa Culture Museum', 'Crunchyroll', 'Netflix Senna series']
 TITULOS = []
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
