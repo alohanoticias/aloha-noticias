@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Cineflix_Maringa_Park.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/100_Winchester_Circle_%28cropped%29.jpg",
+   "foco": [
+    0.55,
+    0.6
+   ],
+   "zoom": 1.2
+  }
+ ],
+ "titulo": "Do cinema ao streaming",
+ "editoria": "cinema"
+}

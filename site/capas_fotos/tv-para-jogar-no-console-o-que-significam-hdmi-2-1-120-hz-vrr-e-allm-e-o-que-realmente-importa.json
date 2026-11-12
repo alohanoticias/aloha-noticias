@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/HDMI_Cable.JPG",
+   "foco": [
+    0.45,
+    0.55
+   ],
+   "zoom": 1.3
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Xbox_Series_X%E3%81%A8Series_S.jpg",
+   "foco": [
+    0.45,
+    0.45
+   ],
+   "zoom": 1.2
+  }
+ ],
+ "titulo": "TV para jogar",
+ "editoria": "tecnologia"
+}

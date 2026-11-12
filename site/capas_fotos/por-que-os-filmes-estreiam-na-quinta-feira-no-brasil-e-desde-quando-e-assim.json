@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Cinemark_Guarulhos_-_01.jpg",
+   "foco": [
+    0.5,
+    0.3
+   ],
+   "zoom": 1.5
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Multiplex_Via_Norte_-_10.jpg",
+   "foco": [
+    0.62,
+    0.22
+   ],
+   "zoom": 1.9
+  }
+ ],
+ "titulo": "Estreias na quinta",
+ "editoria": "curiosidades"
+}
