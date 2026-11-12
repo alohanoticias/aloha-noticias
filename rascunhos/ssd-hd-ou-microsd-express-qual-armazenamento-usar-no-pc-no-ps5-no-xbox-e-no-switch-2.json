@@ -1,0 +1,159 @@
+{
+ "slug": "ssd-hd-ou-microsd-express-qual-armazenamento-usar-no-pc-no-ps5-no-xbox-e-no-switch-2",
+ "editoria": "tecnologia",
+ "titulo": "SSD, HD ou microSD Express: qual armazenamento usar no PC, no PS5, no Xbox e no Switch 2",
+ "linha_fina": "Jogos de 100 GB tornaram o espaço um problema em qualquer plataforma. Cada console aceita um tipo diferente de expansão, e errar na compra significa um disco que não roda os jogos novos.",
+ "autor": "João Gabriel",
+ "data": "2026-11-27T13:44",
+ "tags": [
+  "SSD",
+  "HD",
+  "microSD Express",
+  "armazenamento",
+  "PS5",
+  "Xbox Series X",
+  "Switch 2",
+  "PC gamer"
+ ],
+ "imagem": {
+  "url": "assets/img/capas/ssd-hd-ou-microsd-express-qual-armazenamento-usar-no-pc-no-ps5-no-xbox-e-no-switch-2.jpg",
+  "alt": "SSD M.2 NVMe Samsung 980 Pro sobre fundo branco",
+  "credito": "Imagens: Wikimedia Commons (D-Kuru, CC BY-SA 4.0; Dinkun Chen, CC BY-SA 4.0)"
+ },
+ "video": {
+  "youtube": "3akZE-BYDIg",
+  "titulo": "Como escolher armazenamento externo: HD ou SSD (KaBuM!)"
+ },
+ "corpo": [
+  "Um único jogo grande hoje passa fácil dos 100 GB, e os consoles saem de fábrica com espaço para poucos deles. Na hora de ampliar, a dúvida é sempre a mesma: comprar um HD, que é barato e grande, ou um SSD, que é rápido e mais caro? A resposta depende menos do preço e mais de onde o disco vai ser usado. PS5, Xbox Series, Switch 2 e PC aceitam tipos diferentes, e em alguns casos o modelo errado simplesmente não roda os jogos novos.",
+  "## Qual é a diferença entre HD e SSD?",
+  "O HD guarda os dados em discos magnéticos que giram dentro da caixa, enquanto um braço com uma cabeça de leitura se move até o ponto certo. Por ter partes mecânicas, é mais lento para encontrar arquivos espalhados e mais sensível a quedas e pancadas. A vantagem é o custo por gigabyte, que continua bem menor.",
+  "O SSD não tem peças móveis. Os dados ficam em chips de memória flash, e o acesso é quase instantâneo. Existem dois tipos principais. O SSD SATA, no formato de 2,5 polegadas, chega a cerca de 550 MB/s, que é o limite da conexão SATA. O SSD NVMe, no formato de pente M.2, liga direto no barramento PCIe e passa dos 7.000 MB/s nos modelos de quarta geração. Para jogos que carregam o mundo enquanto você anda por ele, essa diferença aparece como menos tempo de loading e menos travadas.",
+  "!img https://upload.wikimedia.org/wikipedia/commons/6/63/Hard_disk_drive_platter%2C_Samsung_MP0402H.jpg|Prato e braço de leitura de um HD aberto. As partes móveis explicam por que ele é mais lento que um SSD|Foto: Mk2010 / Wikimedia Commons (CC BY 4.0)",
+  "## PS5: SSD M.2 por dentro, HD por fora",
+  "O PS5 tem uma baía interna para um SSD extra. A Sony exige um modelo M.2 NVMe PCIe de quarta geração (Gen4 x4), com capacidade entre 250 GB e 8 TB, recomenda velocidade de leitura de pelo menos 5.500 MB/s e pede um dissipador de calor que caiba no compartimento. SSDs SATA e NVMe de terceira geração não servem.",
+  "Um HD externo por USB também funciona, mas com limite: ele pode guardar jogos de PS5 e rodar jogos de PS4, enquanto os jogos de PS5 precisam ser copiados de volta para o SSD na hora de jogar. É uma boa solução para quem quer arquivar a biblioteca sem baixar tudo de novo.",
+  "## Xbox Series X e S: cartão de expansão ou USB",
+  "O Xbox usa uma solução própria. O Cartão de Expansão de Armazenamento, fabricado pela Seagate e pela Western Digital, encaixa numa porta atrás do console e funciona como o SSD interno. Já um HD ou SSD externo por USB 3.0, com pelo menos 128 GB, roda jogos de Xbox One, Xbox 360 e do Xbox original, mas apenas guarda os jogos otimizados para Series X e S, que precisam voltar ao armazenamento interno ou ao cartão para rodar.",
+  "## Switch 2: só microSD Express",
+  "No Switch 2, a regra é a mais rígida. O console aceita apenas cartões microSD Express, um padrão mais novo que usa a mesma tecnologia PCIe e NVMe dos SSDs e chega a velocidades próximas de 900 MB/s, contra cerca de 100 MB/s dos microSD comuns. Os cartões que você usava no primeiro Switch não servem para salvar jogos no novo console. Segundo a Nintendo, eles só podem ser usados para importar capturas de tela e vídeos feitos no Switch anterior. O Switch 2 aceita cartões microSD Express de até 2 TB.",
+  "!img https://upload.wikimedia.org/wikipedia/commons/a/ae/Size_comparison_of_SD_card%2C_microSD_card%2C_and_dime.jpg|Cartão SD, cartão microSD e uma moeda de dez centavos de dólar, para comparar o tamanho. No Switch 2, só o microSD Express funciona|Foto: Nashucks / Wikimedia Commons (CC0)",
+  "## E no PC?",
+  "No computador, a recomendação mais comum é dividir as tarefas. Um SSD NVMe para o sistema e os jogos que você está jogando, e um HD maior para fotos, vídeos, backups e jogos que podem esperar. Antes de comprar, confira no manual da placa-mãe quantos slots M.2 ela tem e de qual geração PCIe eles são. Um SSD Gen4 funciona num slot Gen3, mas fica limitado à velocidade menor.",
+  "Duas dicas valem para todas as plataformas. Primeiro, a capacidade anunciada nunca é a que sobra livre, porque o sistema ocupa parte do espaço. Segundo, um SSD sem uso por muito tempo não é o melhor lugar para o único backup de algo importante. Para arquivo de longo prazo, mantenha cópias em mais de um lugar.",
+  "Fontes: [Nintendo, perguntas sobre o microSD Express](https://en-americas-support.nintendo.com/app/answers/detail/a_id/68218/~/microsd-express-card-faq), [Xbox Wire, opções de armazenamento do Xbox Series X e S](https://news.xbox.com/en-us/2020/09/24/xbox-series-x-and-xbox-series-s-custom-storage-solution-primer/), [Seagate, HD externo no Xbox Series](https://www.seagate.com/support/kb/using-an-external-usb-drive-with-an-xbox-series-x-or-s/), [SanDisk, microSD e microSD Express](https://www.sandisk.com/topics/memory-cards/microsd-express-vs-microsd-nintendo-switch-2) e [Seagate, requisitos de SSD para PS5](https://www.seagate.com/as/en/blog/best-ssds-for-ps5-power-up-your-console-with-seagate/) (em inglês)."
+ ],
+ "traducoes": {
+  "en": {
+   "slug": "ssd-hdd-or-microsd-express",
+   "titulo": "SSD, HDD or microSD Express: which storage to use on PC, PS5, Xbox and Switch 2",
+   "linha_fina": "100 GB games have made space a problem on every platform. Each console accepts a different kind of expansion, and buying the wrong one means a drive that won't run new games.",
+   "tags": [
+    "SSD",
+    "HDD",
+    "microSD Express",
+    "storage",
+    "PS5",
+    "Xbox Series X",
+    "Switch 2",
+    "gaming PC"
+   ],
+   "alt": "Samsung 980 Pro M.2 NVMe SSD on a white background",
+   "credito": "Images: Wikimedia Commons (D-Kuru, CC BY-SA 4.0; Dinkun Chen, CC BY-SA 4.0)",
+   "video_titulo": "How to choose external storage: HDD or SSD (KaBuM!, in Portuguese)",
+   "corpo": [
+    "A single big game today easily goes past 100 GB, and consoles ship with room for only a few of them. When it's time to expand, the question is always the same: buy a hard drive, which is cheap and big, or an SSD, which is fast and pricier? The answer depends less on price and more on where the drive will be used. PS5, Xbox Series, Switch 2 and PC accept different types, and in some cases the wrong model simply won't run new games.",
+    "## What's the difference between an HDD and an SSD?",
+    "A hard drive stores data on magnetic platters spinning inside the case, while an arm with a read head moves to the right spot. Because it has mechanical parts, it is slower at finding scattered files and more sensitive to drops and bumps. Its advantage is cost per gigabyte, which remains much lower.",
+    "An SSD has no moving parts. Data sits on flash memory chips, and access is nearly instant. There are two main types. A SATA SSD, in the 2.5-inch format, reaches about 550 MB/s, which is the limit of the SATA connection. An NVMe SSD, in the M.2 stick format, connects directly to the PCIe bus and goes past 7,000 MB/s in fourth-generation models. For games that load the world as you walk through it, that difference shows up as shorter loading times and fewer hitches.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/6/63/Hard_disk_drive_platter%2C_Samsung_MP0402H.jpg|Platter and read arm of an opened hard drive. The moving parts explain why it is slower than an SSD|Photo: Mk2010 / Wikimedia Commons (CC BY 4.0)",
+    "## PS5: M.2 SSD inside, HDD outside",
+    "The PS5 has an internal bay for an extra SSD. Sony requires a fourth-generation M.2 NVMe PCIe model (Gen4 x4), with capacity between 250 GB and 8 TB, recommends a read speed of at least 5,500 MB/s and asks for a heatsink that fits the compartment. SATA SSDs and third-generation NVMe drives won't do.",
+    "An external USB drive also works, with a limit: it can store PS5 games and run PS4 games, while PS5 games have to be copied back to the SSD to play. It is a good solution for anyone who wants to archive their library without downloading everything again.",
+    "## Xbox Series X and S: expansion card or USB",
+    "Xbox uses its own solution. The Storage Expansion Card, made by Seagate and Western Digital, plugs into a port on the back of the console and works like the internal SSD. An external USB 3.0 HDD or SSD of at least 128 GB runs Xbox One, Xbox 360 and original Xbox games, but only stores games optimized for Series X and S, which must go back to internal storage or the card to run.",
+    "## Switch 2: microSD Express only",
+    "Switch 2 has the strictest rule. The console only accepts microSD Express cards, a newer standard that uses the same PCIe and NVMe technology as SSDs and reaches speeds close to 900 MB/s, against about 100 MB/s for regular microSD cards. The cards you used in the first Switch can't save games on the new console. According to Nintendo, they can only be used to import screenshots and videos taken on the previous Switch. Switch 2 accepts microSD Express cards up to 2 TB.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/a/ae/Size_comparison_of_SD_card%2C_microSD_card%2C_and_dime.jpg|An SD card, a microSD card and a US dime, for size comparison. On Switch 2, only microSD Express works|Photo: Nashucks / Wikimedia Commons (CC0)",
+    "## And on PC?",
+    "On a computer, the most common advice is to split the jobs. An NVMe SSD for the system and the games you are playing, and a bigger HDD for photos, videos, backups and games that can wait. Before buying, check the motherboard manual for how many M.2 slots it has and which PCIe generation they are. A Gen4 SSD works in a Gen3 slot, but is limited to the lower speed.",
+    "Two tips apply to every platform. First, the advertised capacity is never what's left free, because the system takes up part of the space. Second, an SSD left unused for a long time isn't the best place for the only backup of something important. For long-term archiving, keep copies in more than one place.",
+    "Sources: [Nintendo, microSD Express FAQ](https://en-americas-support.nintendo.com/app/answers/detail/a_id/68218/~/microsd-express-card-faq), [Xbox Wire, Xbox Series X and S storage options](https://news.xbox.com/en-us/2020/09/24/xbox-series-x-and-xbox-series-s-custom-storage-solution-primer/), [Seagate, external drives on Xbox Series](https://www.seagate.com/support/kb/using-an-external-usb-drive-with-an-xbox-series-x-or-s/), [SanDisk, microSD and microSD Express](https://www.sandisk.com/topics/memory-cards/microsd-express-vs-microsd-nintendo-switch-2) and [Seagate, SSD requirements for PS5](https://www.seagate.com/as/en/blog/best-ssds-for-ps5-power-up-your-console-with-seagate/)."
+   ]
+  },
+  "es": {
+   "slug": "ssd-disco-duro-o-microsd-express",
+   "titulo": "SSD, disco duro o microSD Express: qué almacenamiento usar en PC, PS5, Xbox y Switch 2",
+   "linha_fina": "Los juegos de 100 GB han convertido el espacio en un problema en cualquier plataforma. Cada consola acepta un tipo distinto de expansión, y equivocarse al comprar significa un disco que no ejecuta los juegos nuevos.",
+   "tags": [
+    "SSD",
+    "disco duro",
+    "microSD Express",
+    "almacenamiento",
+    "PS5",
+    "Xbox Series X",
+    "Switch 2",
+    "PC gamer"
+   ],
+   "alt": "SSD M.2 NVMe Samsung 980 Pro sobre fondo blanco",
+   "credito": "Imágenes: Wikimedia Commons (D-Kuru, CC BY-SA 4.0; Dinkun Chen, CC BY-SA 4.0)",
+   "video_titulo": "Cómo elegir almacenamiento externo: disco duro o SSD (KaBuM!, en portugués)",
+   "corpo": [
+    "Un solo juego grande hoy supera con facilidad los 100 GB, y las consolas salen de fábrica con espacio para pocos de ellos. A la hora de ampliar, la duda es siempre la misma: ¿comprar un disco duro, barato y grande, o un SSD, rápido y más caro? La respuesta depende menos del precio y más de dónde se usará el disco. PS5, Xbox Series, Switch 2 y PC aceptan tipos distintos, y en algunos casos el modelo equivocado simplemente no ejecuta los juegos nuevos.",
+    "## ¿Cuál es la diferencia entre disco duro y SSD?",
+    "El disco duro guarda los datos en platos magnéticos que giran dentro de la carcasa, mientras un brazo con un cabezal de lectura se mueve hasta el punto correcto. Al tener piezas mecánicas, es más lento para encontrar archivos dispersos y más sensible a caídas y golpes. Su ventaja es el costo por gigabyte, que sigue siendo mucho menor.",
+    "El SSD no tiene piezas móviles. Los datos están en chips de memoria flash, y el acceso es casi instantáneo. Hay dos tipos principales. El SSD SATA, en formato de 2,5 pulgadas, llega a unos 550 MB/s, que es el límite de la conexión SATA. El SSD NVMe, en formato de tarjeta M.2, se conecta directamente al bus PCIe y supera los 7.000 MB/s en los modelos de cuarta generación. En juegos que cargan el mundo mientras avanzas, esa diferencia se nota como menos tiempo de carga y menos tirones.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/6/63/Hard_disk_drive_platter%2C_Samsung_MP0402H.jpg|Plato y brazo de lectura de un disco duro abierto. Las piezas móviles explican por qué es más lento que un SSD|Foto: Mk2010 / Wikimedia Commons (CC BY 4.0)",
+    "## PS5: SSD M.2 por dentro, disco duro por fuera",
+    "La PS5 tiene una bahía interna para un SSD adicional. Sony exige un modelo M.2 NVMe PCIe de cuarta generación (Gen4 x4), con capacidad de entre 250 GB y 8 TB, recomienda una velocidad de lectura de al menos 5.500 MB/s y pide un disipador que quepa en el compartimento. Los SSD SATA y los NVMe de tercera generación no sirven.",
+    "Un disco externo por USB también funciona, con un límite: puede guardar juegos de PS5 y ejecutar juegos de PS4, mientras que los de PS5 deben copiarse de vuelta al SSD para jugar. Es una buena solución para archivar la biblioteca sin volver a descargarlo todo.",
+    "## Xbox Series X y S: tarjeta de expansión o USB",
+    "Xbox usa una solución propia. La Tarjeta de Expansión de Almacenamiento, fabricada por Seagate y Western Digital, se conecta a un puerto en la parte trasera de la consola y funciona como el SSD interno. Un disco duro o SSD externo por USB 3.0, de al menos 128 GB, ejecuta juegos de Xbox One, Xbox 360 y la Xbox original, pero solo guarda los juegos optimizados para Series X y S, que deben volver al almacenamiento interno o a la tarjeta para ejecutarse.",
+    "## Switch 2: solo microSD Express",
+    "En Switch 2 la regla es la más estricta. La consola solo acepta tarjetas microSD Express, un estándar más nuevo que usa la misma tecnología PCIe y NVMe de los SSD y alcanza velocidades cercanas a 900 MB/s, frente a unos 100 MB/s de las microSD comunes. Las tarjetas que usabas en la primera Switch no sirven para guardar juegos en la nueva consola. Según Nintendo, solo pueden usarse para importar capturas de pantalla y videos hechos en la Switch anterior. Switch 2 acepta tarjetas microSD Express de hasta 2 TB.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/a/ae/Size_comparison_of_SD_card%2C_microSD_card%2C_and_dime.jpg|Una tarjeta SD, una microSD y una moneda de diez centavos de dólar, para comparar el tamaño. En Switch 2 solo funciona la microSD Express|Foto: Nashucks / Wikimedia Commons (CC0)",
+    "## ¿Y en PC?",
+    "En el ordenador, la recomendación más común es dividir las tareas. Un SSD NVMe para el sistema y los juegos que estás jugando, y un disco duro más grande para fotos, videos, copias de seguridad y juegos que pueden esperar. Antes de comprar, revisa en el manual de la placa base cuántas ranuras M.2 tiene y de qué generación PCIe son. Un SSD Gen4 funciona en una ranura Gen3, pero queda limitado a la velocidad menor.",
+    "Dos consejos valen para todas las plataformas. Primero, la capacidad anunciada nunca es la que queda libre, porque el sistema ocupa parte del espacio. Segundo, un SSD sin usar durante mucho tiempo no es el mejor lugar para la única copia de algo importante. Para archivar a largo plazo, guarda copias en más de un lugar.",
+    "Fuentes: [Nintendo, preguntas sobre microSD Express](https://en-americas-support.nintendo.com/app/answers/detail/a_id/68218/~/microsd-express-card-faq), [Xbox Wire, opciones de almacenamiento de Xbox Series X y S](https://news.xbox.com/en-us/2020/09/24/xbox-series-x-and-xbox-series-s-custom-storage-solution-primer/), [Seagate, disco externo en Xbox Series](https://www.seagate.com/support/kb/using-an-external-usb-drive-with-an-xbox-series-x-or-s/), [SanDisk, microSD y microSD Express](https://www.sandisk.com/topics/memory-cards/microsd-express-vs-microsd-nintendo-switch-2) y [Seagate, requisitos de SSD para PS5](https://www.seagate.com/as/en/blog/best-ssds-for-ps5-power-up-your-console-with-seagate/) (en inglés)."
+   ]
+  },
+  "it": {
+   "slug": "ssd-hard-disk-o-microsd-express",
+   "titulo": "SSD, hard disk o microSD Express: quale memoria usare su PC, PS5, Xbox e Switch 2",
+   "linha_fina": "I giochi da 100 GB hanno reso lo spazio un problema su ogni piattaforma. Ogni console accetta un tipo diverso di espansione, e sbagliare acquisto significa un disco che non avvia i giochi nuovi.",
+   "tags": [
+    "SSD",
+    "hard disk",
+    "microSD Express",
+    "archiviazione",
+    "PS5",
+    "Xbox Series X",
+    "Switch 2",
+    "PC da gioco"
+   ],
+   "alt": "SSD M.2 NVMe Samsung 980 Pro su sfondo bianco",
+   "credito": "Immagini: Wikimedia Commons (D-Kuru, CC BY-SA 4.0; Dinkun Chen, CC BY-SA 4.0)",
+   "video_titulo": "Come scegliere una memoria esterna: hard disk o SSD (KaBuM!, in portoghese)",
+   "corpo": [
+    "Un solo gioco grande oggi supera facilmente i 100 GB, e le console escono di fabbrica con spazio per pochi titoli. Quando arriva il momento di espandere, il dubbio è sempre lo stesso: comprare un hard disk, economico e capiente, o un SSD, veloce e più caro? La risposta dipende meno dal prezzo e più da dove verrà usato il disco. PS5, Xbox Series, Switch 2 e PC accettano tipi diversi, e in alcuni casi il modello sbagliato semplicemente non avvia i giochi nuovi.",
+    "## Qual è la differenza tra hard disk e SSD?",
+    "L'hard disk conserva i dati su piatti magnetici che girano dentro la scocca, mentre un braccio con una testina di lettura si sposta nel punto giusto. Avendo parti meccaniche, è più lento nel trovare file sparsi e più sensibile a cadute e urti. Il suo vantaggio è il costo per gigabyte, che resta molto più basso.",
+    "L'SSD non ha parti in movimento. I dati stanno su chip di memoria flash, e l'accesso è quasi istantaneo. Esistono due tipi principali. L'SSD SATA, nel formato da 2,5 pollici, arriva a circa 550 MB/s, il limite della connessione SATA. L'SSD NVMe, nel formato a stecca M.2, si collega direttamente al bus PCIe e supera i 7.000 MB/s nei modelli di quarta generazione. Nei giochi che caricano il mondo mentre lo attraversi, quella differenza si traduce in caricamenti più brevi e meno scatti.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/6/63/Hard_disk_drive_platter%2C_Samsung_MP0402H.jpg|Piatto e braccio di lettura di un hard disk aperto. Le parti mobili spiegano perché è più lento di un SSD|Foto: Mk2010 / Wikimedia Commons (CC BY 4.0)",
+    "## PS5: SSD M.2 dentro, hard disk fuori",
+    "La PS5 ha un alloggiamento interno per un SSD aggiuntivo. Sony richiede un modello M.2 NVMe PCIe di quarta generazione (Gen4 x4), con capacità tra 250 GB e 8 TB, raccomanda una velocità di lettura di almeno 5.500 MB/s e chiede un dissipatore che entri nel vano. Gli SSD SATA e gli NVMe di terza generazione non vanno bene.",
+    "Anche un disco esterno USB funziona, con un limite: può conservare i giochi PS5 e avviare quelli PS4, mentre i giochi PS5 vanno ricopiati sull'SSD per essere giocati. È una buona soluzione per archiviare la propria libreria senza riscaricare tutto.",
+    "## Xbox Series X e S: scheda di espansione o USB",
+    "Xbox usa una soluzione proprietaria. La Scheda di espansione di archiviazione, prodotta da Seagate e Western Digital, si inserisce in una porta sul retro della console e funziona come l'SSD interno. Un hard disk o SSD esterno USB 3.0 da almeno 128 GB avvia giochi Xbox One, Xbox 360 e della prima Xbox, ma si limita a conservare i giochi ottimizzati per Series X e S, che devono tornare nella memoria interna o sulla scheda per funzionare.",
+    "## Switch 2: solo microSD Express",
+    "Su Switch 2 la regola è la più rigida. La console accetta solo schede microSD Express, uno standard più recente che usa la stessa tecnologia PCIe e NVMe degli SSD e raggiunge velocità vicine ai 900 MB/s, contro circa 100 MB/s delle microSD comuni. Le schede che usavi sulla prima Switch non servono per salvare giochi sulla nuova console. Secondo Nintendo, possono essere usate solo per importare screenshot e video fatti sulla Switch precedente. Switch 2 accetta schede microSD Express fino a 2 TB.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/a/ae/Size_comparison_of_SD_card%2C_microSD_card%2C_and_dime.jpg|Una scheda SD, una microSD e una moneta da dieci centesimi di dollaro, per confrontare le dimensioni. Su Switch 2 funziona solo la microSD Express|Foto: Nashucks / Wikimedia Commons (CC0)",
+    "## E sul PC?",
+    "Sul computer il consiglio più diffuso è dividere i compiti. Un SSD NVMe per il sistema e i giochi a cui stai giocando, e un hard disk più capiente per foto, video, backup e giochi che possono aspettare. Prima di comprare, controlla nel manuale della scheda madre quanti slot M.2 ha e di quale generazione PCIe sono. Un SSD Gen4 funziona in uno slot Gen3, ma resta limitato alla velocità inferiore.",
+    "Due consigli valgono per tutte le piattaforme. Primo, la capacità dichiarata non è mai quella che resta libera, perché il sistema occupa parte dello spazio. Secondo, un SSD inutilizzato a lungo non è il posto migliore per l'unico backup di qualcosa di importante. Per l'archiviazione a lungo termine, tieni copie in più di un posto.",
+    "Fonti: [Nintendo, domande sulla microSD Express](https://en-americas-support.nintendo.com/app/answers/detail/a_id/68218/~/microsd-express-card-faq), [Xbox Wire, opzioni di archiviazione di Xbox Series X e S](https://news.xbox.com/en-us/2020/09/24/xbox-series-x-and-xbox-series-s-custom-storage-solution-primer/), [Seagate, disco esterno su Xbox Series](https://www.seagate.com/support/kb/using-an-external-usb-drive-with-an-xbox-series-x-or-s/), [SanDisk, microSD e microSD Express](https://www.sandisk.com/topics/memory-cards/microsd-express-vs-microsd-nintendo-switch-2) e [Seagate, requisiti degli SSD per PS5](https://www.seagate.com/as/en/blog/best-ssds-for-ps5-power-up-your-console-with-seagate/) (in inglese)."
+   ]
+  }
+ }
+}

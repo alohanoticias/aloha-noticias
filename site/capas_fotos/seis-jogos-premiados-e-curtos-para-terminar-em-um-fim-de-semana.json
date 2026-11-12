@@ -1,0 +1,31 @@
+{
+ "layout": "tres",
+ "fotos": [
+  {
+   "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/683320/ss_5d1782d0ec36f4ca8b5ffc96a3cc5e255f5ac502.1920x1080.jpg?t=1759429603",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_358127df30a766a1516ad139083c2bcec3fe0975.1920x1080.jpg?t=1790187113",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/304430/ss_82584c66b8ff7d935481e753596ab36d9b5e9fb7.1920x1080.jpg?t=1793958852",
+   "foco": [
+    0.55,
+    0.5
+   ],
+   "zoom": 1.1
+  }
+ ],
+ "titulo": "Jogos curtos",
+ "editoria": "games"
+}

@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "fotos": [
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Dual_monitor_setup_in_a_gaming_room_with_keyboard_and_mouse_in_focus.jpg",
+   "foco": [
+    0.55,
+    0.5
+   ],
+   "zoom": 1.1
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Cherry_MX_keyboard.jpg",
+   "foco": [
+    0.5,
+    0.45
+   ],
+   "zoom": 1.2
+  }
+ ],
+ "titulo": "Periféricos gamer",
+ "editoria": "games"
+}

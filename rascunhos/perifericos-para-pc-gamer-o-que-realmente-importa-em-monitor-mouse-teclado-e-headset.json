@@ -1,0 +1,155 @@
+{
+ "slug": "perifericos-para-pc-gamer-o-que-realmente-importa-em-monitor-mouse-teclado-e-headset",
+ "editoria": "games",
+ "titulo": "Periféricos para PC gamer: o que realmente importa em monitor, mouse, teclado e headset",
+ "linha_fina": "DPI altíssimo, luzes RGB e 8.000 Hz enchem as caixas, mas pouco disso muda o jogo. Veja o que vale priorizar em cada peça e em que ordem gastar.",
+ "autor": "Equipe Aloha",
+ "data": "2026-11-27T18:52",
+ "tags": [
+  "periféricos",
+  "PC gamer",
+  "mouse gamer",
+  "teclado mecânico",
+  "headset",
+  "monitor",
+  "setup"
+ ],
+ "imagem": {
+  "url": "assets/img/capas/perifericos-para-pc-gamer-o-que-realmente-importa-em-monitor-mouse-teclado-e-headset.jpg",
+  "alt": "Mesa de jogos com dois monitores, teclado e mouse iluminados por luz verde",
+  "credito": "Imagens: Wikimedia Commons (Shixart1985, CC BY 2.0; Revital Salomon, CC BY-SA 4.0)"
+ },
+ "video": {
+  "youtube": "uubxBwt34hA",
+  "titulo": "Como escolher o seu próximo mouse gamer (Canaltech)"
+ },
+ "corpo": [
+  "Montar um PC para jogar costuma consumir toda a atenção na placa de vídeo e no processador, e os periféricos ficam para o fim, com o dinheiro que sobrou. É um erro comum, porque são eles que você toca e olha o tempo todo. O outro erro é o oposto: pagar caro por números que impressionam na caixa e fazem pouca diferença na prática. Este guia separa uma coisa da outra, peça por peça, começando por onde o investimento rende mais.",
+  "## Monitor: a peça que mais muda a experiência",
+  "Se o orçamento é curto, o monitor costuma ser o melhor lugar para colocar o dinheiro. Um modelo de 144 Hz ou mais mostra o dobro de quadros de um monitor comum de 60 Hz, e a diferença aparece em qualquer jogo de ação, não só nos competitivos. Isso só faz sentido se o PC conseguir entregar essa quantidade de quadros, então vale olhar as duas coisas juntas.",
+  "A resolução deve acompanhar o tamanho da tela. Em 24 polegadas, 1080p ainda funciona bem. Em 27 polegadas, 1440p deixa a imagem mais definida sem exigir tanto da placa quanto o 4K. Suporte a FreeSync ou G-Sync, as tecnologias de taxa de atualização variável dos monitores, ajuda a evitar cortes na imagem quando o desempenho oscila.",
+  "## Mouse: formato e sensor antes do DPI",
+  "O DPI mede quantos pontos o sensor registra por polegada de movimento. Números como 26.000 ou 30.000 são marketing: a maioria dos jogadores usa entre 400 e 1.600 DPI e ajusta a sensibilidade dentro do jogo. O que importa é a qualidade do sensor, que precisa acompanhar movimentos rápidos sem pular, e isso qualquer mouse gamer de marca conhecida já entrega.",
+  "O fator decisivo é o formato. Quem apoia a mão inteira no mouse prefere modelos maiores e mais altos. Quem joga só com as pontas dos dedos costuma gostar de mouses pequenos e leves. O ideal é segurar antes de comprar. Sobre a taxa de resposta, 1.000 Hz significa que o mouse avisa a posição ao PC a cada milissegundo, e já é suficiente para quase todos. Mouses sem fio com receptor próprio de 2,4 GHz têm atraso comparável ao do cabo, ao contrário do Bluetooth comum.",
+  "!img https://upload.wikimedia.org/wikipedia/commons/7/71/2023_Mysz_komputerowa_Logitech_G903_Lightspeed.jpg|Mouse sem fio Logitech G903 com o receptor USB ao lado. Receptores de 2,4 GHz têm atraso comparável ao do cabo|Foto: Jacek Halicki / Wikimedia Commons (CC BY-SA 4.0)",
+  "## Teclado: o switch define a sensação",
+  "Nos teclados mecânicos, cada tecla tem um interruptor próprio, o switch, e ele define como a tecla responde. Os modelos lineares, normalmente vermelhos, descem suaves e sem resistência no meio do caminho. Os táteis, normalmente marrons, têm um pequeno degrau que avisa quando a tecla foi acionada. Os clicky, normalmente azuis, somam a esse degrau um clique audível, ótimo para digitar e péssimo para quem divide o quarto ou faz chamadas de voz.",
+  "Nos últimos anos, ganharam espaço os teclados com switches magnéticos, que permitem escolher em que ponto da descida a tecla aciona. Eles são valorizados em jogos de tiro competitivos, mas não são necessários para começar. Para a maioria, um teclado mecânico comum ou mesmo um bom teclado de membrana resolve. Formatos compactos, sem o teclado numérico, liberam espaço para o mouse na mesa.",
+  "!img https://upload.wikimedia.org/wikipedia/commons/7/7a/Outemu_Blue_Key_Switch.jpg|Switch mecânico azul, do tipo clicky, com a tecla removida. A cor indica o tipo de resposta|Foto: Fletcher / Wikimedia Commons (CC BY 4.0)",
+  "## Headset: microfone é o que mais pesa",
+  "Em jogos online, ouvir de onde vêm os passos ajuda, e qualquer fone estéreo razoável já entrega isso. O som surround virtual que muitos headsets anunciam depende muito do jogo e do gosto pessoal. Na prática, a diferença que mais aparece para os outros é o microfone: um headset com captação ruim incomoda todo o time. Uma alternativa que muita gente adota é usar um fone comum de boa qualidade com um microfone separado.",
+  "## Em que ordem gastar",
+  "Para quem está montando tudo do zero, uma ordem sensata é monitor primeiro, depois mouse, teclado e, por fim, headset. Um mousepad grande e de boa qualidade é a compra mais barata da lista e costuma melhorar a mira mais do que um mouse caro. E as luzes RGB, por mais bonitas que sejam, não melhoram o desempenho em nada.",
+  "Fontes: [TechPowerUp, taxa de resposta em mouses](https://techpowerup.com/review/asus-rog-chakram-x/6.html), [Overclockers UK, tipos de switch Cherry MX](https://www.overclockers.co.uk/blog/cherry-mx-switches-explained-everything-you-need-to-know/) e [Windows Central, switches de teclado explicados](https://www.windowscentral.com/accessories/keyboards/keyboard-switches-explained-what-to-buy) (em inglês)."
+ ],
+ "traducoes": {
+  "en": {
+   "slug": "gaming-pc-peripherals-what-matters",
+   "titulo": "Gaming PC peripherals: what really matters in a monitor, mouse, keyboard and headset",
+   "linha_fina": "Sky-high DPI, RGB lights and 8,000 Hz fill the boxes, but little of it changes the game. Here's what to prioritize in each piece and in what order to spend.",
+   "tags": [
+    "peripherals",
+    "gaming PC",
+    "gaming mouse",
+    "mechanical keyboard",
+    "headset",
+    "monitor",
+    "setup"
+   ],
+   "alt": "Gaming desk with two monitors, keyboard and mouse lit by green light",
+   "credito": "Images: Wikimedia Commons (Shixart1985, CC BY 2.0; Revital Salomon, CC BY-SA 4.0)",
+   "video_titulo": "How to choose your next gaming mouse (Canaltech, in Portuguese)",
+   "corpo": [
+    "Building a gaming PC usually takes all the attention toward the graphics card and processor, and the peripherals are left for last, with whatever money is left. It's a common mistake, because they are what you touch and look at the whole time. The other mistake is the opposite: paying a lot for numbers that look impressive on the box and make little difference in practice. This guide separates one from the other, piece by piece, starting where the investment pays off most.",
+    "## Monitor: the piece that changes the experience the most",
+    "If the budget is tight, the monitor is usually the best place to put the money. A 144 Hz or faster model shows twice as many frames as a regular 60 Hz monitor, and the difference shows in any action game, not just competitive ones. That only makes sense if the PC can deliver that many frames, so it's worth looking at both together.",
+    "Resolution should match screen size. At 24 inches, 1080p still works well. At 27 inches, 1440p makes the image sharper without demanding as much from the graphics card as 4K. Support for FreeSync or G-Sync, the variable refresh rate technologies for monitors, helps avoid tearing when performance fluctuates.",
+    "## Mouse: shape and sensor before DPI",
+    "DPI measures how many points the sensor records per inch of movement. Numbers like 26,000 or 30,000 are marketing: most players use between 400 and 1,600 DPI and adjust sensitivity in the game. What matters is the quality of the sensor, which has to keep up with fast movements without skipping, and any gaming mouse from a well-known brand already delivers that.",
+    "The deciding factor is shape. People who rest their whole hand on the mouse prefer larger, taller models. Those who play with only their fingertips tend to like small, light mice. Ideally, hold it before buying. As for polling rate, 1,000 Hz means the mouse reports its position to the PC every millisecond, and that is already enough for almost everyone. Wireless mice with their own 2.4 GHz receiver have latency comparable to a cable, unlike regular Bluetooth.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/7/71/2023_Mysz_komputerowa_Logitech_G903_Lightspeed.jpg|Logitech G903 wireless mouse with its USB receiver beside it. 2.4 GHz receivers have latency comparable to a cable|Photo: Jacek Halicki / Wikimedia Commons (CC BY-SA 4.0)",
+    "## Keyboard: the switch defines the feel",
+    "In mechanical keyboards, each key has its own switch, and it defines how the key responds. Linear models, usually red, go down smoothly with no resistance halfway. Tactile ones, usually brown, have a small bump that signals when the key has registered. Clicky ones, usually blue, add an audible click to that bump, great for typing and terrible for anyone sharing a room or on voice calls.",
+    "In recent years, keyboards with magnetic switches have gained ground, letting you choose at what point in the press the key registers. They are prized in competitive shooters, but aren't needed to start. For most people, a regular mechanical keyboard or even a good membrane keyboard does the job. Compact layouts, without the number pad, free up desk space for the mouse.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/7/7a/Outemu_Blue_Key_Switch.jpg|Blue clicky mechanical switch with the keycap removed. The color indicates the type of response|Photo: Fletcher / Wikimedia Commons (CC BY 4.0)",
+    "## Headset: the microphone matters most",
+    "In online games, hearing where footsteps come from helps, and any decent stereo headphone already delivers that. The virtual surround sound many headsets advertise depends a lot on the game and personal taste. In practice, the difference others notice most is the microphone: a headset with poor pickup bothers the whole team. An alternative many people adopt is using good regular headphones with a separate microphone.",
+    "## In what order to spend",
+    "For anyone building everything from scratch, a sensible order is monitor first, then mouse, keyboard and finally headset. A large, good-quality mousepad is the cheapest purchase on the list and often improves aim more than an expensive mouse. And RGB lights, however pretty, don't improve performance at all.",
+    "Sources: [TechPowerUp, mouse polling rate](https://techpowerup.com/review/asus-rog-chakram-x/6.html), [Overclockers UK, Cherry MX switch types](https://www.overclockers.co.uk/blog/cherry-mx-switches-explained-everything-you-need-to-know/) and [Windows Central, keyboard switches explained](https://www.windowscentral.com/accessories/keyboards/keyboard-switches-explained-what-to-buy)."
+   ]
+  },
+  "es": {
+   "slug": "perifericos-pc-gamer-lo-que-importa",
+   "titulo": "Periféricos para PC gamer: lo que de verdad importa en monitor, ratón, teclado y auriculares",
+   "linha_fina": "DPI altísimos, luces RGB y 8.000 Hz llenan las cajas, pero poco de eso cambia el juego. Mira qué conviene priorizar en cada pieza y en qué orden gastar.",
+   "tags": [
+    "periféricos",
+    "PC gamer",
+    "ratón gamer",
+    "teclado mecánico",
+    "auriculares",
+    "monitor",
+    "setup"
+   ],
+   "alt": "Escritorio de juego con dos monitores, teclado y ratón iluminados con luz verde",
+   "credito": "Imágenes: Wikimedia Commons (Shixart1985, CC BY 2.0; Revital Salomon, CC BY-SA 4.0)",
+   "video_titulo": "Cómo elegir tu próximo ratón gamer (Canaltech, en portugués)",
+   "corpo": [
+    "Armar un PC para jugar suele llevarse toda la atención hacia la tarjeta gráfica y el procesador, y los periféricos quedan para el final, con el dinero que sobra. Es un error común, porque son lo que tocas y miras todo el tiempo. El otro error es el contrario: pagar caro por números que impresionan en la caja y cambian poco en la práctica. Esta guía separa una cosa de la otra, pieza por pieza, empezando por donde la inversión rinde más.",
+    "## Monitor: la pieza que más cambia la experiencia",
+    "Si el presupuesto es corto, el monitor suele ser el mejor lugar para poner el dinero. Un modelo de 144 Hz o más muestra el doble de cuadros que un monitor común de 60 Hz, y la diferencia se nota en cualquier juego de acción, no solo en los competitivos. Eso solo tiene sentido si el PC puede entregar esa cantidad de cuadros, así que conviene mirar ambas cosas juntas.",
+    "La resolución debe acompañar el tamaño de la pantalla. En 24 pulgadas, 1080p todavía funciona bien. En 27 pulgadas, 1440p da una imagen más definida sin exigir tanto a la tarjeta como el 4K. El soporte para FreeSync o G-Sync, las tecnologías de frecuencia de actualización variable de los monitores, ayuda a evitar cortes en la imagen cuando el rendimiento oscila.",
+    "## Ratón: forma y sensor antes que DPI",
+    "El DPI mide cuántos puntos registra el sensor por pulgada de movimiento. Cifras como 26.000 o 30.000 son marketing: la mayoría de los jugadores usa entre 400 y 1.600 DPI y ajusta la sensibilidad dentro del juego. Lo que importa es la calidad del sensor, que debe seguir movimientos rápidos sin saltos, y eso ya lo ofrece cualquier ratón gamer de una marca conocida.",
+    "El factor decisivo es la forma. Quien apoya toda la mano en el ratón prefiere modelos más grandes y altos. Quien juega solo con la punta de los dedos suele preferir ratones pequeños y ligeros. Lo ideal es sostenerlo antes de comprar. En cuanto a la tasa de sondeo, 1.000 Hz significa que el ratón informa su posición al PC cada milisegundo, y ya basta para casi todos. Los ratones inalámbricos con receptor propio de 2,4 GHz tienen un retraso comparable al del cable, a diferencia del Bluetooth común.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/7/71/2023_Mysz_komputerowa_Logitech_G903_Lightspeed.jpg|Ratón inalámbrico Logitech G903 con su receptor USB al lado. Los receptores de 2,4 GHz tienen un retraso comparable al del cable|Foto: Jacek Halicki / Wikimedia Commons (CC BY-SA 4.0)",
+    "## Teclado: el switch define la sensación",
+    "En los teclados mecánicos, cada tecla tiene su propio interruptor, el switch, y él define cómo responde la tecla. Los lineales, normalmente rojos, bajan suaves y sin resistencia a mitad de recorrido. Los táctiles, normalmente marrones, tienen un pequeño escalón que avisa cuándo se accionó la tecla. Los clicky, normalmente azules, suman a ese escalón un clic audible, ideal para escribir y pésimo para quien comparte habitación o hace llamadas de voz.",
+    "En los últimos años ganaron terreno los teclados con switches magnéticos, que permiten elegir en qué punto del recorrido se acciona la tecla. Se valoran en los juegos de disparos competitivos, pero no son necesarios para empezar. Para la mayoría, un teclado mecánico común o incluso un buen teclado de membrana es suficiente. Los formatos compactos, sin teclado numérico, liberan espacio para el ratón en la mesa.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/7/7a/Outemu_Blue_Key_Switch.jpg|Switch mecánico azul, del tipo clicky, con la tecla retirada. El color indica el tipo de respuesta|Foto: Fletcher / Wikimedia Commons (CC BY 4.0)",
+    "## Auriculares: el micrófono es lo que más pesa",
+    "En los juegos en línea, oír de dónde vienen los pasos ayuda, y cualquier auricular estéreo razonable ya lo ofrece. El sonido envolvente virtual que anuncian muchos modelos depende mucho del juego y del gusto personal. En la práctica, la diferencia que más notan los demás es el micrófono: unos auriculares con mala captación molestan a todo el equipo. Una alternativa que muchos adoptan es usar unos auriculares comunes de buena calidad con un micrófono aparte.",
+    "## En qué orden gastar",
+    "Para quien arma todo desde cero, un orden sensato es primero el monitor, luego el ratón, el teclado y, por último, los auriculares. Una alfombrilla grande y de buena calidad es la compra más barata de la lista y suele mejorar la puntería más que un ratón caro. Y las luces RGB, por bonitas que sean, no mejoran el rendimiento en nada.",
+    "Fuentes: [TechPowerUp, tasa de sondeo en ratones](https://techpowerup.com/review/asus-rog-chakram-x/6.html), [Overclockers UK, tipos de switch Cherry MX](https://www.overclockers.co.uk/blog/cherry-mx-switches-explained-everything-you-need-to-know/) y [Windows Central, switches de teclado explicados](https://www.windowscentral.com/accessories/keyboards/keyboard-switches-explained-what-to-buy) (en inglés)."
+   ]
+  },
+  "it": {
+   "slug": "periferiche-pc-da-gioco-cosa-conta",
+   "titulo": "Periferiche per PC da gioco: cosa conta davvero in monitor, mouse, tastiera e cuffie",
+   "linha_fina": "DPI altissimi, luci RGB e 8.000 Hz riempiono le confezioni, ma poco di tutto questo cambia il gioco. Ecco cosa privilegiare in ogni pezzo e in che ordine spendere.",
+   "tags": [
+    "periferiche",
+    "PC da gioco",
+    "mouse da gioco",
+    "tastiera meccanica",
+    "cuffie",
+    "monitor",
+    "setup"
+   ],
+   "alt": "Postazione da gioco con due monitor, tastiera e mouse illuminati da luce verde",
+   "credito": "Immagini: Wikimedia Commons (Shixart1985, CC BY 2.0; Revital Salomon, CC BY-SA 4.0)",
+   "video_titulo": "Come scegliere il tuo prossimo mouse da gioco (Canaltech, in portoghese)",
+   "corpo": [
+    "Montare un PC per giocare di solito concentra tutta l'attenzione su scheda video e processore, e le periferiche restano per ultime, con i soldi avanzati. È un errore comune, perché sono ciò che tocchi e guardi tutto il tempo. L'altro errore è l'opposto: pagare caro numeri che fanno colpo sulla scatola e cambiano poco nella pratica. Questa guida separa le due cose, pezzo per pezzo, cominciando da dove l'investimento rende di più.",
+    "## Monitor: il pezzo che cambia di più l'esperienza",
+    "Se il budget è limitato, il monitor è di solito il posto migliore dove mettere i soldi. Un modello da 144 Hz o più mostra il doppio dei fotogrammi di un normale monitor a 60 Hz, e la differenza si vede in qualunque gioco d'azione, non solo in quelli competitivi. Ha senso solo se il PC riesce a fornire quei fotogrammi, quindi conviene guardare le due cose insieme.",
+    "La risoluzione deve seguire le dimensioni dello schermo. A 24 pollici, il 1080p funziona ancora bene. A 27 pollici, il 1440p rende l'immagine più definita senza chiedere alla scheda quanto il 4K. Il supporto a FreeSync o G-Sync, le tecnologie di frequenza di aggiornamento variabile dei monitor, aiuta a evitare strappi nell'immagine quando le prestazioni oscillano.",
+    "## Mouse: forma e sensore prima dei DPI",
+    "I DPI misurano quanti punti il sensore registra per pollice di movimento. Cifre come 26.000 o 30.000 sono marketing: la maggior parte dei giocatori usa tra 400 e 1.600 DPI e regola la sensibilità nel gioco. Conta la qualità del sensore, che deve seguire i movimenti rapidi senza salti, e questo lo offre già qualunque mouse da gioco di una marca conosciuta.",
+    "Il fattore decisivo è la forma. Chi appoggia tutta la mano sul mouse preferisce modelli più grandi e alti. Chi gioca solo con la punta delle dita tende a preferire mouse piccoli e leggeri. L'ideale è impugnarlo prima di comprarlo. Quanto alla frequenza di polling, 1.000 Hz significa che il mouse comunica la propria posizione al PC ogni millisecondo, ed è già sufficiente per quasi tutti. I mouse wireless con ricevitore proprio a 2,4 GHz hanno una latenza paragonabile a quella del cavo, a differenza del normale Bluetooth.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/7/71/2023_Mysz_komputerowa_Logitech_G903_Lightspeed.jpg|Mouse wireless Logitech G903 con il ricevitore USB accanto. I ricevitori a 2,4 GHz hanno una latenza paragonabile a quella del cavo|Foto: Jacek Halicki / Wikimedia Commons (CC BY-SA 4.0)",
+    "## Tastiera: lo switch definisce la sensazione",
+    "Nelle tastiere meccaniche ogni tasto ha il proprio interruttore, lo switch, ed è lui a definire come risponde il tasto. I modelli lineari, di solito rossi, scendono morbidi senza resistenza a metà corsa. I tattili, di solito marroni, hanno un piccolo scalino che segnala quando il tasto è stato attivato. I clicky, di solito blu, aggiungono a quello scalino un clic udibile, ottimo per scrivere e pessimo per chi divide la stanza o fa chiamate vocali.",
+    "Negli ultimi anni hanno guadagnato spazio le tastiere con switch magnetici, che permettono di scegliere in quale punto della corsa il tasto si attiva. Sono apprezzate negli sparatutto competitivi, ma non servono per cominciare. Per la maggior parte delle persone basta una normale tastiera meccanica o anche una buona tastiera a membrana. I formati compatti, senza tastierino numerico, liberano spazio per il mouse sulla scrivania.",
+    "!img https://upload.wikimedia.org/wikipedia/commons/7/7a/Outemu_Blue_Key_Switch.jpg|Switch meccanico blu, di tipo clicky, con il tasto rimosso. Il colore indica il tipo di risposta|Foto: Fletcher / Wikimedia Commons (CC BY 4.0)",
+    "## Cuffie: il microfono è ciò che pesa di più",
+    "Nei giochi online, sentire da dove arrivano i passi aiuta, e qualsiasi cuffia stereo decente lo offre già. Il surround virtuale pubblicizzato da molte cuffie dipende molto dal gioco e dai gusti personali. In pratica, la differenza che gli altri notano di più è il microfono: una cuffia con una cattiva ripresa disturba tutta la squadra. Un'alternativa adottata da molti è usare una buona cuffia normale con un microfono separato.",
+    "## In che ordine spendere",
+    "Per chi monta tutto da zero, un ordine sensato è prima il monitor, poi mouse, tastiera e infine cuffie. Un tappetino grande e di buona qualità è l'acquisto più economico della lista e spesso migliora la mira più di un mouse costoso. E le luci RGB, per quanto belle, non migliorano le prestazioni in nulla.",
+    "Fonti: [TechPowerUp, frequenza di polling dei mouse](https://techpowerup.com/review/asus-rog-chakram-x/6.html), [Overclockers UK, tipi di switch Cherry MX](https://www.overclockers.co.uk/blog/cherry-mx-switches-explained-everything-you-need-to-know/) e [Windows Central, switch delle tastiere spiegati](https://www.windowscentral.com/accessories/keyboards/keyboard-switches-explained-what-to-buy) (in inglese)."
+   ]
+  }
+ }
+}
