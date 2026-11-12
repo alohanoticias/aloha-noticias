@@ -472,7 +472,7 @@ def planejar(falas, total, dur_voz, env):
             p = max(p, ease(dtf / 0.12) * ease((0.95 - dtf) / 0.15))      # ri de olho fechado e abre
         lado = (prox or {}).get("lado", lado_ant) if not fim else lado_ant
         P.append(dict(t=t, fala=fala, fim=fim, boca=boca, pisc=p, cab=cab, bra=bra, e=e, g=g, lado=lado,
-                      sob_y=sob_y, sob_rot=sob_rot, olho_esc=olho_esc,
+                      sob_y=sob_y, sob_rot=sob_rot, olho_esc=olho_esc, ex=ex, pk=float(pisc[k]),
                       coment=1.0 if (fala and fala.get("tipo") == "comentario" and not fim) else 0.0))
         lado_ant = lado
     # pose de cada fala (a fala inteira, sempre animada); encerramento com joinha
@@ -531,6 +531,18 @@ def planejar(falas, total, dur_voz, env):
             vis[k] = vis[k - 1]
     for k in range(n):
         P[k]["visema"] = vis[k]
+    # ---- olhos desenhados: expressão da fala + piscadas trocando desenho (normal -> meio -> fechado)
+    EXO = {"surpreso": 5, "bravo": 6, "determinado": 6, "desconfiado": 7, "entediado": 7, "pensativo": 8}
+    for k in range(n):
+        q = P[k]; f = q["fala"]
+        o = EXO.get(q["ex"], 1)
+        if f and f.get("gesto") == "risada" and 0 <= q["t"] - f["inicio"] < 1.0:
+            o = 4
+        elif q["pk"] > 0.7:
+            o = 3
+        elif q["pk"] > 0.25:
+            o = 2 if o in (1, 6) else (3 if o == 7 else o)
+        q["olhos"] = o
     trocas = [k for k in range(1, n) if P[k]["lado"] != P[k - 1]["lado"]]
     for k in range(n):
         P[k]["saida"] = 0.0
@@ -639,7 +651,7 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
         nome_p = q["pose"] if q["pose"] in bonecos else "apresenta"
         bon = bonecos[nome_p]
         mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"], q["sob_y"], q["sob_rot"], q["olho_esc"],
-                        visema=q.get("visema") if nome_p != "joinha" or not q["fim"] else 1)
+                        visema=q.get("visema") if nome_p != "joinha" or not q["fim"] else 1, olhos=q.get("olhos", 1))
         es = q["esc"] * q["pop"]
         esq = q["lado"] == "esq"
         if abs(es - 1) > 0.003:

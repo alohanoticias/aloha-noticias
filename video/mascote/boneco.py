@@ -60,6 +60,13 @@ class Boneco:
                 self.bocas.append((cv2.resize(b, (nw, nh), interpolation=cv2.INTER_AREA).astype(np.float32),
                                    cv2.resize(m, (nw, nh), interpolation=cv2.INTER_LINEAR)[..., None]))
             self.boca_xy = (int(round(bx0 * s)), int(round(by0 * s)))
+        self.olhos_d = None
+        op = os.path.join(pasta, "olhos_desenho.npz")
+        if os.path.exists(op):
+            oz = np.load(op)
+            rs2 = lambda a: cv2.resize(a, (max(2, int(a.shape[1] * s)), max(2, int(a.shape[0] * s))), interpolation=cv2.INTER_AREA).astype(np.float32)
+            self.olhos_d = dict(xy=(int(round(int(oz["x0"]) * s)), int(round(int(oz["y0"]) * s))),
+                                limpo=rs2(oz["limpo"]), cam=[rs2(oz[f"o{i}"]) for i in range(1, 9)])
         self.gx, self.gy = np.meshgrid(np.arange(W, dtype=np.float32), np.arange(H, dtype=np.float32))
         ys = np.where(self.w_cab.max(axis=1) > 0.001)[0]
         self.lim_cab = int(ys.max()) + 2 if len(ys) else 0
@@ -150,6 +157,16 @@ class Boneco:
         reg[..., :3] = cor; reg[..., 3:] = a_out * 255
         src[y0:y0 + h, x0:x0 + w] = np.clip(reg, 0, 255).astype(np.uint8)
 
+    def _olhos_desenho(self, src, v):
+        d = self.olhos_d
+        x0, y0 = d["xy"]; lim = d["limpo"]
+        h, w = lim.shape[:2]; h = min(h, src.shape[0] - y0); w = min(w, src.shape[1] - x0)
+        reg = lim[:h, :w].copy()
+        c = d["cam"][v - 1][:h, :w]; a = c[..., 3:] / 255
+        reg[..., :3] = reg[..., :3] * (1 - a) + c[..., :3] * a
+        reg[..., 3:] = np.maximum(reg[..., 3:], c[..., 3:])
+        src[y0:y0 + h, x0:x0 + w] = np.clip(reg, 0, 255).astype(np.uint8)
+
     def ponta_bico(self, cabeca=0.0):
         px, py = self.ponta
         c = self.pc; k = math.radians(cabeca)
@@ -171,8 +188,12 @@ class Boneco:
         ey = self.c_olho[1] + (ny - self.c_olho[1]) / olho_esc
         return nx + wo * (ex - nx), ny + wo * (ey - ny)
 
-    def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0, sob_y=0.0, sob_rot=0.0, olho_esc=1.0, visema=None):
+    def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0, sob_y=0.0, sob_rot=0.0, olho_esc=1.0, visema=None,
+               olhos=None):
         src = self.base.copy()
+        if olhos and self.olhos_d:
+            self._olhos_desenho(src, int(olhos))
+            piscada, sob_y, sob_rot, olho_esc = 0.0, 0.0, 0.0, 1.0     # os desenhos já fazem isso
         if visema and self.bocas:
             self._boca_desenho(src, int(visema))       # desenho de bico pronto (sem a mandíbula girada)
         elif self.tem_boca:
