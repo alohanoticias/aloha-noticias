@@ -1,16 +1,8 @@
 {
- "layout": "dois",
+ "layout": "um",
  "fotos": [
   {
    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Door_hard_sound_effect_device.JPG",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Anchor_hard_sound_effect_device.JPG",
    "foco": [
     0.5,
     0.5
