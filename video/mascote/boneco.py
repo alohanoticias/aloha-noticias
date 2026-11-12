@@ -107,6 +107,13 @@ class Boneco:
         reg[..., 3:] = np.maximum(reg[..., 3:], a * 255)
         src[y0:y1, x0:x1] = reg.astype(np.uint8)
 
+    def ponta_bico(self, cabeca=0.0):
+        """Ponta do bico (coordenadas do quadro) para a cabeça girada 'cabeca' graus."""
+        px, py = 548 * self.s, 352 * self.s
+        c = self.pc; k = math.radians(cabeca)
+        dx, dy = px - c[0], py - c[1]
+        return c[0] + math.cos(k) * dx + math.sin(k) * dy, c[1] - math.sin(k) * dx + math.cos(k) * dy
+
     def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0):
         src = self.base.copy()
         self._bico(src, self.ang_fechado * (1 - min(1.15, max(0, boca))))

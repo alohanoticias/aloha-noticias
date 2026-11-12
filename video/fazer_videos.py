@@ -275,13 +275,11 @@ def main():
     for m in mats:
         print("-", m["slug"])
         cache = os.path.join(AQUI, "cache", m["slug"][:40])
-        imgs = imagens_da_materia(m, os.path.join(AQUI, "cache"))
-        rot = obter_roteiro(m, max(1, len(imgs)))
+        rot = obter_roteiro(m, 1)
         midias = []
         for i, f in enumerate(rot["falas"]):
             itens = [x for x in (resolver_midia(it, cache) for it in f.get("midia", [])) if x]
-            if not itens and imgs:   # sem mídia própria: usa as fotos da matéria
-                itens = [{"tipo": "imagem", "caminho": imgs[(f.get("imagem") or i) % len(imgs)]}]
+            # sem mídia própria, repete a anterior (as fotos dos artigos não entram nos vídeos)
             print(f"  fala {i}: " + ", ".join(os.path.basename(x["caminho"]) for x in itens))
             midias.append(itens)
         mf = resolver_midia(rot["fundo_final"], cache) if rot.get("fundo_final") else None

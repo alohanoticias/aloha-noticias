@@ -22,7 +22,7 @@ de ~30 segundos que sai a partir das matérias publicadas no dia.
    com opinião leve, no meio da notícia. Eles aparecem num balão saindo do bico, **sem emoji**.
 5. **Fecha chamando para o site** de um jeito natural ("O passo a passo completo tá no Aloha Notícias!").
 6. Números por extenso quando a voz possa ler errado ("nove e noventa e nove dólares"; "dezesseis horas").
-   No campo `destaque` use a forma curta ("US$ 9,99", "16 HORAS ANTES").
+
 7. Sem spoiler além do que a matéria já conta. Sem política, sem tragédia como piada.
 8. Cada matéria do dia vira um vídeo; variar o formato das piadas entre um vídeo e outro.
 
@@ -34,25 +34,25 @@ de ~30 segundos que sai a partir das matérias publicadas no dia.
   "voz": {"nome": "pt-BR-AntonioNeural", "rate": "+10%", "pitch": "+5Hz"},
   "falas": [
     {"texto": "Atenção, galera: GTA 6 sai dia 19, mas a Nova Zelândia joga dezesseis horas antes da gente.",
-     "tipo": "noticia", "destaque": "16 HORAS ANTES", "gesto": "aponta", "lado": "esq",
-     "midia": [{"youtube": "VQRLujxTm3c", "inicio": 8, "dur": 4}, {"arquivo": "video/midia/gta-6/vice-city-noite.jpg"}]},
+     "tipo": "noticia", "gesto": "aponta", "lado": "esq",
+     "midia": [{"youtube": "VQRLujxTm3c", "inicio": 8, "dur": 4}, {"commons": "Auckland skyline night", "tipo": "imagem"}]},
     {"texto": "Dezesseis horas! Dá pra zerar e ainda soltar spoiler no grupo da família.",
      "tipo": "comentario", "gesto": "risada", "lado": "esq",
-     "midia": [{"arquivo": "video/midia/gta-6/jason-lucia-carro.jpg"}]}
+     "midia": [{"youtube": "QdBZY2fkU-0", "inicio": 40, "dur": 4}]}
   ]
 }
 ```
 
-- `titulo_curto`: até ~40 caracteres, fica fixo no topo. O trecho entre `*asteriscos*` sai em amarelo.
+- `titulo_curto`: até ~40 caracteres, fica fixo no topo numa caixa preta com faixa vermelha.
 - `falas`: de 5 a 7. `tipo` é `noticia` (vira legenda grande, palavra a palavra) ou `comentario` (balão).
 - `midia`: o que aparece no fundo (tela cheia) durante a fala, em ordem; o tempo da fala é dividido entre os itens.
-  Use imagens e vídeos **do que está sendo falado**, de preferência diferentes dos que estão no artigo:
+  Fundo bem movimentado: 2 a 4 itens por fala (trocas a cada ~2 s), priorizando trechos de vídeo.
+  Use imagens e vídeos **do que está sendo falado** e **nunca as fotos que já estão nos artigos do site**:
   `{"youtube": "<id>", "inicio": s, "dur": s}` (trecho de trailer oficial), `{"commons": "busca", "tipo": "video"|"imagem"}`
   (Wikimedia Commons), `{"url": "https://..."}`, `{"arquivo": "video/midia/..."}`. `"inteira": true` mostra a foto
   inteira sobre ela mesma desfocada (bom para foto de produto). O que não baixar é pulado.
 - `lado`: `esq` ou `dir` — canto do mascote. Trocar de lado 1 ou 2 vezes por vídeo; nos comentários ele chega mais perto.
 - `fundo_final`: mídia do cartão de encerramento.
-- `destaque` (opcional, só em `noticia`): até ~18 caracteres, aparece num selo vermelho.
 - `gesto` (opcional): `aponta` (levanta a mão), `risada` (fecha os olhos e balança), `pensativo`
   (inclina a cabeça, olhar meio fechado), `surpreso` (cabeça para trás), `tchau` (acena; use na última fala).
 - `voz` (opcional): vozes do edge-tts. Padrão `pt-BR-AntonioNeural`, `+10%` de velocidade, `+5Hz` de tom.

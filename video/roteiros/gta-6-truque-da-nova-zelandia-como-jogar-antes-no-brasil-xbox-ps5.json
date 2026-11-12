@@ -5,25 +5,30 @@
   "rate": "+10%",
   "pitch": "+5Hz"
  },
- "titulo_curto": "GTA 6: o truque da *Nova Zelândia*",
+ "titulo_curto": "GTA 6: o truque da Nova Zelândia",
  "falas": [
   {
    "texto": "Atenção, galera: GTA 6 sai dia 19, mas a Nova Zelândia joga dezesseis horas antes da gente, por causa do fuso.",
    "tipo": "noticia",
-   "destaque": "16 HORAS ANTES",
    "gesto": "aponta",
    "lado": "esq",
    "midia": [
     {
      "youtube": "VQRLujxTm3c",
      "inicio": 8,
-     "dur": 4
+     "dur": 2.2
     },
     {
-     "arquivo": "video/midia/gta-6/jason-lucia-armas.jpg"
+     "commons": "Auckland skyline night",
+     "tipo": "imagem"
     },
     {
-     "arquivo": "video/midia/gta-6/vice-city-noite.jpg"
+     "youtube": "QdBZY2fkU-0",
+     "inicio": 15,
+     "dur": 2.2
+    },
+    {
+     "url": "https://www.rockstargames.com/VI/_next/static/media/mobile.0mi46.hy2kwfa.jpg"
     }
    ]
   },
@@ -34,39 +39,52 @@
    "lado": "esq",
    "midia": [
     {
-     "arquivo": "video/midia/gta-6/jason-lucia-carro.jpg"
+     "youtube": "QdBZY2fkU-0",
+     "inicio": 40,
+     "dur": 2.4
+    },
+    {
+     "url": "https://www.rockstargames.com/VI/_next/static/media/onlyInLeonidaMobile.0mupfnk-x6x~r.jpg"
     }
    ]
   },
   {
    "texto": "No Xbox, o truque é mudar a localização do console pra Nova Zelândia. Mas ninguém garante que funciona.",
    "tipo": "noticia",
-   "destaque": "XBOX: MUDA A REGIÃO",
    "lado": "dir",
    "midia": [
     {
-     "commons": "Xbox Series X",
-     "tipo": "video"
-    },
-    {
-     "arquivo": "video/midia/gta-6/xbox-series-x.jpg",
+     "commons": "Xbox Series X console",
+     "tipo": "imagem",
      "inteira": true
     },
     {
-     "arquivo": "video/midia/gta-6/assalto.jpg"
+     "youtube": "VQRLujxTm3c",
+     "inicio": 30,
+     "dur": 2.2
+    },
+    {
+     "youtube": "VQRLujxTm3c",
+     "inicio": 45,
+     "dur": 2.2
     }
    ]
   },
   {
    "texto": "No PS5 é pior: precisa de conta neozelandesa e de outra cópia do jogo.",
    "tipo": "noticia",
-   "destaque": "PS5: OUTRA CÓPIA",
    "gesto": "aponta",
    "lado": "dir",
    "midia": [
     {
-     "arquivo": "video/midia/gta-6/ps5.jpg",
+     "commons": "PlayStation 5 console",
+     "tipo": "imagem",
      "inteira": true
+    },
+    {
+     "youtube": "QdBZY2fkU-0",
+     "inicio": 60,
+     "dur": 2.2
     }
    ]
   },
@@ -77,7 +95,12 @@
    "lado": "esq",
    "midia": [
     {
-     "arquivo": "video/midia/gta-6/gta6-boia-piscina.jpg"
+     "url": "https://www.rockstargames.com/VI/_next/static/media/musicMobile.16pdg34v6lit..jpg"
+    },
+    {
+     "youtube": "VQRLujxTm3c",
+     "inicio": 90,
+     "dur": 1.8
     }
    ]
   },
@@ -88,17 +111,17 @@
    "lado": "esq",
    "midia": [
     {
-     "youtube": "QdBZY2fkU-0",
-     "inicio": 20,
-     "dur": 3
+     "youtube": "VQRLujxTm3c",
+     "inicio": 110,
+     "dur": 2.2
     },
     {
-     "arquivo": "video/midia/gta-6/jason-lucia-por-do-sol.jpg"
+     "url": "https://www.rockstargames.com/VI/_next/static/media/k4ak9okk485712.0cj_8hoskvfgy.jpg"
     }
    ]
   }
  ],
  "fundo_final": {
-  "arquivo": "video/midia/gta-6/jason-lucia-bandana.jpg"
+  "url": "https://www.rockstargames.com/VI/_next/static/media/39ak81277255o9.0lmk9f~r~10.x.jpg"
  }
 }

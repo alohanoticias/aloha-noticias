@@ -70,6 +70,13 @@ class Plano:
         self.dir = rnd.choice([-1, 1])
         self.video = midia["tipo"] == "video"
         self.proc = None
+        if midia is None or midia.get("tipo") == "cor":
+            y = np.linspace(0, 1, H)[:, None, None]
+            arr = (np.array([40, 14, 16]) * (1 - y) + np.array([8, 8, 10]) * y).repeat(W, axis=1).astype(np.uint8)
+            midia = {"tipo": "imagem", "inteira": False}
+            self.m = midia; self.video = False; self.proc = None; self.inteira = False
+            self.im = Image.fromarray(arr).resize((int(W * 1.12), int(H * 1.12)))
+            return
         self.inteira = bool(midia.get("inteira"))
         if not self.video and self.inteira:
             # foto de produto: aparece inteira (largura da tela) sobre ela mesma desfocada
@@ -137,54 +144,51 @@ def degrades():
 
 # ============================================================ textos
 def titulo_img(texto):
-    """Título no topo. Trecho entre *asteriscos* sai em amarelo."""
-    f = fonte(82)
-    palavras = []
-    marca = False
-    for p in texto.upper().split():
-        ini = p.startswith("*"); fim_ = p.endswith("*")
-        if ini: marca = True
-        palavras.append((p.strip("*"), marca))
-        if fim_: marca = False
-    linhas, atual = [], []
-    for w in palavras:
-        teste = " ".join(x[0] for x in atual + [w])
-        if atual and f.getlength(teste) > 940:
-            linhas.append(atual); atual = []
-        atual.append(w)
-    linhas.append(atual)
-    im = Image.new("RGBA", (W, 100 * len(linhas) + 40), (0, 0, 0, 0))
-    d = ImageDraw.Draw(im); esp = f.getlength(" ")
+    """Título da notícia no topo: caixa preta arredondada, faixa vermelha à esquerda, texto branco."""
+    texto = texto.replace("*", "")
+    arq = os.path.join(AQUI, "fontes", "titulo.ttf")
+    f = fonte(58, arq if os.path.exists(arq) else FONTE_TXT)
+    linhas = quebrar(texto, f, 900)[:3]
+    alt = 30 + 74 * len(linhas) + 18
+    larg = int(max(f.getlength(l) for l in linhas) + 96)
+    im = Image.new("RGBA", (W, alt), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    x0 = (W - larg) // 2
+    d.rounded_rectangle((x0, 0, x0 + larg, alt), 24, fill=(14, 14, 16, 238))
+    d.rounded_rectangle((x0, 0, x0 + 13, alt), 6, fill=VERMELHO)
+    d.rectangle((x0 + 7, 0, x0 + 13, alt), fill=VERMELHO)
     for i, l in enumerate(linhas):
-        larg = sum(f.getlength(w) for w, _ in l) + esp * (len(l) - 1)
-        x = (W - larg) / 2
-        for w, m in l:
-            d.text((x, 86 + 100 * i), w, font=f, fill=AMARELO if m else BRANCO, stroke_width=11, stroke_fill=PRETO, anchor="ls")
-            x += f.getlength(w) + esp
-    return com_sombra(im, 10, 0.55, 6)
+        d.text((W / 2 + 7, 30 + 37 + 74 * i - 2), l, font=f, fill=BRANCO, anchor="mm")
+    return com_sombra(im, 14, 0.45, 8)
 
 
 class Legendas:
+    """Legenda palavra a palavra; a palavra falada ganha uma faixa vermelha do Aloha."""
     def __init__(self):
         self.cache = {}
 
     def img(self, palavras, ativa):
         k = (tuple(palavras), ativa)
         if k not in self.cache:
-            f = fonte(96)
+            f = fonte(70)
             txt = [p.upper() for p in palavras]
-            linhas = quebrar(" ".join(txt), f, 960)
-            im = Image.new("RGBA", (W, 116 * len(linhas) + 50), (0, 0, 0, 0))
+            linhas = quebrar(" ".join(txt), f, 900)
+            LH = 92
+            im = Image.new("RGBA", (W, LH * len(linhas) + 40), (0, 0, 0, 0))
             d = ImageDraw.Draw(im); esp = f.getlength(" "); idx = 0
             for li, l in enumerate(linhas):
                 ws = l.split()
                 larg = sum(f.getlength(w) for w in ws) + esp * (len(ws) - 1)
-                x = (W - larg) / 2; y = 100 + li * 116
+                x = (W - larg) / 2; y = 82 + li * LH
                 for w in ws:
-                    d.text((x, y), w, font=f, fill=AMARELO if idx == ativa else BRANCO,
-                           stroke_width=13, stroke_fill=PRETO, anchor="ls")
+                    if idx == ativa:
+                        bb = d.textbbox((x, y), w, font=f, anchor="ls")
+                        d.rounded_rectangle((bb[0] - 14, bb[1] - 10, bb[2] + 14, bb[3] + 12), 14, fill=VERMELHO)
+                        d.text((x, y), w, font=f, fill=BRANCO, stroke_width=4, stroke_fill=(90, 18, 18), anchor="ls")
+                    else:
+                        d.text((x, y), w, font=f, fill=BRANCO, stroke_width=10, stroke_fill=PRETO, anchor="ls")
                     x += f.getlength(w) + esp; idx += 1
-            self.cache[k] = com_sombra(im, 9, 0.5, 7)
+            self.cache[k] = com_sombra(im, 9, 0.5, 6)
         return self.cache[k]
 
 
@@ -202,14 +206,15 @@ def selo_img(texto):
 class Balao:
     """Balão de fala: branco, contorno grosso, rabicho curvo até o bico. As palavras escurecem
     conforme são ditas (as que faltam ficam em cinza claro)."""
-    R = 48; BORDA = 7; RAB = 78
+    R = 36; BORDA = 5; RAB = 58
 
     def __init__(self, palavras, espelhar):
         self.palavras, self.esp = palavras, espelhar
-        self.f = fonte(56, FONTE_TXT)
-        self.linhas = quebrar(" ".join(p[0] for p in palavras), self.f, 540)
+        self.f = fonte(40, FONTE_TXT)
+        self.linhas = quebrar(" ".join(p[0] for p in palavras), self.f, 400)
         tw = max(self.f.getlength(l) for l in self.linhas)
-        self.bw, self.bh = int(tw + 92), 48 + 70 * len(self.linhas) + 26
+        self.LH = 50
+        self.bw, self.bh = int(tw + 64), 30 + self.LH * len(self.linhas) + 18
         self.cache = {}
         self.forma = self._forma()
 
@@ -219,29 +224,29 @@ class Balao:
         im = Image.new("RGBA", ((bw + 2 * M) * S, (bh + 2 * M + RAB) * S), (0, 0, 0, 0))
         d = ImageDraw.Draw(im)
         x0, y0, x1, y1 = M * S, M * S, (M + bw) * S, (M + bh) * S
-        bx = x0 + 64 * S
+        bx = x0 + 48 * S
         def rabicho(enc):
             # triângulo de lados curvos: base no balão, ponta para baixo/esquerda
             pts = []
             for i in range(21):
                 u = i / 20
-                pts.append((bx + (70 * S - enc) * (1 - u) + (-34 * S + enc * 0.3) * u + 14 * S * math.sin(math.pi * u),
+                pts.append((bx + (52 * S - enc) * (1 - u) + (-26 * S + enc * 0.3) * u + 10 * S * math.sin(math.pi * u),
                             y1 - 6 * S + (RAB * S - enc) * u ** 1.15))
             for i in range(21):
                 u = 1 - i / 20
-                pts.append((bx + enc * (1 - u) + (-34 * S + enc * 0.3) * u + 4 * S * math.sin(math.pi * u),
+                pts.append((bx + enc * (1 - u) + (-26 * S + enc * 0.3) * u + 4 * S * math.sin(math.pi * u),
                             y1 - 6 * S + (RAB * S - enc) * u ** 1.3))
             return pts
         d.rounded_rectangle((x0, y0, x1, y1), R * S, fill=PRETO)
         d.polygon(rabicho(0), fill=PRETO)
         d.rounded_rectangle((x0 + B * S, y0 + B * S, x1 - B * S, y1 - B * S), (R - B) * S, fill=BRANCO)
         d.polygon(rabicho(B * S * 1.6), fill=BRANCO)
-        d.rectangle((bx + B * S, y1 - 14 * S, bx + 60 * S, y1 - B * S), fill=BRANCO)
+        d.rectangle((bx + B * S, y1 - 12 * S, bx + 44 * S, y1 - B * S), fill=BRANCO)
         im = im.resize((im.width // S, im.height // S), Image.LANCZOS)
         if self.esp:
             im = im.transpose(Image.FLIP_LEFT_RIGHT)
         self.M = M
-        return com_sombra(im, 14, 0.45, 12)
+        return com_sombra(im, 12, 0.45, 9)
 
     def img(self, n_vis):
         if n_vis in self.cache:
@@ -251,7 +256,7 @@ class Balao:
         for li, l in enumerate(self.linhas):
             ws = l.split()
             larg = sum(self.f.getlength(w) for w in ws) + esp * (len(ws) - 1)
-            x = M + (self.bw - larg) / 2; y = M + 48 + 50 + 70 * li - 6
+            x = M + (self.bw - larg) / 2; y = M + 30 + 36 + self.LH * li - 4
             for w in ws:
                 d.text((x, y), w, font=self.f, fill=(18, 18, 22) if k < n_vis else (190, 190, 196), anchor="ls")
                 x += self.f.getlength(w) + esp; k += 1
@@ -403,6 +408,8 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
             planos.append(Plano(m, t0 + j * (t1 - t0) / len(ms), t0 + (j + 1) * (t1 - t0) / len(ms), len(planos)))
         if ms:
             ult = ms[-1]
+    if not planos:
+        planos.append(Plano(None, 0, dur_voz + 0.1, 0))
     mf = midia_final or ult
     planos.append(Plano(mf, dur_voz + 0.1, total + 1, len(planos)))
 
@@ -444,7 +451,7 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
             c = fin.copy(); c.putalpha(c.split()[3].point(lambda v: int(v * a)))
             fr.alpha_composite(c, (0, int(330 - 40 * (1 - a))))
         ytopo = 150 + tit.height
-        if f and f.get("destaque") and not q["fim"]:
+        if False:  # selo de destaque desligado (pedido do João)
             s = selos[i]
             e2 = ease_out_back((t - f["inicio"] - 0.05) / 0.32) * ease((f["fim"] + 0.25 - t) / 0.2)
             if e2 > 0.02:
@@ -461,7 +468,7 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
                     e2 = 0.85 + 0.15 * ease_out_back((t - ini + 0.04) / 0.16, 2.2)
                     if abs(e2 - 1) > 0.005:
                         im = im.resize((int(im.width * e2), int(im.height * e2)), Image.BILINEAR)
-                    fr.alpha_composite(im, (int(W / 2 - im.width / 2), int(ytopo + 270 - im.height / 2)))
+                    fr.alpha_composite(im, (int(W / 2 - im.width / 2), int(ytopo + 130 - im.height / 2)))
                     break
         # ---- mascote
         mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"])
@@ -488,15 +495,17 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
             e2 = ease_out_back((t - f["inicio"] + 0.1) / 0.3, 1.9) * ease((f["fim"] + 0.3 - t) / 0.18)
             if e2 > 0.02:
                 im2 = im.resize((max(1, int(im.width * e2)), max(1, int(im.height * e2))), Image.BILINEAR)
-                ponta_x = (b.M + 64 - 34) * e2           # ponta do rabicho dentro da imagem
+                ponta_x = (b.M + 48 - 26) * e2           # ponta do rabicho dentro da imagem
                 ponta_y = (b.M + b.bh + b.RAB) * e2
-                bico_x = x + 560 * es if esq else x + mq.width - 560 * es
-                bico_y = y + 300 * es
+                # ponta do bico no rig (cabeça girada) -> tela, acompanhando tamanho e lado do mascote
+                bpx, bpy = bon.ponta_bico(q["cab"])
+                bico_x = x + bpx * es if esq else x + mq.width - bpx * es
+                bico_y = y + bpy * es
                 if esq:
-                    bx = bico_x + 8 - ponta_x
+                    bx = bico_x + 4 - ponta_x
                 else:
-                    bx = bico_x - 8 - (im2.width - ponta_x)
-                by = bico_y - ponta_y
+                    bx = bico_x - 4 - (im2.width - ponta_x)
+                by = bico_y - 8 * es - ponta_y
                 bx = min(max(bx, 16), W - im2.width - 16)
                 fr.alpha_composite(im2, (int(bx), int(by)))
         return fr.convert("RGB")
