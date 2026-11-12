@@ -14,8 +14,8 @@
    "lado": "esq",
    "midia": [
     {
-     "youtube": "VQRLujxTm3c",
-     "inicio": 8,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 95,
      "dur": 2.2
     },
     {
@@ -23,8 +23,8 @@
      "tipo": "imagem"
     },
     {
-     "youtube": "QdBZY2fkU-0",
-     "inicio": 15,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 180,
      "dur": 2.2
     },
     {
@@ -40,8 +40,8 @@
    "lado": "esq",
    "midia": [
     {
-     "youtube": "QdBZY2fkU-0",
-     "inicio": 40,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 262,
      "dur": 2.4
     },
     {
@@ -60,13 +60,13 @@
      "inteira": true
     },
     {
-     "youtube": "VQRLujxTm3c",
-     "inicio": 30,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 340,
      "dur": 2.2
     },
     {
-     "youtube": "VQRLujxTm3c",
-     "inicio": 45,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 423,
      "dur": 2.2
     }
    ],
@@ -83,8 +83,8 @@
      "inteira": true
     },
     {
-     "youtube": "QdBZY2fkU-0",
-     "inicio": 60,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 508,
      "dur": 2.2
     }
    ],
@@ -100,8 +100,8 @@
      "url": "https://www.rockstargames.com/VI/_next/static/media/musicMobile.16pdg34v6lit..jpg"
     },
     {
-     "youtube": "VQRLujxTm3c",
-     "inicio": 90,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 612,
      "dur": 1.8
     }
    ],
@@ -114,8 +114,8 @@
    "lado": "esq",
    "midia": [
     {
-     "youtube": "VQRLujxTm3c",
-     "inicio": 110,
+     "video_url": "https://media-rockstargames-com.akamaized.net/VI/downloads/videos/GTAVI_An_Extended_Look/GTAVI_An_Extended_Look.mp4",
+     "inicio": 705,
      "dur": 2.2
     },
     {

@@ -272,14 +272,49 @@ class Balao:
 
 
 def cartao_final():
-    im = Image.new("RGBA", (W, 420), (0, 0, 0, 0))
+    im = Image.new("RGBA", (W, 460), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    d.text((W / 2, 80), "MATÉRIA COMPLETA EM", font=fonte(54), fill=AMARELO, anchor="ms", stroke_width=9, stroke_fill=PRETO)
-    d.text((W / 2, 200), "alohanoticias.com", font=fonte(104), fill=BRANCO, anchor="ms", stroke_width=13, stroke_fill=PRETO)
-    f = fonte(48, FONTE_TXT); t = "SIGA @alohanoticiasbr"; tw = f.getlength(t)
-    d.rounded_rectangle((W / 2 - tw / 2 - 42, 262, W / 2 + tw / 2 + 42, 352), 45, fill=VERMELHO, outline=BRANCO, width=5)
-    d.text((W / 2, 323), t, font=f, fill=BRANCO, anchor="ms")
+    d.text((W / 2, 78), "MATÉRIA COMPLETA NO", font=fonte(50), fill=BRANCO, anchor="ms", stroke_width=9, stroke_fill=PRETO)
+    ft = fonte(118)
+    t1, t2 = "ALOHA ", "NOTÍCIAS"
+    l1, l2 = ft.getlength(t1), ft.getlength(t2)
+    x = W / 2 - (l1 + l2) / 2
+    d.text((x, 205), t1, font=ft, fill=BRANCO, anchor="ls", stroke_width=13, stroke_fill=PRETO)
+    d.text((x + l1, 205), t2, font=ft, fill=VERMELHO, anchor="ls", stroke_width=13, stroke_fill=PRETO)
+    # botão "seguir": pílula branca, bolinha vermelha com +, texto escuro
+    f = fonte(46, FONTE_TXT); t = "Siga @alohanoticiasbr"; tw = f.getlength(t)
+    bw = int(tw + 150); bx0 = int(W / 2 - bw / 2); by0 = 262; bh = 100
+    d.rounded_rectangle((bx0, by0, bx0 + bw, by0 + bh), 50, fill=BRANCO, outline=PRETO, width=6)
+    cx, cy, r = bx0 + 56, by0 + bh // 2, 30
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=VERMELHO)
+    d.rounded_rectangle((cx - 15, cy - 4, cx + 15, cy + 4), 3, fill=BRANCO)
+    d.rounded_rectangle((cx - 4, cy - 15, cx + 4, cy + 15), 3, fill=BRANCO)
+    d.text((bx0 + 104, cy + 2), t, font=f, fill=(18, 18, 22), anchor="lm")
     return com_sombra(im, 12, 0.5, 8)
+
+
+# ============================================================ poses
+LOGO_POSES = {"microfone": (395, 470, 600, 628), "tablet": (520, 594, 712, 757)}   # emblema "e" (px da pose, altura 900)
+
+
+def espelhar_pose(ps, nome, esc):
+    """Espelha a pose, mas recoloca o emblema do Aloha no sentido certo (para ler direito)."""
+    out = ps.transpose(Image.FLIP_LEFT_RIGHT)
+    if nome in LOGO_POSES:
+        k = esc * 900 / 955 if False else esc
+        x0, y0, x1, y1 = [int(v * k * POSE_K.get(nome, 1)) for v in LOGO_POSES[nome]]
+        reg = ps.crop((x0, y0, x1, y1))
+        arr = np.array(reg).astype(np.int16)
+        r_, g_, b_ = arr[..., 0], arr[..., 1], arr[..., 2]
+        emb = (((r_ > 150) & (g_ < 90) & (b_ < 90)) | ((r_ > 200) & (g_ > 200) & (b_ > 200))).astype(np.uint8) * 255
+        m = Image.fromarray(emb).filter(ImageFilter.MaxFilter(5)).filter(ImageFilter.GaussianBlur(1.2))
+        m2 = m.transpose(Image.FLIP_LEFT_RIGHT)
+        mm = Image.fromarray(np.minimum(np.array(m), np.array(m2)))   # só onde o emblema existe nos dois sentidos
+        out.paste(reg, (ps.width - x1, y0), mm)
+    return out
+
+
+POSE_K = {}
 
 
 # ============================================================ animação
@@ -421,6 +456,7 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
             if fn.endswith(".png"):
                 im = Image.open(os.path.join(pdir, fn)).convert("RGBA")
                 k = 900 / im.height                     # mesma altura de tronco do mascote
+                POSE_K[fn[:-4]] = k
                 poses[fn[:-4]] = im.resize((int(im.width * k), 900), Image.LANCZOS)
     falas = [{**f, **tt} for f, tt in zip(roteiro["falas"], falas_tempos)]
     total = dur_voz + FINAL
@@ -504,8 +540,7 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
         es = q["esc"]
         esq = q["lado"] == "esq"
         pm = q["pose_mix"] if q["pose"] in poses else 0.0
-        if q["lado"] == "dir" and q["pose"] in ("microfone", "tablet"):
-            pm = 0.0
+
         def posicionar(img_m, larg_ref):
             xx = (-130 + q["dx"]) if esq else (W - larg_ref + 130 - q["dx"])
             xx += (-1 if esq else 1) * q["saida"] * 760
@@ -522,8 +557,8 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
             pop = 0.96 + 0.04 * ease_out_back(min(1, pm), 2.0)
             e3 = es * pop
             ps = ps.resize((int(ps.width * e3), int(ps.height * e3)), Image.BILINEAR)
-            if not esq and q["pose"] not in ("microfone", "tablet"):   # logo "e" não pode sair espelhada
-                ps = ps.transpose(Image.FLIP_LEFT_RIGHT)
+            if not esq:
+                ps = espelhar_pose(ps, q["pose"], e3)
             # alinha pela base e pelo lado de dentro do mascote
             px_ = (x + 60 * es) if esq else (x + mq.width - 60 * es - ps.width)
             py_ = H - ps.height + 40 - q["bob"] + q["saida"] * 120
