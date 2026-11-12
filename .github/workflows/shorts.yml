@@ -41,7 +41,7 @@ jobs:
       - name: Guardar vídeo de teste no ramo (só no push do ramo de teste)
         if: github.event_name == 'push'
         run: |
-          mkdir -p video/prontos && cp video/saida/*.mp4 video/prontos/
+          mkdir -p video/prontos && rm -f video/prontos/* && cp video/saida/*.mp4 video/saida/*.txt video/prontos/ 2>/dev/null; ls video/prontos
           git config user.name "aloha-bot" && git config user.email "contato@alohanoticias.com"
           git add video/prontos video/roteiros
           git commit -qm "Vídeo de teste do mascote [skip ci]" && git push -q || true

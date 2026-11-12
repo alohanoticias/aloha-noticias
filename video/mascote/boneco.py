@@ -23,6 +23,23 @@ class Boneco:
         p = np.load(os.path.join(pasta, "pesos.npz"))
         rs = lambda m: cv2.resize(m.astype(np.float32), (W, H), interpolation=cv2.INTER_LINEAR)
         self.w_cab, self.w_bra = rs(p["cabeca"]), rs(p["braco"])
+        self.bico_sup = cv2.resize(cv2.imread(os.path.join(pasta, "bico_sup.png"), cv2.IMREAD_UNCHANGED), (W, H),
+                                   interpolation=cv2.INTER_AREA)
+        ol = np.load(os.path.join(pasta, "olhos.npz"))
+        self.olhos_rec = []
+        for nome in ("esq", "dir"):
+            d = {k: ol[f"{nome}_{k}"] for k in ("x0", "y0", "mask", "pele", "topo", "fundo")}
+            if s != 1.0:
+                hh, ww = d["mask"].shape
+                nw, nh = max(2, int(ww * s)), max(2, int(hh * s))
+                d["mask"] = cv2.resize(d["mask"], (nw, nh), interpolation=cv2.INTER_NEAREST)
+                d["pele"] = cv2.resize(d["pele"], (nw, nh), interpolation=cv2.INTER_AREA)
+                xs = np.linspace(0, ww - 1, nw)
+                d["topo"] = np.interp(xs, np.arange(ww), d["topo"]) * s
+                d["fundo"] = np.interp(xs, np.arange(ww), d["fundo"]) * s
+                d["x0"], d["y0"] = d["x0"] * s, d["y0"] * s
+            d["x0"], d["y0"] = int(round(float(d["x0"]))), int(round(float(d["y0"])))
+            self.olhos_rec.append(d)
         self.mand = cv2.resize(cv2.imread(os.path.join(pasta, "mandibula.png"), cv2.IMREAD_UNCHANGED), (W, H),
                                interpolation=cv2.INTER_AREA)
         self.acima = rs(p["acima_bico"])
@@ -58,53 +75,64 @@ class Boneco:
             sy = c[1] - sa * dx + ca * dy
         return sx, sy
 
-    def _palpebra(self, img, o, b):
-        """Pálpebra que desce pela curva do olho; fechada vira um arco (olho fechado sorrindo)."""
+    def _piscar(self, img, d, b):
+        """Pálpebra: a pele reconstruída desce do topo do olho até a linha de olho fechado,
+        com um cílio que afina nas pontas. Em b=1 o olho inteiro vira pele + cílio curvo."""
         if b <= 0.02:
             return
-        cx, cy = o["c"]; rx, ry = o["r"]; ang = math.radians(o["ang"])
-        rx2, ry2 = rx + 5 * self.s, ry + 6 * self.s
-        x0, x1 = int(cx - rx2 - 4), int(cx + rx2 + 5)
-        y0, y1 = int(cy - ry2 - 4), int(cy + ry2 + 5)
-        gx, gy = self.gx[y0:y1, x0:x1] - cx, self.gy[y0:y1, x0:x1] - cy
-        u = gx * math.cos(ang) + gy * math.sin(ang)
-        v = -gx * math.sin(ang) + gy * math.cos(ang)
-        q = np.sqrt(np.clip(1 - (u / rx2) ** 2, 0, 1))
-        dist_el = (u / rx2) ** 2 + (v / ry2) ** 2
-        dentro = np.clip((1 - dist_el) * ry2 / 2.0, 0, 1)            # borda suave da elipse
-        e_linha = 2 * (b * 0.8) - 1                                   # onde fica o cílio
-        e_cobre = e_linha if b < 0.9 else e_linha + (1 - e_linha) * (b - 0.9) / 0.1
-        borda = e_cobre * ry2 * q
-        suav = np.clip((borda - v) / 1.5 + 0.5, 0, 1) * dentro
-        reg = img[y0:y1, x0:x1].astype(np.float32)
-        cor = np.array(o["cor"][::-1] + [255], np.float32)
-        reg = reg * (1 - suav[..., None]) + cor * suav[..., None]
-        img[y0:y1, x0:x1] = reg.astype(np.uint8)
-        pts = []
-        for i in range(29):
-            uu = -rx * 1.02 + 2 * rx * 1.02 * i / 28
-            vv = e_linha * ry2 * math.sqrt(max(0, 1 - (uu / rx2) ** 2))
-            pts.append((cx + uu * math.cos(ang) - vv * math.sin(ang), cy + uu * math.sin(ang) + vv * math.cos(ang)))
-        pts = (np.array(pts) * 16).astype(np.int32)
-        cv2.polylines(img, [pts], False, (29, 23, 26, 255), max(2, int(round(5 * self.s))), cv2.LINE_AA, shift=4)
+        x0, y0, m, pele = d["x0"], d["y0"], d["mask"], d["pele"]
+        h, w = m.shape
+        topo, fundo = d["topo"], d["fundo"]
+        cols = np.where(topo >= 0)[0]
+        if not len(cols):
+            return
+        fech = topo + 0.66 * (fundo - topo)          # onde fica o cílio com o olho fechado
+        borda = topo + min(1, b) * (fech - topo)     # borda da pálpebra agora
+        yy = np.arange(h, dtype=np.float32)[:, None]
+        cobre = np.clip(borda[None, :] - yy + 0.5, 0, 1) * (topo[None, :] >= 0)
+        if b > 0.85:                                  # no fim cobre também o resto do olho
+            cobre = np.maximum(cobre, (b - 0.85) / 0.15 * np.ones_like(cobre))
+        mm = cv2.GaussianBlur(m.astype(np.float32), (0, 0), 0.7)
+        k = (cobre * mm)[..., None]
+        reg = img[y0:y0 + h, x0:x0 + w].astype(np.float32)
+        p = pele.astype(np.float32)
+        reg[..., :3] = reg[..., :3] * (1 - k) + p[..., :3] * k
+        # cílio: curva da borda, mais grosso no meio, fino nas pontas (desenhado em 4x)
+        S = 4
+        cam = np.zeros((h * S, w * S), np.uint8)
+        c0, c1 = cols.min() + 1, cols.max() - 1
+        sup, inf = [], []
+        for x in range(c0, c1 + 1):
+            u = (x - c0) / max(1, c1 - c0)
+            esp = (0.6 + 2.6 * math.sin(math.pi * u) ** 0.7) * max(0.6, self.s) * (0.55 + 0.45 * min(1, b))
+            y = borda[x]
+            sup.append((x * S, (y - esp / 2) * S)); inf.append((x * S, (y + esp / 2) * S))
+        poli = np.array(sup + inf[::-1], np.int32)
+        cv2.fillPoly(cam, [poli], 255, cv2.LINE_AA)
+        cam = cv2.resize(cam, (w, h), interpolation=cv2.INTER_AREA).astype(np.float32)[..., None] / 255
+        cor = np.array([28, 22, 26], np.float32)
+        reg[..., :3] = reg[..., :3] * (1 - cam) + cor * cam
+        img[y0:y0 + h, x0:x0 + w] = reg.astype(np.uint8)
 
     def _bico(self, src, graus):
-        """Gira a mandíbula (peça com contorno próprio) na dobradiça e encaixa sob o bico de cima."""
+        """Gira a mandíbula na dobradiça; o bico de cima (recorte exato) vai por cima."""
         x0, y0, x1, y1 = self.rb
         cx, cy = self.dob[0] - x0, self.dob[1] - y0
         M = cv2.getRotationMatrix2D((cx, cy), graus, 1.0)
-        reg_m = self.mand[y0:y1, x0:x1]
-        rot = cv2.warpAffine(reg_m, M, (x1 - x0, y1 - y0), flags=cv2.INTER_LINEAR,
+        rot = cv2.warpAffine(self.mand[y0:y1, x0:x1], M, (x1 - x0, y1 - y0), flags=cv2.INTER_LINEAR,
                              borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0, 0)).astype(np.float32)
-        visivel = (1 - self.acima[y0:y1, x0:x1])[..., None]
-        a = rot[..., 3:] / 255 * visivel
+        a = rot[..., 3:] / 255
         reg = src[y0:y1, x0:x1].astype(np.float32)
-        # sombra suave da mandíbula sobre o queixo
-        sh = cv2.GaussianBlur(a[..., 0], (0, 0), 3 * self.s)
-        sh = np.roll(sh, int(4 * self.s), axis=0)[..., None] * 0.28 * visivel * (reg[..., 3:] / 255)
-        reg[..., :3] *= (1 - sh)
+        if graus > 0.5:   # sombra suave da mandíbula sobre o queixo
+            sh = cv2.GaussianBlur(a[..., 0], (0, 0), 3 * self.s)
+            sh = np.roll(sh, int(4 * self.s), axis=0)[..., None] * 0.25 * (reg[..., 3:] / 255) * min(1, graus / 6)
+            reg[..., :3] *= (1 - sh)
         reg[..., :3] = reg[..., :3] * (1 - a) + rot[..., :3] * a
         reg[..., 3:] = np.maximum(reg[..., 3:], a * 255)
+        bs = self.bico_sup[y0:y1, x0:x1].astype(np.float32)
+        ab = bs[..., 3:] / 255
+        reg[..., :3] = reg[..., :3] * (1 - ab) + bs[..., :3] * ab
+        reg[..., 3:] = np.maximum(reg[..., 3:], bs[..., 3:])
         src[y0:y1, x0:x1] = reg.astype(np.uint8)
 
     def ponta_bico(self, cabeca=0.0):
@@ -117,8 +145,8 @@ class Boneco:
     def quadro(self, boca=1.0, piscada=0.0, cabeca=0.0, braco=0.0):
         src = self.base.copy()
         self._bico(src, self.ang_fechado * (1 - min(1.15, max(0, boca))))
-        for o in self.olhos:
-            self._palpebra(src, o, min(1, max(0, piscada)))
+        for d in self.olhos_rec:
+            self._piscar(src, d, min(1, max(0, piscada)))
         mx, my = self.gx.copy(), self.gy.copy()
         # cabeça (+ bico dentro dela)
         L = self.lim_cab

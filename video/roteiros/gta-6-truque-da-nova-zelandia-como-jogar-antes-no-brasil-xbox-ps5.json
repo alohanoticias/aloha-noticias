@@ -30,7 +30,8 @@
     {
      "url": "https://www.rockstargames.com/VI/_next/static/media/mobile.0mi46.hy2kwfa.jpg"
     }
-   ]
+   ],
+   "pose": "microfone"
   },
   {
    "texto": "Dezesseis horas! Dá pra zerar e ainda soltar spoiler no grupo da família.",
@@ -68,7 +69,8 @@
      "inicio": 45,
      "dur": 2.2
     }
-   ]
+   ],
+   "pose": "apresenta"
   },
   {
    "texto": "No PS5 é pior: precisa de conta neozelandesa e de outra cópia do jogo.",
@@ -77,8 +79,7 @@
    "lado": "dir",
    "midia": [
     {
-     "commons": "PlayStation 5 console",
-     "tipo": "imagem",
+     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/PlayStation_5_and_DualSense_with_transparent_background.png?width=1600",
      "inteira": true
     },
     {
@@ -86,7 +87,8 @@
      "inicio": 60,
      "dur": 2.2
     }
-   ]
+   ],
+   "pose": "aponta_tela"
   },
   {
    "texto": "Comprar GTA duas vezes? Aí é amor demais, hein.",
@@ -102,7 +104,8 @@
      "inicio": 90,
      "dur": 1.8
     }
-   ]
+   ],
+   "pose": "braco_cruzado"
   },
   {
    "texto": "O passo a passo completo tá no Aloha Notícias!",
@@ -118,7 +121,8 @@
     {
      "url": "https://www.rockstargames.com/VI/_next/static/media/k4ak9okk485712.0cj_8hoskvfgy.jpg"
     }
-   ]
+   ],
+   "pose": "joinha"
   }
  ],
  "fundo_final": {

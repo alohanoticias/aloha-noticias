@@ -80,7 +80,11 @@ class Plano:
         self.inteira = bool(midia.get("inteira"))
         if not self.video and self.inteira:
             # foto de produto: aparece inteira (largura da tela) sobre ela mesma desfocada
-            im = Image.open(midia["caminho"]).convert("RGB")
+            im0 = Image.open(midia["caminho"])
+            if im0.mode in ("RGBA", "LA", "P"):
+                im0 = im0.convert("RGBA")
+                fundo_t = Image.new("RGBA", im0.size, (24, 20, 26, 255)); fundo_t.alpha_composite(im0); im0 = fundo_t
+            im = im0.convert("RGB")
             r = max(W / im.width, H / im.height)
             fundo = im.resize((int(im.width * r) // 8, int(im.height * r) // 8), Image.BILINEAR)
             fundo = fundo.filter(ImageFilter.GaussianBlur(6)).resize((int(im.width * r), int(im.height * r)), Image.BILINEAR)
@@ -170,9 +174,12 @@ class Legendas:
     def img(self, palavras, ativa):
         k = (tuple(palavras), ativa)
         if k not in self.cache:
-            f = fonte(70)
             txt = [p.upper() for p in palavras]
-            linhas = quebrar(" ".join(txt), f, 900)
+            tam = 70
+            while tam > 40 and fonte(tam).getlength(" ".join(txt)) > 930:   # sempre uma linha só
+                tam -= 2
+            f = fonte(tam)
+            linhas = [" ".join(txt)]
             LH = 92
             im = Image.new("RGBA", (W, LH * len(linhas) + 40), (0, 0, 0, 0))
             d = ImageDraw.Draw(im); esp = f.getlength(" "); idx = 0
@@ -363,14 +370,28 @@ def planejar(falas, total, dur_voz, env):
                           + g["tchau"] * (9 + 15 * math.sin(2 * math.pi * 2.3 * t))
                           + 5 * g["risada"] * math.sin(2 * math.pi * 5.0 * t))
         p = pisc[k]
-        if g["risada"] > 0.3:
-            p = max(p, min(1, g["risada"] * 1.3))
-        elif g["pensativo"] > 0.3:
-            p = max(p, 0.45 * g["pensativo"])
+        if fala and fala.get("gesto") == "risada":
+            dtf = t - fala["inicio"]
+            p = max(p, ease(dtf / 0.12) * ease((0.95 - dtf) / 0.15))      # ri de olho fechado e abre
+        elif fala and fala.get("gesto") == "pensativo":
+            dtf = t - fala["inicio"]
+            p = max(p, 0.45 * ease(dtf / 0.2) * ease((1.4 - dtf) / 0.25))
         lado = (prox or {}).get("lado", lado_ant) if not fim else lado_ant
         P.append(dict(t=t, fala=fala, fim=fim, boca=boca, pisc=p, cab=cab, bra=bra, e=e, g=g, lado=lado,
                       coment=1.0 if (fala and fala.get("tipo") == "comentario" and not fim) else 0.0))
         lado_ant = lado
+    # poses da folha (microfone, aponta_tela, tablet, braco_cruzado, apresenta, joinha):
+    # aparecem no começo da fala por até 1,6 s e no encerramento (joinha)
+    for k in range(n):
+        q = P[k]; q["pose"], q["pose_mix"] = None, 0.0
+        f = q["fala"]
+        if f and f.get("pose"):
+            dtf = q["t"] - f["inicio"]
+            dur = min(1.6, f["fim"] - f["inicio"])
+            if -0.1 <= dtf <= dur + 0.15:
+                q["pose"] = f["pose"]; q["pose_mix"] = ease((dtf + 0.1) / 0.12) * ease((dur + 0.15 - dtf) / 0.12)
+        if q["fim"] and q["t"] > dur_voz + 0.5:
+            q["pose"] = "joinha"; q["pose_mix"] = ease((q["t"] - dur_voz - 0.5) / 0.12)
     trocas = [k for k in range(1, n) if P[k]["lado"] != P[k - 1]["lado"]]
     for k in range(n):
         P[k]["saida"] = 0.0
@@ -393,6 +414,14 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
                midia_final=None):
     """midias: uma lista por fala, de {'tipo': 'imagem'|'video', 'caminho', 'inicio'}."""
     bon = Boneco(pasta_rig or os.path.join(AQUI, "mascote", "rig"), ESCALA)
+    poses = {}
+    pdir = os.path.join(AQUI, "mascote", "poses")
+    if os.path.isdir(pdir):
+        for fn in os.listdir(pdir):
+            if fn.endswith(".png"):
+                im = Image.open(os.path.join(pdir, fn)).convert("RGBA")
+                k = 900 / im.height                     # mesma altura de tronco do mascote
+                poses[fn[:-4]] = im.resize((int(im.width * k), 900), Image.LANCZOS)
     falas = [{**f, **tt} for f, tt in zip(roteiro["falas"], falas_tempos)]
     total = dur_voz + FINAL
     n = int(total * FPS)
@@ -470,21 +499,40 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
                         im = im.resize((int(im.width * e2), int(im.height * e2)), Image.BILINEAR)
                     fr.alpha_composite(im, (int(W / 2 - im.width / 2), int(ytopo + 130 - im.height / 2)))
                     break
-        # ---- mascote
+        # ---- mascote (rig animado) ou pose da folha
         mq = bon.quadro(q["boca"], q["pisc"], q["cab"], q["bra"])
         es = q["esc"]
+        esq = q["lado"] == "esq"
+        pm = q["pose_mix"] if q["pose"] in poses else 0.0
+        if q["lado"] == "dir" and q["pose"] in ("microfone", "tablet"):
+            pm = 0.0
+        def posicionar(img_m, larg_ref):
+            xx = (-130 + q["dx"]) if esq else (W - larg_ref + 130 - q["dx"])
+            xx += (-1 if esq else 1) * q["saida"] * 760
+            yy = H - img_m.height + 60 - q["bob"] + q["saida"] * 120
+            return xx, yy
         if abs(es - 1) > 0.003:
             mq = mq.resize((int(mq.width * es), int(mq.height * es)), Image.BILINEAR)
-        esq = q["lado"] == "esq"
         if not esq:
             mq = mq.transpose(Image.FLIP_LEFT_RIGHT)
-        x = (-130 + q["dx"]) if esq else (W - mq.width + 130 - q["dx"])
-        x += (-1 if esq else 1) * q["saida"] * 760
-        y = H - mq.height + 60 - q["bob"] + q["saida"] * 120
-        a = mq.split()[3].resize((max(1, mq.width // 8), max(1, mq.height // 8))).filter(ImageFilter.GaussianBlur(3))
-        sh = Image.new("RGBA", mq.size, (0, 0, 0, 255)); sh.putalpha(a.resize(mq.size, Image.BILINEAR).point(lambda v: int(v * 0.5)))
-        fr.alpha_composite(sh, (int(x + (14 if esq else -14)), int(y + 18)))
-        fr.alpha_composite(mq, (int(x), int(y)))
+        x, y = posicionar(mq, mq.width)
+        desenho = mq; dx_ = x; dy_ = y
+        if pm > 0.5:
+            ps = poses[q["pose"]]
+            pop = 0.96 + 0.04 * ease_out_back(min(1, pm), 2.0)
+            e3 = es * pop
+            ps = ps.resize((int(ps.width * e3), int(ps.height * e3)), Image.BILINEAR)
+            if not esq and q["pose"] not in ("microfone", "tablet"):   # logo "e" não pode sair espelhada
+                ps = ps.transpose(Image.FLIP_LEFT_RIGHT)
+            # alinha pela base e pelo lado de dentro do mascote
+            px_ = (x + 60 * es) if esq else (x + mq.width - 60 * es - ps.width)
+            py_ = H - ps.height + 40 - q["bob"] + q["saida"] * 120
+            desenho, dx_, dy_ = ps, px_, py_
+        a = desenho.split()[3].resize((max(1, desenho.width // 8), max(1, desenho.height // 8))).filter(ImageFilter.GaussianBlur(3))
+        sh = Image.new("RGBA", desenho.size, (0, 0, 0, 255)); sh.putalpha(a.resize(desenho.size, Image.BILINEAR).point(lambda v: int(v * 0.5)))
+        fr.alpha_composite(sh, (int(dx_ + (14 if esq else -14)), int(dy_ + 18)))
+        fr.alpha_composite(desenho, (int(dx_), int(dy_)))
+        ocupado = desenho.split()[3].point(lambda v: 255 if v > 20 else 0)
         # ---- balão
         if f and f.get("tipo") == "comentario" and q["saida"] < 0.02 and not q["fim"]:
             if i not in baloes:
@@ -502,11 +550,18 @@ def renderizar(roteiro, falas_tempos, dur_voz, midias, saida, wav=None, pasta_ri
                 bico_x = x + bpx * es if esq else x + mq.width - bpx * es
                 bico_y = y + bpy * es
                 if esq:
-                    bx = bico_x + 4 - ponta_x
+                    bx = bico_x + 18 - ponta_x
                 else:
-                    bx = bico_x - 4 - (im2.width - ponta_x)
-                by = bico_y - 8 * es - ponta_y
+                    bx = bico_x - 18 - (im2.width - ponta_x)
+                by = bico_y - 18 * es - ponta_y
                 bx = min(max(bx, 16), W - im2.width - 16)
+                # nunca em cima do personagem: sobe até sair do desenho
+                for _ in range(40):
+                    cx0, cy0 = int(bx - dx_), int(by - dy_)
+                    caixa = (max(0, cx0), max(0, cy0), min(ocupado.width, cx0 + im2.width), min(ocupado.height, cy0 + im2.height - 20))
+                    if caixa[2] <= caixa[0] or caixa[3] <= caixa[1] or not ocupado.crop(caixa).getbbox():
+                        break
+                    by -= 12
                 fr.alpha_composite(im2, (int(bx), int(by)))
         return fr.convert("RGB")
 

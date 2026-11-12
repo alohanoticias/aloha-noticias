@@ -101,9 +101,11 @@ def _commons(busca, tipo, pasta):
 def _youtube(vid, inicio, dur, pasta):
     destino = os.path.join(pasta, f"yt-{vid}-{inicio}.mp4")
     if not os.path.exists(destino):
-        subprocess.run(["yt-dlp", "-q", "--no-warnings", "-f", "bv*[height<=1080][ext=mp4]/bv*[height<=1080]/b",
+        r = subprocess.run(["yt-dlp", "--no-warnings", "-f", "bv*[height<=1080][ext=mp4]/bv*[height<=1080]/b",
                         "--download-sections", f"*{inicio}-{inicio + dur + 1}", "--force-keyframes-at-cuts",
-                        "-o", destino, f"https://www.youtube.com/watch?v={vid}"], check=True, timeout=300)
+                        "-o", destino, f"https://www.youtube.com/watch?v={vid}"], capture_output=True, text=True, timeout=300)
+        if r.returncode != 0 or not os.path.exists(destino):
+            raise RuntimeError("yt-dlp: " + (r.stderr or r.stdout)[-400:])
     return destino
 
 
@@ -133,6 +135,8 @@ def resolver_midia(m, pasta):
             return {"tipo": tipo, "caminho": c, "inicio": m.get("inicio", 0), "inteira": m.get("inteira")}
     except Exception as e:
         print("  mídia falhou:", m, e)
+        with open(os.path.join(AQUI, "saida", "log-midia.txt"), "a") as lg:
+            lg.write(f"FALHOU {m}: {e}\n")
     return None
 
 
@@ -281,6 +285,8 @@ def main():
             itens = [x for x in (resolver_midia(it, cache) for it in f.get("midia", [])) if x]
             # sem mídia própria, repete a anterior (as fotos dos artigos não entram nos vídeos)
             print(f"  fala {i}: " + ", ".join(os.path.basename(x["caminho"]) for x in itens))
+            with open(os.path.join(pasta_saida, "log-midia.txt"), "a") as lg:
+                lg.write(f"fala {i}: " + ", ".join(os.path.basename(x["caminho"]) for x in itens) + "\n")
             midias.append(itens)
         mf = resolver_midia(rot["fundo_final"], cache) if rot.get("fundo_final") else None
         if a.sem_voz:

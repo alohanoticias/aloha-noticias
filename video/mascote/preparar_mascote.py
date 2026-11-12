@@ -32,6 +32,9 @@ QUEIXO = [(388, 250), (440, 285), (486, 306), (494, 336), (484, 370), (472, 398)
 MANDIBULA_LIMITE = [(394, 250), (512, 304), (515, 322), (510, 340), (496, 372), (474, 390),
                     (446, 384), (424, 360), (410, 330), (400, 296)]
 QUEIXO_BORDA = [(493, 322), (494, 336), (484, 370), (470, 394)]
+OLHO_ESQ_POLI = [(379, 204), (384, 196), (396, 189), (412, 187), (426, 190), (438, 196), (448, 203), (453, 212),
+                 (450, 224), (442, 234), (430, 240), (416, 238), (402, 231), (390, 221), (382, 211)]
+OLHO_DIR_POLI = [(510, 186), (520, 183), (528, 188), (531, 198), (529, 210), (520, 213), (511, 210), (508, 198)]
 OLHO_ESQ = dict(c=(413, 213), r=(31, 20), ang=5, cor=(234, 231, 236))
 OLHO_DIR = dict(c=(518, 200), r=(11, 10), ang=0, cor=(44, 42, 48))
 BRACO_A, BRACO_B = (690, 548), (705, 685)
@@ -73,6 +76,33 @@ def suave(x):
     return x * x * (3 - 2 * x)
 
 
+def olho_fechado(img_bgra, poli, dil=2, cor_fixa=None):
+    """Reconstrói a pele por cima do olho (interpolando, coluna a coluna, a pena de cima e a de baixo).
+    Devolve recorte: x0, y0, máscara, pele (BGRA), topo[x], fundo[x]."""
+    xs, ys = zip(*poli)
+    x0, y0, x1, y1 = min(xs) - 6, min(ys) - 6, max(xs) + 7, max(ys) + 7
+    m = np.zeros((y1 - y0, x1 - x0), np.uint8)
+    cv2.fillPoly(m, [np.array([(x - x0, y - y0) for x, y in poli], np.int32)], 1)
+    m = cv2.dilate(m, np.ones((2 * dil + 1, 2 * dil + 1), np.uint8))
+    reg = img_bgra[y0:y1, x0:x1].astype(np.float32)
+    h, w = m.shape
+    topo = np.full(w, -1.0); fundo = np.full(w, -1.0)
+    for x in range(w):
+        yy = np.where(m[:, x])[0]
+        if len(yy):
+            topo[x], fundo[x] = yy.min(), yy.max()
+    # cor da pálpebra: a pena logo abaixo do olho (anel inferior), com sombra leve no alto
+    anel = cv2.dilate(m, np.ones((7, 7), np.uint8)) & ~cv2.dilate(m, np.ones((3, 3), np.uint8)).astype(bool)
+    yy_, xx_ = np.mgrid[0:h, 0:w]
+    baixo = anel.astype(bool) & (yy_ > h * 0.55) & (reg[..., 3] > 200)
+    cor = np.median(reg[baixo][:, :3], axis=0) if baixo.sum() > 5 else np.array([236, 233, 238], np.float32)
+    if cor_fixa is not None:
+        cor = np.array(cor_fixa, np.float32)
+    g = np.clip((yy_ - topo.clip(0)[None, :]) / max(1, h * 0.5), 0, 1)[..., None]
+    pele = np.dstack([cor[None, None, :] * (0.86 + 0.14 * g), reg[..., 3:]]).astype(np.float32)
+    return dict(x0=x0, y0=y0, mask=m, pele=pele.astype(np.uint8), topo=topo, fundo=fundo)
+
+
 def main(caminho):
     os.makedirs(SAIDA, exist_ok=True)
     for f in os.listdir(SAIDA):
@@ -83,6 +113,7 @@ def main(caminho):
     yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
     a = alfa_do_personagem(img)
     base = limpar_borda(img, a)
+    base_orig = base.copy()   # cores originais (antes de redesenhar o queixo)
 
     # ---- peso da mandíbula (no espaço da arte)
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -102,19 +133,12 @@ def main(caminho):
 
     # ---- mandíbula vira peça rígida (com o contorno do próprio desenho)
     lim = np.zeros((h, w), np.uint8); cv2.fillPoly(lim, [np.array(MANDIBULA_LIMITE, np.int32)], 1)
-    mand = cv2.dilate(mand, np.ones((3, 3), np.uint8)) & lim
-    so_baixo = (yy > linha(BICO_BORDA, xx) + 1.0)
-    m_bin = (mand > 0) & so_baixo
-    m_alfa = cv2.GaussianBlur(m_bin.astype(np.float32), (0, 0), 0.6)
-    # contorno da peça: a faixa de borda vira cor de contorno (sem fio claro)
-    dd = cv2.distanceTransform(m_bin.astype(np.uint8), cv2.DIST_L2, 5)
-    faixa = np.clip(1 - (dd - 1.0) / 2.0, 0, 1)[..., None] * m_bin[..., None]
-    rgb_m = base[..., :3].astype(np.float32)
-    kk = np.clip((rgb_m.mean(axis=2, keepdims=True) - 50) / 100, 0, 1) * faixa
-    rgb_m = rgb_m * (1 - kk) + np.array(CONTORNO, np.float32) * kk
-    rgb_b = cv2.GaussianBlur(rgb_m, (0, 0), 0.7)
-    rgb_m = rgb_m * (1 - faixa) + rgb_b * faixa
-    mandibula = np.dstack([rgb_m.astype(np.uint8), (m_alfa * base[..., 3]).astype(np.uint8)])
+    m_bin = (cv2.dilate(mand, np.ones((3, 3), np.uint8)) & lim).astype(bool)
+    m_bin |= (lim > 0) & (yy > linha(BICO_BORDA, xx) - 5) & (yy < linha(BICO_BORDA, xx) + 10) & (xx > 398)
+    m_alfa = cv2.GaussianBlur(cv2.dilate(m_bin.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(np.float32), (0, 0), 0.45)
+    mandibula = np.dstack([base_orig[..., :3], (np.clip(m_alfa, 0, 1) * base_orig[..., 3]).astype(np.uint8)])
+    mand = m_bin.astype(np.uint8)
+
     # ---- queixo redesenhado embaixo dela: pena branca com sombra e contorno à direita
     queixo = np.zeros((h, w), np.uint8)
     cv2.fillPoly(queixo, [np.array(QUEIXO, np.int32)], 1)
@@ -135,6 +159,15 @@ def main(caminho):
     cv2.polylines(base, [pts], False, CONTORNO + (255,), 4, cv2.LINE_AA, shift=4)
     base[..., 3] = np.where(abaixo & lugar, np.maximum(base[..., 3], (pena * 255).astype(np.uint8)), base[..., 3])
 
+    # ---- bico de cima por cima da mandíbula, recortado no contorno real do desenho
+    borda_y = linha(BICO_BORDA, xx)
+    laranja = (hsv[..., 0] >= 5) & (hsv[..., 0] <= 35) & (hsv[..., 1] > 90) & (hsv[..., 2] > 120)
+    contorno_px = hsv[..., 2] < 60
+    faixa_b = (yy >= borda_y - 3) & (yy <= borda_y + 9)
+    bico_m = ((yy < borda_y - 3) | (faixa_b & (laranja | contorno_px))) & (xx > 385) & (xx < 640) & (yy > 150) & (yy < 400)
+    bico_a = cv2.GaussianBlur(bico_m.astype(np.float32), (0, 0), 0.5) * (yy < borda_y + 10) * (base_orig[..., 3] / 255.0)
+    bico_sup = np.dstack([base_orig[..., :3], (bico_a * 255).astype(np.uint8)])
+
     # ---- peso da cabeça: cai ao longo do pescoço
     s = linha(COLARINHO, xx) - yy
     w_cab = suave((s + 12) / 48.0) * suave((700 - xx) / 50.0)
@@ -149,6 +182,13 @@ def main(caminho):
     c = lambda m: m[y0:y1, x0:x1].astype(np.float16)
     cv2.imwrite(os.path.join(SAIDA, "base.png"), base[y0:y1, x0:x1])
     cv2.imwrite(os.path.join(SAIDA, "mandibula.png"), mandibula[y0:y1, x0:x1])
+    cv2.imwrite(os.path.join(SAIDA, "bico_sup.png"), bico_sup[y0:y1, x0:x1])
+    olhos = {}
+    for nome, poli in (("esq", OLHO_ESQ_POLI), ("dir", OLHO_DIR_POLI)):
+        o = olho_fechado(base_orig, poli, cor_fixa=(24, 21, 27) if nome == "dir" else None)
+        for k_, v_ in o.items():
+            olhos[f"{nome}_{k_}"] = np.array(v_) - (x0 if k_ == "x0" else y0 if k_ == "y0" else 0)
+    np.savez_compressed(os.path.join(SAIDA, "olhos.npz"), **olhos)
     np.savez_compressed(os.path.join(SAIDA, "pesos.npz"), cabeca=c(w_cab), braco=c(w_bra),
                         acima_bico=c(cv2.GaussianBlur((~abaixo).astype(np.float32), (0, 0), 0.8)))
     rel = lambda p: [p[0] - x0, p[1] - y0]
