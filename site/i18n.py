@@ -183,7 +183,7 @@ PAGINAS = {"en": {}, "es": {}}
 
 PAGINAS["en"]["sobre.html"] = ("About us", "Who is behind ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS is a Brazilian news site for people who want to understand what is going on without the noise. Our focus is movies, games and technology: premieres, releases and what is trending, with the facts checked.</p>
-<p>The site was created and is edited by <a href="equipe.html">João Gabriel</a>, a website and digital content creator.</p>
+<p>The site was created and is edited by <a href="equipe.html">João Gabriel</a>, a website and digital content creator. He works with a team of freelance contributors, who sign some of the articles as <a href="equipe-aloha.html">Aloha Team</a>.</p>
 <p>We write in Portuguese first. This English edition is adapted for readers outside Brazil, so you will see Brazilian dates and release details explained where they matter.</p>
 <h2>How we work</h2>
 <p>Every article cites its sources, separates fact from opinion and is openly corrected when we get something wrong. The details are in our <a href="politica-editorial.html">editorial policy</a>.</p>
@@ -194,7 +194,7 @@ PAGINAS["en"]["sobre.html"] = ("About us", "Who is behind ALOHA NOTÍCIAS.", """
 
 PAGINAS["es"]["sobre.html"] = ("Quiénes somos", "Quién está detrás de ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS es un sitio de noticias de Brasil para quienes quieren entender lo que pasa sin ruido. Nos centramos en cine, juegos y tecnología: estrenos, lanzamientos y lo que está en tendencia, con los datos verificados.</p>
-<p>El sitio fue creado y lo edita <a href="equipe.html">João Gabriel</a>, creador de sitios web y de contenido digital.</p>
+<p>El sitio fue creado y lo edita <a href="equipe.html">João Gabriel</a>, creador de sitios web y de contenido digital. Con él trabaja un equipo de colaboradores freelance, que firma parte de los artículos como <a href="equipe-aloha.html">Equipo Aloha</a>.</p>
 <p>Escribimos primero en portugués. Esta edición en español está adaptada para lectores de fuera de Brasil, y por eso explicamos las fechas y los detalles de estreno brasileños cuando importan.</p>
 <h2>Cómo trabajamos</h2>
 <p>Cada artículo cita sus fuentes, separa los hechos de la opinión y se corrige a la vista de todos cuando nos equivocamos. Los detalles están en nuestra <a href="politica-editorial.html">política editorial</a>.</p>
@@ -473,14 +473,14 @@ for _l, _v in ((k, x) for k, x in _EX4.items() if k in UI):
         UI[_l].setdefault(_k, _t)
 
 PAGINAS["en"]["equipe-aloha.html"] = ('Aloha Team', 'Who signs as Aloha Team at ALOHA NOTÍCIAS.', """
-<p><strong>Aloha Team</strong> is the newsroom byline of ALOHA NOTÍCIAS, used on some of the articles about movies, games, technology, anime and trivia.</p>
+<p><strong>Aloha Team</strong> is the newsroom byline of ALOHA NOTÍCIAS, made up of freelance contributors who work with the editor, João Gabriel. It is used on some of the articles about movies, games, technology, anime and trivia.</p>
 <h2>How these articles are made</h2>
 <p>Articles signed by the Aloha Team follow the same <a href="politica-editorial.html">editorial policy</a> as the rest of the site: facts checked in more than one source, sources listed at the end and corrections made in the open. They are researched and drafted with the help of tools, as the policy explains, and every article is reviewed and approved by a person before it goes live.</p>
 <h2>Contact</h2>
 <p>Story tips, corrections and partnerships: <a href="contato.html">contact page</a>.</p>""")
 
 PAGINAS["es"]["equipe-aloha.html"] = ('Equipo Aloha', 'Quién firma como Equipo Aloha en ALOHA NOTÍCIAS.', """
-<p><strong>Equipo Aloha</strong> es la firma de la redacción de ALOHA NOTÍCIAS, usada en parte de los artículos sobre cine, videojuegos, tecnología, anime y curiosidades.</p>
+<p><strong>Equipo Aloha</strong> es la firma de la redacción de ALOHA NOTÍCIAS, formada por colaboradores freelance que trabajan con el editor, João Gabriel. Se usa en parte de los artículos sobre cine, videojuegos, tecnología, anime y curiosidades.</p>
 <h2>Cómo se hacen estos artículos</h2>
 <p>Los artículos firmados por el Equipo Aloha siguen la misma <a href="politica-editorial.html">política editorial</a> que el resto del sitio: datos verificados en más de una fuente, fuentes citadas al final y correcciones hechas a la vista. Se investigan y redactan con el apoyo de herramientas, como explica la política, y cada artículo pasa por revisión y aprobación humana antes de publicarse.</p>
 <h2>Contacto</h2>
