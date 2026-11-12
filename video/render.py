@@ -208,11 +208,11 @@ class Legendas:
                     if idx == ativa:
                         bb = d.textbbox((x, y), w, font=f, anchor="ls")
                         d.rounded_rectangle((bb[0] - 14, bb[1] - 10, bb[2] + 14, bb[3] + 12), 14, fill=VERMELHO)
-                        d.text((x, y), w, font=f, fill=BRANCO, stroke_width=4, stroke_fill=(90, 18, 18), anchor="ls")
+                        d.text((x, y), w, font=f, fill=BRANCO, stroke_width=6, stroke_fill=(90, 18, 18), anchor="ls")
                     else:
-                        d.text((x, y), w, font=f, fill=BRANCO, stroke_width=10, stroke_fill=PRETO, anchor="ls")
+                        d.text((x, y), w, font=f, fill=BRANCO, stroke_width=12, stroke_fill=PRETO, anchor="ls")
                     x += f.getlength(w) + esp; idx += 1
-            self.cache[k] = com_sombra(im, 9, 0.5, 6)
+            self.cache[k] = im                      # sem sombra atrás da legenda
         return self.cache[k]
 
 
