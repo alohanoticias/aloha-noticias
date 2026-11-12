@@ -275,8 +275,11 @@ def cartao_final():
     im = Image.new("RGBA", (W, 460), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     d.text((W / 2, 78), "MATÉRIA COMPLETA NO", font=fonte(50), fill=BRANCO, anchor="ms", stroke_width=9, stroke_fill=PRETO)
-    ft = fonte(118)
     t1, t2 = "ALOHA ", "NOTÍCIAS"
+    tam = 118
+    while fonte(tam).getlength(t1 + t2) > 960:      # cabe sempre na largura
+        tam -= 2
+    ft = fonte(tam)
     l1, l2 = ft.getlength(t1), ft.getlength(t2)
     x = W / 2 - (l1 + l2) / 2
     d.text((x, 205), t1, font=ft, fill=BRANCO, anchor="ls", stroke_width=13, stroke_fill=PRETO)
