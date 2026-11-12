@@ -1,0 +1,15 @@
+name: Imagens da Steam
+on:
+  workflow_dispatch:
+    inputs:
+      termos:
+        description: "Nomes de jogos ou appids, separados por ;"
+        required: true
+jobs:
+  listar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          TERMOS: ${{ inputs.termos }}
+        run: IFS=";" read -ra T <<< "$TERMOS"; python3 site/steam_imagens.py "${T[@]}"
