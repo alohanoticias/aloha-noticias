@@ -1,0 +1,22 @@
+FALHOU {'youtube': 'VQRLujxTm3c', 'inicio': 8, 'dur': 2.2}: yt-dlp: ] VQRLujxTm3c: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+FALHOU {'youtube': 'QdBZY2fkU-0', 'inicio': 15, 'dur': 2.2}: yt-dlp: ] QdBZY2fkU-0: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+fala 0: commons-Auckland-skyline-night.jpg, url-7536690663.jpg
+FALHOU {'youtube': 'QdBZY2fkU-0', 'inicio': 40, 'dur': 2.4}: yt-dlp: ] QdBZY2fkU-0: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+fala 1: url-4309946117.jpg
+FALHOU {'youtube': 'VQRLujxTm3c', 'inicio': 30, 'dur': 2.2}: yt-dlp: ] VQRLujxTm3c: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+FALHOU {'youtube': 'VQRLujxTm3c', 'inicio': 45, 'dur': 2.2}: yt-dlp: ] VQRLujxTm3c: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+fala 2: commons-Xbox-Series-X-console.jpg
+FALHOU {'youtube': 'QdBZY2fkU-0', 'inicio': 60, 'dur': 2.2}: yt-dlp: ] QdBZY2fkU-0: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+fala 3: url-3661726880.png
+FALHOU {'youtube': 'VQRLujxTm3c', 'inicio': 90, 'dur': 1.8}: yt-dlp: ] VQRLujxTm3c: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+fala 4: url-7820314155.jpg
+FALHOU {'youtube': 'VQRLujxTm3c', 'inicio': 110, 'dur': 2.2}: yt-dlp: ] VQRLujxTm3c: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+
+fala 5: url-8154404338.jpg
