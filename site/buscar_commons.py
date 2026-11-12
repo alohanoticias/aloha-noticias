@@ -1,7 +1,7 @@
 """Busca imagens no Wikimedia Commons (URL direta, tamanho, licença). Roda no GitHub: workflow 'Buscar imagens Commons'."""
 import json, sys, urllib.parse, urllib.request
-QUERIES = ['Herbert Richers', 'estudio de dublagem', 'dubbing studio Brazil', 'Foley stage', 'Foley artist recording', 'Foley room studio', 'Fuji Television headquarters Odaiba', 'TV Tokyo headquarters', 'Tokyo MX', 'Valve Corporation headquarters Bellevue', 'Steam gift card', 'Steam Wallet card', 'Congresso Nacional Brasilia', 'Senado Federal plenario', 'Camara dos Deputados plenario', 'AMC theatre exterior', 'Agencia Nacional do Cinema', 'Ancine Rio de Janeiro', 'film set lighting gaffer', 'HMI light film set', 'Shueisha headquarters Jimbocho', 'Kadokawa headquarters', 'Weekly Shonen Jump issue', 'Kadokawa Culture Museum', 'Crunchyroll', 'Netflix Senna series']
-TITULOS = []
+QUERIES = ['Radio Sound Effect Simulator', 'sound effects radio drama props', 'Geräuschemacher', 'foley props', 'bruiteur', 'Musée du cinéma bruitage']
+TITULOS = ['Door_hard_sound_effect_device.JPG', 'Anchor_hard_sound_effect_device.JPG', 'Dublavídeo, São Paulo.jpg', 'Valve_Lobby_2016.jpg', '20190322_Odaiba_Fuji_Television_Network_building.jpg', 'Congresso_Nacional_-_Brasilia_(14911373813).jpg']
 UA = {"User-Agent": "AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)"}
 for q in QUERIES:
     p = urllib.parse.urlencode({"action": "query", "format": "json", "generator": "search", "gsrsearch": q + " filetype:bitmap", "gsrnamespace": 6, "gsrlimit": 10, "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiextmetadatafilter": "LicenseShortName|Artist"})
@@ -22,4 +22,4 @@ for t in TITULOS:
     d = json.load(urllib.request.urlopen(urllib.request.Request("https://commons.wikimedia.org/w/api.php?" + p, headers=UA), timeout=40))
     for pg in d["query"]["pages"].values():
         ii = pg.get("imageinfo", [{}])[0]; m = ii.get("extmetadata", {})
-        print(t[:40], "|", m.get("Artist", {}).get("value", "")[:150], "|", m.get("Credit", {}).get("value", "")[:100])
+        print(t[:40], "|", m.get("LicenseShortName", {}).get("value", ""), "|", m.get("Artist", {}).get("value", "")[:150], "|", m.get("Credit", {}).get("value", "")[:100])
