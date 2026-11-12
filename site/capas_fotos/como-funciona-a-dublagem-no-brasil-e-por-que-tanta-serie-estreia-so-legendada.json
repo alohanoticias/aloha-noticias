@@ -2,20 +2,20 @@
  "layout": "dois",
  "fotos": [
   {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Dublav%C3%ADdeo%2C_S%C3%A3o_Paulo.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  },
+  {
    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Sala_de_doblaje.jpg",
    "foco": [
     0.45,
     0.35
    ],
    "zoom": 1.35
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Neve_81_Series_Mixing_Console.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
   }
  ],
  "titulo": "Dublagem",
