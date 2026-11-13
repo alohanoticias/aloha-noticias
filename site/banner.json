@@ -1,36 +1,41 @@
 {
  "fotos": [
   {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_02_landscape.0cosv-uzbpt91.jpg?akim=1&imdensity=1&imwidth=1920",
+   "steam": 1817070,
+   "captura": 1,
    "foco": [
-    0.5,
+    0.3,
     0.4
    ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-kokori-forest.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Marvel's Spider-Man"
   },
   {
    "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
    "foco": [
-    0.88,
-    0.5
+    0.73,
+    0.35
    ],
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Vingadores: Doomsday"
   },
   {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_and_Lucia_Motel_landscape.08edvuwtm-20v.jpg?akim=1&imdensity=1&imwidth=1920",
+   "steam": 2322010,
    "foco": [
-    0.5,
-    0.5
+    0.6,
+    0.4
    ],
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "God of War Ragnarök"
+  },
+  {
+   "url": "https://www.rockstargames.com/VI/_next/static/media/39ak81277255o9.0lmk9f~r~10.x.jpg",
+   "foco": [
+    0.45,
+    0.4
+   ],
+   "zoom": 1.0,
+   "nome": "GTA VI"
   },
   {
    "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-hyrule-castle.jpg",
@@ -38,39 +43,35 @@
     0.5,
     0.5
    ],
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Zelda (Castelo de Hyrule)"
   },
   {
-   "url": "https://godzilla.com/cdn/shop/files/mobile-block2.jpg?v=1760483861&width=1600",
+   "steam": 2215430,
    "foco": [
     0.5,
     0.4
    ],
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Ghost of Tsushima"
   },
   {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/Jason_Lucia_Lock_And_Load_landscape.0l9s5w7ih9p~3.jpg?akim=1&imdensity=1&imwidth=1920",
+   "steam": 731490,
    "foco": [
     0.5,
-    0.45
+    0.4
    ],
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Crash Bandicoot"
   },
   {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-goron-city.jpg",
+   "steam": 1888930,
    "foco": [
     0.5,
-    0.45
+    0.4
    ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-zora-domain.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "The Last of Us Part I"
   }
  ]
 }
