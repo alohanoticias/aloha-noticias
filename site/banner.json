@@ -1,13 +1,13 @@
 {
  "fotos": [
   {
-   "url": "https://www.rockstargames.com/VI/_next/static/media/musicMobile.16pdg34v6lit..jpg",
+   "arquivo": "assets/img/estreias/blade-runner-2099-corredor-neon.jpg",
    "foco": [
-    0.5,
+    0.3,
     0.3
    ],
-   "nome": "GTA VI",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Blade Runner 2099"
   },
   {
    "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
@@ -15,8 +15,8 @@
     0.8,
     0.35
    ],
-   "nome": "Vingadores: Doomsday",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Vingadores: Doomsday"
   },
   {
    "steam": 2322010,
@@ -24,27 +24,27 @@
     0.5,
     0.4
    ],
-   "nome": "God of War Ragnarök",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "God of War Ragnarök"
   },
   {
-   "arquivo": "assets/img/estreias/blade-runner-2099-corredor-neon.jpg",
+   "url": "https://www.rockstargames.com/VI/_next/static/media/39ak81277255o9.0lmk9f~r~10.x.jpg",
    "foco": [
-    0.3,
-    0.3
+    0.45,
+    0.4
    ],
-   "nome": "Blade Runner 2099",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "GTA VI"
   },
   {
    "steam": 2651280,
+   "captura": 0,
    "foco": [
     0.5,
     0.4
    ],
-   "nome": "Marvel's Spider-Man 2",
    "zoom": 1.0,
-   "captura": 0
+   "nome": "Marvel's Spider-Man 2"
   },
   {
    "arquivo": "assets/img/estreias/semana-5-godzilla-gatola.jpg",
@@ -52,8 +52,8 @@
     0.12,
     0.4
    ],
-   "nome": "Godzilla Minus One",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Godzilla Minus One"
   },
   {
    "steam": 990080,
@@ -70,8 +70,8 @@
     0.5,
     0.35
    ],
-   "nome": "Percy Jackson",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "Percy Jackson"
   },
   {
    "steam": 1888930,
@@ -79,8 +79,8 @@
     0.5,
     0.4
    ],
-   "nome": "The Last of Us Part I",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "nome": "The Last of Us Part I"
   }
  ]
 }
