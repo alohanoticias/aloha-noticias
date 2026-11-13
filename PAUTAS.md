@@ -52,3 +52,9 @@ Regra de sempre: conferir cada fato em 2 fontes na hora de escrever (datas mudam
 - Nenhum rascunho novo: o Unsplash voltou a ser bloqueado (PROVENANCE_REQUIRED), então não há como obter fotos livres com o endereço completo (photo-ID-sufixo) para capa e corpo; o Xbox Wire também não abriu e TechTudo/Tecnoblog recusam leitura automática. Não inventei IDs nem fontes.
 - Pauta pronta quando houver acesso: GTA 6 no Xbox One via Xbox Cloud Gaming a partir de 19/11 (só uma fonte lida, Mix Vale de 11/11: comunicado Rockstar+Microsoft de 10/11, config do Series S, jogo comprado à parte, cotas de nuvem Essential 5h/Premium 10h/Ultimate 15h, pacotes US$ 3,99/10h, 7,99/25h, 11,99/50h, Remote Play). Falta fonte oficial e segunda fonte; "plano gratuito com anúncios" do Xbox Cloud Gaming (TechTudo) não confirmado. GTA 6 já tem 3+ artigos no site: cuidado com repetição.
 - Observação: o prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it.
+
+## Notas de pesquisa (13/11/2026, rodada sem rascunho novo)
+- Pasta rascunhos/ não existe (0 pendentes); agendados/ tem 45 itens. Nada a atualizar nos pendentes; a fila não passa de 6.
+- Nenhum rascunho novo: Unsplash, Wikimedia Commons, Pexels e Xbox Wire estão bloqueados nesta sessão (403/sem conexão), então não há como obter fotos livres com endereço completo (photo-ID-sufixo) para capa e corpo, nem ler fonte oficial. Não inventei IDs nem fontes.
+- O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it; seguiríamos o guia.
+- Próxima agenda livre (site/agenda.py): 29/11 13:39, 30/11 10:14, 30/11 13:41, 30/11 18:14.
