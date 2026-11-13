@@ -375,7 +375,7 @@ NEWSLETTER_ATIVA = False  # ligue quando houver um serviço de e-mail conectado
 ANUNCIOS_ATIVOS = False
 # Código de editor do AdSense (ex.: "pub-1234567890123456"). Preenchido, já entra a meta tag "google-adsense-account"
 # em todas as páginas: é assim que o Google confirma que o site é seu no pedido de análise, sem carregar anúncios antes da hora.
-ADSENSE_PUB = ""
+ADSENSE_PUB = "pub-1370520315374239"  # conta AdSense do João Gabriel (13/11/2026)
 # Idiomas que o Google deve indexar. As outras versões continuam no ar para o visitante, mas com "noindex" e fora do
 # sitemap, para o site não parecer conteúdo traduzido em massa na análise do AdSense. Para liberar um idioma depois
 # da aprovação, acrescente aqui, por exemplo {"pt", "en", "es"}.
@@ -1553,7 +1553,8 @@ def main():
     # endereços de cada matéria em cada idioma, para o aviso push abrir a página no idioma do aparelho
     (SAIDA / "push-urls.json").write_text(limpa_abs(json.dumps(
         {m["slug"]: {l: url_abs(l if l in IDIOMAS_NO_AR else "pt", f"materia-{m['slug']}.html") for l in i18n.IDIOMAS_REAIS} for m in materias}, ensure_ascii=False)), encoding="utf-8")
-    if ANUNCIOS_ATIVOS and ADSENSE_PUB:
+    # o ads.txt pode existir antes dos anúncios: serve para o Google verificar o site no pedido de análise
+    if ADSENSE_PUB:
         (SAIDA / "ads.txt").write_text(f"google.com, {ADSENSE_PUB}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
     (SAIDA / ".well-known").mkdir(exist_ok=True)
     (SAIDA / ".well-known/security.txt").write_text(
