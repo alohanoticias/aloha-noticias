@@ -47,7 +47,12 @@ for f in fotos:
             url = str(RAIZ / f["arquivo"]); img = baixar(url)
         else:
             url = arte_wikipedia(f["wiki"]) if f.get("wiki") else f["url"]
-            img = baixar(url)
+            try:
+                img = baixar(url)
+            except Exception:
+                if not f.get("url_alt"):
+                    raise
+                url = f["url_alt"]; img = baixar(url)
         ok.append((img, f.get("foco", [0.5, 0.42]), f.get("zoom", 1.0)))
         print("ok", f.get("wiki", ""), url[:110], img.size)
     except Exception as e:
