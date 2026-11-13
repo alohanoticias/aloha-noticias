@@ -57,7 +57,8 @@ if len(ok) < 4:
 n = len(ok)
 lw = W / n
 tela = Image.new("RGB", (W, H), (10, 10, 10))
-for i, (img, foco, zoom) in enumerate(ok):
+# começa uma faixa antes (só a pontinha aparece no canto esquerdo), para a divisa inclinada ficar visível
+for i, (img, foco, zoom) in [(-1, ok[-1])] + list(enumerate(ok)):
     x0, x1 = round(i * lw), round((i + 1) * lw)
     pw = x1 - x0 + INCL + 2 * DIV
     painel = recorte(img, pw, H, foco, zoom)
@@ -67,7 +68,7 @@ for i, (img, foco, zoom) in enumerate(ok):
     d.polygon([((x0 + INCL) * s, 0), ((x1 + INCL - DIV) * s, 0), ((x1 - DIV) * s, H * s), (x0 * s, H * s)], fill=255)
     m = m.resize((W, H), Image.LANCZOS)
     cam = Image.new("RGB", (W, H), (10, 10, 10))
-    cam.paste(painel, (x0 - 0, 0))
+    cam.paste(painel, (x0, 0))
     tela = Image.composite(cam, tela, m)
 # escurece a esquerda (onde fica a logo)
 mask = Image.new("L", (W, H), 0)
