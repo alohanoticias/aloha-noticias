@@ -174,7 +174,15 @@ export default {
       }
     }
 
-    return env.ASSETS.fetch(request);
+    const resp = await env.ASSETS.fetch(request);
+    // Endereço antigo com nome traduzido na raiz (ex.: /politique-editoriale.html): 301 para a página em português
+    if (resp.status === 404 && request.method === "GET") {
+      const r = await repouso(env, url);
+      const chave = decodeURIComponent(url.pathname).replace(/\/$/, "").replace(/\.html$/, "");
+      const destino = (r.raiz || {})[chave];
+      if (destino) return Response.redirect(new URL(destino, url.origin).toString(), 301);
+    }
+    return resp;
   },
 };
 

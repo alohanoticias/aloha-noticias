@@ -1679,7 +1679,9 @@ def main():
             destino = "/" + ("" if n == "index.html" else n[:-5]) if n in existe["pt"] else "/"
             orig = "/" + l + ("" if n == "index.html" else "/" + nome_idioma(l, n)[:-5])
             repouso[orig] = destino
-    (SAIDA / "repouso.json").write_text(json.dumps({"idiomas": sorted(em_repouso), "mapa": repouso}, ensure_ascii=False), encoding="utf-8")
+    # Nomes traduzidos de páginas fixas que o Google achou na raiz (ex.: /politique-editoriale.html): levam à página em português
+    raiz = {"/" + v: "/" + k for k, vs in _F.items() for v in set(vs) if v != k and f"{v}.html" not in existe["pt"]}
+    (SAIDA / "repouso.json").write_text(json.dumps({"idiomas": sorted(em_repouso), "mapa": repouso, "raiz": raiz}, ensure_ascii=False), encoding="utf-8")
     (SAIDA / "_redirects").write_text("/noticias /anime.html 301\n/noticias.html /anime.html 301\n" + "".join(f"/{l} / 301\n/{l}/* / 301\n" for l in ("fr", "de", "ja", "zh", "ar")), encoding="utf-8")
     (SAIDA / "robots.txt").write_text("User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: https://alohanoticias.com/sitemap.xml\n")
     print(f"{len(arquivos)} páginas geradas em {SAIDA}")
