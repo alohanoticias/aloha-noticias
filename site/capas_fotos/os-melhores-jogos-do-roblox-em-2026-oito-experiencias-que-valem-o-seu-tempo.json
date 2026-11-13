@@ -1,0 +1,23 @@
+{
+ "layout": "dois",
+ "fotos": [
+  {
+   "url": "https://tr.rbxcdn.com/180DAY-7dd435aafd4a769f634a333a47f99735/768/432/Image/Png/noFilter",
+   "foco": [
+    0.66,
+    0.55
+   ],
+   "zoom": 1.0
+  },
+  {
+   "url": "https://tr.rbxcdn.com/180DAY-f483597f5ce44b2617413c11c7425802/768/432/Image/Png/noFilter",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ],
+ "titulo": "Melhores do Roblox",
+ "editoria": "games"
+}
