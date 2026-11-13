@@ -47,6 +47,15 @@
    "nome": "Zelda (Castelo de Hyrule)"
   },
   {
+   "arquivo": "assets/img/banner/godzilla-minus-one.jpg",
+   "foco": [
+    0.55,
+    0.3
+   ],
+   "zoom": 1.0,
+   "nome": "Godzilla Minus One"
+  },
+  {
    "steam": 2215430,
    "foco": [
     0.5,
