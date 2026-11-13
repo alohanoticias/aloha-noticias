@@ -37,32 +37,31 @@
    "nome": "GTA VI"
   },
   {
-   "steam": 2651280,
-   "captura": 0,
+   "url": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/Marketing2/DNDPqUcrg1784158469aaH8EIiMcjzbYSlnG0ncVJW3rSzR35s0l1pKOdPLJAm2y/map-section/tloz-map-hyrule-castle.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0,
+   "nome": "Zelda (Castelo de Hyrule)"
+  },
+  {
+   "url": "https://godzilla.com/cdn/shop/files/mobile-block2.jpg?v=1760483861&width=1600",
    "foco": [
     0.5,
     0.4
    ],
    "zoom": 1.0,
-   "nome": "Marvel's Spider-Man 2"
+   "nome": "Godzilla"
   },
   {
-   "arquivo": "assets/img/estreias/semana-5-godzilla-gatola.jpg",
-   "foco": [
-    0.12,
-    0.4
-   ],
-   "zoom": 1.0,
-   "nome": "Godzilla Minus One"
-  },
-  {
-   "steam": 990080,
+   "steam": 2215430,
    "foco": [
     0.5,
     0.4
    ],
    "zoom": 1.0,
-   "nome": "Hogwarts Legacy"
+   "nome": "Ghost of Tsushima"
   },
   {
    "arquivo": "assets/img/estreias/percy-jackson-3-luke-castellan.jpg",
