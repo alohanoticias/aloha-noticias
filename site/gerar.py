@@ -1268,7 +1268,7 @@ def montar_arquivos():
 
     arquivos["sobre.html"] = gerar_simples("Sobre nós", "Quem faz a ALOHA NOTÍCIAS.", """
 <p>A ALOHA NOTÍCIAS é um site de notícias para quem quer entender o que está acontecendo sem pressa e sem barulho. Nosso foco é cinema, games e tecnologia: estreias, lançamentos e o que está em alta, com a informação conferida.</p>
-<p>O site foi criado e é editado por <a href="equipe.html">João Gabriel</a>, criador de sites e de conteúdo digital. Ao lado dele trabalha uma equipe de colaboradores freelancers, que assina parte das matérias como <a href="equipe-aloha.html">Equipe Aloha</a>.</p>
+<p>O site foi criado e é editado por <a href="equipe.html">João Gabriel</a>, criador de sites e de conteúdo digital. Ao lado dele trabalham os donos do site e redatores contratados, que assinam parte das matérias como <a href="equipe-aloha.html">Equipe Aloha</a>.</p>
 <h2>Como trabalhamos</h2>
 <p>Cada matéria cita suas fontes, separa fato de opinião e é corrigida de forma transparente quando erramos. Os detalhes estão na nossa <a href="politica-editorial.html">política editorial</a>.</p>
 <h2>O nome</h2>
@@ -1276,7 +1276,7 @@ def montar_arquivos():
 <h2>Fale com a gente</h2>
 <p>Sugestões, correções e parcerias na página de <a href="contato.html">contato</a>.</p>""")
     arquivos["equipe-aloha.html"] = gerar_simples('Equipe Aloha', 'Quem assina como Equipe Aloha no ALOHA NOTÍCIAS.', """
-<p><strong>Equipe Aloha</strong> é a assinatura da redação do ALOHA NOTÍCIAS, formada por colaboradores freelancers que trabalham com o editor, João Gabriel. Ela é usada em parte das matérias sobre cinema, games, tecnologia, anime e curiosidades.</p>
+<p><strong>Equipe Aloha</strong> é a assinatura da redação do ALOHA NOTÍCIAS, formada pelos donos do site e por redatores contratados, que trabalham com o editor, João Gabriel. Ela é usada em parte das matérias sobre cinema, games, tecnologia, anime e curiosidades.</p>
 <h2>Como essas matérias são feitas</h2>
 <p>As matérias assinadas pela Equipe Aloha seguem a mesma <a href="politica-editorial.html">política editorial</a> do resto do site: fatos conferidos em mais de uma fonte, fontes citadas no fim do texto e correções feitas às claras. Elas são pesquisadas e redigidas com o apoio de ferramentas, como explica a política, e toda matéria passa por revisão e aprovação humana antes de ir ao ar.</p>
 <h2>Contato</h2>

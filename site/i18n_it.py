@@ -87,7 +87,7 @@ PRIV = """<h2>Pubblicità e cookie</h2>
 PAG = {}
 PAG["sobre.html"] = ("Chi siamo", "Chi c'è dietro ALOHA NOTÍCIAS.", """
 <p>ALOHA NOTÍCIAS è un sito di notizie brasiliano per chi vuole capire cosa succede senza il rumore di fondo. Ci concentriamo su cinema, videogiochi e tecnologia: anteprime, uscite e temi del momento, con i fatti verificati.</p>
-<p>Il sito è stato creato ed è diretto da <a href="equipe.html">João Gabriel</a>, creatore di siti web e di contenuti digitali. Con lui lavora una squadra di collaboratori freelance, che firma parte degli articoli come <a href="equipe-aloha.html">Team Aloha</a>.</p>
+<p>Il sito è stato creato ed è diretto da <a href="equipe.html">João Gabriel</a>, creatore di siti web e di contenuti digitali. Con lui lavorano i proprietari del sito e redattori assunti, che firmano parte degli articoli come <a href="equipe-aloha.html">Team Aloha</a>.</p>
 <p>Scriviamo prima in portoghese. Questa edizione italiana è adattata per i lettori fuori dal Brasile, perciò spieghiamo le date e i dettagli di uscita brasiliani dove servono.</p>
 <h2>Come lavoriamo</h2>
 <p>Ogni articolo cita le proprie fonti, distingue i fatti dalle opinioni e viene corretto apertamente quando sbagliamo. I dettagli sono nella nostra <a href="politica-editorial.html">linea editoriale</a>.</p>
@@ -170,6 +170,6 @@ PAG["privacidade.html"] = ("Privacy", "Informativa sulla privacy di ALOHA NOTÍC
 <p>Se questa informativa cambia, la data qui sopra sarà aggiornata. Se inizieremo a usare cookie, pubblicità o una newsletter, lo diremo prima qui. In caso di differenze prevale la versione in portoghese.</p>""")
 
 PAG["equipe-aloha.html"] = ('Team Aloha', 'Chi firma come Team Aloha su ALOHA NOTÍCIAS.', """
-<p><strong>Team Aloha</strong> è la firma della redazione di ALOHA NOTÍCIAS, formata da collaboratori freelance che lavorano con il direttore, João Gabriel. È usata in parte degli articoli su cinema, videogiochi, tecnologia, anime e curiosità.</p>
+<p><strong>Team Aloha</strong> è la firma della redazione di ALOHA NOTÍCIAS, formata dai proprietari del sito e da redattori assunti, che lavorano con il direttore, João Gabriel. È usata in parte degli articoli su cinema, videogiochi, tecnologia, anime e curiosità.</p>
 <h2>Come nascono questi articoli</h2>
 <p>Seguono la stessa <a href="politica-editorial.html">linea editoriale</a> del resto del sito. Sono ricercati e scritti con il supporto di strumenti, come spiega la linea editoriale, e ogni articolo viene rivisto e approvato da una persona prima della pubblicazione.</p>""")
