@@ -6,6 +6,7 @@
     0.5,
     0.3
    ],
+   "nome": "GTA VI",
    "zoom": 1.0
   },
   {
@@ -14,70 +15,70 @@
     0.88,
     0.4
    ],
+   "nome": "Vingadores: Doomsday",
    "zoom": 1.0
   },
   {
-   "wiki": "The Legend of Zelda: Tears of the Kingdom",
+   "steam": 2322010,
    "foco": [
     0.5,
-    0.45
+    0.4
    ],
+   "nome": "God of War Ragnarök",
    "zoom": 1.0
   },
   {
-   "wiki": "Dune: Part Two",
+   "arquivo": "assets/img/estreias/duna-parte-tres-chani-deserto.jpg",
    "foco": [
-    0.5,
-    0.45
+    0.62,
+    0.3
    ],
+   "nome": "Duna",
    "zoom": 1.0
   },
   {
-   "wiki": "God of War Ragnarök",
+   "steam": 2651280,
    "foco": [
     0.5,
-    0.42
+    0.4
    ],
+   "nome": "Marvel's Spider-Man 2",
    "zoom": 1.0
   },
   {
-   "wiki": "Spider-Man: Across the Spider-Verse",
+   "arquivo": "assets/img/estreias/semana-5-godzilla-gatola.jpg",
    "foco": [
-    0.5,
-    0.42
+    0.12,
+    0.4
    ],
+   "nome": "Godzilla Minus One",
    "zoom": 1.0
   },
   {
-   "wiki": "Elden Ring",
+   "steam": 1174180,
    "foco": [
     0.5,
-    0.45
+    0.4
    ],
+   "nome": "Red Dead Redemption 2",
    "zoom": 1.0
   },
   {
-   "wiki": "Deadpool & Wolverine",
+   "arquivo": "assets/img/estreias/percy-jackson-3-luke-castellan.jpg",
    "foco": [
     0.5,
-    0.42
+    0.35
    ],
+   "nome": "Percy Jackson",
    "zoom": 1.0
   },
   {
-   "wiki": "Red Dead Redemption 2",
+   "steam": 1888930,
    "foco": [
     0.5,
-    0.42
+    0.4
    ],
-   "zoom": 1.0
-  },
-  {
-   "wiki": "The Super Mario Bros. Movie",
-   "foco": [
-    0.5,
-    0.45
-   ],
+   "nome": "The Last of Us Part I",
    "zoom": 1.0
   }
  ]

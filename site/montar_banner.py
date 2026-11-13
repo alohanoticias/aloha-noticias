@@ -8,6 +8,21 @@ from montar_capa import baixar, recorte
 import urllib.parse, urllib.request
 
 
+def cena_steam(appid):
+    """Cena oficial do jogo na Steam, sem texto: arte 'hero' (sem logo) ou, se faltar, a 1ª captura."""
+    for u in (f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{appid}/library_hero.jpg",
+              f"https://cdn.akamai.steamstatic.com/steam/apps/{appid}/library_hero.jpg"):
+        try:
+            return baixar(u), u
+        except Exception:
+            pass
+    req = urllib.request.Request(f"https://store.steampowered.com/api/appdetails?appids={appid}",
+                                 headers={"User-Agent": "Mozilla/5.0"})
+    d = json.load(urllib.request.urlopen(req, timeout=40))[str(appid)]["data"]
+    u = d["screenshots"][0]["path_full"]
+    return baixar(u), u
+
+
 def arte_wikipedia(titulo, lang="en"):
     """Capa oficial (pôster do filme / capa do jogo) do artigo da Wikipédia."""
     q = urllib.parse.urlencode({"action": "query", "format": "json", "prop": "pageimages", "piprop": "original",
@@ -26,8 +41,13 @@ fotos = json.loads((RAIZ / "banner.json").read_text(encoding="utf-8"))["fotos"]
 ok = []
 for f in fotos:
     try:
-        url = arte_wikipedia(f["wiki"]) if f.get("wiki") else f["url"]
-        img = baixar(url)
+        if f.get("steam"):
+            img, url = cena_steam(f["steam"])
+        elif f.get("arquivo"):
+            url = str(RAIZ / f["arquivo"]); img = baixar(url)
+        else:
+            url = arte_wikipedia(f["wiki"]) if f.get("wiki") else f["url"]
+            img = baixar(url)
         ok.append((img, f.get("foco", [0.5, 0.42]), f.get("zoom", 1.0)))
         print("ok", f.get("wiki", ""), url[:110], img.size)
     except Exception as e:
