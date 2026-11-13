@@ -12,8 +12,8 @@
   {
    "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
    "foco": [
-    0.88,
-    0.4
+    0.8,
+    0.35
    ],
    "nome": "Vingadores: Doomsday",
    "zoom": 1.0
@@ -43,7 +43,8 @@
     0.4
    ],
    "nome": "Marvel's Spider-Man 2",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "captura": 0
   },
   {
    "arquivo": "assets/img/estreias/semana-5-godzilla-gatola.jpg",
@@ -61,7 +62,8 @@
     0.4
    ],
    "nome": "Red Dead Redemption 2",
-   "zoom": 1.0
+   "zoom": 1.0,
+   "captura": 1
   },
   {
    "arquivo": "assets/img/estreias/percy-jackson-3-luke-castellan.jpg",

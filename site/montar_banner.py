@@ -8,9 +8,9 @@ from montar_capa import baixar, recorte
 import urllib.parse, urllib.request
 
 
-def cena_steam(appid):
+def cena_steam(appid, captura=None):
     """Cena oficial do jogo na Steam, sem texto: arte 'hero' (sem logo) ou, se faltar, a 1ª captura."""
-    for u in (f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{appid}/library_hero.jpg",
+    for u in () if captura is not None else (f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{appid}/library_hero.jpg",
               f"https://cdn.akamai.steamstatic.com/steam/apps/{appid}/library_hero.jpg"):
         try:
             return baixar(u), u
@@ -19,7 +19,7 @@ def cena_steam(appid):
     req = urllib.request.Request(f"https://store.steampowered.com/api/appdetails?appids={appid}",
                                  headers={"User-Agent": "Mozilla/5.0"})
     d = json.load(urllib.request.urlopen(req, timeout=40))[str(appid)]["data"]
-    u = d["screenshots"][0]["path_full"]
+    u = d["screenshots"][captura or 0]["path_full"]
     return baixar(u), u
 
 
@@ -42,7 +42,7 @@ ok = []
 for f in fotos:
     try:
         if f.get("steam"):
-            img, url = cena_steam(f["steam"])
+            img, url = cena_steam(f["steam"], f.get("captura"))
         elif f.get("arquivo"):
             url = str(RAIZ / f["arquivo"]); img = baixar(url)
         else:
