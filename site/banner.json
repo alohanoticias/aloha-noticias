@@ -1,13 +1,13 @@
 {
  "fotos": [
   {
-   "arquivo": "assets/img/estreias/blade-runner-2099-corredor-neon.jpg",
+   "steam": 1817070,
    "foco": [
-    0.3,
-    0.3
+    0.5,
+    0.4
    ],
    "zoom": 1.0,
-   "nome": "Blade Runner 2099"
+   "nome": "Marvel's Spider-Man"
   },
   {
    "url": "https://cdn.marvel.com/content/2x/avengersdoomsday_lob_mas_dsk_03.webp",
