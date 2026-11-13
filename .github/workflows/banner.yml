@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install pillow
-      - run: python3 site/montar_banner.py
+      - run: python3 site/montar_banner.py 2>&1 | tee site/banner-log.txt
       - name: Enviar
         run: |
           [ "${GITHUB_REF_NAME}" = "main" ] && python3 site/gerar.py

@@ -50,13 +50,24 @@ for f in fotos:
             try:
                 img = baixar(url)
             except Exception:
+                try:
+                    import io
+                    from PIL import Image as _I
+                    rq = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                                                             "Referer": url.split("/wp-content")[0] + "/"})
+                    img = _I.open(io.BytesIO(urllib.request.urlopen(rq, timeout=40).read())).convert("RGB")
+                    ok.append((img, f.get("foco", [0.5, 0.42]), f.get("zoom", 1.0)))
+                    print("ok (navegador)", url[:110], img.size)
+                    continue
+                except Exception as e2:
+                    print("falhou como navegador", e2)
                 if not f.get("url_alt"):
                     raise
                 url = f["url_alt"]; img = baixar(url)
         ok.append((img, f.get("foco", [0.5, 0.42]), f.get("zoom", 1.0)))
         print("ok", f.get("wiki", ""), url[:110], img.size)
     except Exception as e:
-        print("FALHOU", f["url"][:90], e)
+        print("FALHOU", f.get("nome") or f.get("url", "")[:90], e)
 if len(ok) < 4:
     sys.exit("poucas imagens carregaram; banner não alterado")
 n = len(ok)
