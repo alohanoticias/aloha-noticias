@@ -1,0 +1,25 @@
+name: Miniaturas oficiais do Roblox
+on:
+  workflow_dispatch:
+    inputs:
+      jogos:
+        description: "Nomes dos jogos separados por ;"
+        required: true
+permissions:
+  contents: write
+jobs:
+  roblox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pillow
+      - env:
+          JOGOS: ${{ inputs.jogos }}
+        run: IFS=";" read -ra T <<< "$JOGOS"; python3 site/roblox_jogos.py "${T[@]}"
+      - run: |
+          git config user.name "aloha-bot"
+          git config user.email "contato@alohanoticias.com"
+          git add -A site/candidatas
+          git diff --cached --quiet && exit 0
+          git commit -m "Miniaturas oficiais do Roblox"
+          for i in 1 2 3 4; do git push && exit 0; sleep 4; git pull --rebase -q; done
