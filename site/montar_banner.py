@@ -36,7 +36,8 @@ def arte_wikipedia(titulo, lang="en"):
     raise RuntimeError("sem imagem no artigo " + titulo)
 
 RAIZ = Path(__file__).resolve().parent
-W, H, INCL, DIV = 1920, 300, 46, 8
+ESC = 2                       # o dobro da resolução: fica nítido em telas grandes e de celular
+W, H, INCL, DIV = 1920 * ESC, 300 * ESC, 46 * ESC, 8 * ESC
 fotos = json.loads((RAIZ / "banner.json").read_text(encoding="utf-8"))["fotos"]
 ok = []
 for f in fotos:
@@ -64,6 +65,9 @@ for f in fotos:
                 if not f.get("url_alt"):
                     raise
                 url = f["url_alt"]; img = baixar(url)
+        if f.get("nitidez"):
+            from PIL import ImageFilter
+            img = img.filter(ImageFilter.UnsharpMask(radius=2, percent=int(f["nitidez"]), threshold=2))
         ok.append((img, f.get("foco", [0.5, 0.42]), f.get("zoom", 1.0)))
         print("ok", f.get("wiki", ""), url[:110], img.size)
     except Exception as e:
@@ -78,6 +82,9 @@ for i, (img, foco, zoom) in [(-1, ok[-1])] + list(enumerate(ok)):
     x0, x1 = round(i * lw), round((i + 1) * lw)
     pw = x1 - x0 + INCL + 2 * DIV
     painel = recorte(img, pw, H, foco, zoom)
+    if True:  # nitidez leve em todas as faixas
+        from PIL import ImageFilter
+        painel = painel.filter(ImageFilter.UnsharpMask(radius=1.2, percent=60, threshold=2))
     m = Image.new("L", (W * 2, H * 2), 0)
     d = ImageDraw.Draw(m)
     s = 2
@@ -89,10 +96,10 @@ for i, (img, foco, zoom) in [(-1, ok[-1])] + list(enumerate(ok)):
 # escurece a esquerda (onde fica a logo)
 mask = Image.new("L", (W, H), 0)
 px = mask.load()
-for x in range(900):
-    v = int(255 * 0.82 * (1 - x / 900))
+for x in range(900 * ESC):
+    v = int(255 * 0.82 * (1 - x / (900 * ESC)))
     for y in range(H):
         px[x, y] = v
 tela = Image.composite(Image.new("RGB", (W, H), (10, 10, 10)), tela, mask)
-tela.save(RAIZ / "assets/img/banner.jpg", quality=88, optimize=True)
+tela.save(RAIZ / "assets/img/banner.jpg", quality=90, optimize=True, progressive=True)
 print("banner salvo", tela.size)
