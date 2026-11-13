@@ -10,33 +10,28 @@ def get(url):
 out = Path("site/candidatas/roblox"); out.mkdir(parents=True, exist_ok=True)
 for f in out.glob("*"): f.unlink()
 linhas, imgs, n = [], [], 0
-for nome in sys.argv[1:]:
-    nome = nome.strip()
-    if not nome: continue
-    try:
-        q = urllib.parse.urlencode({"searchQuery": nome, "sessionId": "aloha", "pageType": "all"})
-        d = json.loads(get("https://apis.roblox.com/search-api/omni-search?" + q))
-        jogos = [c for s in d.get("searchResults", []) for c in s.get("contents", []) if c.get("contentType") == "Game"]
-    except Exception as e:
-        print("ERRO busca", nome, e); continue
-    if not jogos:
-        print("NADA", nome); continue
-    g = jogos[0]; uid = g["universeId"]
-    print(f"== {nome} -> {g.get('name')} | criador {g.get('creatorName')} | universe {uid} | place {g.get('rootPlaceId')} | jogando {g.get('playerCount')}")
-    try:
-        t = json.loads(get(f"https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds={uid}&countPerUniverse=10&size=768x432&format=Png&isCircular=false"))
-        urls = [x["imageUrl"] for x in t["data"][0]["thumbnails"] if x.get("state") == "Completed"]
-    except Exception as e:
-        print("ERRO thumbs", e); continue
-    for u in urls[:6]:
-        n += 1
-        try:
-            im = Image.open(io.BytesIO(get(u))).convert("RGB")
-        except Exception as e:
-            print("ERRO img", u, e); continue
-        im.save(out / f"{n:02d}.jpg", quality=92)
-        linhas.append(f"{n:02d} {im.width}x{im.height} {g.get('name')} | {u}")
-        imgs.append((n, im))
+import time
+ids = [a.strip()[2:] for a in sys.argv[1:] if a.strip().startswith("u:")]
+nomes = {}
+if ids:
+    info = json.loads(get("https://games.roblox.com/v1/games?universeIds=" + ",".join(ids)))
+    for g in info.get("data", []):
+        nomes[str(g["id"])] = g["name"]
+        print(f"== {g['id']} -> {g['name']} | criador {g['creator']['name']} | place {g['rootPlaceId']} | jogando {g['playing']} | visitas {g['visits']} | criado {g['created'][:10]}")
+    time.sleep(1)
+    t = json.loads(get(f"https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds={','.join(ids)}&countPerUniverse=10&size=768x432&format=Png&isCircular=false"))
+    for item in t["data"]:
+        uid = str(item["universeId"])
+        urls = [x["imageUrl"] for x in item["thumbnails"] if x.get("state") == "Completed"]
+        for u in urls[:4]:
+            n += 1
+            try:
+                im = Image.open(io.BytesIO(get(u))).convert("RGB")
+            except Exception as e:
+                print("ERRO img", u, e); continue
+            im.save(out / f"{n:02d}.jpg", quality=92)
+            linhas.append(f"{n:02d} {im.width}x{im.height} {nomes.get(uid, uid)} | {u}")
+            imgs.append((n, im))
 (out / "lista.txt").write_text("\n".join(linhas) + "\n", encoding="utf-8")
 print("\n".join(linhas))
 if imgs:
