@@ -915,6 +915,7 @@ def gerar_metricas_admin(materias):
         nomes["slug:" + m["slug"]] = m["titulo"]
     for n in ("sobre", "contato", "equipe", "politica-editorial", "privacidade", "termos"):
         nomes[f"/{n}.html"] = n.replace("-", " ").capitalize()
+    nomes.update({k[:-5]: v for k, v in list(nomes.items()) if k.endswith(".html")})  # links internos agora sem ".html"
     acao = ('<select id="m-dias" class="p-btn" aria-label="Período"><option value="7">7 dias</option><option value="30" selected>30 dias</option>'
             '<option value="90">90 dias</option><option value="365">12 meses</option></select>')
     conteudo = f"""<section class="p-painel m-vivo"><header><h2><span class="m-ponto"></span>Ao vivo</h2><small id="v-hora"></small></header>
@@ -1476,6 +1477,15 @@ def limpa_abs(s):
     return _RE_HTML.sub(r"\1", _RE_IDX.sub(r"\1", s))
 
 
+_RE_REL = re.compile(r'((?:href|action)=")((?:\.\./)?)(?!admin/)([a-z0-9][a-z0-9-]*)\.html(?=["#?])')
+_RE_JS_REL = re.compile(r'"((?:materia|assunto)-[a-z0-9-]+)\.html"')
+
+
+def limpa_rel(s):
+    """Links internos sem ".html", iguais à canonical: o Google deixa de encontrar dois endereços por página."""
+    return _RE_REL.sub(lambda m: m.group(1) + (m.group(2) or "./" if m.group(3) == "index" else m.group(2) + m.group(3)), s)
+
+
 def url_abs(lang, nome):
     nome = nome_idioma(lang, nome)
     return "https://alohanoticias.com/" + prefixo(lang) + ("" if nome == "index.html" else nome)
@@ -1536,12 +1546,12 @@ def main():
     for lang, arqs in por_idioma.items():
         (SAIDA / prefixo(lang)).mkdir(exist_ok=True)
         for nome, conteudo in arqs.items():
-            (SAIDA / prefixo(lang) / nome_idioma(lang, nome)).write_text(limpa_abs(resolver(conteudo, lang, nome, existe)), encoding="utf-8")
+            (SAIDA / prefixo(lang) / nome_idioma(lang, nome)).write_text(limpa_rel(limpa_abs(resolver(conteudo, lang, nome, existe))), encoding="utf-8")
         ind = INDICES[lang]
         if lang != "pt":
             ind = localizar(ind, lang).replace('src=\\"assets/', 'src=\\"../assets/')
-        (SAIDA / "assets/js" / ("indice.js" if lang == "pt" else f"indice-{lang}.js")).write_text(ind, encoding="utf-8")
-        (SAIDA / "assets/js" / ("novidades.js" if lang == "pt" else f"novidades-{lang}.js")).write_text(localizar(NOVID[lang], lang), encoding="utf-8")
+        (SAIDA / "assets/js" / ("indice.js" if lang == "pt" else f"indice-{lang}.js")).write_text(_RE_JS_REL.sub(r'"\1"', ind), encoding="utf-8")
+        (SAIDA / "assets/js" / ("novidades.js" if lang == "pt" else f"novidades-{lang}.js")).write_text(_RE_JS_REL.sub(r'"\1"', localizar(NOVID[lang], lang)), encoding="utf-8")
     arquivos = por_idioma["pt"]
     csp = CSP_ADS if ANUNCIOS_ATIVOS else CSP_BASE
     if ONESIGNAL_APP_ID:  # avisos push (OneSignal): libera só o necessário
