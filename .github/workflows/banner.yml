@@ -1,6 +1,9 @@
 name: Montar banner
 on:
   workflow_dispatch:
+  push:
+    branches: [banner-previa]
+    paths: ["site/banner.json", "site/montar_banner.py"]
 permissions:
   contents: write
 jobs:
@@ -12,11 +15,11 @@ jobs:
       - run: python3 site/montar_banner.py
       - name: Enviar
         run: |
-          python3 site/gerar.py
+          [ "${GITHUB_REF_NAME}" = "main" ] && python3 site/gerar.py
           git config user.name "aloha-bot"
           git config user.email "contato@alohanoticias.com"
           git add -A
           git diff --cached --quiet && exit 0
           git commit -m "Banner com imagens novas"
-          git pull --rebase -q
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
           git push

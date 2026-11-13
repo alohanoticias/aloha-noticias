@@ -5,6 +5,20 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 sys.path.insert(0, str(Path(__file__).parent))
 from montar_capa import baixar, recorte
+import urllib.parse, urllib.request
+
+
+def arte_wikipedia(titulo, lang="en"):
+    """Capa oficial (pôster do filme / capa do jogo) do artigo da Wikipédia."""
+    q = urllib.parse.urlencode({"action": "query", "format": "json", "prop": "pageimages", "piprop": "original",
+                                "pilicense": "any", "redirects": 1, "titles": titulo})
+    req = urllib.request.Request(f"https://{lang}.wikipedia.org/w/api.php?{q}",
+                                 headers={"User-Agent": "AlohaNoticiasBot/1.0 (contato@alohanoticias.com)"})
+    pags = json.load(urllib.request.urlopen(req, timeout=40))["query"]["pages"]
+    for p in pags.values():
+        if "original" in p:
+            return p["original"]["source"]
+    raise RuntimeError("sem imagem no artigo " + titulo)
 
 RAIZ = Path(__file__).resolve().parent
 W, H, INCL, DIV = 1920, 300, 46, 8
@@ -12,8 +26,10 @@ fotos = json.loads((RAIZ / "banner.json").read_text(encoding="utf-8"))["fotos"]
 ok = []
 for f in fotos:
     try:
-        ok.append((baixar(f["url"]), f.get("foco", [0.5, 0.5]), f.get("zoom", 1.0)))
-        print("ok", f["url"][:90])
+        url = arte_wikipedia(f["wiki"]) if f.get("wiki") else f["url"]
+        img = baixar(url)
+        ok.append((img, f.get("foco", [0.5, 0.42]), f.get("zoom", 1.0)))
+        print("ok", f.get("wiki", ""), url[:110], img.size)
     except Exception as e:
         print("FALHOU", f["url"][:90], e)
 if len(ok) < 4:
