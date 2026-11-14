@@ -32,5 +32,12 @@ jobs:
           git add -A
           git diff --cached --quiet && exit 0
           git commit -m "Banner com imagens novas"
-          git pull --rebase -q origin "${GITHUB_REF_NAME}"
-          git push
+          for i in 1 2 3 4 5 6; do
+            git push && exit 0
+            sleep $((i * 3))
+            git pull --rebase -X theirs -q origin "${GITHUB_REF_NAME}" || git rebase --abort
+            [ "${GITHUB_REF_NAME}" = "main" ] && python3 site/gerar.py
+            git add -A
+            git diff --cached --quiet || git commit -qm "Regenera site"
+          done
+          exit 1
