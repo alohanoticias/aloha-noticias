@@ -6,6 +6,7 @@ a foto do assunto em site/capas_base/<slug>.jpg (se não existir, copia a capa a
 
 Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é cortado):
   {"modelo": "faixa" | "data" | "numero" | "comparacao" | "topo" | "rodape",
+   "desfocar": true                        (opcional: desfoca a imagem só atrás do texto, quando ela tem letras miúdas),
    "logo": {"url": "logos/netflix.png" ou endereço de png oficial, "escala": 1.0}   (opcional: logo oficial no lugar do tema escrito; logos prontos em site/logos/),
    "tema": "NOME DO ASSUNTO (linha pequena em vermelho)",
    "titulo": "frase curta",
@@ -239,6 +240,9 @@ def montar(slug, s):
     else:
         raise SystemExit(f"modelo desconhecido: {mod}")
 
+    if s.get("desfocar"):  # imagem com texto miúdo atrás (créditos, rótulos): desfoca só por trás do texto da capa
+        m = lay.getchannel("A").filter(ImageFilter.MaxFilter(61)).filter(ImageFilter.GaussianBlur(30))
+        im = Image.composite(im.filter(ImageFilter.GaussianBlur(22)), im, m)
     fim = com_sombra(im, lay).convert("RGB")
     if logo and mod in LOGO_POS:
         cy, mh = LOGO_POS[mod]

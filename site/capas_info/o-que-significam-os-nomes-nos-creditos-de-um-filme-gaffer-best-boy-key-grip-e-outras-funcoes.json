@@ -1,5 +1,6 @@
 {
  "modelo": "faixa",
  "tema": "Créditos de filme",
- "titulo": "Gaffer, best boy, key grip"
+ "titulo": "Gaffer, best boy, key grip",
+ "desfocar": true
 }
