@@ -10,7 +10,9 @@ import urllib.parse, urllib.request
 
 def cena_steam(appid, captura=None):
     """Cena oficial do jogo na Steam, sem texto: arte 'hero' (sem logo) ou, se faltar, a 1ª captura."""
-    for u in () if captura is not None else (f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{appid}/library_hero.jpg",
+    for u in () if captura is not None else (f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{appid}/library_hero_2x.jpg",
+              f"https://cdn.akamai.steamstatic.com/steam/apps/{appid}/library_hero_2x.jpg",
+              f"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/{appid}/library_hero.jpg",
               f"https://cdn.akamai.steamstatic.com/steam/apps/{appid}/library_hero.jpg"):
         try:
             return baixar(u), u
@@ -36,6 +38,51 @@ def arte_wikipedia(titulo, lang="en"):
     raise RuntimeError("sem imagem no artigo " + titulo)
 
 RAIZ = Path(__file__).resolve().parent
+
+try:  # aprimorador de imagem (Real-ESRGAN 4x), se o workflow instalou
+    import numpy as np, torch
+    from spandrel import ModelLoader
+    torch.set_grad_enabled(False)
+    _modelo = ModelLoader().load_from_file(str(RAIZ.parent / "ia_modelos/RealESRGAN_x4plus.pth")).eval()
+
+    def ampliar(img, tile=256, sobra=16):
+        a = np.asarray(img, dtype=np.float32) / 255.0
+        h, w, _ = a.shape
+        out = np.zeros((h * 4, w * 4, 3), dtype=np.float32)
+        for y in range(0, h, tile):
+            for x in range(0, w, tile):
+                y0, x0 = max(y - sobra, 0), max(x - sobra, 0)
+                y1, x1 = min(y + tile + sobra, h), min(x + tile + sobra, w)
+                t = torch.from_numpy(a[y0:y1, x0:x1].transpose(2, 0, 1).copy()).unsqueeze(0)
+                r = _modelo(t)[0].clamp(0, 1).numpy().transpose(1, 2, 0)
+                yy, xx = (y - y0) * 4, (x - x0) * 4
+                hh, ww = min(tile, h - y) * 4, min(tile, w - x) * 4
+                out[y * 4:y * 4 + hh, x * 4:x * 4 + ww] = r[yy:yy + hh, xx:xx + ww]
+        return Image.fromarray((out * 255 + 0.5).astype(np.uint8))
+    print("IA de qualidade: ligada", flush=True)
+except Exception as e:
+    ampliar = None
+    print("IA de qualidade: indisponível", e, flush=True)
+
+
+def painel_qualidade(img, w, h, foco, zoom):
+    """Recorta a região exata na resolução original, reconstrói em 4x com IA (tira serrilhado, borrão e
+    quadriculado de JPEG) e reduz ao tamanho final: cada pixel do banner sai de 16 pixels reconstruídos."""
+    esc = max(w / img.width, h / img.height) * zoom
+    cw, ch = min(img.width, round(w / esc)), min(img.height, round(h / esc))
+    x = round((img.width - cw) * foco[0]); y = round((img.height - ch) * foco[1])
+    reg = img.crop((x, y, x + cw, y + ch)).convert("RGB")
+    if ampliar is not None:
+        try:
+            if max(reg.size) > 1100:  # região já grande: reduz antes, a IA reconstrói o detalhe
+                e = 1100 / max(reg.size); reg = reg.resize((round(reg.width * e), round(reg.height * e)), Image.LANCZOS)
+            reg = ampliar(reg)
+        except Exception as e:
+            print("IA falhou neste painel, segue sem:", e)
+    print("   painel", (cw, ch), "->", reg.size, "->", (w, h), flush=True)
+    return reg.resize((w, h), Image.LANCZOS)
+
+
 ESC = 2                       # o dobro da resolução: fica nítido em telas grandes e de celular
 W, H, INCL, DIV = 1920 * ESC, 300 * ESC, 46 * ESC, 8 * ESC
 fotos = json.loads((RAIZ / "banner.json").read_text(encoding="utf-8"))["fotos"]
@@ -65,9 +112,6 @@ for f in fotos:
                 if not f.get("url_alt"):
                     raise
                 url = f["url_alt"]; img = baixar(url)
-        if f.get("nitidez"):
-            from PIL import ImageFilter
-            img = img.filter(ImageFilter.UnsharpMask(radius=2, percent=int(f["nitidez"]), threshold=2))
         ok.append((img, f.get("foco", [0.5, 0.42]), f.get("zoom", 1.0)))
         print("ok", f.get("wiki", ""), url[:110], img.size)
     except Exception as e:
@@ -81,10 +125,7 @@ tela = Image.new("RGB", (W, H), (10, 10, 10))
 for i, (img, foco, zoom) in [(-1, ok[-1])] + list(enumerate(ok)):
     x0, x1 = round(i * lw), round((i + 1) * lw)
     pw = x1 - x0 + INCL + 2 * DIV
-    painel = recorte(img, pw, H, foco, zoom)
-    if True:  # nitidez leve em todas as faixas
-        from PIL import ImageFilter
-        painel = painel.filter(ImageFilter.UnsharpMask(radius=1.2, percent=60, threshold=2))
+    painel = painel_qualidade(img, pw, H, foco, zoom)
     m = Image.new("L", (W * 2, H * 2), 0)
     d = ImageDraw.Draw(m)
     s = 2
@@ -101,5 +142,8 @@ for x in range(900 * ESC):
     for y in range(H):
         px[x, y] = v
 tela = Image.composite(Image.new("RGB", (W, H), (10, 10, 10)), tela, mask)
-tela.save(RAIZ / "assets/img/banner.jpg", quality=90, optimize=True, progressive=True)
+tela.save(RAIZ / "assets/img/banner.jpg", quality=93, subsampling=0, optimize=True, progressive=True)
+import re, time
+css = RAIZ / "assets/css/antigo.css"
+css.write_text(re.sub(r"banner\.jpg\?v=[\w-]+", "banner.jpg?v=" + time.strftime("%Y%m%d%H%M"), css.read_text(encoding="utf-8")), encoding="utf-8")
 print("banner salvo", tela.size)

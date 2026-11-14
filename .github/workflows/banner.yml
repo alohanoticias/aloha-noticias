@@ -11,14 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install pillow
+      - run: pip install pillow numpy
+      - uses: actions/cache@v4
+        with:
+          path: ia_modelos
+          key: realesrgan-v1
+      - name: Instalar o aprimorador de imagem (IA)
+        continue-on-error: true
+        run: |
+          pip install -q --no-cache-dir spandrel
+          pip install -q --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+          mkdir -p ia_modelos
+          [ -s ia_modelos/RealESRGAN_x4plus.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
       - run: python3 site/montar_banner.py 2>&1 | tee site/banner-log.txt
       - name: Enviar
         run: |
           [ "${GITHUB_REF_NAME}" = "main" ] && python3 site/gerar.py
           git config user.name "aloha-bot"
           git config user.email "contato@alohanoticias.com"
-          git add -A
+          git add -A -- . ':!ia_modelos'
           git diff --cached --quiet && exit 0
           git commit -m "Banner com imagens novas"
           git pull --rebase -q origin "${GITHUB_REF_NAME}"
