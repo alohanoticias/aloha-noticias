@@ -194,7 +194,7 @@ def video(m):
 
 
 _VARIANTES = {}
-TAMANHOS_CAPA = (640, 960, 1280)
+TAMANHOS_CAPA = (640, 960, 1280, 1600)
 
 
 def variantes_capa(url):
@@ -224,7 +224,7 @@ def variantes_capa(url):
                         velho.unlink()
                 with Image.open(src) as im:
                     im = im.convert("RGB")
-                    im.resize((w, round(w * im.height / im.width)), Image.LANCZOS).save(alvo, "WEBP", quality=78, method=6)
+                    im.resize((w, round(w * im.height / im.width)), Image.LANCZOS).save(alvo, "WEBP", quality=86, method=6)
             # a cópia de assets/ para o site publicado acontece antes das páginas; garante que a versão nova vá junto
             copia = SAIDA / rel
             if not copia.exists():
@@ -627,7 +627,7 @@ def tag_v(m):
 def hero_card(m, grande):
     fina = f'<p class="hero-fina">{esc(m["linha_fina"])}</p>' if grande else ""
     return f"""<a class="hero-card{' grande' if grande else ''}" href="{url_materia(m)}">
-  {capa(m, "hero-img", prioridade=True if grande else "eager", sizes="(max-width: 760px) 100vw, 1100px" if grande else "(max-width: 760px) 100vw, 560px")}
+  {capa(m, "hero-img", prioridade=True if grande else "eager", sizes="(max-width: 760px) 100vw, 1200px" if grande else "(max-width: 760px) 100vw, 840px")}
   {tag_v(m)}
   <div class="hero-texto">
     {selo_guia(m)}{alta(m)}<time datetime="{m['data']}">{data_longa(m['data'])}</time>
