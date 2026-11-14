@@ -647,8 +647,8 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .coluna-principal .tit-secao h2 { color: var(--vermelho); font-size: 20px; }
 .secao-lista { margin-bottom: 40px; }
 
-.item-lista { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; margin-bottom: 36px; }
-.il-capa { position: relative; display: block; aspect-ratio: 4 / 3; background: var(--superficie); overflow: hidden; }
+.item-lista { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; margin-bottom: 36px; }
+.il-capa { position: relative; display: block; aspect-ratio: 16 / 9; background: var(--superficie); overflow: hidden; }
 .il-capa .capa, .il-capa img, .il-capa svg { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0; box-shadow: none; aspect-ratio: auto; }
 .il-capa .tag-v { position: absolute; right: 10px; bottom: 10px; }
 .il-texto { display: grid; gap: 10px; align-content: start; }
@@ -669,7 +669,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .mini-lista, .lista-links { list-style: none; margin: 0; padding: 0; }
 .mini-lista { display: grid; gap: 26px; }
 .mini { position: relative; display: grid; gap: 8px; }
-.mini .capa, .mini img, .mini svg { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 0; box-shadow: none; }
+.mini .capa, .mini img, .mini svg { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0; box-shadow: none; }
 .mini .tag-v { position: absolute; top: 10px; left: 10px; }
 .mini strong { font-size: 17px; line-height: 1.3; font-weight: 700; }
 .mini:hover strong { color: var(--vermelho); }
@@ -689,7 +689,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .card-cat { display: grid; gap: 12px; align-content: start; }
 .card-cat h2 { margin: 0; font-size: 26px; line-height: 1.3; font-weight: 700; }
 .card-cat h2 a:hover { color: var(--vermelho); text-decoration: none; }
-.cc-capa { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--superficie); }
+.cc-capa { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--superficie); }
 .cc-capa .capa, .cc-capa img, .cc-capa svg { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0; box-shadow: none; aspect-ratio: auto; }
 
 /* ---------- matéria, botões e demais páginas herdam a paleta ---------- */
@@ -765,7 +765,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
   .hero-texto { left: 12px; right: 12px; bottom: 10px; }
   .hero-texto time, .hero-fina { display: none; }
   .hero-texto h2, .hero-card.grande .hero-texto h2 { font-size: 16px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .il-capa { aspect-ratio: 16 / 10; }
+  .il-capa { aspect-ratio: 16 / 9; }
   .il-texto h3 { font-size: 24px; }
   .resumo { font-size: 16px; }
   .meta-l { font-size: 14px; }
