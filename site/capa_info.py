@@ -210,8 +210,9 @@ def montar(slug, s):
     mod = s["modelo"]
     if mod == "topo":  # antigo "texto no alto": agora é a faixa com posição escolhida
         mod, s = "faixa", {**s, "posicao": s.get("posicao", "cima")}
-    logo_canto = s.get("logo") if (s.get("logo") or {}).get("canto") else None  # logo no canto superior direito: o texto fica como está
-    logo = None if logo_canto else (s.get("logo") or logo_da_colagem(slug))  # logo oficial (filme, jogo, série): substitui o nome escrito
+    lg_ = s.get("logo") or logo_da_colagem(slug)  # logo oficial (plataforma, jogo, filme)
+    logo_canto = lg_ if lg_ and lg_.get("canto", True) else None  # padrão: no canto superior direito, sem cobrir nada
+    logo = None if logo_canto else lg_  # "canto": false põe o logo no lugar do nome escrito
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
         if s.get("tema") and not logo:
@@ -303,7 +304,10 @@ def montar(slug, s):
         dy, pos = 0, "baixo"
         if caixa:
             pos = s.get("posicao") or melhor_posicao(im, caixa)
-            alvo = {"baixo": H - 70 - caixa[3], "cima": 150 - caixa[1],
+            topo_livre = 150
+            if logo_canto:  # texto no alto nunca encosta no logo do canto
+                topo_livre = max(150, 50 + logo_img(logo_canto, 150 * logo_canto.get("escala", 1.0), canto=True).height + 45)
+            alvo = {"baixo": H - 70 - caixa[3], "cima": topo_livre - caixa[1],
                     "meio": (H - (caixa[3] - caixa[1])) // 2 - caixa[1]}[pos]
             dy = alvo if (pos != "baixo" or s.get("posicao") == "baixo" or caixa[3] > H - 70) else 0
             if dy:
