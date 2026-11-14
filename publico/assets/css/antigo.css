@@ -38,7 +38,7 @@
 .topbar .botao-icone { color: #fff; width: 32px; height: 32px; }
 .topbar .botao-icone:hover { background: #222; }
 .topbar .botao-icone svg { width: 16px; height: 16px; }
-.logo-area { background: #0a0a0a url("../img/banner.jpg?v=20261113b") center / cover no-repeat; padding-block: 28px; }
+.logo-area { background: #0a0a0a url("../img/banner.jpg?v=202611141752") center / cover no-repeat; padding-block: 28px; }
 .cab-logo { display: inline-block; line-height: 0; }
 .cab-logo img { width: 290px; height: auto; max-width: 70vw; }
 .nav { background: var(--preto); border: 0; box-shadow: 0 3px 8px rgba(0, 0, 0, .25); }
