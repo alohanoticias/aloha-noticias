@@ -1,0 +1,51 @@
+name: Capas com informação
+on:
+  push:
+    branches: [main]
+    paths: ["site/capas_info/**", "site/capa_info.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: capas-info
+  cancel-in-progress: false
+jobs:
+  capas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pillow numpy
+      - run: sudo apt-get install -y fonts-inter || true
+      - uses: actions/cache@v4
+        with:
+          path: ia_modelos
+          key: realesrgan-v1
+      - name: Instalar o aprimorador de imagem (IA)
+        continue-on-error: true
+        run: |
+          pip install -q --no-cache-dir spandrel
+          pip install -q --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+          mkdir -p ia_modelos
+          [ -s ia_modelos/RealESRGAN_x4plus.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
+          [ -s ia_modelos/RealESRGAN_x4plus_anime_6B.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus_anime_6B.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
+      - name: Montar as capas com informação
+        run: CAPA_IA=1 python3 site/capa_info.py
+      - name: Regenerar o site e enviar
+        if: always()
+        run: |
+          python3 site/gerar.py
+          git config user.name "aloha-bot"
+          git config user.email "contato@alohanoticias.com"
+          git add site/assets/img/capas site/capas_base site/capas_info publico
+          git diff --cached --quiet && exit 0
+          git commit -m "Capas com informação montadas"
+          for i in 1 2 3 4 5 6; do
+            git push && exit 0
+            sleep $((i * 3))
+            git pull --rebase -X theirs -q || git rebase --abort
+            python3 site/gerar.py
+            git add -A
+            git diff --cached --quiet || git commit -qm "Regenera site"
+          done
+          exit 1

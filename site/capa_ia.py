@@ -100,30 +100,31 @@ def comparar(antes, depois, destino):
     tela.save(destino, quality=90)
 
 
-EDITORIAS = {m["slug"]: m.get("editoria") for m in json.loads((RAIZ / "site/conteudo/materias.json").read_text(encoding="utf-8"))}
-SAIDA.mkdir(exist_ok=True)
-falhou = False
-novas = sys.argv[1:2] == ["--novas"]
-slugs = sys.argv[2:] if novas else sys.argv[1:]
-if novas and not slugs:
-    slugs = [f.stem for f in sorted((RAIZ / "site/capas_fotos").glob("*.json")) if not (CAPAS / f"{f.stem}.jpg").exists()]
-    print("Capas novas:", slugs or "nenhuma", flush=True)
-for slug in slugs:
-    spec = json.loads((RAIZ / f"site/capas_fotos/{slug}.json").read_text(encoding="utf-8"))
-    ed = spec.get("editoria") or EDITORIAS.get(slug)
-    tipo_atual = "anime" if ed == "anime" or spec.get("ia") == "anime" else "foto"
-    print("Capa:", slug, flush=True)
-    try:
-        nova = mc.montar(spec)
-        if novas:  # capa nova: vai direto para o site, já com a regra de qualidade
-            nova.save(CAPAS / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
-            print("   pronta (no site)", flush=True); continue
-        nova.save(SAIDA / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
-        atual = CAPAS / f"{slug}.jpg"
-        if atual.exists():
-            comparar(Image.open(atual).convert("RGB"), nova, SAIDA / f"comparar-{slug}.jpg")
-        print("   pronta", flush=True)
-    except Exception as e:
-        falhou = True
-        print(f"FALHOU {slug}: {type(e).__name__}: {e}", flush=True)
-sys.exit(1 if falhou else 0)
+if __name__ == "__main__":
+    EDITORIAS = {m["slug"]: m.get("editoria") for m in json.loads((RAIZ / "site/conteudo/materias.json").read_text(encoding="utf-8"))}
+    SAIDA.mkdir(exist_ok=True)
+    falhou = False
+    novas = sys.argv[1:2] == ["--novas"]
+    slugs = sys.argv[2:] if novas else sys.argv[1:]
+    if novas and not slugs:
+        slugs = [f.stem for f in sorted((RAIZ / "site/capas_fotos").glob("*.json")) if not (CAPAS / f"{f.stem}.jpg").exists()]
+        print("Capas novas:", slugs or "nenhuma", flush=True)
+    for slug in slugs:
+        spec = json.loads((RAIZ / f"site/capas_fotos/{slug}.json").read_text(encoding="utf-8"))
+        ed = spec.get("editoria") or EDITORIAS.get(slug)
+        tipo_atual = "anime" if ed == "anime" or spec.get("ia") == "anime" else "foto"
+        print("Capa:", slug, flush=True)
+        try:
+            nova = mc.montar(spec)
+            if novas:  # capa nova: vai direto para o site, já com a regra de qualidade
+                nova.save(CAPAS / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
+                print("   pronta (no site)", flush=True); continue
+            nova.save(SAIDA / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
+            atual = CAPAS / f"{slug}.jpg"
+            if atual.exists():
+                comparar(Image.open(atual).convert("RGB"), nova, SAIDA / f"comparar-{slug}.jpg")
+            print("   pronta", flush=True)
+        except Exception as e:
+            falhou = True
+            print(f"FALHOU {slug}: {type(e).__name__}: {e}", flush=True)
+    sys.exit(1 if falhou else 0)

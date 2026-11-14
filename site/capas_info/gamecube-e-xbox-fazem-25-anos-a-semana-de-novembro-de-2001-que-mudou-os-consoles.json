@@ -1,0 +1,18 @@
+{
+ "modelo": "comparacao",
+ "tema": "25 anos",
+ "titulo": "Consoles vendidos",
+ "barras": [
+  [
+   "Xbox",
+   24,
+   "24 mi"
+  ],
+  [
+   "GameCube",
+   21.74,
+   "21,74 mi"
+  ]
+ ],
+ "selo": "Novembro de 2001"
+}

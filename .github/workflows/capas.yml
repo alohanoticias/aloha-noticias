@@ -34,6 +34,9 @@ jobs:
         run: python3 site/capa_ia.py --novas
       - name: Montar sem IA as que faltarem (reserva, se a IA falhar)
         run: python3 site/montar_capa.py
+      - name: Pôr a informação nas capas novas (modelo com informação)
+        continue-on-error: true
+        run: CAPA_IA=1 python3 site/capa_info.py
       - name: Regenerar o site e enviar
         if: always()
         run: |
