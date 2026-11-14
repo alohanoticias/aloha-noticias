@@ -199,8 +199,9 @@
   .gaveta-ferr .idioma-lista { right: auto; left: 0; top: auto; bottom: calc(100% + 8px); }
 
   .hero-grade { grid-template-columns: 1fr 1fr !important; gap: 4px; }
-  .hero-card.grande { grid-column: 1 / -1; min-height: 190px; }
-  .hero-card { min-height: 150px; }
+  .hero-card.grande { grid-column: 1 / -1; min-height: 0; aspect-ratio: 16 / 9; }
+  .hero-card { min-height: 0; aspect-ratio: 16 / 9; }
+  .hero-card:not(.grande) .hero-texto h2 { font-size: 13px; }
   .hero-2 .hero-card:not(.grande) { grid-column: 1 / -1; }
   .hero-card .tag-v { top: 10px; left: 10px; font-size: 10px; padding: 4px 5px; }
   .hero-texto { left: 12px; right: 12px; bottom: 10px; }
