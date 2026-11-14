@@ -15,7 +15,7 @@ Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é
    "selo": "−9%"                           (comparacao, opcional),
    "grafico": "barras" | "horizontal" | "duelo" | "seta"   (comparacao: varie o tipo de gráfico entre os artigos)}
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/capa_info.py [slug ...]"""
-import json, os, shutil, sys
+import hashlib, json, os, shutil, sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -227,14 +227,15 @@ if __name__ == "__main__":
     pasta = RAIZ / "site/capas_info"
     saida = RAIZ / "site/assets/img/capas"
     so = set(sys.argv[1:])
-    marca = RAIZ / "site/capas_info/.feitas"
-    feitas = set(marca.read_text().split()) if marca.exists() else set()
+    marca = RAIZ / "site/capas_info/.feitas"  # slug + assinatura do json: se o json mudar, a capa é refeita
+    feitas = dict(l.split(" ", 1) for l in marca.read_text().splitlines() if " " in l) if marca.exists() else {}
     capa_ia = None
     falhou = False
     for f in sorted(pasta.glob("*.json")):
         if so and f.stem not in so:
             continue
-        if not so and f.stem in feitas:
+        assinatura = hashlib.md5(f.read_bytes()).hexdigest()[:10]
+        if not so and feitas.get(f.stem) == assinatura:
             continue
         try:
             montar(f.stem, json.loads(f.read_text(encoding="utf-8"))).save(saida / f"{f.stem}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
@@ -242,7 +243,7 @@ if __name__ == "__main__":
             falhou = True
             print(f"FALHOU {f.stem}: {type(e).__name__}: {e}", file=sys.stderr)
             continue
-        feitas.add(f.stem)
+        feitas[f.stem] = assinatura
         print("Capa com informação:", f.stem)
-    marca.write_text("\n".join(sorted(feitas)) + "\n")
+    marca.write_text("".join(f"{k} {v}\n" for k, v in sorted(feitas.items())))
     sys.exit(1 if falhou else 0)
