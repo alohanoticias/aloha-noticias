@@ -236,7 +236,10 @@ if __name__ == "__main__":
     feitas = dict(l.split(" ", 1) for l in marca.read_text().splitlines() if " " in l) if marca.exists() else {}
     capa_ia = None
     falhou = False
-    for f in sorted(pasta.glob("*.json")):
+    def quando(f):  # primeiro as capas dos artigos que saem antes
+        a = RAIZ / f"agendados/{f.stem}.json"
+        return json.loads(a.read_text(encoding="utf-8")).get("data", "") if a.exists() else ""
+    for f in sorted(pasta.glob("*.json"), key=quando):
         if so and f.stem not in so:
             continue
         assinatura = hashlib.md5(f.read_bytes()).hexdigest()[:10]
