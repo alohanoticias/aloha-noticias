@@ -73,11 +73,13 @@ def painel_qualidade(img, w, h, foco, zoom):
     cw, ch = min(img.width, round(w / esc)), min(img.height, round(h / esc))
     x = round((img.width - cw) * foco[0]); y = round((img.height - ch) * foco[1])
     reg = img.crop((x, y, x + cw, y + ch)).convert("RGB")
-    if ampliar is not None:
+    if max(reg.width / w, reg.height / h) >= 1.6:
+        pass  # fonte grande (ex.: arte 2x da Steam): reduzir dela já dá qualidade real, sem IA
+    elif ampliar is not None:
         try:
-            if max(reg.size) > 680:  # região grande: reduz antes; a IA reconstrói o detalhe em 4x (sobra qualidade para o painel)
+            if max(reg.size) > 680:
                 e = 680 / max(reg.size); reg = reg.resize((round(reg.width * e), round(reg.height * e)), Image.LANCZOS)
-            reg = ampliar(reg)
+            reg = ampliar(reg)  # fonte pequena: IA reconstrói em 4x antes de reduzir
         except Exception as e:
             print("IA falhou neste painel, segue sem:", e)
     import time; print("   painel", time.strftime("%H:%M:%S"), (cw, ch), "->", reg.size, "->", (w, h), flush=True)
