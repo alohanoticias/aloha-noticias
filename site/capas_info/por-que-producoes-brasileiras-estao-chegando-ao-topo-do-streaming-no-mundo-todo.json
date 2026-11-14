@@ -2,5 +2,8 @@
  "modelo": "faixa",
  "tema": "Netflix",
  "titulo": "Produções brasileiras no topo do mundo",
- "detalhe": "Senna · Caramelo"
+ "detalhe": "Senna · Caramelo",
+ "logo": {
+  "url": "logos/netflix.png"
+ }
 }

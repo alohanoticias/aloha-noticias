@@ -2,5 +2,8 @@
  "modelo": "data",
  "tema": "No Disney+",
  "destaque": "20 DE NOVEMBRO",
- "titulo": "A Maldição do Titã em 8 episódios"
+ "titulo": "A Maldição do Titã em 8 episódios",
+ "logo": {
+  "url": "logos/disney-plus.png"
+ }
 }

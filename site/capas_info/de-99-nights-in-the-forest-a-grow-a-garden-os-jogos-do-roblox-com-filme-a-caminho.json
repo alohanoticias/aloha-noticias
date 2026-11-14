@@ -1,5 +1,8 @@
 {
  "modelo": "faixa",
  "tema": "Roblox no cinema",
- "titulo": "Jogos do Roblox que vão virar filme"
+ "titulo": "Jogos do Roblox que vão virar filme",
+ "logo": {
+  "url": "logos/roblox-wordmark-light.png"
+ }
 }

@@ -1,0 +1,22 @@
+{
+ "modelo": "comparacao",
+ "tema": "Roblox",
+ "titulo": "Jogadores por dia",
+ "barras": [
+  [
+   "3º tri 2025",
+   152,
+   "152 mi"
+  ],
+  [
+   "3º tri 2026",
+   138,
+   "138 mi"
+  ]
+ ],
+ "selo": "−9%",
+ "grafico": "barras",
+ "logo": {
+  "url": "logos/roblox-wordmark-light.png"
+ }
+}

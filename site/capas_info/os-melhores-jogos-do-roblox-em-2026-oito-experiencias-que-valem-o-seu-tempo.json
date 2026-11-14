@@ -2,5 +2,8 @@
  "modelo": "numero",
  "tema": "Roblox em 2026",
  "destaque": "8 jogos",
- "titulo": "que valem o seu tempo"
+ "titulo": "que valem o seu tempo",
+ "logo": {
+  "url": "logos/roblox-wordmark-light.png"
+ }
 }

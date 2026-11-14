@@ -6,7 +6,7 @@ a foto do assunto em site/capas_base/<slug>.jpg (se não existir, copia a capa a
 
 Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é cortado):
   {"modelo": "faixa" | "data" | "numero" | "comparacao" | "topo" | "rodape",
-   "logo": {"url": "logo oficial (png)", "largura": 0.3}   (opcional: entra no lugar do tema escrito),
+   "logo": {"url": "logos/netflix.png" ou endereço de png oficial, "escala": 1.0}   (opcional: logo oficial no lugar do tema escrito; logos prontos em site/logos/),
    "tema": "NOME DO ASSUNTO (linha pequena em vermelho)",
    "titulo": "frase curta",
    "destaque": "26 NOV" | "26,35 mi"      (data, numero),
@@ -115,6 +115,30 @@ def pilula(d, cx, cy, texto, f, cor=VERM, pad=(46, 22)):
     d.text((cx, cy + a * 0.36), texto, font=f, fill=BRANCO, anchor="ms")
 
 
+LOGO_POS = {"faixa": (725, 120), "data": (110, 120), "numero": (300, 120), "comparacao": (90, 100), "topo": (85, 100)}
+
+
+def pôr_logo(tela, logo, cy, max_h, max_w=560):
+    """Logo oficial centralizado, sem caixa nem borda, com sombra suave. site/logos/*.png ou endereço da web."""
+    if logo["url"].startswith("logos/"):
+        lg = Image.open(RAIZ / "site" / logo["url"]).convert("RGBA")
+        cx_ = lg.getchannel("A").point(lambda v: 255 if v > 40 else 0).getbbox()
+        lg = lg.crop(cx_) if cx_ else lg
+    else:
+        lg = mc().logo_sem_fundo(logo)
+    e = min(max_w * logo.get("escala", 1.0) / lg.width, max_h * logo.get("escala", 1.0) / lg.height)
+    lg = lg.resize((round(lg.width * e), round(lg.height * e)), Image.LANCZOS)
+    pos = (W // 2 - lg.width // 2, cy - lg.height // 2)
+    base = tela.convert("RGBA")
+    sa = Image.new("L", (W, H), 0)
+    sa.paste(lg.getchannel("A").point(lambda v: round(v * 0.8)), pos)
+    sombra = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sombra.putalpha(sa.filter(ImageFilter.GaussianBlur(16)))
+    base = Image.alpha_composite(base, sombra)
+    base.alpha_composite(lg, pos)
+    return base.convert("RGB")
+
+
 def montar(slug, s):
     im = base(slug)
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -122,8 +146,6 @@ def montar(slug, s):
     cx, maxw = W // 2, W - 2 * 150
     mod = s["modelo"]
     logo = s.get("logo") or logo_da_colagem(slug)  # logo oficial (filme, jogo, série): substitui o nome escrito
-    if logo and mod in ("comparacao", "rodape"):
-        logo = None
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
         im = escurecer(im, fundo=0.95, inicio=0.35)
@@ -151,7 +173,8 @@ def montar(slug, s):
 
     elif mod == "comparacao":  # foto do assunto aparece em cima; duas barras na metade de baixo
         im = escurecer(im, topo=0.75, fundo=0.97, geral=0.22, inicio=0.3)
-        d.text((cx, 95), s["tema"].upper(), font=caber(d, s["tema"].upper(), "ExtraBold", 56, maxw), fill=VERM, anchor="ms")
+        if not logo:
+            d.text((cx, 95), s["tema"].upper(), font=caber(d, s["tema"].upper(), "ExtraBold", 56, maxw), fill=VERM, anchor="ms")
         d.text((cx, 215), s["titulo"], font=caber(d, s["titulo"], "ExtraBold", 80, maxw), fill=BRANCO, anchor="ms")
         (r1, v1, t1), (r2, v2, t2) = s["barras"]
         g = s.get("grafico", "barras")
@@ -217,9 +240,9 @@ def montar(slug, s):
         raise SystemExit(f"modelo desconhecido: {mod}")
 
     fim = com_sombra(im, lay).convert("RGB")
-    if logo:
-        pos = {"faixa": 0.64, "data": 0.15, "numero": 0.22, "topo": 0.42}[mod]
-        fim = mc().pôr_logo(fim, {**logo, "x": 0.5, "y": pos, "largura": min(logo.get("largura", 0.3), 0.32)})
+    if logo and mod in LOGO_POS:
+        cy, mh = LOGO_POS[mod]
+        fim = pôr_logo(fim, logo, cy, mh)
     return fim
 
 

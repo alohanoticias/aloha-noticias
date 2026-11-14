@@ -2,5 +2,8 @@
  "modelo": "faixa",
  "tema": "Crunchyroll",
  "titulo": "Episódio novo toda quarta",
- "detalhe": "Até março de 2027"
+ "detalhe": "Até março de 2027",
+ "logo": {
+  "url": "logos/crunchyroll.png"
+ }
 }

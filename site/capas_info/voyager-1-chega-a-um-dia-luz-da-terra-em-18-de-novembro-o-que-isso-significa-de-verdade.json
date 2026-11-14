@@ -3,5 +3,8 @@
  "tema": "NASA",
  "destaque": "24 horas",
  "titulo": "para um sinal de rádio chegar à sonda",
- "detalhe": "18 de novembro"
+ "detalhe": "18 de novembro",
+ "logo": {
+  "url": "logos/nasa.png"
+ }
 }
