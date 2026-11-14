@@ -29,7 +29,7 @@ jobs:
           [ "${GITHUB_REF_NAME}" = "main" ] && python3 site/gerar.py
           git config user.name "aloha-bot"
           git config user.email "contato@alohanoticias.com"
-          git add -A -- . ':!ia_modelos'
+          git add -A
           git diff --cached --quiet && exit 0
           git commit -m "Banner com imagens novas"
           git pull --rebase -q origin "${GITHUB_REF_NAME}"
