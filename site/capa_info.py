@@ -12,7 +12,8 @@ Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é
    "destaque": "26 NOV" | "26,35 mi"      (data, numero),
    "detalhe": "texto pequeno do selo"      (opcional),
    "barras": [["3º tri 2025", 152, "152 mi"], ["3º tri 2026", 138, "138 mi"]]   (comparacao),
-   "selo": "−9%"                           (comparacao, opcional)}
+   "selo": "−9%"                           (comparacao, opcional),
+   "grafico": "barras" | "horizontal" | "duelo" | "seta"   (comparacao: varie o tipo de gráfico entre os artigos)}
 Só monta o que ainda não existe (apague o .jpg para refazer). Uso: python3 site/capa_info.py [slug ...]"""
 import json, os, shutil, sys
 from pathlib import Path
@@ -149,23 +150,57 @@ def montar(slug, s):
             pilula(d, cx, 830, s["detalhe"], fonte("ExtraBold", 54))
 
     elif mod == "comparacao":  # foto do assunto aparece em cima; duas barras na metade de baixo
-        im = escurecer(im, topo=0.6, fundo=0.97)
+        im = escurecer(im, topo=0.75, fundo=0.97, geral=0.22, inicio=0.3)
         d.text((cx, 95), s["tema"].upper(), font=caber(d, s["tema"].upper(), "ExtraBold", 56, maxw), fill=VERM, anchor="ms")
         d.text((cx, 215), s["titulo"], font=caber(d, s["titulo"], "ExtraBold", 80, maxw), fill=BRANCO, anchor="ms")
         (r1, v1, t1), (r2, v2, t2) = s["barras"]
-        larg, gap, base_y, alto = 250, 120, 920, 330
-        esc = alto / max(v1, v2)
-        for i, (rot, v, txt) in enumerate(((r1, v1, t1), (r2, v2, t2))):
-            x = cx - gap // 2 - larg if i == 0 else cx + gap // 2
-            h = round(v * esc)
-            cor = (235, 235, 235, 240) if i == 0 else VERM
-            d.rounded_rectangle((x, base_y - h, x + larg, base_y), radius=16, fill=cor)
-            d.rectangle((x, base_y - 16, x + larg, base_y), fill=cor)
-            d.text((x + larg // 2, base_y - h - 24), txt, font=fonte("ExtraBold", 66), fill=BRANCO, anchor="ms")
-            d.text((x + larg // 2, base_y + 62), rot, font=fonte("SemiBold", 40), fill=CINZA, anchor="ms")
-        d.line((cx - gap // 2 - larg - 50, base_y, cx + gap // 2 + larg + 50, base_y), fill=(255, 255, 255, 120), width=4)
+        g = s.get("grafico", "barras")
+        if g == "barras":  # duas colunas verticais
+            larg, gap, base_y, alto = 250, 120, 920, 330
+            esc = alto / max(v1, v2)
+            for i, (rot, v, txt) in enumerate(((r1, v1, t1), (r2, v2, t2))):
+                x = cx - gap // 2 - larg if i == 0 else cx + gap // 2
+                h = round(v * esc)
+                cor = (235, 235, 235, 240) if i == 0 else VERM
+                d.rounded_rectangle((x, base_y - h, x + larg, base_y), radius=16, fill=cor)
+                d.rectangle((x, base_y - 16, x + larg, base_y), fill=cor)
+                d.text((x + larg // 2, base_y - h - 24), txt, font=fonte("ExtraBold", 66), fill=BRANCO, anchor="ms")
+                d.text((x + larg // 2, base_y + 62), rot, font=fonte("SemiBold", 40), fill=CINZA, anchor="ms")
+            d.line((cx - gap // 2 - larg - 50, base_y, cx + gap // 2 + larg + 50, base_y), fill=(255, 255, 255, 120), width=4)
+            selo_y = 340
+        elif g == "horizontal":  # duas barras deitadas, uma sobre a outra, centralizadas
+            maxl, alt, x0 = 1100, 110, cx - 550
+            esc = maxl / max(v1, v2)
+            for i, (rot, v, txt) in enumerate(((r1, v1, t1), (r2, v2, t2))):
+                y = 600 + i * 190
+                w = round(v * esc)
+                cor = (235, 235, 235, 240) if i == 0 else VERM
+                xa = cx - w // 2
+                d.rounded_rectangle((xa, y, xa + w, y + alt), radius=alt // 2, fill=cor)
+                d.text((cx, y - 18), f"{rot}: {txt}", font=fonte("ExtraBold", 54), fill=BRANCO, anchor="ms")
+            selo_y = 360
+        elif g == "duelo":  # dois números grandes frente a frente, com "x" no meio
+            for i, (rot, v, txt) in enumerate(((r1, v1, t1), (r2, v2, t2))):
+                x = cx - 430 if i == 0 else cx + 430
+                d.text((x, 850), txt, font=caber(d, txt, "ExtraBold", 170, 720), fill=BRANCO if i == 0 else (235, 90, 90, 255), anchor="ms")
+                d.text((x, 940), rot, font=fonte("Bold", 54), fill=CINZA, anchor="ms")
+            d.ellipse((cx - 62, 710, cx + 62, 834), fill=VERM)
+            d.text((cx, 798), "×", font=fonte("ExtraBold", 90), fill=BRANCO, anchor="ms")
+            selo_y = 360
+        elif g == "seta":  # antes -> depois, com seta no meio
+            for i, (rot, v, txt) in enumerate(((r1, v1, t1), (r2, v2, t2))):
+                x = cx - 450 if i == 0 else cx + 450
+                cor = (215, 215, 215, 255) if i == 0 else BRANCO
+                d.text((x, 905), txt, font=caber(d, txt, "ExtraBold", 140, 700), fill=cor, anchor="ms")
+                d.text((x, 990), rot, font=fonte("Bold", 50), fill=CINZA, anchor="ms")
+            ay = 855
+            d.rectangle((cx - 90, ay - 14, cx + 40, ay + 14), fill=VERM)
+            d.polygon([(cx + 30, ay - 50), (cx + 100, ay), (cx + 30, ay + 50)], fill=VERM)
+            selo_y = 360
+        else:
+            raise SystemExit(f"grafico desconhecido: {g}")
         if s.get("selo"):
-            pilula(d, cx, 340, s["selo"], fonte("ExtraBold", 54))
+            pilula(d, cx, selo_y, s["selo"], fonte("ExtraBold", 54))
     elif mod == "rodape":  # só um selo na base, para fotos que já trazem nome e arte oficial no meio
         im = escurecer(im, fundo=0.85, inicio=0.6)
         pilula(d, cx, 1000, s["detalhe"], fonte("ExtraBold", 50), pad=(40, 16))
