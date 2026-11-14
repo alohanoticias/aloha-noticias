@@ -246,7 +246,7 @@ def montar(slug, s):
         im = escurecer(im, topo=0.75, fundo=0.97, geral=0.22, inicio=0.3)
         if not logo:
             d.text((cx, 95), s["tema"].upper(), font=caber(d, s["tema"].upper(), "ExtraBold", 56, maxw), fill=VERM, anchor="ms")
-        d.text((cx, 215), s["titulo"], font=caber(d, s["titulo"], *TITULO, maxw), fill=BRANCO, anchor="ms")
+        d.text((cx, 270 if logo_canto else 215), s["titulo"], font=caber(d, s["titulo"], *TITULO, maxw), fill=BRANCO, anchor="ms")
         (r1, v1, t1), (r2, v2, t2) = s["barras"]
         g = s.get("grafico", "barras")
         if g == "barras":  # duas colunas verticais
@@ -261,7 +261,7 @@ def montar(slug, s):
                 d.text((x + larg // 2, base_y - h - 24), txt, font=fonte("ExtraBold", 66), fill=BRANCO, anchor="ms")
                 d.text((x + larg // 2, base_y + 62), rot, font=fonte("SemiBold", 40), fill=CINZA, anchor="ms")
             d.line((cx - gap // 2 - larg - 50, base_y, cx + gap // 2 + larg + 50, base_y), fill=(255, 255, 255, 120), width=4)
-            selo_y = 340
+            selo_y = 380 if logo_canto else 340
         elif g == "horizontal":  # duas barras deitadas, uma sobre a outra, centralizadas
             maxl, alt, x0 = 1100, 110, cx - 550
             esc = maxl / max(v1, v2)
