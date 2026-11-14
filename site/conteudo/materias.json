@@ -5469,5 +5469,156 @@
     ]
    }
   }
+ },
+ {
+  "slug": "de-onde-vem-os-easter-eggs-dos-games-a-sala-secreta-do-atari-e-outros-segredos-famosos",
+  "editoria": "curiosidades",
+  "titulo": "De onde vêm os easter eggs dos games: a sala secreta do Atari e outros segredos famosos",
+  "linha_fina": "O primeiro easter egg famoso foi um protesto: um programador escondeu o próprio nome porque a Atari não dava crédito a ninguém. Veja como a prática nasceu e alguns dos segredos mais conhecidos.",
+  "autor": "Equipe Aloha",
+  "data": "2026-11-14T19:00",
+  "tags": [
+   "easter egg",
+   "Atari",
+   "Adventure",
+   "Warren Robinett",
+   "Doom II",
+   "GTA IV",
+   "curiosidades"
+  ],
+  "imagem": {
+   "url": "assets/img/capas/de-onde-vem-os-easter-eggs-dos-games-a-sala-secreta-do-atari-e-outros-segredos-famosos.jpg",
+   "alt": "Console Atari 2600 com acabamento em madeira, controle e cartucho, fotografados sobre fundo branco",
+   "credito": "Imagem: Evan-Amos / Wikimedia Commons (domínio público)"
+  },
+  "video": {
+   "youtube": "EBp6SLC2Mlg",
+   "titulo": "Warren Robinett fala sobre a criação de Adventure (Atari, em inglês)"
+  },
+  "corpo": [
+   "Quem joga há algum tempo já ouviu falar em easter egg, o segredo que os desenvolvedores escondem num jogo para quem tiver paciência de procurar. A expressão em inglês quer dizer \"ovo de Páscoa\", e a comparação é com a brincadeira de esconder ovos para as crianças encontrarem. O que pouca gente sabe é que o primeiro easter egg famoso dos videogames nasceu de uma briga por reconhecimento, no fim dos anos 1970.",
+   "## O nome escondido em Adventure",
+   "Warren Robinett era programador da Atari quando criou Adventure, lançado para o Atari 2600 em 1980. Na época, a empresa não colocava o nome dos criadores nos jogos nem nas caixas. Robinett recebia salário fixo, sem participação nas vendas, e decidiu resolver o problema por conta própria. Escondeu no jogo uma sala secreta com a frase \"Created by Warren Robinett\", algo como \"criado por Warren Robinett\".",
+   "Chegar lá exigia achar um ponto cinza de um único pixel, praticamente invisível, num labirinto do jogo, e levá-lo até uma parede específica, que então podia ser atravessada. Robinett não contou a ninguém e saiu da Atari antes que o segredo fosse descoberto.",
+   "!img https://upload.wikimedia.org/wikipedia/commons/5/59/Atari_Adventure_Easter_Egg_on_Atari_%28Jakks_Pacific%29_Port.jpg|A sala secreta de Adventure numa versão relançada do jogo, ligada a uma TV de tubo|Foto: Scott Canoni / Wikimedia Commons (CC BY-SA 4.0)",
+   "Em agosto de 1980, um garoto de 15 anos de Salt Lake City, nos Estados Unidos, encontrou a sala e escreveu para a Atari explicando o caminho. Refazer o cartucho custaria caro, e a empresa decidiu deixar tudo como estava. Foi aí que Steve Wright, diretor de desenvolvimento de software da divisão de consumo da Atari, comparou o achado a um ovo de Páscoa escondido para os jogadores encontrarem. O nome pegou.",
+   "!img https://upload.wikimedia.org/wikipedia/commons/7/74/Atari-2600-Four-Switch-Black-Console-01.jpg|Atari 2600, o console de Adventure. Na época, a Atari não creditava os programadores dos jogos|Foto: Evan-Amos / Wikimedia Commons (domínio público)",
+   "## A cabeça atrás do chefão de Doom II",
+   "Em 1994, Doom II terminou com um chefe gigante, um rosto demoníaco na parede que só morre com foguetes disparados num buraco na sua testa. Quem usou o código que permite atravessar paredes descobriu o que havia lá dentro: a cabeça do designer John Romero, espetada numa estaca. A brincadeira foi feita por artistas da própria id Software, e o próprio boneco que precisa ser atingido para vencer o jogo é essa cabeça escondida.",
+   "## Um coração dentro da estátua em GTA IV",
+   "A Rockstar tem fama de espalhar piadas pelos seus mapas, e uma das mais lembradas está em Grand Theft Auto IV, de 2008. A Estátua da Felicidade, versão do jogo para a Estátua da Liberdade, tem uma porta acessível apenas de helicóptero, com uma placa dizendo \"No Hidden Content This Way\", ou \"nenhum conteúdo escondido por aqui\". Quem ignora o aviso e sobe a escada lá dentro encontra um enorme coração batendo, preso por correntes. A série segue cheia desses detalhes, e não por acaso o lançamento de [GTA 6](materia-gta-6-tudo-o-que-se-sabe-antes-do-lancamento.html) é acompanhado de perto por quem caça segredos.",
+   "## Quando os segredos viraram problema",
+   "Os easter eggs também saíram dos games. O Excel 97, da Microsoft, escondia uma espécie de simulador de voo em 3D que levava a uma parede com os nomes da equipe, e o Word 97 tinha um jogo de pinball. Em 2002, a Microsoft lançou a iniciativa Trustworthy Computing, voltada para segurança e confiabilidade, e passou a proibir código escondido nos seus programas. Em 2005, o engenheiro Larry Osterman escreveu no blog oficial da empresa que colocar um easter egg no sistema operacional era motivo de demissão imediata. O argumento: o cliente precisa confiar que tudo o que está no computador foi revisado.",
+   "## Como os segredos são encontrados hoje",
+   "Nos games, a prática continua viva e virou parte do marketing. Muitos estúdios escondem referências de propósito, sabendo que a comunidade vai procurar. A diferença é que hoje boa parte das descobertas vem do datamining, a análise dos arquivos do jogo em busca de conteúdo não usado. Ainda assim, alguns segredos levam anos para aparecer, como aconteceu com a sala de Adventure, que Robinett guardou em silêncio até alguém tropeçar no pixel certo.",
+   "Fontes: [Atari, a história do easter egg](https://atari.com/blogs/atari/so-let-s-talk-about-that-easter-egg), [The Hustle, o primeiro easter egg](https://thehustle.co/the-first-easter-eggs-were-an-act-of-corporate-rebellion), [Bethesda, o chefe final de Doom II](https://bethesda.net/en-US/news/top-5-doom-bosses-2-the-icon-of-sin), [Grand Theft Wiki, o coração de Liberty City](https://www.grandtheftwiki.com/Statue_of_Happiness) e [Microsoft, blog de Larry Osterman](https://learn.microsoft.com/en-us/archive/blogs/larryosterman/why-no-easter-eggs) (em inglês)."
+  ],
+  "traducoes": {
+   "en": {
+    "slug": "where-video-game-easter-eggs-come-from",
+    "titulo": "Where video game easter eggs come from: Atari's secret room and other famous secrets",
+    "linha_fina": "The first famous easter egg was a protest: a programmer hid his own name because Atari credited no one. Here's how the practice was born and some of the best-known secrets.",
+    "tags": [
+     "easter egg",
+     "Atari",
+     "Adventure",
+     "Warren Robinett",
+     "Doom II",
+     "GTA IV",
+     "trivia"
+    ],
+    "alt": "Atari 2600 console with wood-grain finish, controller and cartridge, photographed on a white background",
+    "credito": "Image: Evan-Amos / Wikimedia Commons (public domain)",
+    "video_titulo": "Warren Robinett discusses the making of Adventure (Atari)",
+    "corpo": [
+     "Anyone who has played games for a while has heard of easter eggs, the secrets developers hide in a game for those patient enough to look. The name compares them to the tradition of hiding eggs for children to find at Easter. What few people know is that the first famous video game easter egg was born out of a fight over recognition, at the end of the 1970s.",
+     "## The name hidden in Adventure",
+     "Warren Robinett was an Atari programmer when he created Adventure, released for the Atari 2600 in 1980. At the time, the company put creators' names neither in games nor on boxes. Robinett was on a fixed salary, with no share of sales, and decided to solve the problem himself. He hid a secret room in the game with the phrase \"Created by Warren Robinett\".",
+     "Getting there required finding a gray dot a single pixel wide, practically invisible, in one of the game's mazes, and carrying it to a specific wall, which could then be passed through. Robinett told no one and left Atari before the secret was discovered.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/5/59/Atari_Adventure_Easter_Egg_on_Atari_%28Jakks_Pacific%29_Port.jpg|Adventure's secret room in a re-released version of the game, hooked up to a tube TV|Photo: Scott Canoni / Wikimedia Commons (CC BY-SA 4.0)",
+     "In August 1980, a 15-year-old boy from Salt Lake City, in the United States, found the room and wrote to Atari explaining the way in. Remaking the cartridge would have been expensive, and the company decided to leave everything as it was. That's when Steve Wright, director of software development at Atari's consumer division, compared the find to an Easter egg hidden for players to discover. The name stuck.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/7/74/Atari-2600-Four-Switch-Black-Console-01.jpg|The Atari 2600, Adventure's console. At the time, Atari did not credit game programmers|Photo: Evan-Amos / Wikimedia Commons (public domain)",
+     "## The head behind Doom II's final boss",
+     "In 1994, Doom II ended with a giant boss, a demonic face on a wall that only dies when rockets are fired into a hole in its forehead. Those who used the cheat that lets you walk through walls discovered what was inside: the head of designer John Romero, impaled on a stake. The joke was made by id Software's own artists, and the very target that must be hit to beat the game is that hidden head.",
+     "## A heart inside the statue in GTA IV",
+     "Rockstar is known for scattering jokes across its maps, and one of the best remembered is in Grand Theft Auto IV, from 2008. The Statue of Happiness, the game's version of the Statue of Liberty, has a door reachable only by helicopter, with a sign that reads \"No Hidden Content This Way\". Those who ignore the warning and climb the ladder inside find a huge beating heart held by chains. The series is still full of such details, and it's no coincidence that the release of [GTA 6](materia-gta-6-tudo-o-que-se-sabe-antes-do-lancamento.html) is closely watched by secret hunters.",
+     "## When secrets became a problem",
+     "Easter eggs also went beyond games. Microsoft's Excel 97 hid a kind of 3D flight simulator that led to a wall with the team's names, and Word 97 had a pinball game. In 2002, Microsoft launched its Trustworthy Computing initiative, focused on security and reliability, and began banning hidden code in its programs. In 2005, engineer Larry Osterman wrote on the company's official blog that putting an easter egg in the operating system was grounds for immediate termination. The argument: customers need to trust that everything on their computer has been reviewed.",
+     "## How secrets are found today",
+     "In games, the practice is still alive and has become part of marketing. Many studios hide references on purpose, knowing the community will go looking. The difference is that today a good share of discoveries come from datamining, the analysis of a game's files in search of unused content. Even so, some secrets take years to surface, as happened with Adventure's room, which Robinett kept quiet until someone stumbled on the right pixel.",
+     "Sources: [Atari, the story of the easter egg](https://atari.com/blogs/atari/so-let-s-talk-about-that-easter-egg), [The Hustle, the first easter egg](https://thehustle.co/the-first-easter-eggs-were-an-act-of-corporate-rebellion), [Bethesda, Doom II's final boss](https://bethesda.net/en-US/news/top-5-doom-bosses-2-the-icon-of-sin), [Grand Theft Wiki, the heart of Liberty City](https://www.grandtheftwiki.com/Statue_of_Happiness) and [Microsoft, Larry Osterman's blog](https://learn.microsoft.com/en-us/archive/blogs/larryosterman/why-no-easter-eggs)."
+    ]
+   },
+   "es": {
+    "slug": "de-donde-vienen-los-easter-eggs",
+    "titulo": "De dónde vienen los easter eggs de los videojuegos: la sala secreta de Atari y otros secretos famosos",
+    "linha_fina": "El primer easter egg famoso fue una protesta: un programador escondió su propio nombre porque Atari no daba crédito a nadie. Así nació la práctica y estos son algunos de los secretos más conocidos.",
+    "tags": [
+     "easter egg",
+     "Atari",
+     "Adventure",
+     "Warren Robinett",
+     "Doom II",
+     "GTA IV",
+     "curiosidades"
+    ],
+    "alt": "Consola Atari 2600 con acabado de madera, mando y cartucho, fotografiada sobre fondo blanco",
+    "credito": "Imagen: Evan-Amos / Wikimedia Commons (dominio público)",
+    "video_titulo": "Warren Robinett habla sobre la creación de Adventure (Atari, en inglés)",
+    "corpo": [
+     "Quien juega desde hace tiempo ya ha oído hablar del easter egg, el secreto que los desarrolladores esconden en un juego para quien tenga paciencia de buscar. La expresión en inglés significa \"huevo de Pascua\", y la comparación es con la costumbre de esconder huevos para que los niños los encuentren. Lo que poca gente sabe es que el primer easter egg famoso de los videojuegos nació de una pelea por reconocimiento, a finales de los años 70.",
+     "## El nombre escondido en Adventure",
+     "Warren Robinett era programador de Atari cuando creó Adventure, lanzado para la Atari 2600 en 1980. En aquella época, la empresa no ponía el nombre de los creadores ni en los juegos ni en las cajas. Robinett cobraba un sueldo fijo, sin participación en las ventas, y decidió resolver el problema por su cuenta. Escondió en el juego una sala secreta con la frase \"Created by Warren Robinett\", es decir, \"creado por Warren Robinett\".",
+     "Llegar allí exigía encontrar un punto gris de un solo píxel, prácticamente invisible, en un laberinto del juego, y llevarlo hasta una pared concreta, que entonces se podía atravesar. Robinett no se lo contó a nadie y dejó Atari antes de que se descubriera el secreto.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/5/59/Atari_Adventure_Easter_Egg_on_Atari_%28Jakks_Pacific%29_Port.jpg|La sala secreta de Adventure en una versión reeditada del juego, conectada a un televisor de tubo|Foto: Scott Canoni / Wikimedia Commons (CC BY-SA 4.0)",
+     "En agosto de 1980, un chico de 15 años de Salt Lake City, en Estados Unidos, encontró la sala y escribió a Atari explicando el camino. Rehacer el cartucho saldría caro, y la empresa decidió dejarlo todo como estaba. Fue entonces cuando Steve Wright, director de desarrollo de software de la división de consumo de Atari, comparó el hallazgo con un huevo de Pascua escondido para que los jugadores lo encontraran. El nombre se quedó.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/7/74/Atari-2600-Four-Switch-Black-Console-01.jpg|Atari 2600, la consola de Adventure. En aquella época, Atari no daba crédito a los programadores|Foto: Evan-Amos / Wikimedia Commons (dominio público)",
+     "## La cabeza detrás del jefe final de Doom II",
+     "En 1994, Doom II terminó con un jefe gigante, un rostro demoníaco en la pared que solo muere con cohetes disparados a un agujero en su frente. Quienes usaron el truco que permite atravesar paredes descubrieron lo que había dentro: la cabeza del diseñador John Romero, clavada en una estaca. La broma la hicieron artistas de la propia id Software, y el blanco que hay que alcanzar para ganar el juego es justamente esa cabeza escondida.",
+     "## Un corazón dentro de la estatua en GTA IV",
+     "Rockstar tiene fama de esparcir bromas por sus mapas, y una de las más recordadas está en Grand Theft Auto IV, de 2008. La Estatua de la Felicidad, la versión del juego de la Estatua de la Libertad, tiene una puerta a la que solo se llega en helicóptero, con un cartel que dice \"No Hidden Content This Way\", o sea, \"por aquí no hay contenido oculto\". Quien ignora el aviso y sube la escalera de dentro encuentra un enorme corazón latiendo, sujeto con cadenas. La serie sigue llena de detalles así, y no es casualidad que el lanzamiento de [GTA 6](materia-gta-6-tudo-o-que-se-sabe-antes-do-lancamento.html) se siga de cerca entre los cazadores de secretos.",
+     "## Cuando los secretos se volvieron un problema",
+     "Los easter eggs también salieron de los videojuegos. El Excel 97 de Microsoft escondía una especie de simulador de vuelo en 3D que llevaba a una pared con los nombres del equipo, y el Word 97 tenía un juego de pinball. En 2002, Microsoft lanzó la iniciativa Trustworthy Computing, centrada en la seguridad y la fiabilidad, y empezó a prohibir el código oculto en sus programas. En 2005, el ingeniero Larry Osterman escribió en el blog oficial de la empresa que poner un easter egg en el sistema operativo era motivo de despido inmediato. El argumento: el cliente tiene que confiar en que todo lo que hay en su ordenador ha sido revisado.",
+     "## Cómo se encuentran los secretos hoy",
+     "En los videojuegos, la práctica sigue viva y se ha vuelto parte del marketing. Muchos estudios esconden referencias a propósito, sabiendo que la comunidad las buscará. La diferencia es que hoy buena parte de los hallazgos viene del datamining, el análisis de los archivos del juego en busca de contenido no usado. Aun así, algunos secretos tardan años en aparecer, como pasó con la sala de Adventure, que Robinett guardó en silencio hasta que alguien tropezó con el píxel correcto.",
+     "Fuentes: [Atari, la historia del easter egg](https://atari.com/blogs/atari/so-let-s-talk-about-that-easter-egg), [The Hustle, el primer easter egg](https://thehustle.co/the-first-easter-eggs-were-an-act-of-corporate-rebellion), [Bethesda, el jefe final de Doom II](https://bethesda.net/en-US/news/top-5-doom-bosses-2-the-icon-of-sin), [Grand Theft Wiki, el corazón de Liberty City](https://www.grandtheftwiki.com/Statue_of_Happiness) y [Microsoft, blog de Larry Osterman](https://learn.microsoft.com/en-us/archive/blogs/larryosterman/why-no-easter-eggs) (en inglés)."
+    ]
+   },
+   "it": {
+    "slug": "da-dove-vengono-gli-easter-egg",
+    "titulo": "Da dove vengono gli easter egg dei videogiochi: la stanza segreta di Atari e altri segreti famosi",
+    "linha_fina": "Il primo easter egg famoso fu una protesta: un programmatore nascose il proprio nome perché Atari non dava credito a nessuno. Ecco come è nata la pratica e alcuni dei segreti più noti.",
+    "tags": [
+     "easter egg",
+     "Atari",
+     "Adventure",
+     "Warren Robinett",
+     "Doom II",
+     "GTA IV",
+     "curiosità"
+    ],
+    "alt": "Console Atari 2600 con finitura in legno, joystick e cartuccia, fotografata su sfondo bianco",
+    "credito": "Immagine: Evan-Amos / Wikimedia Commons (pubblico dominio)",
+    "video_titulo": "Warren Robinett racconta la creazione di Adventure (Atari, in inglese)",
+    "corpo": [
+     "Chi gioca da un po' ha già sentito parlare di easter egg, il segreto che gli sviluppatori nascondono in un gioco per chi ha la pazienza di cercarlo. L'espressione inglese significa \"uovo di Pasqua\", e il paragone è con l'usanza di nascondere le uova perché i bambini le trovino. Quello che pochi sanno è che il primo easter egg famoso dei videogiochi è nato da una lite per il riconoscimento, alla fine degli anni '70.",
+     "## Il nome nascosto in Adventure",
+     "Warren Robinett era un programmatore di Atari quando creò Adventure, uscito per Atari 2600 nel 1980. All'epoca l'azienda non metteva il nome degli autori né nei giochi né sulle confezioni. Robinett aveva uno stipendio fisso, senza percentuale sulle vendite, e decise di risolvere il problema da solo. Nascose nel gioco una stanza segreta con la frase \"Created by Warren Robinett\", cioè \"creato da Warren Robinett\".",
+     "Per arrivarci bisognava trovare un punto grigio di un solo pixel, praticamente invisibile, in un labirinto del gioco, e portarlo fino a una parete precisa, che a quel punto si poteva attraversare. Robinett non lo disse a nessuno e lasciò Atari prima che il segreto venisse scoperto.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/5/59/Atari_Adventure_Easter_Egg_on_Atari_%28Jakks_Pacific%29_Port.jpg|La stanza segreta di Adventure in una versione ripubblicata del gioco, collegata a un televisore a tubo|Foto: Scott Canoni / Wikimedia Commons (CC BY-SA 4.0)",
+     "Nell'agosto 1980 un ragazzo di 15 anni di Salt Lake City, negli Stati Uniti, trovò la stanza e scrisse ad Atari spiegando il percorso. Rifare la cartuccia sarebbe costato caro, e l'azienda decise di lasciare tutto com'era. Fu allora che Steve Wright, direttore dello sviluppo software della divisione consumer di Atari, paragonò la scoperta a un uovo di Pasqua nascosto per i giocatori. Il nome rimase.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/7/74/Atari-2600-Four-Switch-Black-Console-01.jpg|L'Atari 2600, la console di Adventure. All'epoca Atari non accreditava i programmatori dei giochi|Foto: Evan-Amos / Wikimedia Commons (pubblico dominio)",
+     "## La testa dietro il boss finale di Doom II",
+     "Nel 1994 Doom II si concludeva con un boss gigantesco, un volto demoniaco sulla parete che muore solo sparando razzi in un foro sulla sua fronte. Chi usò il trucco per attraversare i muri scoprì cosa c'era dentro: la testa del designer John Romero, infilzata su un palo. Lo scherzo fu opera degli artisti della stessa id Software, e il bersaglio da colpire per vincere il gioco è proprio quella testa nascosta.",
+     "## Un cuore dentro la statua in GTA IV",
+     "Rockstar è famosa per disseminare battute nelle sue mappe, e una delle più ricordate è in Grand Theft Auto IV, del 2008. La Statua della Felicità, la versione della Statua della Libertà nel gioco, ha una porta raggiungibile solo in elicottero, con un cartello che dice \"No Hidden Content This Way\", ovvero \"nessun contenuto nascosto da questa parte\". Chi ignora l'avviso e sale la scala all'interno trova un enorme cuore che batte, tenuto da catene. La serie è ancora piena di dettagli simili, e non è un caso che l'uscita di [GTA 6](materia-gta-6-tudo-o-que-se-sabe-antes-do-lancamento.html) sia seguita da vicino dai cacciatori di segreti.",
+     "## Quando i segreti sono diventati un problema",
+     "Gli easter egg sono usciti anche dai videogiochi. Excel 97 di Microsoft nascondeva una specie di simulatore di volo in 3D che portava a una parete con i nomi del team, e Word 97 aveva un flipper. Nel 2002 Microsoft lanciò l'iniziativa Trustworthy Computing, dedicata a sicurezza e affidabilità, e cominciò a vietare il codice nascosto nei suoi programmi. Nel 2005 l'ingegnere Larry Osterman scrisse sul blog ufficiale dell'azienda che inserire un easter egg nel sistema operativo era motivo di licenziamento immediato. L'argomento: il cliente deve potersi fidare del fatto che tutto ciò che c'è sul suo computer è stato verificato.",
+     "## Come si trovano i segreti oggi",
+     "Nei videogiochi la pratica è ancora viva ed è diventata parte del marketing. Molti studi nascondono riferimenti apposta, sapendo che la comunità andrà a cercarli. La differenza è che oggi buona parte delle scoperte arriva dal datamining, l'analisi dei file del gioco alla ricerca di contenuti inutilizzati. Eppure alcuni segreti impiegano anni a emergere, come accadde con la stanza di Adventure, che Robinett tenne per sé finché qualcuno non inciampò nel pixel giusto.",
+     "Fonti: [Atari, la storia dell'easter egg](https://atari.com/blogs/atari/so-let-s-talk-about-that-easter-egg), [The Hustle, il primo easter egg](https://thehustle.co/the-first-easter-eggs-were-an-act-of-corporate-rebellion), [Bethesda, il boss finale di Doom II](https://bethesda.net/en-US/news/top-5-doom-bosses-2-the-icon-of-sin), [Grand Theft Wiki, il cuore di Liberty City](https://www.grandtheftwiki.com/Statue_of_Happiness) e [Microsoft, blog di Larry Osterman](https://learn.microsoft.com/en-us/archive/blogs/larryosterman/why-no-easter-eggs) (in inglese)."
+    ]
+   }
+  }
  }
 ]
