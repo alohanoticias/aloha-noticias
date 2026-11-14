@@ -1,8 +1,9 @@
 {
- "modelo": "topo",
+ "modelo": "faixa",
  "tema": "Prime Video",
  "titulo": "3ª temporada em 11 de novembro",
  "detalhe": "4 episódios na estreia",
+ "posicao": "cima",
  "logo": {
   "url": "logos/prime-video-light.png"
  }

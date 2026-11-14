@@ -1,17 +1,9 @@
 {
- "layout": "circulo",
+ "layout": "um",
  "editoria": "games",
  "fotos": [
   {
    "url": "https://universonintendo.com/wp-content/uploads/2026/06/Metaphor-ReFantazio-KEYART.jpg",
-   "foco": [
-    0.5,
-    0.5
-   ],
-   "zoom": 1.0
-  },
-  {
-   "url": "https://images.nintendolife.com/24c172444975f/1280x720.jpg",
    "foco": [
     0.5,
     0.5

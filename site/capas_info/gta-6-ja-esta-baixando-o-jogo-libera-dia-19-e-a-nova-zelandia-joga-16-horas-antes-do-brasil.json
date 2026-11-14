@@ -6,5 +6,6 @@
  "logo": {
   "url": "logos/gta-6.png",
   "escala": 1.5
- }
+ },
+ "posicao": "baixo"
 }

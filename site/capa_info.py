@@ -6,6 +6,8 @@ a foto do assunto em site/capas_base/<slug>.jpg (se não existir, copia a capa a
 
 Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é cortado):
   {"modelo": "faixa" | "data" | "numero" | "comparacao" | "topo" | "rodape",
+   "largura_max": 760                      (opcional: estreita o texto para não encostar em logo ou rosto nas laterais),
+   "posicao": "baixo" | "meio" | "cima"   (opcional; sem ela, a capa escolhe sozinha o lugar que não cobre rostos nem letreiros),
    "desfocar": true                        (opcional: desfoca a imagem só atrás do texto, quando ela tem letras miúdas),
    "logo": {"url": "logos/netflix.png" ou endereço de png oficial, "escala": 1.0, "canto": true (no canto superior direito, sem tirar o texto)}   (opcional: logo oficial no lugar do tema escrito; logos prontos em site/logos/),
    "tema": "NOME DO ASSUNTO (linha pequena em vermelho)",
@@ -102,6 +104,53 @@ def escurecer(im, topo=0.0, fundo=0.0, geral=0.0, inicio=0.4):
     return Image.composite(preto, im, m)
 
 
+def escurecer_banda(im, y0, y1, forca=0.88, folga=230):
+    """Escurece só a faixa onde está o texto (e uma transição suave em volta): o resto da imagem fica intacto."""
+    m = Image.new("L", (1, H))
+    for y in range(H):
+        if y0 <= y <= y1:
+            a = 1.0
+        elif y < y0:
+            a = max(0.0, 1 - (y0 - y) / folga)
+        else:
+            a = max(0.0, 1 - (y - y1) / folga)
+        m.putpixel((0, y), int(255 * forca * a ** 1.3))
+    return Image.composite(Image.new("RGBA", (W, H), (6, 8, 12, 255)), im, m.resize((W, H)))
+
+
+def ocupado(im):
+    """Mapa do que o texto não pode cobrir: rostos (pesam muito) e áreas com letras/detalhes finos."""
+    try:
+        import cv2, numpy as np
+    except Exception:
+        return None
+    g = cv2.cvtColor(np.asarray(im.convert("RGB")), cv2.COLOR_RGB2GRAY)
+    mapa = np.zeros(g.shape, np.float32)
+    for nome, peso in (("haarcascade_frontalface_default.xml", 40.0), ("haarcascade_frontalface_alt2.xml", 40.0), ("haarcascade_profileface.xml", 30.0)):
+        cl = cv2.CascadeClassifier(cv2.data.haarcascades + nome)
+        if cl.empty():
+            continue
+        for (x, y, w, h) in cl.detectMultiScale(g, 1.1, 6, minSize=(60, 60)):
+            mapa[max(0, y - h // 3):y + h + h // 3, x:x + w] += peso  # rosto com testa e queixo
+    # letras: muitas bordas finas e de alto contraste juntas
+    bordas = cv2.Canny(g, 120, 240)
+    letras = cv2.morphologyEx(bordas, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (25, 5)))
+    mapa += (letras > 0).astype(np.float32) * 0.6
+    return mapa
+
+
+def melhor_posicao(im, caixa):
+    """Embaixo é o padrão. Só muda se um rosto detectado ficar coberto embaixo (aí vai para o lugar sem rosto)."""
+    mapa = ocupado(im)
+    if mapa is None:
+        return "baixo"
+    alt = caixa[3] - caixa[1]
+    opc = {"baixo": (H - 70 - alt, H - 70), "cima": (150, 150 + alt), "meio": ((H - alt) // 2, (H + alt) // 2)}
+    rosto = {n: float((mapa[a:b, caixa[0]:caixa[2]] >= 30).sum()) for n, (a, b) in opc.items()}
+    if rosto["baixo"] < 500:
+        return "baixo"
+    return min(rosto, key=lambda n: (rosto[n], list(opc).index(n)))
+
 def com_sombra(fundo, camada, raio=14, forca=170):
     s = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     s.paste((0, 0, 0, forca), (0, 0), camada.split()[3])
@@ -116,7 +165,19 @@ def pilula(d, cx, cy, texto, f, cor=VERM, pad=(46, 22)):
     d.text((cx, cy + a * 0.36), texto, font=f, fill=BRANCO, anchor="ms")
 
 
-LOGO_POS = {"faixa": (725, 120), "data": (110, 120), "numero": (300, 120), "comparacao": (90, 100), "topo": (85, 100), "rodape": (860, 120)}
+LOGO_POS = {"faixa": (725, 120), "data": (730, 110), "numero": (300, 120), "comparacao": (90, 100), "topo": (85, 100), "rodape": (860, 120)}
+
+
+def logo_img(logo, max_h, max_w=560, canto=False):
+    if logo["url"].startswith("logos/"):
+        lg = Image.open(RAIZ / "site" / logo["url"]).convert("RGBA")
+        cx_ = lg.getchannel("A").point(lambda v: 255 if v > 40 else 0).getbbox()
+        lg = lg.crop(cx_) if cx_ else lg
+    else:
+        lg = mc().logo_sem_fundo(logo)
+    esc = 1.0 if canto else logo.get("escala", 1.0)
+    e = min(max_w * esc / lg.width, max_h * esc / lg.height)
+    return lg.resize((round(lg.width * e), round(lg.height * e)), Image.LANCZOS)
 
 
 def pôr_logo(tela, logo, cy, max_h, max_w=560, canto=False):
@@ -145,13 +206,14 @@ def montar(slug, s):
     im = base(slug)
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
-    cx, maxw = W // 2, W - 2 * 150
+    cx, maxw = W // 2, min(W - 2 * 150, s.get("largura_max", W))
     mod = s["modelo"]
+    if mod == "topo":  # antigo "texto no alto": agora é a faixa com posição escolhida
+        mod, s = "faixa", {**s, "posicao": s.get("posicao", "cima")}
     logo_canto = s.get("logo") if (s.get("logo") or {}).get("canto") else None  # logo no canto superior direito: o texto fica como está
     logo = None if logo_canto else (s.get("logo") or logo_da_colagem(slug))  # logo oficial (filme, jogo, série): substitui o nome escrito
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
-        im = escurecer(im, fundo=0.95, inicio=0.35)
         if s.get("tema") and not logo:
             pilula(d, cx, 760, s["tema"].upper(), fonte("ExtraBold", 40), pad=(30, 14))
         d.text((cx, 900), s["titulo"], font=caber(d, s["titulo"], "ExtraBold", 96, maxw), fill=BRANCO, anchor="ms")
@@ -159,14 +221,12 @@ def montar(slug, s):
             pilula(d, cx, 975, s["detalhe"], fonte("Bold", 40))
 
     elif mod == "data":  # foto inteira; data grande no centro do terço de baixo
-        im = escurecer(im, topo=0.55, fundo=0.95)
         if s.get("tema") and not logo:
-            d.text((cx, 120), s["tema"].upper(), font=caber(d, s["tema"].upper(), "ExtraBold", 56, maxw), fill=BRANCO, anchor="ms")
+            pilula(d, cx, 735, s["tema"].upper(), fonte("ExtraBold", 40), pad=(30, 14))
         pilula(d, cx, 840, s["destaque"], fonte("ExtraBold", 72), pad=(40, 18))
         d.text((cx, 990), s["titulo"], font=caber(d, s["titulo"], "Bold", 62, maxw), fill=BRANCO, anchor="ms")
 
     elif mod == "numero":  # foto levemente escurecida; número enorme no meio
-        im = escurecer(im, geral=0.35, topo=0.3, fundo=0.5)
         if s.get("tema") and not logo:
             pilula(d, cx, 320, s["tema"].upper(), fonte("ExtraBold", 44), pad=(30, 14))
         d.text((cx, 600), s["destaque"], font=caber(d, s["destaque"], "ExtraBold", 260, maxw), fill=BRANCO, anchor="ms")
@@ -228,24 +288,42 @@ def montar(slug, s):
         if s.get("selo"):
             pilula(d, cx, selo_y, s["selo"], fonte("ExtraBold", 54))
     elif mod == "rodape":  # só um selo na base, para fotos que já trazem nome e arte oficial no meio
-        im = escurecer(im, fundo=0.85, inicio=0.6)
         pilula(d, cx, 1000, s["detalhe"], fonte("ExtraBold", 50), pad=(40, 16))
-
-    elif mod == "topo":  # texto no alto, para fotos com logo ou letreiro na metade de baixo
-        im = escurecer(im, topo=0.97)
-        if s.get("tema") and not logo:
-            pilula(d, cx, 95, s["tema"].upper(), fonte("ExtraBold", 40), pad=(30, 14))
-        d.text((cx, 230), s["titulo"], font=caber(d, s["titulo"], "ExtraBold", 96, maxw), fill=BRANCO, anchor="ms")
-        if s.get("detalhe"):
-            pilula(d, cx, 315, s["detalhe"], fonte("Bold", 40))
 
     else:
         raise SystemExit(f"modelo desconhecido: {mod}")
 
+    if logo and mod in LOGO_POS:
+        cy, mh = LOGO_POS[mod]
+        lg = logo_img(logo, mh)
+        lay.alpha_composite(lg, (W // 2 - lg.width // 2, cy - lg.height // 2))
+        logo = None
+    if mod in ("faixa", "data", "numero", "rodape"):
+        caixa = lay.getchannel("A").point(lambda v: 255 if v > 30 else 0).getbbox()
+        dy, pos = 0, "baixo"
+        if caixa:
+            pos = s.get("posicao") or melhor_posicao(im, caixa)
+            alvo = {"baixo": H - 70 - caixa[3], "cima": 150 - caixa[1],
+                    "meio": (H - (caixa[3] - caixa[1])) // 2 - caixa[1]}[pos]
+            dy = alvo if (pos != "baixo" or s.get("posicao") == "baixo" or caixa[3] > H - 70) else 0
+            if dy:
+                lay = lay.transform(lay.size, Image.AFFINE, (1, 0, 0, 0, 1, -dy))
+                caixa = (caixa[0], caixa[1] + dy, caixa[2], caixa[3] + dy)
+        if caixa:  # degradê suave só na borda onde o texto está (o estilo aprovado), nunca faixa escura no meio
+            if mod == "numero" and not dy:  # número no meio: leve escurecida geral, como antes
+                im = escurecer(im, geral=0.3, topo=0.3, fundo=0.5)
+            elif pos == "baixo":
+                im = escurecer(im, fundo=0.95, inicio=max(0.2, (caixa[1] - 120) / H))
+            elif pos == "cima":
+                im = escurecer(im, topo=0.95 * min(1.0, (caixa[3] + 120) / (0.45 * H)))
     if s.get("desfocar"):  # imagem com texto miúdo atrás (créditos, rótulos): desfoca só por trás do texto da capa
         m = lay.getchannel("A").filter(ImageFilter.MaxFilter(61)).filter(ImageFilter.GaussianBlur(30))
         im = Image.composite(im.filter(ImageFilter.GaussianBlur(22)), im, m)
-    fim = com_sombra(im, lay).convert("RGB")
+    fim = com_sombra(com_sombra(im, Image.new("RGBA", (W, H)), 1, 0), lay, raio=18, forca=215)  # sombra larga (sem faixa escura)
+    s_ = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    s_.paste((0, 0, 0, 200), (0, 0), lay.getchannel("A").filter(ImageFilter.MaxFilter(5)))
+    fim = Image.alpha_composite(fim.convert("RGBA"), s_.filter(ImageFilter.GaussianBlur(4)))  # contorno escuro justo: o texto se destaca da imagem
+    fim = Image.alpha_composite(fim, lay).convert("RGB")
     if logo_canto:
         fim = pôr_logo(fim, logo_canto, 0, 150 * logo_canto.get("escala", 1.0), canto=True)
     if logo and mod in LOGO_POS:

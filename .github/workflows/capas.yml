@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
-      - run: pip install pillow numpy
+      - run: pip install pillow numpy opencv-python-headless
       - run: sudo apt-get install -y fonts-inter || true
       - uses: actions/cache@v4
         with:

@@ -1,5 +1,7 @@
 {
- "modelo": "topo",
+ "modelo": "faixa",
  "tema": "Nos cinemas",
- "titulo": "Precisa ver o primeiro filme?"
+ "titulo": "Precisa ver o 1º filme?",
+ "posicao": "cima",
+ "largura_max": 720
 }
