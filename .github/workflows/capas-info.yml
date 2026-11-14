@@ -14,7 +14,7 @@ concurrency:
 jobs:
   capas:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - name: Ver se há capa pendente
@@ -38,24 +38,35 @@ jobs:
           mkdir -p ia_modelos
           [ -s ia_modelos/RealESRGAN_x4plus.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
           [ -s ia_modelos/RealESRGAN_x4plus_anime_6B.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus_anime_6B.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
-      - name: Montar as capas com informação (até 80 min por vez; o resto continua na próxima hora)
-        if: steps.p.outputs.n != '0'
-        run: CAPA_IA=1 timeout 80m python3 site/capa_info.py || true
-      - name: Regenerar o site e enviar
+      - name: Montar e enviar aos poucos (a cada ~15 min o que ficou pronto vai para o site)
         if: steps.p.outputs.n != '0'
         run: |
-          python3 site/gerar.py
           git config user.name "aloha-bot"
           git config user.email "contato@alohanoticias.com"
-          git add site/assets/img/capas site/capas_base site/capas_info publico
-          git diff --cached --quiet && exit 0
-          git commit -m "Capas com informação montadas"
-          for i in 1 2 3 4 5 6; do
-            git push && exit 0
-            sleep $((i * 3))
-            git pull --rebase -X theirs -q || git rebase --abort
-            python3 site/gerar.py
-            git add -A
-            git diff --cached --quiet || git commit -qm "Regenera site"
+          enviar() {
+            # guarda o que foi montado, pega a versão mais nova do site e põe por cima (sem conflito com outras automações)
+            rm -rf /tmp/guarda && mkdir -p /tmp/guarda
+            cp -r site/capas_base site/capas_info /tmp/guarda/ 2>/dev/null || true
+            mkdir -p /tmp/guarda/capas && cp site/assets/img/capas/*.jpg /tmp/guarda/capas/
+            for i in 1 2 3 4 5 6; do
+              git fetch -q origin main && git reset -q --hard origin/main
+              cp -r /tmp/guarda/capas_base /tmp/guarda/capas_info site/ 2>/dev/null || true
+              for f in $(cat /tmp/novas.txt 2>/dev/null); do cp "/tmp/guarda/capas/$f.jpg" site/assets/img/capas/ 2>/dev/null || true; done
+              python3 site/gerar.py > /dev/null
+              git add -A
+              git diff --cached --quiet && return 0
+              git commit -qm "Capas com informação montadas"
+              git push -q && return 0
+              sleep $((i * 4))
+            done
+            return 1
+          }
+          fim=$(( $(date +%s) + 120*60 ))
+          while [ $(date +%s) -lt $fim ]; do
+            antes=$(cat site/capas_info/.feitas 2>/dev/null)
+            CAPA_IA=1 CAPA_MINUTOS=15 python3 site/capa_info.py | tee /tmp/saida.txt || true
+            grep "^Capa com informação:" /tmp/saida.txt | sed 's/^Capa com informação: //' > /tmp/novas.txt || true
+            enviar || echo "não consegui enviar desta vez"
+            [ "$(python3 site/capa_info.py --pendentes)" = "0" ] && break
+            [ "$antes" = "$(cat site/capas_info/.feitas 2>/dev/null)" ] && break   # nada novo: só falhas, para não girar à toa
           done
-          exit 1

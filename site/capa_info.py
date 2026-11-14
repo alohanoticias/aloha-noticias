@@ -126,6 +126,8 @@ def ocupado(im):
         return None
     g = cv2.cvtColor(np.asarray(im.convert("RGB")), cv2.COLOR_RGB2GRAY)
     mapa = np.zeros(g.shape, np.float32)
+    if not hasattr(cv2, "CascadeClassifier") or not hasattr(cv2, "data"):
+        return mapa  # versão do OpenCV sem detector de rostos: segue sem ele (texto embaixo)
     for nome, peso in (("haarcascade_frontalface_default.xml", 40.0), ("haarcascade_frontalface_alt2.xml", 40.0), ("haarcascade_profileface.xml", 30.0)):
         cl = cv2.CascadeClassifier(cv2.data.haarcascades + nome)
         if cl.empty():
@@ -356,6 +358,8 @@ if __name__ == "__main__":
     feitas = dict(l.split(" ", 1) for l in marca.read_text().splitlines() if " " in l) if marca.exists() else {}
     capa_ia = None
     falhou = False
+    import time as _t
+    limite = _t.time() + float(os.environ.get("CAPA_MINUTOS", "0") or 0) * 60
     def quando(f):  # primeiro as capas dos artigos que saem antes
         a = RAIZ / f"agendados/{f.stem}.json"
         return json.loads(a.read_text(encoding="utf-8")).get("data", "") if a.exists() else ""
@@ -365,6 +369,9 @@ if __name__ == "__main__":
         assinatura = hashlib.md5(f.read_bytes()).hexdigest()[:10]
         if not so and feitas.get(f.stem) == assinatura:
             continue
+        if limite > 1e9 and _t.time() > limite:
+            print("Tempo da rodada esgotado; o resto continua na próxima.", flush=True)
+            break
         try:
             montar(f.stem, json.loads(f.read_text(encoding="utf-8"))).save(saida / f"{f.stem}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
         except Exception as e:
