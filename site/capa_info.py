@@ -202,11 +202,18 @@ def pôr_logo(tela, logo, cy, max_h, max_w=560, canto=False):
     return base.convert("RGB")
 
 
+# estilo único: tema em selo pequeno, título grande, linha de apoio, selo de detalhe (iguais em todos os modelos e posições)
+TEMA = (fonte("ExtraBold", 40), VERM, (30, 14))
+SELO = (fonte("Bold", 40), VERM, (46, 22))
+TITULO = ("ExtraBold", 96)
+SUB = ("Bold", 62)
+
+
 def montar(slug, s):
     im = base(slug)
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
-    cx, maxw = W // 2, min(W - 2 * 150, s.get("largura_max", W))
+    cx, maxw = W // 2, W - 2 * 150
     mod = s["modelo"]
     if mod == "topo":  # antigo "texto no alto": agora é a faixa com posição escolhida
         mod, s = "faixa", {**s, "posicao": s.get("posicao", "cima")}
@@ -216,30 +223,30 @@ def montar(slug, s):
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
         if s.get("tema") and not logo:
-            pilula(d, cx, 760, s["tema"].upper(), fonte("ExtraBold", 40), pad=(30, 14))
-        d.text((cx, 900), s["titulo"], font=caber(d, s["titulo"], "ExtraBold", 96, maxw), fill=BRANCO, anchor="ms")
+            pilula(d, cx, 760, s["tema"].upper(), *TEMA)
+        d.text((cx, 900), s["titulo"], font=caber(d, s["titulo"], *TITULO, maxw), fill=BRANCO, anchor="ms")
         if s.get("detalhe"):
-            pilula(d, cx, 975, s["detalhe"], fonte("Bold", 40))
+            pilula(d, cx, 975, s["detalhe"], *SELO)
 
     elif mod == "data":  # foto inteira; data grande no centro do terço de baixo
         if s.get("tema") and not logo:
-            pilula(d, cx, 735, s["tema"].upper(), fonte("ExtraBold", 40), pad=(30, 14))
+            pilula(d, cx, 735, s["tema"].upper(), *TEMA)
         pilula(d, cx, 840, s["destaque"], fonte("ExtraBold", 72), pad=(40, 18))
-        d.text((cx, 990), s["titulo"], font=caber(d, s["titulo"], "Bold", 62, maxw), fill=BRANCO, anchor="ms")
+        d.text((cx, 990), s["titulo"], font=caber(d, s["titulo"], *SUB, maxw), fill=BRANCO, anchor="ms")
 
     elif mod == "numero":  # foto levemente escurecida; número enorme no meio
         if s.get("tema") and not logo:
-            pilula(d, cx, 320, s["tema"].upper(), fonte("ExtraBold", 44), pad=(30, 14))
+            pilula(d, cx, 320, s["tema"].upper(), *TEMA)
         d.text((cx, 600), s["destaque"], font=caber(d, s["destaque"], "ExtraBold", 260, maxw), fill=BRANCO, anchor="ms")
-        d.text((cx, 720), s["titulo"], font=caber(d, s["titulo"], "Bold", 64, maxw), fill=BRANCO, anchor="ms")
+        d.text((cx, 720), s["titulo"], font=caber(d, s["titulo"], *SUB, maxw), fill=BRANCO, anchor="ms")
         if s.get("detalhe"):
-            pilula(d, cx, 830, s["detalhe"], fonte("ExtraBold", 54))
+            pilula(d, cx, 830, s["detalhe"], *SELO)
 
     elif mod == "comparacao":  # foto do assunto aparece em cima; duas barras na metade de baixo
         im = escurecer(im, topo=0.75, fundo=0.97, geral=0.22, inicio=0.3)
         if not logo:
             d.text((cx, 95), s["tema"].upper(), font=caber(d, s["tema"].upper(), "ExtraBold", 56, maxw), fill=VERM, anchor="ms")
-        d.text((cx, 215), s["titulo"], font=caber(d, s["titulo"], "ExtraBold", 80, maxw), fill=BRANCO, anchor="ms")
+        d.text((cx, 215), s["titulo"], font=caber(d, s["titulo"], *TITULO, maxw), fill=BRANCO, anchor="ms")
         (r1, v1, t1), (r2, v2, t2) = s["barras"]
         g = s.get("grafico", "barras")
         if g == "barras":  # duas colunas verticais
@@ -287,9 +294,9 @@ def montar(slug, s):
         else:
             raise SystemExit(f"grafico desconhecido: {g}")
         if s.get("selo"):
-            pilula(d, cx, selo_y, s["selo"], fonte("ExtraBold", 54))
+            pilula(d, cx, selo_y, s["selo"], *SELO)
     elif mod == "rodape":  # só um selo na base, para fotos que já trazem nome e arte oficial no meio
-        pilula(d, cx, 1000, s["detalhe"], fonte("ExtraBold", 50), pad=(40, 16))
+        pilula(d, cx, 1000, s["detalhe"], *SELO)
 
     else:
         raise SystemExit(f"modelo desconhecido: {mod}")
