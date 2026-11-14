@@ -43,6 +43,7 @@ try:  # aprimorador de imagem (Real-ESRGAN 4x), se o workflow instalou
     import numpy as np, torch
     from spandrel import ModelLoader
     torch.set_grad_enabled(False)
+    import os; torch.set_num_threads(os.cpu_count() or 4)
     _modelo = ModelLoader().load_from_file(str(RAIZ.parent / "ia_modelos/RealESRGAN_x4plus.pth")).eval()
 
     def ampliar(img, tile=256, sobra=16):
@@ -74,12 +75,12 @@ def painel_qualidade(img, w, h, foco, zoom):
     reg = img.crop((x, y, x + cw, y + ch)).convert("RGB")
     if ampliar is not None:
         try:
-            if max(reg.size) > 1100:  # região já grande: reduz antes, a IA reconstrói o detalhe
-                e = 1100 / max(reg.size); reg = reg.resize((round(reg.width * e), round(reg.height * e)), Image.LANCZOS)
+            if max(reg.size) > 680:  # região grande: reduz antes; a IA reconstrói o detalhe em 4x (sobra qualidade para o painel)
+                e = 680 / max(reg.size); reg = reg.resize((round(reg.width * e), round(reg.height * e)), Image.LANCZOS)
             reg = ampliar(reg)
         except Exception as e:
             print("IA falhou neste painel, segue sem:", e)
-    print("   painel", (cw, ch), "->", reg.size, "->", (w, h), flush=True)
+    import time; print("   painel", time.strftime("%H:%M:%S"),, (cw, ch), "->", reg.size, "->", (w, h), flush=True)
     return reg.resize((w, h), Image.LANCZOS)
 
 
