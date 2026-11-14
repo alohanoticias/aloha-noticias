@@ -1,22 +1,14 @@
 {
-  "layout": "dois",
-  "editoria": "cinema",
-  "fotos": [
-    {
-      "url": "https://godzilla.com/cdn/shop/articles/GMZ_KV-2_Banner_1200x800_8765e531-d1a7-4ef8-8988-78ffd9aa7a98.png?v=1788970076",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    },
-    {
-      "url": "https://gkids.com/wp-content/uploads/2026/07/GMZ_TSR2_Thumbnail_TOHO_A01_YouTube_1280x720.jpg",
-      "foco": [
-        0.92,
-        0.5
-      ],
-      "zoom": 1.0
-    }
-  ]
+ "layout": "um",
+ "editoria": "cinema",
+ "fotos": [
+  {
+   "url": "https://godzilla.com/cdn/shop/articles/GMZ_KV-2_Banner_1200x800_8765e531-d1a7-4ef8-8988-78ffd9aa7a98.png?v=1788970076",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
 }

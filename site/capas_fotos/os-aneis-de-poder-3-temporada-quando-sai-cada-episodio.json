@@ -1,22 +1,14 @@
 {
-  "layout": "dois",
-  "editoria": "cinema",
-  "fotos": [
-    {
-      "url": "https://comicbookmovie.com/images/articles/banners/sauron-faces-the-balrog-on-new-the-lord-of-the-rings-the-rings-of-power-season-3-poster-ab229042.jpg",
-      "foco": [
-        0.0,
-        0.5
-      ],
-      "zoom": 1.0
-    },
-    {
-      "url": "https://cdndark.darkhorizons.com/wp-content/uploads/2026/10/the-rings-of-power-season-3-full-trailer.jpg",
-      "foco": [
-        0.5,
-        0.5
-      ],
-      "zoom": 1.0
-    }
-  ]
+ "layout": "um",
+ "editoria": "cinema",
+ "fotos": [
+  {
+   "url": "https://cdndark.darkhorizons.com/wp-content/uploads/2026/10/the-rings-of-power-season-3-full-trailer.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
 }
