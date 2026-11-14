@@ -226,6 +226,11 @@ def montar(slug, s):
 if __name__ == "__main__":
     pasta = RAIZ / "site/capas_info"
     saida = RAIZ / "site/assets/img/capas"
+    if sys.argv[1:] == ["--pendentes"]:  # quantas capas faltam (usado pelo workflow)
+        marca = RAIZ / "site/capas_info/.feitas"
+        feitas = dict(l.split(" ", 1) for l in marca.read_text().splitlines() if " " in l) if marca.exists() else {}
+        print(sum(1 for f in pasta.glob("*.json") if feitas.get(f.stem) != hashlib.md5(f.read_bytes()).hexdigest()[:10]))
+        sys.exit(0)
     so = set(sys.argv[1:])
     marca = RAIZ / "site/capas_info/.feitas"  # slug + assinatura do json: se o json mudar, a capa é refeita
     feitas = dict(l.split(" ", 1) for l in marca.read_text().splitlines() if " " in l) if marca.exists() else {}
@@ -244,6 +249,7 @@ if __name__ == "__main__":
             print(f"FALHOU {f.stem}: {type(e).__name__}: {e}", file=sys.stderr)
             continue
         feitas[f.stem] = assinatura
-        print("Capa com informação:", f.stem)
+        marca.write_text("".join(f"{k} {v}\n" for k, v in sorted(feitas.items())))  # salva o progresso a cada capa
+        print("Capa com informação:", f.stem, flush=True)
     marca.write_text("".join(f"{k} {v}\n" for k, v in sorted(feitas.items())))
     sys.exit(1 if falhou else 0)

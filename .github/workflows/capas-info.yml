@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
     paths: ["site/capas_info/**", "site/capa_info.py"]
+  schedule:
+    - cron: "23 * * * *"   # continua de hora em hora enquanto houver capa pendente
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,13 +17,18 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
-      - run: pip install pillow numpy
-      - run: sudo apt-get install -y fonts-inter || true
-      - uses: actions/cache@v4
+      - name: Ver se há capa pendente
+        id: p
+        run: echo "n=$(python3 site/capa_info.py --pendentes)" >> $GITHUB_OUTPUT
+      - if: steps.p.outputs.n != '0'
+        run: pip install pillow numpy && (sudo apt-get install -y fonts-inter || true)
+      - if: steps.p.outputs.n != '0'
+        uses: actions/cache@v4
         with:
           path: ia_modelos
           key: realesrgan-v1
       - name: Instalar o aprimorador de imagem (IA)
+        if: steps.p.outputs.n != '0'
         continue-on-error: true
         run: |
           pip install -q --no-cache-dir spandrel
@@ -29,10 +36,11 @@ jobs:
           mkdir -p ia_modelos
           [ -s ia_modelos/RealESRGAN_x4plus.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
           [ -s ia_modelos/RealESRGAN_x4plus_anime_6B.pth ] || curl -sSfL -o ia_modelos/RealESRGAN_x4plus_anime_6B.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
-      - name: Montar as capas com informação
-        run: CAPA_IA=1 python3 site/capa_info.py
+      - name: Montar as capas com informação (até 80 min por vez; o resto continua na próxima hora)
+        if: steps.p.outputs.n != '0'
+        run: CAPA_IA=1 timeout 80m python3 site/capa_info.py || true
       - name: Regenerar o site e enviar
-        if: always()
+        if: steps.p.outputs.n != '0'
         run: |
           python3 site/gerar.py
           git config user.name "aloha-bot"
