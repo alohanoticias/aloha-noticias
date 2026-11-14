@@ -1,3 +1,14 @@
-{"layout":"dois","editoria":"games","fotos":[
-{"url":"https://img.odcdn.com.br/wp-content/uploads/2026/06/roblox-kids-roblox-1024x576.webp","foco":[0.5,0.5],"zoom":1.0},
-{"url":"https://img.odcdn.com.br/wp-content/uploads/2026/06/roblox-google-play-1920x1080.jpg","foco":[0.5,0.5],"zoom":1.0}]}
+{
+ "layout": "um",
+ "editoria": "games",
+ "fotos": [
+  {
+   "url": "https://img.odcdn.com.br/wp-content/uploads/2026/06/roblox-google-play-1920x1080.jpg",
+   "foco": [
+    0.5,
+    0.5
+   ],
+   "zoom": 1.0
+  }
+ ]
+}

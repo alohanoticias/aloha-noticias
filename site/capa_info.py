@@ -67,7 +67,7 @@ def base(slug):
     if not b.exists():
         spec = RAIZ / f"site/capas_fotos/{slug}.json"
         sp = json.loads(spec.read_text(encoding="utf-8")) if spec.exists() else {}
-        if sp.get("titulo") or sp.get("etiqueta") or sp.get("logo"):
+        if sp:  # sempre remonta da colagem original (sem título): nunca parte de uma capa que já tem texto
             montar_capa = mc()
             if os.environ.get("CAPA_IA") == "1":  # regra de qualidade: fotos aprimoradas por IA antes de montar
                 try:
