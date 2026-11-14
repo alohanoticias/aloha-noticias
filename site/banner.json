@@ -49,14 +49,13 @@
    "nitidez": 80
   },
   {
-   "arquivo": "assets/img/banner/godzilla-minus-one.jpg",
+   "steam": 1245620,
    "foco": [
-    0.55,
-    0.3
+    0.5,
+    0.4
    ],
    "zoom": 1.0,
-   "nome": "Godzilla Minus One",
-   "nitidez": 120
+   "nome": "Elden Ring"
   },
   {
    "steam": 2215430,
