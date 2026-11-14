@@ -2,5 +2,9 @@
  "modelo": "numero",
  "tema": "GTA 6",
  "destaque": "16 horas",
- "titulo": "antes do Brasil: a Nova Zelândia joga primeiro"
+ "titulo": "antes do Brasil: a Nova Zelândia joga primeiro",
+ "logo": {
+  "url": "logos/gta-6.png",
+  "escala": 1.5
+ }
 }

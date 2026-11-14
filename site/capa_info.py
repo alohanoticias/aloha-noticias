@@ -116,7 +116,7 @@ def pilula(d, cx, cy, texto, f, cor=VERM, pad=(46, 22)):
     d.text((cx, cy + a * 0.36), texto, font=f, fill=BRANCO, anchor="ms")
 
 
-LOGO_POS = {"faixa": (725, 120), "data": (110, 120), "numero": (300, 120), "comparacao": (90, 100), "topo": (85, 100)}
+LOGO_POS = {"faixa": (725, 120), "data": (110, 120), "numero": (300, 120), "comparacao": (90, 100), "topo": (85, 100), "rodape": (860, 120)}
 
 
 def pôr_logo(tela, logo, cy, max_h, max_w=560):

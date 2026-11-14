@@ -1,4 +1,8 @@
 {
  "modelo": "rodape",
- "detalhe": "GTA 6 nas ruas: de Miami a São Paulo"
+ "detalhe": "Nas ruas: de Miami a São Paulo",
+ "logo": {
+  "url": "logos/gta-6.png",
+  "escala": 1.5
+ }
 }

@@ -1,6 +1,10 @@
 {
- "modelo": "faixa",
- "tema": "Truque da Nova Zelândia",
- "titulo": "Jogar GTA 6 antes no Brasil",
- "detalhe": "No Xbox e no PS5"
+ "modelo": "topo",
+ "tema": "GTA 6",
+ "titulo": "O truque da Nova Zelândia",
+ "detalhe": "No Xbox e no PS5",
+ "logo": {
+  "url": "logos/gta-6.png",
+  "escala": 1.4
+ }
 }
