@@ -7,7 +7,7 @@ a foto do assunto em site/capas_base/<slug>.jpg (se não existir, copia a capa a
 Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é cortado):
   {"modelo": "faixa" | "data" | "numero" | "comparacao" | "topo" | "rodape",
    "desfocar": true                        (opcional: desfoca a imagem só atrás do texto, quando ela tem letras miúdas),
-   "logo": {"url": "logos/netflix.png" ou endereço de png oficial, "escala": 1.0}   (opcional: logo oficial no lugar do tema escrito; logos prontos em site/logos/),
+   "logo": {"url": "logos/netflix.png" ou endereço de png oficial, "escala": 1.0, "canto": true (no canto superior direito, sem tirar o texto)}   (opcional: logo oficial no lugar do tema escrito; logos prontos em site/logos/),
    "tema": "NOME DO ASSUNTO (linha pequena em vermelho)",
    "titulo": "frase curta",
    "destaque": "26 NOV" | "26,35 mi"      (data, numero),
@@ -119,7 +119,7 @@ def pilula(d, cx, cy, texto, f, cor=VERM, pad=(46, 22)):
 LOGO_POS = {"faixa": (725, 120), "data": (110, 120), "numero": (300, 120), "comparacao": (90, 100), "topo": (85, 100), "rodape": (860, 120)}
 
 
-def pôr_logo(tela, logo, cy, max_h, max_w=560):
+def pôr_logo(tela, logo, cy, max_h, max_w=560, canto=False):
     """Logo oficial centralizado, sem caixa nem borda, com sombra suave. site/logos/*.png ou endereço da web."""
     if logo["url"].startswith("logos/"):
         lg = Image.open(RAIZ / "site" / logo["url"]).convert("RGBA")
@@ -127,9 +127,10 @@ def pôr_logo(tela, logo, cy, max_h, max_w=560):
         lg = lg.crop(cx_) if cx_ else lg
     else:
         lg = mc().logo_sem_fundo(logo)
-    e = min(max_w * logo.get("escala", 1.0) / lg.width, max_h * logo.get("escala", 1.0) / lg.height)
+    esc = 1.0 if canto else logo.get("escala", 1.0)
+    e = min(max_w * esc / lg.width, max_h * esc / lg.height)
     lg = lg.resize((round(lg.width * e), round(lg.height * e)), Image.LANCZOS)
-    pos = (W // 2 - lg.width // 2, cy - lg.height // 2)
+    pos = (W - lg.width - 60, 50) if canto else (W // 2 - lg.width // 2, cy - lg.height // 2)
     base = tela.convert("RGBA")
     sa = Image.new("L", (W, H), 0)
     sa.paste(lg.getchannel("A").point(lambda v: round(v * 0.8)), pos)
@@ -146,7 +147,8 @@ def montar(slug, s):
     d = ImageDraw.Draw(lay)
     cx, maxw = W // 2, W - 2 * 150
     mod = s["modelo"]
-    logo = s.get("logo") or logo_da_colagem(slug)  # logo oficial (filme, jogo, série): substitui o nome escrito
+    logo_canto = s.get("logo") if (s.get("logo") or {}).get("canto") else None  # logo no canto superior direito: o texto fica como está
+    logo = None if logo_canto else (s.get("logo") or logo_da_colagem(slug))  # logo oficial (filme, jogo, série): substitui o nome escrito
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
         im = escurecer(im, fundo=0.95, inicio=0.35)
@@ -244,6 +246,8 @@ def montar(slug, s):
         m = lay.getchannel("A").filter(ImageFilter.MaxFilter(61)).filter(ImageFilter.GaussianBlur(30))
         im = Image.composite(im.filter(ImageFilter.GaussianBlur(22)), im, m)
     fim = com_sombra(im, lay).convert("RGB")
+    if logo_canto:
+        fim = pôr_logo(fim, logo_canto, 0, 150 * logo_canto.get("escala", 1.0), canto=True)
     if logo and mod in LOGO_POS:
         cy, mh = LOGO_POS[mod]
         fim = pôr_logo(fim, logo, cy, mh)
