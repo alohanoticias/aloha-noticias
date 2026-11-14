@@ -80,7 +80,7 @@ def painel_qualidade(img, w, h, foco, zoom):
             reg = ampliar(reg)
         except Exception as e:
             print("IA falhou neste painel, segue sem:", e)
-    import time; print("   painel", time.strftime("%H:%M:%S"),, (cw, ch), "->", reg.size, "->", (w, h), flush=True)
+    import time; print("   painel", time.strftime("%H:%M:%S"), (cw, ch), "->", reg.size, "->", (w, h), flush=True)
     return reg.resize((w, h), Image.LANCZOS)
 
 
