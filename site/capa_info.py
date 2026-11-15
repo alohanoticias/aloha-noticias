@@ -226,16 +226,16 @@ def montar(slug, s):
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
         if s.get("tema") and not logo:
-            pilula(d, cx, 760, s["tema"].upper(), *TEMA)
+            pilula(d, cx, 752, s["tema"].upper(), *TEMA)
         d.text((cx, 900), s["titulo"], font=caber(d, s["titulo"], *TITULO, maxw), fill=BRANCO, anchor="ms")
         if s.get("detalhe"):
-            pilula(d, cx, 975, s["detalhe"], *SELO)
+            pilula(d, cx, 980, s["detalhe"], *SELO)
 
     elif mod == "data":  # foto inteira; data grande no centro do terço de baixo
         if s.get("tema") and not logo:
-            pilula(d, cx, 735, s["tema"].upper(), *TEMA)
+            pilula(d, cx, 700, s["tema"].upper(), *TEMA)
         pilula(d, cx, 840, s["destaque"], fonte("ExtraBold", 72), pad=(40, 18))
-        d.text((cx, 990), s["titulo"], font=caber(d, s["titulo"], *SUB, maxw), fill=BRANCO, anchor="ms")
+        d.text((cx, 985), s["titulo"], font=caber(d, s["titulo"], *SUB, maxw), fill=BRANCO, anchor="ms")
 
     elif mod == "numero":  # foto levemente escurecida; número enorme no meio
         if s.get("tema") and not logo:
