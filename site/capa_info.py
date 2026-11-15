@@ -8,6 +8,7 @@ Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é
   {"modelo": "faixa" | "data" | "numero" | "comparacao" | "topo" | "rodape",
    "largura_max": 760                      (opcional: estreita o texto para não encostar em logo ou rosto nas laterais),
    "logo_lado": "esquerda"                 (opcional: logo no canto superior esquerdo em vez do direito),
+   "tema_cima": true                       (opcional: o selo do tema vai sozinho para o alto, quando embaixo ele cobriria algo),
    "posicao": "baixo" | "meio" | "cima"   (opcional; sem ela, a capa escolhe sozinha o lugar que não cobre rostos nem letreiros),
    "desfocar": true                        (opcional: desfoca a imagem só atrás do texto, quando ela tem letras miúdas),
    "logo": {"url": "logos/netflix.png" ou endereço de png oficial, "escala": 1.0, "canto": true (no canto superior direito, sem tirar o texto)}   (opcional: logo oficial no lugar do tema escrito; logos prontos em site/logos/),
@@ -218,6 +219,9 @@ def montar(slug, s):
     d = ImageDraw.Draw(lay)
     cx, maxw = W // 2, W - 2 * 150
     mod = s["modelo"]
+    tema_cima = s.get("tema") if s.get("tema_cima") else None  # selo do tema sozinho no alto (o resto fica embaixo)
+    if tema_cima:
+        s = {k: v for k, v in s.items() if k != "tema"}
     if mod == "topo":  # antigo "texto no alto": agora é a faixa com posição escolhida
         mod, s = "faixa", {**s, "posicao": s.get("posicao", "cima")}
     lg_ = s.get("logo") or logo_da_colagem(slug)  # logo oficial (plataforma, jogo, filme)
@@ -330,6 +334,10 @@ def montar(slug, s):
                 im = escurecer(im, fundo=0.95, inicio=max(0.2, (caixa[1] - 120) / H))
             elif pos == "cima":
                 im = escurecer(im, topo=0.95 * min(1.0, (caixa[3] + 120) / (0.45 * H)))
+    if tema_cima:
+        dl = ImageDraw.Draw(lay)
+        pilula(dl, W // 2, 95, tema_cima.upper(), *TEMA)
+        im = escurecer(im, topo=0.5)
     if s.get("desfocar"):  # imagem com texto miúdo atrás (créditos, rótulos): desfoca só por trás do texto da capa
         m = lay.getchannel("A").filter(ImageFilter.MaxFilter(61)).filter(ImageFilter.GaussianBlur(30))
         im = Image.composite(im.filter(ImageFilter.GaussianBlur(22)), im, m)
