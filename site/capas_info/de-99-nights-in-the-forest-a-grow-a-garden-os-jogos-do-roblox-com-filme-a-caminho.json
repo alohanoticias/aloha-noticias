@@ -4,5 +4,6 @@
  "titulo": "Jogos do Roblox que vão virar filme",
  "logo": {
   "url": "logos/roblox-wordmark-light.png"
- }
+ },
+ "tema_cima": true
 }
