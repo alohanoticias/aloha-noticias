@@ -2,5 +2,6 @@
  "modelo": "data",
  "tema": "Disney nos cinemas",
  "destaque": "26 DE NOVEMBRO",
- "titulo": "Enfeitiçadas: Bem-vindos a Hexe"
+ "titulo": "Enfeitiçadas: Bem-vindos a Hexe",
+ "tema_cima": true
 }
