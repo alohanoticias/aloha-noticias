@@ -1,11 +1,6 @@
 name: Capas com informação
 on:
-  push:
-    branches: [main]
-    paths: ["site/capas_info/**", "site/capa_info.py"]
-  schedule:
-    - cron: "23 * * * *"   # continua de hora em hora enquanto houver capa pendente
-  workflow_dispatch:
+  workflow_dispatch:   # só manual por enquanto: a cota de minutos do GitHub Actions acabou (15/11/2026)
 permissions:
   contents: write
 concurrency:
