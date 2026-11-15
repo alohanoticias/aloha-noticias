@@ -169,6 +169,23 @@ def pilula(d, cx, cy, texto, f, cor=VERM, pad=(46, 22)):
     d.text((cx, cy + a * 0.36), texto, font=f, fill=BRANCO, anchor="ms")
 
 
+def pilha(d, itens, fundo=1018, gap=32):
+    """Empilha selos e textos de baixo para cima com o MESMO espaço visível entre eles (medido pelas letras de verdade)."""
+    y = fundo
+    for it in reversed(itens):
+        if it[0] == "pilula":
+            _, txt, f, pad = it
+            h = f.size + 2 * pad[1] + 6
+            topo = y - h
+            pilula(d, W // 2, topo + f.size / 2 + pad[1], txt, f, pad=pad)
+        else:
+            _, txt, f = it
+            bb = d.textbbox((0, 0), txt, font=f, anchor="ls")
+            topo = y - (bb[3] - bb[1])
+            d.text((W // 2, topo - bb[1]), txt, font=f, fill=BRANCO, anchor="ms")
+        y = topo - gap
+
+
 LOGO_POS = {"faixa": (725, 120), "data": (730, 110), "numero": (300, 120), "comparacao": (90, 100), "topo": (85, 100), "rodape": (860, 120)}
 
 
@@ -229,17 +246,21 @@ def montar(slug, s):
     logo = None if logo_canto else lg_  # "canto": false põe o logo no lugar do nome escrito
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
+        it = []
         if s.get("tema") and not logo:
-            pilula(d, cx, 752, s["tema"].upper(), *TEMA)
-        d.text((cx, 900), s["titulo"], font=caber(d, s["titulo"], *TITULO, maxw), fill=BRANCO, anchor="ms")
+            it.append(("pilula", s["tema"].upper(), TEMA[0], TEMA[2]))
+        it.append(("texto", s["titulo"], caber(d, s["titulo"], *TITULO, maxw)))
         if s.get("detalhe"):
-            pilula(d, cx, 980, s["detalhe"], *SELO)
+            it.append(("pilula", s["detalhe"], SELO[0], SELO[2]))
+        pilha(d, it)
 
     elif mod == "data":  # foto inteira; data grande no centro do terço de baixo
+        it = []
         if s.get("tema") and not logo:
-            pilula(d, cx, 700, s["tema"].upper(), *TEMA)
-        pilula(d, cx, 840, s["destaque"], fonte("ExtraBold", 72), pad=(40, 18))
-        d.text((cx, 985), s["titulo"], font=caber(d, s["titulo"], *SUB, maxw), fill=BRANCO, anchor="ms")
+            it.append(("pilula", s["tema"].upper(), TEMA[0], TEMA[2]))
+        it.append(("pilula", s["destaque"], fonte("ExtraBold", 72), (40, 18)))
+        it.append(("texto", s["titulo"], caber(d, s["titulo"], *SUB, maxw)))
+        pilha(d, it)
 
     elif mod == "numero":  # foto levemente escurecida; número enorme no meio
         if s.get("tema") and not logo:
