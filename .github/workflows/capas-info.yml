@@ -44,12 +44,27 @@ jobs:
           enviar() {
             # guarda o que foi montado, pega a versão mais nova do site e põe por cima (sem conflito com outras automações)
             rm -rf /tmp/guarda && mkdir -p /tmp/guarda
-            cp -r site/capas_base site/capas_info /tmp/guarda/ 2>/dev/null || true
-            mkdir -p /tmp/guarda/capas && cp site/assets/img/capas/*.jpg /tmp/guarda/capas/
+            mkdir -p /tmp/guarda/capas /tmp/guarda/base
+            for f in $(cat /tmp/novas.txt 2>/dev/null); do
+              cp "site/assets/img/capas/$f.jpg" /tmp/guarda/capas/ 2>/dev/null || true
+              cp "site/capas_base/$f.jpg" /tmp/guarda/base/ 2>/dev/null || true
+              grep "^$f " site/capas_info/.feitas >> /tmp/guarda/feitas.txt 2>/dev/null || true
+            done
             for i in 1 2 3 4 5 6; do
               git fetch -q origin main && git reset -q --hard origin/main
-              cp -r /tmp/guarda/capas_base /tmp/guarda/capas_info site/ 2>/dev/null || true
-              for f in $(cat /tmp/novas.txt 2>/dev/null); do cp "/tmp/guarda/capas/$f.jpg" site/assets/img/capas/ 2>/dev/null || true; done
+              # só as capas montadas nesta vez: nunca sobrescreve os textos (capas_info/*.json) mudados enquanto rodava
+              mkdir -p site/capas_base
+              cp /tmp/guarda/base/*.jpg site/capas_base/ 2>/dev/null || true
+              cp /tmp/guarda/capas/*.jpg site/assets/img/capas/ 2>/dev/null || true
+              python3 - <<'PY'
+          from pathlib import Path
+          m = Path("site/capas_info/.feitas"); g = Path("/tmp/guarda/feitas.txt")
+          fe = dict(l.split(" ", 1) for l in (m.read_text().splitlines() if m.exists() else []) if " " in l)
+          for l in (g.read_text().splitlines() if g.exists() else []):
+              if " " in l:
+                  k, v = l.split(" ", 1); fe[k] = v
+          m.write_text("".join(f"{k} {v}\n" for k, v in sorted(fe.items())))
+          PY
               python3 site/gerar.py > /dev/null
               git add -A
               git diff --cached --quiet && return 0

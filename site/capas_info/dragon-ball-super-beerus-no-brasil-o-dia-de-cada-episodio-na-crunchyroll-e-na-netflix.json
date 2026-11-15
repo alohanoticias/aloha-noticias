@@ -2,5 +2,6 @@
  "modelo": "faixa",
  "tema": "Crunchyroll e Netflix",
  "titulo": "Dragon Ball Super: um episódio por semana",
- "detalhe": "No ar desde 11 de outubro"
+ "detalhe": "No ar desde 11 de outubro",
+ "tema_cima": true
 }

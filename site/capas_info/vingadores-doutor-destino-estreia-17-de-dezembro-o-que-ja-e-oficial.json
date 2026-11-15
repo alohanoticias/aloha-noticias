@@ -2,5 +2,7 @@
  "modelo": "data",
  "tema": "Vingadores: Doutor Destino",
  "destaque": "17 DE DEZEMBRO",
- "titulo": "O que já é oficial"
+ "titulo": "O que já é oficial",
+ "logo_lado": "esquerda",
+ "tema_cima": true
 }

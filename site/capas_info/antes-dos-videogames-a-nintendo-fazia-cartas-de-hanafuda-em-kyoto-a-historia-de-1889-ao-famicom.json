@@ -2,5 +2,6 @@
  "modelo": "faixa",
  "tema": "Nintendo",
  "titulo": "Tudo começou em 1889",
- "detalhe": "Com cartas de hanafuda em Kyoto"
+ "detalhe": "Com cartas de hanafuda em Kyoto",
+ "tema_cima": true
 }
