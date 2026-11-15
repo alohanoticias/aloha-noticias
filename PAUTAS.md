@@ -64,3 +64,9 @@ Regra de sempre: conferir cada fato em 2 fontes na hora de escrever (datas mudam
 - Nenhum rascunho novo: o Unsplash voltou a bloquear a leitura (PROVENANCE_REQUIRED), então não há como obter fotos livres com o endereço completo (photo-ID-sufixo) para capa e corpo. Não inventei IDs nem fontes.
 - Achados da busca do dia (não apurados em duas fontes): Os Farofeiros lidera a bilheteria no fim de semana de estreia (poltronadecinema, 13/11); GTA 6 já tem vários artigos no site.
 - O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it.
+
+## Notas de pesquisa (15/11/2026, rodada sem rascunho novo)
+- Pasta rascunhos/ não existe (0 pendentes); agendados/ tem 44 itens. Nada a atualizar nos pendentes.
+- Nenhum rascunho novo: o Unsplash voltou a responder PROVENANCE_REQUIRED (sem acesso para confirmar fotos livres com o endereço completo photo-ID-sufixo, exigidas para capa e corpo). Sem elas o rascunho não cumpre o guia; não inventei IDs nem fontes.
+- O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it; seguiríamos o guia.
+- Próximo horário livre na agenda: 29/11 13:39 (site/agenda.py).
