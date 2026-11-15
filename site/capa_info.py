@@ -7,6 +7,7 @@ a foto do assunto em site/capas_base/<slug>.jpg (se não existir, copia a capa a
 Formato do .json (todos os textos são curtos; tudo fica centralizado e nunca é cortado):
   {"modelo": "faixa" | "data" | "numero" | "comparacao" | "topo" | "rodape",
    "largura_max": 760                      (opcional: estreita o texto para não encostar em logo ou rosto nas laterais),
+   "logo_lado": "esquerda"                 (opcional: logo no canto superior esquerdo em vez do direito),
    "posicao": "baixo" | "meio" | "cima"   (opcional; sem ela, a capa escolhe sozinha o lugar que não cobre rostos nem letreiros),
    "desfocar": true                        (opcional: desfoca a imagem só atrás do texto, quando ela tem letras miúdas),
    "logo": {"url": "logos/netflix.png" ou endereço de png oficial, "escala": 1.0, "canto": true (no canto superior direito, sem tirar o texto)}   (opcional: logo oficial no lugar do tema escrito; logos prontos em site/logos/),
@@ -193,7 +194,7 @@ def pôr_logo(tela, logo, cy, max_h, max_w=560, canto=False):
     esc = 1.0 if canto else logo.get("escala", 1.0)
     e = min(max_w * esc / lg.width, max_h * esc / lg.height)
     lg = lg.resize((round(lg.width * e), round(lg.height * e)), Image.LANCZOS)
-    pos = (W - lg.width - 60, 50) if canto else (W // 2 - lg.width // 2, cy - lg.height // 2)
+    pos = ((60 if logo.get("lado") == "esquerda" else W - lg.width - 60), 50) if canto else (W // 2 - lg.width // 2, cy - lg.height // 2)
     base = tela.convert("RGBA")
     sa = Image.new("L", (W, H), 0)
     sa.paste(lg.getchannel("A").point(lambda v: round(v * 0.8)), pos)
@@ -220,7 +221,7 @@ def montar(slug, s):
     if mod == "topo":  # antigo "texto no alto": agora é a faixa com posição escolhida
         mod, s = "faixa", {**s, "posicao": s.get("posicao", "cima")}
     lg_ = s.get("logo") or logo_da_colagem(slug)  # logo oficial (plataforma, jogo, filme)
-    logo_canto = lg_ if lg_ and lg_.get("canto", True) else None  # padrão: no canto superior direito, sem cobrir nada
+    logo_canto = {**lg_, "lado": s.get("logo_lado", lg_.get("lado"))} if lg_ and lg_.get("canto", True) else None  # padrão: no canto superior direito, sem cobrir nada
     logo = None if logo_canto else lg_  # "canto": false põe o logo no lugar do nome escrito
 
     if mod == "faixa":  # foto inteira; tema, título e selo na base
