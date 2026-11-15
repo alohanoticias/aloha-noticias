@@ -1,6 +1,9 @@
 name: Capas com informação
 on:
-  workflow_dispatch:   # só manual por enquanto: a cota de minutos do GitHub Actions acabou (15/11/2026)
+  push:
+    branches: [main]
+    paths: ["site/capas_info/.rodar"]   # só roda quando este arquivo muda (rodada pedida de propósito)
+  workflow_dispatch:
 permissions:
   contents: write
 concurrency:

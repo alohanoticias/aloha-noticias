@@ -12,7 +12,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFo
 RAIZ = Path(__file__).resolve().parent.parent
 S = 1.6  # os layouts abaixo foram desenhados em 1200x675; tudo é multiplicado por S para sair em 1920x1080
 L, A = 1920, 1080
-UA = {"User-Agent": "AlohaNoticiasBot/1.0 (https://alohanoticias.com; alohanoticias@gmail.com)"}
+UA = {"User-Agent": "AlohaNoticiasBot/1.0 (https://alohanoticias.com; contato@alohanoticias.com)"}
 def R(x0, y0, x1, y1, r=0, borda=0):
     """Retângulo (com cantos arredondados e borda branca opcionais)."""
     return {"rr": (x0, y0, x1, y1), "r": r, "borda": borda}

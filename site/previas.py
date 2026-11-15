@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 RAIZ = Path(__file__).resolve().parent.parent
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 def baixar(u):
-    h = {"User-Agent": ("AlohaNoticiasBot/1.0 (alohanoticias@gmail.com)" if "wikimedia.org" in u else UA), "Accept": "image/*,*/*;q=0.8"}
+    h = {"User-Agent": ("AlohaNoticiasBot/1.0 (contato@alohanoticias.com)" if "wikimedia.org" in u else UA), "Accept": "image/*,*/*;q=0.8"}
     if not u.startswith("http"):
         return Image.open(RAIZ / "publico" / u).convert("RGB")
     import time
