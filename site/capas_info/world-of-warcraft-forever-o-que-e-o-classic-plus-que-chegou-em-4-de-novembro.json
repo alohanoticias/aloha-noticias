@@ -1,7 +1,7 @@
 {
- "modelo": "faixa",
+ "modelo": "numero",
  "tema": "Blizzard",
- "titulo": "WoW Classic+: limite no nível 60",
- "detalhe": "No ar desde 4 de novembro",
- "tema_cima": true
+ "destaque": "NÍVEL 60",
+ "titulo": "o limite do novo Classic+",
+ "detalhe": "no ar desde 4 de novembro"
 }
