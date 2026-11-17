@@ -6681,5 +6681,164 @@
     ]
    }
   }
+ },
+ {
+  "slug": "tv-para-jogar-no-console-o-que-significam-hdmi-2-1-120-hz-vrr-e-allm-e-o-que-realmente-importa",
+  "editoria": "tecnologia",
+  "titulo": "TV para jogar no console: o que significam HDMI 2.1, 120 Hz, VRR e ALLM, e o que realmente importa",
+  "linha_fina": "O selo \"HDMI 2.1\" na caixa não garante nada sozinho. Veja o que cada sigla faz, o que PS5, Xbox Series e Switch 2 usam de fato e o que conferir antes de comprar.",
+  "autor": "Equipe Aloha",
+  "data": "2026-11-17T14:39",
+  "tags": [
+   "TV para games",
+   "HDMI 2.1",
+   "120 Hz",
+   "VRR",
+   "ALLM",
+   "PS5",
+   "Xbox Series X",
+   "Switch 2"
+  ],
+  "imagem": {
+   "url": "assets/img/capas/tv-para-jogar-no-console-o-que-significam-hdmi-2-1-120-hz-vrr-e-allm-e-o-que-realmente-importa.jpg",
+   "alt": "Cabo HDMI enrolado sobre um tecido claro, com o conector dourado em destaque",
+   "credito": "Imagens: Wikimedia Commons (Kannan Shanmugam, CC BY-SA 4.0; Kyu3a, CC BY-SA 4.0)"
+  },
+  "video": {
+   "youtube": "jC3gj6GIRq0",
+   "titulo": "HDMI 2.1 explicado (Mundo Conectado)"
+  },
+  "corpo": [
+   "Quem procura uma TV nova para jogar encontra na ficha técnica uma sopa de siglas: HDMI 2.1, 120 Hz, VRR, ALLM, eARC. Os vendedores tratam tudo como se fosse a mesma coisa, e não é. Algumas dessas funções fazem diferença visível com um PS5 ou um Xbox Series X. Outras são irrelevantes para o console que você tem. E o selo mais famoso de todos, o HDMI 2.1, pode estar na caixa de uma TV que não oferece nenhum dos recursos que deram fama a ele.",
+   "## Por que \"HDMI 2.1\" na caixa não basta?",
+   "Desde o fim de 2021, a entidade que licencia o padrão, a HDMI Licensing Administrator, deixou de certificar produtos como HDMI 2.0. Na regra atual, os recursos da versão 2.0 passaram a ser um subconjunto da 2.1, e todas as novidades da 2.1 são opcionais. Na prática, uma TV pode ser vendida como \"HDMI 2.1\" mesmo sem entregar 120 Hz em 4K ou taxa de atualização variável. A própria entidade orienta que o fabricante informe quais recursos cada porta suporta.",
+   "A conclusão para quem compra é simples de aplicar: ignore o número da versão e procure, na ficha técnica, os recursos pelo nome. Outro detalhe que pega muita gente: em várias TVs, só uma ou duas das portas HDMI têm os recursos completos. O console precisa ir justamente nelas.",
+   "!img https://upload.wikimedia.org/wikipedia/commons/8/87/HDMI_CableEnd.jpg|Conector de um cabo HDMI. Para 4K a 120 Hz, a porta da TV precisa oferecer a banda maior prevista no padrão|Foto: Pradeep717 / Wikimedia Commons (CC BY-SA 4.0)",
+   "## 120 Hz: mais quadros por segundo",
+   "A taxa de atualização é quantas vezes por segundo a tela desenha uma nova imagem. A maioria das TVs trabalha a 60 Hz. Um painel de 120 Hz consegue mostrar até 120 quadros por segundo, o que deixa o movimento mais fluido e reduz o atraso entre apertar o botão e ver a resposta. PS5 e Xbox Series X têm jogos com modos de 120 quadros, e o Switch 2 oferece 120 quadros na TV quando a resolução está em 1080p ou 1440p.",
+   "Atenção ao marketing: termos como \"Motion Rate 120\" ou \"120 Hz efetivo\" costumam indicar processamento de imagem sobre um painel de 60 Hz. O que interessa é a taxa nativa do painel, que aparece nas especificações completas ou em análises independentes.",
+   "## VRR: a TV acompanha o ritmo do jogo",
+   "O VRR, sigla de taxa de atualização variável, faz a TV ajustar a frequência ao ritmo em que o console entrega os quadros. Quando um jogo oscila entre 45 e 60 quadros, por exemplo, a imagem não \"rasga\" e as engasgadas ficam bem menos perceptíveis. O PS5 ganhou o recurso numa atualização de abril de 2022 e exige uma TV com VRR via HDMI 2.1. O Xbox Series X e S suportam desde o lançamento.",
+   "O Switch 2 é o caso mais recente. No lançamento, a Nintendo limitou o VRR à tela do portátil. A atualização de sistema 23.0.0, de setembro de 2026, trouxe o recurso para o modo TV, mas só nos jogos que os desenvolvedores habilitarem, e o console e o dock precisam estar atualizados.",
+   "!img https://upload.wikimedia.org/wikipedia/commons/4/4f/All_PlayStations_%281-5%2C_PSP%2C_%26_Vita%29.jpg|Todas as gerações de PlayStation lado a lado, com o PS5 à direita. Ele usa 120 Hz e VRR quando a TV oferece os dois|Foto: JDC808 / Wikimedia Commons (CC BY-SA 4.0)",
+   "## ALLM e modo jogo: menos atraso",
+   "As TVs processam a imagem para deixá-la mais bonita em filmes, e esse processamento cria atraso. O modo jogo desliga boa parte disso. O ALLM, sigla de modo automático de baixa latência, faz a TV entrar nesse modo sozinha quando detecta um console ligado. Se a sua não tiver ALLM, basta ativar o modo jogo manualmente nas configurações de imagem. É o ajuste de maior impacto e o mais esquecido.",
+   "## O que conferir antes de comprar",
+   "Monte a lista a partir do console que você usa. Para PS5 ou Xbox Series X, priorize painel nativo de 120 Hz, VRR e pelo menos uma porta com 4K a 120 Hz. Para Xbox Series S, Switch 2 ou PS4, os 120 Hz em 4K pesam menos, e o essencial é um bom modo jogo com baixa latência. Os cabos que acompanham o PS5 e o Xbox Series X já são do tipo Ultra High Speed. Se precisar de outro, procure esse selo de certificação na embalagem. E, se for ligar uma soundbar, confira se a porta com eARC não é a mesma que você reservou para o videogame. Quem está montando o espaço de jogos do zero também pode conferir o que a Valve já confirmou sobre a [Steam Machine](materia-steam-machine-a-partir-de-us-1-049-o-que-a-valve-confirmou-e-o-que-ainda-e-duvida.html).",
+   "Fontes: [HDMI.org, perguntas sobre a especificação 2.1](https://www.hdmi.org/blog/detail/139), [TFTCentral, quando HDMI 2.1 não é HDMI 2.1](https://tftcentral.co.uk/articles/when-hdmi-2-1-isnt-hdmi-2-1), [PlayStation Blog, VRR no PS5](https://blog.playstation.com/2022/04/25/variable-refresh-rate-support-for-ps5-is-rolling-out-this-week/), [Nintendo, especificações do Switch 2](https://www.nintendo.com/sg/hardware/switch2/specs/) e [TechRadar, VRR no modo TV do Switch 2](https://techradar.com/gaming/nintendo-switch/the-switch-2-is-finally-getting-vrr-in-docked-mode-for-smoother-performance-with-compatible-tvs-and-monitors-but-theres-a-classic-nintendo-wrinkle) (em inglês)."
+  ],
+  "traducoes": {
+   "en": {
+    "slug": "gaming-tv-hdmi-2-1-120hz-vrr",
+    "titulo": "A TV for console gaming: what HDMI 2.1, 120 Hz, VRR and ALLM mean, and what really matters",
+    "linha_fina": "The \"HDMI 2.1\" label on the box guarantees nothing by itself. Here's what each acronym does, what PS5, Xbox Series and Switch 2 actually use, and what to check before buying.",
+    "tags": [
+     "gaming TV",
+     "HDMI 2.1",
+     "120 Hz",
+     "VRR",
+     "ALLM",
+     "PS5",
+     "Xbox Series X",
+     "Switch 2"
+    ],
+    "alt": "Coiled HDMI cable on a light fabric, with the gold connector in focus",
+    "credito": "Images: Wikimedia Commons (Kannan Shanmugam, CC BY-SA 4.0; Kyu3a, CC BY-SA 4.0)",
+    "video_titulo": "HDMI 2.1 explained (Mundo Conectado, in Portuguese)",
+    "corpo": [
+     "Anyone shopping for a new TV to play games on finds an alphabet soup in the spec sheet: HDMI 2.1, 120 Hz, VRR, ALLM, eARC. Salespeople treat it all as if it were the same thing, and it isn't. Some of these features make a visible difference with a PS5 or an Xbox Series X. Others are irrelevant for the console you own. And the most famous label of all, HDMI 2.1, can be on the box of a TV that offers none of the features that made it famous.",
+     "## Why isn't \"HDMI 2.1\" on the box enough?",
+     "Since late 2021, the body that licenses the standard, HDMI Licensing Administrator, stopped certifying products as HDMI 2.0. Under the current rule, the 2.0 features became a subset of 2.1, and all the new 2.1 features are optional. In practice, a TV can be sold as \"HDMI 2.1\" even without delivering 120 Hz at 4K or variable refresh rate. The body itself advises manufacturers to state which features each port supports.",
+     "The takeaway for buyers is easy to apply: ignore the version number and look for the features by name in the spec sheet. Another detail that catches many people: on several TVs, only one or two of the HDMI ports have the full feature set. The console needs to go into exactly those.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/8/87/HDMI_CableEnd.jpg|An HDMI cable connector. For 4K at 120 Hz, the TV port must offer the higher bandwidth the standard allows|Photo: Pradeep717 / Wikimedia Commons (CC BY-SA 4.0)",
+     "## 120 Hz: more frames per second",
+     "Refresh rate is how many times per second the screen draws a new image. Most TVs run at 60 Hz. A 120 Hz panel can show up to 120 frames per second, which makes motion smoother and cuts the delay between pressing a button and seeing the response. PS5 and Xbox Series X have games with 120-frame modes, and Switch 2 offers 120 frames on the TV when resolution is set to 1080p or 1440p.",
+     "Watch out for marketing: terms like \"Motion Rate 120\" or \"effective 120 Hz\" usually signal image processing on top of a 60 Hz panel. What matters is the panel's native rate, which shows up in the full specifications or in independent reviews.",
+     "## VRR: the TV follows the game's rhythm",
+     "VRR, short for variable refresh rate, makes the TV adjust its frequency to the pace at which the console delivers frames. When a game swings between 45 and 60 frames, for example, the image doesn't \"tear\" and stutters become much less noticeable. PS5 gained the feature in an April 2022 update and requires a TV with VRR over HDMI 2.1. Xbox Series X and S have supported it since launch.",
+     "Switch 2 is the most recent case. At launch, Nintendo limited VRR to the handheld's screen. System update 23.0.0, from September 2026, brought the feature to TV mode, but only in games that developers enable, and both the console and the dock need to be updated.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/4/4f/All_PlayStations_%281-5%2C_PSP%2C_%26_Vita%29.jpg|Every generation of PlayStation side by side, with the PS5 on the right. It uses 120 Hz and VRR when the TV offers both|Photo: JDC808 / Wikimedia Commons (CC BY-SA 4.0)",
+     "## ALLM and game mode: less lag",
+     "TVs process the image to make it look nicer in movies, and that processing creates lag. Game mode turns most of it off. ALLM, short for auto low latency mode, makes the TV switch to that mode by itself when it detects a console. If yours lacks ALLM, just turn on game mode manually in the picture settings. It is the setting with the biggest impact and the most forgotten one.",
+     "## What to check before buying",
+     "Build the list around the console you use. For PS5 or Xbox Series X, prioritize a native 120 Hz panel, VRR and at least one port with 4K at 120 Hz. For Xbox Series S, Switch 2 or PS4, 120 Hz at 4K matters less, and the essential thing is a good low-latency game mode. The cables that come with PS5 and Xbox Series X are already Ultra High Speed. If you need another, look for that certification label on the package. And if you'll connect a soundbar, check that the eARC port isn't the same one you set aside for the console. Anyone building a gaming setup from scratch can also check what Valve has confirmed about the [Steam Machine](materia-steam-machine-a-partir-de-us-1-049-o-que-a-valve-confirmou-e-o-que-ainda-e-duvida.html).",
+     "Sources: [HDMI.org, questions about the 2.1 specification](https://www.hdmi.org/blog/detail/139), [TFTCentral, when HDMI 2.1 isn't HDMI 2.1](https://tftcentral.co.uk/articles/when-hdmi-2-1-isnt-hdmi-2-1), [PlayStation Blog, VRR on PS5](https://blog.playstation.com/2022/04/25/variable-refresh-rate-support-for-ps5-is-rolling-out-this-week/), [Nintendo, Switch 2 specifications](https://www.nintendo.com/sg/hardware/switch2/specs/) and [TechRadar, VRR in Switch 2 TV mode](https://techradar.com/gaming/nintendo-switch/the-switch-2-is-finally-getting-vrr-in-docked-mode-for-smoother-performance-with-compatible-tvs-and-monitors-but-theres-a-classic-nintendo-wrinkle)."
+    ]
+   },
+   "es": {
+    "slug": "tv-para-jugar-hdmi-2-1-120hz-vrr",
+    "titulo": "TV para jugar con consola: qué significan HDMI 2.1, 120 Hz, VRR y ALLM, y qué importa de verdad",
+    "linha_fina": "La etiqueta \"HDMI 2.1\" en la caja no garantiza nada por sí sola. Mira qué hace cada sigla, qué usan de verdad PS5, Xbox Series y Switch 2 y qué revisar antes de comprar.",
+    "tags": [
+     "TV para juegos",
+     "HDMI 2.1",
+     "120 Hz",
+     "VRR",
+     "ALLM",
+     "PS5",
+     "Xbox Series X",
+     "Switch 2"
+    ],
+    "alt": "Cable HDMI enrollado sobre una tela clara, con el conector dorado en primer plano",
+    "credito": "Imágenes: Wikimedia Commons (Kannan Shanmugam, CC BY-SA 4.0; Kyu3a, CC BY-SA 4.0)",
+    "video_titulo": "HDMI 2.1 explicado (Mundo Conectado, en portugués)",
+    "corpo": [
+     "Quien busca una TV nueva para jugar encuentra en la ficha técnica una sopa de siglas: HDMI 2.1, 120 Hz, VRR, ALLM, eARC. Los vendedores lo tratan todo como si fuera lo mismo, y no lo es. Algunas de estas funciones marcan una diferencia visible con una PS5 o una Xbox Series X. Otras son irrelevantes para la consola que tienes. Y la etiqueta más famosa de todas, HDMI 2.1, puede estar en la caja de una TV que no ofrece ninguna de las funciones que la hicieron famosa.",
+     "## ¿Por qué no basta con \"HDMI 2.1\" en la caja?",
+     "Desde finales de 2021, la entidad que licencia el estándar, HDMI Licensing Administrator, dejó de certificar productos como HDMI 2.0. Con la regla actual, las funciones de la versión 2.0 pasaron a ser un subconjunto de la 2.1, y todas las novedades de la 2.1 son opcionales. En la práctica, una TV puede venderse como \"HDMI 2.1\" aunque no ofrezca 120 Hz en 4K ni frecuencia de actualización variable. La propia entidad recomienda que el fabricante informe qué funciones admite cada puerto.",
+     "La conclusión para quien compra es fácil de aplicar: ignora el número de versión y busca en la ficha técnica las funciones por su nombre. Otro detalle que sorprende a mucha gente: en varias TV, solo uno o dos de los puertos HDMI tienen las funciones completas. La consola tiene que ir justo en ellos.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/8/87/HDMI_CableEnd.jpg|Conector de un cable HDMI. Para 4K a 120 Hz, el puerto de la TV debe ofrecer el mayor ancho de banda previsto en el estándar|Foto: Pradeep717 / Wikimedia Commons (CC BY-SA 4.0)",
+     "## 120 Hz: más imágenes por segundo",
+     "La frecuencia de actualización es cuántas veces por segundo la pantalla dibuja una imagen nueva. La mayoría de las TV funcionan a 60 Hz. Un panel de 120 Hz puede mostrar hasta 120 cuadros por segundo, lo que hace el movimiento más fluido y reduce el retraso entre pulsar un botón y ver la respuesta. PS5 y Xbox Series X tienen juegos con modos de 120 cuadros, y Switch 2 ofrece 120 cuadros en la TV cuando la resolución está en 1080p o 1440p.",
+     "Cuidado con el marketing: términos como \"Motion Rate 120\" o \"120 Hz efectivos\" suelen indicar procesamiento de imagen sobre un panel de 60 Hz. Lo que importa es la frecuencia nativa del panel, que aparece en las especificaciones completas o en análisis independientes.",
+     "## VRR: la TV sigue el ritmo del juego",
+     "El VRR, sigla de frecuencia de actualización variable, hace que la TV ajuste su frecuencia al ritmo en que la consola entrega los cuadros. Cuando un juego oscila entre 45 y 60 cuadros, por ejemplo, la imagen no se \"rasga\" y los tirones se notan mucho menos. PS5 recibió la función en una actualización de abril de 2022 y exige una TV con VRR por HDMI 2.1. Xbox Series X y S la admiten desde el lanzamiento.",
+     "Switch 2 es el caso más reciente. En el lanzamiento, Nintendo limitó el VRR a la pantalla de la portátil. La actualización de sistema 23.0.0, de septiembre de 2026, llevó la función al modo TV, pero solo en los juegos que los desarrolladores habiliten, y la consola y el dock deben estar actualizados.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/4/4f/All_PlayStations_%281-5%2C_PSP%2C_%26_Vita%29.jpg|Todas las generaciones de PlayStation juntas, con la PS5 a la derecha. Usa 120 Hz y VRR cuando la TV ofrece ambos|Foto: JDC808 / Wikimedia Commons (CC BY-SA 4.0)",
+     "## ALLM y modo juego: menos retraso",
+     "Las TV procesan la imagen para que se vea más bonita en las películas, y ese procesamiento genera retraso. El modo juego apaga buena parte de eso. El ALLM, sigla de modo automático de baja latencia, hace que la TV entre sola en ese modo cuando detecta una consola. Si la tuya no tiene ALLM, basta con activar el modo juego manualmente en los ajustes de imagen. Es el ajuste de mayor impacto y el más olvidado.",
+     "## Qué revisar antes de comprar",
+     "Arma la lista a partir de la consola que usas. Para PS5 o Xbox Series X, prioriza un panel nativo de 120 Hz, VRR y al menos un puerto con 4K a 120 Hz. Para Xbox Series S, Switch 2 o PS4, los 120 Hz en 4K pesan menos, y lo esencial es un buen modo juego con baja latencia. Los cables que vienen con PS5 y Xbox Series X ya son del tipo Ultra High Speed. Si necesitas otro, busca ese sello de certificación en el empaque. Y, si vas a conectar una barra de sonido, comprueba que el puerto con eARC no sea el mismo que reservaste para la consola. Quien está armando su espacio de juego desde cero también puede ver lo que Valve ya confirmó sobre la [Steam Machine](materia-steam-machine-a-partir-de-us-1-049-o-que-a-valve-confirmou-e-o-que-ainda-e-duvida.html).",
+     "Fuentes: [HDMI.org, preguntas sobre la especificación 2.1](https://www.hdmi.org/blog/detail/139), [TFTCentral, cuando HDMI 2.1 no es HDMI 2.1](https://tftcentral.co.uk/articles/when-hdmi-2-1-isnt-hdmi-2-1), [PlayStation Blog, VRR en PS5](https://blog.playstation.com/2022/04/25/variable-refresh-rate-support-for-ps5-is-rolling-out-this-week/), [Nintendo, especificaciones de Switch 2](https://www.nintendo.com/sg/hardware/switch2/specs/) y [TechRadar, VRR en el modo TV de Switch 2](https://techradar.com/gaming/nintendo-switch/the-switch-2-is-finally-getting-vrr-in-docked-mode-for-smoother-performance-with-compatible-tvs-and-monitors-but-theres-a-classic-nintendo-wrinkle) (en inglés)."
+    ]
+   },
+   "it": {
+    "slug": "tv-per-giocare-hdmi-2-1-120hz-vrr",
+    "titulo": "TV per giocare con la console: cosa significano HDMI 2.1, 120 Hz, VRR e ALLM, e cosa conta davvero",
+    "linha_fina": "La scritta \"HDMI 2.1\" sulla scatola da sola non garantisce nulla. Ecco cosa fa ogni sigla, cosa usano davvero PS5, Xbox Series e Switch 2 e cosa controllare prima di comprare.",
+    "tags": [
+     "TV per videogiochi",
+     "HDMI 2.1",
+     "120 Hz",
+     "VRR",
+     "ALLM",
+     "PS5",
+     "Xbox Series X",
+     "Switch 2"
+    ],
+    "alt": "Cavo HDMI arrotolato su un tessuto chiaro, con il connettore dorato in primo piano",
+    "credito": "Immagini: Wikimedia Commons (Kannan Shanmugam, CC BY-SA 4.0; Kyu3a, CC BY-SA 4.0)",
+    "video_titulo": "HDMI 2.1 spiegato (Mundo Conectado, in portoghese)",
+    "corpo": [
+     "Chi cerca una nuova TV per giocare trova nella scheda tecnica una zuppa di sigle: HDMI 2.1, 120 Hz, VRR, ALLM, eARC. I venditori trattano tutto come se fosse la stessa cosa, e non lo è. Alcune di queste funzioni fanno una differenza visibile con una PS5 o una Xbox Series X. Altre sono irrilevanti per la console che hai. E il marchio più famoso di tutti, HDMI 2.1, può comparire sulla scatola di una TV che non offre nessuna delle funzioni che lo hanno reso celebre.",
+     "## Perché la scritta \"HDMI 2.1\" sulla scatola non basta?",
+     "Dalla fine del 2021 l'ente che concede le licenze dello standard, HDMI Licensing Administrator, ha smesso di certificare prodotti come HDMI 2.0. Con la regola attuale, le funzioni della versione 2.0 sono diventate un sottoinsieme della 2.1, e tutte le novità della 2.1 sono facoltative. In pratica, una TV può essere venduta come \"HDMI 2.1\" anche senza offrire i 120 Hz in 4K o la frequenza di aggiornamento variabile. Lo stesso ente raccomanda ai produttori di indicare quali funzioni supporta ogni porta.",
+     "La conclusione per chi compra è facile da applicare: ignora il numero di versione e cerca nella scheda tecnica le funzioni per nome. Un altro dettaglio che sorprende molti: su diverse TV solo una o due porte HDMI hanno le funzioni complete. La console deve andare proprio lì.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/8/87/HDMI_CableEnd.jpg|Connettore di un cavo HDMI. Per il 4K a 120 Hz, la porta della TV deve offrire la banda maggiore prevista dallo standard|Foto: Pradeep717 / Wikimedia Commons (CC BY-SA 4.0)",
+     "## 120 Hz: più fotogrammi al secondo",
+     "La frequenza di aggiornamento indica quante volte al secondo lo schermo disegna una nuova immagine. La maggior parte delle TV lavora a 60 Hz. Un pannello a 120 Hz può mostrare fino a 120 fotogrammi al secondo, il che rende il movimento più fluido e riduce il ritardo tra la pressione di un tasto e la risposta. PS5 e Xbox Series X hanno giochi con modalità a 120 fotogrammi, e Switch 2 offre 120 fotogrammi in TV quando la risoluzione è impostata a 1080p o 1440p.",
+     "Attenzione al marketing: termini come \"Motion Rate 120\" o \"120 Hz effettivi\" indicano di solito un'elaborazione dell'immagine su un pannello a 60 Hz. Quello che conta è la frequenza nativa del pannello, riportata nelle specifiche complete o nelle recensioni indipendenti.",
+     "## VRR: la TV segue il ritmo del gioco",
+     "Il VRR, sigla di frequenza di aggiornamento variabile, fa sì che la TV adatti la frequenza al ritmo con cui la console fornisce i fotogrammi. Quando un gioco oscilla tra 45 e 60 fotogrammi, per esempio, l'immagine non si \"strappa\" e gli scatti si notano molto meno. La PS5 ha ricevuto la funzione con un aggiornamento di aprile 2022 e richiede una TV con VRR via HDMI 2.1. Xbox Series X e S la supportano dal lancio.",
+     "Switch 2 è il caso più recente. Al lancio Nintendo aveva limitato il VRR allo schermo della portatile. L'aggiornamento di sistema 23.0.0, di settembre 2026, ha portato la funzione alla modalità TV, ma solo nei giochi abilitati dagli sviluppatori, e console e dock devono essere aggiornati.",
+     "!img https://upload.wikimedia.org/wikipedia/commons/4/4f/All_PlayStations_%281-5%2C_PSP%2C_%26_Vita%29.jpg|Tutte le generazioni di PlayStation affiancate, con la PS5 a destra. Usa 120 Hz e VRR quando la TV li offre entrambi|Foto: JDC808 / Wikimedia Commons (CC BY-SA 4.0)",
+     "## ALLM e modalità gioco: meno ritardo",
+     "Le TV elaborano l'immagine per renderla più bella nei film, e questa elaborazione crea ritardo. La modalità gioco ne disattiva gran parte. L'ALLM, sigla di modalità automatica a bassa latenza, fa entrare la TV in quella modalità da sola quando rileva una console. Se la tua non ha l'ALLM, basta attivare a mano la modalità gioco nelle impostazioni dell'immagine. È la regolazione con l'impatto maggiore e la più dimenticata.",
+     "## Cosa controllare prima di comprare",
+     "Costruisci la lista partendo dalla console che usi. Per PS5 o Xbox Series X, dai priorità a un pannello nativo a 120 Hz, al VRR e ad almeno una porta con 4K a 120 Hz. Per Xbox Series S, Switch 2 o PS4, i 120 Hz in 4K contano meno, e l'essenziale è una buona modalità gioco a bassa latenza. I cavi forniti con PS5 e Xbox Series X sono già di tipo Ultra High Speed. Se ne serve un altro, cerca quel marchio di certificazione sulla confezione. E, se collegherai una soundbar, verifica che la porta eARC non sia la stessa che hai riservato alla console. Chi sta allestendo da zero il proprio spazio di gioco può anche vedere cosa ha già confermato Valve sulla [Steam Machine](materia-steam-machine-a-partir-de-us-1-049-o-que-a-valve-confirmou-e-o-que-ainda-e-duvida.html).",
+     "Fonti: [HDMI.org, domande sulla specifica 2.1](https://www.hdmi.org/blog/detail/139), [TFTCentral, quando l'HDMI 2.1 non è HDMI 2.1](https://tftcentral.co.uk/articles/when-hdmi-2-1-isnt-hdmi-2-1), [PlayStation Blog, VRR su PS5](https://blog.playstation.com/2022/04/25/variable-refresh-rate-support-for-ps5-is-rolling-out-this-week/), [Nintendo, specifiche di Switch 2](https://www.nintendo.com/sg/hardware/switch2/specs/) e [TechRadar, VRR in modalità TV su Switch 2](https://techradar.com/gaming/nintendo-switch/the-switch-2-is-finally-getting-vrr-in-docked-mode-for-smoother-performance-with-compatible-tvs-and-monitors-but-theres-a-classic-nintendo-wrinkle) (in inglese)."
+    ]
+   }
+  }
  }
 ]
