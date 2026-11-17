@@ -76,3 +76,8 @@ Regra de sempre: conferir cada fato em 2 fontes na hora de escrever (datas mudam
 - Nenhum rascunho novo: Unsplash (PROVENANCE_REQUIRED), Wikimedia Commons e Xbox Wire continuam inacessíveis nesta sessão, então não há como obter fotos livres com endereço completo (photo-ID-sufixo) para capa e corpo. Não inventei IDs nem fontes.
 - O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it; seguiríamos o guia.
 - Próxima agenda livre (site/agenda.py): 29/11 13:39, 30/11 10:14, 30/11 13:41, 30/11 18:14.
+
+## Notas de pesquisa (17/11/2026, rodada sem rascunho novo)
+- Pasta rascunhos/ não existe (0 pendentes); agendados/ tem 38 itens. Nada a atualizar nos pendentes.
+- Nenhum rascunho novo: Unsplash, Wikimedia Commons, Pexels e Xbox Wire seguem bloqueados nesta sessão (CONNECT 403 no proxy; a busca só devolve páginas, sem o endereço images.unsplash.com com sufixo). Sem fotos livres confirmadas não há capa nem fotos no corpo, então não inventei IDs nem entreguei rascunho incompleto.
+- O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it; seguiríamos o guia.
