@@ -78,8 +78,8 @@ def base(slug):
                 try:
                     import capa_ia
                 except Exception as e:
-                    print("   IA indisponível, montando sem:", e)
-                    capa_ia = None
+                    # regra de qualidade: sem a IA a capa não é montada (ficaria pixelada); fica pendente para a próxima rodada
+                    raise RuntimeError(f"IA indisponível ({e}); capa não montada para não sair em baixa qualidade")
             if os.environ.get("CAPA_IA") == "1" and capa_ia:
                 ed = sp.get("editoria")
                 if not ed:  # a editoria nem sempre está no json da capa: busca no artigo (agendado ou publicado)

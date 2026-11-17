@@ -35,8 +35,14 @@ jobs:
       - run: sudo apt-get install -y fonts-inter >/dev/null || true
       - name: Instalar a IA (Real-ESRGAN, só CPU)
         run: |
-          pip install -q --no-cache-dir pillow numpy spandrel
-          pip install -q --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -q --no-cache-dir pillow numpy
+          for i in 1 2 3 4; do
+            pip install -q --no-cache-dir --retries 10 --timeout 60 torch --index-url https://download.pytorch.org/whl/cpu \
+              && pip install -q --no-cache-dir --retries 10 --timeout 60 spandrel \
+              && python3 -c "import torch, spandrel" && break
+            echo "instalação da IA falhou (tentativa $i), tentando de novo"; sleep $((i * 15))
+          done
+          python3 -c "import torch, spandrel"
           mkdir -p ia_modelos
           curl -sSL -o ia_modelos/RealESRGAN_x4plus.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
           curl -sSL -o ia_modelos/RealESRGAN_x4plus_anime_6B.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
