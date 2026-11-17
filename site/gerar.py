@@ -224,7 +224,7 @@ def variantes_capa(url):
                         velho.unlink()
                 with Image.open(src) as im:
                     im = im.convert("RGB")
-                    im.resize((w, round(w * im.height / im.width)), Image.LANCZOS).save(alvo, "WEBP", quality=86, method=6)
+                    im.resize((w, round(w * im.height / im.width)), Image.LANCZOS).save(alvo, "WEBP", quality=92, method=6)
             # a cópia de assets/ para o site publicado acontece antes das páginas; garante que a versão nova vá junto
             copia = SAIDA / rel
             if not copia.exists():

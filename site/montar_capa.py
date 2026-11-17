@@ -350,7 +350,7 @@ if __name__ == "__main__":
         if destino.exists():
             continue
         try:
-            montar(json.loads(f.read_text(encoding="utf-8"))).save(destino, "JPEG", quality=88, optimize=True, progressive=True)
+            montar(json.loads(f.read_text(encoding="utf-8"))).save(destino, "JPEG", quality=95, subsampling=0, optimize=True, progressive=True)
             print("Capa montada:", destino.name)
         except Exception as e:
             falhou = True

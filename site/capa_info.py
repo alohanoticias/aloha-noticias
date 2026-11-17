@@ -81,10 +81,18 @@ def base(slug):
                     print("   IA indisponível, montando sem:", e)
                     capa_ia = None
             if os.environ.get("CAPA_IA") == "1" and capa_ia:
-                capa_ia.tipo_atual = "anime" if sp.get("editoria") == "anime" or sp.get("ia") == "anime" else "foto"
+                ed = sp.get("editoria")
+                if not ed:  # a editoria nem sempre está no json da capa: busca no artigo (agendado ou publicado)
+                    a = RAIZ / f"agendados/{slug}.json"
+                    if a.exists():
+                        ed = json.loads(a.read_text(encoding="utf-8")).get("editoria")
+                    else:
+                        ed = next((m.get("editoria") for m in json.loads((RAIZ / "site/conteudo/materias.json").read_text(encoding="utf-8")) if m.get("slug") == slug), None)
+                capa_ia.tipo_atual = "anime" if ed == "anime" or sp.get("ia") == "anime" else "foto"
+                print("   IA:", capa_ia.tipo_atual, flush=True)
             for k in ("titulo", "titulo_y", "titulo_tam", "etiqueta", "logo"):
                 sp.pop(k, None)
-            montar_capa.montar(sp).save(b, "JPEG", quality=92)
+            montar_capa.montar(sp).save(b, "JPEG", quality=97, subsampling=0)
         else:
             shutil.copy(RAIZ / f"site/assets/img/capas/{slug}.jpg", b)
     im = Image.open(b).convert("RGB")
@@ -403,7 +411,7 @@ if __name__ == "__main__":
             print("Tempo da rodada esgotado; o resto continua na próxima.", flush=True)
             break
         try:
-            montar(f.stem, json.loads(f.read_text(encoding="utf-8"))).save(saida / f"{f.stem}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
+            montar(f.stem, json.loads(f.read_text(encoding="utf-8"))).save(saida / f"{f.stem}.jpg", "JPEG", quality=95, subsampling=0, optimize=True, progressive=True)
         except Exception as e:
             falhou = True
             print(f"FALHOU {f.stem}: {type(e).__name__}: {e}", file=sys.stderr)

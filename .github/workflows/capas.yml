@@ -30,7 +30,7 @@ jobs:
       - name: Montar as capas novas com a regra de qualidade (IA)
         if: steps.ia.outcome == 'success'
         continue-on-error: true
-        timeout-minutes: 7
+        timeout-minutes: 45
         run: python3 site/capa_ia.py --novas
       - name: Montar sem IA as que faltarem (reserva, se a IA falhar)
         run: python3 site/montar_capa.py

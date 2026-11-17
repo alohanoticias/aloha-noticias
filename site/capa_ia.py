@@ -18,7 +18,7 @@ SAIDA = RAIZ / "ia_saida"
 CAPAS = RAIZ / "site/assets/img/capas"
 MODELOS = {"foto": RAIZ / "ia_modelos/RealESRGAN_x4plus.pth",
            "anime": RAIZ / "ia_modelos/RealESRGAN_x4plus_anime_6B.pth"}
-BASE = 960  # fotos maiores são reduzidas a este lado antes da IA: o detalhe real cabe aí, e a IA reconstrói em 4x
+BASE = 1400  # fotos maiores são reduzidas a este lado antes da IA (antes era 960 e perdia detalhe real); a IA reconstrói em 4x
 
 if sys.argv[1:2] == ["--aplicar"]:
     for slug in sys.argv[2:]:
@@ -117,9 +117,9 @@ if __name__ == "__main__":
         try:
             nova = mc.montar(spec)
             if novas:  # capa nova: vai direto para o site, já com a regra de qualidade
-                nova.save(CAPAS / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
+                nova.save(CAPAS / f"{slug}.jpg", "JPEG", quality=95, subsampling=0, optimize=True, progressive=True)
                 print("   pronta (no site)", flush=True); continue
-            nova.save(SAIDA / f"{slug}.jpg", "JPEG", quality=90, optimize=True, progressive=True)
+            nova.save(SAIDA / f"{slug}.jpg", "JPEG", quality=95, subsampling=0, optimize=True, progressive=True)
             atual = CAPAS / f"{slug}.jpg"
             if atual.exists():
                 comparar(Image.open(atual).convert("RGB"), nova, SAIDA / f"comparar-{slug}.jpg")
