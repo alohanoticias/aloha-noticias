@@ -215,7 +215,7 @@
   .rodape .rodape-logo { display: inline-block; }
   .rodape p { margin-inline: auto; }
   .rodape ul { justify-items: center; }
-  .rodape-inst ul { justify-content: center; }
+  .rodape-inst ul, .rodape .redes-icones { justify-content: center; }
 }
 
 /* fotos do texto: sempre em 16:9 (1920x1080), nunca em pé */

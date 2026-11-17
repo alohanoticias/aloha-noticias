@@ -490,6 +490,10 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
 .redes-site a { display: inline-flex; align-items: center; gap: 8px; }
 .redes-site svg { flex: none; }
 .rodape .redes-titulo { margin-top: 20px; }
+.rodape .redes-icones { display: flex; flex-wrap: wrap; gap: 36px; list-style: none; padding: 0; margin: 0; }
+.rodape .redes-icones a { display: inline-flex; color: #cfcfcf; transition: color .15s; }
+.rodape .redes-icones a:hover { color: #fff; text-decoration: none; }
+.rodape .redes-icones svg { width: 34px; height: 34px; }
 
 /* Bloco de fontes no fim da matéria */
 .fontes { margin: 2rem 0 1.5rem; padding: 1rem 1.2rem; border-left: 3px solid #bc3131; background: var(--superficie, rgba(127,127,127,.08)); border-radius: 0 6px 6px 0; }

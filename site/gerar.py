@@ -405,12 +405,11 @@ def newsletter():
 
 
 def rodape():
-    redes_li = "".join(f'<li><a href="{u}" target="_blank" rel="noopener me">{ic}<span>{n}</span></a></li>' for n, u, ic in REDES_SITE)
+    redes_li = "".join(f'<li><a href="{u}" target="_blank" rel="noopener me" aria-label="{n}" title="{n}">{ic}</a></li>' for n, u, ic in REDES_SITE)
     return f"""<footer class="rodape">
   <div class="wrap">
     <div><a class="rodape-logo" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
-      <p>{t('Cinema, games e tecnologia explicados com calma, de olho no que importa.')}</p>
-      <h2 class="redes-titulo">{SIGA.get(LANG, SIGA["pt"])}</h2><ul class="redes-site">{redes_li}</ul></div>
+      <p>{t('Cinema, games e tecnologia explicados com calma, de olho no que importa.')}</p></div>
     <div class="rodape-inst"><h2>{t('Institucional')}</h2><ul>
       <li><a href="sobre.html">{t("Sobre nós")}</a></li>
       <li><a href="contato.html">{t("Contato e anúncios")}</a></li>
@@ -422,6 +421,7 @@ def rodape():
       <li><a href="privacidade.html">{t("Privacidade")}</a></li>
       <li><a href="feed.xml">{t("RSS")}</a></li>
     </ul></div>
+    <ul class="redes-icones" aria-label="{SIGA.get(LANG, SIGA["pt"])}">{redes_li}</ul>
     {idiomas_rodape()}
     <div class="rodape-base"><span>© {HOJE.year} {SITE}</span> <button type="button" class="link-botao" id="reabrir-consent">{PREFS_COOKIES.get(LANG, PREFS_COOKIES["pt"])}</button></div>
   </div>
