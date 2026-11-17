@@ -405,15 +405,13 @@ def newsletter():
 
 
 def rodape():
-    eds = "".join(f'<li><a href="{url_editoria(e["slug"])}">{esc(e["nome"])}</a></li>' for e in ed_visiveis())
     redes_li = "".join(f'<li><a href="{u}" target="_blank" rel="noopener me">{ic}<span>{n}</span></a></li>' for n, u, ic in REDES_SITE)
     return f"""<footer class="rodape">
   <div class="wrap">
     <div><a class="rodape-logo" href="index.html" aria-label="{SITE}, {t('página inicial')}">{LOGO_IMG}</a>
       <p>{t('Cinema, games e tecnologia explicados com calma, de olho no que importa.')}</p>
       <h2 class="redes-titulo">{SIGA.get(LANG, SIGA["pt"])}</h2><ul class="redes-site">{redes_li}</ul></div>
-    <div><h2>{t('Editorias')}</h2><ul>{eds}</ul></div>
-    <div><h2>{t('Institucional')}</h2><ul>
+    <div class="rodape-inst"><h2>{t('Institucional')}</h2><ul>
       <li><a href="sobre.html">{t("Sobre nós")}</a></li>
       <li><a href="contato.html">{t("Contato e anúncios")}</a></li>
       <li><a href="busca.html">{t("Buscar")}</a></li>

@@ -201,13 +201,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* ---------- Rodapé ---------- */
 .rodape { background: var(--rodape-fundo); color: var(--rodape-tinta); border-top: 1px solid var(--linha); }
 .newsletter + .rodape { border-top: 1px solid rgba(244, 237, 228, 0.12); }
-.rodape .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr)); gap: 32px; padding-block: 44px 24px; }
+.rodape .wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 44px 24px; }
 .rodape-logo { color: var(--rodape-tinta); line-height: 0; }
 .rodape-logo svg { width: 200px; height: auto; }
 .rodape p { color: var(--rodape-mare); font-size: var(--t-sm); margin-top: 14px; max-width: 34ch; }
 .rodape h2 { font-size: var(--t-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--rodape-mare); font-weight: 600; margin-bottom: 12px; }
 .rodape ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .rodape a:hover { text-decoration: underline; }
+.rodape-inst ul { display: flex; flex-wrap: wrap; gap: 10px 28px; }
 .rodape-base { grid-column: 1 / -1; border-top: 1px solid rgba(244, 237, 228, 0.15); padding-top: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: var(--t-xs); color: var(--rodape-mare); }
 
 /* ---------- Responsivo ---------- */
@@ -227,8 +228,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .grade-3 .card:first-child { padding-top: 0; border-top: 0; }
   .grade-3 .card:not(:first-child) .capa { display: none; }
   .mais-lidas.home ol { grid-template-columns: minmax(0, 1fr); }
-  .rodape .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .rodape .wrap > :first-child { grid-column: 1 / -1; }
+  .rodape-inst ul { gap: 10px 20px; }
   .texto { font-size: 1.12rem; }
   .lista-simples a { grid-template-columns: minmax(0, 1fr) 96px; }
 }
@@ -774,6 +774,7 @@ img.capa, .materia-capa img { width: 100%; aspect-ratio: 16 / 9; object-fit: cov
   .rodape .rodape-logo { display: inline-block; }
   .rodape p { margin-inline: auto; }
   .rodape ul { justify-items: center; }
+  .rodape-inst ul { justify-content: center; }
 }
 
 /* fotos do texto: sempre em 16:9 (1920x1080), nunca em pé */
