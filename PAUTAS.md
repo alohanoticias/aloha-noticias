@@ -81,3 +81,9 @@ Regra de sempre: conferir cada fato em 2 fontes na hora de escrever (datas mudam
 - Pasta rascunhos/ não existe (0 pendentes); agendados/ tem 38 itens. Nada a atualizar nos pendentes.
 - Nenhum rascunho novo: Unsplash, Wikimedia Commons, Pexels e Xbox Wire seguem bloqueados nesta sessão (CONNECT 403 no proxy; a busca só devolve páginas, sem o endereço images.unsplash.com com sufixo). Sem fotos livres confirmadas não há capa nem fotos no corpo, então não inventei IDs nem entreguei rascunho incompleto.
 - O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it; seguiríamos o guia.
+
+## Notas de pesquisa (18/11/2026, rodada sem rascunho novo)
+- Pasta rascunhos/ não existe (0 pendentes); agendados/ tem 38 itens. Nada a atualizar nos pendentes.
+- Nenhum rascunho novo: a página de busca do Unsplash abriu desta vez (IDs com sufixo apareceram), mas as fontes dos assuntos não: Mix Vale (Game Pass de 18/11 a 1/12) deu client_error e o Xbox Wire deu PROVENANCE_REQUIRED, então nenhum dado ficou com duas fontes lidas. Não inventei fatos nem IDs.
+- Game Pass (9 jogos, 18/11 a 1/12): pauta pronta quando o Xbox Wire abrir. Blade Runner 2099 (25/11) já tem artigo publicado em 15/11. GTA 6 (lançamento em 19/11) já tem vários artigos.
+- O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md vale só en, es e it.
