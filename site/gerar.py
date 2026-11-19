@@ -1604,6 +1604,8 @@ def main():
         if d.get("slug") == f.stem and d.get("editoria") in ED:
             agendados.append(d)
     agendados.sort(key=lambda d: d["data"])
+    # Só os horários (Brasília) da fila: o Worker consulta a cada 10 min e dispara a publicação quando um vence
+    (SAIDA / "fila-agendados.json").write_text(json.dumps(sorted({d["data"] for d in agendados})), encoding="utf-8")
     (SAIDA / "admin").mkdir(exist_ok=True)
     CONTAGENS_PAINEL.update(rascunhos=len(rascunhos), agendados=len(agendados), publicados=len(materias))
     (SAIDA / "admin/index.html").write_text(resolver(gerar_admin(rascunhos, agendados, materias), "pt", "admin/index.html", existe), encoding="utf-8")

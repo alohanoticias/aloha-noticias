@@ -58,7 +58,32 @@ function origemDe(ref) {
   } catch (e) { return "direto"; }
 }
 
+// A cada 10 min (cron do Cloudflare): se algum agendado já venceu, dispara o workflow de publicação no GitHub.
+// O agendamento do próprio GitHub atrasa ou pula execuções; este é o disparo confiável.
+async function publicarVencidos(env) {
+  if (!env.GITHUB_TOKEN) return "sem GITHUB_TOKEN";
+  const r = await env.ASSETS.fetch("https://alohanoticias.com/fila-agendados.json");
+  if (!r.ok) return "sem fila";
+  const fila = await r.json();
+  const agora = new Date(Date.now() - 3 * 3600 * 1000).toISOString().slice(0, 16); // horário de Brasília, mesmo formato da fila
+  if (!fila.some((d) => d <= agora)) return "nada vencido";
+  const resp = await fetch("https://api.github.com/repos/alohanoticias/aloha-noticias/actions/workflows/agendados.yml/dispatches", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "aloha-noticias-worker",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ref: "main" }),
+  });
+  return `disparado: ${resp.status}`;
+}
+
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(publicarVencidos(env).then((x) => console.log(x)));
+  },
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 

@@ -7,5 +7,7 @@
   "durable_objects": {
     "bindings": [{ "name": "METRICAS", "class_name": "Metricas" }]
   },
-  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Metricas"] }]
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Metricas"] }],
+  // Publicação dos agendados (ver publicarVencidos em worker/index.js)
+  "triggers": { "crons": ["*/10 * * * *"] }
 }
