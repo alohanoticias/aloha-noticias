@@ -93,3 +93,8 @@ Regra de sempre: conferir cada fato em 2 fontes na hora de escrever (datas mudam
 - Nenhum rascunho novo: Unsplash, Wikimedia Commons, Pexels e Xbox Wire seguem inacessíveis (proxy recusa a conexão; WebFetch devolve PROVENANCE_REQUIRED). A busca traz só títulos e links, sem o texto das páginas nem o endereço images.unsplash.com com sufixo. Sem leitura de duas fontes e sem fotos livres confirmadas, não inventei fatos nem IDs.
 - Game Pass, onda 2 de novembro (Omelete, Canaltech, Fast Company Brasil e Windows Report já publicaram): pauta pronta quando o Xbox Wire e as fotos abrirem.
 - O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md vale só en, es e it.
+
+## Notas de pesquisa (20/11/2026, rodada sem rascunho novo)
+- Pasta rascunhos/ não existe (0 pendentes); agendados/ tem 29 itens. Nada a atualizar nos pendentes; a fila não passa de 6.
+- Nenhum rascunho novo: a sessão não abre Unsplash, Wikimedia, Pexels nem Xbox Wire (sem conexão), e a busca só devolve páginas unsplash.com/photos/<nome>-<id curto>, não o endereço photo-<ID>-<12hex>. Sem fotos livres confirmadas, capa e fotos do texto não cumprem o guia. Não inventei IDs nem fontes.
+- O prompt da rotina pede 8 idiomas, mas o GUIA-ARTIGOS.md (11/11) vale só en, es e it; seguiríamos o guia.
